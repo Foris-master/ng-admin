@@ -1,0 +1,440 @@
+<nb-card>
+  <!-- <nb-card-header class="row">
+    <div class="col-9" *ngIf="formState.isAdd">
+      {{ resource.addConfig.title }}
+    </div>
+
+    <div class="col-3">
+      <button
+        nbButton
+        status="primary"
+        [nbContextMenu]="items"
+        nbContextMenuTag="my-context-menu"
+      >
+        {{ "rest-add.import" | translate }}
+      </button>
+    </div>
+  </nb-card-header> -->
+
+  <nb-card-header *ngIf="!formState.isAdd"
+    >{{ resource.editConfig.title }}
+  </nb-card-header>
+
+  <nb-card-body>
+    <nb-tabset>
+      <nb-tab tabTitle="Ajout simple">
+        <form [formGroup]="form" class="row">
+          <div
+            *ngFor="
+              let field of resource.fields;
+              trackBy: trackByFn;
+              let i = index
+            "
+            class="col-lg-4 col-md-6 col-xs-12"
+          >
+            <!-- Input type string  -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.STRING"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                nbInput
+                fullWidth
+                [id]="i"
+                [placeholder]="field.label"
+                [formControlName]="field.name"
+                type="text"
+              />
+            </div>
+
+            <!-- Input type text -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.TEXT"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <textarea
+                nbInput
+                fullWidth
+                [id]="i"
+                [placeholder]="field.label"
+                [formControlName]="field.name"
+              ></textarea>
+            </div>
+
+            <!-- Input type number  -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.NUMBER"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                nbInput
+                fullWidth
+                [id]="i"
+                [placeholder]="field.label"
+                [formControlName]="field.name"
+                type="number"
+              />
+            </div>
+
+            <!-- Input type date -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.DATE"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                nbInput
+                [placeholder]="field.label"
+                [nbDatepicker]="formpicker"
+                fullWidth
+                [formControlName]="field.name"
+              />
+              <nb-datepicker #formpicker></nb-datepicker>
+            </div>
+
+            <!-- Input type dateTime -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.DATETIME"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                nbInput
+                fullWidth
+                [placeholder]="field.label"
+                [nbDatepicker]="dateTimePicker"
+                [formControlName]="field.name"
+              />
+              <nb-date-timepicker
+                withSeconds
+                #dateTimePicker
+              ></nb-date-timepicker>
+            </div>
+
+            <!-- Input type time -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.TIME"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                [nbTimepicker]="timepicker"
+                fullWidth
+                [formControlName]="field.name"
+                twelveHoursFormat
+                nbInput
+              />
+              <nb-timepicker #timepicker></nb-timepicker>
+            </div>
+
+            <!-- Input type enum -->
+            <ng-container
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.ENUM"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <nb-select
+                fullWidth
+                [formControlName]="field.name"
+                [placeholder]="field.label"
+              >
+                <nb-option
+                  *ngFor="let option of field.metaData.addConfig.enumOptions"
+                  [value]="option.value"
+                  >{{ option.label }}</nb-option
+                >
+              </nb-select>
+            </ng-container>
+
+            <!-- Input type boolean -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.BOOLEAN"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <div style="display: flex; align-items: center">
+                <label style="margin-right: 0.5em">{{
+                  field.label | titlecase
+                }}</label>
+                <nb-toggle
+                  [name]="field.name"
+                  [formControlName]="field.name"
+                ></nb-toggle>
+              </div>
+            </div>
+
+            <!-- Input type file -->
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.FILE"
+            >
+              <file-upload
+                [formControlName]="field.name"
+                [name]="field.label"
+              ></file-upload>
+            </div>
+
+            <!-- <ng-container *ngIf="field.type == REST_FIELD_TYPES.PDF">
+                  <file-upload
+                    [(ngModel)]="cell.newValue"
+                    class="input-space"
+                    [name]="field.label"
+                    style="min-width: 300px; max-width: 300px"
+                  ></file-upload>
+                  <object
+                    width="300px"
+                    height="300px"
+                    [data]="cell.newValue[0]"
+                  ></object>
+                </ng-container> -->
+
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.IMAGE"
+            >
+              <file-upload
+                [formControlName]="field.name"
+                class="file-image"
+                [name]="field.label"
+                [control]="controlsImage[field.name]"
+              >
+                <ng-template
+                  let
+                  isFileDragDropAvailable="isFileDragDropAvailable"
+                  #placeholder
+                >
+                  <div *ngIf="control.size === 0" (blur)="getImage($event)">
+                    <svg viewBox="0 0 512 512" class="icon">
+                      <path
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                      ></path>
+                    </svg>
+
+                    <div class="upload-text">
+                      <ng-container
+                        *ngIf="
+                          isFileDragDropAvailable;
+                          else isNotDragDropAvailable
+                        "
+                      >
+                        <b>Drag and drop</b> files<br />
+                        or click here
+                      </ng-container>
+                      <ng-template #isNotDragDropAvailable>
+                        <b>Click here</b> to<br />
+                        choose a files
+                      </ng-template>
+                    </div>
+                  </div>
+                </ng-template>
+
+                <ng-template
+                  let-i="index"
+                  let-file="file"
+                  let-control="control"
+                  #item
+                >
+                  <div class="overlay">
+                    <svg
+                      viewBox="0 0 448 512"
+                      class="delete-button"
+                      (click)="controlsImage[field.name].removeFile(file)"
+                    >
+                      <path
+                        d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+                      ></path>
+                    </svg>
+                    <!-- <img
+                          *ngIf="controlsImage[field.name].valid"
+                          [src]="uploadedFile | async"
+                        /> -->
+                  </div>
+                </ng-template>
+              </file-upload>
+
+              <button
+                nbButton
+                status="primary"
+                *ngIf="!isCrop && controlCroper != null"
+                (click)="activeCroper()"
+              >
+                CROP
+              </button>
+
+              <ng-container *ngIf="isCrop">
+                <image-cropper
+                  [imageFile]="controlCroper"
+                  [maintainAspectRatio]="true"
+                  [aspectRatio]="4 / 3"
+                  format="png"
+                  (imageCropped)="imageCropped($event)"
+                ></image-cropper>
+
+                <button nbButton status="primary" (click)="saveCroper()">
+                  SAVE CHANGE
+                </button>
+              </ng-container>
+            </div>
+
+            <!-- Input type hasMany -->
+            <div
+              *ngIf="field.type == REST_FIELD_TYPES.HAS_MANY"
+              class="input-space"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <nb-tag-list
+                (tagRemove)="onTagRemove($event, field.name)"
+                fullWidth
+              >
+                <nb-tag
+                  *ngFor="let tree of form.get([field.name]).value"
+                  [text]="tree"
+                  removable
+                ></nb-tag>
+                <input
+                  type="text"
+                  fullWidth
+                  nbTagInput
+                  [placeholder]="field.label"
+                  (tagAdd)="onTagAdd($event, field.name)"
+                />
+              </nb-tag-list>
+            </div>
+
+            <!-- Input type belong_to -->
+            <div
+              *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO"
+              class="input-space"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                #autoInput
+                nbInput
+                fullWidth
+                type="text"
+                [formControlName]="field.name"
+                placeholder="Enter value"
+                [nbAutocomplete]="autoComplete"
+                (keyup)="filterInput($event, field)"
+                [id]="i"
+              />
+
+              <nb-autocomplete
+                #autoComplete
+                (selectedChange)="onSelectionChange($event, field)"
+              >
+                <nb-option
+                  *ngFor="let option of allFilterContains[field.name] | async"
+                  [value]="
+                    option[
+                      field?.metaData?.addConfig.belongToOptions?.value
+                        ? field?.metaData?.addConfig?.belongToOptions?.value
+                        : 'id'
+                    ]
+                  "
+                >
+                  {{
+                    option[
+                      field.metaData.addConfig.belongToOptions.template
+                        ? field.metaData.addConfig.belongToOptions.template
+                        : field.metaData.addConfig.belongToOptions.filterKeys[0]
+                    ]
+                  }}
+                </nb-option>
+              </nb-autocomplete>
+            </div>
+
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <nb-tag-list (tagRemove)="onTagRemoveBelong($event, field)">
+                <nb-tag
+                  *ngFor="let tree of belongToMany[field.name]"
+                  [text]="
+                    tree[
+                      field.metaData.addConfig.belongToManyOptions.template
+                        ? field.metaData.addConfig.belongToManyOptions.template
+                        : field.metaData.addConfig.belongToManyOptions
+                            .filterKeys[0]
+                    ]
+                  "
+                  removable
+                ></nb-tag>
+                <input
+                  type="text"
+                  nbTagInput
+                  #autoBelongToMany
+                  [nbAutocomplete]="belongToField"
+                  (keyup)="filterInput($event, field)"
+                  [placeholder]="field.label"
+                  [formControlName]="field.name"
+                  fullWidth
+                />
+              </nb-tag-list>
+
+              <nb-autocomplete
+                #belongToField
+                (selectedChange)="onChoose($event, field)"
+              >
+                <nb-option
+                  *ngFor="let option of allFilterContains[field.name] | async"
+                  [value]="option"
+                >
+                  {{
+                    option[
+                      field.metaData.addConfig.belongToManyOptions.template
+                        ? field.metaData.addConfig.belongToManyOptions.template
+                        : field.metaData.addConfig.belongToManyOptions
+                            .filterKeys[0]
+                    ]
+                  }}
+                </nb-option>
+              </nb-autocomplete>
+            </div>
+          </div>
+
+          <div
+            *ngFor="
+              let field of resource.fields;
+              trackBy: trackByFn;
+              let i = index
+            "
+            class="col-lg-6 col-md-12 col-xs-12"
+          ></div>
+        </form>
+      </nb-tab>
+      <nb-tab tabTitle="Importation">
+        <div class="row">
+          <div class="col-9"></div>
+          <div class="col-3">
+            <button
+              nbButton
+              status="primary"
+              [nbContextMenu]="items"
+              nbContextMenuTag="my-context-menu"
+            >
+              {{ "rest-add.import" | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <ng2-smart-table [settings]="settings" [source]="source">
+          </ng2-smart-table>
+        </div>
+      </nb-tab>
+    </nb-tabset>
+  </nb-card-body>
+  <nb-card-footer>
+    <div class="buttons-row">
+      <button nbButton (click)="onSumbit()" status="primary">
+        {{ formState.btnLabel }}
+      </button>
+    </div>
+  </nb-card-footer>
+</nb-card>
