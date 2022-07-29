@@ -136,6 +136,13 @@ export interface REST_CONFIG {
   name: string;
   resources: RestResource[];
   baseUrl: string;
+  translate?: {
+    filePath?: string;
+    languages?: {
+      value: string;
+      text: string;
+    }[];
+  };
 }
 
 interface StandartField extends Field {

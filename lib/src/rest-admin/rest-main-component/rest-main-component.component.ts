@@ -1,4 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { RestLangService } from "./../rest-resource/service/rest-lang.service";
+import {
+  Compiler,
+  Component,
+  ComponentFactory,
+  ComponentFactoryResolver,
+  ComponentRef,
+  NgModule,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
+} from "@angular/core";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { RestAdminConfigService } from "../rest-resource/service/rest-admin-config.service";
 
 @Component({
@@ -14,7 +26,13 @@ import { RestAdminConfigService } from "../rest-resource/service/rest-admin-conf
 export class RestMainComponentComponent implements OnInit {
   menu = [...this.serviceConfig.generateMenus()];
 
-  constructor(private serviceConfig: RestAdminConfigService) {}
+  constructor(
+    private serviceConfig: RestAdminConfigService,
+    private activatedRoute: ActivatedRoute,
+    private restLangService: RestLangService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.restLangService.setInitialAppLanguage();
+  }
 }

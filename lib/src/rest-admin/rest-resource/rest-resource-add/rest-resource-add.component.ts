@@ -571,26 +571,5 @@ export class RestResourceAddComponent implements OnInit {
         });
       });
     } else console.log("RIEN A SIGNALER");
-    // this.serviceRest
-    //   .addRessources(this.resource.listConfig, {})
-    //   .subscribe((res) => console.log(res));
   }
 }
-
-// const addTwo = async () => 2;
-
-// const addThree = async (inValue) => new Promise((resolve) => setTimeout(resolve(inValue + 3), 2000));
-
-// const addFour = (inValue) => new Promise((res) => setTimeout(res(inValue + 4), 1000));
-
-// const addFive = async (inValue) => inValue + 5;
-
-// // Function which handles promises from above
-// async function sequenceAddition() {
-//   let sum = await [addTwo, addThree, addFour, addFive].reduce(
-//     (promise, currPromise) => promise.then((val) => currPromise(val)),
-//     Promise.
-//  Promise.resolve()
-//   );
-//   console.log('sum:', sum); // 2 + 3 + 4 + 5 =  14
-// }

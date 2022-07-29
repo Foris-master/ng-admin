@@ -1,6 +1,10 @@
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from "@angular/common/http";
 import { Compiler, ModuleWithProviders, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import {
@@ -53,9 +57,31 @@ import { PaginationInterceptor } from "../utils/pagination.interceptor";
 import { RestResourceDetailComponent } from "./rest-resource/rest-resource-detail/rest-resource-detail.component";
 import { RestExportService } from "./rest-resource/service/rest-export.service";
 import { UploadFileComponent } from "./rest-resource/components/upload-file/upload-file.component";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { RestLangService } from "./rest-resource/service/rest-lang.service";
+
+// serviceRestConfig.restPathFileTranslate
+export function createTranslateHttpLoader(
+  http: HttpClient,
+  serviceRestConfig: RestAdminConfigService
+) {
+  return new TranslateHttpLoader(http, "assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [
+    RestResourceListComponent,
+    RestResourceEditorFieldsComponent,
+    RestResourceAddComponent,
+    FsIconCComponent,
+    RestResourceDeleteComponent,
+    RestMainComponentComponent,
+    RestResourceEditorFieldsComponent,
+    RestResourceListFieldComponent,
+    RestResourceDetailComponent,
+    UploadFileComponent,
+  ],
+  exports: [
     RestResourceListComponent,
     RestResourceEditorFieldsComponent,
     RestResourceAddComponent,
@@ -112,9 +138,15 @@ import { UploadFileComponent } from "./rest-resource/components/upload-file/uplo
     ImageCropperModule,
     NbToggleModule,
     NbListModule,
-    TranslateModule,
     NbTooltipModule,
     NbContextMenuModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateHttpLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
@@ -127,6 +159,7 @@ import { UploadFileComponent } from "./rest-resource/components/upload-file/uplo
     RestResourceService,
     RestAdminConfigService,
     RestExportService,
+    RestLangService,
   ],
 })
 export class RestAdminModuleModule {

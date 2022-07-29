@@ -1,7 +1,8 @@
+import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { AuthGuard } from "../../../utils/auth.guard";
 import { RestResource } from "../models/rest-resource";
-import { REST_CONFIG } from "../models/rest-resource.model";
+import { ListConfig, REST_CONFIG } from "../models/rest-resource.model";
 import { RestResourceAddComponent } from "../rest-resource-add/rest-resource-add.component";
 import { RestResourceDetailComponent } from "../rest-resource-detail/rest-resource-detail.component";
 import { RestResourceListComponent } from "../rest-resource-list/rest-resource-list.component";
@@ -12,6 +13,11 @@ import { RestResourceListComponent } from "../rest-resource-list/rest-resource-l
 export class RestAdminConfigService {
   _restResources: RestResource[];
   components = [];
+
+  defaultLanguage = [
+    { text: "Anglais", value: "en" },
+    { text: "Français", value: "fr" },
+  ];
   constructor(@Inject("restConfig") private restConfig: REST_CONFIG) {
     this._restResources = restConfig.resources;
   }
@@ -29,6 +35,18 @@ export class RestAdminConfigService {
 
   public get restBaseUrl(): string {
     return this.restConfig.baseUrl;
+  }
+
+  public get restPathFileTranslate(): string {
+    return this.restConfig.translate
+      ? this.restConfig.translate.filePath
+      : "assets/i18n/";
+  }
+
+  public get restLanguage(): any[] {
+    return this.restConfig.translate
+      ? this.restConfig.translate.languages
+      : this.defaultLanguage;
   }
 
   public getSpecificResource(nameResource: string): RestResource {
