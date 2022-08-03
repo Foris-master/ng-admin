@@ -41,7 +41,6 @@ export const agency = new RestResource(
     columns: ["banner", "name", "email", "address", "phone_number"],
     perPage: 10,
     api: "agencies",
-    hideAddSubHeader: true,
     group: {
       name: "ADMIN",
       priority: 1,

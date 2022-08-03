@@ -6,6 +6,7 @@ export * from "./src/rest-admin/rest-admin-module.module";
 export * from "./src/rest-admin/rest-resource/service/rest-admin-config.service";
 export * from "./src/rest-admin/rest-resource/service/rest-export.service";
 export * from "./src/rest-admin/rest-resource/service/rest-resource.service";
+export * from "./src/rest-admin/rest-resource/service/rest-lang.service";
 
 // Components
 export * from "./src/rest-admin/rest-main-component/rest-main-component.component";

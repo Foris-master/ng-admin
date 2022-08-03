@@ -17,9 +17,9 @@ export const promotion = new RestResource(
       metaData: {
         listConfig: {
           restManyResources: {
-            label: "price",
-            template: "<span> {{price}} FCFA</span>",
-            name: "price",
+            label: "description",
+            template: "<span> {description}</span>",
+            name: "description",
           },
         },
       },
@@ -86,7 +86,7 @@ export const promotion = new RestResource(
       "name",
       "start_at",
       "total_bonus",
-      "banner",
+      "description",
     ],
     perPage: 10,
     queryParams: {
