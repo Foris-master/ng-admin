@@ -5,7 +5,6 @@ import * as XLSX from "xlsx";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import * as JSZip from "jszip";
-import { saveAs } from "file-saver";
 
 const EXCEL_EXTENSION = ".xlsx";
 const CSV_EXTENSION = ".csv";
@@ -73,6 +72,7 @@ export class RestExportService {
         this.getOptions(data[i], -1)
       );
     }
+
     const workbook: XLSX.WorkBook = {
       Sheets: { Sheet1: worksheet },
       SheetNames: ["Sheet1"],
@@ -81,12 +81,17 @@ export class RestExportService {
       bookType: "xlsx",
       type: "buffer",
     });
+
     const blob = new Blob([excelBuffer], {
       type: EXCEL_TYPE,
     });
+
     if (param) {
       return blob;
-    } else return saveAs(blob, `${fileName}${EXCEL_EXTENSION}`);
+    } else {
+      FileSaver.saveAs(blob, fileName + EXCEL_EXTENSION);
+      return;
+    }
     // save to file
   }
 
@@ -104,7 +109,7 @@ export class RestExportService {
 
     if (param) return blob;
     else {
-      saveAs(blob, `${fileName}${CSV_EXTENSION}`);
+      FileSaver.saveAs(blob, `${fileName}${CSV_EXTENSION}`);
     }
   }
 
@@ -173,13 +178,6 @@ export class RestExportService {
         else line += "," + array[i][head];
       });
       str += line + "\r\n";
-
-      // for (let index in headerList) {
-      //   let head = headerList[index];
-      //   console.log(index, head);
-      //   line += "," + array[i][head];
-      // }
-      // str += line + "\r\n";
     }
     return str;
   }
@@ -196,7 +194,6 @@ export class RestExportService {
     const csv = this.exportToCsv(header, csvData, "rest_file_csv", conserved);
     const excel = this.exportToExcel(excelData, "rest_file_excel", conserved);
 
-    console.log("pdf", excel);
     var zip = new JSZip();
     var document = zip.folder("rest_document");
     document.file("rest_file_pdf.pdf", pdf, { base64: true });
@@ -204,7 +201,7 @@ export class RestExportService {
     document.file("rest_file_excel.xlsx", excel, { base64: true });
 
     zip.generateAsync({ type: "blob" }).then(function (content) {
-      saveAs(content, "rest_document.zip");
+      FileSaver.saveAs(content, "rest_document.zip");
     });
   }
 

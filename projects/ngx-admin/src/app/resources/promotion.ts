@@ -12,6 +12,10 @@ export const promotion = new RestResource(
       name: "name",
     },
     {
+      name: "banner",
+      type: REST_FIELD_TYPES.IMAGE,
+    },
+    {
       name: "enterprise_products",
       type: REST_FIELD_TYPES.HAS_MANY,
       metaData: {
@@ -86,7 +90,7 @@ export const promotion = new RestResource(
       "name",
       "start_at",
       "total_bonus",
-      "description",
+      "banner",
     ],
     perPage: 10,
     queryParams: {

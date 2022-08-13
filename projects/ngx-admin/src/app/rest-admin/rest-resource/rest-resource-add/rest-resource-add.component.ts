@@ -151,7 +151,7 @@ export class RestResourceAddComponent implements OnInit {
     this.nbMenuService
       .onItemClick()
       .pipe(
-        filter(({ tag }) => tag === "my-context-menu"),
+        filter(({ tag }) => tag === "my-context-add"),
         map(({ item: { title } }) => title)
       )
       .subscribe((title) => {

@@ -21,7 +21,6 @@ import { RestResourceService } from "../service/rest-resource.service";
 import { filter, map } from "rxjs/operators";
 import { ALPHABET, RestExportService } from "../service/rest-export.service";
 
-// import { ExportAsService, ExportAsConfig } from "ngx-export-as";
 
 @Component({
   selector: "ngx-rest-resource-list",
@@ -62,6 +61,7 @@ export class RestResourceListComponent implements OnInit {
     private nbMenuService: NbMenuService,
     private exportService: RestExportService
   ) {
+
     this.ressourceName =
       this.activatedRoute.snapshot.url[
         this.activatedRoute.snapshot.url.length - 1
@@ -73,6 +73,7 @@ export class RestResourceListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.settings = {
       hideSubHeader: this.resource.listConfig.hideAddSubHeader,
       actions: {
@@ -123,7 +124,7 @@ export class RestResourceListComponent implements OnInit {
     this.nbMenuService
       .onItemClick()
       .pipe(
-        filter(({ tag }) => tag === "my-context-menu"),
+        filter(({ tag }) => tag === "my-context"),
         map(({ item: { title } }) => title)
       )
       .subscribe((title) => {
