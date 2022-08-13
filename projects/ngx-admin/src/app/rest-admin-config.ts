@@ -8,7 +8,7 @@ import { REST_CONFIG } from "./rest-admin/rest-resource/models/rest-resource.mod
 // };
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
-  name: "MyDash Admin",
+  name: "MyDash",
   resources: resources,
   baseUrl: "https://api.mydashs.com/api",
 };

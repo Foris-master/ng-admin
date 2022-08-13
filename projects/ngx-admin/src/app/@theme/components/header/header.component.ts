@@ -8,12 +8,12 @@ import {
 } from "@nebular/theme";
 
 import { LayoutService } from "../../../@core/utils";
-import { map, takeUntil } from "rxjs/operators";
 import { Subject } from "rxjs";
 import { NbAuthService, NbAuthSimpleToken } from "@nebular/auth";
 import { Router } from "@angular/router";
 import { RestAdminConfigService } from "../../../rest-admin/rest-resource/service/rest-admin-config.service";
-
+import { GLOBALS } from "../../../utils/globals";
+import { filter, map, takeUntil } from "rxjs/operators";
 @Component({
   selector: "ngx-header",
   styleUrls: ["./header.component.scss"],
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   appLanguage = [];
   currentLang = "";
 
-  userMenu = [{ title: "Profil" }, { title: "Déconnexion" }];
+  userMenu = [{ title: "Déconnexion" }];
 
   constructor(
     private sidebarService: NbSidebarService,
@@ -62,16 +62,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    const user = { name: "Admin", picture: "assets/images/admin.jpeg" };
     this.currentTheme = this.themeService.currentTheme;
     this.appLanguage = this.langService.getLanguages();
     this.currentLang = this.langService.selected;
-    this.authService.onTokenChange().subscribe((token: NbAuthSimpleToken) => {
-      if (token.isValid()) {
-        this.user = token.getPayload();
-        this.isAuth = true;
-      }
-    });
 
+    const authApp = JSON.parse(localStorage.getItem(GLOBALS.AUTH_APP_TOKEN));
+    if (authApp && authApp.value) {
+      this.user = user;
+      this.isAuth = true;
+    }
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService
       .onMediaQueryChange()
@@ -90,6 +90,25 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$)
       )
       .subscribe((themeName) => (this.currentTheme = themeName));
+
+    this.menuService
+      .onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === "my-context-menu"),
+        map(({ item: { title } }) => title)
+      )
+      .subscribe((title) => {
+        switch (title) {
+          case "Déconnexion":
+            localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+            this.router.navigateByUrl("/auth/login");
+
+            break;
+          default:
+            console.log("Non pris en charge");
+            break;
+        }
+      });
   }
 
   ngOnDestroy() {

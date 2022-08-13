@@ -6,10 +6,35 @@ export const town = new RestResource(
     name: "town",
   },
   [
-    { name: "name" },
-    { name: "district" },
-    { name: "code" },
-    { name: "country_id", type: REST_FIELD_TYPES.PDF },
+    // { name: "name" },
+    // { name: "district" },
+    {
+      name: "code",
+      type: REST_FIELD_TYPES.JSON,
+
+      metaData: {
+        addConfig: {
+          jsonConfig: {
+            jsonFields: ["code", "name"],
+            isOpen: true,
+          },
+        },
+      },
+    },
+    {
+      name: "district",
+      type: REST_FIELD_TYPES.JSON,
+
+      metaData: {
+        addConfig: {
+          jsonConfig: {
+            jsonFields: ["code", "name"],
+            isOpen: true,
+          },
+        },
+      },
+    },
+    // { name: "country_id", type: REST_FIELD_TYPES.BELONG_TO },
   ],
   {
     columns: ["code", "name", "district", "country_id"],
@@ -23,6 +48,7 @@ export const town = new RestResource(
   {
     api: "towns",
     title: "Add True",
+
     inList: true,
   },
   {

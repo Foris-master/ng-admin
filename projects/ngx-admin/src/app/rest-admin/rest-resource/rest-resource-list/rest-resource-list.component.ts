@@ -269,15 +269,17 @@ export class RestResourceListComponent implements OnInit {
             }
 
             Promise.all(proms).then((res) => {
-              if (index == saveBelongTomany.length - 1) {
-                this.getList(
-                  this.source.getPaging().page,
-                  this.source.getPaging().perPage
-                );
-              }
+              this.getList(
+                this.source.getPaging().page,
+                this.source.getPaging().perPage
+              );
             });
           });
-        }
+        } else
+          this.getList(
+            this.source.getPaging().page,
+            this.source.getPaging().perPage
+          );
       });
   }
 

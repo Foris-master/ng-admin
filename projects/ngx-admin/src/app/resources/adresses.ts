@@ -1,4 +1,4 @@
-import { REST_FIELD_TYPES } from "../../../../../lib/src/rest-admin/rest-resource/models/rest-resource.model";
+import { REST_FIELD_TYPES } from "./../rest-admin/rest-resource/models/rest-resource.model";
 import { RestResource } from "./../rest-admin/rest-resource/models/rest-resource";
 
 export const adresses = new RestResource(

@@ -1,3 +1,4 @@
+import { HttpHeaders } from "@angular/common/http";
 const APP_NAME = "NGX-ADMIN";
 export const GLOBALS = {
   LANG: APP_NAME + "_LANG",

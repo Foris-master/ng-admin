@@ -5,7 +5,12 @@ import {
   HttpClientModule,
   HTTP_INTERCEPTORS,
 } from "@angular/common/http";
-import { Compiler, ModuleWithProviders, NgModule } from "@angular/core";
+import {
+  Compiler,
+  ErrorHandler,
+  ModuleWithProviders,
+  NgModule,
+} from "@angular/core";
 import { CommonModule } from "@angular/common";
 import {
   NbActionsModule,
@@ -59,6 +64,8 @@ import { RestExportService } from "./rest-resource/service/rest-export.service";
 import { UploadFileComponent } from "./rest-resource/components/upload-file/upload-file.component";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { RestLangService } from "./rest-resource/service/rest-lang.service";
+import { HttpErrorInterceptor } from "../utils/http-error.interceptor";
+import { AuthGuard } from "../utils/auth.guard";
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(
@@ -140,16 +147,18 @@ export function createTranslateHttpLoader(
     NbListModule,
     NbTooltipModule,
     NbContextMenuModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateHttpLoader,
-        deps: [HttpClient],
-      },
-    }),
+    TranslateModule,
+    // TranslateModule.forRoot({
+    //   loader: {
+    //     provide: TranslateLoader,
+    //     useFactory: createTranslateHttpLoader,
+    //     deps: [HttpClient],
+    //   },
+    // }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: PaginationInterceptor,
@@ -174,7 +183,7 @@ export class RestAdminModuleModule {
           {
             path: "",
             component: RestMainComponentComponent,
-
+            canActivate: [AuthGuard],
             children: [...this.serviceRestAdmin.generateRoutes()],
           },
         ]),

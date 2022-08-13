@@ -101,6 +101,10 @@ export interface REST_FIELD_METADATA {
     uploadOptions?: {
       multipleFiles?: boolean;
     };
+    jsonConfig?: {
+      jsonFields?: string[];
+      isOpen?: boolean;
+    };
   };
 }
 
@@ -130,6 +134,13 @@ export enum REST_FIELD_TYPES {
   JSON,
   MAP,
   ENUM,
+  LINK,
+}
+
+interface LINK {
+  DEFAULT;
+  LINK_PREVIEW;
+  LINK_VIEW;
 }
 
 export interface REST_CONFIG {

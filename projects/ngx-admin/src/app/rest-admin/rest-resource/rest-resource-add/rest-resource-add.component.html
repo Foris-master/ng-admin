@@ -347,6 +347,7 @@
               </nb-autocomplete>
             </div>
 
+            <!-- Input type belong_to_many -->
             <div
               class="input-space"
               *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY"
@@ -395,6 +396,97 @@
                   }}
                 </nb-option>
               </nb-autocomplete>
+            </div>
+
+            <!-- Input type link -->
+
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.LINK"
+            >
+              <label class="label">{{ field.label | titlecase }}</label>
+              <input
+                nbInput
+                fullWidth
+                [id]="i"
+                [placeholder]="field.label"
+                [formControlName]="field.name"
+                type="text"
+              />
+
+              <!-- <div
+                *ngIf="
+                  form.get([field.name]).hasError('invalidUrl') &&
+                  form.get([field.name]).touched
+                "
+                class="text-error"
+              >
+                {{ "rest-add.invalid-link" | translate }}
+              </div> -->
+            </div>
+
+            <div
+              class="input-space"
+              *ngIf="field.type == REST_FIELD_TYPES.JSON"
+            >
+              <div>
+                <label class="label">{{ field.label | titlecase }}</label>
+                <button
+                  nbButton
+                  status="primary"
+                  shape="round"
+                  size="small"
+                  outline
+                  ghost
+                  *ngIf="field.metaData.addConfig.jsonConfig.isOpen"
+                  (click)="addJSONField(field)"
+                >
+                  <nb-icon icon="plus" pack="fas"></nb-icon>
+                </button>
+              </div>
+
+              <div
+                class="row mb-2"
+                *ngFor="
+                  let item of jsonEditorOptions[field.name];
+                  let index = index
+                "
+              >
+                <div class="col" [id]="index">
+                  <input
+                    fullWidth
+                    nbInput
+                    *ngIf="item.add; else elseBlock"
+                    [(ngModel)]="item.label"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                  <ng-template #elseBlock>
+                    <input fullWidth nbInput disabled [value]="item.label" />
+                  </ng-template>
+                </div>
+                <div class="col">
+                  <input
+                    fullWidth
+                    nbInput
+                    [(ngModel)]="item.value"
+                    [(ngModel)]="item.value"
+                    [ngModelOptions]="{ standalone: true }"
+                  />
+                </div>
+                <div class="col" *ngIf="item.add">
+                  <button
+                    nbButton
+                    status="primary"
+                    shape="round"
+                    size="small"
+                    outline
+                    ghost
+                    (click)="removeJSONField(field, index)"
+                  >
+                    <nb-icon icon="trash-alt" pack="fas"></nb-icon>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
 

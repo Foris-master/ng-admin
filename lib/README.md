@@ -1,3 +1,0 @@
-# Ngx-Admin
-
-Coming soon

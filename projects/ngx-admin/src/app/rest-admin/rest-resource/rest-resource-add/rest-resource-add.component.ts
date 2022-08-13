@@ -1,11 +1,6 @@
 import { LocalDataSource } from "ng2-smart-table";
 import { RestField, REST_FIELD_TYPES } from "../models/rest-resource.model";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { Component, Input, OnInit, QueryList, ViewChild } from "@angular/core";
 import {
   NbDialogService,
@@ -28,7 +23,7 @@ import { ALPHABET, RestExportService } from "../service/rest-export.service";
 import { UploadFileComponent } from "../components/upload-file/upload-file.component";
 import { RestResourceListFieldComponent } from "../components/rest.resource-list-field/rest.resource-list-field.component";
 import { RestResourceEditorFieldsComponent } from "../components/rest-resource-editor-fields/rest-resource-editor-fields.component";
-
+import { Validator } from "ngx-input-validator";
 @Component({
   selector: "ngx-rest-resource-add",
   templateUrl: "./rest-resource-add.component.html",
@@ -36,6 +31,8 @@ import { RestResourceEditorFieldsComponent } from "../components/rest-resource-e
 })
 export class RestResourceAddComponent implements OnInit {
   @Input() resource: RestResource;
+
+  //Icons
 
   form: FormGroup;
   formState: any;
@@ -53,6 +50,9 @@ export class RestResourceAddComponent implements OnInit {
   options: any = {};
   allFilterContains: any = {};
   belongToMany: any = {};
+
+  //json editor
+  jsonEditorOptions = {};
 
   @ViewChild("belongTo") belongTo: QueryList<any>;
   @ViewChild("autoBelongToMany") inputBelongToMany;
@@ -263,6 +263,22 @@ export class RestResourceAddComponent implements OnInit {
           return {
             ...cumul,
             [elt.name]: [""],
+          };
+
+        case REST_FIELD_TYPES.LINK:
+          return {
+            ...cumul,
+            [elt.name]: ["", Validator.url],
+          };
+        case REST_FIELD_TYPES.JSON:
+          const jsonFiels = [];
+          elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+            jsonFiels.push({ label: field, value: "" });
+          });
+
+          this.jsonEditorOptions[elt.name] = jsonFiels;
+          return {
+            ...cumul,
           };
         default:
           return {
@@ -556,20 +572,34 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onSumbit() {
-    if (this.source) {
-      this.source.getAll().then((data) => {
-        const request = [];
-        data.forEach((element) => {
-          request.push(
-            this.serviceRest
-              .addResources(this.resource.addConfig, element)
-              .toPromise()
-          );
-        });
-        Promise.all(request).then((res) => {
-          this.source = new LocalDataSource([]);
-        });
-      });
-    } else console.log("RIEN A SIGNALER");
+    // if (this.source) {
+    //   this.source.getAll().then((data) => {
+    //     const request = [];
+    //     data.forEach((element) => {
+    //       request.push(
+    //         this.serviceRest
+    //           .addResources(this.resource.addConfig, element)
+    //           .toPromise()
+    //       );
+    //     });
+    //     Promise.all(request).then((res) => {
+    //       this.source = new LocalDataSource([]);
+    //     });
+    //   });
+    // } else console.log("RIEN A SIGNALER");
+    console.log(this.jsonEditorOptions);
+  }
+
+  addJSONField(event) {
+    console.log(event.name);
+    this.jsonEditorOptions[event.name].push({
+      label: "",
+      value: "",
+      add: true,
+    });
+  }
+
+  removeJSONField(event, index) {
+    this.jsonEditorOptions[event.name].splice(index, 1);
   }
 }

@@ -21,7 +21,8 @@
   },
   "rest-add": {
     "import": "Import data",
-    "get-template": "Download template"
+    "get-template": "Download template",
+    "invalid-link": "Invalid link"
   },
   "filter-compare": {
     "equality": "equality",

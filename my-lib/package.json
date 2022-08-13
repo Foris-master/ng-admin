@@ -1,0 +1,22 @@
+{
+  "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
+  "name": "ngx-admin",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foris-master/ngx-admin"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/public-api.ts"
+    },
+    "dest": "src/dist"
+  }
+}

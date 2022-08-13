@@ -12,6 +12,7 @@ import {
 } from "@angular/core";
 import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { RestAdminConfigService } from "../rest-resource/service/rest-admin-config.service";
+import { GLOBALS } from "../../utils/globals";
 
 @Component({
   selector: "ngx-rest-main-component",
@@ -29,7 +30,8 @@ export class RestMainComponentComponent implements OnInit {
   constructor(
     private serviceConfig: RestAdminConfigService,
     private activatedRoute: ActivatedRoute,
-    private restLangService: RestLangService
+    private restLangService: RestLangService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {

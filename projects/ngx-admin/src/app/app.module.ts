@@ -30,7 +30,13 @@ import { AuthGuard } from "./utils/auth.guard";
 import { RESOURCES_CONFIG } from "./rest-admin-config";
 import { RestAdminModuleModule } from "./rest-admin/rest-admin-module.module";
 import { ThemeModule } from "./@theme/theme.module";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 
+// serviceRestConfig.restPathFileTranslate
+export function createTranslateHttpLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, "assets/i18n/", ".json");
+}
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -48,6 +54,13 @@ import { ThemeModule } from "./@theme/theme.module";
     ThemeModule.forRoot(),
     NbIconModule,
     RestAdminModuleModule.forRoot(RESOURCES_CONFIG),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateHttpLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   bootstrap: [AppComponent],
   providers: [
