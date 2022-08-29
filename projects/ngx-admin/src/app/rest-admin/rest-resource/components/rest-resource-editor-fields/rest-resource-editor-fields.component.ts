@@ -57,15 +57,10 @@ export class RestResourceEditorFieldsComponent extends DefaultEditor {
   );
 
   controlCroper = null;
-
-  imageChangedEvent: any = "";
   croppedImage: any = "";
   isCrop = false;
 
   // End test
-
-  getEvent(event) {}
-
   ngOnInit() {
     this.subscription = this.control.valueChanges.subscribe(
       (values: Array<File>) => {

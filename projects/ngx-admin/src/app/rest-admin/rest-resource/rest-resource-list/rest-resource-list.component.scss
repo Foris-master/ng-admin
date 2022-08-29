@@ -53,3 +53,10 @@
 .input-space {
   margin-top: 1rem;
 }
+
+.nb-theme-default ng2-smart-table th.ng2-smart-actions-title-add a {
+  background-color: #00d68f !important;
+  border-bottom-width: 0;
+  border-bottom-color: #00d68f !important;
+  color: #ffffff;
+}

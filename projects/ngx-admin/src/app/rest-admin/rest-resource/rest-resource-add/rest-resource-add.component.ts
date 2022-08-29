@@ -18,12 +18,13 @@ import { RestResource } from "../models/rest-resource";
 import { RestResourceService } from "../service/rest-resource.service";
 import { ImageCroppedEvent, base64ToFile } from "ngx-image-cropper";
 import { RestAdminConfigService } from "../service/rest-admin-config.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ALPHABET, RestExportService } from "../service/rest-export.service";
 import { UploadFileComponent } from "../components/upload-file/upload-file.component";
 import { RestResourceListFieldComponent } from "../components/rest.resource-list-field/rest.resource-list-field.component";
 import { RestResourceEditorFieldsComponent } from "../components/rest-resource-editor-fields/rest-resource-editor-fields.component";
 import { Validator } from "ngx-input-validator";
+import * as moment from "moment";
 @Component({
   selector: "ngx-rest-resource-add",
   templateUrl: "./rest-resource-add.component.html",
@@ -31,18 +32,21 @@ import { Validator } from "ngx-input-validator";
 })
 export class RestResourceAddComponent implements OnInit {
   @Input() resource: RestResource;
-
+  ressourceName: string;
   //Icons
 
   form: FormGroup;
-  formState: any;
+  formState: any = {
+    btnLabel: "Modifier",
+    isAdd: false,
+    idEntity: null,
+    onReady: false,
+  };
 
   entity: any;
 
   // Test
-  public readonly uploadedFile: BehaviorSubject<string> = new BehaviorSubject(
-    null
-  );
+  public uploadedFile: BehaviorSubject<any>;
   private subscription: Subscription;
   // End test
 
@@ -57,41 +61,26 @@ export class RestResourceAddComponent implements OnInit {
   @ViewChild("belongTo") belongTo: QueryList<any>;
   @ViewChild("autoBelongToMany") inputBelongToMany;
 
+  controls: any;
   multiple = false;
 
-  // Control sur les fichiers a upload
-  public readonly control = new FileUploadControl(
-    {
-      listVisible: true,
-      accept: ["image/*"],
-      discardInvalid: true,
-      multiple: false,
-    },
-    [
-      FileUploadValidators.accept(["image/*"]),
-      FileUploadValidators.filesLimit(1),
-    ]
-  );
-
-  controlCroper = null;
+  controlCroper: any = {};
 
   imageChangedEvent: any = "";
-  croppedImage: any = "";
-  isCrop = false;
+  croppedImage: any = {};
+  isCrop: any = {};
 
   controlsImage: any = {};
 
   // End test
 
-  //FILE , IMAGE , PDF FIELD
-  fileUploadControl = new FileUploadControl(
-    null,
-    FileUploadValidators.filesLimit(2)
-  );
-
   //Import
   items = [{ title: "Download template" }, { title: "Import" }];
   alphabelt: string[] = ALPHABET;
+
+  //Image
+  filesUpload = {};
+  urlsImage = {};
 
   source: LocalDataSource;
   settings: any;
@@ -102,35 +91,28 @@ export class RestResourceAddComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private nbMenuService: NbMenuService,
     private exportService: RestExportService,
-    private dialogService: NbDialogService
+    private dialogService: NbDialogService,
+    private router: Router
   ) {
     activatedRoute.params.subscribe((params) => {
-      let ressourceName =
+      this.ressourceName =
         this.activatedRoute.snapshot.url[
           this.activatedRoute.snapshot.url.length - 1
         ].path.split("-")[0];
 
-      this.resource =
-        this.serviceRestAdminConfig.getSpecificResource(ressourceName);
-
-      this.formState = {
-        btnLabel: "Ajouter",
-        isAdd: true,
-      };
+      this.resource = this.serviceRestAdminConfig.getSpecificResource(
+        this.ressourceName
+      );
 
       if (Object.keys(params).length != 0) {
-        ressourceName =
+        this.ressourceName =
           this.activatedRoute.snapshot.url[
             this.activatedRoute.snapshot.url.length - 2
           ].path.split("-")[0];
 
-        this.resource =
-          this.serviceRestAdminConfig.getSpecificResource(ressourceName);
-
-        this.formState = {
-          btnLabel: "Modifier",
-          isAdd: false,
-        };
+        this.resource = this.serviceRestAdminConfig.getSpecificResource(
+          this.ressourceName
+        );
 
         this.serviceRest
           .getOneResource(
@@ -140,9 +122,22 @@ export class RestResourceAddComponent implements OnInit {
             },
             params.id
           )
-          .subscribe((response) => {
-            console.log(response);
+          .subscribe((response: any) => {
+            this.initForm(response);
+            this.formState = {
+              btnLabel: "Modifier",
+              isAdd: false,
+              idEntity: response.id,
+              onReady: true,
+            };
           });
+      } else {
+        this.initForm(null);
+        this.formState = {
+          btnLabel: "Ajouter",
+          isAdd: true,
+          onReady: true,
+        };
       }
     });
   }
@@ -168,128 +163,6 @@ export class RestResourceAddComponent implements OnInit {
         }
       });
 
-    this.subscription = this.control.valueChanges.subscribe(
-      (values: Array<File>) => {
-        this.getImage(values[0]);
-        this.controlCroper = values[0];
-      }
-    );
-
-    const controls = this.resource.fields.reduce((cumul, elt) => {
-      switch (elt.type) {
-        case REST_FIELD_TYPES.FILE:
-        case REST_FIELD_TYPES.IMAGE:
-        case REST_FIELD_TYPES.PDF:
-          return {
-            ...cumul,
-            [elt.name]: [],
-          };
-
-        case REST_FIELD_TYPES.HAS_MANY:
-          return {
-            ...cumul,
-            [elt.name]: new Set([]),
-          };
-
-        case REST_FIELD_TYPES.BOOLEAN:
-          return {
-            ...cumul,
-            [elt.name]: false,
-          };
-        case REST_FIELD_TYPES.BELONG_TO:
-          const restResource = this.serviceRestAdminConfig.getSpecificResource(
-            elt.metaData.addConfig.belongToOptions.resourceName
-          );
-
-          this.serviceRest
-            .getResources({
-              api: restResource.api,
-              queryParams: elt.metaData.addConfig.belongToOptions.queryParams
-                ? elt.metaData.addConfig.belongToOptions.queryParams
-                : restResource.queryParams,
-            })
-            .subscribe((response: any) => {
-              this.options[elt.name] = response;
-              this.allFilterContains[elt.name] = of(this.options[elt.name]);
-            });
-
-          // this.allFilterContains[elt.name] = this.form.controls[
-          //   elt.name
-          // ].valueChanges.pipe(
-          //   startWith(""),
-          //   map((filterString) => this.filter(filterString, elt))
-          // );
-          return {
-            ...cumul,
-            [elt.name]: [""],
-          };
-
-        case REST_FIELD_TYPES.BELONG_TO_MANY:
-          const resource = this.serviceRestAdminConfig.getSpecificResource(
-            elt.metaData.addConfig.belongToManyOptions.relatedName
-          );
-          this.serviceRest
-            .getResources({
-              api: resource.api,
-              queryParams: elt.metaData.addConfig.belongToManyOptions
-                .queryParams
-                ? elt.metaData.addConfig.belongToManyOptions.queryParams
-                : resource.queryParams,
-            })
-            .subscribe((response: any) => {
-              this.options[elt.name] = response;
-              this.allFilterContains[elt.name] = of(this.options[elt.name]);
-            });
-          this.belongToMany[elt.name] = new Set();
-
-          return {
-            ...cumul,
-            [elt.name]: [],
-          };
-
-        case REST_FIELD_TYPES.IMAGE:
-          this.controlsImage[elt.name] = new FileUploadControl(
-            {
-              listVisible: true,
-              accept: ["image/*"],
-              discardInvalid: true,
-              multiple: false,
-            },
-            [
-              FileUploadValidators.accept(["image/*"]),
-              FileUploadValidators.filesLimit(1),
-            ]
-          );
-          return {
-            ...cumul,
-            [elt.name]: [""],
-          };
-
-        case REST_FIELD_TYPES.LINK:
-          return {
-            ...cumul,
-            [elt.name]: ["", Validator.url],
-          };
-        case REST_FIELD_TYPES.JSON:
-          const jsonFiels = [];
-          elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-            jsonFiels.push({ label: field, value: "" });
-          });
-
-          this.jsonEditorOptions[elt.name] = jsonFiels;
-          return {
-            ...cumul,
-          };
-        default:
-          return {
-            ...cumul,
-            [elt.name]: [""],
-          };
-      }
-    }, {});
-
-    this.form = this.fb.group(controls);
-
     this.settings = {
       hideSubHeader: true,
       actions: false,
@@ -300,12 +173,218 @@ export class RestResourceAddComponent implements OnInit {
     };
   }
 
+  initForm(datas) {
+    if (datas != null) {
+      this.controls = this.resource.fields.reduce((cumul, elt) => {
+        if (elt.inForm) {
+          switch (elt.type) {
+            case REST_FIELD_TYPES.FILE:
+            case REST_FIELD_TYPES.PDF:
+            case REST_FIELD_TYPES.IMAGE:
+              this.filesUpload[elt.name] = [];
+              this.urlsImage[elt.name] = datas[elt.name];
+
+              return {
+                ...cumul,
+                [elt.name]: datas[elt.name],
+              };
+
+            case REST_FIELD_TYPES.HAS_MANY:
+              return {
+                ...cumul,
+                [elt.name]: new Set([datas[elt.name]]),
+              };
+
+            case REST_FIELD_TYPES.BOOLEAN:
+              return {
+                ...cumul,
+                [elt.name]: datas[elt.name],
+              };
+            case REST_FIELD_TYPES.BELONG_TO:
+              const restResource =
+                this.serviceRestAdminConfig.getSpecificResource(
+                  elt.metaData.addConfig.belongToOptions.resourceName
+                );
+
+              this.serviceRest
+                .getResources({
+                  api: restResource.api,
+                  queryParams: elt.metaData.addConfig.belongToOptions
+                    .queryParams
+                    ? elt.metaData.addConfig.belongToOptions.queryParams
+                    : restResource.queryParams,
+                })
+                .subscribe((response: any) => {
+                  this.options[elt.name] = response;
+                  this.allFilterContains[elt.name] = of(this.options[elt.name]);
+                });
+
+              return {
+                ...cumul,
+                [elt.name]: [datas[elt.name]],
+              };
+
+            case REST_FIELD_TYPES.BELONG_TO_MANY:
+              const resource = this.serviceRestAdminConfig.getSpecificResource(
+                elt.metaData.addConfig.belongToManyOptions.relatedName
+              );
+              this.serviceRest
+                .getResources({
+                  api: resource.api,
+                  queryParams: elt.metaData.addConfig.belongToManyOptions
+                    .queryParams
+                    ? elt.metaData.addConfig.belongToManyOptions.queryParams
+                    : resource.queryParams,
+                })
+                .subscribe((response: any) => {
+                  this.options[elt.name] = response;
+                  this.allFilterContains[elt.name] = of(this.options[elt.name]);
+                });
+              this.belongToMany[elt.name] = new Set(datas[elt.name]);
+
+              return {
+                ...cumul,
+                [elt.name]: [datas[elt.name]],
+              };
+
+            case REST_FIELD_TYPES.LINK:
+              return {
+                ...cumul,
+                [elt.name]: [datas[elt.name], Validator.url],
+              };
+            case REST_FIELD_TYPES.JSON:
+              const jsonFiels = [];
+              elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+                jsonFiels.push({ label: field, value: "" });
+              });
+
+              this.jsonEditorOptions[elt.name] = jsonFiels;
+              return {
+                ...cumul,
+                [elt.name]: [null],
+              };
+            default:
+              return {
+                ...cumul,
+                [elt.name]: datas[elt.name],
+              };
+          }
+        } else
+          return {
+            ...cumul,
+          };
+      }, {});
+    } else {
+      this.controls = this.resource.fields.reduce((cumul, elt) => {
+        if (elt.inForm) {
+          switch (elt.type) {
+            case REST_FIELD_TYPES.FILE:
+            case REST_FIELD_TYPES.PDF:
+            case REST_FIELD_TYPES.IMAGE:
+              this.filesUpload[elt.name] = [];
+              this.urlsImage[elt.name] = "";
+
+              return {
+                ...cumul,
+                [elt.name]: [null],
+              };
+
+            case REST_FIELD_TYPES.HAS_MANY:
+              return {
+                ...cumul,
+                [elt.name]: new Set([]),
+              };
+
+            case REST_FIELD_TYPES.BOOLEAN:
+              return {
+                ...cumul,
+                [elt.name]: false,
+              };
+            case REST_FIELD_TYPES.BELONG_TO:
+              const restResource =
+                this.serviceRestAdminConfig.getSpecificResource(
+                  elt.metaData.addConfig.belongToOptions.resourceName
+                );
+
+              this.serviceRest
+                .getResources({
+                  api: restResource.api,
+                  queryParams: elt.metaData.addConfig.belongToOptions
+                    .queryParams
+                    ? elt.metaData.addConfig.belongToOptions.queryParams
+                    : restResource.queryParams,
+                })
+                .subscribe((response: any) => {
+                  this.options[elt.name] = response;
+                  this.allFilterContains[elt.name] = of(this.options[elt.name]);
+                });
+
+              return {
+                ...cumul,
+                [elt.name]: [""],
+              };
+
+            case REST_FIELD_TYPES.BELONG_TO_MANY:
+              const resource = this.serviceRestAdminConfig.getSpecificResource(
+                elt.metaData.addConfig.belongToManyOptions.relatedName
+              );
+              this.serviceRest
+                .getResources({
+                  api: resource.api,
+                  queryParams: elt.metaData.addConfig.belongToManyOptions
+                    .queryParams
+                    ? elt.metaData.addConfig.belongToManyOptions.queryParams
+                    : resource.queryParams,
+                })
+                .subscribe((response: any) => {
+                  this.options[elt.name] = response;
+                  this.allFilterContains[elt.name] = of(this.options[elt.name]);
+                });
+              this.belongToMany[elt.name] = new Set();
+
+              return {
+                ...cumul,
+                [elt.name]: [],
+              };
+
+            case REST_FIELD_TYPES.LINK:
+              return {
+                ...cumul,
+                [elt.name]: ["", Validator.url],
+              };
+            case REST_FIELD_TYPES.JSON:
+              const jsonFiels = [];
+              elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+                jsonFiels.push({ label: field, value: "" });
+              });
+
+              this.jsonEditorOptions[elt.name] = jsonFiels;
+              return {
+                ...cumul,
+                [elt.name]: [null],
+              };
+            default:
+              return {
+                ...cumul,
+                [elt.name]: [""],
+              };
+          }
+        } else
+          return {
+            ...cumul,
+          };
+      }, {});
+    }
+
+    this.form = this.fb.group(this.controls);
+  }
+
   trackByFn(index) {
     return index;
   }
 
   reset() {
-    this.form.reset();
+    this.form = this.fb.group(this.controls);
   }
 
   get REST_FIELD_TYPES() {
@@ -373,33 +452,53 @@ export class RestResourceAddComponent implements OnInit {
 
   //Image input
 
-  getImage(file: any): void {
-    // if (FileReader && file) {
-    //   const fr = new FileReader();
-    //   fr.onload = (e: any) => {
-    //     this.uploadedFile.next(e.target.result);
-    //   };
-    //   fr.readAsDataURL(file);
-    // } else {
-    //   this.uploadedFile.next(null);
-    // }
-    // console.log(file);
+  onSelect(event, field: RestField) {
+    this.filesUpload[field.name] = [];
+    const addedFiles: File = event.addedFiles;
+
+    this.filesUpload[field.name] = [addedFiles[0]];
+
+    if (field.type == REST_FIELD_TYPES.IMAGE) {
+      this.isCrop[field.name] = true;
+      this.controlCroper[field.name] = addedFiles[0];
+    }
+
+    this.form.patchValue({
+      [field.name]: addedFiles[0],
+    });
   }
 
-  imageCropped(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64;
+  onRemove(field) {
+    this.filesUpload[field.name] = [];
+    this.form.patchValue({
+      [field.name]: null,
+    });
   }
 
-  activeCroper() {
-    this.isCrop = true;
+  imageCropped(event: ImageCroppedEvent, field) {
+    this.croppedImage[field.name] = event.base64;
   }
 
-  saveCroper() {
-    this.isCrop = false;
-    this.uploadedFile.next(this.croppedImage);
-    // this.form.patchValue({
-    //   base64ToFile(this.croppedImage)
-    // });
+  activeCroper(field) {
+    this.isCrop[field.name] = true;
+  }
+
+  desactiveCrop(field) {
+    this.isCrop[field.name] = false;
+  }
+
+  saveCroper(field: RestField) {
+    this.isCrop[field.name] = false;
+    this.filesUpload[field.name] = [
+      base64ToFile(this.croppedImage[field.name]),
+    ];
+
+    this.form.patchValue({
+      [field.name]: new File(
+        [base64ToFile(this.croppedImage[field.name])],
+        field.name
+      ),
+    });
   }
 
   //belongToManyOptions
@@ -468,8 +567,29 @@ export class RestResourceAddComponent implements OnInit {
 
   //End BelongToMany
 
-  onCreateConfirm(event) {
-    const datas = event.newData;
+  onCreate() {
+    const datas = new FormData();
+    const formData = this.form.value;
+    Object.keys(formData).forEach((key, index) => {
+      const search: RestField = this.resource.fields.find(
+        (elt) => elt.name == key
+      );
+      if (search) {
+        switch (search.type) {
+          case REST_FIELD_TYPES.DATE:
+            datas.append(key, `${moment(formData[key]).format("YYYY-MM-DD")}`);
+            break;
+          case REST_FIELD_TYPES.JSON:
+            datas.append(key, JSON.stringify(this.jsonEditorOptions[key]));
+            break;
+
+          default:
+            datas.append(key, formData[key]);
+            break;
+        }
+      }
+    });
+
     const saveBelongTomany = [];
 
     this.resource.fields.forEach((elt) => {
@@ -478,12 +598,10 @@ export class RestResourceAddComponent implements OnInit {
           resources: datas[elt.name],
           pivot: elt.metaData.addConfig.belongToManyOptions.pivotName,
         });
-        delete datas[elt.name];
       }
     });
-
     this.serviceRest
-      .addResources(this.resource.addConfig, { ...datas, user_id: 1 })
+      .addResources(this.resource.addConfig, datas)
       .subscribe((response: any) => {
         if (saveBelongTomany.length > 0) {
           saveBelongTomany.forEach((element, index) => {
@@ -506,9 +624,99 @@ export class RestResourceAddComponent implements OnInit {
             }
 
             Promise.all(proms).then((res) => {
-              if (index == saveBelongTomany.length - 1) this.form.reset();
+              if (index == saveBelongTomany.length - 1) this.reset();
             });
           });
+        } else {
+          this.reset();
+        }
+      });
+  }
+
+  onEdit() {
+    const datas = new FormData();
+    if (
+      this.resource.editConfig.isLaravel &&
+      this.resource.editConfig.isLaravel == true
+    )
+      datas.append("_method", "PUT");
+
+    const formData = this.form.value;
+
+    Object.keys(formData).forEach((key, index) => {
+      const search: RestField = this.resource.fields.find(
+        (elt) => elt.name == key
+      );
+      if (search) {
+        switch (search.type) {
+          case REST_FIELD_TYPES.DATE:
+            datas.append(key, `${moment(formData[key]).format("YYYY-MM-DD")}`);
+            break;
+          case REST_FIELD_TYPES.JSON:
+            datas.append(key, JSON.stringify(this.jsonEditorOptions[key]));
+            break;
+          case REST_FIELD_TYPES.IMAGE:
+            if (this.filesUpload[key].length > 0)
+              datas.append(key, formData[key]);
+
+            break;
+
+          default:
+            datas.append(key, formData[key]);
+            break;
+        }
+      }
+    });
+
+    const saveBelongTomany = [];
+
+    this.resource.fields.forEach((elt) => {
+      if (elt.type == REST_FIELD_TYPES.BELONG_TO_MANY) {
+        saveBelongTomany.push({
+          resources: datas[elt.name],
+          pivot: elt.metaData.addConfig.belongToManyOptions.pivotName,
+        });
+      }
+    });
+    this.serviceRest
+      .editResources(this.resource.addConfig, datas, this.formState.idEntity)
+      .subscribe((response: any) => {
+        if (saveBelongTomany.length > 0) {
+          saveBelongTomany.forEach((element, index) => {
+            const restResource =
+              this.serviceRestAdminConfig.getSpecificResource(element.pivot);
+            const proms = [];
+
+            for (let index = 0; index < element.resources.length; index++) {
+              const item = element.resources[index];
+              const data = {
+                [item["saveRelatedIdName"]]: item[item["saveRelatedIdName"]],
+                [item["saveResourceIdName"]]: response.id,
+              };
+
+              proms.push(
+                this.serviceRest
+                  .addResources(restResource.addConfig, data)
+                  .toPromise()
+              );
+            }
+
+            Promise.all(proms).then((res) => {
+              if (index == saveBelongTomany.length - 1) {
+                this.router.navigate([
+                  `/admin/${this.ressourceName}-detail`,
+                  this.formState.idEntity,
+                ]);
+                this.reset();
+              }
+            });
+          });
+        } else {
+          this.router.navigate([
+            `/admin/${this.ressourceName}-detail`,
+            this.formState.idEntity,
+          ]);
+          this.reset();
         }
       });
   }
@@ -572,26 +780,11 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onSumbit() {
-    // if (this.source) {
-    //   this.source.getAll().then((data) => {
-    //     const request = [];
-    //     data.forEach((element) => {
-    //       request.push(
-    //         this.serviceRest
-    //           .addResources(this.resource.addConfig, element)
-    //           .toPromise()
-    //       );
-    //     });
-    //     Promise.all(request).then((res) => {
-    //       this.source = new LocalDataSource([]);
-    //     });
-    //   });
-    // } else console.log("RIEN A SIGNALER");
-    console.log(this.jsonEditorOptions);
+    if (this.formState.isAdd) this.onCreate();
+    else this.onEdit();
   }
 
   addJSONField(event) {
-    console.log(event.name);
     this.jsonEditorOptions[event.name].push({
       label: "",
       value: "",

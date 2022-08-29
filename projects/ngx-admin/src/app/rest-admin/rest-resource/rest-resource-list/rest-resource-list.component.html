@@ -1,18 +1,34 @@
-<nb-card>
-  <nb-card-header class="row">
-    <div class="col-10">
-      {{ this.resource.listConfig.title }}
-    </div>
+<nb-card status="success">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-10">
+        {{ this.resource.listConfig.title }}
+      </div>
 
-    <div class="col-2">
-      <button
-        nbButton
-        status="primary"
-        [nbContextMenu]="items"
-        nbContextMenuTag="my-context"
-      >
-        {{ "rest-list.export" | translate }}
-      </button>
+      <div class="col-1"></div>
+      <div class="col-1" style="display: flex">
+        <button nbButton ghost status="control" (click)="addNewEntity()">
+          <nb-icon icon="plus-circle"></nb-icon>
+        </button>
+        <button
+          nbButton
+          [nbContextMenu]="items"
+          nbContextMenuTag="my-context"
+          ghost
+          status="control"
+        >
+          <nb-icon icon="menu"></nb-icon>
+        </button>
+
+        <!-- <button
+          nbButton
+          status="primary"
+          [nbContextMenu]="items"
+          nbContextMenuTag="my-context"
+        >
+          {{ "rest-list.export" | translate }}
+        </button> -->
+      </div>
     </div>
   </nb-card-header>
 

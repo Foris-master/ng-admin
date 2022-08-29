@@ -17,7 +17,6 @@ export const client = new RestResource(
             resourceName: "user",
             filterKeys: ["name", "email"],
             value: "name",
-            // template: "name",
             queryParams: {
               should_paginate: false,
             },

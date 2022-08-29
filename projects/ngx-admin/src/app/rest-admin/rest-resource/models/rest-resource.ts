@@ -77,6 +77,7 @@ export class RestResource {
       name: field.name,
       type: field.type ? field.type : REST_FIELD_TYPES.STRING,
       label: field.label ? field.label : field.name,
+      inForm: field.inForm !== undefined ? field.inForm : true,
       metaData: field.metaData,
     }));
   }
@@ -133,7 +134,9 @@ export class RestResource {
       ? this._listConfig.description
       : "list of " + this.name;
     rest.perPage = this._listConfig.perPage ? this._listConfig.perPage : 25;
-    rest.title = this._listConfig.title ? this._listConfig.title : "";
+    rest.title = this._listConfig.title
+      ? this._listConfig.title
+      : "List of " + this.name;
     rest.searchFilter = this._listConfig.searchFilter
       ? this._listConfig.searchFilter
       : null;
@@ -145,14 +148,21 @@ export class RestResource {
     const rest: AddConfig = {};
 
     rest.api = this._addConfig.api ? this._addConfig.api : this.api;
-    rest.title = this._addConfig.title ? this._addConfig.title : "";
+    rest.title = this._addConfig.title
+      ? this._addConfig.title
+      : "Add " + this.name;
     return rest;
   }
 
   get editConfig(): EditConfig {
     const rest: EditConfig = {};
     rest.api = this._editConfig.api ? this._editConfig.api : this.api;
-    rest.title = this._editConfig.title ? this._editConfig.title : "";
+    rest.isLaravel = this._editConfig.isLaravel
+      ? this._editConfig.isLaravel
+      : false;
+    rest.title = this._editConfig.title
+      ? this._editConfig.title
+      : "Edit " + this.name;
     rest.queryParams = this._editConfig.queryParams
       ? this._editConfig.queryParams
       : this.queryParams;

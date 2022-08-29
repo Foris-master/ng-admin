@@ -53,16 +53,12 @@ export class RestResourceDetailComponent implements OnInit {
           .subscribe((response: any) => {
             const colunms: any = {};
             this.entityId = response.id;
-            this.resource.fields
-              .filter((item) =>
-                this.resource.listConfig.columns.includes(item.name)
-              )
-              .forEach((elt) => {
-                colunms[elt.name] = {
-                  restField: elt,
-                  data: response[elt.label],
-                };
-              });
+            this.resource.fields.forEach((elt) => {
+              colunms[elt.name] = {
+                restField: elt,
+                data: response[elt.label],
+              };
+            });
             this.datas = colunms;
             console.log(response);
 
@@ -150,6 +146,7 @@ export class RestResourceDetailComponent implements OnInit {
   loadBelongToDetail(data) {
     const resourceName =
       data.restField.metaData.addConfig.belongToOptions.resourceName;
+
     this.router.navigate([`/admin/${resourceName}-detail`, data.data]);
   }
 }

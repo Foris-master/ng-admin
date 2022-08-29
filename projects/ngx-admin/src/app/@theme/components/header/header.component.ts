@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { RestLangService } from "./../../../rest-admin/rest-resource/service/rest-lang.service";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import {
@@ -14,6 +15,7 @@ import { Router } from "@angular/router";
 import { RestAdminConfigService } from "../../../rest-admin/rest-resource/service/rest-admin-config.service";
 import { GLOBALS } from "../../../utils/globals";
 import { filter, map, takeUntil } from "rxjs/operators";
+import { environment } from "../../../../environments/environment";
 @Component({
   selector: "ngx-header",
   styleUrls: ["./header.component.scss"],
@@ -58,19 +60,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
     public serviceRestAdmin: RestAdminConfigService,
     private authService: NbAuthService,
     private router: Router,
-    private langService: RestLangService
+    private langService: RestLangService,
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit() {
-    const user = { name: "Admin", picture: "assets/images/admin.jpeg" };
     this.currentTheme = this.themeService.currentTheme;
     this.appLanguage = this.langService.getLanguages();
     this.currentLang = this.langService.selected;
 
     const authApp = JSON.parse(localStorage.getItem(GLOBALS.AUTH_APP_TOKEN));
     if (authApp && authApp.value) {
-      this.user = user;
-      this.isAuth = true;
+      this.httpClient
+        .get(`${environment.urlBackend}/users/me`)
+        .subscribe((resp: any) => {
+          const user = {
+            name: resp.original.full_name,
+            picture: resp.original.infos.logo,
+          };
+          this.user = user;
+          this.isAuth = true;
+        });
     }
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService
@@ -100,8 +110,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((title) => {
         switch (title) {
           case "Déconnexion":
-            localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
-            this.router.navigateByUrl("/auth/login");
+            this.httpClient
+              .post(`${environment.urlBackend}/auth/logout`, {})
+              .subscribe((resp: any) => {
+                localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                this.router.navigateByUrl("/auth/login");
+                this.isAuth = false;
+              });
 
             break;
           default:

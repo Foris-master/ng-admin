@@ -21,7 +21,6 @@ import { RestResourceService } from "../service/rest-resource.service";
 import { filter, map } from "rxjs/operators";
 import { ALPHABET, RestExportService } from "../service/rest-export.service";
 
-
 @Component({
   selector: "ngx-rest-resource-list",
   templateUrl: "./rest-resource-list.component.html",
@@ -61,7 +60,6 @@ export class RestResourceListComponent implements OnInit {
     private nbMenuService: NbMenuService,
     private exportService: RestExportService
   ) {
-
     this.ressourceName =
       this.activatedRoute.snapshot.url[
         this.activatedRoute.snapshot.url.length - 1
@@ -73,7 +71,6 @@ export class RestResourceListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.settings = {
       hideSubHeader: this.resource.listConfig.hideAddSubHeader,
       actions: {
@@ -97,7 +94,7 @@ export class RestResourceListComponent implements OnInit {
       columns: this.createMatTableColumns(),
 
       add: {
-        addButtonContent: '<i class="nb-plus"></i>',
+        addButtonContent: '<i class="nb-plus" ></i>',
         createButtonContent: '<i class="nb-checkmark"></i>',
         cancelButtonContent: '<i class="nb-close"></i>',
         confirmCreate: true,
@@ -164,6 +161,9 @@ export class RestResourceListComponent implements OnInit {
     });
   }
 
+  addNewEntity() {
+    this.router.navigateByUrl(`/admin/${this.ressourceName}-add`);
+  }
   detailEntity(event) {
     this.router.navigate([
       `/admin/${this.ressourceName}-detail`,

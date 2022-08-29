@@ -2,9 +2,9 @@ b {
   margin-right: 20px;
 }
 .belongTo-link {
+  color: #598bff !important;
   &:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
     cursor: pointer;
-    color: #598bff;
   }
 }

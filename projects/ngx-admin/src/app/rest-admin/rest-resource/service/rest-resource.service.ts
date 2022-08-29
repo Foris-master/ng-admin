@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {
   AddConfig,
+  EditConfig,
   ListConfig,
   ResourceConfig,
   REST_FIELD_METADATA,
@@ -63,6 +64,19 @@ export class RestResourceService {
       `${this.serviceRestConfig.restBaseUrl}/${addConfig.api}`,
       datas
     );
+
+  editResources = (editConfig: EditConfig, datas, id) => {
+    if (editConfig.isLaravel)
+      return this.http.post(
+        `${this.serviceRestConfig.restBaseUrl}/${editConfig.api}/${id}`,
+        datas
+      );
+
+    return this.http.put(
+      `${this.serviceRestConfig.restBaseUrl}/${editConfig.api}/${id}`,
+      datas
+    );
+  };
 
   deleteResources = (listConfig: ListConfig, id: number | string) =>
     this.http.delete(

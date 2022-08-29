@@ -39,9 +39,12 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
         this.val.forEach((item) => {
           datas.push({
             data: {
-              name: item[
-                this.restField.metaData.listConfig.restManyResources.label
-              ],
+              name: this.restField?.metaData?.listConfig?.restManyResources
+                .label
+                ? item[
+                    this.restField.metaData.listConfig.restManyResources.label
+                  ]
+                : item,
               item,
             },
           });

@@ -1,4 +1,4 @@
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
@@ -17,8 +17,9 @@ import {
   NbCheckboxModule,
 } from "@nebular/theme";
 import { LoginComponent } from "./login/login.component";
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { environment } from "../../environments/environment";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 @NgModule({
   declarations: [LoginComponent],

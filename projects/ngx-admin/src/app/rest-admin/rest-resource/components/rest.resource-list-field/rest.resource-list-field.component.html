@@ -63,13 +63,13 @@
           [place]="row.data.place"
         ></ngx-fs-icon>
         <ng-container
-          *ngIf="!restField.metaData.listConfig.restManyResources.template"
+          *ngIf="!restField?.metaData?.listConfig?.restManyResources.template"
         >
           {{ row.data[customColumn] }}
         </ng-container>
 
         <ng-container
-          *ngIf="restField.metaData.listConfig.restManyResources.template"
+          *ngIf="restField?.metaData?.listConfig?.restManyResources.template"
         >
           <span *ngIf="row.data.place">{{ restField.name }}</span>
           <ng-container *ngIf="!row.data.place">

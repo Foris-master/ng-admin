@@ -1,4 +1,3 @@
-import { filter } from "rxjs/operators";
 import { RestResource } from "./rest-resource";
 export interface ResourceConfig {
   title?: string;
@@ -15,6 +14,7 @@ export interface RestField extends Field {
   metaData?: REST_FIELD_METADATA;
   type?: REST_FIELD_TYPES;
   template?: string;
+  inForm?: boolean;
 }
 
 export interface MainConfig {
@@ -55,7 +55,7 @@ export interface AddConfig extends ResourceConfig {
 }
 
 export interface EditConfig extends ResourceConfig {
-  inList?: boolean;
+  isLaravel?: boolean;
 }
 
 export interface DetailConfig extends ResourceConfig {}

@@ -50,7 +50,9 @@ export class RestAdminConfigService {
   }
 
   public getSpecificResource(nameResource: string): RestResource {
-    return this._restResources.find((rest) => rest.name == nameResource);
+    return this._restResources.find(
+      (rest) => rest.name.toLowerCase() == nameResource.toLowerCase()
+    );
   }
 
   generateMenus() {
@@ -66,16 +68,17 @@ export class RestAdminConfigService {
           {
             title: rest.name,
             icon: rest.icon,
-            children: [
-              {
-                title: "Liste",
-                link: "admin/" + rest.name + "-list",
-              },
-              {
-                title: "Ajouter",
-                link: "admin/" + rest.name + "-add",
-              },
-            ],
+            link: "admin/" + rest.name.toLowerCase() + "-list",
+            // children: [
+            //   {
+            //     title: "Liste",
+            //     link: "admin/" + rest.name.toLowerCase() + "-list",
+            //   },
+            //   {
+            //     title: "Ajouter",
+            //     link: "admin/" + rest.name.toLowerCase() + "-add",
+            //   },
+            // ],
           },
         ];
       }
@@ -89,22 +92,22 @@ export class RestAdminConfigService {
         return [
           ...cumul,
           {
-            path: "admin/" + rest.name + "-list",
+            path: "admin/" + rest.name.toLowerCase() + "-list",
             component: RestResourceListComponent,
             canActivate: [AuthGuard],
           },
           {
-            path: "admin/" + rest.name + "-add",
+            path: "admin/" + rest.name.toLowerCase() + "-add",
             component: RestResourceAddComponent,
             canActivate: [AuthGuard],
           },
           {
-            path: "admin/" + rest.name + "-edit/:id",
+            path: "admin/" + rest.name.toLowerCase() + "-edit/:id",
             component: RestResourceAddComponent,
             canActivate: [AuthGuard],
           },
           {
-            path: "admin/" + rest.name + "-detail/:id",
+            path: "admin/" + rest.name.toLowerCase() + "-detail/:id",
             component: RestResourceDetailComponent,
             canActivate: [AuthGuard],
           },
@@ -113,19 +116,19 @@ export class RestAdminConfigService {
       return [
         ...cumul,
         {
-          path: "admin/" + rest.name + "-list",
+          path: "admin/" + rest.name.toLowerCase() + "-list",
           component: RestResourceListComponent,
         },
         {
-          path: "admin/" + rest.name + "-add",
+          path: "admin/" + rest.name.toLowerCase() + "-add",
           component: RestResourceAddComponent,
         },
         {
-          path: "admin/" + rest.name + "-edit/:id",
+          path: "admin/" + rest.name.toLowerCase() + "-edit/:id",
           component: RestResourceAddComponent,
         },
         {
-          path: "admin/" + rest.name + "-detail/:id",
+          path: "admin/" + rest.name.toLowerCase() + "-detail/:id",
           component: RestResourceDetailComponent,
         },
       ];

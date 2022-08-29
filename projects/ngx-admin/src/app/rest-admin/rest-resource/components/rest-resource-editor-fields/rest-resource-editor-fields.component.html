@@ -1,68 +1,8 @@
-<!-- Input type string -->
-<input
-  type="text"
-  *ngIf="field.type == REST_FIELD_TYPES.STRING"
-  [(ngModel)]="cell.newValue"
-  [name]="cell.getId()"
-  [placeholder]="cell.getTitle()"
-  [disabled]="!cell.isEditable()"
-  (click)="onClick.emit($event)"
-  (keydown.enter)="onEdited.emit($event)"
-  (keydown.esc)="onStopEditing.emit()"
-  class="form-control ng-valid ng-touched ng-dirty"
-  fullWidth
-/>
-
-<!-- Input type text -->
-<textarea
-  [(ngModel)]="cell.newValue"
-  [name]="cell.getId()"
-  [placeholder]="cell.getTitle()"
-  [disabled]="!cell.isEditable()"
-  (click)="onClick.emit($event)"
-  (keydown.enter)="onEdited.emit($event)"
-  (keydown.esc)="onStopEditing.emit()"
-  class="form-control ng-valid ng-touched ng-dirty"
-  *ngIf="field.type == REST_FIELD_TYPES.TEXT"
-  fullWidth
-></textarea>
-
-<!-- Input type number  -->
-<input
-  [(ngModel)]="cell.newValue"
-  [name]="cell.getId()"
-  [placeholder]="cell.getTitle()"
-  [disabled]="!cell.isEditable()"
-  (click)="onClick.emit($event)"
-  (keydown.enter)="onEdited.emit($event)"
-  (keydown.esc)="onStopEditing.emit()"
-  class="form-control ng-valid ng-touched ng-dirty"
-  type="number"
-  fullWidth
-  *ngIf="field.type == REST_FIELD_TYPES.NUMBER"
-/>
-
-<!-- Input type date -->
-<input
-  *ngIf="field.type == REST_FIELD_TYPES.DATE"
-  [nbDatepicker]="formpicker"
-  [(ngModel)]="cell.newValue"
-  [name]="cell.getId()"
-  [placeholder]="cell.getTitle()"
-  [disabled]="!cell.isEditable()"
-  (click)="onClick.emit($event)"
-  (keydown.enter)="onEdited.emit($event)"
-  (keydown.esc)="onStopEditing.emit()"
-  class="form-control ng-valid ng-touched ng-dirty"
-  fullWidth
-/>
-<nb-datepicker #formpicker></nb-datepicker>
-
-<!-- Input type dateTime -->
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.DATETIME">
+<ng-container *ngIf="field.inForm == true">
+  <!-- Input type string -->
   <input
-    nbInput
-    [nbDatepicker]="dateTimePicker"
+    type="text"
+    *ngIf="field.type == REST_FIELD_TYPES.STRING"
     [(ngModel)]="cell.newValue"
     [name]="cell.getId()"
     [placeholder]="cell.getTitle()"
@@ -73,15 +13,40 @@
     class="form-control ng-valid ng-touched ng-dirty"
     fullWidth
   />
-  <nb-date-timepicker withSeconds #dateTimePicker></nb-date-timepicker>
-</ng-container>
 
-<!-- Input type time -->
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.TIME">
+  <!-- Input type text -->
+  <textarea
+    [(ngModel)]="cell.newValue"
+    [name]="cell.getId()"
+    [placeholder]="cell.getTitle()"
+    [disabled]="!cell.isEditable()"
+    (click)="onClick.emit($event)"
+    (keydown.enter)="onEdited.emit($event)"
+    (keydown.esc)="onStopEditing.emit()"
+    class="form-control ng-valid ng-touched ng-dirty"
+    *ngIf="field.type == REST_FIELD_TYPES.TEXT"
+    fullWidth
+  ></textarea>
+
+  <!-- Input type number  -->
   <input
-    [nbTimepicker]="timepicker"
-    twelveHoursFormat]
-    nbInput
+    [(ngModel)]="cell.newValue"
+    [name]="cell.getId()"
+    [placeholder]="cell.getTitle()"
+    [disabled]="!cell.isEditable()"
+    (click)="onClick.emit($event)"
+    (keydown.enter)="onEdited.emit($event)"
+    (keydown.esc)="onStopEditing.emit()"
+    class="form-control ng-valid ng-touched ng-dirty"
+    type="number"
+    fullWidth
+    *ngIf="field.type == REST_FIELD_TYPES.NUMBER"
+  />
+
+  <!-- Input type date -->
+  <input
+    *ngIf="field.type == REST_FIELD_TYPES.DATE"
+    [nbDatepicker]="formpicker"
     [(ngModel)]="cell.newValue"
     [name]="cell.getId()"
     [placeholder]="cell.getTitle()"
@@ -92,204 +57,247 @@
     class="form-control ng-valid ng-touched ng-dirty"
     fullWidth
   />
-  <nb-timepicker #timepicker></nb-timepicker>
-</ng-container>
+  <nb-datepicker #formpicker></nb-datepicker>
 
-<!-- Input type enum -->
-<nb-select
-  [(ngModel)]="cell.newValue"
-  [name]="cell.getId()"
-  (change)="onClick.emit($event)"
-  class="input-space"
-  *ngIf="field.type == REST_FIELD_TYPES.ENUM"
-  nbInput
->
-  <nb-option
-    *ngFor="let option of field.metaData.addConfig.enumOptions"
-    [value]="option.value"
-    >{{ option.label }}</nb-option
-  >
-</nb-select>
-
-<!-- Input type Boolean -->
-<div style="text-align: center" *ngIf="field.type == REST_FIELD_TYPES.BOOLEAN">
-  <nb-toggle [name]="cell.getId()" [(ngModel)]="cell.newValue"></nb-toggle>
-</div>
-
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.FILE">
-  <file-upload
-    [(ngModel)]="cell.newValue"
-    class="input-space"
-    [name]="field.label"
-    style="min-width: 300px; max-width: 300px"
-  ></file-upload>
-</ng-container>
-
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.PDF">
-  <file-upload
-    [(ngModel)]="cell.newValue"
-    class="input-space"
-    [name]="field.label"
-    style="min-width: 300px; max-width: 300px"
-  ></file-upload>
-  <object width="300px" height="300px" [data]="cell.newValue[0]"></object>
-</ng-container>
-
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.IMAGE">
-  <file-upload
-    [(ngModel)]="cell.newValue"
-    (change)="getEvent($event)"
-    class="file-image"
-    [name]="field.label"
-    [control]="control"
-  >
-    <ng-template
-      let
-      isFileDragDropAvailable="isFileDragDropAvailable"
-      #placeholder
-    >
-      <div *ngIf="control.size === 0">
-        <svg viewBox="0 0 512 512" class="icon">
-          <path
-            d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
-          ></path>
-        </svg>
-
-        <div class="upload-text">
-          <ng-container
-            *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable"
-          >
-            <b>Drag and drop</b> files<br />
-            or click here
-          </ng-container>
-          <ng-template #isNotDragDropAvailable>
-            <b>Click here</b> to<br />
-            choose a files
-          </ng-template>
-        </div>
-      </div>
-    </ng-template>
-
-    <ng-template let-i="index" let-file="file" let-control="control" #item>
-      <div class="overlay">
-        <svg
-          viewBox="0 0 448 512"
-          class="delete-button"
-          (click)="control.removeFile(file)"
-        >
-          <path
-            d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
-          ></path>
-        </svg>
-        <img *ngIf="control.valid" [src]="uploadedFile | async" />
-      </div>
-    </ng-template>
-  </file-upload>
-
-  <button
-    nbButton
-    status="primary"
-    *ngIf="!isCrop && controlCroper != null"
-    (click)="activeCroper()"
-  >
-    CROP
-  </button>
-
-  <ng-container *ngIf="isCrop">
-    <image-cropper
-      [imageFile]="controlCroper"
-      [maintainAspectRatio]="true"
-      [aspectRatio]="4 / 3"
-      format="png"
-      (imageCropped)="imageCropped($event)"
-    ></image-cropper>
-
-    <button nbButton status="primary" (click)="saveCroper()">
-      SAVE CHANGE
-    </button>
+  <!-- Input type dateTime -->
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.DATETIME">
+    <input
+      nbInput
+      [nbDatepicker]="dateTimePicker"
+      [(ngModel)]="cell.newValue"
+      [name]="cell.getId()"
+      [placeholder]="cell.getTitle()"
+      [disabled]="!cell.isEditable()"
+      (click)="onClick.emit($event)"
+      (keydown.enter)="onEdited.emit($event)"
+      (keydown.esc)="onStopEditing.emit()"
+      class="form-control ng-valid ng-touched ng-dirty"
+      fullWidth
+    />
+    <nb-date-timepicker withSeconds #dateTimePicker></nb-date-timepicker>
   </ng-container>
 
-  <!-- <img [src]="croppedImage" /> -->
-</ng-container>
+  <!-- Input type time -->
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.TIME">
+    <input
+      [nbTimepicker]="timepicker"
+      twelveHoursFormat]
+      nbInput
+      [(ngModel)]="cell.newValue"
+      [name]="cell.getId()"
+      [placeholder]="cell.getTitle()"
+      [disabled]="!cell.isEditable()"
+      (click)="onClick.emit($event)"
+      (keydown.enter)="onEdited.emit($event)"
+      (keydown.esc)="onStopEditing.emit()"
+      class="form-control ng-valid ng-touched ng-dirty"
+      fullWidth
+    />
+    <nb-timepicker #timepicker></nb-timepicker>
+  </ng-container>
 
-<!-- Input type  -->
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.HAS_MANY">
-  <nb-tag-list (tagRemove)="onTagRemove($event)" class="input-space">
-    <nb-tag *ngFor="let tree of cell.newValue" [text]="tree" removable></nb-tag>
-    <input type="text" nbTagInput (tagAdd)="onTagAdd($event)" fullWidth />
-  </nb-tag-list>
-</ng-container>
-
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO">
-  <input
-    #autoInput
-    nbInput
-    type="text"
-    (input)="onChange()"
-    placeholder="Enter value"
-    [nbAutocomplete]="auto"
+  <!-- Input type enum -->
+  <nb-select
     [(ngModel)]="cell.newValue"
-  />
-
-  <nb-autocomplete #auto (selectedChange)="onSelectionChange($event)">
+    [name]="cell.getId()"
+    (change)="onClick.emit($event)"
+    class="input-space"
+    *ngIf="field.type == REST_FIELD_TYPES.ENUM"
+    nbInput
+  >
     <nb-option
-      *ngFor="let option of filteredOptions$ | async"
-      [value]="
-        option[
-          field?.metaData?.addConfig.belongToOptions?.value
-            ? field?.metaData?.addConfig?.belongToOptions?.value
-            : 'id'
-        ]
-      "
+      *ngFor="let option of field.metaData.addConfig.enumOptions"
+      [value]="option.value"
+      >{{ option.label }}</nb-option
     >
-      {{
-        option[
-          field.metaData.addConfig.belongToOptions.template
-            ? field.metaData.addConfig.belongToOptions.template
-            : field.metaData.addConfig.belongToOptions.filterKeys[0]
-        ]
-      }}
-    </nb-option>
-  </nb-autocomplete>
-</ng-container>
+  </nb-select>
 
-<ng-container *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY">
-  <div>
-    <nb-tag-list (tagRemove)="onTagRemoveBelong($event)" class="input-space">
+  <!-- Input type Boolean -->
+  <div
+    style="text-align: center"
+    *ngIf="field.type == REST_FIELD_TYPES.BOOLEAN"
+  >
+    <nb-toggle [name]="cell.getId()" [(ngModel)]="cell.newValue"></nb-toggle>
+  </div>
+
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.FILE">
+    <file-upload
+      [(ngModel)]="cell.newValue"
+      class="input-space"
+      [name]="field.label"
+      style="min-width: 300px; max-width: 300px"
+    ></file-upload>
+  </ng-container>
+
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.PDF">
+    <file-upload
+      [(ngModel)]="cell.newValue"
+      class="input-space"
+      [name]="field.label"
+      style="min-width: 300px; max-width: 300px"
+    ></file-upload>
+    <object width="300px" height="300px" [data]="cell.newValue[0]"></object>
+  </ng-container>
+
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.IMAGE">
+    <file-upload
+      [(ngModel)]="cell.newValue"
+      class="file-image"
+      [name]="field.label"
+      [control]="control"
+    >
+      <ng-template
+        let
+        isFileDragDropAvailable="isFileDragDropAvailable"
+        #placeholder
+      >
+        <div *ngIf="control.size === 0">
+          <svg viewBox="0 0 512 512" class="icon">
+            <path
+              d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+            ></path>
+          </svg>
+
+          <div class="upload-text">
+            <ng-container
+              *ngIf="isFileDragDropAvailable; else isNotDragDropAvailable"
+            >
+              <b>Drag and drop</b> files<br />
+              or click here
+            </ng-container>
+            <ng-template #isNotDragDropAvailable>
+              <b>Click here</b> to<br />
+              choose a files
+            </ng-template>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template let-i="index" let-file="file" let-control="control" #item>
+        <div class="overlay">
+          <svg
+            viewBox="0 0 448 512"
+            class="delete-button"
+            (click)="control.removeFile(file)"
+          >
+            <path
+              d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"
+            ></path>
+          </svg>
+          <img *ngIf="control.valid" [src]="uploadedFile | async" />
+        </div>
+      </ng-template>
+    </file-upload>
+
+    <button
+      nbButton
+      status="primary"
+      *ngIf="!isCrop && controlCroper != null"
+      (click)="activeCroper()"
+    >
+      CROP
+    </button>
+
+    <ng-container *ngIf="isCrop">
+      <image-cropper
+        [imageFile]="controlCroper"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="4 / 3"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+      ></image-cropper>
+
+      <button nbButton status="primary" (click)="saveCroper()">
+        SAVE CHANGE
+      </button>
+    </ng-container>
+
+    <!-- <img [src]="croppedImage" /> -->
+  </ng-container>
+
+  <!-- Input type  -->
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.HAS_MANY">
+    <nb-tag-list (tagRemove)="onTagRemove($event)" class="input-space">
       <nb-tag
         *ngFor="let tree of cell.newValue"
-        [text]="
-          tree[
-            field.metaData.addConfig.belongToManyOptions.template
-              ? field.metaData.addConfig.belongToManyOptions.template
-              : field.metaData.addConfig.belongToManyOptions.filterKeys[0]
-          ]
-        "
+        [text]="tree"
         removable
       ></nb-tag>
-      <input
-        type="text"
-        nbTagInput
-        #autoInputBelongToMany
-        [nbAutocomplete]="autoBelonToMany"
-        (tagAdd)="onTagAdd($event)"
-        fullWidth
-      />
+      <input type="text" nbTagInput (tagAdd)="onTagAdd($event)" fullWidth />
+    </nb-tag-list>
+  </ng-container>
 
-      <nb-autocomplete #autoBelonToMany (selectedChange)="onChoose($event)">
-        <nb-option
-          *ngFor="let option of filteredOptions$ | async"
-          [value]="option"
-        >
-          {{
-            option[
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO">
+    <input
+      #autoInput
+      nbInput
+      type="text"
+      (input)="onChange()"
+      placeholder="Enter value"
+      [nbAutocomplete]="auto"
+      [(ngModel)]="cell.newValue"
+    />
+
+    <nb-autocomplete #auto (selectedChange)="onSelectionChange($event)">
+      <nb-option
+        *ngFor="let option of filteredOptions$ | async"
+        [value]="
+          option[
+            field?.metaData?.addConfig.belongToOptions?.value
+              ? field?.metaData?.addConfig?.belongToOptions?.value
+              : 'id'
+          ]
+        "
+      >
+        {{
+          option[
+            field.metaData.addConfig.belongToOptions.template
+              ? field.metaData.addConfig.belongToOptions.template
+              : field.metaData.addConfig.belongToOptions.filterKeys[0]
+          ]
+        }}
+      </nb-option>
+    </nb-autocomplete>
+  </ng-container>
+
+  <ng-container *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY">
+    <div>
+      <nb-tag-list (tagRemove)="onTagRemoveBelong($event)" class="input-space">
+        <nb-tag
+          *ngFor="let tree of cell.newValue"
+          [text]="
+            tree[
               field.metaData.addConfig.belongToManyOptions.template
                 ? field.metaData.addConfig.belongToManyOptions.template
                 : field.metaData.addConfig.belongToManyOptions.filterKeys[0]
             ]
-          }}
-        </nb-option>
-      </nb-autocomplete>
-    </nb-tag-list>
-  </div>
+          "
+          removable
+        ></nb-tag>
+        <input
+          type="text"
+          nbTagInput
+          #autoInputBelongToMany
+          [nbAutocomplete]="autoBelonToMany"
+          (tagAdd)="onTagAdd($event)"
+          fullWidth
+        />
+
+        <nb-autocomplete #autoBelonToMany (selectedChange)="onChoose($event)">
+          <nb-option
+            *ngFor="let option of filteredOptions$ | async"
+            [value]="option"
+          >
+            {{
+              option[
+                field.metaData.addConfig.belongToManyOptions.template
+                  ? field.metaData.addConfig.belongToManyOptions.template
+                  : field.metaData.addConfig.belongToManyOptions.filterKeys[0]
+              ]
+            }}
+          </nb-option>
+        </nb-autocomplete>
+      </nb-tag-list>
+    </div>
+  </ng-container>
 </ng-container>
