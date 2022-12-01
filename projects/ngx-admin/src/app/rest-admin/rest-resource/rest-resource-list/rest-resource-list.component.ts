@@ -34,6 +34,7 @@ export class RestResourceListComponent implements OnInit {
   data: any;
   settings: any;
   source: ServerDataSource;
+  currentPerPage: number;
   isFetching = true;
   ressourceName = "";
   filterBy = "";
@@ -42,6 +43,8 @@ export class RestResourceListComponent implements OnInit {
     type: "png", // the type you want to download
     elementId: "myTableElementId", // the id of html/table element
   };
+  searchItems = [];
+  searchItem = "";
 
   items = [
     { title: "All formats" },
@@ -49,7 +52,13 @@ export class RestResourceListComponent implements OnInit {
     { title: "EXCEL" },
     { title: "PDF" },
   ];
-
+  perPagesOptions = [
+    { title: "5", value: 5 },
+    { title: "10", value: 10 },
+    { title: "20", value: 20 },
+    { title: "50", value: 50 },
+    { title: "100", value: 100 },
+  ];
   constructor(
     private serviceRestConfig: RestAdminConfigService,
     private serviceRestResources: RestResourceService,
@@ -71,18 +80,27 @@ export class RestResourceListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.resource.listConfig.searchFilter) {
+      this.searchItems.push({
+        field: "",
+        operator: "",
+        terms: "",
+      });
+    }
+
+    this.currentPerPage = this.resource.listConfig.perPage;
     this.settings = {
       hideSubHeader: this.resource.listConfig.hideAddSubHeader,
       actions: {
         position: "right",
         custom: [
           {
-            name: "delete",
-            title: "<i  class='nb-trash'></i> ",
-          },
-          {
             name: "detail",
             title: "<i class='nb-compose'></i>",
+          },
+          {
+            name: "delete",
+            title: "<i  class='nb-trash text-danger' ></i> ",
           },
         ],
         edit: false,
@@ -91,6 +109,7 @@ export class RestResourceListComponent implements OnInit {
       pager: {
         perPage: this.resource.listConfig.perPage,
       },
+
       columns: this.createMatTableColumns(),
 
       add: {
@@ -284,22 +303,6 @@ export class RestResourceListComponent implements OnInit {
       });
   }
 
-  onFilter(value: string) {
-    if (this.resource.listConfig.searchFilter.filterBy.length > 1) {
-      // return this.source.setFilter(
-      //   [
-      //     {
-      //       field: this.filterBy,
-      //       search: value.toLowerCase(),
-      //     },
-      //   ],
-      //   false
-      // );
-      console.log("Filter by", this.filterBy);
-      console.log("Filter by", this.filterBy);
-    }
-  }
-
   onCustom(event) {
     switch (event.action) {
       case "delete":
@@ -474,7 +477,74 @@ export class RestResourceListComponent implements OnInit {
 
   //Filter
 
-  selectFilterBy(value) {
-    console.log(value);
+  setPager(setPager) {
+    this.source.setPaging(1, setPager, true);
+    this.settings = Object.assign({}, this.settings);
+  }
+
+  selectFilterBy(value, index) {
+    this.searchItems[index].field = value;
+  }
+  selectOperator(value, index) {
+    this.searchItems[index].operator = value;
+  }
+
+  onFilter(value, index) {
+    if (index != undefined && index != null) {
+      this.searchItems[index].terms = value;
+    } else {
+      this.searchItem = value;
+    }
+  }
+
+  addFieldSearch() {
+    this.searchItems.push({ field: "", operator: "", terms: "" });
+  }
+
+  removeFieldSearch(index) {
+    this.searchItems.splice(index, 1);
+  }
+  
+  startSearch() {
+    const params = {};
+    let search = "";
+    this.searchItems.forEach((element) => {
+      if (element.field != "" && element.terms != "") {
+        if (element.operator != "=") {
+          params[element.field + "-" + element.operator] = `${element.terms}`;
+        } else {
+          params[element.field] = `${element.terms}`;
+        }
+      }
+    });
+    search = Object.keys(this.resource.listConfig.queryParams)
+      .reduce(
+        (cumul, item) =>
+          cumul + item + "=" + this.resource.listConfig.queryParams[item] + ",",
+        ""
+      )
+      .slice(0, -1);
+    if (search != "") {
+      search += "&";
+    }
+    search += Object.keys(params)
+      .reduce((cumul, item) => cumul + item + "=" + params[item] + "&", "")
+      .slice(0, -1);
+
+    // console.log(search);
+
+    this.source = new ServerDataSource(this.http, {
+      endPoint:
+        this.serviceRestConfig.restBaseUrl +
+        "/" +
+        this.resource.listConfig.api +
+        "?" +
+        search,
+      dataKey: "data",
+      pagerPageKey: "page",
+      pagerLimitKey: "per_page",
+      totalKey: "total",
+      filterFieldKey: `#_include#`,
+    });
   }
 }

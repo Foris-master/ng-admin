@@ -8,6 +8,9 @@ import {
   EditConfig,
   CustomIcon,
   DetailConfig,
+  GroupConfig,
+  TYPE_GROUP,
+  TYPE_METHOD_REQUEST,
 } from "./rest-resource.model";
 
 export class RestResource {
@@ -16,7 +19,9 @@ export class RestResource {
   private _icon: string | CustomIcon;
   private _name: string;
   private _authRequired: boolean;
+  private _hasFile = false;
   private _showInMenu: boolean;
+  private _permissions: string[];
 
   private _fields: RestField[];
   private _listConfig: ListConfig;
@@ -25,7 +30,7 @@ export class RestResource {
   private _detailConfig: DetailConfig;
 
   private _queryParams: any;
-
+  
   constructor(
     mainConfig: MainConfig,
     fields: RestField[],
@@ -79,7 +84,18 @@ export class RestResource {
       label: field.label ? field.label : field.name,
       inForm: field.inForm !== undefined ? field.inForm : true,
       metaData: field.metaData,
+      i18n: field.i18n !== undefined ? field.i18n : false,
     }));
+  }
+
+  get hasFile(): boolean {
+    return this.fields.findIndex((field) => (
+      [REST_FIELD_TYPES.IMAGE, REST_FIELD_TYPES.PDF, REST_FIELD_TYPES.FILE].includes(field.type)
+    )) >=0;
+  }
+
+  get permissions(): string[] {
+    return this._permissions == null ? [] : this._permissions;
   }
 
   // Defini afin de tester les valeurs des metadatas
@@ -140,7 +156,17 @@ export class RestResource {
     rest.searchFilter = this._listConfig.searchFilter
       ? this._listConfig.searchFilter
       : null;
-    // rest.orderBy= this._listConfig.orderBy? this._listConfig.description : 'list of '+ this.getName();
+    if (rest.group) {
+      rest.group = this._listConfig.group;
+      rest.group.priority = rest.group.priority ? rest.group.priority : 0;
+      rest.group.icon = rest.group.icon ? rest.group.icon : "folder-outline";
+    } else
+      rest.group = {
+        priority: 0,
+        name: "default",
+        type: TYPE_GROUP.DEFAULT,
+      };
+
     return rest;
   }
 
@@ -160,6 +186,19 @@ export class RestResource {
     rest.isLaravel = this._editConfig.isLaravel
       ? this._editConfig.isLaravel
       : false;
+    this._hasFile = this.hasFile;
+    
+    rest.method = this._editConfig.method
+      ? this._editConfig.method
+      : TYPE_METHOD_REQUEST.POST;
+
+    rest.body = this._editConfig.body
+      ? this._editConfig.body
+      : {};
+    rest.header = this._editConfig.header
+      ? this._editConfig.header
+      : {};
+
     rest.title = this._editConfig.title
       ? this._editConfig.title
       : "Edit " + this.name;
@@ -173,6 +212,9 @@ export class RestResource {
     const rest: DetailConfig = {};
     rest.api = this._detailConfig.api ? this._detailConfig.api : this.api;
     rest.title = this._detailConfig.title ? this._detailConfig.title : "";
+    rest.tabsConfig = this._detailConfig.tabsConfig
+      ? this._detailConfig.tabsConfig
+      : null;
     rest.queryParams = this._detailConfig.queryParams
       ? this._detailConfig.queryParams
       : this.queryParams;
@@ -232,5 +274,9 @@ export class RestResource {
 
   set showInMenu(v: boolean) {
     this._showInMenu = v;
+  }
+
+  set permissions(v: string[]) {
+    this._permissions = v;
   }
 }

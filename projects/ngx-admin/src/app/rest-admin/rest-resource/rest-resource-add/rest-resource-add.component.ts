@@ -84,6 +84,10 @@ export class RestResourceAddComponent implements OnInit {
 
   source: LocalDataSource;
   settings: any;
+
+  //Morph_field
+  morphFields = {};
+
   constructor(
     private fb: FormBuilder,
     private serviceRest: RestResourceService,
@@ -255,10 +259,28 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               const jsonFiels = [];
               elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-                jsonFiels.push({ label: field, value: "" });
+                jsonFiels.push({
+                  label: field,
+                  value:
+                    datas[elt.name][0] == "{"
+                      ? JSON.parse(datas[elt.name])[field]
+                      : typeof datas[elt.name] !== "string"
+                      ? datas[elt.name][field]
+                      : datas[elt.name],
+                });
               });
 
               this.jsonEditorOptions[elt.name] = jsonFiels;
+              return {
+                ...cumul,
+                [elt.name]: datas[elt.name],
+              };
+
+            case REST_FIELD_TYPES.MORPH_ONE:
+              this.morphFields[elt.name] = {
+                type: datas[elt.name].type,
+                id: datas[elt.name].id,
+              };
               return {
                 ...cumul,
                 [elt.name]: [null],
@@ -306,18 +328,22 @@ export class RestResourceAddComponent implements OnInit {
                   elt.metaData.addConfig.belongToOptions.resourceName
                 );
 
-              this.serviceRest
-                .getResources({
-                  api: restResource.api,
-                  queryParams: elt.metaData.addConfig.belongToOptions
-                    .queryParams
-                    ? elt.metaData.addConfig.belongToOptions.queryParams
-                    : restResource.queryParams,
-                })
-                .subscribe((response: any) => {
-                  this.options[elt.name] = response;
-                  this.allFilterContains[elt.name] = of(this.options[elt.name]);
-                });
+              if (restResource) {
+                this.serviceRest
+                  .getResources({
+                    api: restResource.api,
+                    queryParams: elt.metaData.addConfig.belongToOptions
+                      .queryParams
+                      ? elt.metaData.addConfig.belongToOptions.queryParams
+                      : restResource.queryParams,
+                  })
+                  .subscribe((response: any) => {
+                    this.options[elt.name] = response;
+                    this.allFilterContains[elt.name] = of(
+                      this.options[elt.name]
+                    );
+                  });
+              }
 
               return {
                 ...cumul,
@@ -354,7 +380,7 @@ export class RestResourceAddComponent implements OnInit {
               };
             case REST_FIELD_TYPES.JSON:
               const jsonFiels = [];
-              elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+              elt?.metaData?.addConfig?.jsonConfig.jsonFields.map((field) => {
                 jsonFiels.push({ label: field, value: "" });
               });
 
@@ -428,6 +454,12 @@ export class RestResourceAddComponent implements OnInit {
     if (field.type == REST_FIELD_TYPES.BELONG_TO)
       return of(value).pipe(
         map((filterString: string) => this.filter(filterString, field))
+      );
+    else if (field.type == REST_FIELD_TYPES.MORPH)
+      return of(value).pipe(
+        map((filterString: string) =>
+          this.filterMany(filterString, field, "morphConfig")
+        )
       );
     return of(value).pipe(
       map((filterString: string) => this.filterMany(filterString, field))
@@ -552,14 +584,15 @@ export class RestResourceAddComponent implements OnInit {
     });
   }
 
-  private filterMany(value: any, field): string[] {
+  private filterMany(
+    value: any,
+    field,
+    options = "belongToManyOptions"
+  ): string[] {
     if (typeof value == "string") {
       return this.options[field.name].filter((optionValue) => {
-        return field.metaData.addConfig.belongToManyOptions.filterKeys.some(
-          (elt) =>
-            `${optionValue[elt].toLowerCase()}`.includes(
-              `${value.toLowerCase()}`
-            )
+        return field.metaData.addConfig[options].filterKeys.some((elt) =>
+          `${optionValue[elt].toLowerCase()}`.includes(`${value.toLowerCase()}`)
         );
       });
     }
@@ -568,27 +601,46 @@ export class RestResourceAddComponent implements OnInit {
   //End BelongToMany
 
   onCreate() {
-    const datas = new FormData();
+    let datas;
     const formData = this.form.value;
-    Object.keys(formData).forEach((key, index) => {
-      const search: RestField = this.resource.fields.find(
-        (elt) => elt.name == key
-      );
-      if (search) {
-        switch (search.type) {
-          case REST_FIELD_TYPES.DATE:
-            datas.append(key, `${moment(formData[key]).format("YYYY-MM-DD")}`);
-            break;
-          case REST_FIELD_TYPES.JSON:
-            datas.append(key, JSON.stringify(this.jsonEditorOptions[key]));
-            break;
+    const _body = this.resource.editConfig.body;
+    if (this.resource.hasFile) {
+      datas = new FormData();
+      Object.keys(formData).forEach((key, index) => {
+        const search: RestField = this.resource.fields.find(
+          (elt) => elt.name == key
+        );
+        if (search) {
+          switch (search.type) {
+            case REST_FIELD_TYPES.DATE:
+              datas.append(
+                key,
+                `${moment(formData[key]).format("YYYY-MM-DD")}`
+              );
+              break;
+            case REST_FIELD_TYPES.JSON:
+              let jsonFields = {};
+              if (typeof this.jsonEditorOptions[key] == "object") {
+                this.jsonEditorOptions[key].map((elt) => {
+                  jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                });
+              }
+              datas.append(key, JSON.stringify(jsonFields));
+              break;
 
-          default:
-            datas.append(key, formData[key]);
-            break;
+            default:
+              datas.append(key, formData[key]);
+              break;
+          }
         }
-      }
-    });
+      });
+      Object.keys(_body).map((key) => {
+        datas.append(key, _body[key]);
+      });
+    } else {
+      datas = this.form.value;
+      datas = { ...datas, ..._body };
+    }
 
     const saveBelongTomany = [];
 
@@ -600,6 +652,7 @@ export class RestResourceAddComponent implements OnInit {
         });
       }
     });
+
     this.serviceRest
       .addResources(this.resource.addConfig, datas)
       .subscribe((response: any) => {
@@ -634,40 +687,50 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onEdit() {
-    const datas = new FormData();
-    if (
-      this.resource.editConfig.isLaravel &&
-      this.resource.editConfig.isLaravel == true
-    )
-      datas.append("_method", "PUT");
-
+    let datas;
     const formData = this.form.value;
+    const _body = this.resource.editConfig.body;
+    if (this.resource.hasFile) {
+      datas = new FormData();
+      Object.keys(formData).forEach((key) => {
+        const search: RestField = this.resource.fields.find(
+          (elt) => elt.name == key
+        );
+        if (search) {
+          switch (search.type) {
+            case REST_FIELD_TYPES.DATE:
+              datas.append(
+                key,
+                `${moment(formData[key]).format("YYYY-MM-DD")}`
+              );
+              break;
+            case REST_FIELD_TYPES.JSON:
+              let jsonFields = {};
+              if (typeof this.jsonEditorOptions[key] == "object") {
+                this.jsonEditorOptions[key].map((elt) => {
+                  jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                });
+              }
+              datas.append(key, JSON.stringify(jsonFields));
+              break;
+            case REST_FIELD_TYPES.IMAGE:
+              if (this.filesUpload[key].length > 0)
+                datas.append(key, formData[key]);
+              break;
 
-    Object.keys(formData).forEach((key, index) => {
-      const search: RestField = this.resource.fields.find(
-        (elt) => elt.name == key
-      );
-      if (search) {
-        switch (search.type) {
-          case REST_FIELD_TYPES.DATE:
-            datas.append(key, `${moment(formData[key]).format("YYYY-MM-DD")}`);
-            break;
-          case REST_FIELD_TYPES.JSON:
-            datas.append(key, JSON.stringify(this.jsonEditorOptions[key]));
-            break;
-          case REST_FIELD_TYPES.IMAGE:
-            if (this.filesUpload[key].length > 0)
+            default:
               datas.append(key, formData[key]);
-
-            break;
-
-          default:
-            datas.append(key, formData[key]);
-            break;
+              break;
+          }
         }
-      }
-    });
-
+      });
+      Object.keys(_body).map((key, index) => {
+        datas.append(key, _body[key]);
+      });
+    } else {
+      datas = this.form.value;
+      datas = { ...datas, ..._body };
+    }
     const saveBelongTomany = [];
 
     this.resource.fields.forEach((elt) => {
@@ -679,7 +742,12 @@ export class RestResourceAddComponent implements OnInit {
       }
     });
     this.serviceRest
-      .editResources(this.resource.addConfig, datas, this.formState.idEntity)
+      .editResources(
+        this.resource.editConfig,
+        this.resource.hasFile,
+        datas,
+        this.formState.idEntity
+      )
       .subscribe((response: any) => {
         if (saveBelongTomany.length > 0) {
           saveBelongTomany.forEach((element, index) => {
@@ -794,5 +862,25 @@ export class RestResourceAddComponent implements OnInit {
 
   removeJSONField(event, index) {
     this.jsonEditorOptions[event.name].splice(index, 1);
+  }
+
+  onMorphSelectField(event, field) {
+    const ressources = this.serviceRestAdminConfig.getSpecificResource(event);
+    const fieldConfig = this.resource.fields.find((elt) => elt.name == field);
+
+    // console.log(ressources);
+    // console.log(fieldConfig);
+
+    this.serviceRest
+      .getResources({
+        api: ressources.api,
+        queryParams: fieldConfig.metaData.addConfig.morphConfig.queryParams
+          ? fieldConfig.metaData.addConfig.morphConfig.queryParams
+          : {},
+      })
+      .subscribe((response: any) => {
+        this.options[field] = response;
+        this.allFilterContains[field] = of(this.options[field]);
+      });
   }
 }

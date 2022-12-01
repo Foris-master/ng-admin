@@ -2,11 +2,15 @@ import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable } from "@angular/core";
 import { AuthGuard } from "../../../utils/auth.guard";
 import { RestResource } from "../models/rest-resource";
-import { ListConfig, REST_CONFIG } from "../models/rest-resource.model";
+import {
+  ListConfig,
+  REST_CONFIG,
+  TYPE_GROUP,
+} from "../models/rest-resource.model";
 import { RestResourceAddComponent } from "../rest-resource-add/rest-resource-add.component";
 import { RestResourceDetailComponent } from "../rest-resource-detail/rest-resource-detail.component";
 import { RestResourceListComponent } from "../rest-resource-list/rest-resource-list.component";
-
+import * as _ from "lodash";
 @Injectable({
   providedIn: "root",
 })
@@ -56,34 +60,104 @@ export class RestAdminConfigService {
   }
 
   generateMenus() {
-    const group = this._restResources.filter(
-      (rest) => rest.listConfig.group !== null
-    );
-    if (group.length > 0) {
-    }
-    return this._restResources.reduce((cumul, rest) => {
-      if (rest.showInMenu) {
-        return [
-          ...cumul,
-          {
-            title: rest.name,
-            icon: rest.icon,
-            link: "admin/" + rest.name.toLowerCase() + "-list",
-            // children: [
-            //   {
-            //     title: "Liste",
-            //     link: "admin/" + rest.name.toLowerCase() + "-list",
-            //   },
-            //   {
-            //     title: "Ajouter",
-            //     link: "admin/" + rest.name.toLowerCase() + "-add",
-            //   },
-            // ],
-          },
-        ];
+    let groupsName = [];
+    this._restResources.map((rest) => {
+      if (rest.listConfig.group) groupsName.push(rest.listConfig.group);
+    });
+
+    const menus_group = {};
+    this._restResources.forEach((item) => {
+      if (item.listConfig.group) {
+        switch (item.listConfig.group.type) {
+          case TYPE_GROUP.SEPARATOR:
+            if (Array.isArray(menus_group[item.listConfig.group.name]))
+              menus_group[item.listConfig.group.name].push({
+                title: item.name,
+                icon: item.icon,
+                link: "admin/" + item.name.toLowerCase() + "-list",
+              });
+            else {
+              menus_group[item.listConfig.group.name] = [
+                {
+                  title: item.listConfig.group.name,
+                  group: true,
+                },
+              ];
+              menus_group[item.listConfig.group.name].push({
+                title: item.name,
+                icon: item.icon,
+                link: "admin/" + item.name.toLowerCase() + "-list",
+              });
+            }
+            break;
+          case TYPE_GROUP.MENU:
+            if (Array.isArray(menus_group[item.listConfig.group.name])) {
+              menus_group[item.listConfig.group.name][0].children.push({
+                title: item.name,
+                link: "admin/" + item.name.toLowerCase() + "-list",
+                icon: item.icon,
+              });
+            } else {
+              menus_group[item.listConfig.group.name] = [
+                {
+                  title: item.listConfig.group.name,
+                  icon: item.listConfig.group.icon,
+                  children: [
+                    {
+                      title: item.name,
+                      link: "admin/" + item.name.toLowerCase() + "-list",
+                      icon: item.icon,
+                    },
+                  ],
+                },
+              ];
+            }
+            break;
+          default:
+            if (Array.isArray(menus_group[TYPE_GROUP.DEFAULT]))
+              menus_group[TYPE_GROUP.DEFAULT].push({
+                title: item.name,
+                icon: item.icon,
+                link: "admin/" + item.name.toLowerCase() + "-list",
+              });
+            else {
+              menus_group[TYPE_GROUP.DEFAULT] = [];
+              menus_group[TYPE_GROUP.DEFAULT].push({
+                title: item.name,
+                link: "admin/" + item.name.toLowerCase() + "-list",
+                icon: item.icon,
+              });
+            }
+            break;
+        }
+      } else {
+        if (Array.isArray(menus_group[TYPE_GROUP.DEFAULT]))
+          menus_group[TYPE_GROUP.DEFAULT].push({
+            title: item.name,
+            icon: item.icon,
+            link: "admin/" + item.name.toLowerCase() + "-list",
+          });
+        else {
+          menus_group[TYPE_GROUP.DEFAULT] = [];
+          menus_group[TYPE_GROUP.DEFAULT].push({
+            title: item.name,
+            link: "admin/" + item.name.toLowerCase() + "-list",
+            icon: item.icon,
+          });
+        }
       }
-      return [...cumul];
-    }, []);
+    });
+    let menus_test = [];
+    let priorities = groupsName
+      .sort((a, b) => a.priority - b.priority)
+      .reverse();
+
+    priorities = _.uniqBy(priorities, "name");
+    priorities.forEach((item) => {
+      menus_test.push(...menus_group[item.name]);
+    });
+
+    return menus_test;
   }
 
   generateRoutes() {
@@ -94,21 +168,41 @@ export class RestAdminConfigService {
           {
             path: "admin/" + rest.name.toLowerCase() + "-list",
             component: RestResourceListComponent,
+            // data: {
+            //   ngxPermissions: {
+            //     only: rest.permissions,
+            //   },
+            // },
             canActivate: [AuthGuard],
           },
           {
             path: "admin/" + rest.name.toLowerCase() + "-add",
             component: RestResourceAddComponent,
+            // data: {
+            //   ngxPermissions: {
+            //     only: rest.permissions,
+            //   },
+            // },
             canActivate: [AuthGuard],
           },
           {
             path: "admin/" + rest.name.toLowerCase() + "-edit/:id",
             component: RestResourceAddComponent,
+            // data: {
+            //   ngxPermissions: {
+            //     only: rest.permissions,
+            //   },
+            // },
             canActivate: [AuthGuard],
           },
           {
             path: "admin/" + rest.name.toLowerCase() + "-detail/:id",
             component: RestResourceDetailComponent,
+            // data: {
+            //   ngxPermissions: {
+            //     only: rest.permissions,
+            //   },
+            // },
             canActivate: [AuthGuard],
           },
         ];
@@ -117,48 +211,41 @@ export class RestAdminConfigService {
         ...cumul,
         {
           path: "admin/" + rest.name.toLowerCase() + "-list",
+          data: {
+            ngxPermissions: {
+              only: rest.permissions,
+            },
+          },
           component: RestResourceListComponent,
         },
         {
           path: "admin/" + rest.name.toLowerCase() + "-add",
+          data: {
+            ngxPermissions: {
+              only: rest.permissions,
+            },
+          },
           component: RestResourceAddComponent,
         },
         {
           path: "admin/" + rest.name.toLowerCase() + "-edit/:id",
+          data: {
+            ngxPermissions: {
+              only: rest.permissions,
+            },
+          },
           component: RestResourceAddComponent,
         },
         {
           path: "admin/" + rest.name.toLowerCase() + "-detail/:id",
+          data: {
+            ngxPermissions: {
+              only: rest.permissions,
+            },
+          },
           component: RestResourceDetailComponent,
         },
       ];
     }, []);
   }
 }
-// <ngx-rest-ressource-list [resource]="res"></ngx-rest-ressource-list>
-
-// generateMenus() {
-//   return this._restResources.reduce((cumul, rest) => {
-//     return [
-//       ...cumul,
-//       {
-//         title: rest.name,
-//         icon: rest.icon,
-//         link: "admin/" + rest.name + "-list",
-//         home: true,
-//       },
-//     ];
-//   }, []);
-// }
-
-// generateRoutes() {
-//   return this._restResources.reduce((cumul, rest) => {
-//     return [
-//       ...cumul,
-//       {
-//         path: "admin/" + rest.name + "-list",
-//         component: RestResourceListComponent,
-//       },
-//     ];
-//   }, []);
-// }

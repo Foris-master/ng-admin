@@ -67,7 +67,8 @@ import { RestLangService } from "./rest-resource/service/rest-lang.service";
 import { HttpErrorInterceptor } from "../utils/http-error.interceptor";
 import { AuthGuard } from "../utils/auth.guard";
 import { NgxDropzoneModule } from "ngx-dropzone";
-
+import { NgxPermissionsModule } from "ngx-permissions";
+// serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(
   http: HttpClient,
   serviceRestConfig: RestAdminConfigService
@@ -149,6 +150,7 @@ export function createTranslateHttpLoader(
     NbContextMenuModule,
     TranslateModule,
     NgxDropzoneModule,
+    NgxPermissionsModule.forChild(),
     // TranslateModule.forRoot({
     //   loader: {
     //     provide: TranslateLoader,

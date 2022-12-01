@@ -13,8 +13,8 @@ export const routes: Routes = [
     path: "auth",
     loadChildren: () => import("./auth/auth.module").then((m) => m.AuthModule),
   },
-  { path: "", redirectTo: "admin", pathMatch: "full" },
-  { path: "**", redirectTo: "admin" },
+  // { path: "", redirectTo: "admin", pathMatch: "full" },
+  { path: "**", redirectTo: "/" },
 ];
 
 const config: ExtraOptions = {

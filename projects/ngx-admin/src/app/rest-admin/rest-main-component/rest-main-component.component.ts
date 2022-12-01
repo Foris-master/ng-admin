@@ -13,7 +13,7 @@ import {
 import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { RestAdminConfigService } from "../rest-resource/service/rest-admin-config.service";
 import { GLOBALS } from "../../utils/globals";
-
+import { NgxPermissionsService } from "ngx-permissions";
 @Component({
   selector: "ngx-rest-main-component",
   styleUrls: ["./rest-main-component.component.scss"],
@@ -32,9 +32,11 @@ export class RestMainComponentComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private restLangService: RestLangService,
     private router: Router
-  ) {}
+  ) // private permissionsService: NgxPermissionsService
+  {}
 
   ngOnInit(): void {
     this.restLangService.setInitialAppLanguage();
+    // this.permissionsService.loadPermissions([]);
   }
 }

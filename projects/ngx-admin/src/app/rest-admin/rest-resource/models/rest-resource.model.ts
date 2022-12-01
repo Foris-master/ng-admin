@@ -1,3 +1,4 @@
+import { filter } from "rxjs/operators";
 import { RestResource } from "./rest-resource";
 export interface ResourceConfig {
   title?: string;
@@ -10,11 +11,13 @@ export interface Field {
   name: string;
   template?: string;
 }
+
 export interface RestField extends Field {
   metaData?: REST_FIELD_METADATA;
   type?: REST_FIELD_TYPES;
   template?: string;
   inForm?: boolean;
+  i18n?: boolean;
 }
 
 export interface MainConfig {
@@ -23,11 +26,33 @@ export interface MainConfig {
   api?: string;
   description?: string;
   authRequired?: boolean; // Savoir si on a besoin d'etre authentifier pour consulter la ressource
-  showInMenu?: boolean;
+  showInMenu?: boolean; //Afficher dans le menu
 }
 export interface CustomIcon {
   icon?: string;
   pack?: string;
+}
+
+export interface GroupConfig {
+  name: string;
+  icon?: string | CustomIcon;
+  description?: string;
+  type: TYPE_GROUP;
+  priority?: number;
+}
+
+export enum TYPE_GROUP {
+  SEPARATOR = "separator",
+  MENU = "menu",
+  DEFAULT = "default",
+}
+
+export enum TYPE_METHOD_REQUEST {
+  POST = "POST",
+  PUT = "PUT",
+  GET = "GET",
+  DELETE = "DELETE",
+  PATCH = "PATCH",
 }
 
 export interface ListConfig extends ResourceConfig {
@@ -44,21 +69,30 @@ export interface ListConfig extends ResourceConfig {
     filterBy?: string[];
   };
   hideAddSubHeader?: boolean;
-  group?: {
-    name: string;
-    priority?: number;
-  };
+  group?: GroupConfig;
 }
 
 export interface AddConfig extends ResourceConfig {
   inList?: boolean;
+  method?: TYPE_METHOD_REQUEST;
+  body?: any;
+  header?: any;
 }
 
 export interface EditConfig extends ResourceConfig {
   isLaravel?: boolean;
+  method?: TYPE_METHOD_REQUEST;
+  body?: any;
+  header?: any;
 }
 
-export interface DetailConfig extends ResourceConfig {}
+export interface DetailConfig extends ResourceConfig {
+  tabsConfig?: TabsOptions[];
+}
+export interface TabsOptions {
+  name: string;
+  datas: string[];
+}
 
 export interface REST_FIELD_METADATA {
   format?: string;
@@ -67,6 +101,7 @@ export interface REST_FIELD_METADATA {
     style?: string;
     restManyResources?: RestField;
     restBelongToManyResources?: RestField;
+    restHasOneResources?: RestField;
   };
   addConfig?: {
     enumOptions?: {
@@ -105,7 +140,26 @@ export interface REST_FIELD_METADATA {
       jsonFields?: string[];
       isOpen?: boolean;
     };
+    morphConfig?: {
+      related?: {
+        label: string;
+        value: string;
+      }[];
+      filterKeys?: string[]; // Le nom du champs par lequel on va filtrer
+      value?: string; // Le nom du champs de la valeur a retenir
+      template?: string; // Le template a affciher
+      queryParams?: any;
+    };
   };
+  detailConfig?: {
+    restManyResources?: RestField | RestManyOptionsCustom;
+  };
+}
+
+export interface RestManyOptionsCustom {
+  resourceName: string;
+  resource: RestResource;
+  style?: string;
 }
 
 export enum DIRECTION {
@@ -164,4 +218,12 @@ interface StandartField extends Field {
 export interface REST_AUTH {
   fields: StandartField[];
   formTitle: string;
+}
+
+export enum PERMISSION {
+  C = "create",
+  R = "read",
+  U = "update",
+  D = "delete",
+  A = "all",
 }

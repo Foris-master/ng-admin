@@ -5,7 +5,6 @@
     restField.type == REST_FIELD_TYPES.NUMBER ||
     restField.type == REST_FIELD_TYPES.ENUM
   "
-  class="text-center"
 >
   <ng-container *ngIf="!restField.template"> {{ val }}</ng-container>
 
@@ -17,7 +16,7 @@
 
 <div *ngIf="restField.type == REST_FIELD_TYPES.BOOLEAN" class="text-center">
   <ng-container *ngIf="!restField.template">
-    <nb-checkbox [indeterminate]="val" [disabled]="true"></nb-checkbox>
+    <nb-checkbox [checked]="val" [disabled]="true"></nb-checkbox>
   </ng-container>
 
   <ng-container *ngIf="restField.template">
@@ -36,6 +35,14 @@
   </ng-container>
 </div>
 
+<div *ngIf="restField.type == REST_FIELD_TYPES.HAS_ONE">
+  <ng-container *ngIf="!restField.template"> {{ val }}</ng-container>
+  <ng-container *ngIf="restField.template">
+    <cng-html-compiler [template]="restField.template" [componentClass]="val">
+    </cng-html-compiler>
+  </ng-container>
+</div>
+
 <div *ngIf="restField.type == REST_FIELD_TYPES.BELONG_TO">
   <ng-container *ngIf="!restField.template"> {{ val }}</ng-container>
   <ng-container *ngIf="restField.template">
@@ -44,8 +51,24 @@
   </ng-container>
 </div>
 
+<div *ngIf="restField.type == REST_FIELD_TYPES.MORPH">
+  <ng-container *ngIf="!restField.template"> {{ val }}</ng-container>
+  <ng-container *ngIf="restField.template">
+    <cng-html-compiler [template]="restField.template" [componentClass]="val">
+    </cng-html-compiler>
+  </ng-container>
+</div>
+
+<div *ngIf="restField.type == REST_FIELD_TYPES.JSON">
+  <ng-container *ngIf="!restField.template"> {{ jsonValue }}</ng-container>
+  <ng-container *ngIf="restField.template">
+    <cng-html-compiler [template]="restField.template" [componentClass]="jsonValue">
+    </cng-html-compiler>
+  </ng-container>
+</div>
+
 <div *ngIf="restField.type == REST_FIELD_TYPES.DATE">
-  <ng-container *ngIf="!restField.template"> {{ val | date }}</ng-container>
+  <ng-container *ngIf="!restField.template"> {{ val }}</ng-container>
   <ng-container *ngIf="restField.template">
     <cng-html-compiler [template]="restField.template" [componentClass]="val">
     </cng-html-compiler>

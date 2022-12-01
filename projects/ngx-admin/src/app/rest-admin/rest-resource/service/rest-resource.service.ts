@@ -1,5 +1,5 @@
 import { RestAdminConfigService } from "./rest-admin-config.service";
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import {
   AddConfig,
@@ -16,19 +16,23 @@ export const FILTER_OPERATORS = [
   },
   {
     name: `filter-compare.superiority`,
-    value: `gt`,
-  },
-  {
-    name: `filter-compare.inferiority`,
-    value: `lt`,
-  },
-  {
-    name: `filter-compare.supOrEgal`,
     value: `get`,
   },
   {
-    name: `filter-compare.infOrEgal`,
+    name: `filter-compare.inferiority`,
     value: `let`,
+  },
+  // {
+  //   name: `filter-compare.supOrEgal`,
+  //   value: `gt`,
+  // },
+  // {
+  //   name: `filter-compare.infOrEgal`,
+  //   value: `lt`,
+  // },
+  {
+    name: `filter-compare.include`,
+    value: `lk`,
   },
 ];
 
@@ -62,19 +66,22 @@ export class RestResourceService {
   addResources = (addConfig: AddConfig, datas) =>
     this.http.post(
       `${this.serviceRestConfig.restBaseUrl}/${addConfig.api}`,
-      datas
+      datas,
+      { headers: this.getCustomHeaders(addConfig.header) }
     );
 
-  editResources = (editConfig: EditConfig, datas, id) => {
-    if (editConfig.isLaravel)
+  editResources = (editConfig: EditConfig, hasFile: Boolean, datas, id) => {
+    if (hasFile)
       return this.http.post(
         `${this.serviceRestConfig.restBaseUrl}/${editConfig.api}/${id}`,
-        datas
+        datas,
+        { headers: this.getCustomHeaders(editConfig.header) }
       );
 
     return this.http.put(
       `${this.serviceRestConfig.restBaseUrl}/${editConfig.api}/${id}`,
-      datas
+      datas,
+      { headers: this.getCustomHeaders(editConfig.header) }
     );
   };
 
@@ -82,4 +89,13 @@ export class RestResourceService {
     this.http.delete(
       `${this.serviceRestConfig.restBaseUrl}/${listConfig.api}/${id}`
     );
+
+  getCustomHeaders(headerElement: any): HttpHeaders {
+    let headers = new HttpHeaders(); // create header object
+
+    Object.keys(headerElement).map((key) => {
+      headers = headers.append(key, headerElement[key]); // add another header
+    });
+    return headers;
+  }
 }

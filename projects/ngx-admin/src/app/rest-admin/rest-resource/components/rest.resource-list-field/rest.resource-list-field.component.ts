@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { ViewCell } from "ng2-smart-table";
 import { RestField, REST_FIELD_TYPES } from "../../models/rest-resource.model";
+import { RestLangService } from "../../service/rest-lang.service";
 import * as _ from "lodash";
 import {
   NbTreeGridDataSource,
@@ -26,12 +27,16 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
   allColumns = [this.customColumn];
   dataSource: NbTreeGridDataSource<any>;
   image: any;
+  //json options
+  _jsonValue: any;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>) {}
+  constructor(
+    private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
+    private langService: RestLangService
+  ) {}
   ngOnInit() {
     this.restField = this.value.restField;
     this.val = _.get(this.rowData, this.restField.label);
-
     switch (this.restField.type) {
       case REST_FIELD_TYPES.HAS_MANY:
         const datas = [];
@@ -89,6 +94,17 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
         this.dataSource = this.dataSourceBuilder.create(rowsBelongToMany);
         break;
 
+      case REST_FIELD_TYPES.HAS_ONE:
+        if (
+          this.val &&
+          !this.restField?.metaData?.listConfig?.restHasOneResources?.template
+        ) {
+          this.val =
+            this.val[
+              this.restField.metaData.listConfig.restHasOneResources.name
+            ];
+        }
+        break;
       default:
         break;
     }
@@ -99,6 +115,23 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
 
   get REST_FIELD_TYPES() {
     return REST_FIELD_TYPES;
+  }
+  get jsonValue() {
+    if (this.restField.i18n == true) {
+      this.restField.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+        if (field == this.langService.selected) {
+          if (this.val[0] == "{") this._jsonValue = JSON.parse(this.val)[field];
+          else if (typeof this.val !== "string")
+            this._jsonValue = this.val[field];
+          else this._jsonValue = this.val;
+        }
+      });
+    } else {
+      this._jsonValue = this.val;
+    }
+
+    if (typeof this.val == "object") return JSON.stringify(this._jsonValue);
+    else return this._jsonValue;
   }
 }
 

@@ -40,7 +40,10 @@
               <!-- Input type string  -->
               <div
                 class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.STRING"
+                *ngIf="
+                  field.type == REST_FIELD_TYPES.STRING ||
+                  field.type == REST_FIELD_TYPES.HAS_ONE
+                "
               >
                 <label class="label">{{ field.label | titlecase }}</label>
                 <input
@@ -451,6 +454,7 @@
               </div> -->
               </div>
 
+              <!-- Input type JSON -->
               <div
                 class="input-space"
                 *ngIf="field.type == REST_FIELD_TYPES.JSON"
@@ -495,7 +499,6 @@
                       fullWidth
                       nbInput
                       [(ngModel)]="item.value"
-                      [(ngModel)]="item.value"
                       [ngModelOptions]="{ standalone: true }"
                     />
                   </div>
@@ -511,6 +514,73 @@
                     >
                       <nb-icon icon="trash-alt" pack="fas"></nb-icon>
                     </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Input type MORPH -->
+              <div
+                class="input-space"
+                *ngIf="field.type == REST_FIELD_TYPES.MORPH"
+              >
+                <div class="row">
+                  <div class="col-3">
+                    <label class="label">Ressources</label>
+                    <nb-select
+                      fullWidth
+                      (selectedChange)="onMorphSelectField($event, field.name)"
+                    >
+                      <nb-option
+                        *ngFor="
+                          let option of field.metaData.addConfig.morphConfig
+                            .related
+                        "
+                        [value]="option.value"
+                        >{{ option.label }}</nb-option
+                      >
+                    </nb-select>
+                  </div>
+
+                  <div class="col-9">
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      #autoInput
+                      nbInput
+                      fullWidth
+                      type="text"
+                      [formControlName]="field.name"
+                      placeholder="Enter value"
+                      [nbAutocomplete]="autoComplete"
+                      (keyup)="filterInput($event, field)"
+                      [id]="i"
+                      [disabled]="!allFilterContains[field.name]"
+                    />
+                    <nb-autocomplete
+                      #autoComplete
+                      (selectedChange)="onSelectionChange($event, field)"
+                    >
+                      <nb-option
+                        *ngFor="
+                          let option of allFilterContains[field.name] | async
+                        "
+                        [value]="
+                          option[
+                            field?.metaData?.addConfig.morphConfig?.value
+                              ? field?.metaData?.addConfig.morphConfig?.value
+                              : 'id'
+                          ]
+                        "
+                      >
+                        {{
+                          option[
+                            field.metaData.addConfig.morphConfig.template
+                              ? field.metaData.addConfig.morphConfig.template
+                              : field.metaData.addConfig.morphConfig
+                                  .filterKeys[0]
+                          ]
+                        }}
+                      </nb-option>
+                    </nb-autocomplete>
                   </div>
                 </div>
               </div>
