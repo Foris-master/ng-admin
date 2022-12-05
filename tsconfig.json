@@ -6,11 +6,23 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noImplicitReturns": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": false,
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "paths": {
+      "rest-admin": [
+        "dist/rest-admin/rest-admin",
+        "dist/rest-admin"
+      ],
+      "@nebular/theme/*": [
+        "node_modules/@nebular/theme/styles/themes/*"
+      ]
+    },
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,

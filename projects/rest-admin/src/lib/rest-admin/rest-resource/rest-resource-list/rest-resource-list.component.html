@@ -1,0 +1,155 @@
+<nb-card status="success">
+  <nb-card-header>
+    <div class="row">
+      <div class="col-10">
+        {{ this.resource.listConfig.title }}
+      </div>
+
+      <div class="col-1"></div>
+      <div class="col-1" style="display: flex">
+        <button nbButton ghost status="control" (click)="addNewEntity()">
+          <nb-icon icon="plus-circle"></nb-icon>
+        </button>
+        <button
+          nbButton
+          [nbContextMenu]="items"
+          nbContextMenuTag="my-context"
+          ghost
+          status="control"
+        >
+          <nb-icon icon="menu"></nb-icon>
+        </button>
+
+        <!-- <button
+          nbButton
+          status="primary"
+          [nbContextMenu]="items"
+          nbContextMenuTag="my-context"
+        >
+          {{ "rest-list.export" | translate }}
+        </button> -->
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body
+    [nbSpinner]="isFetching"
+    nbSpinnerSize="large"
+    nbSpinnerStatus="primary"
+  >
+    <!-- Rest-search implement -->
+    <div class="row mb-5" *ngIf="this.resource.listConfig.searchFilter">
+      <ng-container
+        *ngIf="this.resource.listConfig.searchFilter.filterBy.length > 0"
+      >
+        <ng-container *ngFor="let search of searchItems; let index = index">
+          <div class="col-lg-3 col-md-6 col-xs-12 input-space">
+            <!-- Select with filter by -->
+            <nb-select
+              [placeholder]="'rest-list.filterPlaceholder' | translate"
+              fullWidth
+              (selectedChange)="selectFilterBy($event, index)"
+            >
+              <nb-option
+                *ngFor="
+                  let filter of this.resource.listConfig.searchFilter.filterBy
+                "
+                [value]="filter"
+                >{{ filter | titlecase }}</nb-option
+              >
+            </nb-select>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-xs-12 input-space">
+            <nb-select
+              [placeholder]="'rest-list.operator' | translate"
+              fullWidth
+              (selectedChange)="selectOperator($event, index)"
+            >
+              <nb-option
+                *ngFor="let operator of filterOperator"
+                [value]="operator.value"
+                >{{ operator.name | translate }}
+              </nb-option>
+            </nb-select>
+          </div>
+          <div
+            class="col-lg-4 col-md-12 col-xs-12 input-space"
+            [ngClass]="{
+              'col-12': this.resource.listConfig.searchFilter == null
+            }"
+          >
+            <input
+              nbInput
+              (input)="onFilter($event.target, index)"
+              fullWidth
+              [placeholder]="'rest-list.searchPlaceholder' | translate"
+              type="text"
+            />
+          </div>
+          <div
+            class="col-lg-1 col-md-6 col-xs-6 input-space"
+            *ngIf="index == 0"
+          >
+            <button nbButton fullWidth status="primary" (click)="startSearch()">
+              <nb-icon icon="search-outline"></nb-icon>
+            </button>
+          </div>
+          <div
+            class="col-lg-1 col-md-6 col-xs-6 input-space"
+            *ngIf="index == 0; else elseBlock"
+          >
+            <button
+              nbButton
+              fullWidth
+              status="primary"
+              (click)="addFieldSearch()"
+            >
+              <nb-icon icon="plus-outline"></nb-icon>
+            </button>
+          </div>
+          <ng-template #elseBlock>
+            <div class="col-lg-1 col-md-6 col-xs-6 input-space">
+              <button
+                nbButton
+                fullWidth
+                status="danger"
+                (click)="removeFieldSearch(index)"
+              >
+                <nb-icon icon="minus-outline"></nb-icon>
+              </button>
+            </div>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (createConfirm)="onCreateConfirm($event)"
+      (userRowSelect)="detailEntity($event)"
+      (custom)="onCustom($event)"
+    >
+    </ng2-smart-table>
+
+    <div
+      class="row align-items-center justify-content-end"
+      style="margin-top: 1rem"
+    >
+      <label class="label mx-2">{{ "options.per_page" | translate }}</label>
+      <nb-select
+        [placeholder]="resource.listConfig.perPage.toString()"
+        [(selected)]="currentPerPage"
+      >
+        <nb-option
+          *ngFor="let perPage of perPagesOptions"
+          (click)="setPager(perPage.value)"
+          value="perPage.value"
+          >{{ perPage.title }}</nb-option
+        >
+      </nb-select>
+    </div>
+  </nb-card-body>
+</nb-card>

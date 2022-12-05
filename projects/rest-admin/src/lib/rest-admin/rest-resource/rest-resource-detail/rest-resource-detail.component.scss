@@ -1,0 +1,24 @@
+b {
+  margin-right: 20px;
+}
+.belongTo-link {
+  color: #598bff !important;
+  &:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+}
+img {
+  max-width: 300px;
+  max-height: 200px;
+}
+:host nb-tab {
+  padding: 1.25rem;
+}
+.rest-item-align {
+  // display: flex;
+  // border: 0;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  margin-right: 5px;
+}

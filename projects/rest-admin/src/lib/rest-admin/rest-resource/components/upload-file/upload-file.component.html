@@ -1,0 +1,24 @@
+<nb-card accent="danger" style="width: 370px">
+  <nb-card-header>{{ title }}</nb-card-header>
+
+  <nb-card-body>
+    <file-upload [control]="control"></file-upload>
+  </nb-card-body>
+
+  <nb-card-footer style="display: flex; justify-content: end">
+    <div class="buttons-row">
+      <button
+        nbButton
+        (click)="close()"
+        status="danger"
+        style="margin-right: 10px"
+      >
+        Annuler
+      </button>
+
+      <button nbButton (click)="addDatas()" status="success">
+        Charger le fichier
+      </button>
+    </div>
+  </nb-card-footer>
+</nb-card>

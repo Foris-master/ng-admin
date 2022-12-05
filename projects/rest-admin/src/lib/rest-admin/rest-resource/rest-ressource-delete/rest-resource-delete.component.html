@@ -1,0 +1,27 @@
+<nb-card>
+  <nb-card-header>{{ title }}</nb-card-header>
+  <nb-card-body> Voulez vous vraiment le supprimer? </nb-card-body>
+  <nb-card-footer>
+    <button
+      style="margin-right: 10px"
+      nbButton
+      hero
+      status="primary"
+      (click)="dismiss()"
+    >
+      Non
+    </button>
+
+    <button
+      nbButton
+      status="danger"
+      size="medium"
+      (click)="delete()"
+      [nbSpinner]="isSubmit"
+      nbSpinnerStatus="danger"
+      nbSpinnerMessage=""
+    >
+      Oui
+    </button>
+  </nb-card-footer>
+</nb-card>

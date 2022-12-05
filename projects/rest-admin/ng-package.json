@@ -1,0 +1,40 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/rest-admin",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@nebular/theme": "@nebular/theme",
+      "@ngx-translate/core": "@ngx-translate/core",
+      "ng2-smart-table": "ng2-smart-table",
+      "@codehint-ng/html-compiler": "@codehint-ng/html-compiler",
+      "@iplab/ngx-file-upload": "@iplab/ngx-file-upload",
+      "ngx-image-cropper": "ngx-image-cropper",
+      "@nebular/auth": "@nebular/auth",
+      "@ngx-translate/http-loader": "@ngx-translate/http-loader",
+      "@nebular/eva-icons": "@nebular/eva-icons",
+      "@nebular/security": "@nebular/security",
+      "ngx-dropzone": "ngx-dropzone",
+      "file-saver": "file-saver",
+      "xlsx": "xlsx",
+      "jspdf": "jspdf",
+      "lodash": "lodash",
+      "moment": "moment",
+      "jszip": "jszip",
+      "ngx-input-validator": "ngx-input-validator",
+      "ngx-permissions": "ngx-permissions"
+    },
+    "styleIncludePaths": [
+      "projects/rest-admin/src/styles.scss",
+      "projects/rest-admin/*",
+      "projects/rest-admin/assets/i18n/*",
+      "projects/rest-admin/src/@theme/styles/styles.scss",
+      "node_modules/@nebular/theme/styles/themes/*"
+    ]
+  },
+  "assets": [
+    "./lib/assets/i18n/*",
+    "./assets/i18n/*",
+    "./favicon.ico"
+  ]
+}
