@@ -1,10 +1,34 @@
 {
   "name": "rest-admin",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "exports": {
     ".": {
       "sass": "./src/@theme/styles/styles.scss"
     }
+  },
+  "publishConfig": {
+    "@Foris-master:registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "admin",
+    "angular",
+    "npm",
+    "package",
+    "boilerplate",
+    "starter"
+  ],
+  "author": "Foris Master <evarisfomekong@gmail.com>",
+  "homepage": "https://github.com/Foris-master/ngx-admin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foris-master/ngx-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Foris-master/ngx-admin/issues"
   },
   "peerDependencies": {
     "@angular/common": "^12.1.0",

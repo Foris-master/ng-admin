@@ -1,6 +1,31 @@
 {
   "name": "rest-admin",
-  "version": "0.0.0",
+  "version": "1.0.1",
+  "publishConfig": {
+    "@Foris-master:registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "admin",
+    "angular",
+    "npm",
+    "package",
+    "boilerplate",
+    "starter"
+  ],
+  "author": "Foris Master <evarisfomekong@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Foris-master/ngx-admin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foris-master/ngx-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Foris-master/ngx-admin/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +34,6 @@
     "test": "ng test",
     "lib:build": "ng build rest-admin"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~12.1.0",
     "@angular/cdk": "12.1.0",
