@@ -61,12 +61,13 @@ export class RestResourceService {
     );
   };
 
-  addResources = (addConfig: AddConfig, datas) =>
-    this.http.post(
+  addResources = (addConfig: AddConfig, datas) => {
+    return this.http.post(
       `${this.serviceRestConfig.restBaseUrl}/${addConfig.api}`,
       datas,
       { headers: this.getCustomHeaders(addConfig.header) }
     );
+  }
 
   editResources = (editConfig: EditConfig, hasFile: Boolean, datas, id) => {
     if (hasFile)
@@ -90,10 +91,11 @@ export class RestResourceService {
 
   getCustomHeaders(headerElement: any): HttpHeaders {
     let headers = new HttpHeaders(); // create header object
-
-    Object.keys(headerElement).map((key) => {
-      headers = headers.append(key, headerElement[key]); // add another header
-    });
+    if (headerElement !== undefined) {
+      Object.keys(headerElement).map((key) => {
+        headers = headers.append(key, headerElement[key]); // add another header
+      });
+    }
     return headers;
   }
 }

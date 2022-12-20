@@ -7,6 +7,7 @@ import { RestResourceService } from "../service/rest-resource.service";
 import {
   NbTreeGridDataSourceBuilder,
 } from "@nebular/theme";
+import { RestLangService } from "../service/rest-lang.service";
 
 @Component({
   selector: "ngx-rest-resource-detail",
@@ -35,7 +36,8 @@ export class RestResourceDetailComponent implements OnInit {
     private serviceRest: RestResourceService,
     private serviceRestAdminConfig: RestAdminConfigService,
     private router: Router,
-    private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>
+    private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
+    private langService: RestLangService
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +53,7 @@ export class RestResourceDetailComponent implements OnInit {
         ].path.split("-")[0];
     }
     this.entityId = parseInt(id);
-    console.log("restNAEM", this.ressourceName);
+    // console.log("restNAEM", this.ressourceName);
     this.resource = this.serviceRestAdminConfig.getSpecificResource(
       this.ressourceName
     );
@@ -103,8 +105,8 @@ export class RestResourceDetailComponent implements OnInit {
                       ?.restManyResources
                   ) {
                     const datas = [];
-                    console.log("Xa me concerne");
-                    console.log(temp[search.name]);
+                    // console.log("Xa me concerne");
+                    // console.log(temp[search.name]);
 
                     temp[search.name].data.forEach((item) => {
                       datas.push({
@@ -413,5 +415,20 @@ export class RestResourceDetailComponent implements OnInit {
 
   isArray = (a) => {
     return !!a && a.constructor === Array;
+  };
+  jsonValue = (val) => {
+    let _jsonValue: any;
+    if (val.restField.i18n == true) {
+      if (val.data[0] == "{")
+        _jsonValue = JSON.parse(val.data)[this.langService.selected];
+      else if (typeof val.data !== "string")
+        _jsonValue = val.data[this.langService.selected];
+      else _jsonValue = val.data;
+    } else {
+      _jsonValue = val.data;
+    }
+
+    if (typeof val.data == "object") return JSON.stringify(_jsonValue);
+    else return _jsonValue;
   };
 }

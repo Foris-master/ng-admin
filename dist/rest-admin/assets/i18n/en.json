@@ -1,0 +1,38 @@
+{
+  "login": {
+    "logIn": "Log in",
+    "rememberMe": "Remember me",
+    "email": "Email address",
+    "main": "Login",
+    "password": "Password",
+    "forgetPassword": "Forgot Password",
+    "labelMessage": "Hello! Log in with your email"
+  },
+  "rest-detail": {
+    "btnCancel": "cancel",
+    "btnEdit": "edit",
+    "belongToRef": "click to access the referenced resource"
+  },
+  "rest-list": {
+    "filterPlaceholder": "Filter by",
+    "searchPlaceholder": "Search",
+    "operator": "operator",
+    "export": "Export as"
+  },
+  "rest-add": {
+    "import": "Import data",
+    "get-template": "Download template",
+    "invalid-link": "Invalid link"
+  },
+  "filter-compare": {
+    "equality": "equality",
+    "superiority": "superiority",
+    "inferiority": "inferiority",
+    "supOrEgal": "greater than or equal to",
+    "infOrEgal": "less than or equal to",
+    "include":"include"
+  },
+  "options": {
+    "per_page": "Per page"
+  }
+}

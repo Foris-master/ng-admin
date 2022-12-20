@@ -169,13 +169,20 @@ export class RestResource {
     return rest;
   }
 
-  get addConfig(): ListConfig {
+  get addConfig(): AddConfig {
     const rest: AddConfig = {};
 
     rest.api = this._addConfig.api ? this._addConfig.api : this.api;
     rest.title = this._addConfig.title
       ? this._addConfig.title
       : "Add " + this.name;
+
+    rest.method = this._addConfig.method
+      ? this._addConfig.method
+      : TYPE_METHOD_REQUEST.POST;
+
+    rest.body = this._addConfig.body ? this._addConfig.body : {};
+    rest.header = this._addConfig.header ? this._addConfig.header : {};
     return rest;
   }
 

@@ -1,34 +1,34 @@
-import { LocalDataSource } from "ng2-smart-table";
-import { RestField, REST_FIELD_TYPES } from "../models/rest-resource.model";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { Component, Input, OnInit, QueryList, ViewChild } from "@angular/core";
+import { LocalDataSource } from 'ng2-smart-table';
+import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, QueryList, ViewChild } from '@angular/core';
 import {
   NbDialogService,
   NbMenuService,
   NbTagComponent,
   NbTagInputAddEvent,
-} from "@nebular/theme";
-import { filter, map } from "rxjs/operators";
-import { BehaviorSubject, Observable, of, Subscription } from "rxjs";
+} from '@nebular/theme';
+import { filter, map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
 import {
   FileUploadControl,
   FileUploadValidators,
-} from "@iplab/ngx-file-upload";
-import { RestResource } from "../models/rest-resource";
-import { RestResourceService } from "../service/rest-resource.service";
-import { ImageCroppedEvent, base64ToFile } from "ngx-image-cropper";
-import { RestAdminConfigService } from "../service/rest-admin-config.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { ALPHABET, RestExportService } from "../service/rest-export.service";
-import { UploadFileComponent } from "../components/upload-file/upload-file.component";
-import { RestResourceListFieldComponent } from "../components/rest.resource-list-field/rest.resource-list-field.component";
-import { RestResourceEditorFieldsComponent } from "../components/rest-resource-editor-fields/rest-resource-editor-fields.component";
-import { Validator } from "ngx-input-validator";
-import * as moment from "moment";
+} from '@iplab/ngx-file-upload';
+import { RestResource } from '../models/rest-resource';
+import { RestResourceService } from '../service/rest-resource.service';
+import { ImageCroppedEvent, base64ToFile } from 'ngx-image-cropper';
+import { RestAdminConfigService } from '../service/rest-admin-config.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ALPHABET, RestExportService } from '../service/rest-export.service';
+import { UploadFileComponent } from '../components/upload-file/upload-file.component';
+import { RestResourceListFieldComponent } from '../components/rest.resource-list-field/rest.resource-list-field.component';
+import { RestResourceEditorFieldsComponent } from '../components/rest-resource-editor-fields/rest-resource-editor-fields.component';
+import { Validator } from 'ngx-input-validator';
+import * as moment from 'moment';
 @Component({
-  selector: "ngx-rest-resource-add",
-  templateUrl: "./rest-resource-add.component.html",
-  styleUrls: ["./rest-resource-add.component.scss"],
+  selector: 'ngx-rest-resource-add',
+  templateUrl: './rest-resource-add.component.html',
+  styleUrls: ['./rest-resource-add.component.scss'],
 })
 export class RestResourceAddComponent implements OnInit {
   @Input() resource: RestResource;
@@ -442,11 +442,17 @@ export class RestResourceAddComponent implements OnInit {
   // Autocomplete
   private filter(value: any, field): string[] {
     if (typeof value == "string") {
-      return this.options[field.name].filter((optionValue) => {
-        return field.metaData.addConfig.belongToOptions.filterKeys.some((elt) =>
-          `${optionValue[elt].toLowerCase()}`.includes(`${value.toLowerCase()}`)
-        );
-      });
+      if (!this.options[field.name]) {
+        return [];
+      } else
+        return this.options[field.name].filter((optionValue) => {
+          return field.metaData.addConfig.belongToOptions.filterKeys.some(
+            (elt) =>
+              `${optionValue[elt].toLowerCase()}`.includes(
+                `${"value".toLowerCase()}`
+              )
+          );
+        });
     }
   }
 
@@ -603,7 +609,7 @@ export class RestResourceAddComponent implements OnInit {
   onCreate() {
     let datas;
     const formData = this.form.value;
-    const _body = this.resource.editConfig.body;
+    const _body = this.resource.addConfig.body;
     if (this.resource.hasFile) {
       datas = new FormData();
       Object.keys(formData).forEach((key, index) => {
@@ -627,7 +633,13 @@ export class RestResourceAddComponent implements OnInit {
               }
               datas.append(key, JSON.stringify(jsonFields));
               break;
-
+            case REST_FIELD_TYPES.BOOLEAN:
+              // console.log(formData[key]);
+              // if (formData[key]) {
+              //   datas.append(key, 1);
+              // } else datas.append(key, 0);
+              datas.append(key, formData[key]);
+              break;
             default:
               datas.append(key, formData[key]);
               break;
@@ -641,6 +653,7 @@ export class RestResourceAddComponent implements OnInit {
       datas = this.form.value;
       datas = { ...datas, ..._body };
     }
+    console.log(datas);
 
     const saveBelongTomany = [];
 
@@ -653,37 +666,47 @@ export class RestResourceAddComponent implements OnInit {
       }
     });
 
-    this.serviceRest
-      .addResources(this.resource.addConfig, datas)
-      .subscribe((response: any) => {
-        if (saveBelongTomany.length > 0) {
-          saveBelongTomany.forEach((element, index) => {
-            const restResource =
-              this.serviceRestAdminConfig.getSpecificResource(element.pivot);
-            const proms = [];
+    // this.serviceRest
+    //   .addResources(this.resource.addConfig, datas)
+    //   .subscribe((response: any) => {
+    //     if (saveBelongTomany.length > 0) {
+    //       saveBelongTomany.forEach((element, index) => {
+    //         const restResource =
+    //           this.serviceRestAdminConfig.getSpecificResource(element.pivot);
+    //         const proms = [];
 
-            for (let index = 0; index < element.resources.length; index++) {
-              const item = element.resources[index];
-              const data = {
-                [item["saveRelatedIdName"]]: item[item["saveRelatedIdName"]],
-                [item["saveResourceIdName"]]: response.id,
-              };
+    //         for (let index = 0; index < element.resources.length; index++) {
+    //           const item = element.resources[index];
+    //           const data = {
+    //             [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
+    //             [item['saveResourceIdName']]: response.id,
+    //           };
 
-              proms.push(
-                this.serviceRest
-                  .addResources(restResource.addConfig, data)
-                  .toPromise()
-              );
-            }
+    //           proms.push(
+    //             this.serviceRest
+    //               .addResources(restResource.addConfig, data)
+    //               .toPromise()
+    //           );
+    //         }
 
-            Promise.all(proms).then((res) => {
-              if (index == saveBelongTomany.length - 1) this.reset();
-            });
-          });
-        } else {
-          this.reset();
-        }
-      });
+    //         Promise.all(proms).then((res) => {
+    //           if (index == saveBelongTomany.length - 1) {
+    //             this.router.navigate([
+    //               `/admin/${this.ressourceName}-detail`,
+    //               response.id,
+    //             ]);
+    //             this.reset();
+    //           }
+    //         });
+    //       });
+    //     } else {
+    //       this.router.navigate([
+    //         `/admin/${this.ressourceName}-detail`,
+    //         response.id,
+    //       ]);
+    //       this.reset();
+    //     }
+    //   });
   }
 
   onEdit() {
@@ -824,6 +847,8 @@ export class RestResourceAddComponent implements OnInit {
 
   private createMatTableColumns() {
     const colunms: any = {};
+    // console.log(this.resource.fields);
+
     this.resource.fields
       .filter((item) => this.resource.listConfig.columns.includes(item.name))
       .forEach((elt) => {

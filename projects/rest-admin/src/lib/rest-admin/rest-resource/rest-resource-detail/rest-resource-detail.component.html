@@ -34,6 +34,23 @@
             </cng-html-compiler>
           </div>
         </ng-container>
+        <ng-container *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON">
+          <ng-container *ngIf="!item.value.restField.template">
+            <div class="">
+              <b>{{ item.key | titlecase }}: </b>
+            </div>
+            <div class="">
+              {{ jsonValue(item.value) }}
+            </div>
+          </ng-container>
+          <ng-container *ngIf="item.value.restField.template">
+            <cng-html-compiler
+              [template]="item.value.restField.template"
+              [componentClass]="jsonValue(item.value)"
+            >
+            </cng-html-compiler>
+          </ng-container>
+        </ng-container>
 
         <ng-container
           *ngIf="item.value.restField.type == REST_FIELD_TYPES.BOOLEAN"
