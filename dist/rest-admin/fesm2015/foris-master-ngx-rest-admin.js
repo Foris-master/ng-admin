@@ -1465,44 +1465,42 @@ class RestResourceAddComponent {
                 });
             }
         });
-        // this.serviceRest
-        //   .addResources(this.resource.addConfig, datas)
-        //   .subscribe((response: any) => {
-        //     if (saveBelongTomany.length > 0) {
-        //       saveBelongTomany.forEach((element, index) => {
-        //         const restResource =
-        //           this.serviceRestAdminConfig.getSpecificResource(element.pivot);
-        //         const proms = [];
-        //         for (let index = 0; index < element.resources.length; index++) {
-        //           const item = element.resources[index];
-        //           const data = {
-        //             [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
-        //             [item['saveResourceIdName']]: response.id,
-        //           };
-        //           proms.push(
-        //             this.serviceRest
-        //               .addResources(restResource.addConfig, data)
-        //               .toPromise()
-        //           );
-        //         }
-        //         Promise.all(proms).then((res) => {
-        //           if (index == saveBelongTomany.length - 1) {
-        //             this.router.navigate([
-        //               `/admin/${this.ressourceName}-detail`,
-        //               response.id,
-        //             ]);
-        //             this.reset();
-        //           }
-        //         });
-        //       });
-        //     } else {
-        //       this.router.navigate([
-        //         `/admin/${this.ressourceName}-detail`,
-        //         response.id,
-        //       ]);
-        //       this.reset();
-        //     }
-        //   });
+        this.serviceRest
+            .addResources(this.resource.addConfig, datas)
+            .subscribe((response) => {
+            if (saveBelongTomany.length > 0) {
+                saveBelongTomany.forEach((element, index) => {
+                    const restResource = this.serviceRestAdminConfig.getSpecificResource(element.pivot);
+                    const proms = [];
+                    for (let index = 0; index < element.resources.length; index++) {
+                        const item = element.resources[index];
+                        const data = {
+                            [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
+                            [item['saveResourceIdName']]: response.id,
+                        };
+                        proms.push(this.serviceRest
+                            .addResources(restResource.addConfig, data)
+                            .toPromise());
+                    }
+                    Promise.all(proms).then((res) => {
+                        if (index == saveBelongTomany.length - 1) {
+                            this.router.navigate([
+                                `/admin/${this.ressourceName}-detail`,
+                                response.id,
+                            ]);
+                            this.reset();
+                        }
+                    });
+                });
+            }
+            else {
+                this.router.navigate([
+                    `/admin/${this.ressourceName}-detail`,
+                    response.id,
+                ]);
+                this.reset();
+            }
+        });
     }
     onEdit() {
         let datas;
@@ -6752,4 +6750,4 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
  */
 
 export { ALPHABET, AnalyticsService, AuthGuard, AuthModule, CapitalizePipe, CoreModule, DIRECTION, FILTER_OPERATORS, FooterComponent, FsIconCComponent, HeaderComponent, LayoutService, NB_CORE_PROVIDERS, NbSimpleRoleProvider, NumberWithCommasPipe, OneColumnLayoutComponent, PERMISSION, PlayerService, PluralPipe, REST_FIELD_TYPES, RestAdminConfigService, RestAdminModule, RestExportService, RestLangService, RestMainComponentComponent, RestResource, RestResourceAddComponent, RestResourceDeleteComponent, RestResourceDetailComponent, RestResourceEditorFieldsComponent, RestResourceListComponent, RestResourceListFieldComponent, RestResourceService, RoundPipe, SearchInputComponent, SeoService, StateService, TYPE_GROUP, TYPE_METHOD_REQUEST, ThemeModule, ThreeColumnsLayoutComponent, TimingPipe, TinyMCEComponent, TwoColumnsLayoutComponent, UploadFileComponent, createTranslateHttpLoader };
-//# sourceMappingURL=rest-admin.js.map
+//# sourceMappingURL=foris-master-ngx-rest-admin.js.map

@@ -2,23 +2,33 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
-## Code scaffolding
+# RestAdmin for Angular
+![example](https://github.com/Foris-master/ngx-admin/tree/dev_geol/projects/rest-admin-example)
 
-Run `ng generate component component-name --project rest-admin` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project rest-admin`.
-> Note: Don't forget to add `--project rest-admin` or else it will be added to the default project in your `angular.json` file. 
+### Installation
+`npm i @foris-master/ngx-rest-admin` or `yarn add @foris-master/ngx-rest-admin`
 
-## Build
+### Example usage
+Add the RestAdminModule to the imports of the module which will be using the RestAdmin.
+```
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RestAdminModule } from '@foris-master/ngx-rest-admin';
 
-Run `ng build rest-admin` to build the project. The build artifacts will be stored in the `dist/` directory.
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { RESOURCES_CONFIG } from './rest-admin-config';
 
-## Publishing
-
-After building your library with `ng build rest-admin`, go to the dist folder `cd dist/rest-admin` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test rest-admin` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    RestAdminModule.forRoot(RESOURCES_CONFIG),
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

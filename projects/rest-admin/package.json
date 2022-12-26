@@ -1,35 +1,53 @@
 {
-  "name": "rest-admin",
-  "version": "1.0.1",
+  "name": "@foris-master/ngx-rest-admin",
+  "version": "1.0.5",
   "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
     ".": {
-      "sass": "./src/@theme/styles/styles.scss"
+      "types": "./foris-master-ngx-rest-admin.d.ts",
+      "fesm2015": "./esm2020/foris-master-ngx-rest-admin.mjs",
+      "es2020": "./fesm2020/foris-master-ngx-rest-admin.mjs",
+      "es2015": "./fesm2015/foris-master-ngx-rest-admin.mjs",
+      "node": "./fesm2015/foris-master-ngx-rest-admin.js",
+      "default": "./fesm2015/foris-master-ngx-rest-admin.js"
+    },
+    "./foris-master-ngx-rest-admin": {
+      "types": "./foris-master-ngx-rest-admin.d.ts",
+      "fesm2015": "./esm2020/foris-master-ngx-rest-admin.mjs",
+      "es2020": "./fesm2020/foris-master-ngx-rest-admin.mjs",
+      "es2015": "./fesm2015/foris-master-ngx-rest-admin.mjs",
+      "node": "./fesm2015/foris-master-ngx-rest-admin.js",
+      "default": "./fesm2015/foris-master-ngx-rest-admin.js"
     }
   },
   "publishConfig": {
     "@Foris-master:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
-    "admin",
+    "boilerplate",
     "angular",
+    "admin",
     "npm",
     "package",
-    "boilerplate",
     "starter"
   ],
   "author": "Foris Master <evarisfomekong@gmail.com>",
   "homepage": "https://github.com/Foris-master/ngx-admin",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Foris-master/ngx-admin.git"
+    "url": "git+https://github.com/Foris-master/ngx-admin.git",
+    "directory": "projects/rest-admin"
   },
   "bugs": {
     "url": "https://github.com/Foris-master/ngx-admin/issues"
   },
+  "contributors": [
+    "RoosveltK <roosvelt.kenne@gmail.com> (https://github.com/RoosveltK)",
+    "Geol1 <oldrichngnitedem4@gmail.com> (https://github.com/Geol1)"
+  ],
   "peerDependencies": {
     "@angular/common": "^12.1.0",
     "@angular/core": "^12.1.0",

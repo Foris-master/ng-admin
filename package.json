@@ -1,13 +1,10 @@
 {
-  "name": "rest-admin",
-  "version": "1.0.1",
+  "name": "@foris-master/ngx-rest-admin",
+  "version": "1.0.5",
   "publishConfig": {
     "@Foris-master:registry": "https://npm.pkg.github.com",
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "admin",
     "angular",

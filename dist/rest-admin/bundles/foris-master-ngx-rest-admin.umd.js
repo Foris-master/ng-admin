@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@ngx-translate/core'), require('@angular/forms'), require('@angular/common/http'), require('@angular/core'), require('@angular/common'), require('@nebular/theme'), require('ng2-smart-table'), require('@nebular/eva-icons'), require('@nebular/security'), require('rxjs'), require('rxjs/operators'), require('@angular/router'), require('@nebular/auth'), require('ngx-image-cropper'), require('file-saver'), require('xlsx'), require('jspdf'), require('jspdf-autotable'), require('jszip'), require('@iplab/ngx-file-upload'), require('lodash'), require('@codehint-ng/html-compiler'), require('ngx-input-validator'), require('moment'), require('ngx-dropzone'), require('@ngx-translate/http-loader'), require('ngx-permissions')) :
-    typeof define === 'function' && define.amd ? define('rest-admin', ['exports', '@ngx-translate/core', '@angular/forms', '@angular/common/http', '@angular/core', '@angular/common', '@nebular/theme', 'ng2-smart-table', '@nebular/eva-icons', '@nebular/security', 'rxjs', 'rxjs/operators', '@angular/router', '@nebular/auth', 'ngx-image-cropper', 'file-saver', 'xlsx', 'jspdf', 'jspdf-autotable', 'jszip', '@iplab/ngx-file-upload', 'lodash', '@codehint-ng/html-compiler', 'ngx-input-validator', 'moment', 'ngx-dropzone', '@ngx-translate/http-loader', 'ngx-permissions'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["rest-admin"] = {}, global["@ngx-translate/core"], global.ng.forms, global.ng.common.http, global.ng.core, global.ng.common, global["@nebular/theme"], global["ng2-smart-table"], global["@nebular/eva-icons"], global["@nebular/security"], global.rxjs, global.rxjs.operators, global.ng.router, global["@nebular/auth"], global["ngx-image-cropper"], global["file-saver"], global.xlsx, global.jspdf, null, global.jszip, global["@iplab/ngx-file-upload"], global.lodash, global["@codehint-ng/html-compiler"], global["ngx-input-validator"], global.moment, global["ngx-dropzone"], global["@ngx-translate/http-loader"], global["ngx-permissions"]));
+    typeof define === 'function' && define.amd ? define('@foris-master/ngx-rest-admin', ['exports', '@ngx-translate/core', '@angular/forms', '@angular/common/http', '@angular/core', '@angular/common', '@nebular/theme', 'ng2-smart-table', '@nebular/eva-icons', '@nebular/security', 'rxjs', 'rxjs/operators', '@angular/router', '@nebular/auth', 'ngx-image-cropper', 'file-saver', 'xlsx', 'jspdf', 'jspdf-autotable', 'jszip', '@iplab/ngx-file-upload', 'lodash', '@codehint-ng/html-compiler', 'ngx-input-validator', 'moment', 'ngx-dropzone', '@ngx-translate/http-loader', 'ngx-permissions'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global["foris-master"] = global["foris-master"] || {}, global["foris-master"]["ngx-rest-admin"] = {}), global["@ngx-translate/core"], global.ng.forms, global.ng.common.http, global.ng.core, global.ng.common, global["@nebular/theme"], global["ng2-smart-table"], global["@nebular/eva-icons"], global["@nebular/security"], global.rxjs, global.rxjs.operators, global.ng.router, global["@nebular/auth"], global["ngx-image-cropper"], global["file-saver"], global.xlsx, global.jspdf, null, global.jszip, global["@iplab/ngx-file-upload"], global.lodash, global["@codehint-ng/html-compiler"], global["ngx-input-validator"], global.moment, global["ngx-dropzone"], global["@ngx-translate/http-loader"], global["ngx-permissions"]));
 })(this, (function (exports, i1$4, i1$5, i1$3, i0, i8, i1$1, i9, evaIcons, i9$1, rxjs, operators, i1, i1$2, i5, FileSaver, XLSX, jsPDF, jspdfAutotable, JSZip, i2, _, i3, ngxInputValidator, moment, i7, httpLoader, i5$1) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -1867,44 +1867,43 @@
                     });
                 }
             });
-            // this.serviceRest
-            //   .addResources(this.resource.addConfig, datas)
-            //   .subscribe((response: any) => {
-            //     if (saveBelongTomany.length > 0) {
-            //       saveBelongTomany.forEach((element, index) => {
-            //         const restResource =
-            //           this.serviceRestAdminConfig.getSpecificResource(element.pivot);
-            //         const proms = [];
-            //         for (let index = 0; index < element.resources.length; index++) {
-            //           const item = element.resources[index];
-            //           const data = {
-            //             [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
-            //             [item['saveResourceIdName']]: response.id,
-            //           };
-            //           proms.push(
-            //             this.serviceRest
-            //               .addResources(restResource.addConfig, data)
-            //               .toPromise()
-            //           );
-            //         }
-            //         Promise.all(proms).then((res) => {
-            //           if (index == saveBelongTomany.length - 1) {
-            //             this.router.navigate([
-            //               `/admin/${this.ressourceName}-detail`,
-            //               response.id,
-            //             ]);
-            //             this.reset();
-            //           }
-            //         });
-            //       });
-            //     } else {
-            //       this.router.navigate([
-            //         `/admin/${this.ressourceName}-detail`,
-            //         response.id,
-            //       ]);
-            //       this.reset();
-            //     }
-            //   });
+            this.serviceRest
+                .addResources(this.resource.addConfig, datas)
+                .subscribe(function (response) {
+                if (saveBelongTomany.length > 0) {
+                    saveBelongTomany.forEach(function (element, index) {
+                        var _c;
+                        var restResource = _this.serviceRestAdminConfig.getSpecificResource(element.pivot);
+                        var proms = [];
+                        for (var index_1 = 0; index_1 < element.resources.length; index_1++) {
+                            var item = element.resources[index_1];
+                            var data = (_c = {},
+                                _c[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
+                                _c[item['saveResourceIdName']] = response.id,
+                                _c);
+                            proms.push(_this.serviceRest
+                                .addResources(restResource.addConfig, data)
+                                .toPromise());
+                        }
+                        Promise.all(proms).then(function (res) {
+                            if (index == saveBelongTomany.length - 1) {
+                                _this.router.navigate([
+                                    "/admin/" + _this.ressourceName + "-detail",
+                                    response.id,
+                                ]);
+                                _this.reset();
+                            }
+                        });
+                    });
+                }
+                else {
+                    _this.router.navigate([
+                        "/admin/" + _this.ressourceName + "-detail",
+                        response.id,
+                    ]);
+                    _this.reset();
+                }
+            });
         };
         RestResourceAddComponent.prototype.onEdit = function () {
             var _this = this;
@@ -1965,8 +1964,8 @@
                         var _c;
                         var restResource = _this.serviceRestAdminConfig.getSpecificResource(element.pivot);
                         var proms = [];
-                        for (var index_1 = 0; index_1 < element.resources.length; index_1++) {
-                            var item = element.resources[index_1];
+                        for (var index_2 = 0; index_2 < element.resources.length; index_2++) {
+                            var item = element.resources[index_2];
                             var data = (_c = {},
                                 _c[item["saveRelatedIdName"]] = item[item["saveRelatedIdName"]],
                                 _c[item["saveResourceIdName"]] = response.id,
@@ -7343,4 +7342,4 @@
     Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
-//# sourceMappingURL=rest-admin.umd.js.map
+//# sourceMappingURL=foris-master-ngx-rest-admin.umd.js.map

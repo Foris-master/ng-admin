@@ -666,47 +666,47 @@ export class RestResourceAddComponent implements OnInit {
       }
     });
 
-    // this.serviceRest
-    //   .addResources(this.resource.addConfig, datas)
-    //   .subscribe((response: any) => {
-    //     if (saveBelongTomany.length > 0) {
-    //       saveBelongTomany.forEach((element, index) => {
-    //         const restResource =
-    //           this.serviceRestAdminConfig.getSpecificResource(element.pivot);
-    //         const proms = [];
+    this.serviceRest
+      .addResources(this.resource.addConfig, datas)
+      .subscribe((response: any) => {
+        if (saveBelongTomany.length > 0) {
+          saveBelongTomany.forEach((element, index) => {
+            const restResource =
+              this.serviceRestAdminConfig.getSpecificResource(element.pivot);
+            const proms = [];
 
-    //         for (let index = 0; index < element.resources.length; index++) {
-    //           const item = element.resources[index];
-    //           const data = {
-    //             [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
-    //             [item['saveResourceIdName']]: response.id,
-    //           };
+            for (let index = 0; index < element.resources.length; index++) {
+              const item = element.resources[index];
+              const data = {
+                [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
+                [item['saveResourceIdName']]: response.id,
+              };
 
-    //           proms.push(
-    //             this.serviceRest
-    //               .addResources(restResource.addConfig, data)
-    //               .toPromise()
-    //           );
-    //         }
+              proms.push(
+                this.serviceRest
+                  .addResources(restResource.addConfig, data)
+                  .toPromise()
+              );
+            }
 
-    //         Promise.all(proms).then((res) => {
-    //           if (index == saveBelongTomany.length - 1) {
-    //             this.router.navigate([
-    //               `/admin/${this.ressourceName}-detail`,
-    //               response.id,
-    //             ]);
-    //             this.reset();
-    //           }
-    //         });
-    //       });
-    //     } else {
-    //       this.router.navigate([
-    //         `/admin/${this.ressourceName}-detail`,
-    //         response.id,
-    //       ]);
-    //       this.reset();
-    //     }
-    //   });
+            Promise.all(proms).then((res) => {
+              if (index == saveBelongTomany.length - 1) {
+                this.router.navigate([
+                  `/admin/${this.ressourceName}-detail`,
+                  response.id,
+                ]);
+                this.reset();
+              }
+            });
+          });
+        } else {
+          this.router.navigate([
+            `/admin/${this.ressourceName}-detail`,
+            response.id,
+          ]);
+          this.reset();
+        }
+      });
   }
 
   onEdit() {
