@@ -1,6 +1,8 @@
 {
   "name": "@foris-master/ngx-rest-admin",
-  "version": "1.0.5",
+  "version": "1.0.6",
+  "license": "MIT",
+  "typings": "foris-master-ngx-rest-admin.d.ts",
   "exports": {
     "./package.json": {
       "default": "./package.json"
@@ -118,6 +120,5 @@
   "es2015": "fesm2015/foris-master-ngx-rest-admin.js",
   "esm2015": "esm2015/foris-master-ngx-rest-admin.js",
   "fesm2015": "fesm2015/foris-master-ngx-rest-admin.js",
-  "typings": "foris-master-ngx-rest-admin.d.ts",
   "sideEffects": false
 }

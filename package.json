@@ -1,6 +1,6 @@
 {
   "name": "@foris-master/ngx-rest-admin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "publishConfig": {
     "@Foris-master:registry": "https://npm.pkg.github.com",
     "access": "public"
@@ -29,7 +29,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lib:build": "ng build rest-admin"
+    "lib:build": "ng build rest-admin",
+    "copy-license": "cp ./LICENSE ./dist/rest-admin",
+    "copy-readme": "cp ./README.md ./dist/rest-admin",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "npm run copy-files && cd dist/rest-admin && npm pack",
+    "package": "npm run lib:build && npm run npm_pack"
   },
   "dependencies": {
     "@angular/animations": "~12.1.0",
