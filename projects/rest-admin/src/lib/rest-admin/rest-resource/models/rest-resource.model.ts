@@ -1,4 +1,3 @@
-import { filter } from 'rxjs/operators';
 import { RestResource } from './rest-resource';
 export interface ResourceConfig {
   title?: string;
@@ -214,6 +213,7 @@ export interface REST_CONFIG {
       text: string;
     }[];
   };
+  authConfig?: REST_AUTH;
 }
 
 interface StandartField extends Field {
@@ -222,9 +222,11 @@ interface StandartField extends Field {
 }
 
 export interface REST_AUTH {
-  strategy: STRATEGY_AUTH;
-  baseEndpoint: string;
-  loginEndPoint: string;
+  strategy?: STRATEGY_AUTH;
+  baseEndpoint?: string;
+  loginEndPoint?: string;
+  logoutEndPoint?: string;
+  userInfoEndPoint?: string;
   redirectRouteAfterLogin?: string;
   tokenLocationInResponse?: string;
 }

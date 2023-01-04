@@ -1,4 +1,4 @@
-import { RestResource } from "./rest-resource";
+import { RestResource } from './rest-resource';
 export interface ResourceConfig {
     title?: string;
     api?: any;
@@ -9,6 +9,8 @@ export interface Field {
     label?: string;
     name: string;
     template?: string;
+}
+export declare enum QUERY_PARAMS_TYPE {
 }
 export interface RestField extends Field {
     metaData?: REST_FIELD_METADATA;
@@ -187,14 +189,19 @@ export interface REST_CONFIG {
             text: string;
         }[];
     };
-}
-interface StandartField extends Field {
-    type: string;
-    required: boolean;
+    authConfig?: REST_AUTH;
 }
 export interface REST_AUTH {
-    fields: StandartField[];
-    formTitle: string;
+    strategy?: STRATEGY_AUTH;
+    baseEndpoint?: string;
+    loginEndPoint?: string;
+    logoutEndPoint?: string;
+    userInfoEndPoint?: string;
+    redirectRouteAfterLogin?: string;
+    tokenLocationInResponse?: string;
+}
+export declare enum STRATEGY_AUTH {
+    EMAIL = "email"
 }
 export declare enum PERMISSION {
     C = "create",
@@ -203,4 +210,3 @@ export declare enum PERMISSION {
     D = "delete",
     A = "all"
 }
-export {};

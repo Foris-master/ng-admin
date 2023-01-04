@@ -1,11 +1,11 @@
-import { HttpClient } from "@angular/common/http";
-import { RestLangService } from "../../../../lib/rest-admin/rest-resource/service/rest-lang.service";
-import { OnDestroy, OnInit } from "@angular/core";
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from "@nebular/theme";
-import { LayoutService } from "../../../@core/utils";
-import { NbAuthService } from "@nebular/auth";
-import { Router } from "@angular/router";
-import { RestAdminConfigService } from "../../../../lib/rest-admin/rest-resource/service/rest-admin-config.service";
+import { HttpClient } from '@angular/common/http';
+import { RestLangService } from '../../../../lib/rest-admin/rest-resource/service/rest-lang.service';
+import { OnDestroy, OnInit } from '@angular/core';
+import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { LayoutService } from '../../../@core/utils';
+import { NbAuthService } from '@nebular/auth';
+import { Router } from '@angular/router';
+import { RestAdminConfigService } from '../../../../lib/rest-admin/rest-resource/service/rest-admin-config.service';
 import * as i0 from "@angular/core";
 export declare class HeaderComponent implements OnInit, OnDestroy {
     private sidebarService;

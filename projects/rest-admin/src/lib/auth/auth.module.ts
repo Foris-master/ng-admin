@@ -20,20 +20,11 @@ import {
   NbButtonModule,
   NbCheckboxModule,
 } from '@nebular/theme';
-import { LoginComponent } from './login/login.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RestAdminConfigService } from '../rest-admin/rest-resource/service/rest-admin-config.service';
 
-const DEFAULT_VALUES: REST_AUTH = {
-  strategy: STRATEGY_AUTH.EMAIL,
-  baseEndpoint: '',
-  loginEndPoint: '',
-  redirectRouteAfterLogin: '',
-  tokenLocationInResponse: '',
-};
-
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [],
   imports: [
     CommonModule,
     TranslateModule,
@@ -48,28 +39,29 @@ const DEFAULT_VALUES: REST_AUTH = {
     NbAuthModule.forRoot({
       strategies: [
         NbPasswordAuthStrategy.setup({
-          name: 'email',
+          name: RestAdminConfigService._authParams.strategy,
 
-          baseEndpoint: 'https://api.marylis.com/api',
+          baseEndpoint: RestAdminConfigService._authParams.baseEndpoint,
           login: {
             method: 'post',
-            endpoint: '/auth/signin',
+            endpoint: RestAdminConfigService._authParams.loginEndPoint,
             redirect: {
-              success: '/',
+              success:
+                RestAdminConfigService._authParams.redirectRouteAfterLogin,
               failure: null,
             },
           },
 
           token: {
             class: NbAuthSimpleToken,
-            key: 'data.token',
+            key: RestAdminConfigService._authParams.tokenLocationInResponse,
           },
         }),
       ],
       forms: {
         login: {
           redirectDelay: 500, // delay before redirect after a successful login, while success message is shown to the user
-          strategy: 'email', // strategy id key.
+          strategy: RestAdminConfigService._authParams.strategy, // strategy id key.
           showMessages: {
             success: true,
             error: true,
@@ -79,16 +71,4 @@ const DEFAULT_VALUES: REST_AUTH = {
     }),
   ],
 })
-export class AuthModule {
-  constructor(private restAdminConfigService: RestAdminConfigService) {}
-
-  static forRoot(restConfig: REST_AUTH): ModuleWithProviders<AuthModule> {
-    return {
-      ngModule: AuthModule,
-      providers: [
-        RestAdminConfigService,
-        { provide: 'restConfig', useValue: restConfig },
-      ],
-    };
-  }
-}
+export class AuthModule {}

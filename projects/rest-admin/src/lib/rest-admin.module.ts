@@ -40,6 +40,7 @@ import {
   NbListModule,
   NbContextMenuModule,
   NbIconLibraries,
+  NbAlertModule,
 } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from './@theme/theme.module';
@@ -71,6 +72,13 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { CoreModule } from './@core/core.module';
 import { FsIconCComponent } from './rest-admin/rest-resource/components/fs-icon-ccomponent/fs-icon.component';
 import { MultiTranslateHttpLoader } from 'ngx-translate-multi-http-loader';
+import {
+  NbAuthComponent,
+  NbAuthModule,
+  NbAuthSimpleToken,
+  NbPasswordAuthStrategy,
+} from '@nebular/auth';
+import { LoginComponent } from './auth/login/login.component';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -93,6 +101,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceDetailComponent,
     UploadFileComponent,
     FsIconCComponent,
+    LoginComponent,
   ],
   exports: [
     RestResourceListComponent,
@@ -103,6 +112,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceListFieldComponent,
     RestResourceDetailComponent,
     UploadFileComponent,
+    LoginComponent,
   ],
   entryComponents: [
     RestResourceListComponent,
@@ -114,6 +124,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceEditorFieldsComponent,
     RestResourceDetailComponent,
     UploadFileComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -130,6 +141,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     NbRadioModule,
     NbUserModule,
     NbTreeGridModule,
+    NbAlertModule,
     NbAutocompleteModule,
     Ng2SmartTableModule,
     FileUploadModule,
@@ -164,6 +176,39 @@ export function createTranslateHttpLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    NbAuthModule.forRoot({
+      strategies: [
+        NbPasswordAuthStrategy.setup({
+          name: RestAdminConfigService._authParams.strategy,
+
+          baseEndpoint: RestAdminConfigService._authParams.baseEndpoint,
+          login: {
+            method: 'post',
+            endpoint: RestAdminConfigService._authParams.loginEndPoint,
+            redirect: {
+              success:
+                RestAdminConfigService._authParams.redirectRouteAfterLogin,
+              failure: null,
+            },
+          },
+
+          token: {
+            class: NbAuthSimpleToken,
+            key: RestAdminConfigService._authParams.tokenLocationInResponse,
+          },
+        }),
+      ],
+      forms: {
+        login: {
+          redirectDelay: 500, // delay before redirect after a successful login, while success message is shown to the user
+          strategy: RestAdminConfigService._authParams.strategy, // strategy id key.
+          showMessages: {
+            success: true,
+            error: true,
+          },
+        },
+      },
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
@@ -174,7 +219,6 @@ export function createTranslateHttpLoader(http: HttpClient) {
       multi: true,
     },
     AuthGuard,
-
     RestResourceService,
     RestAdminConfigService,
     RestExportService,
@@ -211,11 +255,22 @@ export class RestAdminModule {
       imports: [
         RouterModule.forChild([
           {
-            path: '',
+            path: 'login',
+            component: NbAuthComponent,
+            children: [
+              {
+                path: '',
+                component: LoginComponent,
+              },
+            ],
+          },
+          {
+            path: 'admin',
             component: RestMainComponentComponent,
             canActivate: [AuthGuard],
             children: [...(this.serviceRestAdmin.generateRoutes() as any)],
           },
+          { path: '', redirectTo: 'login', pathMatch: 'full' },
         ]),
       ],
     })(class {});
@@ -225,6 +280,16 @@ export class RestAdminModule {
         loadChildren() {
           return module;
         },
+      };
+      const authRoutes = {
+        path: '',
+        component: NbAuthComponent,
+        children: [
+          {
+            path: 'login',
+            component: LoginComponent,
+          },
+        ],
       };
       this.router.resetConfig([routes, ...this.router.config]);
     });
