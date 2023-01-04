@@ -1,5 +1,5 @@
-import { filter } from "rxjs/operators";
-import { RestResource } from "./rest-resource";
+import { filter } from 'rxjs/operators';
+import { RestResource } from './rest-resource';
 export interface ResourceConfig {
   title?: string;
   api?: any;
@@ -11,6 +11,13 @@ export interface Field {
   name: string;
   template?: string;
 }
+
+// export interface QUERY_PARAMS {
+//   type:
+//   params:
+// }
+
+export enum QUERY_PARAMS_TYPE {}
 
 export interface RestField extends Field {
   metaData?: REST_FIELD_METADATA;
@@ -42,17 +49,17 @@ export interface GroupConfig {
 }
 
 export enum TYPE_GROUP {
-  SEPARATOR = "separator",
-  MENU = "menu",
-  DEFAULT = "default",
+  SEPARATOR = 'separator',
+  MENU = 'menu',
+  DEFAULT = 'default',
 }
 
 export enum TYPE_METHOD_REQUEST {
-  POST = "POST",
-  PUT = "PUT",
-  GET = "GET",
-  DELETE = "DELETE",
-  PATCH = "PATCH",
+  POST = 'POST',
+  PUT = 'PUT',
+  GET = 'GET',
+  DELETE = 'DELETE',
+  PATCH = 'PATCH',
 }
 
 export interface ListConfig extends ResourceConfig {
@@ -155,7 +162,6 @@ export interface REST_FIELD_METADATA {
     restManyResources?: RestField | RestManyOptionsCustom;
   };
 }
-
 export interface RestManyOptionsCustom {
   resourceName: string;
   resource: RestResource;
@@ -163,8 +169,8 @@ export interface RestManyOptionsCustom {
 }
 
 export enum DIRECTION {
-  ASC = "ASCENDING",
-  DESC = "DESCENDING",
+  ASC = 'ASCENDING',
+  DESC = 'DESCENDING',
 }
 
 export enum REST_FIELD_TYPES {
@@ -216,14 +222,21 @@ interface StandartField extends Field {
 }
 
 export interface REST_AUTH {
-  fields: StandartField[];
-  formTitle: string;
+  strategy: STRATEGY_AUTH;
+  baseEndpoint: string;
+  loginEndPoint: string;
+  redirectRouteAfterLogin?: string;
+  tokenLocationInResponse?: string;
+}
+
+export enum STRATEGY_AUTH {
+  EMAIL = 'email',
 }
 
 export enum PERMISSION {
-  C = "create",
-  R = "read",
-  U = "update",
-  D = "delete",
-  A = "all",
+  C = 'create',
+  R = 'read',
+  U = 'update',
+  D = 'delete',
+  A = 'all',
 }

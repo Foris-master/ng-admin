@@ -1,36 +1,36 @@
-import { RestResource, REST_FIELD_TYPES, TYPE_GROUP } from "rest-admin";
+import { RestResource, REST_FIELD_TYPES, TYPE_GROUP } from 'rest-admin';
 
 export const address = new RestResource(
   {
-    name: "address",
-    api: "addresses",
+    name: 'address',
+    api: 'addresses',
     icon: {
-      icon: "at",
-      pack: "fas",
+      icon: 'at',
+      pack: 'fas',
     },
   },
   [
     {
-      name: "id",
+      name: 'id',
       type: REST_FIELD_TYPES.NUMBER,
       inForm: false,
     },
     {
-      name: "name",
+      name: 'name',
     },
     {
-      name: "zip_code",
+      name: 'zip_code',
       type: REST_FIELD_TYPES.NUMBER,
     },
     {
-      name: "user_id",
+      name: 'user_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
           belongToOptions: {
-            resourceName: "user",
-            filterKeys: ["full_name", "email"],
-            value: "id",
+            resourceName: 'user',
+            filterKeys: ['full_name', 'email'],
+            value: 'id',
             queryParams: {
               should_paginate: false,
             },
@@ -38,32 +38,32 @@ export const address = new RestResource(
         },
         listConfig: {
           restHasOneResources: {
-            name: "user.full_name",
+            name: 'user.full_name',
           },
         },
       },
     },
     {
-      name: "user",
+      name: 'user',
       type: REST_FIELD_TYPES.HAS_ONE,
       metaData: {
         listConfig: {
           restHasOneResources: {
-            name: "full_name",
+            name: 'full_name',
           },
         },
       },
       inForm: false,
     },
     {
-      name: "town_id",
+      name: 'town_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
           belongToOptions: {
-            resourceName: "town",
-            filterKeys: ["name"],
-            value: "id",
+            resourceName: 'town',
+            filterKeys: ['name'],
+            value: 'id',
             queryParams: {
               should_paginate: false,
             },
@@ -71,46 +71,46 @@ export const address = new RestResource(
         },
         listConfig: {
           restHasOneResources: {
-            name: "town.name",
+            name: 'town.name',
           },
         },
       },
     },
     {
-      name: "town",
+      name: 'town',
       type: REST_FIELD_TYPES.HAS_ONE,
       metaData: {
         listConfig: {
           restHasOneResources: {
-            name: "name",
+            name: 'name',
           },
         },
       },
       inForm: false,
     },
     {
-      name: "created_at",
+      name: 'created_at',
       type: REST_FIELD_TYPES.DATE,
       inForm: false,
     },
     {
-      name: "updated_at",
+      name: 'updated_at',
       type: REST_FIELD_TYPES.DATE,
       inForm: false,
     },
   ],
   {
-    columns: ["id", "name", "zip_code", "user", "town", "created_at"],
+    columns: ['id', 'name', 'zip_code', 'user', 'town', 'created_at'],
     group: {
-      name: "CLIENT",
+      name: 'CLIENT',
       type: TYPE_GROUP.SEPARATOR, // Regroupe les ressources dans un menu deroulant
       priority: 8, // La priorité du group, plus elle est haute plus le group sera en haut du menu
     },
     queryParams: {
-      _includes: "user,town",
+      _includes: 'user,town',
     },
     searchFilter: {
-      filterBy: ["name", "zip_code"],
+      filterBy: ['name', 'zip_code'],
     },
   },
   {},
@@ -118,17 +118,15 @@ export const address = new RestResource(
   {
     tabsConfig: [
       {
-        name: "Address",
-        datas: [
-          "id", "name", "zip_code", "user", "town", "created_at"
-        ],
+        name: 'Address',
+        datas: ['id', 'name', 'zip_code', 'user', 'town', 'created_at'],
       },
       {
-        name: "User",
-        datas: ["user"],
+        name: 'User',
+        datas: ['user'],
       },
       {
-        name: "Town",
+        name: 'Town',
         datas: [],
       },
     ],
