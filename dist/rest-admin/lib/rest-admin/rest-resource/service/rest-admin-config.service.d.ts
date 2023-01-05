@@ -6,7 +6,7 @@ export declare class RestAdminConfigService {
     private restConfig;
     _restResources: RestResource[];
     components: any[];
-    static _authParams: REST_AUTH;
+    _restAuthParams: REST_AUTH;
     defaultLanguage: {
         text: string;
         value: string;
@@ -21,7 +21,9 @@ export declare class RestAdminConfigService {
     getSpecificResource(nameResource: string): RestResource;
     generateMenus(): any[];
     generateRoutes(): any[];
+    get restAuthParams(): REST_AUTH;
     checkValueRestAuth(params: REST_AUTH): REST_AUTH;
+    checkIfRouteExist(route: string): boolean;
     static ɵfac: i0.ɵɵFactoryDeclaration<RestAdminConfigService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestAdminConfigService>;
 }

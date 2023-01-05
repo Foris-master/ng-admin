@@ -72,7 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (authApp && authApp.value) {
       this.httpClient
         .get(
-          `${this.serviceRestAdmin.restBaseUrl}/${RestAdminConfigService._authParams.userInfoEndPoint}`
+          `${this.serviceRestAdmin.restBaseUrl}/${this.serviceRestAdmin.restAuthParams.userInfoEndPoint}`
         )
         .subscribe((resp: any) => {
           const user = {
@@ -113,7 +113,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           case 'Déconnexion':
             this.httpClient
               .post(
-                `${this.serviceRestAdmin.restBaseUrl}/${RestAdminConfigService._authParams.logoutEndPoint}`,
+                `${this.serviceRestAdmin.restBaseUrl}/${this.serviceRestAdmin.restAuthParams.logoutEndPoint}`,
                 {}
               )
               .subscribe(

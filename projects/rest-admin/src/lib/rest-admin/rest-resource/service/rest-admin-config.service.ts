@@ -13,7 +13,8 @@ import * as _ from 'lodash';
 export class RestAdminConfigService {
   _restResources: RestResource[];
   components = [];
-  static _authParams: REST_AUTH = {
+
+  _restAuthParams: REST_AUTH = {
     strategy: STRATEGY_AUTH.EMAIL,
     baseEndpoint: '',
     logoutEndPoint: '',
@@ -28,11 +29,9 @@ export class RestAdminConfigService {
 
   constructor(@Inject('restConfig') private restConfig: REST_CONFIG) {
     this._restResources = restConfig.resources;
-    RestAdminConfigService._authParams = this.checkValueRestAuth(
+    this._restAuthParams = this.checkValueRestAuth(
       restConfig.authConfig ? restConfig.authConfig : {}
     );
-
-    console.log('RestAdminConfigService', RestAdminConfigService._authParams);
   }
 
   public get restResources(): RestResource[] {
@@ -258,6 +257,10 @@ export class RestAdminConfigService {
     }, []);
   }
 
+  public get restAuthParams(): REST_AUTH {
+    return this._restAuthParams;
+  }
+
   checkValueRestAuth(params: REST_AUTH): REST_AUTH {
     const rest: REST_AUTH = {
       strategy: STRATEGY_AUTH.EMAIL,
@@ -266,6 +269,7 @@ export class RestAdminConfigService {
       loginEndPoint: '',
       userInfoEndPoint: '',
     };
+
     rest.strategy = params.strategy ? params.strategy : STRATEGY_AUTH.EMAIL;
     rest.baseEndpoint = params.baseEndpoint
       ? params.baseEndpoint
@@ -280,12 +284,22 @@ export class RestAdminConfigService {
       ? params.userInfoEndPoint
       : '/users/me';
     rest.redirectRouteAfterLogin = params.redirectRouteAfterLogin
-      ? params.redirectRouteAfterLogin
-      : '/';
+      ? this.checkIfRouteExist(
+          params.redirectRouteAfterLogin.substring(1) + '-list'
+        )
+        ? '/admin' + params.redirectRouteAfterLogin + '-list'
+        : '/admin'
+      : '/admin';
     rest.tokenLocationInResponse = params.tokenLocationInResponse
       ? params.tokenLocationInResponse
       : 'data.token';
 
     return rest;
+  }
+
+  checkIfRouteExist(route: string): boolean {
+    return this.generateRoutes().find((item) => item.path === route)
+      ? true
+      : false;
   }
 }

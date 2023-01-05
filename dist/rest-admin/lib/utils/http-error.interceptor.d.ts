@@ -1,7 +1,7 @@
-import { Injector } from "@angular/core";
-import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Router } from "@angular/router";
+import { Injector } from '@angular/core';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import * as i0 from "@angular/core";
 /** Passes HttpErrorResponse to application-wide error handler */
 export declare class HttpErrorInterceptor implements HttpInterceptor {

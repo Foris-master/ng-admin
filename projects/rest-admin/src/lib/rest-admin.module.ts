@@ -79,6 +79,7 @@ import {
   NbPasswordAuthStrategy,
 } from '@nebular/auth';
 import { LoginComponent } from './auth/login/login.component';
+import { isAuthGuard } from './utils/is-auth.guard';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -176,39 +177,6 @@ export function createTranslateHttpLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: RestAdminConfigService._authParams.strategy,
-
-          baseEndpoint: RestAdminConfigService._authParams.baseEndpoint,
-          login: {
-            method: 'post',
-            endpoint: RestAdminConfigService._authParams.loginEndPoint,
-            redirect: {
-              success:
-                RestAdminConfigService._authParams.redirectRouteAfterLogin,
-              failure: null,
-            },
-          },
-
-          token: {
-            class: NbAuthSimpleToken,
-            key: RestAdminConfigService._authParams.tokenLocationInResponse,
-          },
-        }),
-      ],
-      forms: {
-        login: {
-          redirectDelay: 500, // delay before redirect after a successful login, while success message is shown to the user
-          strategy: RestAdminConfigService._authParams.strategy, // strategy id key.
-          showMessages: {
-            success: true,
-            error: true,
-          },
-        },
-      },
-    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
@@ -219,6 +187,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
       multi: true,
     },
     AuthGuard,
+    isAuthGuard,
     RestResourceService,
     RestAdminConfigService,
     RestExportService,
@@ -257,6 +226,7 @@ export class RestAdminModule {
           {
             path: 'login',
             component: NbAuthComponent,
+            canActivate: [isAuthGuard],
             children: [
               {
                 path: '',
@@ -270,10 +240,47 @@ export class RestAdminModule {
             canActivate: [AuthGuard],
             children: [...(this.serviceRestAdmin.generateRoutes() as any)],
           },
-          { path: '', redirectTo: 'login', pathMatch: 'full' },
+          { path: '', redirectTo: '/login', pathMatch: 'full' },
+          { path: '**', redirectTo: '/' },
         ]),
+        NbAuthModule.forRoot({
+          strategies: [
+            NbPasswordAuthStrategy.setup({
+              name: this.serviceRestAdmin.restAuthParams.strategy,
+
+              baseEndpoint: this.serviceRestAdmin.restAuthParams.baseEndpoint,
+              login: {
+                method: 'post',
+                endpoint: this.serviceRestAdmin.restAuthParams.loginEndPoint,
+                redirect: {
+                  success:
+                    this.serviceRestAdmin.restAuthParams
+                      .redirectRouteAfterLogin,
+                  failure: null,
+                },
+              },
+
+              token: {
+                class: NbAuthSimpleToken,
+                key: this.serviceRestAdmin.restAuthParams
+                  .tokenLocationInResponse,
+              },
+            }),
+          ],
+          forms: {
+            login: {
+              redirectDelay: 500, // delay before redirect after a successful login, while success message is shown to the user
+              strategy: this.serviceRestAdmin.restAuthParams.strategy, // strategy id key.
+              showMessages: {
+                success: true,
+                error: true,
+              },
+            },
+          },
+        }),
       ],
     })(class {});
+
     this.compiler.compileModuleAsync(tempModule).then((module) => {
       const routes = {
         path: '',
@@ -281,16 +288,7 @@ export class RestAdminModule {
           return module;
         },
       };
-      const authRoutes = {
-        path: '',
-        component: NbAuthComponent,
-        children: [
-          {
-            path: 'login',
-            component: LoginComponent,
-          },
-        ],
-      };
+
       this.router.resetConfig([routes, ...this.router.config]);
     });
   }

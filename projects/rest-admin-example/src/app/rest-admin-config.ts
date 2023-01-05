@@ -7,8 +7,8 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
   resources: resources,
   authConfig: {
     strategy: STRATEGY_AUTH.EMAIL,
-    loginEndPoint: 'auth/login',
-    logoutEndPoint: 'auth/logout',
-    redirectRouteAfterLogin: '/address',
+    loginEndPoint: '/auth/signin',
+    logoutEndPoint: '/auth/signout',
+    redirectRouteAfterLogin: '/address', //juste mettre le nom de la ressource
   },
 };

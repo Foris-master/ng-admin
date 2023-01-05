@@ -36,39 +36,6 @@ import { RestAdminConfigService } from '../rest-admin/rest-resource/service/rest
     NbButtonModule,
     NbCheckboxModule,
     HttpClientModule,
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: RestAdminConfigService._authParams.strategy,
-
-          baseEndpoint: RestAdminConfigService._authParams.baseEndpoint,
-          login: {
-            method: 'post',
-            endpoint: RestAdminConfigService._authParams.loginEndPoint,
-            redirect: {
-              success:
-                RestAdminConfigService._authParams.redirectRouteAfterLogin,
-              failure: null,
-            },
-          },
-
-          token: {
-            class: NbAuthSimpleToken,
-            key: RestAdminConfigService._authParams.tokenLocationInResponse,
-          },
-        }),
-      ],
-      forms: {
-        login: {
-          redirectDelay: 500, // delay before redirect after a successful login, while success message is shown to the user
-          strategy: RestAdminConfigService._authParams.strategy, // strategy id key.
-          showMessages: {
-            success: true,
-            error: true,
-          },
-        },
-      },
-    }),
   ],
 })
 export class AuthModule {}
