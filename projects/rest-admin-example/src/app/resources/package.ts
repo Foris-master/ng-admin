@@ -112,6 +112,9 @@ export const _package = new RestResource(
     {
       name: "is_sensitive",
       type: REST_FIELD_TYPES.BOOLEAN,
+      metaData: {
+        number: true,
+      }
     },
     {
       name: "should_notify",

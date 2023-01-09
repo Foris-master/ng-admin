@@ -85,6 +85,7 @@ export interface TabsOptions {
 }
 export interface REST_FIELD_METADATA {
     format?: string;
+    number?: Boolean;
     listConfig?: {
         class?: string;
         style?: string;

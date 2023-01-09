@@ -634,11 +634,14 @@ export class RestResourceAddComponent implements OnInit {
               datas.append(key, JSON.stringify(jsonFields));
               break;
             case REST_FIELD_TYPES.BOOLEAN:
-              // console.log(formData[key]);
-              // if (formData[key]) {
-              //   datas.append(key, 1);
-              // } else datas.append(key, 0);
-              datas.append(key, formData[key]);
+              if (search.metaData?.number) {
+                if (formData[key]) {
+                  datas.append(key, 1);
+                } else datas.append(key, 0);
+              } else {
+                datas.append(key, formData[key]);
+              }
+              console.log(formData[key]);
               break;
             default:
               datas.append(key, formData[key]);

@@ -1419,6 +1419,7 @@ class RestResourceAddComponent {
         if (this.resource.hasFile) {
             datas = new FormData();
             Object.keys(formData).forEach((key, index) => {
+                var _a;
                 const search = this.resource.fields.find((elt) => elt.name == key);
                 if (search) {
                     switch (search.type) {
@@ -1435,11 +1436,17 @@ class RestResourceAddComponent {
                             datas.append(key, JSON.stringify(jsonFields));
                             break;
                         case REST_FIELD_TYPES.BOOLEAN:
-                            // console.log(formData[key]);
-                            // if (formData[key]) {
-                            //   datas.append(key, 1);
-                            // } else datas.append(key, 0);
-                            datas.append(key, formData[key]);
+                            if ((_a = search.metaData) === null || _a === void 0 ? void 0 : _a.number) {
+                                if (formData[key]) {
+                                    datas.append(key, 1);
+                                }
+                                else
+                                    datas.append(key, 0);
+                            }
+                            else {
+                                datas.append(key, formData[key]);
+                            }
+                            console.log(formData[key]);
                             break;
                         default:
                             datas.append(key, formData[key]);
