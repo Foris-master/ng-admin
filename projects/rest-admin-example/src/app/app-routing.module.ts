@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { AuthModule, RestAdminModule } from 'rest-admin';
+import { RestAdminModule } from 'rest-admin';
 
 const routes: Routes = [
   {
-    path: "admin",
-    loadChildren: () =>
-      RestAdminModule,
-  },
-  {
-    path: "auth",
-    loadChildren: () => AuthModule,
+    path: 'admin',
+    loadChildren: () => RestAdminModule,
   },
   // { path: "", redirectTo: "admin", pathMatch: "full" },
-  { path: "**", redirectTo: "/" },
+  { path: '**', redirectTo: '/' },
 ];
 
 const config: ExtraOptions = {
@@ -22,6 +17,6 @@ const config: ExtraOptions = {
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

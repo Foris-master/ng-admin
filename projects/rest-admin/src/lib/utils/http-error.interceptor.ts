@@ -1,14 +1,14 @@
-import { Injectable, Injector } from "@angular/core";
+import { Injectable, Injector } from '@angular/core';
 import {
   HttpEvent,
   HttpInterceptor,
   HttpHandler,
   HttpRequest,
   HttpErrorResponse,
-} from "@angular/common/http";
-import { Observable } from "rxjs";
-import { tap } from "rxjs/operators";
-import { Router } from "@angular/router";
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 /** Passes HttpErrorResponse to application-wide error handler */
 @Injectable()
@@ -27,7 +27,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             // appErrorHandler.handleError(err);
             switch (err.status) {
               case 401:
-                this.router.navigateByUrl("/auth/login");
+                this.router.navigateByUrl('/login');
                 break;
 
               default:

@@ -1,24 +1,24 @@
-import { HttpClient } from "@angular/common/http";
-import { RestLangService } from "../../../../lib/rest-admin/rest-resource/service/rest-lang.service";
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { RestLangService } from '../../../../lib/rest-admin/rest-resource/service/rest-lang.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   NbMediaBreakpointsService,
   NbMenuService,
   NbSidebarService,
   NbThemeService,
-} from "@nebular/theme";
+} from '@nebular/theme';
 
-import { LayoutService } from "../../../@core/utils";
-import { Subject } from "rxjs";
-import { NbAuthService, NbAuthSimpleToken } from "@nebular/auth";
-import { Router } from "@angular/router";
-import { RestAdminConfigService } from "../../../../lib/rest-admin/rest-resource/service/rest-admin-config.service";
-import { GLOBALS } from "../../../utils/globals";
-import { filter, map, takeUntil } from "rxjs/operators";
+import { LayoutService } from '../../../@core/utils';
+import { Subject } from 'rxjs';
+import { NbAuthService, NbAuthSimpleToken } from '@nebular/auth';
+import { Router } from '@angular/router';
+import { RestAdminConfigService } from '../../../../lib/rest-admin/rest-resource/service/rest-admin-config.service';
+import { GLOBALS } from '../../../utils/globals';
+import { filter, map, takeUntil } from 'rxjs/operators';
 @Component({
-  selector: "ngx-header",
-  styleUrls: ["./header.component.scss"],
-  templateUrl: "./header.component.html",
+  selector: 'ngx-header',
+  styleUrls: ['./header.component.scss'],
+  templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
@@ -27,28 +27,28 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuth = false;
   themes = [
     {
-      value: "default",
-      name: "Light",
+      value: 'default',
+      name: 'Light',
     },
     {
-      value: "dark",
-      name: "Dark",
+      value: 'dark',
+      name: 'Dark',
     },
     {
-      value: "cosmic",
-      name: "Cosmic",
+      value: 'cosmic',
+      name: 'Cosmic',
     },
     {
-      value: "corporate",
-      name: "Corporate",
+      value: 'corporate',
+      name: 'Corporate',
     },
   ];
 
-  currentTheme = "default";
+  currentTheme = 'default';
   appLanguage = [];
-  currentLang = "";
+  currentLang = '';
 
-  userMenu = [{ title: "Déconnexion" }];
+  userMenu = [{ title: 'Déconnexion' }];
 
   constructor(
     private sidebarService: NbSidebarService,
@@ -71,7 +71,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     const authApp = JSON.parse(localStorage.getItem(GLOBALS.AUTH_APP_TOKEN));
     if (authApp && authApp.value) {
       this.httpClient
-        .get(`${this.serviceRestAdmin.restBaseUrl}/users/me`)
+        .get(
+          `${this.serviceRestAdmin.restBaseUrl}/${this.serviceRestAdmin.restAuthParams.userInfoEndPoint}`
+        )
         .subscribe((resp: any) => {
           const user = {
             name: resp.original.full_name,
@@ -103,23 +105,33 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuService
       .onItemClick()
       .pipe(
-        filter(({ tag }) => tag === "my-context-menu"),
+        filter(({ tag }) => tag === 'my-context-menu'),
         map(({ item: { title } }) => title)
       )
       .subscribe((title) => {
         switch (title) {
-          case "Déconnexion":
+          case 'Déconnexion':
             this.httpClient
-              .post(`${this.serviceRestAdmin.restBaseUrl}/auth/logout`, {})
-              .subscribe((resp: any) => {
-                localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
-                this.router.navigateByUrl("/auth/login");
-                this.isAuth = false;
-              });
+              .post(
+                `${this.serviceRestAdmin.restBaseUrl}/${this.serviceRestAdmin.restAuthParams.logoutEndPoint}`,
+                {}
+              )
+              .subscribe(
+                (resp: any) => {
+                  localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                  this.router.navigateByUrl('/login');
+                  this.isAuth = false;
+                },
+                (err) => {
+                  localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                  this.router.navigateByUrl('/login');
+                  this.isAuth = false;
+                }
+              );
 
             break;
           default:
-            console.log("Non pris en charge");
+            console.log('Non pris en charge');
             break;
         }
       });
@@ -135,7 +147,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleSidebar(): boolean {
-    this.sidebarService.toggle(true, "menu-sidebar");
+    this.sidebarService.toggle(true, 'menu-sidebar');
     this.layoutService.changeLayoutSize();
 
     return false;
@@ -147,10 +159,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   signin() {
-    this.router.navigateByUrl("/auth/login");
+    this.router.navigateByUrl('/auth/login');
   }
   sigout() {
-    this.authService.logout("email");
+    this.authService.logout('email');
   }
 
   changeLang(event) {

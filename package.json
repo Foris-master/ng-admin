@@ -1,6 +1,6 @@
 {
   "name": "@foris-master/ngx-rest-admin",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publishConfig": {
     "@Foris-master:registry": "https://npm.pkg.github.com",
     "access": "public"

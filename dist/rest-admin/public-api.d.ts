@@ -16,7 +16,7 @@ export * from './lib/rest-admin/rest-resource/service/rest-resource.service';
 export * from './lib/rest-admin/rest-resource/components/fs-icon-ccomponent/fs-icon.component';
 export * from './lib/@core/core.module';
 export * from './lib/@theme/theme.module';
-export * from './lib/auth/auth.module';
+export * from './lib/auth/login/login.component';
 export * from './lib/@theme/components/header/header.component';
 export * from './lib/@theme/components/footer/footer.component';
 export * from './lib/@theme/components/search-input/search-input.component';
