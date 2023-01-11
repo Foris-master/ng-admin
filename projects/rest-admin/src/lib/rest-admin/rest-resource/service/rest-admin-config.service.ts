@@ -267,6 +267,8 @@ export class RestAdminConfigService {
       baseEndpoint: '',
       logoutEndPoint: '',
       loginEndPoint: '',
+      profileNameEndPoint: '',
+      profilePictureEndPoint: '',
       userInfoEndPoint: '',
     };
 
@@ -283,6 +285,12 @@ export class RestAdminConfigService {
     rest.userInfoEndPoint = params.userInfoEndPoint
       ? params.userInfoEndPoint
       : '/users/me';
+    rest.profileNameEndPoint = params.profileNameEndPoint
+      ? params.profileNameEndPoint
+      : 'original.full_name';
+    rest.profilePictureEndPoint = params.profilePictureEndPoint
+      ? params.profilePictureEndPoint
+      : 'original.infos.logo';
     rest.redirectRouteAfterLogin = params.redirectRouteAfterLogin
       ? this.checkIfRouteExist(
           params.redirectRouteAfterLogin.substring(1) + '-list'

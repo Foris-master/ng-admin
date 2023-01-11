@@ -72,13 +72,30 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (authApp && authApp.value) {
       this.httpClient
         .get(
-          `${this.serviceRestAdmin.restBaseUrl}/${this.serviceRestAdmin.restAuthParams.userInfoEndPoint}`
+          `${this.serviceRestAdmin.restBaseUrl}${this.serviceRestAdmin.restAuthParams.userInfoEndPoint}`
         )
         .subscribe((resp: any) => {
-          const user = {
-            name: resp.original.full_name,
-            picture: resp.original.infos.logo,
+          var data = resp;
+          var user = {
+            name: resp[this.serviceRestAdmin.restAuthParams.profileNameEndPoint],
+            picture: resp[this.serviceRestAdmin.restAuthParams.profilePictureEndPoint],
+            defaultPicture: 'M',
           };
+
+          var namePath = (this.serviceRestAdmin.restAuthParams.profileNameEndPoint).split('.');
+          namePath.map((val) => {
+            user['name'] = data[val];
+            data = data[val];
+          });
+
+          data = resp;
+          var picturePath = (this.serviceRestAdmin.restAuthParams.profilePictureEndPoint).split('.');
+          picturePath.map((val) => {
+            user['picture'] = data[val];
+            data = data[val];
+          });
+          user['defaultPicture']= `https://ui-avatars.com/api/?name=${(user['name']).toString()}&rounded=true`
+
           this.user = user;
           this.isAuth = true;
         });

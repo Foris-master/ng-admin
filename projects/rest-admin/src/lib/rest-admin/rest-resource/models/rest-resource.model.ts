@@ -228,6 +228,8 @@ export interface REST_AUTH {
   loginEndPoint?: string;
   logoutEndPoint?: string;
   userInfoEndPoint?: string;
+  profileNameEndPoint?: string;
+  profilePictureEndPoint?: string;
   redirectRouteAfterLogin?: string;
   tokenLocationInResponse?: string;
 }

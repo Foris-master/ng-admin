@@ -44,13 +44,22 @@ export class AppModule { }
 ```
 Configure your app with the name, the ressources and the baseUrl of the api.
 ```js
-import { REST_CONFIG } from "rest-admin";
+import { REST_CONFIG } from "@foris-master/ngx-rest-admin";
 import { resources } from "./resources";
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
   name: "The name of your app",
   resources: resources,
   baseUrl: "https://api.exmaple.com/api",
+  authConfig: {
+    strategy: STRATEGY_AUTH.EMAIL,
+    loginEndPoint: '/auth/signin',
+    logoutEndPoint: 'auth/logout',
+    userInfoEndPoint: '/users/me',
+    profileNameEndPoint: 'name',
+    profilePictureEndPoint: 'picture',
+    redirectRouteAfterLogin: '/address', //juste mettre le nom de la ressource
+  },
 };
 ```
 
@@ -71,10 +80,6 @@ const routes: Routes = [
     path: "admin",
     loadChildren: () =>
       RestAdminModule,
-  },
-  {
-    path: "auth",
-    loadChildren: () => AuthModule,
   },
   // { path: "", redirectTo: "admin", pathMatch: "full" },
   { path: "**", redirectTo: "/" },
