@@ -72,7 +72,6 @@ export class RestAdminConfigService {
     this._restResources.map((rest) => {
       if (rest.listConfig.group) groupsName.push(rest.listConfig.group);
     });
-
     const menus_group = {};
     this._restResources.forEach((item) => {
       if (item.listConfig.group) {
@@ -94,7 +93,7 @@ export class RestAdminConfigService {
               menus_group[item.listConfig.group.name].push({
                 title: item.name,
                 icon: item.icon,
-                link: 'admin/' + item.name.toLowerCase() + '-list',
+                link: item.name.toLowerCase() + '-list',
               });
             }
             break;
@@ -102,7 +101,7 @@ export class RestAdminConfigService {
             if (Array.isArray(menus_group[item.listConfig.group.name])) {
               menus_group[item.listConfig.group.name][0].children.push({
                 title: item.name,
-                link: 'admin/' + item.name.toLowerCase() + '-list',
+                link: item.name.toLowerCase() + '-list',
                 icon: item.icon,
               });
             } else {
@@ -113,7 +112,7 @@ export class RestAdminConfigService {
                   children: [
                     {
                       title: item.name,
-                      link: 'admin/' + item.name.toLowerCase() + '-list',
+                      link: item.name.toLowerCase() + '-list',
                       icon: item.icon,
                     },
                   ],
@@ -126,13 +125,13 @@ export class RestAdminConfigService {
               menus_group[TYPE_GROUP.DEFAULT].push({
                 title: item.name,
                 icon: item.icon,
-                link: 'admin/' + item.name.toLowerCase() + '-list',
+                link: item.name.toLowerCase() + '-list',
               });
             else {
               menus_group[TYPE_GROUP.DEFAULT] = [];
               menus_group[TYPE_GROUP.DEFAULT].push({
                 title: item.name,
-                link: 'admin/' + item.name.toLowerCase() + '-list',
+                link: item.name.toLowerCase() + '-list',
                 icon: item.icon,
               });
             }
@@ -143,13 +142,13 @@ export class RestAdminConfigService {
           menus_group[TYPE_GROUP.DEFAULT].push({
             title: item.name,
             icon: item.icon,
-            link: 'admin/' + item.name.toLowerCase() + '-list',
+            link: item.name.toLowerCase() + '-list',
           });
         else {
           menus_group[TYPE_GROUP.DEFAULT] = [];
           menus_group[TYPE_GROUP.DEFAULT].push({
             title: item.name,
-            link: 'admin/' + item.name.toLowerCase() + '-list',
+            link: item.name.toLowerCase() + '-list',
             icon: item.icon,
           });
         }
@@ -219,38 +218,38 @@ export class RestAdminConfigService {
         ...cumul,
         {
           path: rest.name.toLowerCase() + '-list',
-          data: {
-            ngxPermissions: {
-              only: rest.permissions,
-            },
-          },
+          // data: {
+          //   ngxPermissions: {
+          //     only: rest.permissions,
+          //   },
+          // },
           component: RestResourceListComponent,
         },
         {
           path: rest.name.toLowerCase() + '-add',
-          data: {
-            ngxPermissions: {
-              only: rest.permissions,
-            },
-          },
+          // data: {
+          //   ngxPermissions: {
+          //     only: rest.permissions,
+          //   },
+          // },
           component: RestResourceAddComponent,
         },
         {
           path: rest.name.toLowerCase() + '-edit/:id',
-          data: {
-            ngxPermissions: {
-              only: rest.permissions,
-            },
-          },
+          // data: {
+          //   ngxPermissions: {
+          //     only: rest.permissions,
+          //   },
+          // },
           component: RestResourceAddComponent,
         },
         {
           path: rest.name.toLowerCase() + '-detail/:id',
-          data: {
-            ngxPermissions: {
-              only: rest.permissions,
-            },
-          },
+          // data: {
+          //   ngxPermissions: {
+          //     only: rest.permissions,
+          //   },
+          // },
           component: RestResourceDetailComponent,
         },
       ];
@@ -293,6 +292,8 @@ export class RestAdminConfigService {
     rest.tokenLocationInResponse = params.tokenLocationInResponse
       ? params.tokenLocationInResponse
       : 'data.token';
+
+    console.log('res--->', rest);
 
     return rest;
   }

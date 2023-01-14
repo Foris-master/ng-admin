@@ -9,6 +9,6 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
     strategy: STRATEGY_AUTH.EMAIL,
     loginEndPoint: '/auth/signin',
     logoutEndPoint: '/auth/signout',
-    redirectRouteAfterLogin: '/address', //juste mettre le nom de la ressource
+    redirectRouteAfterLogin: '/country', //juste mettre le nom de la ressource
   },
 };

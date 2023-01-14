@@ -3076,7 +3076,7 @@
                                 menus_group[item.listConfig.group.name].push({
                                     title: item.name,
                                     icon: item.icon,
-                                    link: 'admin/' + item.name.toLowerCase() + '-list',
+                                    link: item.name.toLowerCase() + '-list',
                                 });
                             }
                             break;
@@ -3084,7 +3084,7 @@
                             if (Array.isArray(menus_group[item.listConfig.group.name])) {
                                 menus_group[item.listConfig.group.name][0].children.push({
                                     title: item.name,
-                                    link: 'admin/' + item.name.toLowerCase() + '-list',
+                                    link: item.name.toLowerCase() + '-list',
                                     icon: item.icon,
                                 });
                             }
@@ -3096,7 +3096,7 @@
                                         children: [
                                             {
                                                 title: item.name,
-                                                link: 'admin/' + item.name.toLowerCase() + '-list',
+                                                link: item.name.toLowerCase() + '-list',
                                                 icon: item.icon,
                                             },
                                         ],
@@ -3109,13 +3109,13 @@
                                 menus_group[exports.TYPE_GROUP.DEFAULT].push({
                                     title: item.name,
                                     icon: item.icon,
-                                    link: 'admin/' + item.name.toLowerCase() + '-list',
+                                    link: item.name.toLowerCase() + '-list',
                                 });
                             else {
                                 menus_group[exports.TYPE_GROUP.DEFAULT] = [];
                                 menus_group[exports.TYPE_GROUP.DEFAULT].push({
                                     title: item.name,
-                                    link: 'admin/' + item.name.toLowerCase() + '-list',
+                                    link: item.name.toLowerCase() + '-list',
                                     icon: item.icon,
                                 });
                             }
@@ -3127,13 +3127,13 @@
                         menus_group[exports.TYPE_GROUP.DEFAULT].push({
                             title: item.name,
                             icon: item.icon,
-                            link: 'admin/' + item.name.toLowerCase() + '-list',
+                            link: item.name.toLowerCase() + '-list',
                         });
                     else {
                         menus_group[exports.TYPE_GROUP.DEFAULT] = [];
                         menus_group[exports.TYPE_GROUP.DEFAULT].push({
                             title: item.name,
-                            link: 'admin/' + item.name.toLowerCase() + '-list',
+                            link: item.name.toLowerCase() + '-list',
                             icon: item.icon,
                         });
                     }
@@ -3198,38 +3198,38 @@
                 return __spreadArray(__spreadArray([], __read(cumul)), [
                     {
                         path: rest.name.toLowerCase() + '-list',
-                        data: {
-                            ngxPermissions: {
-                                only: rest.permissions,
-                            },
-                        },
+                        // data: {
+                        //   ngxPermissions: {
+                        //     only: rest.permissions,
+                        //   },
+                        // },
                         component: RestResourceListComponent,
                     },
                     {
                         path: rest.name.toLowerCase() + '-add',
-                        data: {
-                            ngxPermissions: {
-                                only: rest.permissions,
-                            },
-                        },
+                        // data: {
+                        //   ngxPermissions: {
+                        //     only: rest.permissions,
+                        //   },
+                        // },
                         component: RestResourceAddComponent,
                     },
                     {
                         path: rest.name.toLowerCase() + '-edit/:id',
-                        data: {
-                            ngxPermissions: {
-                                only: rest.permissions,
-                            },
-                        },
+                        // data: {
+                        //   ngxPermissions: {
+                        //     only: rest.permissions,
+                        //   },
+                        // },
                         component: RestResourceAddComponent,
                     },
                     {
                         path: rest.name.toLowerCase() + '-detail/:id',
-                        data: {
-                            ngxPermissions: {
-                                only: rest.permissions,
-                            },
-                        },
+                        // data: {
+                        //   ngxPermissions: {
+                        //     only: rest.permissions,
+                        //   },
+                        // },
                         component: RestResourceDetailComponent,
                     },
                 ]);
@@ -3271,6 +3271,7 @@
             rest.tokenLocationInResponse = params.tokenLocationInResponse
                 ? params.tokenLocationInResponse
                 : 'data.token';
+            console.log('res--->', rest);
             return rest;
         };
         RestAdminConfigService.prototype.checkIfRouteExist = function (route) {
