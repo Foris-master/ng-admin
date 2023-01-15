@@ -30,9 +30,18 @@
     "inferiority": "inferiority",
     "supOrEgal": "greater than or equal to",
     "infOrEgal": "less than or equal to",
-    "include":"include"
+    "include": "include"
   },
   "options": {
     "per_page": "Per page"
-  }
+  },
+  "msg-adding-success": "successfully added {{resourceName}}",
+  "msg-adding-fail": "failed to add {{resourceName}}",
+  "msg-updating-success": "successfully updated {{resourceName}}",
+  "msg-updating-fail": "failed to update {{resourceName}}",
+  "msg-deleting-success": "successfully deleted {{resourceName}}",
+  "msg-deleting-fail": "failed to delete {{resourceName}}",
+  "msg-not-authorized": "You are not authorized to access this resource",
+  "msg-not-found": "The requested resource was not found",
+  "msg-internal-error": "An error occurred on the server"
 }

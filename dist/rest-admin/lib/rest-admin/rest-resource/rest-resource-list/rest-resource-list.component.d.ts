@@ -1,12 +1,13 @@
-import { HttpClient } from "@angular/common/http";
-import { OnInit } from "@angular/core";
-import { ServerDataSource } from "ng2-smart-table";
-import { NbDialogService, NbMenuService } from "@nebular/theme";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RestAdminConfigService } from "../service/rest-admin-config.service";
-import { RestResource } from "../models/rest-resource";
-import { RestResourceService } from "../service/rest-resource.service";
-import { RestExportService } from "../service/rest-export.service";
+import { HttpClient } from '@angular/common/http';
+import { OnInit } from '@angular/core';
+import { ServerDataSource } from 'ng2-smart-table';
+import { NbDialogService, NbMenuService } from '@nebular/theme';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestAdminConfigService } from '../service/rest-admin-config.service';
+import { RestResource } from '../models/rest-resource';
+import { RestResourceService } from '../service/rest-resource.service';
+import { RestExportService } from '../service/rest-export.service';
+import { RestShareService } from '../service/rest-share.service';
 import * as i0 from "@angular/core";
 export declare class RestResourceListComponent implements OnInit {
     private serviceRestConfig;
@@ -17,6 +18,7 @@ export declare class RestResourceListComponent implements OnInit {
     private router;
     private nbMenuService;
     private exportService;
+    restShare: RestShareService;
     resource: RestResource;
     search: any;
     alphabelt: string[];
@@ -44,7 +46,7 @@ export declare class RestResourceListComponent implements OnInit {
         title: string;
         value: number;
     }[];
-    constructor(serviceRestConfig: RestAdminConfigService, serviceRestResources: RestResourceService, http: HttpClient, dialogService: NbDialogService, activatedRoute: ActivatedRoute, router: Router, nbMenuService: NbMenuService, exportService: RestExportService);
+    constructor(serviceRestConfig: RestAdminConfigService, serviceRestResources: RestResourceService, http: HttpClient, dialogService: NbDialogService, activatedRoute: ActivatedRoute, router: Router, nbMenuService: NbMenuService, exportService: RestExportService, restShare: RestShareService);
     ngOnInit(): void;
     onDeleteConfirm(event: any): void;
     addNewEntity(): void;

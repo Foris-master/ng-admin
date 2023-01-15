@@ -30,9 +30,18 @@
     "inferiority": "infériorité",
     "supOrEgal": "supérieur ou égal",
     "infOrEgal": "inférieur ou égal",
-    "include":"contient"
+    "include": "contient"
   },
   "options": {
     "per_page": "Nombre d'éléments par page"
-  }
+  },
+  "msg-adding-success": "{{resourceName}} ajoutée avec succès",
+  "msg-adding-fail": "Une erreur est survenue lors de l'ajout de {{resourceName}}",
+  "msg-updating-success": "{{resourceName}} modifiée avec succès",
+  "msg-updating-fail": "Une erreur est survenue lors de la modification de {{resourceName}}",
+  "msg-deleting-success": "{{resourceName}} supprimée avec succès",
+  "msg-deleting-fail": "Une erreur est survenue lors de la suppression de {{resourceName}}",
+  "msg-not-authorized": "Vous n'êtes pas autorisé à accéder à cette ressource",
+  "msg-not-found": "La ressource demandée n'a pas été trouvée",
+  "msg-internal-error": "Une erreur s'est produite sur le serveur"
 }

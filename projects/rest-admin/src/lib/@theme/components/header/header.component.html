@@ -39,7 +39,7 @@
         [nbContextMenu]="userMenu"
         nbContextMenuTag="my-context-menu"
         [name]="user?.name"
-        [picture]="user?.picture ? user?.picture : 'https://ui-avatars.com/api/?name=M&rounded=true'"
+        [picture]="user?.picture ? user?.picture : user?.defaultPicture"
       >
       </nb-user>
     </nb-action>

@@ -4,6 +4,7 @@ export interface ResourceConfig {
     api?: any;
     orderDirection?: DIRECTION;
     queryParams?: any;
+    preparedStatementQuery?: PreparedStatementQuery;
 }
 export interface Field {
     label?: string;
@@ -140,12 +141,23 @@ export interface REST_FIELD_METADATA {
             filterKeys?: string[];
             value?: string;
             template?: string;
-            queryParams?: any;
+            queryParams?: any | PreparedStatementQuery;
         };
     };
     detailConfig?: {
         restManyResources?: RestField | RestManyOptionsCustom;
     };
+}
+export interface PreparedStatementQuery {
+    api: string;
+    fieldForNextQuery: string[];
+    queryParams?: any;
+    queryParamsComplete?: QueryParamsPreparedStatement[];
+}
+export interface QueryParamsPreparedStatement {
+    label: string;
+    value: string;
+    isPreparedStatement: boolean;
 }
 export interface RestManyOptionsCustom {
     resourceName: string;

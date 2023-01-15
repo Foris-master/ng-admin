@@ -10,10 +10,7 @@ import {
 } from '@nebular/theme';
 import { filter, map } from 'rxjs/operators';
 import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
-import {
-  FileUploadControl,
-  FileUploadValidators,
-} from '@iplab/ngx-file-upload';
+
 import { RestResource } from '../models/rest-resource';
 import { RestResourceService } from '../service/rest-resource.service';
 import { ImageCroppedEvent, base64ToFile } from 'ngx-image-cropper';
@@ -25,6 +22,7 @@ import { RestResourceListFieldComponent } from '../components/rest.resource-list
 import { RestResourceEditorFieldsComponent } from '../components/rest-resource-editor-fields/rest-resource-editor-fields.component';
 import { Validator } from 'ngx-input-validator';
 import * as moment from 'moment';
+import { NotificationService } from '../service/notification.service';
 @Component({
   selector: 'ngx-rest-resource-add',
   templateUrl: './rest-resource-add.component.html',
@@ -33,11 +31,12 @@ import * as moment from 'moment';
 export class RestResourceAddComponent implements OnInit {
   @Input() resource: RestResource;
   ressourceName: string;
+  message = 'Ressource ajoutée avec succès';
   //Icons
 
   form: FormGroup;
   formState: any = {
-    btnLabel: "Modifier",
+    btnLabel: 'Modifier',
     isAdd: false,
     idEntity: null,
     onReady: false,
@@ -58,15 +57,15 @@ export class RestResourceAddComponent implements OnInit {
   //json editor
   jsonEditorOptions = {};
 
-  @ViewChild("belongTo") belongTo: QueryList<any>;
-  @ViewChild("autoBelongToMany") inputBelongToMany;
+  @ViewChild('belongTo') belongTo: QueryList<any>;
+  @ViewChild('autoBelongToMany') inputBelongToMany;
 
   controls: any;
   multiple = false;
 
   controlCroper: any = {};
 
-  imageChangedEvent: any = "";
+  imageChangedEvent: any = '';
   croppedImage: any = {};
   isCrop: any = {};
 
@@ -75,7 +74,7 @@ export class RestResourceAddComponent implements OnInit {
   // End test
 
   //Import
-  items = [{ title: "Download template" }, { title: "Import" }];
+  items = [{ title: 'Download template' }, { title: 'Import' }];
   alphabelt: string[] = ALPHABET;
 
   //Image
@@ -96,13 +95,14 @@ export class RestResourceAddComponent implements OnInit {
     private nbMenuService: NbMenuService,
     private exportService: RestExportService,
     private dialogService: NbDialogService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {
     activatedRoute.params.subscribe((params) => {
       this.ressourceName =
         this.activatedRoute.snapshot.url[
           this.activatedRoute.snapshot.url.length - 1
-        ].path.split("-")[0];
+        ].path.split('-')[0];
 
       this.resource = this.serviceRestAdminConfig.getSpecificResource(
         this.ressourceName
@@ -112,7 +112,7 @@ export class RestResourceAddComponent implements OnInit {
         this.ressourceName =
           this.activatedRoute.snapshot.url[
             this.activatedRoute.snapshot.url.length - 2
-          ].path.split("-")[0];
+          ].path.split('-')[0];
 
         this.resource = this.serviceRestAdminConfig.getSpecificResource(
           this.ressourceName
@@ -129,7 +129,7 @@ export class RestResourceAddComponent implements OnInit {
           .subscribe((response: any) => {
             this.initForm(response);
             this.formState = {
-              btnLabel: "Modifier",
+              btnLabel: 'Modifier',
               isAdd: false,
               idEntity: response.id,
               onReady: true,
@@ -138,7 +138,7 @@ export class RestResourceAddComponent implements OnInit {
       } else {
         this.initForm(null);
         this.formState = {
-          btnLabel: "Ajouter",
+          btnLabel: 'Ajouter',
           isAdd: true,
           onReady: true,
         };
@@ -150,19 +150,19 @@ export class RestResourceAddComponent implements OnInit {
     this.nbMenuService
       .onItemClick()
       .pipe(
-        filter(({ tag }) => tag === "my-context-add"),
+        filter(({ tag }) => tag === 'my-context-add'),
         map(({ item: { title } }) => title)
       )
       .subscribe((title) => {
         switch (title) {
-          case "Download template":
+          case 'Download template':
             this.downloadTemplate();
             break;
-          case "Import":
+          case 'Import':
             this.importData();
             break;
           default:
-            console.log("pass");
+            console.log('pass');
             break;
         }
       });
@@ -262,9 +262,9 @@ export class RestResourceAddComponent implements OnInit {
                 jsonFiels.push({
                   label: field,
                   value:
-                    datas[elt.name][0] == "{"
+                    datas[elt.name][0] == '{'
                       ? JSON.parse(datas[elt.name])[field]
-                      : typeof datas[elt.name] !== "string"
+                      : typeof datas[elt.name] !== 'string'
                       ? datas[elt.name][field]
                       : datas[elt.name],
                 });
@@ -304,7 +304,7 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.PDF:
             case REST_FIELD_TYPES.IMAGE:
               this.filesUpload[elt.name] = [];
-              this.urlsImage[elt.name] = "";
+              this.urlsImage[elt.name] = '';
 
               return {
                 ...cumul,
@@ -347,7 +347,7 @@ export class RestResourceAddComponent implements OnInit {
 
               return {
                 ...cumul,
-                [elt.name]: [""],
+                [elt.name]: [''],
               };
 
             case REST_FIELD_TYPES.BELONG_TO_MANY:
@@ -376,12 +376,12 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.LINK:
               return {
                 ...cumul,
-                [elt.name]: ["", Validator.url],
+                [elt.name]: ['', Validator.url],
               };
             case REST_FIELD_TYPES.JSON:
               const jsonFiels = [];
               elt?.metaData?.addConfig?.jsonConfig.jsonFields.map((field) => {
-                jsonFiels.push({ label: field, value: "" });
+                jsonFiels.push({ label: field, value: '' });
               });
 
               this.jsonEditorOptions[elt.name] = jsonFiels;
@@ -392,7 +392,7 @@ export class RestResourceAddComponent implements OnInit {
             default:
               return {
                 ...cumul,
-                [elt.name]: [""],
+                [elt.name]: [''],
               };
           }
         } else
@@ -436,12 +436,12 @@ export class RestResourceAddComponent implements OnInit {
         [name]: Array.from(treesA.values()),
       });
     }
-    input.nativeElement.value = "";
+    input.nativeElement.value = '';
   }
 
   // Autocomplete
   private filter(value: any, field): string[] {
-    if (typeof value == "string") {
+    if (typeof value == 'string') {
       if (!this.options[field.name]) {
         return [];
       } else
@@ -449,7 +449,7 @@ export class RestResourceAddComponent implements OnInit {
           return field.metaData.addConfig.belongToOptions.filterKeys.some(
             (elt) =>
               `${optionValue[elt].toLowerCase()}`.includes(
-                `${"value".toLowerCase()}`
+                `${'value'.toLowerCase()}`
               )
           );
         });
@@ -464,7 +464,7 @@ export class RestResourceAddComponent implements OnInit {
     else if (field.type == REST_FIELD_TYPES.MORPH)
       return of(value).pipe(
         map((filterString: string) =>
-          this.filterMany(filterString, field, "morphConfig")
+          this.filterMany(filterString, field, 'morphConfig')
         )
       );
     return of(value).pipe(
@@ -489,7 +489,6 @@ export class RestResourceAddComponent implements OnInit {
   // End Autocomplete
 
   //Image input
-
   onSelect(event, field: RestField) {
     this.filesUpload[field.name] = [];
     const addedFiles: File = event.addedFiles;
@@ -550,7 +549,7 @@ export class RestResourceAddComponent implements OnInit {
           id: event.id,
           [field.metaData.addConfig.belongToManyOptions.relatedIdName]:
             event.id,
-          [field.metaData.addConfig.belongToManyOptions.resourceIdName]: "",
+          [field.metaData.addConfig.belongToManyOptions.resourceIdName]: '',
           [field.metaData.addConfig.belongToManyOptions.filterKeys[0]]:
             event[field.metaData.addConfig.belongToManyOptions.filterKeys[0]],
           saveRelatedIdName:
@@ -565,7 +564,7 @@ export class RestResourceAddComponent implements OnInit {
         });
       }
     }
-    this.inputBelongToMany.nativeElement.value = "";
+    this.inputBelongToMany.nativeElement.value = '';
   }
 
   onTagRemoveBelong(tagToRemove: NbTagComponent, field): void {
@@ -593,9 +592,9 @@ export class RestResourceAddComponent implements OnInit {
   private filterMany(
     value: any,
     field,
-    options = "belongToManyOptions"
+    options = 'belongToManyOptions'
   ): string[] {
-    if (typeof value == "string") {
+    if (typeof value == 'string') {
       return this.options[field.name].filter((optionValue) => {
         return field.metaData.addConfig[options].filterKeys.some((elt) =>
           `${optionValue[elt].toLowerCase()}`.includes(`${value.toLowerCase()}`)
@@ -608,6 +607,10 @@ export class RestResourceAddComponent implements OnInit {
 
   onCreate() {
     let datas;
+    const msg = {
+      label: `msg-adding-success`,
+      resourceName: this.ressourceName,
+    };
     const formData = this.form.value;
     const _body = this.resource.addConfig.body;
     if (this.resource.hasFile) {
@@ -621,12 +624,12 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.DATE:
               datas.append(
                 key,
-                `${moment(formData[key]).format("YYYY-MM-DD")}`
+                `${moment(formData[key]).format('YYYY-MM-DD')}`
               );
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
-              if (typeof this.jsonEditorOptions[key] == "object") {
+              if (typeof this.jsonEditorOptions[key] == 'object') {
                 this.jsonEditorOptions[key].map((elt) => {
                   jsonFields = { ...jsonFields, [elt.label]: elt.value };
                 });
@@ -656,7 +659,6 @@ export class RestResourceAddComponent implements OnInit {
       datas = this.form.value;
       datas = { ...datas, ..._body };
     }
-    console.log(datas);
 
     const saveBelongTomany = [];
 
@@ -669,9 +671,8 @@ export class RestResourceAddComponent implements OnInit {
       }
     });
 
-    this.serviceRest
-      .addResources(this.resource.addConfig, datas)
-      .subscribe((response: any) => {
+    this.serviceRest.addResources(this.resource.addConfig, datas).subscribe(
+      (response: any) => {
         if (saveBelongTomany.length > 0) {
           saveBelongTomany.forEach((element, index) => {
             const restResource =
@@ -694,6 +695,7 @@ export class RestResourceAddComponent implements OnInit {
 
             Promise.all(proms).then((res) => {
               if (index == saveBelongTomany.length - 1) {
+                this.notificationService.successToast(msg);
                 this.router.navigate([
                   `/admin/${this.ressourceName}-detail`,
                   response.id,
@@ -703,16 +705,30 @@ export class RestResourceAddComponent implements OnInit {
             });
           });
         } else {
+          this.notificationService.successToast(msg);
           this.router.navigate([
             `/admin/${this.ressourceName}-detail`,
             response.id,
           ]);
           this.reset();
         }
-      });
+      },
+      (error) => {
+        const msgError = {
+          label: `msg-adding-error`,
+          resourceName: this.ressourceName,
+        };
+        this.notificationService.dangerToast(msgError);
+      }
+    );
   }
 
   onEdit() {
+    const msg = {
+      label: `msg-updating-success`,
+      resourceName: this.ressourceName,
+    };
+
     let datas;
     const formData = this.form.value;
     const _body = this.resource.editConfig.body;
@@ -727,12 +743,12 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.DATE:
               datas.append(
                 key,
-                `${moment(formData[key]).format("YYYY-MM-DD")}`
+                `${moment(formData[key]).format('YYYY-MM-DD')}`
               );
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
-              if (typeof this.jsonEditorOptions[key] == "object") {
+              if (typeof this.jsonEditorOptions[key] == 'object') {
                 this.jsonEditorOptions[key].map((elt) => {
                   jsonFields = { ...jsonFields, [elt.label]: elt.value };
                 });
@@ -774,45 +790,56 @@ export class RestResourceAddComponent implements OnInit {
         datas,
         this.formState.idEntity
       )
-      .subscribe((response: any) => {
-        if (saveBelongTomany.length > 0) {
-          saveBelongTomany.forEach((element, index) => {
-            const restResource =
-              this.serviceRestAdminConfig.getSpecificResource(element.pivot);
-            const proms = [];
+      .subscribe(
+        (response: any) => {
+          if (saveBelongTomany.length > 0) {
+            saveBelongTomany.forEach((element, index) => {
+              const restResource =
+                this.serviceRestAdminConfig.getSpecificResource(element.pivot);
+              const proms = [];
 
-            for (let index = 0; index < element.resources.length; index++) {
-              const item = element.resources[index];
-              const data = {
-                [item["saveRelatedIdName"]]: item[item["saveRelatedIdName"]],
-                [item["saveResourceIdName"]]: response.id,
-              };
+              for (let index = 0; index < element.resources.length; index++) {
+                const item = element.resources[index];
+                const data = {
+                  [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
+                  [item['saveResourceIdName']]: response.id,
+                };
 
-              proms.push(
-                this.serviceRest
-                  .addResources(restResource.addConfig, data)
-                  .toPromise()
-              );
-            }
-
-            Promise.all(proms).then((res) => {
-              if (index == saveBelongTomany.length - 1) {
-                this.router.navigate([
-                  `/admin/${this.ressourceName}-detail`,
-                  this.formState.idEntity,
-                ]);
-                this.reset();
+                proms.push(
+                  this.serviceRest
+                    .addResources(restResource.addConfig, data)
+                    .toPromise()
+                );
               }
+
+              Promise.all(proms).then((res) => {
+                if (index == saveBelongTomany.length - 1) {
+                  this.notificationService.successToast(msg);
+                  this.router.navigate([
+                    `/admin/${this.ressourceName}-detail`,
+                    this.formState.idEntity,
+                  ]);
+                  this.reset();
+                }
+              });
             });
-          });
-        } else {
-          this.router.navigate([
-            `/admin/${this.ressourceName}-detail`,
-            this.formState.idEntity,
-          ]);
-          this.reset();
+          } else {
+            this.notificationService.successToast(msg);
+            this.router.navigate([
+              `/admin/${this.ressourceName}-detail`,
+              this.formState.idEntity,
+            ]);
+            this.reset();
+          }
+        },
+        (error) => {
+          const msgError = {
+            label: `msg-updating-fail`,
+            resourceName: this.ressourceName,
+          };
+          this.notificationService.dangerToast(msgError);
         }
-      });
+      );
   }
 
   downloadTemplate(): void {
@@ -838,7 +865,7 @@ export class RestResourceAddComponent implements OnInit {
       skipHeader: true,
     };
     edata.push(udt);
-    this.exportService.exportToExcel(edata, "rest_file_template_data");
+    this.exportService.exportToExcel(edata, 'rest_file_template_data');
   }
 
   importData() {
@@ -857,7 +884,7 @@ export class RestResourceAddComponent implements OnInit {
       .forEach((elt) => {
         colunms[elt.name] = {
           title: elt.label,
-          type: "custom",
+          type: 'custom',
           filter: false,
           addable: true,
           valuePrepareFunction: (cell, row) => ({
@@ -866,7 +893,7 @@ export class RestResourceAddComponent implements OnInit {
             row,
           }),
           editor: {
-            type: "custom",
+            type: 'custom',
             component: RestResourceEditorFieldsComponent,
           },
           renderComponent: RestResourceListFieldComponent,
@@ -882,8 +909,8 @@ export class RestResourceAddComponent implements OnInit {
 
   addJSONField(event) {
     this.jsonEditorOptions[event.name].push({
-      label: "",
-      value: "",
+      label: '',
+      value: '',
       add: true,
     });
   }
