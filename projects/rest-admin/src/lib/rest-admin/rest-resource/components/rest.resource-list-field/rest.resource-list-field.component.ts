@@ -105,6 +105,11 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
             ];
         }
         break;
+        case REST_FIELD_TYPES.COLOR:
+          if (!this.val) {
+            this.val = '#FFF';
+          }
+          break;
       default:
         break;
     }

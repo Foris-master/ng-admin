@@ -1,4 +1,4 @@
-import { RestField, ListConfig, AddConfig, MainConfig, EditConfig, CustomIcon, DetailConfig } from "./rest-resource.model";
+import { RestField, ListConfig, AddConfig, MainConfig, EditConfig, CustomIcon, DetailConfig } from './rest-resource.model';
 export declare class RestResource {
     private _api;
     private _description;

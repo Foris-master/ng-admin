@@ -54,7 +54,7 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
   authConfig: {
     strategy: STRATEGY_AUTH.EMAIL,
     loginEndPoint: '/auth/signin',
-    logoutEndPoint: 'auth/logout',
+    logoutEndPoint: '/auth/logout',
     userInfoEndPoint: '/users/me',
     profileNameEndPoint: 'name',
     profilePictureEndPoint: 'picture',
@@ -73,27 +73,18 @@ Add in our app-routing.module.ts
 ```js
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { AuthModule, RestAdminModule } from '@foris-master/ngx-rest-admin';
 
-const routes: Routes = [
-  {
-    path: "admin",
-    loadChildren: () =>
-      RestAdminModule,
-  },
-  // { path: "", redirectTo: "admin", pathMatch: "full" },
-  { path: "**", redirectTo: "/" },
-];
+const routes: Routes = [{ path: '**', redirectTo: '/' }];
 
 const config: ExtraOptions = {
   useHash: false,
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config), ...],
-  exports: [RouterModule, ...]
+  imports: [RouterModule.forRoot(routes, config)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 ```
 
 ### Add Dependency Style

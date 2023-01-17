@@ -12,6 +12,16 @@ img {
   max-width: 300px;
   max-height: 200px;
 }
+.color-card {
+  width: 80px;
+  height: 30px;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #909293;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+}
 :host nb-tab {
   padding: 1.25rem;
 }

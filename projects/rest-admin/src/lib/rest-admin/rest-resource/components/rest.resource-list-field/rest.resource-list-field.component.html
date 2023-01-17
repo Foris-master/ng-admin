@@ -25,6 +25,15 @@
   </ng-container>
 </div>
 
+<div
+  *ngIf="restField.type == REST_FIELD_TYPES.COLOR"
+  class="text-center"
+  style="width: 80px; height: 30px"
+  [style.background-color]="val"
+>
+  <ng-container>{{ val }}</ng-container>
+</div>
+
 <div *ngIf="restField.type == REST_FIELD_TYPES.IMAGE" class="text-center">
   <ng-container *ngIf="!restField.template">
     <img class="rest-img" [src]="val" alt="" [style]="style"
@@ -62,7 +71,10 @@
 <div *ngIf="restField.type == REST_FIELD_TYPES.JSON">
   <ng-container *ngIf="!restField.template"> {{ jsonValue }}</ng-container>
   <ng-container *ngIf="restField.template">
-    <cng-html-compiler [template]="restField.template" [componentClass]="jsonValue">
+    <cng-html-compiler
+      [template]="restField.template"
+      [componentClass]="jsonValue"
+    >
     </cng-html-compiler>
   </ng-container>
 </div>

@@ -280,7 +280,7 @@ export class RestAdminConfigService {
       : '/auth/login';
     rest.logoutEndPoint = params.logoutEndPoint
       ? params.logoutEndPoint
-      : 'auth/logout';
+      : '/auth/logout';
     rest.userInfoEndPoint = params.userInfoEndPoint
       ? params.userInfoEndPoint
       : '/users/me';
@@ -300,9 +300,6 @@ export class RestAdminConfigService {
     rest.tokenLocationInResponse = params.tokenLocationInResponse
       ? params.tokenLocationInResponse
       : 'data.token';
-
-    console.log('res--->', rest);
-
     return rest;
   }
 

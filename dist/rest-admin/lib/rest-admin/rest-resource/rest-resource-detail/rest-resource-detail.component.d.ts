@@ -1,11 +1,11 @@
-import { OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RestResource } from "../models/rest-resource";
-import { REST_FIELD_TYPES } from "../models/rest-resource.model";
-import { RestAdminConfigService } from "../service/rest-admin-config.service";
-import { RestResourceService } from "../service/rest-resource.service";
-import { NbTreeGridDataSourceBuilder } from "@nebular/theme";
-import { RestLangService } from "../service/rest-lang.service";
+import { OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestResource } from '../models/rest-resource';
+import { REST_FIELD_TYPES } from '../models/rest-resource.model';
+import { RestAdminConfigService } from '../service/rest-admin-config.service';
+import { RestResourceService } from '../service/rest-resource.service';
+import { NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { RestLangService } from '../service/rest-lang.service';
 import * as i0 from "@angular/core";
 export declare class RestResourceDetailComponent implements OnInit {
     private activatedRoute;

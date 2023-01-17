@@ -77,25 +77,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
         .subscribe((resp: any) => {
           var data = resp;
           var user = {
-            name: resp[this.serviceRestAdmin.restAuthParams.profileNameEndPoint],
-            picture: resp[this.serviceRestAdmin.restAuthParams.profilePictureEndPoint],
+            name: resp[
+              this.serviceRestAdmin.restAuthParams.profileNameEndPoint
+            ],
+            picture:
+              resp[this.serviceRestAdmin.restAuthParams.profilePictureEndPoint],
             defaultPicture: 'M',
           };
 
-          var namePath = (this.serviceRestAdmin.restAuthParams.profileNameEndPoint).split('.');
+          var namePath =
+            this.serviceRestAdmin.restAuthParams.profileNameEndPoint.split('.');
           namePath.map((val) => {
             user['name'] = data[val];
             data = data[val];
           });
 
           data = resp;
-          var picturePath = (this.serviceRestAdmin.restAuthParams.profilePictureEndPoint).split('.');
+          var picturePath =
+            this.serviceRestAdmin.restAuthParams.profilePictureEndPoint.split(
+              '.'
+            );
           picturePath.map((val) => {
             user['picture'] = data[val];
             data = data[val];
           });
           if (user['name'])
-            user['defaultPicture']= `https://ui-avatars.com/api/?name=${(user['name']).toString()}&rounded=true`
+            user['defaultPicture'] = `https://ui-avatars.com/api/?name=${user[
+              'name'
+            ].toString()}&rounded=true`;
 
           this.user = user;
           this.isAuth = true;
@@ -131,7 +140,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
           case 'Déconnexion':
             this.httpClient
               .post(
-                `${this.serviceRestAdmin.restBaseUrl}/${this.serviceRestAdmin.restAuthParams.logoutEndPoint}`,
+                `${this.serviceRestAdmin.restBaseUrl}${this.serviceRestAdmin.restAuthParams.logoutEndPoint}`,
                 {}
               )
               .subscribe(

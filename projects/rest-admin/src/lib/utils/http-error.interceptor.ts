@@ -9,11 +9,23 @@ import {
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import {
+  NbComponentStatus,
+  NbGlobalPhysicalPosition,
+  NbToastrService,
+} from '@nebular/theme';
+import { NotificationService } from '../rest-admin/rest-resource/service/notification.service';
+import { RestShareService } from '../rest-admin/rest-resource/service/rest-share.service';
 
 /** Passes HttpErrorResponse to application-wide error handler */
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector, private router: Router) {}
+  positions = NbGlobalPhysicalPosition;
+  constructor(
+    private serviceNotification: NotificationService,
+    private router: Router,
+    private restShare: RestShareService
+  ) {}
 
   intercept(
     request: HttpRequest<any>,
@@ -23,14 +35,26 @@ export class HttpErrorInterceptor implements HttpInterceptor {
       tap({
         error: (err: any) => {
           if (err instanceof HttpErrorResponse) {
-            // const appErrorHandler = this.injector.get(ErrorHandler);
-            // appErrorHandler.handleError(err);
             switch (err.status) {
               case 401:
-                this.router.navigateByUrl('/login');
+                this.router.navigate(['/login']);
+                this.restShare.setLoader(false);
+                break;
+              case 403:
+                this.serviceNotification.dangerToast(`msg-not-authorized`);
+                this.restShare.setLoader(false);
+                break;
+              case 404:
+                this.serviceNotification.dangerToast(`msg-not-found`);
+                this.restShare.setLoader(false);
+                break;
+              case 500:
+                this.serviceNotification.dangerToast(`msg-internal-error`);
+                this.restShare.setLoader(false);
                 break;
 
               default:
+                this.restShare.setLoader(false);
                 break;
             }
           }

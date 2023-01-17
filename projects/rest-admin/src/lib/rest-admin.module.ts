@@ -80,6 +80,10 @@ import {
 } from '@nebular/auth';
 import { LoginComponent } from './auth/login/login.component';
 import { isAuthGuard } from './utils/is-auth.guard';
+import { NotificationService } from './rest-admin/rest-resource/service/notification.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RestShareService } from './rest-admin/rest-resource/service/rest-share.service';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -129,6 +133,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
   ],
   imports: [
     CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
@@ -192,6 +198,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestAdminConfigService,
     RestExportService,
     RestLangService,
+    NotificationService,
+    RestShareService,
   ],
 })
 export class RestAdminModule {

@@ -1,34 +1,35 @@
-import { FILTER_OPERATORS } from "./../service/rest-resource.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { FILTER_OPERATORS } from './../service/rest-resource.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {
   Component,
   Input,
   OnInit,
   TemplateRef,
   ViewChild,
-} from "@angular/core";
-import { LocalDataSource, ServerDataSource } from "ng2-smart-table";
-import { RestField, REST_FIELD_TYPES } from "../models/rest-resource.model";
-import * as _ from "lodash";
-import { NbDialogService, NbMenuService } from "@nebular/theme";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RestAdminConfigService } from "../service/rest-admin-config.service";
-import { RestResourceEditorFieldsComponent } from "../components/rest-resource-editor-fields/rest-resource-editor-fields.component";
-import { RestResourceListFieldComponent } from "../components/rest.resource-list-field/rest.resource-list-field.component";
-import { RestResourceDeleteComponent } from "../rest-ressource-delete/rest-resource-delete.component";
-import { RestResource } from "../models/rest-resource";
-import { RestResourceService } from "../service/rest-resource.service";
-import { filter, map } from "rxjs/operators";
-import { ALPHABET, RestExportService } from "../service/rest-export.service";
+} from '@angular/core';
+import { ServerDataSource } from 'ng2-smart-table';
+import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import * as _ from 'lodash';
+import { NbDialogService, NbMenuService } from '@nebular/theme';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestAdminConfigService } from '../service/rest-admin-config.service';
+import { RestResourceEditorFieldsComponent } from '../components/rest-resource-editor-fields/rest-resource-editor-fields.component';
+import { RestResourceListFieldComponent } from '../components/rest.resource-list-field/rest.resource-list-field.component';
+import { RestResourceDeleteComponent } from '../rest-ressource-delete/rest-resource-delete.component';
+import { RestResource } from '../models/rest-resource';
+import { RestResourceService } from '../service/rest-resource.service';
+import { filter, map } from 'rxjs/operators';
+import { ALPHABET, RestExportService } from '../service/rest-export.service';
+import { RestShareService } from '../service/rest-share.service';
 
 @Component({
-  selector: "ngx-rest-resource-list",
-  templateUrl: "./rest-resource-list.component.html",
-  styleUrls: ["./rest-resource-list.component.scss"],
+  selector: 'ngx-rest-resource-list',
+  templateUrl: './rest-resource-list.component.html',
+  styleUrls: ['./rest-resource-list.component.scss'],
 })
 export class RestResourceListComponent implements OnInit {
   @Input() resource: RestResource;
-  @ViewChild("search") search;
+  @ViewChild('search') search;
 
   alphabelt: string[] = ALPHABET;
   data: any;
@@ -36,28 +37,28 @@ export class RestResourceListComponent implements OnInit {
   source: ServerDataSource;
   currentPerPage: number;
   isFetching = true;
-  ressourceName = "";
-  filterBy = "";
+  ressourceName = '';
+  filterBy = '';
   filterOperator = FILTER_OPERATORS;
   exportAsConfig = {
-    type: "png", // the type you want to download
-    elementId: "myTableElementId", // the id of html/table element
+    type: 'png', // the type you want to download
+    elementId: 'myTableElementId', // the id of html/table element
   };
   searchItems = [];
-  searchItem = "";
+  searchItem = '';
 
   items = [
-    { title: "All formats" },
-    { title: "CSV" },
-    { title: "EXCEL" },
-    { title: "PDF" },
+    { title: 'All formats' },
+    { title: 'CSV' },
+    { title: 'EXCEL' },
+    { title: 'PDF' },
   ];
   perPagesOptions = [
-    { title: "5", value: 5 },
-    { title: "10", value: 10 },
-    { title: "20", value: 20 },
-    { title: "50", value: 50 },
-    { title: "100", value: 100 },
+    { title: '5', value: 5 },
+    { title: '10', value: 10 },
+    { title: '20', value: 20 },
+    { title: '50', value: 50 },
+    { title: '100', value: 100 },
   ];
   constructor(
     private serviceRestConfig: RestAdminConfigService,
@@ -67,12 +68,13 @@ export class RestResourceListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private nbMenuService: NbMenuService,
-    private exportService: RestExportService
+    private exportService: RestExportService,
+    public restShare: RestShareService
   ) {
     this.ressourceName =
       this.activatedRoute.snapshot.url[
         this.activatedRoute.snapshot.url.length - 1
-      ].path.split("-")[0];
+      ].path.split('-')[0];
 
     this.resource = this.serviceRestConfig.getSpecificResource(
       this.ressourceName
@@ -82,9 +84,9 @@ export class RestResourceListComponent implements OnInit {
   ngOnInit(): void {
     if (this.resource.listConfig.searchFilter) {
       this.searchItems.push({
-        field: "",
-        operator: "",
-        terms: "",
+        field: '',
+        operator: '',
+        terms: '',
       });
     }
 
@@ -92,14 +94,14 @@ export class RestResourceListComponent implements OnInit {
     this.settings = {
       hideSubHeader: this.resource.listConfig.hideAddSubHeader,
       actions: {
-        position: "right",
+        position: 'right',
         custom: [
           {
-            name: "detail",
+            name: 'detail',
             title: "<i class='nb-compose'></i>",
           },
           {
-            name: "delete",
+            name: 'delete',
             title: "<i  class='nb-trash text-danger' ></i> ",
           },
         ],
@@ -133,25 +135,25 @@ export class RestResourceListComponent implements OnInit {
 
     this.source.onChanged().subscribe((e) => {
       setTimeout(() => {
-        this.isFetching = false;
+        this.restShare.setLoader(false);
       });
     });
 
     this.nbMenuService
       .onItemClick()
       .pipe(
-        filter(({ tag }) => tag === "my-context"),
+        filter(({ tag }) => tag === 'my-context'),
         map(({ item: { title } }) => title)
       )
       .subscribe((title) => {
         switch (title) {
-          case "EXCEL":
+          case 'EXCEL':
             this.exportToExcel();
             break;
-          case "PDF":
+          case 'PDF':
             this.exportToPdf();
             break;
-          case "CSV":
+          case 'CSV':
             this.exportToCsv();
             break;
           default:
@@ -165,8 +167,9 @@ export class RestResourceListComponent implements OnInit {
     const dialog = this.dialogService.open(RestResourceDeleteComponent, {
       context: {
         datas: event.data,
-        title: "SUPPRESSION",
+        title: 'SUPPRESSION',
         listConfig: this.resource.listConfig,
+        resourceName: this.ressourceName,
       },
     });
 
@@ -183,6 +186,7 @@ export class RestResourceListComponent implements OnInit {
   addNewEntity() {
     this.router.navigateByUrl(`/admin/${this.ressourceName}-add`);
   }
+
   detailEntity(event) {
     this.router.navigate([
       `/admin/${this.ressourceName}-detail`,
@@ -197,7 +201,7 @@ export class RestResourceListComponent implements OnInit {
       .forEach((elt) => {
         colunms[elt.name] = {
           title: elt.label,
-          type: "custom",
+          type: 'custom',
           filter: false,
           addable: true,
           valuePrepareFunction: (cell, row) => ({
@@ -206,7 +210,7 @@ export class RestResourceListComponent implements OnInit {
             row,
           }),
           editor: {
-            type: "custom",
+            type: 'custom',
             component: RestResourceEditorFieldsComponent,
           },
           renderComponent: RestResourceListFieldComponent,
@@ -216,6 +220,7 @@ export class RestResourceListComponent implements OnInit {
   }
 
   getList(page = null, perPage = null) {
+    this.restShare.setLoader(true);
     if (page) {
       this.resource.queryParams = { ...this.resource.queryParams, page };
     }
@@ -228,24 +233,24 @@ export class RestResourceListComponent implements OnInit {
     this.source = new ServerDataSource(this.http, {
       endPoint:
         this.serviceRestConfig.restBaseUrl +
-        "/" +
+        '/' +
         this.resource.listConfig.api +
-        "?" +
+        '?' +
         Object.keys(this.resource.listConfig.queryParams)
           .reduce(
             (cumul, item) =>
               cumul +
               item +
-              "=" +
+              '=' +
               this.resource.listConfig.queryParams[item] +
-              ",",
-            ""
+              ',',
+            ''
           )
           .slice(0, -1),
-      dataKey: "data",
-      pagerPageKey: "page",
-      pagerLimitKey: "per_page",
-      totalKey: "total",
+      dataKey: 'data',
+      pagerPageKey: 'page',
+      pagerLimitKey: 'per_page',
+      totalKey: 'total',
       filterFieldKey: `#_include#`,
     });
   }
@@ -277,8 +282,8 @@ export class RestResourceListComponent implements OnInit {
             for (let index = 0; index < element.resources.length; index++) {
               const item = element.resources[index];
               const data = {
-                [item["saveRelatedIdName"]]: item[item["saveRelatedIdName"]],
-                [item["saveResourceIdName"]]: response.id,
+                [item['saveRelatedIdName']]: item[item['saveRelatedIdName']],
+                [item['saveResourceIdName']]: response.id,
               };
 
               proms.push(
@@ -305,10 +310,10 @@ export class RestResourceListComponent implements OnInit {
 
   onCustom(event) {
     switch (event.action) {
-      case "delete":
+      case 'delete':
         this.onDeleteConfirm(event);
         break;
-      case "detail":
+      case 'detail':
         this.detailEntity(event);
         break;
     }
@@ -343,7 +348,7 @@ export class RestResourceListComponent implements OnInit {
     const edata: Array<any> = [];
     const udt: any = {
       data: [
-        { A: "Rest Excel export" }, // title
+        { A: 'Rest Excel export' }, // title
         sheetHeader, // table header
       ],
       skipHeader: true,
@@ -360,7 +365,7 @@ export class RestResourceListComponent implements OnInit {
       });
 
       edata.push(udt);
-      this.exportService.exportToExcel(edata, "rest_file_excel");
+      this.exportService.exportToExcel(edata, 'rest_file_excel');
     });
   }
 
@@ -388,7 +393,7 @@ export class RestResourceListComponent implements OnInit {
       this.exportService.exportToPdf(
         header,
         customData,
-        "rest_file_pdf",
+        'rest_file_pdf',
         fileTitle
       );
     });
@@ -414,7 +419,7 @@ export class RestResourceListComponent implements OnInit {
         });
         customData.push(elt);
       });
-      this.exportService.exportToCsv(header, customData, "rest_file_csv");
+      this.exportService.exportToCsv(header, customData, 'rest_file_csv');
     });
   }
 
@@ -442,7 +447,7 @@ export class RestResourceListComponent implements OnInit {
     });
 
     const excelData: any = {
-      data: [{ A: "Rest Excel export" }, sheetHeader],
+      data: [{ A: 'Rest Excel export' }, sheetHeader],
       skipHeader: true,
     };
 
@@ -498,20 +503,20 @@ export class RestResourceListComponent implements OnInit {
   }
 
   addFieldSearch() {
-    this.searchItems.push({ field: "", operator: "", terms: "" });
+    this.searchItems.push({ field: '', operator: '', terms: '' });
   }
 
   removeFieldSearch(index) {
     this.searchItems.splice(index, 1);
   }
-  
+
   startSearch() {
     const params = {};
-    let search = "";
+    let search = '';
     this.searchItems.forEach((element) => {
-      if (element.field != "" && element.terms != "") {
-        if (element.operator != "=") {
-          params[element.field + "-" + element.operator] = `${element.terms}`;
+      if (element.field != '' && element.terms != '') {
+        if (element.operator != '=') {
+          params[element.field + '-' + element.operator] = `${element.terms}`;
         } else {
           params[element.field] = `${element.terms}`;
         }
@@ -520,15 +525,15 @@ export class RestResourceListComponent implements OnInit {
     search = Object.keys(this.resource.listConfig.queryParams)
       .reduce(
         (cumul, item) =>
-          cumul + item + "=" + this.resource.listConfig.queryParams[item] + ",",
-        ""
+          cumul + item + '=' + this.resource.listConfig.queryParams[item] + ',',
+        ''
       )
       .slice(0, -1);
-    if (search != "") {
-      search += "&";
+    if (search != '') {
+      search += '&';
     }
     search += Object.keys(params)
-      .reduce((cumul, item) => cumul + item + "=" + params[item] + "&", "")
+      .reduce((cumul, item) => cumul + item + '=' + params[item] + '&', '')
       .slice(0, -1);
 
     // console.log(search);
@@ -536,14 +541,14 @@ export class RestResourceListComponent implements OnInit {
     this.source = new ServerDataSource(this.http, {
       endPoint:
         this.serviceRestConfig.restBaseUrl +
-        "/" +
+        '/' +
         this.resource.listConfig.api +
-        "?" +
+        '?' +
         search,
-      dataKey: "data",
-      pagerPageKey: "page",
-      pagerLimitKey: "per_page",
-      totalKey: "total",
+      dataKey: 'data',
+      pagerPageKey: 'page',
+      pagerLimitKey: 'per_page',
+      totalKey: 'total',
       filterFieldKey: `#_include#`,
     });
   }

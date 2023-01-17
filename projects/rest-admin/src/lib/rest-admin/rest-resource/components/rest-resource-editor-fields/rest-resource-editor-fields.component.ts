@@ -95,6 +95,11 @@ export class RestResourceEditorFieldsComponent extends DefaultEditor {
 
         break;
 
+        case REST_FIELD_TYPES.COLOR:
+          if (!this.cell.newValue) {
+            this.cell.newValue = '#A4A';
+          }
+          break;
       case REST_FIELD_TYPES.BELONG_TO_MANY:
         this.cell.newValue = new Set([]);
 

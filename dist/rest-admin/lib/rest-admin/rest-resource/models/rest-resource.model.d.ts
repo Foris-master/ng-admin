@@ -4,6 +4,7 @@ export interface ResourceConfig {
     api?: any;
     orderDirection?: DIRECTION;
     queryParams?: any;
+    preparedStatementQuery?: PreparedStatementQuery;
 }
 export interface Field {
     label?: string;
@@ -140,12 +141,23 @@ export interface REST_FIELD_METADATA {
             filterKeys?: string[];
             value?: string;
             template?: string;
-            queryParams?: any;
+            queryParams?: any | PreparedStatementQuery;
         };
     };
     detailConfig?: {
         restManyResources?: RestField | RestManyOptionsCustom;
     };
+}
+export interface PreparedStatementQuery {
+    api: string;
+    fieldForNextQuery: string[];
+    queryParams?: any;
+    queryParamsComplete?: QueryParamsPreparedStatement[];
+}
+export interface QueryParamsPreparedStatement {
+    label: string;
+    value: string;
+    isPreparedStatement?: boolean;
 }
 export interface RestManyOptionsCustom {
     resourceName: string;
@@ -160,24 +172,26 @@ export declare enum REST_FIELD_TYPES {
     STRING = 0,
     TEXT = 1,
     NUMBER = 2,
-    BOOLEAN = 3,
-    DATE = 4,
-    DATETIME = 5,
-    TIME = 6,
-    IMAGE = 7,
-    PDF = 8,
-    FILE = 9,
-    BELONG_TO = 10,
-    HAS_ONE = 11,
-    HAS_MANY = 12,
-    BELONG_TO_MANY = 13,
-    MORPH_MANY = 14,
-    MORPH_ONE = 15,
-    MORPH = 16,
-    JSON = 17,
-    MAP = 18,
-    ENUM = 19,
-    LINK = 20
+    PASSWORD = 3,
+    COLOR = 4,
+    BOOLEAN = 5,
+    DATE = 6,
+    DATETIME = 7,
+    TIME = 8,
+    IMAGE = 9,
+    PDF = 10,
+    FILE = 11,
+    BELONG_TO = 12,
+    HAS_ONE = 13,
+    HAS_MANY = 14,
+    BELONG_TO_MANY = 15,
+    MORPH_MANY = 16,
+    MORPH_ONE = 17,
+    MORPH = 18,
+    JSON = 19,
+    MAP = 20,
+    ENUM = 21,
+    LINK = 22
 }
 export interface REST_CONFIG {
     name: string;

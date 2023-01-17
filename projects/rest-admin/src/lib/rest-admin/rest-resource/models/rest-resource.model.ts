@@ -4,6 +4,7 @@ export interface ResourceConfig {
   api?: any;
   orderDirection?: DIRECTION;
   queryParams?: any;
+  preparedStatementQuery?: PreparedStatementQuery;
 }
 export interface Field {
   label?: string;
@@ -102,7 +103,7 @@ export interface TabsOptions {
 
 export interface REST_FIELD_METADATA {
   format?: string;
-  number?: Boolean,
+  number?: Boolean;
   listConfig?: {
     class?: string;
     style?: string;
@@ -155,13 +156,27 @@ export interface REST_FIELD_METADATA {
       filterKeys?: string[]; // Le nom du champs par lequel on va filtrer
       value?: string; // Le nom du champs de la valeur a retenir
       template?: string; // Le template a affciher
-      queryParams?: any;
+      queryParams?: any | PreparedStatementQuery;
     };
   };
   detailConfig?: {
     restManyResources?: RestField | RestManyOptionsCustom;
   };
 }
+
+export interface PreparedStatementQuery {
+  api: string;
+  fieldForNextQuery: string[];
+  queryParams?: any;
+  queryParamsComplete?: QueryParamsPreparedStatement[];
+}
+
+export interface QueryParamsPreparedStatement {
+  label: string;
+  value: string;
+  isPreparedStatement?: boolean;
+}
+
 export interface RestManyOptionsCustom {
   resourceName: string;
   resource: RestResource;
@@ -177,6 +192,8 @@ export enum REST_FIELD_TYPES {
   STRING,
   TEXT,
   NUMBER,
+  PASSWORD,
+  COLOR,
   BOOLEAN,
   DATE,
   DATETIME,

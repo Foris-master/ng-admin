@@ -17,10 +17,11 @@ export const address = new RestResource(
     },
     {
       name: 'name',
+      type: REST_FIELD_TYPES.COLOR,
     },
     {
       name: 'zip_code',
-      type: REST_FIELD_TYPES.NUMBER,
+      type: REST_FIELD_TYPES.COLOR,
     },
     {
       name: 'user_id',
@@ -116,19 +117,19 @@ export const address = new RestResource(
   {},
   {},
   {
-    tabsConfig: [
-      {
-        name: 'Address',
-        datas: ['id', 'name', 'zip_code', 'user', 'town', 'created_at'],
-      },
-      {
-        name: 'User',
-        datas: ['user'],
-      },
-      {
-        name: 'Town',
-        datas: [],
-      },
-    ],
+    // tabsConfig: [
+    //   {
+    //     name: 'Address',
+    //     datas: ['id', 'name', 'zip_code', 'user', 'town', 'created_at'],
+    //   },
+    //   {
+    //     name: 'User',
+    //     datas: ['user'],
+    //   },
+    //   {
+    //     name: 'Town',
+    //     datas: [],
+    //   },
+    // ],
   }
 );

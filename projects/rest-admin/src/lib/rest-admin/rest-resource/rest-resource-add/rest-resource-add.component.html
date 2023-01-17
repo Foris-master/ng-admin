@@ -56,6 +56,22 @@
                 />
               </div>
 
+              <!-- Input type password  -->
+              <div
+                class="input-space"
+                *ngIf="field.type == REST_FIELD_TYPES.PASSWORD"
+              >
+                <label class="label">{{ field.label | titlecase }}</label>
+                <input
+                  nbInput
+                  fullWidth
+                  [id]="i"
+                  [placeholder]="field.label"
+                  [formControlName]="field.name"
+                  type="password"
+                />
+              </div>
+
               <!-- Input type text -->
               <div
                 class="input-space"
@@ -425,6 +441,28 @@
                 </nb-autocomplete>
               </div>
 
+              <!-- Input type color  -->
+              <div
+                class="input-space"
+                *ngIf="field.type == REST_FIELD_TYPES.COLOR"
+              >
+                <label class="label">{{ field.label | titlecase }}</label>
+                <div class="color-row">
+                  <input
+                    nbInput
+                    fullWidth
+                    [id]="i"
+                    [placeholder]="field.label"
+                    [formControlName]="field.name"
+                    type="text"
+                  />
+                  <div
+                    class="text-center color-card"
+                    [style.background-color]="form.value[field.name]"
+                  ></div>
+                </div>
+              </div>
+
               <!-- Input type link -->
 
               <div
@@ -608,6 +646,7 @@
       </nb-tab>
     </nb-tabset>
   </nb-card-body>
+
   <nb-card-footer>
     <div class="buttons-row">
       <button nbButton (click)="onSumbit()" status="primary">

@@ -44,13 +44,22 @@ export class AppModule { }
 ```
 Configure your app with the name, the ressources and the baseUrl of the api.
 ```js
-import { REST_CONFIG } from "rest-admin";
+import { REST_CONFIG } from "@foris-master/ngx-rest-admin";
 import { resources } from "./resources";
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
-  name: "The name of your app",
+  name: 'Name of the app',
+  baseUrl: 'https://api.example.com/api',
   resources: resources,
-  baseUrl: "https://api.exmaple.com/api",
+  authConfig: {
+    strategy: STRATEGY_AUTH.EMAIL,
+    loginEndPoint: '/auth/signin',
+    logoutEndPoint: '/auth/logout',
+    userInfoEndPoint: '/users/me',
+    profileNameEndPoint: 'name',
+    profilePictureEndPoint: 'picture',
+    redirectRouteAfterLogin: '/address', //juste mettre le nom de la ressource
+  },
 };
 ```
 
@@ -64,31 +73,18 @@ Add in our app-routing.module.ts
 ```js
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { AuthModule, RestAdminModule } from '@foris-master/ngx-rest-admin';
 
-const routes: Routes = [
-  {
-    path: "admin",
-    loadChildren: () =>
-      RestAdminModule,
-  },
-  {
-    path: "auth",
-    loadChildren: () => AuthModule,
-  },
-  // { path: "", redirectTo: "admin", pathMatch: "full" },
-  { path: "**", redirectTo: "/" },
-];
+const routes: Routes = [{ path: '**', redirectTo: '/' }];
 
 const config: ExtraOptions = {
   useHash: false,
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config), ...],
-  exports: [RouterModule, ...]
+  imports: [RouterModule.forRoot(routes, config)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 ```
 
 ### Add Dependency Style

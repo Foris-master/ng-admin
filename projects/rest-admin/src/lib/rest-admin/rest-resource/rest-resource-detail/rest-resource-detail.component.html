@@ -34,7 +34,37 @@
             </cng-html-compiler>
           </div>
         </ng-container>
-        <ng-container *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON">
+
+        <ng-container
+          *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
+        >
+          <ng-container *ngIf="!item.value.restField.template">
+            <div class="">
+              <b>{{ item.key | titlecase }}: </b>
+            </div>
+            <div class="">
+              {{ item.value.data }}
+            </div>
+            <div
+              class="text-center color-card"
+              [style.background-color]="item.value.data"
+            >
+              <ng-container>{{ item.value.data }}</ng-container>
+            </div>
+          </ng-container>
+
+          <div *ngIf="item.value.restField.template">
+            <cng-html-compiler
+              [template]="item.value.restField.template"
+              [componentClass]="item.value.data"
+            >
+            </cng-html-compiler>
+          </div>
+        </ng-container>
+
+        <ng-container
+          *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON"
+        >
           <ng-container *ngIf="!item.value.restField.template">
             <div class="">
               <b>{{ item.key | titlecase }}: </b>
@@ -354,6 +384,54 @@
                   </div>
                   <div class="">
                     {{ item.value.data }}
+                  </div>
+                </ng-container>
+
+                <div *ngIf="item.value.restField.template">
+                  <cng-html-compiler
+                    [template]="item.value.restField.template"
+                    [componentClass]="item.value.data"
+                  >
+                  </cng-html-compiler>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
+              >
+                <ng-container *ngIf="!item.value.restField.template">
+                  <div class="">
+                    <b>{{ item.key | titlecase }}: </b>
+                  </div>
+                  <div class="">
+                    {{ item.value.data }}
+                  </div>
+                  <div
+                    class="text-center color-card"
+                    [style.background-color]="item.value.data"
+                  >
+                    <ng-container>{{ item.value.data }}</ng-container>
+                  </div>
+                </ng-container>
+
+                <div *ngIf="item.value.restField.template">
+                  <cng-html-compiler
+                    [template]="item.value.restField.template"
+                    [componentClass]="item.value.data"
+                  >
+                  </cng-html-compiler>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="item.value.restField.type == REST_FIELD_TYPES.PASSWORD"
+              >
+                <ng-container *ngIf="!item.value.restField.template">
+                  <div class="">
+                    <b>{{ item.key | titlecase }}: </b>
+                  </div>
+                  <div class="">
+                    ********
                   </div>
                 </ng-container>
 

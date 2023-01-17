@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@ngx-translate/core'), require('@angular/forms'), require('@angular/common/http'), require('@angular/core'), require('@angular/common'), require('@nebular/theme'), require('ng2-smart-table'), require('@nebular/eva-icons'), require('@nebular/security'), require('rxjs'), require('rxjs/operators'), require('@angular/router'), require('ngx-image-cropper'), require('file-saver'), require('xlsx'), require('jspdf'), require('jspdf-autotable'), require('jszip'), require('@iplab/ngx-file-upload'), require('lodash'), require('@codehint-ng/html-compiler'), require('ngx-input-validator'), require('moment'), require('ngx-dropzone'), require('@nebular/auth'), require('@ngx-translate/http-loader'), require('ngx-permissions')) :
-    typeof define === 'function' && define.amd ? define('@foris-master/ngx-rest-admin', ['exports', '@ngx-translate/core', '@angular/forms', '@angular/common/http', '@angular/core', '@angular/common', '@nebular/theme', 'ng2-smart-table', '@nebular/eva-icons', '@nebular/security', 'rxjs', 'rxjs/operators', '@angular/router', 'ngx-image-cropper', 'file-saver', 'xlsx', 'jspdf', 'jspdf-autotable', 'jszip', '@iplab/ngx-file-upload', 'lodash', '@codehint-ng/html-compiler', 'ngx-input-validator', 'moment', 'ngx-dropzone', '@nebular/auth', '@ngx-translate/http-loader', 'ngx-permissions'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global["foris-master"] = global["foris-master"] || {}, global["foris-master"]["ngx-rest-admin"] = {}), global["@ngx-translate/core"], global.ng.forms, global.ng.common.http, global.ng.core, global.ng.common, global["@nebular/theme"], global["ng2-smart-table"], global["@nebular/eva-icons"], global["@nebular/security"], global.rxjs, global.rxjs.operators, global.ng.router, global["ngx-image-cropper"], global["file-saver"], global.xlsx, global.jspdf, null, global.jszip, global["@iplab/ngx-file-upload"], global.lodash, global["@codehint-ng/html-compiler"], global["ngx-input-validator"], global.moment, global["ngx-dropzone"], global["@nebular/auth"], global["@ngx-translate/http-loader"], global["ngx-permissions"]));
-})(this, (function (exports, i1$3, i1$4, i1$2, i0, i8, i1$1, i9, evaIcons, i9$1, rxjs, operators, i1, i5, FileSaver, XLSX, jsPDF, jspdfAutotable, JSZip, i2, _, i3, ngxInputValidator, moment, i7, i1$5, httpLoader, i5$1) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@ngx-translate/core'), require('@angular/forms'), require('@angular/common/http'), require('@angular/core'), require('@angular/common'), require('@nebular/theme'), require('ng2-smart-table'), require('@nebular/eva-icons'), require('@nebular/security'), require('rxjs'), require('rxjs/operators'), require('@angular/router'), require('ngx-image-cropper'), require('file-saver'), require('xlsx'), require('jspdf'), require('jspdf-autotable'), require('jszip'), require('@iplab/ngx-file-upload'), require('lodash'), require('@codehint-ng/html-compiler'), require('ngx-input-validator'), require('moment'), require('ngx-dropzone'), require('@nebular/auth'), require('@ngx-translate/http-loader'), require('ngx-permissions'), require('@angular/platform-browser'), require('@angular/platform-browser/animations')) :
+    typeof define === 'function' && define.amd ? define('@foris-master/ngx-rest-admin', ['exports', '@ngx-translate/core', '@angular/forms', '@angular/common/http', '@angular/core', '@angular/common', '@nebular/theme', 'ng2-smart-table', '@nebular/eva-icons', '@nebular/security', 'rxjs', 'rxjs/operators', '@angular/router', 'ngx-image-cropper', 'file-saver', 'xlsx', 'jspdf', 'jspdf-autotable', 'jszip', '@iplab/ngx-file-upload', 'lodash', '@codehint-ng/html-compiler', 'ngx-input-validator', 'moment', 'ngx-dropzone', '@nebular/auth', '@ngx-translate/http-loader', 'ngx-permissions', '@angular/platform-browser', '@angular/platform-browser/animations'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory((global["foris-master"] = global["foris-master"] || {}, global["foris-master"]["ngx-rest-admin"] = {}), global["@ngx-translate/core"], global.ng.forms, global.ng.common.http, global.ng.core, global.ng.common, global["@nebular/theme"], global["ng2-smart-table"], global["@nebular/eva-icons"], global["@nebular/security"], global.rxjs, global.rxjs.operators, global.ng.router, global["ngx-image-cropper"], global["file-saver"], global.xlsx, global.jspdf, null, global.jszip, global["@iplab/ngx-file-upload"], global.lodash, global["@codehint-ng/html-compiler"], global["ngx-input-validator"], global.moment, global["ngx-dropzone"], global["@nebular/auth"], global["@ngx-translate/http-loader"], global["ngx-permissions"], global.ng.platformBrowser, global.ng.platformBrowser.animations));
+})(this, (function (exports, i1$2, i1$3, i1$1, i0, i8, i1, i10, evaIcons, i9, rxjs, operators, i2, i5, FileSaver, XLSX, jsPDF, jspdfAutotable, JSZip, i2$1, _, i3, ngxInputValidator, moment, i8$1, i1$4, httpLoader, i5$1, platformBrowser, animations) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -24,26 +24,26 @@
         return Object.freeze(n);
     }
 
-    var i1__namespace$3 = /*#__PURE__*/_interopNamespace(i1$3);
-    var i1__namespace$4 = /*#__PURE__*/_interopNamespace(i1$4);
     var i1__namespace$2 = /*#__PURE__*/_interopNamespace(i1$2);
+    var i1__namespace$3 = /*#__PURE__*/_interopNamespace(i1$3);
+    var i1__namespace$1 = /*#__PURE__*/_interopNamespace(i1$1);
     var i0__namespace = /*#__PURE__*/_interopNamespace(i0);
     var i8__namespace = /*#__PURE__*/_interopNamespace(i8);
-    var i1__namespace$1 = /*#__PURE__*/_interopNamespace(i1$1);
-    var i9__namespace = /*#__PURE__*/_interopNamespace(i9);
-    var i9__namespace$1 = /*#__PURE__*/_interopNamespace(i9$1);
     var i1__namespace = /*#__PURE__*/_interopNamespace(i1);
+    var i10__namespace = /*#__PURE__*/_interopNamespace(i10);
+    var i9__namespace = /*#__PURE__*/_interopNamespace(i9);
+    var i2__namespace = /*#__PURE__*/_interopNamespace(i2);
     var i5__namespace = /*#__PURE__*/_interopNamespace(i5);
     var FileSaver__namespace = /*#__PURE__*/_interopNamespace(FileSaver);
     var XLSX__namespace = /*#__PURE__*/_interopNamespace(XLSX);
     var jsPDF__default = /*#__PURE__*/_interopDefaultLegacy(jsPDF);
     var JSZip__namespace = /*#__PURE__*/_interopNamespace(JSZip);
-    var i2__namespace = /*#__PURE__*/_interopNamespace(i2);
+    var i2__namespace$1 = /*#__PURE__*/_interopNamespace(i2$1);
     var ___namespace = /*#__PURE__*/_interopNamespace(_);
     var i3__namespace = /*#__PURE__*/_interopNamespace(i3);
     var moment__namespace = /*#__PURE__*/_interopNamespace(moment);
-    var i7__namespace = /*#__PURE__*/_interopNamespace(i7);
-    var i1__namespace$5 = /*#__PURE__*/_interopNamespace(i1$5);
+    var i8__namespace$1 = /*#__PURE__*/_interopNamespace(i8$1);
+    var i1__namespace$4 = /*#__PURE__*/_interopNamespace(i1$4);
     var i5__namespace$1 = /*#__PURE__*/_interopNamespace(i5$1);
 
     /******************************************************************************
@@ -412,7 +412,7 @@
         AnalyticsService.prototype.trackPageViews = function () {
             var _this = this;
             if (this.enabled) {
-                this.router.events.pipe(operators.filter(function (event) { return event instanceof i1.NavigationEnd; }))
+                this.router.events.pipe(operators.filter(function (event) { return event instanceof i2.NavigationEnd; }))
                     .subscribe(function () {
                     ga('send', { hitType: 'pageview', page: _this.location.path() });
                 });
@@ -425,11 +425,11 @@
         };
         return AnalyticsService;
     }());
-    AnalyticsService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AnalyticsService, deps: [{ token: i8__namespace.Location }, { token: i1__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    AnalyticsService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AnalyticsService, deps: [{ token: i8__namespace.Location }, { token: i2__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     AnalyticsService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AnalyticsService });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AnalyticsService, decorators: [{
                 type: i0.Injectable
-            }], ctorParameters: function () { return [{ type: i8__namespace.Location }, { type: i1__namespace.Router }]; } });
+            }], ctorParameters: function () { return [{ type: i8__namespace.Location }, { type: i2__namespace.Router }]; } });
 
     var Track = /** @class */ (function () {
         function Track() {
@@ -542,7 +542,7 @@
         };
         StateService.prototype.updateSidebarIcons = function (direction) {
             var _a = __read(this.sidebars, 2), startSidebar = _a[0], endSidebar = _a[1];
-            var isLtr = direction === i1$1.NbLayoutDirection.LTR;
+            var isLtr = direction === i1.NbLayoutDirection.LTR;
             var startIconClass = isLtr ? 'nb-layout-sidebar-left' : 'nb-layout-sidebar-right';
             var endIconClass = isLtr ? 'nb-layout-sidebar-right' : 'nb-layout-sidebar-left';
             startSidebar.icon = startIconClass;
@@ -568,11 +568,11 @@
         };
         return StateService;
     }());
-    StateService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: StateService, deps: [{ token: i1__namespace$1.NbLayoutDirectionService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    StateService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: StateService, deps: [{ token: i1__namespace.NbLayoutDirectionService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     StateService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: StateService });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: StateService, decorators: [{
                 type: i0.Injectable
-            }], ctorParameters: function () { return [{ type: i1__namespace$1.NbLayoutDirectionService }]; } });
+            }], ctorParameters: function () { return [{ type: i1__namespace.NbLayoutDirectionService }]; } });
 
     var SeoService = /** @class */ (function () {
         function SeoService(router, document, platformId) {
@@ -599,7 +599,7 @@
             if (!this.isBrowser) {
                 return;
             }
-            this.router.events.pipe(operators.filter(function (event) { return event instanceof i1.NavigationEnd; }), operators.takeUntil(this.destroy$))
+            this.router.events.pipe(operators.filter(function (event) { return event instanceof i2.NavigationEnd; }), operators.takeUntil(this.destroy$))
                 .subscribe(function () {
                 _this.linkCanonical.setAttribute('href', _this.getCanonicalUrl());
             });
@@ -609,14 +609,14 @@
         };
         return SeoService;
     }());
-    SeoService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: SeoService, deps: [{ token: i1__namespace.Router }, { token: i1$1.NB_DOCUMENT }, { token: i0.PLATFORM_ID }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    SeoService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: SeoService, deps: [{ token: i2__namespace.Router }, { token: i1.NB_DOCUMENT }, { token: i0.PLATFORM_ID }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     SeoService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: SeoService });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: SeoService, decorators: [{
                 type: i0.Injectable
             }], ctorParameters: function () {
-            return [{ type: i1__namespace.Router }, { type: undefined, decorators: [{
+            return [{ type: i2__namespace.Router }, { type: undefined, decorators: [{
                             type: i0.Inject,
-                            args: [i1$1.NB_DOCUMENT]
+                            args: [i1.NB_DOCUMENT]
                         }] }, { type: undefined, decorators: [{
                             type: i0.Inject,
                             args: [i0.PLATFORM_ID]
@@ -654,24 +654,26 @@
         REST_FIELD_TYPES[REST_FIELD_TYPES["STRING"] = 0] = "STRING";
         REST_FIELD_TYPES[REST_FIELD_TYPES["TEXT"] = 1] = "TEXT";
         REST_FIELD_TYPES[REST_FIELD_TYPES["NUMBER"] = 2] = "NUMBER";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["BOOLEAN"] = 3] = "BOOLEAN";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["DATE"] = 4] = "DATE";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["DATETIME"] = 5] = "DATETIME";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["TIME"] = 6] = "TIME";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["IMAGE"] = 7] = "IMAGE";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["PDF"] = 8] = "PDF";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["FILE"] = 9] = "FILE";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["BELONG_TO"] = 10] = "BELONG_TO";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["HAS_ONE"] = 11] = "HAS_ONE";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["HAS_MANY"] = 12] = "HAS_MANY";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["BELONG_TO_MANY"] = 13] = "BELONG_TO_MANY";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["MORPH_MANY"] = 14] = "MORPH_MANY";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["MORPH_ONE"] = 15] = "MORPH_ONE";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["MORPH"] = 16] = "MORPH";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["JSON"] = 17] = "JSON";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["MAP"] = 18] = "MAP";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["ENUM"] = 19] = "ENUM";
-        REST_FIELD_TYPES[REST_FIELD_TYPES["LINK"] = 20] = "LINK";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["PASSWORD"] = 3] = "PASSWORD";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["COLOR"] = 4] = "COLOR";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["BOOLEAN"] = 5] = "BOOLEAN";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["DATE"] = 6] = "DATE";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["DATETIME"] = 7] = "DATETIME";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["TIME"] = 8] = "TIME";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["IMAGE"] = 9] = "IMAGE";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["PDF"] = 10] = "PDF";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["FILE"] = 11] = "FILE";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["BELONG_TO"] = 12] = "BELONG_TO";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["HAS_ONE"] = 13] = "HAS_ONE";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["HAS_MANY"] = 14] = "HAS_MANY";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["BELONG_TO_MANY"] = 15] = "BELONG_TO_MANY";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["MORPH_MANY"] = 16] = "MORPH_MANY";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["MORPH_ONE"] = 17] = "MORPH_ONE";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["MORPH"] = 18] = "MORPH";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["JSON"] = 19] = "JSON";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["MAP"] = 20] = "MAP";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["ENUM"] = 21] = "ENUM";
+        REST_FIELD_TYPES[REST_FIELD_TYPES["LINK"] = 22] = "LINK";
     })(exports.REST_FIELD_TYPES || (exports.REST_FIELD_TYPES = {}));
     exports.STRATEGY_AUTH = void 0;
     (function (STRATEGY_AUTH) {
@@ -702,11 +704,11 @@
         };
         return AuthGuard;
     }());
-    AuthGuard.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AuthGuard, deps: [{ token: i1__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    AuthGuard.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AuthGuard, deps: [{ token: i2__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     AuthGuard.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AuthGuard });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: AuthGuard, decorators: [{
                 type: i0.Injectable
-            }], ctorParameters: function () { return [{ type: i1__namespace.Router }]; } });
+            }], ctorParameters: function () { return [{ type: i2__namespace.Router }]; } });
 
     var EXCEL_EXTENSION = ".xlsx";
     var CSV_EXTENSION = ".csv";
@@ -874,26 +876,26 @@
         };
         return RestExportService;
     }());
-    RestExportService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestExportService, deps: [{ token: i1__namespace$2.HttpClient }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    RestExportService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestExportService, deps: [{ token: i1__namespace$1.HttpClient }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     RestExportService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestExportService, providedIn: "root" });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestExportService, decorators: [{
                 type: i0.Injectable,
                 args: [{
                         providedIn: "root",
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$2.HttpClient }]; } });
+            }], ctorParameters: function () { return [{ type: i1__namespace$1.HttpClient }]; } });
 
     var UploadFileComponent = /** @class */ (function () {
         function UploadFileComponent(ref, toastrService) {
             this.ref = ref;
             this.toastrService = toastrService;
-            this.positions = i1$1.NbGlobalPhysicalPosition;
+            this.positions = i1.NbGlobalPhysicalPosition;
             this.isSubmit = false;
-            this.control = new i2.FileUploadControl({
+            this.control = new i2$1.FileUploadControl({
                 listVisible: true,
                 discardInvalid: true,
                 multiple: false,
-            }, [i2.FileUploadValidators.filesLimit(1)]);
+            }, [i2$1.FileUploadValidators.filesLimit(1)]);
         }
         UploadFileComponent.prototype.ngOnInit = function () {
             var _this = this;
@@ -941,8 +943,8 @@
         };
         return UploadFileComponent;
     }());
-    UploadFileComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: UploadFileComponent, deps: [{ token: i1__namespace$1.NbDialogRef }, { token: i1__namespace$1.NbToastrService }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    UploadFileComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: UploadFileComponent, selector: "ngx-upload-file", inputs: { datas: "datas", title: "title" }, ngImport: i0__namespace, template: "<nb-card accent=\"danger\" style=\"width: 370px\">\n  <nb-card-header>{{ title }}</nb-card-header>\n\n  <nb-card-body>\n    <file-upload [control]=\"control\"></file-upload>\n  </nb-card-body>\n\n  <nb-card-footer style=\"display: flex; justify-content: end\">\n    <div class=\"buttons-row\">\n      <button\n        nbButton\n        (click)=\"close()\"\n        status=\"danger\"\n        style=\"margin-right: 10px\"\n      >\n        Annuler\n      </button>\n\n      <button nbButton (click)=\"addDatas()\" status=\"success\">\n        Charger le fichier\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: [""], components: [{ type: i1__namespace$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i2__namespace.FileUploadComponent, selector: "file-upload:not([simple])", inputs: ["control", "animation", "multiple"] }, { type: i1__namespace$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }] });
+    UploadFileComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: UploadFileComponent, deps: [{ token: i1__namespace.NbDialogRef }, { token: i1__namespace.NbToastrService }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    UploadFileComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: UploadFileComponent, selector: "ngx-upload-file", inputs: { datas: "datas", title: "title" }, ngImport: i0__namespace, template: "<nb-card accent=\"danger\" style=\"width: 370px\">\n  <nb-card-header>{{ title }}</nb-card-header>\n\n  <nb-card-body>\n    <file-upload [control]=\"control\"></file-upload>\n  </nb-card-body>\n\n  <nb-card-footer style=\"display: flex; justify-content: end\">\n    <div class=\"buttons-row\">\n      <button\n        nbButton\n        (click)=\"close()\"\n        status=\"danger\"\n        style=\"margin-right: 10px\"\n      >\n        Annuler\n      </button>\n\n      <button nbButton (click)=\"addDatas()\" status=\"success\">\n        Charger le fichier\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: [""], components: [{ type: i1__namespace.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace.NbCardBodyComponent, selector: "nb-card-body" }, { type: i2__namespace$1.FileUploadComponent, selector: "file-upload:not([simple])", inputs: ["control", "animation", "multiple"] }, { type: i1__namespace.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: UploadFileComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -950,7 +952,7 @@
                         templateUrl: "./upload-file.component.html",
                         styleUrls: ["./upload-file.component.scss"],
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$1.NbDialogRef }, { type: i1__namespace$1.NbToastrService }]; }, propDecorators: { datas: [{
+            }], ctorParameters: function () { return [{ type: i1__namespace.NbDialogRef }, { type: i1__namespace.NbToastrService }]; }, propDecorators: { datas: [{
                     type: i0.Input
                 }], title: [{
                     type: i0.Input
@@ -986,14 +988,14 @@
         };
         return RestLangService;
     }());
-    RestLangService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestLangService, deps: [{ token: i1__namespace$3.TranslateService }, { token: RestAdminConfigService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    RestLangService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestLangService, deps: [{ token: i1__namespace$2.TranslateService }, { token: RestAdminConfigService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     RestLangService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestLangService, providedIn: "root" });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestLangService, decorators: [{
                 type: i0.Injectable,
                 args: [{
                         providedIn: "root",
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$3.TranslateService }, { type: RestAdminConfigService }]; } });
+            }], ctorParameters: function () { return [{ type: i1__namespace$2.TranslateService }, { type: RestAdminConfigService }]; } });
 
     var FsIconCComponent = /** @class */ (function () {
         function FsIconCComponent() {
@@ -1004,7 +1006,7 @@
         return FsIconCComponent;
     }());
     FsIconCComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: FsIconCComponent, deps: [], target: i0__namespace.ɵɵFactoryTarget.Component });
-    FsIconCComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: FsIconCComponent, selector: "ngx-fs-icon", inputs: { expanded: "expanded", place: "place" }, ngImport: i0__namespace, template: "\n    <nb-tree-grid-row-toggle\n      [expanded]=\"expanded\"\n      *ngIf=\"isDir(); else fileIcon\"\n    >\n    </nb-tree-grid-row-toggle>\n    <ng-template #fileIcon> </ng-template>\n  ", isInline: true, components: [{ type: i1__namespace$1.NbTreeGridRowToggleComponent, selector: "nb-tree-grid-row-toggle", inputs: ["expanded"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }] });
+    FsIconCComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: FsIconCComponent, selector: "ngx-fs-icon", inputs: { expanded: "expanded", place: "place" }, ngImport: i0__namespace, template: "\n    <nb-tree-grid-row-toggle\n      [expanded]=\"expanded\"\n      *ngIf=\"isDir(); else fileIcon\"\n    >\n    </nb-tree-grid-row-toggle>\n    <ng-template #fileIcon> </ng-template>\n  ", isInline: true, components: [{ type: i1__namespace.NbTreeGridRowToggleComponent, selector: "nb-tree-grid-row-toggle", inputs: ["expanded"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: FsIconCComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -1083,6 +1085,11 @@
                             this.val[this.restField.metaData.listConfig.restHasOneResources.name];
                     }
                     break;
+                case exports.REST_FIELD_TYPES.COLOR:
+                    if (!this.val) {
+                        this.val = '#FFF';
+                    }
+                    break;
                 default:
                     break;
             }
@@ -1124,8 +1131,8 @@
         });
         return RestResourceListFieldComponent;
     }());
-    RestResourceListFieldComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceListFieldComponent, deps: [{ token: i1__namespace$1.NbTreeGridDataSourceBuilder }, { token: RestLangService }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestResourceListFieldComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListFieldComponent, selector: "ngx-rest-resource-list-field", inputs: { value: "value", rowData: "rowData" }, ngImport: i0__namespace, template: "<div\n  *ngIf=\"\n    restField.type == REST_FIELD_TYPES.TEXT ||\n    restField.type == REST_FIELD_TYPES.STRING ||\n    restField.type == REST_FIELD_TYPES.NUMBER ||\n    restField.type == REST_FIELD_TYPES.ENUM\n  \"\n>\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BOOLEAN\" class=\"text-center\">\n  <ng-container *ngIf=\"!restField.template\">\n    <nb-checkbox [checked]=\"val\" [disabled]=\"true\"></nb-checkbox>\n  </ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.IMAGE\" class=\"text-center\">\n  <ng-container *ngIf=\"!restField.template\">\n    <img class=\"rest-img\" [src]=\"val\" alt=\"\" [style]=\"style\"\n  /></ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.HAS_ONE\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BELONG_TO\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.MORPH\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.JSON\">\n  <ng-container *ngIf=\"!restField.template\"> {{ jsonValue }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"jsonValue\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.DATE\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.HAS_MANY\">\n  <table [nbTreeGrid]=\"dataSource\">\n    <tr nbTreeGridRow *nbTreeGridRowDef=\"let row; columns: allColumns\"></tr>\n\n    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n        <ngx-fs-icon\n          [expanded]=\"row.expanded\"\n          [place]=\"row.data.place\"\n        ></ngx-fs-icon>\n        <ng-container\n          *ngIf=\"!restField?.metaData?.listConfig?.restManyResources.template\"\n        >\n          {{ row.data[customColumn] }}\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"restField?.metaData?.listConfig?.restManyResources.template\"\n        >\n          <span *ngIf=\"row.data.place\">{{ restField.name }}</span>\n          <ng-container *ngIf=\"!row.data.place\">\n            <cng-html-compiler\n              [template]=\"\n                restField.metaData.listConfig.restManyResources.template\n              \"\n              [componentClass]=\"row.data.item\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n      </td>\n    </ng-container>\n  </table>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\">\n  <table [nbTreeGrid]=\"dataSource\">\n    <tr nbTreeGridRow *nbTreeGridRowDef=\"let row; columns: allColumns\"></tr>\n\n    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n        <ngx-fs-icon\n          [expanded]=\"row.expanded\"\n          [place]=\"row.data.place\"\n        ></ngx-fs-icon>\n        <ng-container\n          *ngIf=\"\n            !restField.metaData.listConfig.restBelongToManyResources.template\n          \"\n        >\n          {{ row.data[customColumn] }}\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"\n            restField.metaData.listConfig.restBelongToManyResources.template\n          \"\n        >\n          <span *ngIf=\"row.data.place\">{{ restField.name }}</span>\n          <ng-container *ngIf=\"!row.data.place\">\n            <cng-html-compiler\n              [template]=\"\n                restField.metaData.listConfig.restBelongToManyResources.template\n              \"\n              [componentClass]=\"row.data.item\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n      </td>\n    </ng-container>\n  </table>\n</div>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.rest-img{max-width:100px}.nb-theme-default :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-default :host .search-label{display:block}.nb-theme-default :host .search-input{margin-bottom:1rem}.nb-theme-default :host .nb-column-name{width:100%}.nb-theme-default :host ::ng-deep .row-toggle-button{color:#222b45}.nb-theme-default :host .nb-tree-grid-header-cell,.nb-theme-default :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-default :host .nb-column-name,.nb-theme-default :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-default :host .nb-column-name,.nb-theme-default :host .nb-column-size,.nb-theme-default :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-default :host .nb-column-name{width:31%}.nb-theme-default :host .nb-column-size,.nb-theme-default :host .nb-column-kind,.nb-theme-default :host .nb-column-items{width:23%}}.nb-theme-dark :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-dark :host .search-label{display:block}.nb-theme-dark :host .search-input{margin-bottom:1rem}.nb-theme-dark :host .nb-column-name{width:100%}.nb-theme-dark :host ::ng-deep .row-toggle-button{color:#fff}.nb-theme-dark :host .nb-tree-grid-header-cell,.nb-theme-dark :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-dark :host .nb-column-name,.nb-theme-dark :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-dark :host .nb-column-name,.nb-theme-dark :host .nb-column-size,.nb-theme-dark :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-dark :host .nb-column-name{width:31%}.nb-theme-dark :host .nb-column-size,.nb-theme-dark :host .nb-column-kind,.nb-theme-dark :host .nb-column-items{width:23%}}.nb-theme-cosmic :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-cosmic :host .search-label{display:block}.nb-theme-cosmic :host .search-input{margin-bottom:1rem}.nb-theme-cosmic :host .nb-column-name{width:100%}.nb-theme-cosmic :host ::ng-deep .row-toggle-button{color:#fff}.nb-theme-cosmic :host .nb-tree-grid-header-cell,.nb-theme-cosmic :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-cosmic :host .nb-column-name,.nb-theme-cosmic :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-cosmic :host .nb-column-name,.nb-theme-cosmic :host .nb-column-size,.nb-theme-cosmic :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-cosmic :host .nb-column-name{width:31%}.nb-theme-cosmic :host .nb-column-size,.nb-theme-cosmic :host .nb-column-kind,.nb-theme-cosmic :host .nb-column-items{width:23%}}.nb-theme-corporate :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-corporate :host .search-label{display:block}.nb-theme-corporate :host .search-input{margin-bottom:1rem}.nb-theme-corporate :host .nb-column-name{width:100%}.nb-theme-corporate :host ::ng-deep .row-toggle-button{color:#222b45}.nb-theme-corporate :host .nb-tree-grid-header-cell,.nb-theme-corporate :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-corporate :host .nb-column-name,.nb-theme-corporate :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-corporate :host .nb-column-name,.nb-theme-corporate :host .nb-column-size,.nb-theme-corporate :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-corporate :host .nb-column-name{width:31%}.nb-theme-corporate :host .nb-column-size,.nb-theme-corporate :host .nb-column-kind,.nb-theme-corporate :host .nb-column-items{width:23%}}\n"], components: [{ type: i3__namespace.CngHtmlCompilerComponent, selector: "cng-html-compiler", inputs: ["template", "componentClass", "imports"] }, { type: i1__namespace$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1__namespace$1.NbTreeGridComponent, selector: "table[nbTreeGrid]", inputs: ["levelPadding", "nbTreeGrid", "equalColumnsWidth"] }, { type: i1__namespace$1.NbTreeGridRowComponent, selector: "tr[nbTreeGridRow]", inputs: ["doubleClickDelay", "clickToToggle"] }, { type: FsIconCComponent, selector: "ngx-fs-icon", inputs: ["expanded", "place"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1__namespace$1.NbTreeGridRowDefDirective, selector: "[nbTreeGridRowDef]", inputs: ["nbTreeGridRowDefColumns"] }, { type: i1__namespace$1.NbTreeGridColumnDefDirective, selector: "[nbTreeGridColumnDef]", inputs: ["nbTreeGridColumnDef", "hideOn", "showOn"] }, { type: i1__namespace$1.NbTreeGridCellDefDirective, selector: "[nbTreeGridCellDef]" }, { type: i1__namespace$1.NbTreeGridCellDirective, selector: "td[nbTreeGridCell]" }] });
+    RestResourceListFieldComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceListFieldComponent, deps: [{ token: i1__namespace.NbTreeGridDataSourceBuilder }, { token: RestLangService }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    RestResourceListFieldComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListFieldComponent, selector: "ngx-rest-resource-list-field", inputs: { value: "value", rowData: "rowData" }, ngImport: i0__namespace, template: "<div\n  *ngIf=\"\n    restField.type == REST_FIELD_TYPES.TEXT ||\n    restField.type == REST_FIELD_TYPES.STRING ||\n    restField.type == REST_FIELD_TYPES.NUMBER ||\n    restField.type == REST_FIELD_TYPES.ENUM\n  \"\n>\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BOOLEAN\" class=\"text-center\">\n  <ng-container *ngIf=\"!restField.template\">\n    <nb-checkbox [checked]=\"val\" [disabled]=\"true\"></nb-checkbox>\n  </ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div\n  *ngIf=\"restField.type == REST_FIELD_TYPES.COLOR\"\n  class=\"text-center\"\n  style=\"width: 80px; height: 30px\"\n  [style.background-color]=\"val\"\n>\n  <ng-container>{{ val }}</ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.IMAGE\" class=\"text-center\">\n  <ng-container *ngIf=\"!restField.template\">\n    <img class=\"rest-img\" [src]=\"val\" alt=\"\" [style]=\"style\"\n  /></ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.HAS_ONE\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BELONG_TO\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.MORPH\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.JSON\">\n  <ng-container *ngIf=\"!restField.template\"> {{ jsonValue }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler\n      [template]=\"restField.template\"\n      [componentClass]=\"jsonValue\"\n    >\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.DATE\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.HAS_MANY\">\n  <table [nbTreeGrid]=\"dataSource\">\n    <tr nbTreeGridRow *nbTreeGridRowDef=\"let row; columns: allColumns\"></tr>\n\n    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n        <ngx-fs-icon\n          [expanded]=\"row.expanded\"\n          [place]=\"row.data.place\"\n        ></ngx-fs-icon>\n        <ng-container\n          *ngIf=\"!restField?.metaData?.listConfig?.restManyResources.template\"\n        >\n          {{ row.data[customColumn] }}\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"restField?.metaData?.listConfig?.restManyResources.template\"\n        >\n          <span *ngIf=\"row.data.place\">{{ restField.name }}</span>\n          <ng-container *ngIf=\"!row.data.place\">\n            <cng-html-compiler\n              [template]=\"\n                restField.metaData.listConfig.restManyResources.template\n              \"\n              [componentClass]=\"row.data.item\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n      </td>\n    </ng-container>\n  </table>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\">\n  <table [nbTreeGrid]=\"dataSource\">\n    <tr nbTreeGridRow *nbTreeGridRowDef=\"let row; columns: allColumns\"></tr>\n\n    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n        <ngx-fs-icon\n          [expanded]=\"row.expanded\"\n          [place]=\"row.data.place\"\n        ></ngx-fs-icon>\n        <ng-container\n          *ngIf=\"\n            !restField.metaData.listConfig.restBelongToManyResources.template\n          \"\n        >\n          {{ row.data[customColumn] }}\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"\n            restField.metaData.listConfig.restBelongToManyResources.template\n          \"\n        >\n          <span *ngIf=\"row.data.place\">{{ restField.name }}</span>\n          <ng-container *ngIf=\"!row.data.place\">\n            <cng-html-compiler\n              [template]=\"\n                restField.metaData.listConfig.restBelongToManyResources.template\n              \"\n              [componentClass]=\"row.data.item\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n      </td>\n    </ng-container>\n  </table>\n</div>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.rest-img{max-width:100px}.nb-theme-default :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-default :host .search-label{display:block}.nb-theme-default :host .search-input{margin-bottom:1rem}.nb-theme-default :host .nb-column-name{width:100%}.nb-theme-default :host ::ng-deep .row-toggle-button{color:#222b45}.nb-theme-default :host .nb-tree-grid-header-cell,.nb-theme-default :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-default :host .nb-column-name,.nb-theme-default :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-default :host .nb-column-name,.nb-theme-default :host .nb-column-size,.nb-theme-default :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-default :host .nb-column-name{width:31%}.nb-theme-default :host .nb-column-size,.nb-theme-default :host .nb-column-kind,.nb-theme-default :host .nb-column-items{width:23%}}.nb-theme-dark :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-dark :host .search-label{display:block}.nb-theme-dark :host .search-input{margin-bottom:1rem}.nb-theme-dark :host .nb-column-name{width:100%}.nb-theme-dark :host ::ng-deep .row-toggle-button{color:#fff}.nb-theme-dark :host .nb-tree-grid-header-cell,.nb-theme-dark :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-dark :host .nb-column-name,.nb-theme-dark :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-dark :host .nb-column-name,.nb-theme-dark :host .nb-column-size,.nb-theme-dark :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-dark :host .nb-column-name{width:31%}.nb-theme-dark :host .nb-column-size,.nb-theme-dark :host .nb-column-kind,.nb-theme-dark :host .nb-column-items{width:23%}}.nb-theme-cosmic :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-cosmic :host .search-label{display:block}.nb-theme-cosmic :host .search-input{margin-bottom:1rem}.nb-theme-cosmic :host .nb-column-name{width:100%}.nb-theme-cosmic :host ::ng-deep .row-toggle-button{color:#fff}.nb-theme-cosmic :host .nb-tree-grid-header-cell,.nb-theme-cosmic :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-cosmic :host .nb-column-name,.nb-theme-cosmic :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-cosmic :host .nb-column-name,.nb-theme-cosmic :host .nb-column-size,.nb-theme-cosmic :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-cosmic :host .nb-column-name{width:31%}.nb-theme-cosmic :host .nb-column-size,.nb-theme-cosmic :host .nb-column-kind,.nb-theme-cosmic :host .nb-column-items{width:23%}}.nb-theme-corporate :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-corporate :host .search-label{display:block}.nb-theme-corporate :host .search-input{margin-bottom:1rem}.nb-theme-corporate :host .nb-column-name{width:100%}.nb-theme-corporate :host ::ng-deep .row-toggle-button{color:#222b45}.nb-theme-corporate :host .nb-tree-grid-header-cell,.nb-theme-corporate :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-corporate :host .nb-column-name,.nb-theme-corporate :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-corporate :host .nb-column-name,.nb-theme-corporate :host .nb-column-size,.nb-theme-corporate :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-corporate :host .nb-column-name{width:31%}.nb-theme-corporate :host .nb-column-size,.nb-theme-corporate :host .nb-column-kind,.nb-theme-corporate :host .nb-column-items{width:23%}}\n"], components: [{ type: i3__namespace.CngHtmlCompilerComponent, selector: "cng-html-compiler", inputs: ["template", "componentClass", "imports"] }, { type: i1__namespace.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1__namespace.NbTreeGridComponent, selector: "table[nbTreeGrid]", inputs: ["levelPadding", "nbTreeGrid", "equalColumnsWidth"] }, { type: i1__namespace.NbTreeGridRowComponent, selector: "tr[nbTreeGridRow]", inputs: ["doubleClickDelay", "clickToToggle"] }, { type: FsIconCComponent, selector: "ngx-fs-icon", inputs: ["expanded", "place"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1__namespace.NbTreeGridRowDefDirective, selector: "[nbTreeGridRowDef]", inputs: ["nbTreeGridRowDefColumns"] }, { type: i1__namespace.NbTreeGridColumnDefDirective, selector: "[nbTreeGridColumnDef]", inputs: ["nbTreeGridColumnDef", "hideOn", "showOn"] }, { type: i1__namespace.NbTreeGridCellDefDirective, selector: "[nbTreeGridCellDef]" }, { type: i1__namespace.NbTreeGridCellDirective, selector: "td[nbTreeGridCell]" }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceListFieldComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -1133,7 +1140,7 @@
                         templateUrl: "./rest.resource-list-field.component.html",
                         styleUrls: ["./rest.resource-list-field.component.scss"],
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$1.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, propDecorators: { value: [{
+            }], ctorParameters: function () { return [{ type: i1__namespace.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, propDecorators: { value: [{
                     type: i0.Input
                 }], rowData: [{
                     type: i0.Input
@@ -1191,7 +1198,7 @@
             this.deleteResources = function (listConfig, id) { return _this.http.delete(_this.serviceRestConfig.restBaseUrl + "/" + listConfig.api + "/" + id); };
         }
         RestResourceService.prototype.getCustomHeaders = function (headerElement) {
-            var headers = new i1$2.HttpHeaders(); // create header object
+            var headers = new i1$1.HttpHeaders(); // create header object
             if (headerElement !== undefined) {
                 Object.keys(headerElement).map(function (key) {
                     headers = headers.append(key, headerElement[key]); // add another header
@@ -1201,14 +1208,14 @@
         };
         return RestResourceService;
     }());
-    RestResourceService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceService, deps: [{ token: i1__namespace$2.HttpClient }, { token: RestAdminConfigService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    RestResourceService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceService, deps: [{ token: i1__namespace$1.HttpClient }, { token: RestAdminConfigService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     RestResourceService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceService, providedIn: "root" });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceService, decorators: [{
                 type: i0.Injectable,
                 args: [{
                         providedIn: "root",
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$2.HttpClient }, { type: RestAdminConfigService }]; } });
+            }], ctorParameters: function () { return [{ type: i1__namespace$1.HttpClient }, { type: RestAdminConfigService }]; } });
 
     var RestResourceEditorFieldsComponent = /** @class */ (function (_super) {
         __extends(RestResourceEditorFieldsComponent, _super);
@@ -1219,14 +1226,14 @@
             // Test
             _this.uploadedFile = new rxjs.BehaviorSubject(null);
             // Control sur les fichiers a upload
-            _this.control = new i2.FileUploadControl({
+            _this.control = new i2$1.FileUploadControl({
                 listVisible: true,
                 accept: ["image/*"],
                 discardInvalid: true,
                 multiple: false,
             }, [
-                i2.FileUploadValidators.accept(["image/*"]),
-                i2.FileUploadValidators.filesLimit(1),
+                i2$1.FileUploadValidators.accept(["image/*"]),
+                i2$1.FileUploadValidators.filesLimit(1),
             ]);
             _this.controlCroper = null;
             _this.croppedImage = "";
@@ -1260,6 +1267,11 @@
                         _this.options = response;
                         _this.filteredOptions$ = rxjs.of(_this.options);
                     });
+                    break;
+                case exports.REST_FIELD_TYPES.COLOR:
+                    if (!this.cell.newValue) {
+                        this.cell.newValue = '#A4A';
+                    }
                     break;
                 case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
                     this.cell.newValue = new Set([]);
@@ -1401,9 +1413,9 @@
             return ___namespace.get(fields, value);
         };
         return RestResourceEditorFieldsComponent;
-    }(i9.DefaultEditor));
+    }(i10.DefaultEditor));
     RestResourceEditorFieldsComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceEditorFieldsComponent, deps: [{ token: RestAdminConfigService }, { token: RestResourceService }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestResourceEditorFieldsComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceEditorFieldsComponent, selector: "input-editor", viewQueries: [{ propertyName: "input", first: true, predicate: ["autoInput"], descendants: true }, { propertyName: "inputBelongTo", first: true, predicate: ["autoInputBelongToMany"], descendants: true }], usesInheritance: true, ngImport: i0__namespace, template: "<ng-container *ngIf=\"field.inForm == true\">\n  <!-- Input type string -->\n  <input\n    type=\"text\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.STRING\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n\n  <!-- Input type text -->\n  <textarea\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n    fullWidth\n  ></textarea>\n\n  <!-- Input type number  -->\n  <input\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    type=\"number\"\n    fullWidth\n    *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n  />\n\n  <!-- Input type date -->\n  <input\n    *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n    [nbDatepicker]=\"formpicker\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n  <nb-datepicker #formpicker></nb-datepicker>\n\n  <!-- Input type dateTime -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\">\n    <input\n      nbInput\n      [nbDatepicker]=\"dateTimePicker\"\n      [(ngModel)]=\"cell.newValue\"\n      [name]=\"cell.getId()\"\n      [placeholder]=\"cell.getTitle()\"\n      [disabled]=\"!cell.isEditable()\"\n      (click)=\"onClick.emit($event)\"\n      (keydown.enter)=\"onEdited.emit($event)\"\n      (keydown.esc)=\"onStopEditing.emit()\"\n      class=\"form-control ng-valid ng-touched ng-dirty\"\n      fullWidth\n    />\n    <nb-date-timepicker withSeconds #dateTimePicker></nb-date-timepicker>\n  </ng-container>\n\n  <!-- Input type time -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.TIME\">\n    <input\n      [nbTimepicker]=\"timepicker\"\n      twelveHoursFormat]\n      nbInput\n      [(ngModel)]=\"cell.newValue\"\n      [name]=\"cell.getId()\"\n      [placeholder]=\"cell.getTitle()\"\n      [disabled]=\"!cell.isEditable()\"\n      (click)=\"onClick.emit($event)\"\n      (keydown.enter)=\"onEdited.emit($event)\"\n      (keydown.esc)=\"onStopEditing.emit()\"\n      class=\"form-control ng-valid ng-touched ng-dirty\"\n      fullWidth\n    />\n    <nb-timepicker #timepicker></nb-timepicker>\n  </ng-container>\n\n  <!-- Input type enum -->\n  <nb-select\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    (change)=\"onClick.emit($event)\"\n    class=\"input-space\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n    nbInput\n  >\n    <nb-option\n      *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n      [value]=\"option.value\"\n      >{{ option.label }}</nb-option\n    >\n  </nb-select>\n\n  <!-- Input type Boolean -->\n  <div\n    style=\"text-align: center\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n  >\n    <nb-toggle [name]=\"cell.getId()\" [(ngModel)]=\"cell.newValue\"></nb-toggle>\n  </div>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.FILE\">\n    <file-upload\n      [(ngModel)]=\"cell.newValue\"\n      class=\"input-space\"\n      [name]=\"field.label\"\n      style=\"min-width: 300px; max-width: 300px\"\n    ></file-upload>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.PDF\">\n    <file-upload\n      [(ngModel)]=\"cell.newValue\"\n      class=\"input-space\"\n      [name]=\"field.label\"\n      style=\"min-width: 300px; max-width: 300px\"\n    ></file-upload>\n    <object width=\"300px\" height=\"300px\" [data]=\"cell.newValue[0]\"></object>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\">\n    <!-- [(ngModel)]=\"cell.newValue\"\n    class=\"file-image\"\n    [name]=\"field.label\" -->\n    <file-upload\n      [control]=\"control\"\n    >\n      <ng-template\n        let-isFileDragDropAvailable=\"isFileDragDropAvailable\"\n        #placeholder\n      >\n        <div *ngIf=\"control.size === 0\">\n          <svg viewBox=\"0 0 512 512\" class=\"icon\">\n            <path\n              d=\"M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z\"\n            ></path>\n          </svg>\n\n          <div class=\"upload-text\">\n            <ng-container\n              *ngIf=\"isFileDragDropAvailable; else isNotDragDropAvailable\"\n            >\n              <b>Drag and drop</b> files<br />\n              or click here\n            </ng-container>\n            <ng-template #isNotDragDropAvailable>\n              <b>Click here</b> to<br />\n              choose a files\n            </ng-template>\n          </div>\n        </div>\n      </ng-template>\n\n      <ng-template let-i=\"index\" let-file=\"file\" let-control=\"control\" #item>\n        <div class=\"overlay\">\n          <svg\n            viewBox=\"0 0 448 512\"\n            class=\"delete-button\"\n            (click)=\"control.removeFile(file)\"\n          >\n            <path\n              d=\"M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z\"\n            ></path>\n          </svg>\n          <img *ngIf=\"control.valid\" [src]=\"uploadedFile | async\" />\n        </div>\n      </ng-template>\n    </file-upload>\n\n    <button\n      nbButton\n      status=\"primary\"\n      *ngIf=\"!isCrop && controlCroper != null\"\n      (click)=\"activeCroper()\"\n    >\n      CROP\n    </button>\n\n    <ng-container *ngIf=\"isCrop\">\n      <image-cropper\n        [imageFile]=\"controlCroper\"\n        [maintainAspectRatio]=\"true\"\n        [aspectRatio]=\"4 / 3\"\n        format=\"png\"\n        (imageCropped)=\"imageCropped($event)\"\n      ></image-cropper>\n\n      <button nbButton status=\"primary\" (click)=\"saveCroper()\">\n        SAVE CHANGE\n      </button>\n    </ng-container>\n\n    <!-- <img [src]=\"croppedImage\" /> -->\n  </ng-container>\n\n  <!-- Input type  -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\">\n    <nb-tag-list (tagRemove)=\"onTagRemove($event)\" class=\"input-space\">\n      <nb-tag\n        *ngFor=\"let tree of cell.newValue\"\n        [text]=\"tree\"\n        removable\n      ></nb-tag>\n      <input type=\"text\" nbTagInput (tagAdd)=\"onTagAdd($event)\" fullWidth />\n    </nb-tag-list>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\">\n    <input\n      #autoInput\n      nbInput\n      type=\"text\"\n      (input)=\"onChange()\"\n      placeholder=\"Enter value\"\n      [nbAutocomplete]=\"auto\"\n      [(ngModel)]=\"cell.newValue\"\n    />\n\n    <nb-autocomplete #auto (selectedChange)=\"onSelectionChange($event)\">\n      <nb-option\n        *ngFor=\"let option of filteredOptions$ | async\"\n        [value]=\"\n          option[\n            field?.metaData?.addConfig.belongToOptions?.value\n              ? field?.metaData?.addConfig?.belongToOptions?.value\n              : 'id'\n          ]\n        \"\n      >\n        {{\n          option[\n            field.metaData.addConfig.belongToOptions.template\n              ? field.metaData.addConfig.belongToOptions.template\n              : field.metaData.addConfig.belongToOptions.filterKeys[0]\n          ]\n        }}\n      </nb-option>\n    </nb-autocomplete>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\">\n    <div>\n      <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event)\" class=\"input-space\">\n        <nb-tag\n          *ngFor=\"let tree of cell.newValue\"\n          [text]=\"\n            tree[\n              field.metaData.addConfig.belongToManyOptions.template\n                ? field.metaData.addConfig.belongToManyOptions.template\n                : field.metaData.addConfig.belongToManyOptions.filterKeys[0]\n            ]\n          \"\n          removable\n        ></nb-tag>\n        <input\n          type=\"text\"\n          nbTagInput\n          #autoInputBelongToMany\n          [nbAutocomplete]=\"autoBelonToMany\"\n          (tagAdd)=\"onTagAdd($event)\"\n          fullWidth\n        />\n\n        <nb-autocomplete #autoBelonToMany (selectedChange)=\"onChoose($event)\">\n          <nb-option\n            *ngFor=\"let option of filteredOptions$ | async\"\n            [value]=\"option\"\n          >\n            {{\n              option[\n                field.metaData.addConfig.belongToManyOptions.template\n                  ? field.metaData.addConfig.belongToManyOptions.template\n                  : field.metaData.addConfig.belongToManyOptions.filterKeys[0]\n              ]\n            }}\n          </nb-option>\n        </nb-autocomplete>\n      </nb-tag-list>\n    </div>\n  </ng-container>\n</ng-container>\n", styles: [".icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image{min-width:300px;max-width:300px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1__namespace$1.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1__namespace$1.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1__namespace$1.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1__namespace$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1__namespace$1.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i2__namespace.FileUploadComponent, selector: "file-upload:not([simple])", inputs: ["control", "animation", "multiple"] }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5__namespace.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1__namespace$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1__namespace$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1__namespace$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1__namespace$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1__namespace$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1__namespace$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1__namespace$4.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1__namespace$1.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1__namespace$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1__namespace$1.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1__namespace$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }], pipes: { "async": i8__namespace.AsyncPipe } });
+    RestResourceEditorFieldsComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceEditorFieldsComponent, selector: "input-editor", viewQueries: [{ propertyName: "input", first: true, predicate: ["autoInput"], descendants: true }, { propertyName: "inputBelongTo", first: true, predicate: ["autoInputBelongToMany"], descendants: true }], usesInheritance: true, ngImport: i0__namespace, template: "<ng-container *ngIf=\"field.inForm == true\">\n  <!-- Input type string -->\n  <input\n    type=\"text\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.STRING\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n\n  <!-- Input type text -->\n  <textarea\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n    fullWidth\n  ></textarea>\n\n  <!-- Input type number  -->\n  <input\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    type=\"number\"\n    fullWidth\n    *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n  />\n\n  <!-- Input type color  -->\n  <input\n    type=\"text\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n  />\n    <!-- fullWidth -->\n  <div\n    *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n    class=\"text-center\"\n    style=\"width: 80px; height: 30px\"\n    [style.background-color]=\"cell.newValue\"\n  >\n  </div>\n\n  <!-- Input type date -->\n  <input\n    *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n    [nbDatepicker]=\"formpicker\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n  <nb-datepicker #formpicker></nb-datepicker>\n\n  <!-- Input type dateTime -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\">\n    <input\n      nbInput\n      [nbDatepicker]=\"dateTimePicker\"\n      [(ngModel)]=\"cell.newValue\"\n      [name]=\"cell.getId()\"\n      [placeholder]=\"cell.getTitle()\"\n      [disabled]=\"!cell.isEditable()\"\n      (click)=\"onClick.emit($event)\"\n      (keydown.enter)=\"onEdited.emit($event)\"\n      (keydown.esc)=\"onStopEditing.emit()\"\n      class=\"form-control ng-valid ng-touched ng-dirty\"\n      fullWidth\n    />\n    <nb-date-timepicker withSeconds #dateTimePicker></nb-date-timepicker>\n  </ng-container>\n\n  <!-- Input type time -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.TIME\">\n    <input\n      [nbTimepicker]=\"timepicker\"\n      twelveHoursFormat]\n      nbInput\n      [(ngModel)]=\"cell.newValue\"\n      [name]=\"cell.getId()\"\n      [placeholder]=\"cell.getTitle()\"\n      [disabled]=\"!cell.isEditable()\"\n      (click)=\"onClick.emit($event)\"\n      (keydown.enter)=\"onEdited.emit($event)\"\n      (keydown.esc)=\"onStopEditing.emit()\"\n      class=\"form-control ng-valid ng-touched ng-dirty\"\n      fullWidth\n    />\n    <nb-timepicker #timepicker></nb-timepicker>\n  </ng-container>\n\n  <!-- Input type enum -->\n  <nb-select\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    (change)=\"onClick.emit($event)\"\n    class=\"input-space\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n    nbInput\n  >\n    <nb-option\n      *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n      [value]=\"option.value\"\n      >{{ option.label }}</nb-option\n    >\n  </nb-select>\n\n  <!-- Input type Boolean -->\n  <div\n    style=\"text-align: center\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n  >\n    <nb-toggle [name]=\"cell.getId()\" [(ngModel)]=\"cell.newValue\"></nb-toggle>\n  </div>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.FILE\">\n    <file-upload\n      [(ngModel)]=\"cell.newValue\"\n      class=\"input-space\"\n      [name]=\"field.label\"\n      style=\"min-width: 300px; max-width: 300px\"\n    ></file-upload>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.PDF\">\n    <file-upload\n      [(ngModel)]=\"cell.newValue\"\n      class=\"input-space\"\n      [name]=\"field.label\"\n      style=\"min-width: 300px; max-width: 300px\"\n    ></file-upload>\n    <object width=\"300px\" height=\"300px\" [data]=\"cell.newValue[0]\"></object>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\">\n    <!-- [(ngModel)]=\"cell.newValue\"\n    class=\"file-image\"\n    [name]=\"field.label\" -->\n    <file-upload\n      [control]=\"control\"\n    >\n      <ng-template\n        let-isFileDragDropAvailable=\"isFileDragDropAvailable\"\n        #placeholder\n      >\n        <div *ngIf=\"control.size === 0\">\n          <svg viewBox=\"0 0 512 512\" class=\"icon\">\n            <path\n              d=\"M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z\"\n            ></path>\n          </svg>\n\n          <div class=\"upload-text\">\n            <ng-container\n              *ngIf=\"isFileDragDropAvailable; else isNotDragDropAvailable\"\n            >\n              <b>Drag and drop</b> files<br />\n              or click here\n            </ng-container>\n            <ng-template #isNotDragDropAvailable>\n              <b>Click here</b> to<br />\n              choose a files\n            </ng-template>\n          </div>\n        </div>\n      </ng-template>\n\n      <ng-template let-i=\"index\" let-file=\"file\" let-control=\"control\" #item>\n        <div class=\"overlay\">\n          <svg\n            viewBox=\"0 0 448 512\"\n            class=\"delete-button\"\n            (click)=\"control.removeFile(file)\"\n          >\n            <path\n              d=\"M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z\"\n            ></path>\n          </svg>\n          <img *ngIf=\"control.valid\" [src]=\"uploadedFile | async\" />\n        </div>\n      </ng-template>\n    </file-upload>\n\n    <button\n      nbButton\n      status=\"primary\"\n      *ngIf=\"!isCrop && controlCroper != null\"\n      (click)=\"activeCroper()\"\n    >\n      CROP\n    </button>\n\n    <ng-container *ngIf=\"isCrop\">\n      <image-cropper\n        [imageFile]=\"controlCroper\"\n        [maintainAspectRatio]=\"true\"\n        [aspectRatio]=\"4 / 3\"\n        format=\"png\"\n        (imageCropped)=\"imageCropped($event)\"\n      ></image-cropper>\n\n      <button nbButton status=\"primary\" (click)=\"saveCroper()\">\n        SAVE CHANGE\n      </button>\n    </ng-container>\n\n    <!-- <img [src]=\"croppedImage\" /> -->\n  </ng-container>\n\n  <!-- Input type  -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\">\n    <nb-tag-list (tagRemove)=\"onTagRemove($event)\" class=\"input-space\">\n      <nb-tag\n        *ngFor=\"let tree of cell.newValue\"\n        [text]=\"tree\"\n        removable\n      ></nb-tag>\n      <input type=\"text\" nbTagInput (tagAdd)=\"onTagAdd($event)\" fullWidth />\n    </nb-tag-list>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\">\n    <input\n      #autoInput\n      nbInput\n      type=\"text\"\n      (input)=\"onChange()\"\n      placeholder=\"Enter value\"\n      [nbAutocomplete]=\"auto\"\n      [(ngModel)]=\"cell.newValue\"\n    />\n\n    <nb-autocomplete #auto (selectedChange)=\"onSelectionChange($event)\">\n      <nb-option\n        *ngFor=\"let option of filteredOptions$ | async\"\n        [value]=\"\n          option[\n            field?.metaData?.addConfig.belongToOptions?.value\n              ? field?.metaData?.addConfig?.belongToOptions?.value\n              : 'id'\n          ]\n        \"\n      >\n        {{\n          option[\n            field.metaData.addConfig.belongToOptions.template\n              ? field.metaData.addConfig.belongToOptions.template\n              : field.metaData.addConfig.belongToOptions.filterKeys[0]\n          ]\n        }}\n      </nb-option>\n    </nb-autocomplete>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\">\n    <div>\n      <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event)\" class=\"input-space\">\n        <nb-tag\n          *ngFor=\"let tree of cell.newValue\"\n          [text]=\"\n            tree[\n              field.metaData.addConfig.belongToManyOptions.template\n                ? field.metaData.addConfig.belongToManyOptions.template\n                : field.metaData.addConfig.belongToManyOptions.filterKeys[0]\n            ]\n          \"\n          removable\n        ></nb-tag>\n        <input\n          type=\"text\"\n          nbTagInput\n          #autoInputBelongToMany\n          [nbAutocomplete]=\"autoBelonToMany\"\n          (tagAdd)=\"onTagAdd($event)\"\n          fullWidth\n        />\n\n        <nb-autocomplete #autoBelonToMany (selectedChange)=\"onChoose($event)\">\n          <nb-option\n            *ngFor=\"let option of filteredOptions$ | async\"\n            [value]=\"option\"\n          >\n            {{\n              option[\n                field.metaData.addConfig.belongToManyOptions.template\n                  ? field.metaData.addConfig.belongToManyOptions.template\n                  : field.metaData.addConfig.belongToManyOptions.filterKeys[0]\n              ]\n            }}\n          </nb-option>\n        </nb-autocomplete>\n      </nb-tag-list>\n    </div>\n  </ng-container>\n</ng-container>\n", styles: [".icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image{min-width:300px;max-width:300px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1__namespace.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1__namespace.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1__namespace.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1__namespace.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1__namespace.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i2__namespace$1.FileUploadComponent, selector: "file-upload:not([simple])", inputs: ["control", "animation", "multiple"] }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5__namespace.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1__namespace.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1__namespace.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1__namespace.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1__namespace$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1__namespace$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1__namespace$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1__namespace$3.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1__namespace.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1__namespace.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1__namespace.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1__namespace.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }], pipes: { "async": i8__namespace.AsyncPipe } });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceEditorFieldsComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -1419,8 +1431,92 @@
                     args: ["autoInputBelongToMany"]
                 }] } });
 
+    var NotificationService = /** @class */ (function () {
+        function NotificationService(toastrService, translate) {
+            this.toastrService = toastrService;
+            this.translate = translate;
+            this.positions = i1.NbGlobalPhysicalPosition;
+        }
+        NotificationService.prototype.showToast = function (position, status, msg) {
+            this.toastrService.show(status || 'Success', msg, {
+                position: position,
+                status: status,
+            });
+        };
+        //Toastr
+        NotificationService.prototype.successToast = function (msg) {
+            var msgInfo;
+            if (typeof msg === 'string') {
+                msgInfo = this.translate.instant(msg);
+            }
+            else {
+                msgInfo = this.translate.instant("" + msg.label, {
+                    resourceName: msg.resourceName,
+                });
+            }
+            this.showToast(this.positions.TOP_RIGHT, 'success', msgInfo);
+        };
+        NotificationService.prototype.warningToast = function (msg) {
+            var msgInfo;
+            if (typeof msg === 'string') {
+                msgInfo = this.translate.instant(msg);
+            }
+            else {
+                msgInfo = this.translate.instant("" + msg.label, {
+                    resourceName: msg.resourceName,
+                });
+            }
+            this.showToast(this.positions.TOP_RIGHT, 'warning', msgInfo);
+        };
+        NotificationService.prototype.dangerToast = function (msg) {
+            var msgInfo;
+            if (typeof msg === 'string') {
+                msgInfo = this.translate.instant(msg);
+            }
+            else {
+                msgInfo = this.translate.instant("" + msg.label, {
+                    resourceName: msg.resourceName,
+                });
+            }
+            this.showToast(this.positions.TOP_RIGHT, 'danger', msgInfo);
+        };
+        NotificationService.prototype.infoToast = function (msg) {
+            var msgInfo;
+            if (typeof msg === 'string') {
+                msgInfo = this.translate.instant(msg);
+            }
+            else {
+                msgInfo = this.translate.instant("" + msg.label, {
+                    resourceName: msg.resourceName,
+                });
+            }
+            this.showToast(this.positions.TOP_RIGHT, 'info', msgInfo);
+        };
+        NotificationService.prototype.primaryToast = function (msg) {
+            var msgInfo;
+            if (typeof msg === 'string') {
+                msgInfo = this.translate.instant(msg);
+            }
+            else {
+                msgInfo = this.translate.instant("" + msg.label, {
+                    resourceName: msg.resourceName,
+                });
+            }
+            this.showToast(this.positions.TOP_RIGHT, 'primary', msgInfo);
+        };
+        return NotificationService;
+    }());
+    NotificationService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: NotificationService, deps: [{ token: i1__namespace.NbToastrService }, { token: i1__namespace$2.TranslateService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    NotificationService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: NotificationService, providedIn: 'root' });
+    i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: NotificationService, decorators: [{
+                type: i0.Injectable,
+                args: [{
+                        providedIn: 'root',
+                    }]
+            }], ctorParameters: function () { return [{ type: i1__namespace.NbToastrService }, { type: i1__namespace$2.TranslateService }]; } });
+
     var RestResourceAddComponent = /** @class */ (function () {
-        function RestResourceAddComponent(fb, serviceRest, serviceRestAdminConfig, activatedRoute, nbMenuService, exportService, dialogService, router) {
+        function RestResourceAddComponent(fb, serviceRest, serviceRestAdminConfig, activatedRoute, nbMenuService, exportService, dialogService, router, notificationService) {
             var _this = this;
             this.fb = fb;
             this.serviceRest = serviceRest;
@@ -1430,8 +1526,10 @@
             this.exportService = exportService;
             this.dialogService = dialogService;
             this.router = router;
+            this.notificationService = notificationService;
+            this.message = 'Ressource ajoutée avec succès';
             this.formState = {
-                btnLabel: "Modifier",
+                btnLabel: 'Modifier',
                 isAdd: false,
                 idEntity: null,
                 onReady: false,
@@ -1445,13 +1543,13 @@
             this.jsonEditorOptions = {};
             this.multiple = false;
             this.controlCroper = {};
-            this.imageChangedEvent = "";
+            this.imageChangedEvent = '';
             this.croppedImage = {};
             this.isCrop = {};
             this.controlsImage = {};
             // End test
             //Import
-            this.items = [{ title: "Download template" }, { title: "Import" }];
+            this.items = [{ title: 'Download template' }, { title: 'Import' }];
             this.alphabelt = ALPHABET;
             //Image
             this.filesUpload = {};
@@ -1460,11 +1558,11 @@
             this.morphFields = {};
             activatedRoute.params.subscribe(function (params) {
                 _this.ressourceName =
-                    _this.activatedRoute.snapshot.url[_this.activatedRoute.snapshot.url.length - 1].path.split("-")[0];
+                    _this.activatedRoute.snapshot.url[_this.activatedRoute.snapshot.url.length - 1].path.split('-')[0];
                 _this.resource = _this.serviceRestAdminConfig.getSpecificResource(_this.ressourceName);
                 if (Object.keys(params).length != 0) {
                     _this.ressourceName =
-                        _this.activatedRoute.snapshot.url[_this.activatedRoute.snapshot.url.length - 2].path.split("-")[0];
+                        _this.activatedRoute.snapshot.url[_this.activatedRoute.snapshot.url.length - 2].path.split('-')[0];
                     _this.resource = _this.serviceRestAdminConfig.getSpecificResource(_this.ressourceName);
                     _this.serviceRest
                         .getOneResource({
@@ -1474,7 +1572,7 @@
                         .subscribe(function (response) {
                         _this.initForm(response);
                         _this.formState = {
-                            btnLabel: "Modifier",
+                            btnLabel: 'Modifier',
                             isAdd: false,
                             idEntity: response.id,
                             onReady: true,
@@ -1484,7 +1582,7 @@
                 else {
                     _this.initForm(null);
                     _this.formState = {
-                        btnLabel: "Ajouter",
+                        btnLabel: 'Ajouter',
                         isAdd: true,
                         onReady: true,
                     };
@@ -1497,21 +1595,21 @@
                 .onItemClick()
                 .pipe(operators.filter(function (_c) {
                 var tag = _c.tag;
-                return tag === "my-context-add";
+                return tag === 'my-context-add';
             }), operators.map(function (_c) {
                 var title = _c.item.title;
                 return title;
             }))
                 .subscribe(function (title) {
                 switch (title) {
-                    case "Download template":
+                    case 'Download template':
                         _this.downloadTemplate();
                         break;
-                    case "Import":
+                    case 'Import':
                         _this.importData();
                         break;
                     default:
-                        console.log("pass");
+                        console.log('pass');
                         break;
                 }
             });
@@ -1528,7 +1626,7 @@
             var _this = this;
             if (datas != null) {
                 this.controls = this.resource.fields.reduce(function (cumul, elt) {
-                    var _c, _d, _e, _f, _g, _h, _j, _k, _l;
+                    var _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                     if (elt.inForm) {
                         switch (elt.type) {
                             case exports.REST_FIELD_TYPES.FILE:
@@ -1574,28 +1672,30 @@
                                 return Object.assign(Object.assign({}, cumul), (_g = {}, _g[elt.name] = [datas[elt.name]], _g));
                             case exports.REST_FIELD_TYPES.LINK:
                                 return Object.assign(Object.assign({}, cumul), (_h = {}, _h[elt.name] = [datas[elt.name], ngxInputValidator.Validator.url], _h));
+                            case exports.REST_FIELD_TYPES.COLOR:
+                                return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = datas[elt.name], _j));
                             case exports.REST_FIELD_TYPES.JSON:
                                 var jsonFiels_1 = [];
                                 elt.metaData.addConfig.jsonConfig.jsonFields.map(function (field) {
                                     jsonFiels_1.push({
                                         label: field,
-                                        value: datas[elt.name][0] == "{"
+                                        value: datas[elt.name][0] == '{'
                                             ? JSON.parse(datas[elt.name])[field]
-                                            : typeof datas[elt.name] !== "string"
+                                            : typeof datas[elt.name] !== 'string'
                                                 ? datas[elt.name][field]
                                                 : datas[elt.name],
                                     });
                                 });
                                 _this.jsonEditorOptions[elt.name] = jsonFiels_1;
-                                return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = datas[elt.name], _j));
+                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = datas[elt.name], _k));
                             case exports.REST_FIELD_TYPES.MORPH_ONE:
                                 _this.morphFields[elt.name] = {
                                     type: datas[elt.name].type,
                                     id: datas[elt.name].id,
                                 };
-                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = [null], _k));
+                                return Object.assign(Object.assign({}, cumul), (_l = {}, _l[elt.name] = [null], _l));
                             default:
-                                return Object.assign(Object.assign({}, cumul), (_l = {}, _l[elt.name] = datas[elt.name], _l));
+                                return Object.assign(Object.assign({}, cumul), (_m = {}, _m[elt.name] = datas[elt.name], _m));
                         }
                     }
                     else
@@ -1612,7 +1712,7 @@
                             case exports.REST_FIELD_TYPES.PDF:
                             case exports.REST_FIELD_TYPES.IMAGE:
                                 _this.filesUpload[elt.name] = [];
-                                _this.urlsImage[elt.name] = "";
+                                _this.urlsImage[elt.name] = '';
                                 return Object.assign(Object.assign({}, cumul), (_c = {}, _c[elt.name] = [null], _c));
                             case exports.REST_FIELD_TYPES.HAS_MANY:
                                 return Object.assign(Object.assign({}, cumul), (_d = {}, _d[elt.name] = new Set([]), _d));
@@ -1634,7 +1734,7 @@
                                         _this.allFilterContains[elt.name] = rxjs.of(_this.options[elt.name]);
                                     });
                                 }
-                                return Object.assign(Object.assign({}, cumul), (_f = {}, _f[elt.name] = [""], _f));
+                                return Object.assign(Object.assign({}, cumul), (_f = {}, _f[elt.name] = [''], _f));
                             case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
                                 var resource = _this.serviceRestAdminConfig.getSpecificResource(elt.metaData.addConfig.belongToManyOptions.relatedName);
                                 _this.serviceRest
@@ -1652,16 +1752,16 @@
                                 _this.belongToMany[elt.name] = new Set();
                                 return Object.assign(Object.assign({}, cumul), (_g = {}, _g[elt.name] = [], _g));
                             case exports.REST_FIELD_TYPES.LINK:
-                                return Object.assign(Object.assign({}, cumul), (_h = {}, _h[elt.name] = ["", ngxInputValidator.Validator.url], _h));
+                                return Object.assign(Object.assign({}, cumul), (_h = {}, _h[elt.name] = ['', ngxInputValidator.Validator.url], _h));
                             case exports.REST_FIELD_TYPES.JSON:
                                 var jsonFiels_2 = [];
                                 (_b = (_a = elt === null || elt === void 0 ? void 0 : elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.jsonConfig.jsonFields.map(function (field) {
-                                    jsonFiels_2.push({ label: field, value: "" });
+                                    jsonFiels_2.push({ label: field, value: '' });
                                 });
                                 _this.jsonEditorOptions[elt.name] = jsonFiels_2;
                                 return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = [null], _j));
                             default:
-                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = [""], _k));
+                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = [''], _k));
                         }
                     }
                     else
@@ -1702,17 +1802,17 @@
                     _d[name] = Array.from(treesA.values()),
                     _d));
             }
-            input.nativeElement.value = "";
+            input.nativeElement.value = '';
         };
         // Autocomplete
         RestResourceAddComponent.prototype.filter = function (value, field) {
-            if (typeof value == "string") {
+            if (typeof value == 'string') {
                 if (!this.options[field.name]) {
                     return [];
                 }
                 else
                     return this.options[field.name].filter(function (optionValue) {
-                        return field.metaData.addConfig.belongToOptions.filterKeys.some(function (elt) { return ("" + optionValue[elt].toLowerCase()).includes("" + "value".toLowerCase()); });
+                        return field.metaData.addConfig.belongToOptions.filterKeys.some(function (elt) { return ("" + optionValue[elt].toLowerCase()).includes("" + 'value'.toLowerCase()); });
                     });
             }
         };
@@ -1721,7 +1821,7 @@
             if (field.type == exports.REST_FIELD_TYPES.BELONG_TO)
                 return rxjs.of(value).pipe(operators.map(function (filterString) { return _this.filter(filterString, field); }));
             else if (field.type == exports.REST_FIELD_TYPES.MORPH)
-                return rxjs.of(value).pipe(operators.map(function (filterString) { return _this.filterMany(filterString, field, "morphConfig"); }));
+                return rxjs.of(value).pipe(operators.map(function (filterString) { return _this.filterMany(filterString, field, 'morphConfig'); }));
             return rxjs.of(value).pipe(operators.map(function (filterString) { return _this.filterMany(filterString, field); }));
         };
         RestResourceAddComponent.prototype.onSelectionChange = function (event, field) {
@@ -1785,7 +1885,7 @@
                             id: event.id
                         },
                         _c[field.metaData.addConfig.belongToManyOptions.relatedIdName] = event.id,
-                        _c[field.metaData.addConfig.belongToManyOptions.resourceIdName] = "",
+                        _c[field.metaData.addConfig.belongToManyOptions.resourceIdName] = '',
                         _c[field.metaData.addConfig.belongToManyOptions.filterKeys[0]] = event[field.metaData.addConfig.belongToManyOptions.filterKeys[0]],
                         _c.saveRelatedIdName = field.metaData.addConfig.belongToManyOptions.relatedIdName,
                         _c.saveResourceIdName = field.metaData.addConfig.belongToManyOptions.resourceIdName,
@@ -1796,7 +1896,7 @@
                         _d));
                 }
             }
-            this.inputBelongToMany.nativeElement.value = "";
+            this.inputBelongToMany.nativeElement.value = '';
         };
         RestResourceAddComponent.prototype.onTagRemoveBelong = function (tagToRemove, field) {
             var _c;
@@ -1814,8 +1914,8 @@
                 _c));
         };
         RestResourceAddComponent.prototype.filterMany = function (value, field, options) {
-            if (options === void 0) { options = "belongToManyOptions"; }
-            if (typeof value == "string") {
+            if (options === void 0) { options = 'belongToManyOptions'; }
+            if (typeof value == 'string') {
                 return this.options[field.name].filter(function (optionValue) {
                     return field.metaData.addConfig[options].filterKeys.some(function (elt) { return ("" + optionValue[elt].toLowerCase()).includes("" + value.toLowerCase()); });
                 });
@@ -1825,6 +1925,10 @@
         RestResourceAddComponent.prototype.onCreate = function () {
             var _this = this;
             var datas;
+            var msg = {
+                label: "msg-adding-success",
+                resourceName: this.ressourceName,
+            };
             var formData = this.form.value;
             var _body = this.resource.addConfig.body;
             if (this.resource.hasFile) {
@@ -1832,14 +1936,14 @@
                 Object.keys(formData).forEach(function (key, index) {
                     var _a;
                     var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
-                    if (search) {
+                    if (search && formData[key] !== null && formData[key] !== undefined) {
                         switch (search.type) {
                             case exports.REST_FIELD_TYPES.DATE:
-                                datas.append(key, "" + moment__namespace(formData[key]).format("YYYY-MM-DD"));
+                                datas.append(key, "" + moment__namespace(formData[key]).format('YYYY-MM-DD'));
                                 break;
                             case exports.REST_FIELD_TYPES.JSON:
                                 var jsonFields_1 = {};
-                                if (typeof _this.jsonEditorOptions[key] == "object") {
+                                if (typeof _this.jsonEditorOptions[key] == 'object') {
                                     _this.jsonEditorOptions[key].map(function (elt) {
                                         var _c;
                                         jsonFields_1 = Object.assign(Object.assign({}, jsonFields_1), (_c = {}, _c[elt.label] = elt.value, _c));
@@ -1873,7 +1977,6 @@
                 datas = this.form.value;
                 datas = Object.assign(Object.assign({}, datas), _body);
             }
-            console.log(datas);
             var saveBelongTomany = [];
             this.resource.fields.forEach(function (elt) {
                 if (elt.type == exports.REST_FIELD_TYPES.BELONG_TO_MANY) {
@@ -1883,9 +1986,7 @@
                     });
                 }
             });
-            this.serviceRest
-                .addResources(this.resource.addConfig, datas)
-                .subscribe(function (response) {
+            this.serviceRest.addResources(this.resource.addConfig, datas).subscribe(function (response) {
                 if (saveBelongTomany.length > 0) {
                     saveBelongTomany.forEach(function (element, index) {
                         var _c;
@@ -1903,6 +2004,7 @@
                         }
                         Promise.all(proms).then(function (res) {
                             if (index == saveBelongTomany.length - 1) {
+                                _this.notificationService.successToast(msg);
                                 _this.router.navigate([
                                     "/admin/" + _this.ressourceName + "-detail",
                                     response.id,
@@ -1913,16 +2015,27 @@
                     });
                 }
                 else {
+                    _this.notificationService.successToast(msg);
                     _this.router.navigate([
                         "/admin/" + _this.ressourceName + "-detail",
                         response.id,
                     ]);
                     _this.reset();
                 }
+            }, function (error) {
+                var msgError = {
+                    label: "msg-adding-error",
+                    resourceName: _this.ressourceName,
+                };
+                _this.notificationService.dangerToast(msgError);
             });
         };
         RestResourceAddComponent.prototype.onEdit = function () {
             var _this = this;
+            var msg = {
+                label: "msg-updating-success",
+                resourceName: this.ressourceName,
+            };
             var datas;
             var formData = this.form.value;
             var _body = this.resource.editConfig.body;
@@ -1931,14 +2044,14 @@
                 Object.keys(formData).forEach(function (key) {
                     var _a;
                     var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
-                    if (search) {
+                    if (search && formData[key] !== null && formData[key] !== undefined) {
                         switch (search.type) {
                             case exports.REST_FIELD_TYPES.DATE:
-                                datas.append(key, "" + moment__namespace(formData[key]).format("YYYY-MM-DD"));
+                                datas.append(key, "" + moment__namespace(formData[key]).format('YYYY-MM-DD'));
                                 break;
                             case exports.REST_FIELD_TYPES.JSON:
                                 var jsonFields_2 = {};
-                                if (typeof _this.jsonEditorOptions[key] == "object") {
+                                if (typeof _this.jsonEditorOptions[key] == 'object') {
                                     _this.jsonEditorOptions[key].map(function (elt) {
                                         var _c;
                                         jsonFields_2 = Object.assign(Object.assign({}, jsonFields_2), (_c = {}, _c[elt.label] = elt.value, _c));
@@ -1996,8 +2109,8 @@
                         for (var index_2 = 0; index_2 < element.resources.length; index_2++) {
                             var item = element.resources[index_2];
                             var data = (_c = {},
-                                _c[item["saveRelatedIdName"]] = item[item["saveRelatedIdName"]],
-                                _c[item["saveResourceIdName"]] = response.id,
+                                _c[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
+                                _c[item['saveResourceIdName']] = response.id,
                                 _c);
                             proms.push(_this.serviceRest
                                 .addResources(restResource.addConfig, data)
@@ -2005,6 +2118,7 @@
                         }
                         Promise.all(proms).then(function (res) {
                             if (index == saveBelongTomany.length - 1) {
+                                _this.notificationService.successToast(msg);
                                 _this.router.navigate([
                                     "/admin/" + _this.ressourceName + "-detail",
                                     _this.formState.idEntity,
@@ -2015,12 +2129,19 @@
                     });
                 }
                 else {
+                    _this.notificationService.successToast(msg);
                     _this.router.navigate([
                         "/admin/" + _this.ressourceName + "-detail",
                         _this.formState.idEntity,
                     ]);
                     _this.reset();
                 }
+            }, function (error) {
+                var msgError = {
+                    label: "msg-updating-fail",
+                    resourceName: _this.ressourceName,
+                };
+                _this.notificationService.dangerToast(msgError);
             });
         };
         RestResourceAddComponent.prototype.downloadTemplate = function () {
@@ -2046,14 +2167,14 @@
                 skipHeader: true,
             };
             edata.push(udt);
-            this.exportService.exportToExcel(edata, "rest_file_template_data");
+            this.exportService.exportToExcel(edata, 'rest_file_template_data');
         };
         RestResourceAddComponent.prototype.importData = function () {
             var _this = this;
             var dialog = this.dialogService.open(UploadFileComponent, {});
             dialog.onClose.subscribe(function (resp) {
                 if (resp)
-                    _this.source = new i9.LocalDataSource(resp);
+                    _this.source = new i10.LocalDataSource(resp);
             });
         };
         RestResourceAddComponent.prototype.createMatTableColumns = function () {
@@ -2065,7 +2186,7 @@
                 .forEach(function (elt) {
                 colunms[elt.name] = {
                     title: elt.label,
-                    type: "custom",
+                    type: 'custom',
                     filter: false,
                     addable: true,
                     valuePrepareFunction: function (cell, row) { return ({
@@ -2074,7 +2195,7 @@
                         row: row,
                     }); },
                     editor: {
-                        type: "custom",
+                        type: 'custom',
                         component: RestResourceEditorFieldsComponent,
                     },
                     renderComponent: RestResourceListFieldComponent,
@@ -2090,8 +2211,8 @@
         };
         RestResourceAddComponent.prototype.addJSONField = function (event) {
             this.jsonEditorOptions[event.name].push({
-                label: "",
-                value: "",
+                label: '',
+                value: '',
                 add: true,
             });
         };
@@ -2118,8 +2239,8 @@
         };
         return RestResourceAddComponent;
     }());
-    RestResourceAddComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceAddComponent, deps: [{ token: i1__namespace$4.FormBuilder }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i1__namespace.ActivatedRoute }, { token: i1__namespace$1.NbMenuService }, { token: RestExportService }, { token: i1__namespace$1.NbDialogService }, { token: i1__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestResourceAddComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceAddComponent, selector: "ngx-rest-resource-add", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "belongTo", first: true, predicate: ["belongTo"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0__namespace, template: "<nb-card>\n  <!-- <nb-card-header class=\"row\">\n    <div class=\"col-9\" *ngIf=\"formState.isAdd\">\n      {{ resource.addConfig.title }}\n    </div>\n\n    <div class=\"col-3\">\n      <button\n        nbButton\n        status=\"primary\"\n        [nbContextMenu]=\"items\"\n        nbContextMenuTag=\"my-context-menu\"\n      >\n        {{ \"rest-add.import\" | translate }}\n      </button>\n    </div>\n  </nb-card-header> -->\n\n  <nb-card-header *ngIf=\"formState.onReady && !formState.isAdd\"\n    >{{ resource.editConfig.title }}\n  </nb-card-header>\n\n  <nb-card-header *ngIf=\"formState.onReady && formState.isAdd\"\n    >{{ resource.addConfig.title }}\n  </nb-card-header>\n\n  <nb-card-body>\n    <nb-tabset>\n      <nb-tab tabTitle=\"Ajout simple\">\n        <form [formGroup]=\"form\" class=\"row\" *ngIf=\"formState.onReady\">\n          <div\n            *ngFor=\"\n              let field of resource.fields;\n              trackBy: trackByFn;\n              let i = index\n            \"\n            class=\"col-12\"\n          >\n            <ng-container *ngIf=\"field.inForm\">\n              <!-- Input type string  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.STRING ||\n                  field.type == REST_FIELD_TYPES.HAS_ONE\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n              </div>\n\n              <!-- Input type text -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <textarea\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                ></textarea>\n              </div>\n\n              <!-- Input type number  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"number\"\n                />\n              </div>\n\n              <!-- Input type date -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"formpicker\"\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                />\n                <nb-datepicker #formpicker></nb-datepicker>\n              </div>\n\n              <!-- Input type dateTime -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"dateTimePicker\"\n                  [formControlName]=\"field.name\"\n                />\n                <nb-date-timepicker\n                  withSeconds\n                  #dateTimePicker\n                ></nb-date-timepicker>\n              </div>\n\n              <!-- Input type time -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  [nbTimepicker]=\"timepicker\"\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                  twelveHoursFormat\n                  nbInput\n                />\n                <nb-timepicker #timepicker></nb-timepicker>\n              </div>\n\n              <!-- Input type enum -->\n              <ng-container\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-select\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                  [placeholder]=\"field.label\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n                    [value]=\"option.value\"\n                    >{{ option.label }}</nb-option\n                  >\n                </nb-select>\n              </ng-container>\n\n              <!-- Input type boolean -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                <div style=\"display: flex; align-items: center\">\n                  <label style=\"margin-right: 0.5em\">{{\n                    field.label | titlecase\n                  }}</label>\n                  <!-- [name]=\"field.name\" -->\n                  <nb-toggle [formControlName]=\"field.name\"></nb-toggle>\n                </div>\n              </div>\n\n              <!-- Input type file -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.FILE ||\n                  field.type == REST_FIELD_TYPES.PDF\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"filesUpload[field.name].length <= 0\"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <ngx-dropzone-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                    <ngx-dropzone-label\n                      >{{ f.name }} ({{ f.type }})</ngx-dropzone-label\n                    >\n                  </ngx-dropzone-preview>\n                </div>\n              </div>\n\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"\n                      filesUpload[field.name].length <= 0 &&\n                      urlsImage[field.name] == ''\n                    \"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <!-- <ng-container\n                    *ngIf=\"filesUpload[field.name].length > 0\"\n                  > -->\n                  <ngx-dropzone-image-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                  </ngx-dropzone-image-preview>\n                  <!-- </ng-container> -->\n                </div>\n\n                <button\n                  nbButton\n                  status=\"primary\"\n                  *ngIf=\"\n                    !isCrop[field.name] && controlCroper[field.name] != null\n                  \"\n                  (click)=\"activeCroper(field)\"\n                >\n                  CROP\n                </button>\n\n                <ng-container *ngIf=\"isCrop[field.name]\">\n                  <image-cropper\n                    [imageFile]=\"controlCroper[field.name]\"\n                    [maintainAspectRatio]=\"true\"\n                    [aspectRatio]=\"4 / 3\"\n                    format=\"png\"\n                    (imageCropped)=\"imageCropped($event, field)\"\n                  ></image-cropper>\n\n                  <button nbButton status=\"primary\" (click)=\"saveCroper(field)\">\n                    SAVE CHANGE\n                  </button>\n                  <button\n                    nbButton\n                    status=\"danger\"\n                    (click)=\"desactiveCrop(field)\"\n                  >\n                    Cancel\n                  </button>\n                </ng-container>\n\n                <!-- <img [src]=\"croppedImage\" /> -->\n              </div>\n\n              <!-- Input type hasMany -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list\n                  (tagRemove)=\"onTagRemove($event, field.name)\"\n                  fullWidth\n                >\n                  <nb-tag\n                    *ngFor=\"let tree of form.get([field.name]).value\"\n                    [text]=\"tree\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    fullWidth\n                    nbTagInput\n                    [placeholder]=\"field.label\"\n                    (tagAdd)=\"onTagAdd($event, field.name)\"\n                  />\n                </nb-tag-list>\n              </div>\n\n              <!-- Input type belong_to -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  #autoInput\n                  nbInput\n                  fullWidth\n                  type=\"text\"\n                  [formControlName]=\"field.name\"\n                  placeholder=\"Enter value\"\n                  [nbAutocomplete]=\"autoComplete\"\n                  (keyup)=\"filterInput($event, field)\"\n                  [id]=\"i\"\n                />\n\n                <nb-autocomplete\n                  #autoComplete\n                  (selectedChange)=\"onSelectionChange($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"\n                      option[\n                        field?.metaData?.addConfig.belongToOptions?.value\n                          ? field?.metaData?.addConfig?.belongToOptions?.value\n                          : 'id'\n                      ]\n                    \"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToOptions.template\n                          ? field.metaData.addConfig.belongToOptions.template\n                          : field.metaData.addConfig.belongToOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type belong_to_many -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event, field)\">\n                  <nb-tag\n                    *ngFor=\"let tree of belongToMany[field.name]\"\n                    [text]=\"\n                      tree[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    \"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    nbTagInput\n                    #autoBelongToMany\n                    [nbAutocomplete]=\"belongToField\"\n                    (keyup)=\"filterInput($event, field)\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    fullWidth\n                  />\n                </nb-tag-list>\n\n                <nb-autocomplete\n                  #belongToField\n                  (selectedChange)=\"onChoose($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"option\"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type link -->\n\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n\n                <!-- <div\n                *ngIf=\"\n                  form.get([field.name]).hasError('invalidUrl') &&\n                  form.get([field.name]).touched\n                \"\n                class=\"text-error\"\n              >\n                {{ \"rest-add.invalid-link\" | translate }}\n              </div> -->\n              </div>\n\n              <!-- Input type JSON -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.JSON\"\n              >\n                <div>\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <button\n                    nbButton\n                    status=\"primary\"\n                    shape=\"round\"\n                    size=\"small\"\n                    outline\n                    ghost\n                    *ngIf=\"field.metaData.addConfig.jsonConfig.isOpen\"\n                    (click)=\"addJSONField(field)\"\n                  >\n                    <nb-icon icon=\"plus\" pack=\"fas\"></nb-icon>\n                  </button>\n                </div>\n\n                <div\n                  class=\"row mb-2\"\n                  *ngFor=\"\n                    let item of jsonEditorOptions[field.name];\n                    let index = index\n                  \"\n                >\n                  <div class=\"col\" [id]=\"index\">\n                    <input\n                      fullWidth\n                      nbInput\n                      *ngIf=\"item.add; else elseBlock\"\n                      [(ngModel)]=\"item.label\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                    <ng-template #elseBlock>\n                      <input fullWidth nbInput disabled [value]=\"item.label\" />\n                    </ng-template>\n                  </div>\n                  <div class=\"col\">\n                    <input\n                      fullWidth\n                      nbInput\n                      [(ngModel)]=\"item.value\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                  </div>\n                  <div class=\"col\" *ngIf=\"item.add\">\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      shape=\"round\"\n                      size=\"small\"\n                      outline\n                      ghost\n                      (click)=\"removeJSONField(field, index)\"\n                    >\n                      <nb-icon icon=\"trash-alt\" pack=\"fas\"></nb-icon>\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n              <!-- Input type MORPH -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.MORPH\"\n              >\n                <div class=\"row\">\n                  <div class=\"col-3\">\n                    <label class=\"label\">Ressources</label>\n                    <nb-select\n                      fullWidth\n                      (selectedChange)=\"onMorphSelectField($event, field.name)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of field.metaData.addConfig.morphConfig\n                            .related\n                        \"\n                        [value]=\"option.value\"\n                        >{{ option.label }}</nb-option\n                      >\n                    </nb-select>\n                  </div>\n\n                  <div class=\"col-9\">\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      #autoInput\n                      nbInput\n                      fullWidth\n                      type=\"text\"\n                      [formControlName]=\"field.name\"\n                      placeholder=\"Enter value\"\n                      [nbAutocomplete]=\"autoComplete\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [id]=\"i\"\n                      [disabled]=\"!allFilterContains[field.name]\"\n                    />\n                    <nb-autocomplete\n                      #autoComplete\n                      (selectedChange)=\"onSelectionChange($event, field)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of allFilterContains[field.name] | async\n                        \"\n                        [value]=\"\n                          option[\n                            field?.metaData?.addConfig.morphConfig?.value\n                              ? field?.metaData?.addConfig.morphConfig?.value\n                              : 'id'\n                          ]\n                        \"\n                      >\n                        {{\n                          option[\n                            field.metaData.addConfig.morphConfig.template\n                              ? field.metaData.addConfig.morphConfig.template\n                              : field.metaData.addConfig.morphConfig\n                                  .filterKeys[0]\n                          ]\n                        }}\n                      </nb-option>\n                    </nb-autocomplete>\n                  </div>\n                </div>\n              </div>\n            </ng-container>\n          </div>\n        </form>\n      </nb-tab>\n      <nb-tab tabTitle=\"Importation\">\n        <div class=\"row\">\n          <div class=\"col-9\"></div>\n          <div class=\"col-3\">\n            <button\n              nbButton\n              status=\"primary\"\n              [nbContextMenu]=\"items\"\n              nbContextMenuTag=\"my-context-add\"\n            >\n              {{ \"rest-add.import\" | translate }}\n            </button>\n          </div>\n        </div>\n\n        <div>\n          <ng2-smart-table [settings]=\"settings\" [source]=\"source\">\n          </ng2-smart-table>\n        </div>\n      </nb-tab>\n    </nb-tabset>\n  </nb-card-body>\n  <nb-card-footer>\n    <div class=\"buttons-row\">\n      <button nbButton (click)=\"onSumbit()\" status=\"primary\">\n        {{ formState.btnLabel }}\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: ["nb-card-body{overflow:visible;padding-top:0}.input-space{margin-top:1rem}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .buttons-row{margin:-.5rem}.nb-theme-default :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-default :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-default :host .action-icon{margin-left:.5rem}.nb-theme-default :host .actions-card{height:8rem}.nb-theme-dark :host .buttons-row{margin:-.5rem}.nb-theme-dark :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-dark :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-dark :host .action-icon{margin-left:.5rem}.nb-theme-dark :host .actions-card{height:8rem}.nb-theme-cosmic :host .buttons-row{margin:-.5rem}.nb-theme-cosmic :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-cosmic :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-cosmic :host .action-icon{margin-left:.5rem}.nb-theme-cosmic :host .actions-card{height:8rem}.nb-theme-corporate :host .buttons-row{margin:-.5rem}.nb-theme-corporate :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-corporate :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-corporate :host .action-icon{margin-left:.5rem}.nb-theme-corporate :host .actions-card{height:8rem}.icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1__namespace$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace$1.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1__namespace$1.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1__namespace$1.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1__namespace$1.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1__namespace$1.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1__namespace$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1__namespace$1.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i7__namespace.NgxDropzoneComponent, selector: "ngx-dropzone, [ngx-dropzone]", inputs: ["accept", "disabled", "multiple", "maxFileSize", "expandable", "disableClick", "processDirectoryDrop", "id", "aria-label", "aria-labelledby", "aria-describedby"], outputs: ["change"] }, { type: i1__namespace$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i7__namespace.NgxDropzonePreviewComponent, selector: "ngx-dropzone-preview", inputs: ["file", "removable"], outputs: ["removed"] }, { type: i7__namespace.NgxDropzoneImagePreviewComponent, selector: "ngx-dropzone-image-preview", inputs: ["file"] }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5__namespace.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1__namespace$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1__namespace$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1__namespace$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i9__namespace.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }, { type: i1__namespace$1.NbCardFooterComponent, selector: "nb-card-footer" }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1__namespace$4.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1__namespace$4.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1__namespace$4.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1__namespace$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1__namespace$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1__namespace$4.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }, { type: i1__namespace$4.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1__namespace$1.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1__namespace$1.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i7__namespace.NgxDropzoneLabelDirective, selector: "ngx-dropzone-label" }, { type: i1__namespace$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1__namespace$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1__namespace$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1__namespace$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "titlecase": i8__namespace.TitleCasePipe, "async": i8__namespace.AsyncPipe, "translate": i1__namespace$3.TranslatePipe } });
+    RestResourceAddComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceAddComponent, deps: [{ token: i1__namespace$3.FormBuilder }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i2__namespace.ActivatedRoute }, { token: i1__namespace.NbMenuService }, { token: RestExportService }, { token: i1__namespace.NbDialogService }, { token: i2__namespace.Router }, { token: NotificationService }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    RestResourceAddComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceAddComponent, selector: "ngx-rest-resource-add", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "belongTo", first: true, predicate: ["belongTo"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0__namespace, template: "<nb-card>\n  <!-- <nb-card-header class=\"row\">\n    <div class=\"col-9\" *ngIf=\"formState.isAdd\">\n      {{ resource.addConfig.title }}\n    </div>\n\n    <div class=\"col-3\">\n      <button\n        nbButton\n        status=\"primary\"\n        [nbContextMenu]=\"items\"\n        nbContextMenuTag=\"my-context-menu\"\n      >\n        {{ \"rest-add.import\" | translate }}\n      </button>\n    </div>\n  </nb-card-header> -->\n\n  <nb-card-header *ngIf=\"formState.onReady && !formState.isAdd\"\n    >{{ resource.editConfig.title }}\n  </nb-card-header>\n\n  <nb-card-header *ngIf=\"formState.onReady && formState.isAdd\"\n    >{{ resource.addConfig.title }}\n  </nb-card-header>\n\n  <nb-card-body>\n    <nb-tabset>\n      <nb-tab tabTitle=\"Ajout simple\">\n        <form [formGroup]=\"form\" class=\"row\" *ngIf=\"formState.onReady\">\n          <div\n            *ngFor=\"\n              let field of resource.fields;\n              trackBy: trackByFn;\n              let i = index\n            \"\n            class=\"col-12\"\n          >\n            <ng-container *ngIf=\"field.inForm\">\n              <!-- Input type string  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.STRING ||\n                  field.type == REST_FIELD_TYPES.HAS_ONE\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n              </div>\n\n              <!-- Input type password  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.PASSWORD\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"password\"\n                />\n              </div>\n\n              <!-- Input type text -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <textarea\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                ></textarea>\n              </div>\n\n              <!-- Input type number  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"number\"\n                />\n              </div>\n\n              <!-- Input type date -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"formpicker\"\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                />\n                <nb-datepicker #formpicker></nb-datepicker>\n              </div>\n\n              <!-- Input type dateTime -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"dateTimePicker\"\n                  [formControlName]=\"field.name\"\n                />\n                <nb-date-timepicker\n                  withSeconds\n                  #dateTimePicker\n                ></nb-date-timepicker>\n              </div>\n\n              <!-- Input type time -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  [nbTimepicker]=\"timepicker\"\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                  twelveHoursFormat\n                  nbInput\n                />\n                <nb-timepicker #timepicker></nb-timepicker>\n              </div>\n\n              <!-- Input type enum -->\n              <ng-container\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-select\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                  [placeholder]=\"field.label\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n                    [value]=\"option.value\"\n                    >{{ option.label }}</nb-option\n                  >\n                </nb-select>\n              </ng-container>\n\n              <!-- Input type boolean -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                <div style=\"display: flex; align-items: center\">\n                  <label style=\"margin-right: 0.5em\">{{\n                    field.label | titlecase\n                  }}</label>\n                  <!-- [name]=\"field.name\" -->\n                  <nb-toggle [formControlName]=\"field.name\"></nb-toggle>\n                </div>\n              </div>\n\n              <!-- Input type file -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.FILE ||\n                  field.type == REST_FIELD_TYPES.PDF\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"filesUpload[field.name].length <= 0\"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <ngx-dropzone-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                    <ngx-dropzone-label\n                      >{{ f.name }} ({{ f.type }})</ngx-dropzone-label\n                    >\n                  </ngx-dropzone-preview>\n                </div>\n              </div>\n\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"\n                      filesUpload[field.name].length <= 0 &&\n                      urlsImage[field.name] == ''\n                    \"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <!-- <ng-container\n                    *ngIf=\"filesUpload[field.name].length > 0\"\n                  > -->\n                  <ngx-dropzone-image-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                  </ngx-dropzone-image-preview>\n                  <!-- </ng-container> -->\n                </div>\n\n                <button\n                  nbButton\n                  status=\"primary\"\n                  *ngIf=\"\n                    !isCrop[field.name] && controlCroper[field.name] != null\n                  \"\n                  (click)=\"activeCroper(field)\"\n                >\n                  CROP\n                </button>\n\n                <ng-container *ngIf=\"isCrop[field.name]\">\n                  <image-cropper\n                    [imageFile]=\"controlCroper[field.name]\"\n                    [maintainAspectRatio]=\"true\"\n                    [aspectRatio]=\"4 / 3\"\n                    format=\"png\"\n                    (imageCropped)=\"imageCropped($event, field)\"\n                  ></image-cropper>\n\n                  <button nbButton status=\"primary\" (click)=\"saveCroper(field)\">\n                    SAVE CHANGE\n                  </button>\n                  <button\n                    nbButton\n                    status=\"danger\"\n                    (click)=\"desactiveCrop(field)\"\n                  >\n                    Cancel\n                  </button>\n                </ng-container>\n\n                <!-- <img [src]=\"croppedImage\" /> -->\n              </div>\n\n              <!-- Input type hasMany -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list\n                  (tagRemove)=\"onTagRemove($event, field.name)\"\n                  fullWidth\n                >\n                  <nb-tag\n                    *ngFor=\"let tree of form.get([field.name]).value\"\n                    [text]=\"tree\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    fullWidth\n                    nbTagInput\n                    [placeholder]=\"field.label\"\n                    (tagAdd)=\"onTagAdd($event, field.name)\"\n                  />\n                </nb-tag-list>\n              </div>\n\n              <!-- Input type belong_to -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  #autoInput\n                  nbInput\n                  fullWidth\n                  type=\"text\"\n                  [formControlName]=\"field.name\"\n                  placeholder=\"Enter value\"\n                  [nbAutocomplete]=\"autoComplete\"\n                  (keyup)=\"filterInput($event, field)\"\n                  [id]=\"i\"\n                />\n\n                <nb-autocomplete\n                  #autoComplete\n                  (selectedChange)=\"onSelectionChange($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"\n                      option[\n                        field?.metaData?.addConfig.belongToOptions?.value\n                          ? field?.metaData?.addConfig?.belongToOptions?.value\n                          : 'id'\n                      ]\n                    \"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToOptions.template\n                          ? field.metaData.addConfig.belongToOptions.template\n                          : field.metaData.addConfig.belongToOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type belong_to_many -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event, field)\">\n                  <nb-tag\n                    *ngFor=\"let tree of belongToMany[field.name]\"\n                    [text]=\"\n                      tree[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    \"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    nbTagInput\n                    #autoBelongToMany\n                    [nbAutocomplete]=\"belongToField\"\n                    (keyup)=\"filterInput($event, field)\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    fullWidth\n                  />\n                </nb-tag-list>\n\n                <nb-autocomplete\n                  #belongToField\n                  (selectedChange)=\"onChoose($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"option\"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type color  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div class=\"color-row\">\n                  <input\n                    nbInput\n                    fullWidth\n                    [id]=\"i\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"text\"\n                  />\n                  <div\n                    class=\"text-center color-card\"\n                    [style.background-color]=\"form.value[field.name]\"\n                  ></div>\n                </div>\n              </div>\n\n              <!-- Input type link -->\n\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n\n                <!-- <div\n                *ngIf=\"\n                  form.get([field.name]).hasError('invalidUrl') &&\n                  form.get([field.name]).touched\n                \"\n                class=\"text-error\"\n              >\n                {{ \"rest-add.invalid-link\" | translate }}\n              </div> -->\n              </div>\n\n              <!-- Input type JSON -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.JSON\"\n              >\n                <div>\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <button\n                    nbButton\n                    status=\"primary\"\n                    shape=\"round\"\n                    size=\"small\"\n                    outline\n                    ghost\n                    *ngIf=\"field.metaData.addConfig.jsonConfig.isOpen\"\n                    (click)=\"addJSONField(field)\"\n                  >\n                    <nb-icon icon=\"plus\" pack=\"fas\"></nb-icon>\n                  </button>\n                </div>\n\n                <div\n                  class=\"row mb-2\"\n                  *ngFor=\"\n                    let item of jsonEditorOptions[field.name];\n                    let index = index\n                  \"\n                >\n                  <div class=\"col\" [id]=\"index\">\n                    <input\n                      fullWidth\n                      nbInput\n                      *ngIf=\"item.add; else elseBlock\"\n                      [(ngModel)]=\"item.label\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                    <ng-template #elseBlock>\n                      <input fullWidth nbInput disabled [value]=\"item.label\" />\n                    </ng-template>\n                  </div>\n                  <div class=\"col\">\n                    <input\n                      fullWidth\n                      nbInput\n                      [(ngModel)]=\"item.value\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                  </div>\n                  <div class=\"col\" *ngIf=\"item.add\">\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      shape=\"round\"\n                      size=\"small\"\n                      outline\n                      ghost\n                      (click)=\"removeJSONField(field, index)\"\n                    >\n                      <nb-icon icon=\"trash-alt\" pack=\"fas\"></nb-icon>\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n              <!-- Input type MORPH -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.MORPH\"\n              >\n                <div class=\"row\">\n                  <div class=\"col-3\">\n                    <label class=\"label\">Ressources</label>\n                    <nb-select\n                      fullWidth\n                      (selectedChange)=\"onMorphSelectField($event, field.name)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of field.metaData.addConfig.morphConfig\n                            .related\n                        \"\n                        [value]=\"option.value\"\n                        >{{ option.label }}</nb-option\n                      >\n                    </nb-select>\n                  </div>\n\n                  <div class=\"col-9\">\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      #autoInput\n                      nbInput\n                      fullWidth\n                      type=\"text\"\n                      [formControlName]=\"field.name\"\n                      placeholder=\"Enter value\"\n                      [nbAutocomplete]=\"autoComplete\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [id]=\"i\"\n                      [disabled]=\"!allFilterContains[field.name]\"\n                    />\n                    <nb-autocomplete\n                      #autoComplete\n                      (selectedChange)=\"onSelectionChange($event, field)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of allFilterContains[field.name] | async\n                        \"\n                        [value]=\"\n                          option[\n                            field?.metaData?.addConfig.morphConfig?.value\n                              ? field?.metaData?.addConfig.morphConfig?.value\n                              : 'id'\n                          ]\n                        \"\n                      >\n                        {{\n                          option[\n                            field.metaData.addConfig.morphConfig.template\n                              ? field.metaData.addConfig.morphConfig.template\n                              : field.metaData.addConfig.morphConfig\n                                  .filterKeys[0]\n                          ]\n                        }}\n                      </nb-option>\n                    </nb-autocomplete>\n                  </div>\n                </div>\n              </div>\n            </ng-container>\n          </div>\n        </form>\n      </nb-tab>\n      <nb-tab tabTitle=\"Importation\">\n        <div class=\"row\">\n          <div class=\"col-9\"></div>\n          <div class=\"col-3\">\n            <button\n              nbButton\n              status=\"primary\"\n              [nbContextMenu]=\"items\"\n              nbContextMenuTag=\"my-context-add\"\n            >\n              {{ \"rest-add.import\" | translate }}\n            </button>\n          </div>\n        </div>\n\n        <div>\n          <ng2-smart-table [settings]=\"settings\" [source]=\"source\">\n          </ng2-smart-table>\n        </div>\n      </nb-tab>\n    </nb-tabset>\n  </nb-card-body>\n\n  <nb-card-footer>\n    <div class=\"buttons-row\">\n      <button nbButton (click)=\"onSumbit()\" status=\"primary\">\n        {{ formState.btnLabel }}\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: ["nb-card-body{overflow:visible;padding-top:0}.input-space{margin-top:1rem}.color-row{justify-content:space-between}.color-card{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .buttons-row{margin:-.5rem}.nb-theme-default :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-default :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-default :host .action-icon{margin-left:.5rem}.nb-theme-default :host .actions-card{height:8rem}.nb-theme-dark :host .buttons-row{margin:-.5rem}.nb-theme-dark :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-dark :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-dark :host .action-icon{margin-left:.5rem}.nb-theme-dark :host .actions-card{height:8rem}.nb-theme-cosmic :host .buttons-row{margin:-.5rem}.nb-theme-cosmic :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-cosmic :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-cosmic :host .action-icon{margin-left:.5rem}.nb-theme-cosmic :host .actions-card{height:8rem}.nb-theme-corporate :host .buttons-row{margin:-.5rem}.nb-theme-corporate :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-corporate :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-corporate :host .action-icon{margin-left:.5rem}.nb-theme-corporate :host .actions-card{height:8rem}.icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1__namespace.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1__namespace.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1__namespace.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1__namespace.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1__namespace.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1__namespace.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1__namespace.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i8__namespace$1.NgxDropzoneComponent, selector: "ngx-dropzone, [ngx-dropzone]", inputs: ["accept", "disabled", "multiple", "maxFileSize", "expandable", "disableClick", "processDirectoryDrop", "id", "aria-label", "aria-labelledby", "aria-describedby"], outputs: ["change"] }, { type: i1__namespace.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i8__namespace$1.NgxDropzonePreviewComponent, selector: "ngx-dropzone-preview", inputs: ["file", "removable"], outputs: ["removed"] }, { type: i8__namespace$1.NgxDropzoneImagePreviewComponent, selector: "ngx-dropzone-image-preview", inputs: ["file"] }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5__namespace.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1__namespace.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1__namespace.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1__namespace.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i10__namespace.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }, { type: i1__namespace.NbCardFooterComponent, selector: "nb-card-footer" }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1__namespace$3.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1__namespace$3.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1__namespace$3.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1__namespace$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1__namespace$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1__namespace$3.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }, { type: i1__namespace$3.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1__namespace.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1__namespace.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i8__namespace$1.NgxDropzoneLabelDirective, selector: "ngx-dropzone-label" }, { type: i1__namespace.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1__namespace.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1__namespace$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1__namespace.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "titlecase": i8__namespace.TitleCasePipe, "async": i8__namespace.AsyncPipe, "translate": i1__namespace$2.TranslatePipe } });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceAddComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -2127,14 +2248,14 @@
                         templateUrl: './rest-resource-add.component.html',
                         styleUrls: ['./rest-resource-add.component.scss'],
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$4.FormBuilder }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1__namespace.ActivatedRoute }, { type: i1__namespace$1.NbMenuService }, { type: RestExportService }, { type: i1__namespace$1.NbDialogService }, { type: i1__namespace.Router }]; }, propDecorators: { resource: [{
+            }], ctorParameters: function () { return [{ type: i1__namespace$3.FormBuilder }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i2__namespace.ActivatedRoute }, { type: i1__namespace.NbMenuService }, { type: RestExportService }, { type: i1__namespace.NbDialogService }, { type: i2__namespace.Router }, { type: NotificationService }]; }, propDecorators: { resource: [{
                     type: i0.Input
                 }], belongTo: [{
                     type: i0.ViewChild,
-                    args: ["belongTo"]
+                    args: ['belongTo']
                 }], inputBelongToMany: [{
                     type: i0.ViewChild,
-                    args: ["autoBelongToMany"]
+                    args: ['autoBelongToMany']
                 }] } });
 
     var RestResourceDetailComponent = /** @class */ (function () {
@@ -2147,7 +2268,7 @@
             this.dataSourceBuilder = dataSourceBuilder;
             this.langService = langService;
             this.objectKeys = Object.keys;
-            this.customColumn = "name";
+            this.customColumn = 'name';
             this.allColumns = [this.customColumn];
             this.listDataSource = {};
             this.isTabsMenu = false;
@@ -2170,9 +2291,9 @@
             this.jsonValue = function (val) {
                 var _jsonValue;
                 if (val.restField.i18n == true) {
-                    if (val.data[0] == "{")
+                    if (val.data[0] == '{')
                         _jsonValue = JSON.parse(val.data)[_this.langService.selected];
-                    else if (typeof val.data !== "string")
+                    else if (typeof val.data !== 'string')
                         _jsonValue = val.data[_this.langService.selected];
                     else
                         _jsonValue = val.data;
@@ -2180,7 +2301,7 @@
                 else {
                     _jsonValue = val.data;
                 }
-                if (typeof val.data == "object")
+                if (typeof val.data == 'object')
                     return JSON.stringify(_jsonValue);
                 else
                     return _jsonValue;
@@ -2190,86 +2311,330 @@
             var _this = this;
             var id;
             if (this.ID) {
-                console.log("ID", this.ID);
                 id = this.ID;
             }
             else {
-                id = this.activatedRoute.snapshot.paramMap.get("id");
+                id = this.activatedRoute.snapshot.paramMap.get('id');
                 this.ressourceName =
-                    this.activatedRoute.snapshot.url[this.activatedRoute.snapshot.url.length - 2].path.split("-")[0];
+                    this.activatedRoute.snapshot.url[this.activatedRoute.snapshot.url.length - 2].path.split('-')[0];
             }
             this.entityId = parseInt(id);
-            // console.log("restNAEM", this.ressourceName);
             this.resource = this.serviceRestAdminConfig.getSpecificResource(this.ressourceName);
-            this.serviceRest
-                .getOneResource({
-                api: this.resource.detailConfig.api,
-                queryParams: this.resource.detailConfig.queryParams,
-            }, id)
-                .subscribe(function (response) {
-                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-                var colunms = {};
-                _this.entityId = response.id;
-                if (_this.resource.detailConfig.tabsConfig &&
-                    _this.resource.detailConfig.tabsConfig.length > 1) {
-                    _this.isTabsMenu = true;
-                    _this.resource.detailConfig.tabsConfig.forEach(function (tab) {
-                        _this.tabsName.push(tab.name);
-                        var temp = {};
-                        tab.datas.forEach(function (elt) {
-                            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-                            var search = _this.resource.fields.find(function (field) { return field.label === elt; });
-                            if (search) {
-                                temp[search.name] = {
-                                    restField: search,
-                                    data: response[search.label],
+            // console.log('this.resource.detailConfig', this.resource.detailConfig);
+            if (this.resource.detailConfig.preparedStatementQuery) {
+                // this.resource.detailConfig.queryParams.fieldForNextQuery
+                this.serviceRest
+                    .getResources({
+                    api: this.resource.detailConfig.preparedStatementQuery.api.substring(1),
+                    queryParams: this.resource.detailConfig.preparedStatementQuery
+                        .queryParams
+                        ? this.resource.detailConfig.preparedStatementQuery.queryParams
+                        : {},
+                })
+                    .subscribe(function (resp) {
+                    var val = {};
+                    var params = {};
+                    _this.resource.detailConfig.preparedStatementQuery.fieldForNextQuery.forEach(function (item) {
+                        val[item] = ___namespace.get(resp, item);
+                    });
+                    _this.resource.detailConfig.preparedStatementQuery.queryParamsComplete.forEach(function (element) {
+                        if (element.isPreparedStatement) {
+                            params[element.label] = val[element.value];
+                        }
+                        else {
+                            params[element.label] = element.value;
+                        }
+                    });
+                    _this.serviceRest
+                        .getOneResource({
+                        api: _this.resource.detailConfig.api,
+                        queryParams: params,
+                    }, id)
+                        .subscribe(function (response) {
+                        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+                        var colunms = {};
+                        _this.entityId = response.id;
+                        if (_this.resource.detailConfig.tabsConfig &&
+                            _this.resource.detailConfig.tabsConfig.length > 1) {
+                            _this.isTabsMenu = true;
+                            _this.resource.detailConfig.tabsConfig.forEach(function (tab) {
+                                _this.tabsName.push(tab.name);
+                                var temp = {};
+                                tab.datas.forEach(function (elt) {
+                                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+                                    var search = _this.resource.fields.find(function (field) { return field.label === elt; });
+                                    if (search) {
+                                        temp[search.name] = {
+                                            restField: search,
+                                            data: response[search.label],
+                                        };
+                                    }
+                                    switch (temp[search.name].restField.type) {
+                                        case exports.REST_FIELD_TYPES.HAS_MANY:
+                                            /*Premier cas si les configs ont ete definis dans le listConfig et rien dans le detailConfig
+                                          Premier cas si les configs ont ete definis dans le listConfig et rien dans le detailConfig
+                                          on considere que les configs sont les memes
+                                          */
+                                            if (((_c = (_b = (_a = temp[search.name].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.listConfig) === null || _c === void 0 ? void 0 : _c.restManyResources) &&
+                                                !((_f = (_e = (_d = temp[search.name].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources)) {
+                                                var datas_1 = [];
+                                                // console.log("Xa me concerne");
+                                                // console.log(temp[search.name]);
+                                                temp[search.name].data.forEach(function (item) {
+                                                    var _a, _b, _c, _d;
+                                                    datas_1.push({
+                                                        data: {
+                                                            name: ((_d = (_c = (_b = (_a = temp[search.name]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.listConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                                ? item[temp[search.name].restField.metaData
+                                                                    .listConfig.restManyResources.label]
+                                                                : item,
+                                                            item: item,
+                                                        },
+                                                    });
+                                                });
+                                                var rowsT = [
+                                                    {
+                                                        data: {
+                                                            name: temp[search.name].restField.name,
+                                                            place: 'header-place',
+                                                        },
+                                                        children: datas_1,
+                                                    },
+                                                ];
+                                                _this.listDataSource[temp[search.name].restField.name] = _this.dataSourceBuilder.create(rowsT);
+                                            }
+                                            else if ((_j = (_h = (_g = temp[search.name].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources) {
+                                                if (_this.isObject((_m = (_l = (_k = temp[search.name].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig) === null || _m === void 0 ? void 0 : _m.restManyResources)) {
+                                                    var datas_2 = [];
+                                                    temp[search.name].data.forEach(function (item) {
+                                                        var _a, _b, _c, _d;
+                                                        datas_2.push({
+                                                            data: {
+                                                                name: ((_d = (_c = (_b = (_a = temp[search.name]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.detailConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                                    ? item[temp[search.name].restField.metaData
+                                                                        .detailConfig.restManyResources.label]
+                                                                    : item,
+                                                                item: item,
+                                                            },
+                                                        });
+                                                    });
+                                                    var rowsT = [
+                                                        {
+                                                            data: {
+                                                                name: temp[search.name].restField.name,
+                                                                place: 'header-place',
+                                                            },
+                                                            children: datas_2,
+                                                        },
+                                                    ];
+                                                    _this.listDataSource[temp[search.name].restField.name] = _this.dataSourceBuilder.create(rowsT);
+                                                }
+                                                else {
+                                                    _this.listDataSource[temp[search.name].restField.name] = [];
+                                                    temp[search.name].data.forEach(function (element) {
+                                                        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+                                                        _this.listDataSource[temp[search.name].restField.name].push({
+                                                            resource: (_c = (_b = (_a = temp[search.name].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.detailConfig) === null || _c === void 0 ? void 0 : _c.restManyResources.resource,
+                                                            resourceName: (_f = (_e = (_d = temp[search.name].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources.resourceName,
+                                                            id: element === null || element === void 0 ? void 0 : element.id,
+                                                            style: ((_j = (_h = (_g = temp[search.name].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources.style)
+                                                                ? (_l = (_k = temp[search.name].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig.restManyResources.style
+                                                                : '',
+                                                        });
+                                                    });
+                                                }
+                                            }
+                                            break;
+                                        case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
+                                            var items_1 = [];
+                                            temp[search.name].data.forEach(function (item) {
+                                                items_1.push({
+                                                    data: {
+                                                        name: item[temp[search.name].restField.metaData.listConfig
+                                                            .restBelongToManyResources.label],
+                                                        item: item,
+                                                    },
+                                                });
+                                            });
+                                            var rowsBelongToMany = [
+                                                {
+                                                    data: {
+                                                        name: temp[search.name].restField.name,
+                                                        place: 'header-place',
+                                                    },
+                                                    children: items_1,
+                                                },
+                                            ];
+                                            _this.listDataSource[temp[search.name].restField.name] =
+                                                _this.dataSourceBuilder.create(rowsBelongToMany);
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                    colunms[tab.name] = temp;
+                                });
+                            });
+                            _this.datas = colunms;
+                            _this.datas1 = colunms;
+                        }
+                        else {
+                            _this.resource.fields.forEach(function (elt) {
+                                colunms[elt.name] = {
+                                    restField: elt,
+                                    data: response[elt.label],
                                 };
-                            }
-                            switch (temp[search.name].restField.type) {
-                                case exports.REST_FIELD_TYPES.HAS_MANY:
-                                    /*Premier cas si les configs ont ete definis dans le listConfig et rien dans le detailConfig
-                                      Premier cas si les configs ont ete definis dans le listConfig et rien dans le detailConfig
-                                      on considere que les configs sont les memes
-                                      */
-                                    if (((_c = (_b = (_a = temp[search.name].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.listConfig) === null || _c === void 0 ? void 0 : _c.restManyResources) &&
-                                        !((_f = (_e = (_d = temp[search.name].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources)) {
-                                        var datas_1 = [];
-                                        // console.log("Xa me concerne");
-                                        // console.log(temp[search.name]);
-                                        temp[search.name].data.forEach(function (item) {
-                                            var _a, _b, _c, _d;
-                                            datas_1.push({
+                            });
+                            _this.datas = colunms;
+                            var _loop_1 = function (property) {
+                                switch (_this.datas[property].restField.type) {
+                                    case exports.REST_FIELD_TYPES.HAS_MANY:
+                                        if (((_c = (_b = (_a = _this.datas[property].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.listConfig) === null || _c === void 0 ? void 0 : _c.restManyResources) &&
+                                            !((_f = (_e = (_d = _this.datas[property].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources)) {
+                                            var datas_3 = [];
+                                            _this.datas[property].data.forEach(function (item) {
+                                                var _a, _b, _c, _d;
+                                                datas_3.push({
+                                                    data: {
+                                                        name: ((_d = (_c = (_b = (_a = _this.datas[property]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.listConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                            ? item[_this.datas[property].restField.metaData
+                                                                .listConfig.restManyResources.label]
+                                                            : item,
+                                                        item: item,
+                                                    },
+                                                });
+                                            });
+                                            var rowsT = [
+                                                {
+                                                    data: {
+                                                        name: _this.datas[property].restField.name,
+                                                        place: 'header-place',
+                                                    },
+                                                    children: datas_3,
+                                                },
+                                            ];
+                                            _this.listDataSource[_this.datas[property].restField.name] = _this.dataSourceBuilder.create(rowsT);
+                                        }
+                                        else if ((_j = (_h = (_g = _this.datas[property].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources) {
+                                            if (_this.isObject((_m = (_l = (_k = _this.datas[property].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig) === null || _m === void 0 ? void 0 : _m.restManyResources)) {
+                                                var datas_4 = [];
+                                                _this.datas[property].data.forEach(function (item) {
+                                                    var _a, _b, _c, _d;
+                                                    datas_4.push({
+                                                        data: {
+                                                            name: ((_d = (_c = (_b = (_a = _this.datas[property]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.detailConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                                ? item[_this.datas[property].restField.metaData
+                                                                    .detailConfig.restManyResources.label]
+                                                                : item,
+                                                            item: item,
+                                                        },
+                                                    });
+                                                });
+                                                var rowsT = [
+                                                    {
+                                                        data: {
+                                                            name: _this.datas[property].restField.name,
+                                                            place: 'header-place',
+                                                        },
+                                                        children: datas_4,
+                                                    },
+                                                ];
+                                                _this.listDataSource[_this.datas[property].restField.name] = _this.dataSourceBuilder.create(rowsT);
+                                            }
+                                            else {
+                                                _this.listDataSource[_this.datas[property].restField.name] = [];
+                                                _this.datas[property].data.forEach(function (element) {
+                                                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+                                                    _this.listDataSource[_this.datas[property].restField.name].push({
+                                                        resource: (_c = (_b = (_a = _this.datas[property].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.detailConfig) === null || _c === void 0 ? void 0 : _c.restManyResources.resource,
+                                                        resourceName: (_f = (_e = (_d = _this.datas[property].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources.resourceName,
+                                                        id: element === null || element === void 0 ? void 0 : element.id,
+                                                        style: ((_j = (_h = (_g = _this.datas[property].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources.style)
+                                                            ? (_l = (_k = _this.datas[property].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig.restManyResources.style
+                                                            : '',
+                                                    });
+                                                });
+                                                console.log(_this.datas[property]);
+                                                console.log(_this.listDataSource);
+                                            }
+                                        }
+                                        break;
+                                    case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
+                                        var items_2 = [];
+                                        _this.datas[property].data.forEach(function (item) {
+                                            items_2.push({
                                                 data: {
-                                                    name: ((_d = (_c = (_b = (_a = temp[search.name]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.listConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
-                                                        ? item[temp[search.name].restField.metaData.listConfig
-                                                            .restManyResources.label]
-                                                        : item,
+                                                    name: item[_this.datas[property].restField.metaData.listConfig
+                                                        .restBelongToManyResources.label],
                                                     item: item,
                                                 },
                                             });
                                         });
-                                        var rowsT = [
+                                        var rowsBelongToMany = [
                                             {
                                                 data: {
-                                                    name: temp[search.name].restField.name,
-                                                    place: "header-place",
+                                                    name: _this.datas[property].restField.name,
+                                                    place: 'header-place',
                                                 },
-                                                children: datas_1,
+                                                children: items_2,
                                             },
                                         ];
-                                        _this.listDataSource[temp[search.name].restField.name] =
-                                            _this.dataSourceBuilder.create(rowsT);
-                                    }
-                                    else if ((_j = (_h = (_g = temp[search.name].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources) {
-                                        if (_this.isObject((_m = (_l = (_k = temp[search.name].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig) === null || _m === void 0 ? void 0 : _m.restManyResources)) {
-                                            var datas_2 = [];
+                                        _this.listDataSource[_this.datas[property].restField.name] =
+                                            _this.dataSourceBuilder.create(rowsBelongToMany);
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            };
+                            for (var property in _this.datas) {
+                                _loop_1(property);
+                            }
+                        }
+                    });
+                });
+            }
+            else {
+                this.serviceRest
+                    .getOneResource({
+                    api: this.resource.detailConfig.api,
+                    queryParams: this.resource.detailConfig.queryParams,
+                }, id)
+                    .subscribe(function (response) {
+                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+                    var colunms = {};
+                    _this.entityId = response.id;
+                    if (_this.resource.detailConfig.tabsConfig &&
+                        _this.resource.detailConfig.tabsConfig.length > 1) {
+                        _this.isTabsMenu = true;
+                        _this.resource.detailConfig.tabsConfig.forEach(function (tab) {
+                            _this.tabsName.push(tab.name);
+                            var temp = {};
+                            tab.datas.forEach(function (elt) {
+                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+                                var search = _this.resource.fields.find(function (field) { return field.label === elt; });
+                                if (search) {
+                                    temp[search.name] = {
+                                        restField: search,
+                                        data: response[search.label],
+                                    };
+                                }
+                                switch (temp[search.name].restField.type) {
+                                    case exports.REST_FIELD_TYPES.HAS_MANY:
+                                        /*Premier cas si les configs ont ete definis dans le listConfig et rien dans le detailConfig
+                                        Premier cas si les configs ont ete definis dans le listConfig et rien dans le detailConfig
+                                        on considere que les configs sont les memes
+                                        */
+                                        if (((_c = (_b = (_a = temp[search.name].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.listConfig) === null || _c === void 0 ? void 0 : _c.restManyResources) &&
+                                            !((_f = (_e = (_d = temp[search.name].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources)) {
+                                            var datas_5 = [];
+                                            // console.log("Xa me concerne");
+                                            // console.log(temp[search.name]);
                                             temp[search.name].data.forEach(function (item) {
                                                 var _a, _b, _c, _d;
-                                                datas_2.push({
+                                                datas_5.push({
                                                     data: {
-                                                        name: ((_d = (_c = (_b = (_a = temp[search.name]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.detailConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                        name: ((_d = (_c = (_b = (_a = temp[search.name]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.listConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
                                                             ? item[temp[search.name].restField.metaData
-                                                                .detailConfig.restManyResources.label]
+                                                                .listConfig.restManyResources.label]
                                                             : item,
                                                         item: item,
                                                     },
@@ -2279,111 +2644,111 @@
                                                 {
                                                     data: {
                                                         name: temp[search.name].restField.name,
-                                                        place: "header-place",
+                                                        place: 'header-place',
                                                     },
-                                                    children: datas_2,
+                                                    children: datas_5,
                                                 },
                                             ];
                                             _this.listDataSource[temp[search.name].restField.name] =
                                                 _this.dataSourceBuilder.create(rowsT);
                                         }
-                                        else {
-                                            _this.listDataSource[temp[search.name].restField.name] =
-                                                [];
-                                            temp[search.name].data.forEach(function (element) {
-                                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-                                                _this.listDataSource[temp[search.name].restField.name].push({
-                                                    resource: (_c = (_b = (_a = temp[search.name].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.detailConfig) === null || _c === void 0 ? void 0 : _c.restManyResources.resource,
-                                                    resourceName: (_f = (_e = (_d = temp[search.name].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources.resourceName,
-                                                    id: element === null || element === void 0 ? void 0 : element.id,
-                                                    style: ((_j = (_h = (_g = temp[search.name].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources.style)
-                                                        ? (_l = (_k = temp[search.name].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig.restManyResources.style
-                                                        : "",
+                                        else if ((_j = (_h = (_g = temp[search.name].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources) {
+                                            if (_this.isObject((_m = (_l = (_k = temp[search.name].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig) === null || _m === void 0 ? void 0 : _m.restManyResources)) {
+                                                var datas_6 = [];
+                                                temp[search.name].data.forEach(function (item) {
+                                                    var _a, _b, _c, _d;
+                                                    datas_6.push({
+                                                        data: {
+                                                            name: ((_d = (_c = (_b = (_a = temp[search.name]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.detailConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                                ? item[temp[search.name].restField.metaData
+                                                                    .detailConfig.restManyResources.label]
+                                                                : item,
+                                                            item: item,
+                                                        },
+                                                    });
                                                 });
-                                            });
+                                                var rowsT = [
+                                                    {
+                                                        data: {
+                                                            name: temp[search.name].restField.name,
+                                                            place: 'header-place',
+                                                        },
+                                                        children: datas_6,
+                                                    },
+                                                ];
+                                                _this.listDataSource[temp[search.name].restField.name] =
+                                                    _this.dataSourceBuilder.create(rowsT);
+                                            }
+                                            else {
+                                                _this.listDataSource[temp[search.name].restField.name] =
+                                                    [];
+                                                temp[search.name].data.forEach(function (element) {
+                                                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+                                                    _this.listDataSource[temp[search.name].restField.name].push({
+                                                        resource: (_c = (_b = (_a = temp[search.name].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.detailConfig) === null || _c === void 0 ? void 0 : _c.restManyResources.resource,
+                                                        resourceName: (_f = (_e = (_d = temp[search.name].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources.resourceName,
+                                                        id: element === null || element === void 0 ? void 0 : element.id,
+                                                        style: ((_j = (_h = (_g = temp[search.name].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources.style)
+                                                            ? (_l = (_k = temp[search.name].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig.restManyResources.style
+                                                            : '',
+                                                    });
+                                                });
+                                            }
                                         }
-                                    }
-                                    break;
-                                case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
-                                    var items_1 = [];
-                                    temp[search.name].data.forEach(function (item) {
-                                        items_1.push({
-                                            data: {
-                                                name: item[temp[search.name].restField.metaData.listConfig
-                                                    .restBelongToManyResources.label],
-                                                item: item,
-                                            },
+                                        break;
+                                    case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
+                                        var items_3 = [];
+                                        temp[search.name].data.forEach(function (item) {
+                                            items_3.push({
+                                                data: {
+                                                    name: item[temp[search.name].restField.metaData.listConfig
+                                                        .restBelongToManyResources.label],
+                                                    item: item,
+                                                },
+                                            });
                                         });
-                                    });
-                                    var rowsBelongToMany = [
-                                        {
-                                            data: {
-                                                name: temp[search.name].restField.name,
-                                                place: "header-place",
+                                        var rowsBelongToMany = [
+                                            {
+                                                data: {
+                                                    name: temp[search.name].restField.name,
+                                                    place: 'header-place',
+                                                },
+                                                children: items_3,
                                             },
-                                            children: items_1,
-                                        },
-                                    ];
-                                    _this.listDataSource[temp[search.name].restField.name] =
-                                        _this.dataSourceBuilder.create(rowsBelongToMany);
-                                    break;
-                                default:
-                                    break;
-                            }
-                            colunms[tab.name] = temp;
-                        });
-                    });
-                    _this.datas = colunms;
-                    _this.datas1 = colunms;
-                }
-                else {
-                    _this.resource.fields.forEach(function (elt) {
-                        colunms[elt.name] = {
-                            restField: elt,
-                            data: response[elt.label],
-                        };
-                    });
-                    _this.datas = colunms;
-                    var _loop_1 = function (property) {
-                        switch (_this.datas[property].restField.type) {
-                            case exports.REST_FIELD_TYPES.HAS_MANY:
-                                if (((_c = (_b = (_a = _this.datas[property].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.listConfig) === null || _c === void 0 ? void 0 : _c.restManyResources) &&
-                                    !((_f = (_e = (_d = _this.datas[property].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources)) {
-                                    var datas_3 = [];
-                                    _this.datas[property].data.forEach(function (item) {
-                                        var _a, _b, _c, _d;
-                                        datas_3.push({
-                                            data: {
-                                                name: ((_d = (_c = (_b = (_a = _this.datas[property]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.listConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
-                                                    ? item[_this.datas[property].restField.metaData.listConfig
-                                                        .restManyResources.label]
-                                                    : item,
-                                                item: item,
-                                            },
-                                        });
-                                    });
-                                    var rowsT = [
-                                        {
-                                            data: {
-                                                name: _this.datas[property].restField.name,
-                                                place: "header-place",
-                                            },
-                                            children: datas_3,
-                                        },
-                                    ];
-                                    _this.listDataSource[_this.datas[property].restField.name] =
-                                        _this.dataSourceBuilder.create(rowsT);
+                                        ];
+                                        _this.listDataSource[temp[search.name].restField.name] =
+                                            _this.dataSourceBuilder.create(rowsBelongToMany);
+                                        break;
+                                    default:
+                                        break;
                                 }
-                                else if ((_j = (_h = (_g = _this.datas[property].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources) {
-                                    if (_this.isObject((_m = (_l = (_k = _this.datas[property].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig) === null || _m === void 0 ? void 0 : _m.restManyResources)) {
-                                        var datas_4 = [];
+                                colunms[tab.name] = temp;
+                            });
+                        });
+                        _this.datas = colunms;
+                        _this.datas1 = colunms;
+                    }
+                    else {
+                        _this.resource.fields.forEach(function (elt) {
+                            colunms[elt.name] = {
+                                restField: elt,
+                                data: response[elt.label],
+                            };
+                        });
+                        _this.datas = colunms;
+                        var _loop_2 = function (property) {
+                            switch (_this.datas[property].restField.type) {
+                                case exports.REST_FIELD_TYPES.HAS_MANY:
+                                    if (((_c = (_b = (_a = _this.datas[property].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.listConfig) === null || _c === void 0 ? void 0 : _c.restManyResources) &&
+                                        !((_f = (_e = (_d = _this.datas[property].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources)) {
+                                        var datas_7 = [];
                                         _this.datas[property].data.forEach(function (item) {
                                             var _a, _b, _c, _d;
-                                            datas_4.push({
+                                            datas_7.push({
                                                 data: {
-                                                    name: ((_d = (_c = (_b = (_a = _this.datas[property]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.detailConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                    name: ((_d = (_c = (_b = (_a = _this.datas[property]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.listConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
                                                         ? item[_this.datas[property].restField.metaData
-                                                            .detailConfig.restManyResources.label]
+                                                            .listConfig.restManyResources.label]
                                                         : item,
                                                     item: item,
                                                 },
@@ -2393,65 +2758,93 @@
                                             {
                                                 data: {
                                                     name: _this.datas[property].restField.name,
-                                                    place: "header-place",
+                                                    place: 'header-place',
                                                 },
-                                                children: datas_4,
+                                                children: datas_7,
                                             },
                                         ];
                                         _this.listDataSource[_this.datas[property].restField.name] =
                                             _this.dataSourceBuilder.create(rowsT);
                                     }
-                                    else {
-                                        _this.listDataSource[_this.datas[property].restField.name] =
-                                            [];
-                                        _this.datas[property].data.forEach(function (element) {
-                                            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-                                            _this.listDataSource[_this.datas[property].restField.name].push({
-                                                resource: (_c = (_b = (_a = _this.datas[property].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.detailConfig) === null || _c === void 0 ? void 0 : _c.restManyResources.resource,
-                                                resourceName: (_f = (_e = (_d = _this.datas[property].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources.resourceName,
-                                                id: element === null || element === void 0 ? void 0 : element.id,
-                                                style: ((_j = (_h = (_g = _this.datas[property].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources.style)
-                                                    ? (_l = (_k = _this.datas[property].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig.restManyResources.style
-                                                    : "",
+                                    else if ((_j = (_h = (_g = _this.datas[property].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources) {
+                                        if (_this.isObject((_m = (_l = (_k = _this.datas[property].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig) === null || _m === void 0 ? void 0 : _m.restManyResources)) {
+                                            var datas_8 = [];
+                                            _this.datas[property].data.forEach(function (item) {
+                                                var _a, _b, _c, _d;
+                                                datas_8.push({
+                                                    data: {
+                                                        name: ((_d = (_c = (_b = (_a = _this.datas[property]) === null || _a === void 0 ? void 0 : _a.restField) === null || _b === void 0 ? void 0 : _b.metaData) === null || _c === void 0 ? void 0 : _c.detailConfig) === null || _d === void 0 ? void 0 : _d.restManyResources.label)
+                                                            ? item[_this.datas[property].restField.metaData
+                                                                .detailConfig.restManyResources.label]
+                                                            : item,
+                                                        item: item,
+                                                    },
+                                                });
                                             });
-                                        });
-                                        console.log(_this.datas[property]);
-                                        console.log(_this.listDataSource);
+                                            var rowsT = [
+                                                {
+                                                    data: {
+                                                        name: _this.datas[property].restField.name,
+                                                        place: 'header-place',
+                                                    },
+                                                    children: datas_8,
+                                                },
+                                            ];
+                                            _this.listDataSource[_this.datas[property].restField.name] =
+                                                _this.dataSourceBuilder.create(rowsT);
+                                        }
+                                        else {
+                                            _this.listDataSource[_this.datas[property].restField.name] =
+                                                [];
+                                            _this.datas[property].data.forEach(function (element) {
+                                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+                                                _this.listDataSource[_this.datas[property].restField.name].push({
+                                                    resource: (_c = (_b = (_a = _this.datas[property].restField) === null || _a === void 0 ? void 0 : _a.metaData) === null || _b === void 0 ? void 0 : _b.detailConfig) === null || _c === void 0 ? void 0 : _c.restManyResources.resource,
+                                                    resourceName: (_f = (_e = (_d = _this.datas[property].restField) === null || _d === void 0 ? void 0 : _d.metaData) === null || _e === void 0 ? void 0 : _e.detailConfig) === null || _f === void 0 ? void 0 : _f.restManyResources.resourceName,
+                                                    id: element === null || element === void 0 ? void 0 : element.id,
+                                                    style: ((_j = (_h = (_g = _this.datas[property].restField) === null || _g === void 0 ? void 0 : _g.metaData) === null || _h === void 0 ? void 0 : _h.detailConfig) === null || _j === void 0 ? void 0 : _j.restManyResources.style)
+                                                        ? (_l = (_k = _this.datas[property].restField) === null || _k === void 0 ? void 0 : _k.metaData) === null || _l === void 0 ? void 0 : _l.detailConfig.restManyResources.style
+                                                        : '',
+                                                });
+                                            });
+                                            console.log(_this.datas[property]);
+                                            console.log(_this.listDataSource);
+                                        }
                                     }
-                                }
-                                break;
-                            case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
-                                var items_2 = [];
-                                _this.datas[property].data.forEach(function (item) {
-                                    items_2.push({
-                                        data: {
-                                            name: item[_this.datas[property].restField.metaData.listConfig
-                                                .restBelongToManyResources.label],
-                                            item: item,
-                                        },
+                                    break;
+                                case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
+                                    var items_4 = [];
+                                    _this.datas[property].data.forEach(function (item) {
+                                        items_4.push({
+                                            data: {
+                                                name: item[_this.datas[property].restField.metaData.listConfig
+                                                    .restBelongToManyResources.label],
+                                                item: item,
+                                            },
+                                        });
                                     });
-                                });
-                                var rowsBelongToMany = [
-                                    {
-                                        data: {
-                                            name: _this.datas[property].restField.name,
-                                            place: "header-place",
+                                    var rowsBelongToMany = [
+                                        {
+                                            data: {
+                                                name: _this.datas[property].restField.name,
+                                                place: 'header-place',
+                                            },
+                                            children: items_4,
                                         },
-                                        children: items_2,
-                                    },
-                                ];
-                                _this.listDataSource[_this.datas[property].restField.name] =
-                                    _this.dataSourceBuilder.create(rowsBelongToMany);
-                                break;
-                            default:
-                                break;
+                                    ];
+                                    _this.listDataSource[_this.datas[property].restField.name] =
+                                        _this.dataSourceBuilder.create(rowsBelongToMany);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        };
+                        for (var property in _this.datas) {
+                            _loop_2(property);
                         }
-                    };
-                    for (var property in _this.datas) {
-                        _loop_1(property);
                     }
-                }
-            });
+                });
+            }
         };
         RestResourceDetailComponent.prototype.editEntity = function () {
             this.router.navigate(["/admin/" + this.ressourceName + "-edit", this.entityId]);
@@ -2472,16 +2865,16 @@
         };
         return RestResourceDetailComponent;
     }());
-    RestResourceDetailComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceDetailComponent, deps: [{ token: i1__namespace.ActivatedRoute }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i1__namespace.Router }, { token: i1__namespace$1.NbTreeGridDataSourceBuilder }, { token: RestLangService }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestResourceDetailComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDetailComponent, selector: "ngx-rest-resource-detail", inputs: { resource: "resource", ID: "ID", ressourceName: "ressourceName", container: "container", style: "style" }, ngImport: i0__namespace, template: "<nb-card [style]=\"style ? style : ''\">\n  <nb-card-header *ngIf=\"!container\">\n    {{ resource.detailConfig?.title | titlecase }}\n  </nb-card-header>\n  <nb-card-body>\n    <nb-list *ngIf=\"!isTabsMenu; else tabsContent\">\n      <nb-list-item\n        *ngFor=\"let item of datas | keyvalue\"\n        class=\"rest-item-align\"\n      >\n        <!-- style=\"display: block\" -->\n        <ng-container\n          *ngIf=\"\n            item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n            item.value.restField.type == REST_FIELD_TYPES.STRING ||\n            item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n            item.value.restField.type == REST_FIELD_TYPES.ENUM\n          \"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ item.value.data }}\n            </div>\n          </ng-container>\n\n          <div *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </div>\n        </ng-container>\n        <ng-container *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.JSON\">\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ jsonValue(item.value) }}\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"jsonValue(item.value)\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n\n            <div class=\"\">\n              <nb-checkbox\n                [checked]=\"item.value.data\"\n                [disabled]=\"true\"\n              ></nb-checkbox>\n            </div>\n          </ng-container>\n\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.IMAGE\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              <img\n                class=\"rest-img\"\n                [src]=\"item.value.data\"\n                alt=\"\"\n                [style]=\"style\"\n              />\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ item.value.data | date }}\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.value.restField.label | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              <a\n                (click)=\"loadBelongToDetail(item.value)\"\n                nbTooltip=\"{{ 'rest-detail.belongToRef' | translate }}\"\n                nbTooltipPlacement=\"top\"\n                class=\"belongTo-link\"\n              >\n                {{ item.value.data }}\n              </a>\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\"\n        >\n          <!-- CAS 1 -->\n          <ng-container\n            *ngIf=\"\n              item.value.restField?.metaData?.listConfig?.restManyResources &&\n              !item.value.restField?.metaData?.detailConfig?.restManyResources\n            \"\n          >\n            <table [nbTreeGrid]=\"listDataSource[item.key]\">\n              <tr\n                nbTreeGridRow\n                *nbTreeGridRowDef=\"let row; columns: allColumns\"\n              ></tr>\n\n              <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                  <ngx-fs-icon\n                    [expanded]=\"row.expanded\"\n                    [place]=\"row.data.place\"\n                  ></ngx-fs-icon>\n                  <ng-container\n                    *ngIf=\"\n                      !item.value.restField?.metaData?.listConfig\n                        ?.restManyResources.template\n                    \"\n                  >\n                    <b> {{ row.data[customColumn] }}</b>\n                  </ng-container>\n\n                  <ng-container\n                    *ngIf=\"\n                      item.value.restField?.metaData?.listConfig\n                        ?.restManyResources.template\n                    \"\n                  >\n                    <span *ngIf=\"row.data.place\">\n                      {{ item.value.restField.name }}</span\n                    >\n                    <ng-container *ngIf=\"!row.data.place\">\n                      <cng-html-compiler\n                        [template]=\"\n                          item.value.restField.metaData.listConfig\n                            .restManyResources.template\n                        \"\n                        [componentClass]=\"row.data.item\"\n                      >\n                      </cng-html-compiler>\n                    </ng-container>\n                  </ng-container>\n                </td>\n              </ng-container>\n            </table>\n          </ng-container>\n\n          <!-- CAS 2 -->\n          <ng-container\n            *ngIf=\"\n              item.value.restField?.metaData?.detailConfig?.restManyResources\n            \"\n          >\n            <div\n              *ngIf=\"\n                isObject(\n                  item.value.restField.metaData.detailConfig.restManyResources\n                );\n                else cas21\n              \"\n            >\n              <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                <tr\n                  nbTreeGridRow\n                  *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                ></tr>\n\n                <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                  <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                    <ngx-fs-icon\n                      [expanded]=\"row.expanded\"\n                      [place]=\"row.data.place\"\n                    ></ngx-fs-icon>\n                    <ng-container\n                      *ngIf=\"\n                        !item.value.restField.metaData.detailConfig\n                          .restManyResources?.template\n                      \"\n                    >\n                      <b> {{ row.data[customColumn] }}</b>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.metaData.detailConfig\n                          .restManyResources?.template\n                      \"\n                    >\n                      <span *ngIf=\"row.data.place\">\n                        {{ item.value.restField.name }}</span\n                      >\n                      <ng-container *ngIf=\"!row.data.place\">\n                        <cng-html-compiler\n                          [template]=\"\n                            item.value.restField.metaData.detailConfig\n                              .restManyResources.template\n                          \"\n                          [componentClass]=\"row.data.item\"\n                        >\n                        </cng-html-compiler>\n                      </ng-container>\n                    </ng-container>\n                  </td>\n                </ng-container>\n              </table>\n            </div>\n            <ng-template #cas21>\n              <div\n                class=\"row\"\n                *ngFor=\"let res of listDataSource[item.value.restField.name]\"\n              >\n                <ngx-rest-resource-detail\n                  [resource]=\"res.resource\"\n                  [ID]=\"res.id\"\n                  [ressourceName]=\"res.resourceName\"\n                  [container]=\"true\"\n                  [style]=\"res.style\"\n                ></ngx-rest-resource-detail>\n              </div>\n            </ng-template>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n        >\n          <table [nbTreeGrid]=\"listDataSource[item.key]\">\n            <tr\n              nbTreeGridRow\n              *nbTreeGridRowDef=\"let row; columns: allColumns\"\n            ></tr>\n\n            <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n              <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                <ngx-fs-icon\n                  [expanded]=\"row.expanded\"\n                  [place]=\"row.data.place\"\n                ></ngx-fs-icon>\n                <ng-container\n                  *ngIf=\"\n                    !item.value.restField.metaData.listConfig\n                      .restBelongToManyResources.template\n                  \"\n                >\n                  <b> {{ row.data[customColumn] }}</b>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField.metaData.listConfig\n                      .restBelongToManyResources.template\n                  \"\n                >\n                  <span *ngIf=\"row.data.place\">{{\n                    item.value.restField.name\n                  }}</span>\n                  <ng-container *ngIf=\"!row.data.place\">\n                    <cng-html-compiler\n                      [template]=\"\n                        item.value.restField.metaData.listConfig\n                          .restBelongToManyResources.template\n                      \"\n                      [componentClass]=\"row.data.item\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n              </td>\n            </ng-container>\n          </table>\n        </ng-container>\n      </nb-list-item>\n    </nb-list>\n    <ng-template #tabsContent>\n      <nb-tabset>\n        <nb-tab [tabTitle]=\"tabs\" *ngFor=\"let tabs of tabsName\">\n          <nb-list>\n            <nb-list-item\n              *ngFor=\"let item of datas1[tabs] | keyvalue\"\n              class=\"rest-item-align\"\n            >\n              <!-- style=\"display: flex, \" -->\n              <ng-container\n                *ngIf=\"\n                  item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n                  item.value.restField.type == REST_FIELD_TYPES.STRING ||\n                  item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n                  item.value.restField.type == REST_FIELD_TYPES.ENUM\n                \"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data }}\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n\n                  <div class=\"\">\n                    <nb-checkbox\n                      [checked]=\"item.value.data\"\n                      [disabled]=\"true\"\n                    ></nb-checkbox>\n                  </div>\n                </ng-container>\n\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <img\n                      class=\"rest-img\"\n                      [src]=\"item.value.data\"\n                      alt=\"\"\n                      [style]=\"style\"\n                    />\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data | date }}\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.value.restField.label | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <a\n                      (click)=\"loadBelongToDetail(item.value)\"\n                      nbTooltip=\"{{ 'rest-detail.belongToRef' | translate }}\"\n                      nbTooltipPlacement=\"top\"\n                      class=\"belongTo-link\"\n                    >\n                      {{ item.value.data }}\n                    </a>\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\"\n              >\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField?.metaData?.listConfig\n                      ?.restManyResources &&\n                    !item.value.restField?.metaData?.detailConfig\n                      ?.restManyResources\n                  \"\n                >\n                  <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                    <tr\n                      nbTreeGridRow\n                      *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                    ></tr>\n\n                    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                        <ngx-fs-icon\n                          [expanded]=\"row.expanded\"\n                          [place]=\"row.data.place\"\n                        ></ngx-fs-icon>\n                        <ng-container\n                          *ngIf=\"\n                            !item.value.restField?.metaData?.listConfig\n                              ?.restManyResources.template\n                          \"\n                        >\n                          <b> {{ row.data[customColumn] }}</b>\n                        </ng-container>\n\n                        <ng-container\n                          *ngIf=\"\n                            item.value.restField?.metaData?.listConfig\n                              ?.restManyResources.template\n                          \"\n                        >\n                          <span *ngIf=\"row.data.place\">\n                            {{ item.value.restField.name }}</span\n                          >\n                          <ng-container *ngIf=\"!row.data.place\">\n                            <cng-html-compiler\n                              [template]=\"\n                                item.value.restField.metaData.listConfig\n                                  .restManyResources.template\n                              \"\n                              [componentClass]=\"row.data.item\"\n                            >\n                            </cng-html-compiler>\n                          </ng-container>\n                        </ng-container>\n                      </td>\n                    </ng-container>\n                  </table>\n                </ng-container>\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField?.metaData?.detailConfig\n                      ?.restManyResources\n                  \"\n                >\n                  <ng-container\n                    *ngIf=\"\n                      isObject(\n                        item.value.restField?.metaData?.detailConfig\n                          ?.restManyResources\n                      );\n                      else displayRes\n                    \"\n                  >\n                    <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                      <tr\n                        nbTreeGridRow\n                        *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                      ></tr>\n\n                      <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                        <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                          <ngx-fs-icon\n                            [expanded]=\"row.expanded\"\n                            [place]=\"row.data.place\"\n                          ></ngx-fs-icon>\n                          <ng-container\n                            *ngIf=\"\n                              !item.value.restField?.metaData?.detailConfig\n                                ?.restManyResources.template\n                            \"\n                          >\n                            <b> {{ row.data[customColumn] }}</b>\n                          </ng-container>\n\n                          <ng-container\n                            *ngIf=\"\n                              item.value.restField?.metaData?.detailConfig\n                                ?.restManyResources.template\n                            \"\n                          >\n                            <span *ngIf=\"row.data.place\">\n                              {{ item.value.restField.name }}</span\n                            >\n                            <ng-container *ngIf=\"!row.data.place\">\n                              <cng-html-compiler\n                                [template]=\"\n                                  item.value.restField.metaData.detailConfig\n                                    .restManyResources.template\n                                \"\n                                [componentClass]=\"row.data.item\"\n                              >\n                              </cng-html-compiler>\n                            </ng-container>\n                          </ng-container>\n                        </td>\n                      </ng-container>\n                    </table>\n                  </ng-container>\n                  <ng-template #displayRes>\n                    <div\n                      class=\"row\"\n                      *ngFor=\"\n                        let res of listDataSource[item.value.restField.name]\n                      \"\n                    >\n                      <ngx-rest-resource-detail\n                        [resource]=\"res.resource\"\n                        [ID]=\"res.id\"\n                        [ressourceName]=\"res.resourceName\"\n                        [container]=\"true\"\n                        [style]=\"res.style\"\n                      ></ngx-rest-resource-detail>\n                    </div>\n                  </ng-template>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"\n                  item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\n                \"\n              >\n                <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                  <tr\n                    nbTreeGridRow\n                    *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                  ></tr>\n\n                  <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                    <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                      <ngx-fs-icon\n                        [expanded]=\"row.expanded\"\n                        [place]=\"row.data.place\"\n                      ></ngx-fs-icon>\n                      <ng-container\n                        *ngIf=\"\n                          !item.value.restField.metaData.listConfig\n                            .restBelongToManyResources.template\n                        \"\n                      >\n                        <b> {{ row.data[customColumn] }}</b>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.metaData.listConfig\n                            .restBelongToManyResources.template\n                        \"\n                      >\n                        <span *ngIf=\"row.data.place\">{{\n                          item.value.restField.name\n                        }}</span>\n                        <ng-container *ngIf=\"!row.data.place\">\n                          <cng-html-compiler\n                            [template]=\"\n                              item.value.restField.metaData.listConfig\n                                .restBelongToManyResources.template\n                            \"\n                            [componentClass]=\"row.data.item\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n                    </td>\n                  </ng-container>\n                </table>\n              </ng-container>\n            </nb-list-item>\n          </nb-list>\n        </nb-tab>\n      </nb-tabset>\n    </ng-template>\n  </nb-card-body>\n\n  <nb-card-footer *ngIf=\"datas && !container\">\n    <div class=\"buttons-row\">\n      <button\n        nbButton\n        status=\"danger\"\n        style=\"margin-right: 10px\"\n        (click)=\"listEntity()\"\n      >\n        {{ \"rest-detail.btnCancel\" | translate }}\n      </button>\n\n      <button nbButton status=\"primary\" (click)=\"editEntity()\">\n        {{ \"rest-detail.btnEdit\" | translate }}\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: ["b{margin-right:20px}.belongTo-link{color:#598bff!important}.belongTo-link:hover{text-decoration:underline!important;cursor:pointer}img{max-width:300px;max-height:200px}:host nb-tab{padding:1.25rem}.rest-item-align{margin-right:5px}\n"], components: [{ type: i1__namespace$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace$1.NbListComponent, selector: "nb-list", inputs: ["role"] }, { type: i1__namespace$1.NbListItemComponent, selector: "nb-list-item", inputs: ["role"] }, { type: i3__namespace.CngHtmlCompilerComponent, selector: "cng-html-compiler", inputs: ["template", "componentClass", "imports"] }, { type: i1__namespace$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1__namespace$1.NbTreeGridComponent, selector: "table[nbTreeGrid]", inputs: ["levelPadding", "nbTreeGrid", "equalColumnsWidth"] }, { type: i1__namespace$1.NbTreeGridRowComponent, selector: "tr[nbTreeGridRow]", inputs: ["doubleClickDelay", "clickToToggle"] }, { type: FsIconCComponent, selector: "ngx-fs-icon", inputs: ["expanded", "place"] }, { type: RestResourceDetailComponent, selector: "ngx-rest-resource-detail", inputs: ["resource", "ID", "ressourceName", "container", "style"] }, { type: i1__namespace$1.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1__namespace$1.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1__namespace$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace$1.NbTooltipDirective, selector: "[nbTooltip]", inputs: ["nbTooltipPlacement", "nbTooltipTrigger", "nbTooltipOffset", "nbTooltipAdjustment", "nbTooltipClass", "nbTooltipIcon", "nbTooltipStatus", "nbTooltip"], outputs: ["nbTooltipShowStateChange"], exportAs: ["nbTooltip"] }, { type: i1__namespace$1.NbTreeGridRowDefDirective, selector: "[nbTreeGridRowDef]", inputs: ["nbTreeGridRowDefColumns"] }, { type: i1__namespace$1.NbTreeGridColumnDefDirective, selector: "[nbTreeGridColumnDef]", inputs: ["nbTreeGridColumnDef", "hideOn", "showOn"] }, { type: i1__namespace$1.NbTreeGridCellDefDirective, selector: "[nbTreeGridCellDef]" }, { type: i1__namespace$1.NbTreeGridCellDirective, selector: "td[nbTreeGridCell]" }], pipes: { "titlecase": i8__namespace.TitleCasePipe, "keyvalue": i8__namespace.KeyValuePipe, "date": i8__namespace.DatePipe, "translate": i1__namespace$3.TranslatePipe } });
+    RestResourceDetailComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceDetailComponent, deps: [{ token: i2__namespace.ActivatedRoute }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i2__namespace.Router }, { token: i1__namespace.NbTreeGridDataSourceBuilder }, { token: RestLangService }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    RestResourceDetailComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDetailComponent, selector: "ngx-rest-resource-detail", inputs: { resource: "resource", ID: "ID", ressourceName: "ressourceName", container: "container", style: "style" }, ngImport: i0__namespace, template: "<nb-card [style]=\"style ? style : ''\">\n  <nb-card-header *ngIf=\"!container\">\n    {{ resource.detailConfig?.title | titlecase }}\n  </nb-card-header>\n  <nb-card-body>\n    <nb-list *ngIf=\"!isTabsMenu; else tabsContent\">\n      <nb-list-item\n        *ngFor=\"let item of datas | keyvalue\"\n        class=\"rest-item-align\"\n      >\n        <!-- style=\"display: block\" -->\n        <ng-container\n          *ngIf=\"\n            item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n            item.value.restField.type == REST_FIELD_TYPES.STRING ||\n            item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n            item.value.restField.type == REST_FIELD_TYPES.ENUM\n          \"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ item.value.data }}\n            </div>\n          </ng-container>\n\n          <div *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </div>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.COLOR\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ item.value.data }}\n            </div>\n            <div\n              class=\"text-center color-card\"\n              [style.background-color]=\"item.value.data\"\n            >\n              <ng-container>{{ item.value.data }}</ng-container>\n            </div>\n          </ng-container>\n\n          <div *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </div>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.JSON\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ jsonValue(item.value) }}\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"jsonValue(item.value)\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n\n            <div class=\"\">\n              <nb-checkbox\n                [checked]=\"item.value.data\"\n                [disabled]=\"true\"\n              ></nb-checkbox>\n            </div>\n          </ng-container>\n\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.IMAGE\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              <img\n                class=\"rest-img\"\n                [src]=\"item.value.data\"\n                alt=\"\"\n                [style]=\"style\"\n              />\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.key | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              {{ item.value.data | date }}\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\"\n        >\n          <ng-container *ngIf=\"!item.value.restField.template\">\n            <div class=\"\">\n              <b>{{ item.value.restField.label | titlecase }}: </b>\n            </div>\n            <div class=\"\">\n              <a\n                (click)=\"loadBelongToDetail(item.value)\"\n                nbTooltip=\"{{ 'rest-detail.belongToRef' | translate }}\"\n                nbTooltipPlacement=\"top\"\n                class=\"belongTo-link\"\n              >\n                {{ item.value.data }}\n              </a>\n            </div>\n          </ng-container>\n          <ng-container *ngIf=\"item.value.restField.template\">\n            <cng-html-compiler\n              [template]=\"item.value.restField.template\"\n              [componentClass]=\"item.value.data\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\"\n        >\n          <!-- CAS 1 -->\n          <ng-container\n            *ngIf=\"\n              item.value.restField?.metaData?.listConfig?.restManyResources &&\n              !item.value.restField?.metaData?.detailConfig?.restManyResources\n            \"\n          >\n            <table [nbTreeGrid]=\"listDataSource[item.key]\">\n              <tr\n                nbTreeGridRow\n                *nbTreeGridRowDef=\"let row; columns: allColumns\"\n              ></tr>\n\n              <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                  <ngx-fs-icon\n                    [expanded]=\"row.expanded\"\n                    [place]=\"row.data.place\"\n                  ></ngx-fs-icon>\n                  <ng-container\n                    *ngIf=\"\n                      !item.value.restField?.metaData?.listConfig\n                        ?.restManyResources.template\n                    \"\n                  >\n                    <b> {{ row.data[customColumn] }}</b>\n                  </ng-container>\n\n                  <ng-container\n                    *ngIf=\"\n                      item.value.restField?.metaData?.listConfig\n                        ?.restManyResources.template\n                    \"\n                  >\n                    <span *ngIf=\"row.data.place\">\n                      {{ item.value.restField.name }}</span\n                    >\n                    <ng-container *ngIf=\"!row.data.place\">\n                      <cng-html-compiler\n                        [template]=\"\n                          item.value.restField.metaData.listConfig\n                            .restManyResources.template\n                        \"\n                        [componentClass]=\"row.data.item\"\n                      >\n                      </cng-html-compiler>\n                    </ng-container>\n                  </ng-container>\n                </td>\n              </ng-container>\n            </table>\n          </ng-container>\n\n          <!-- CAS 2 -->\n          <ng-container\n            *ngIf=\"\n              item.value.restField?.metaData?.detailConfig?.restManyResources\n            \"\n          >\n            <div\n              *ngIf=\"\n                isObject(\n                  item.value.restField.metaData.detailConfig.restManyResources\n                );\n                else cas21\n              \"\n            >\n              <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                <tr\n                  nbTreeGridRow\n                  *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                ></tr>\n\n                <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                  <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                    <ngx-fs-icon\n                      [expanded]=\"row.expanded\"\n                      [place]=\"row.data.place\"\n                    ></ngx-fs-icon>\n                    <ng-container\n                      *ngIf=\"\n                        !item.value.restField.metaData.detailConfig\n                          .restManyResources?.template\n                      \"\n                    >\n                      <b> {{ row.data[customColumn] }}</b>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.metaData.detailConfig\n                          .restManyResources?.template\n                      \"\n                    >\n                      <span *ngIf=\"row.data.place\">\n                        {{ item.value.restField.name }}</span\n                      >\n                      <ng-container *ngIf=\"!row.data.place\">\n                        <cng-html-compiler\n                          [template]=\"\n                            item.value.restField.metaData.detailConfig\n                              .restManyResources.template\n                          \"\n                          [componentClass]=\"row.data.item\"\n                        >\n                        </cng-html-compiler>\n                      </ng-container>\n                    </ng-container>\n                  </td>\n                </ng-container>\n              </table>\n            </div>\n            <ng-template #cas21>\n              <div\n                class=\"row\"\n                *ngFor=\"let res of listDataSource[item.value.restField.name]\"\n              >\n                <ngx-rest-resource-detail\n                  [resource]=\"res.resource\"\n                  [ID]=\"res.id\"\n                  [ressourceName]=\"res.resourceName\"\n                  [container]=\"true\"\n                  [style]=\"res.style\"\n                ></ngx-rest-resource-detail>\n              </div>\n            </ng-template>\n          </ng-container>\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n        >\n          <table [nbTreeGrid]=\"listDataSource[item.key]\">\n            <tr\n              nbTreeGridRow\n              *nbTreeGridRowDef=\"let row; columns: allColumns\"\n            ></tr>\n\n            <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n              <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                <ngx-fs-icon\n                  [expanded]=\"row.expanded\"\n                  [place]=\"row.data.place\"\n                ></ngx-fs-icon>\n                <ng-container\n                  *ngIf=\"\n                    !item.value.restField.metaData.listConfig\n                      .restBelongToManyResources.template\n                  \"\n                >\n                  <b> {{ row.data[customColumn] }}</b>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField.metaData.listConfig\n                      .restBelongToManyResources.template\n                  \"\n                >\n                  <span *ngIf=\"row.data.place\">{{\n                    item.value.restField.name\n                  }}</span>\n                  <ng-container *ngIf=\"!row.data.place\">\n                    <cng-html-compiler\n                      [template]=\"\n                        item.value.restField.metaData.listConfig\n                          .restBelongToManyResources.template\n                      \"\n                      [componentClass]=\"row.data.item\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n              </td>\n            </ng-container>\n          </table>\n        </ng-container>\n      </nb-list-item>\n    </nb-list>\n    <ng-template #tabsContent>\n      <nb-tabset>\n        <nb-tab [tabTitle]=\"tabs\" *ngFor=\"let tabs of tabsName\">\n          <nb-list>\n            <nb-list-item\n              *ngFor=\"let item of datas1[tabs] | keyvalue\"\n              class=\"rest-item-align\"\n            >\n              <!-- style=\"display: flex, \" -->\n              <ng-container\n                *ngIf=\"\n                  item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n                  item.value.restField.type == REST_FIELD_TYPES.STRING ||\n                  item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n                  item.value.restField.type == REST_FIELD_TYPES.ENUM\n                \"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data }}\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.COLOR\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data }}\n                  </div>\n                  <div\n                    class=\"text-center color-card\"\n                    [style.background-color]=\"item.value.data\"\n                  >\n                    <ng-container>{{ item.value.data }}</ng-container>\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.PASSWORD\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    ********\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n\n                  <div class=\"\">\n                    <nb-checkbox\n                      [checked]=\"item.value.data\"\n                      [disabled]=\"true\"\n                    ></nb-checkbox>\n                  </div>\n                </ng-container>\n\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <img\n                      class=\"rest-img\"\n                      [src]=\"item.value.data\"\n                      alt=\"\"\n                      [style]=\"style\"\n                    />\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data | date }}\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"\">\n                    <b>{{ item.value.restField.label | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <a\n                      (click)=\"loadBelongToDetail(item.value)\"\n                      nbTooltip=\"{{ 'rest-detail.belongToRef' | translate }}\"\n                      nbTooltipPlacement=\"top\"\n                      class=\"belongTo-link\"\n                    >\n                      {{ item.value.data }}\n                    </a>\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\"\n              >\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField?.metaData?.listConfig\n                      ?.restManyResources &&\n                    !item.value.restField?.metaData?.detailConfig\n                      ?.restManyResources\n                  \"\n                >\n                  <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                    <tr\n                      nbTreeGridRow\n                      *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                    ></tr>\n\n                    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                        <ngx-fs-icon\n                          [expanded]=\"row.expanded\"\n                          [place]=\"row.data.place\"\n                        ></ngx-fs-icon>\n                        <ng-container\n                          *ngIf=\"\n                            !item.value.restField?.metaData?.listConfig\n                              ?.restManyResources.template\n                          \"\n                        >\n                          <b> {{ row.data[customColumn] }}</b>\n                        </ng-container>\n\n                        <ng-container\n                          *ngIf=\"\n                            item.value.restField?.metaData?.listConfig\n                              ?.restManyResources.template\n                          \"\n                        >\n                          <span *ngIf=\"row.data.place\">\n                            {{ item.value.restField.name }}</span\n                          >\n                          <ng-container *ngIf=\"!row.data.place\">\n                            <cng-html-compiler\n                              [template]=\"\n                                item.value.restField.metaData.listConfig\n                                  .restManyResources.template\n                              \"\n                              [componentClass]=\"row.data.item\"\n                            >\n                            </cng-html-compiler>\n                          </ng-container>\n                        </ng-container>\n                      </td>\n                    </ng-container>\n                  </table>\n                </ng-container>\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField?.metaData?.detailConfig\n                      ?.restManyResources\n                  \"\n                >\n                  <ng-container\n                    *ngIf=\"\n                      isObject(\n                        item.value.restField?.metaData?.detailConfig\n                          ?.restManyResources\n                      );\n                      else displayRes\n                    \"\n                  >\n                    <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                      <tr\n                        nbTreeGridRow\n                        *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                      ></tr>\n\n                      <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                        <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                          <ngx-fs-icon\n                            [expanded]=\"row.expanded\"\n                            [place]=\"row.data.place\"\n                          ></ngx-fs-icon>\n                          <ng-container\n                            *ngIf=\"\n                              !item.value.restField?.metaData?.detailConfig\n                                ?.restManyResources.template\n                            \"\n                          >\n                            <b> {{ row.data[customColumn] }}</b>\n                          </ng-container>\n\n                          <ng-container\n                            *ngIf=\"\n                              item.value.restField?.metaData?.detailConfig\n                                ?.restManyResources.template\n                            \"\n                          >\n                            <span *ngIf=\"row.data.place\">\n                              {{ item.value.restField.name }}</span\n                            >\n                            <ng-container *ngIf=\"!row.data.place\">\n                              <cng-html-compiler\n                                [template]=\"\n                                  item.value.restField.metaData.detailConfig\n                                    .restManyResources.template\n                                \"\n                                [componentClass]=\"row.data.item\"\n                              >\n                              </cng-html-compiler>\n                            </ng-container>\n                          </ng-container>\n                        </td>\n                      </ng-container>\n                    </table>\n                  </ng-container>\n                  <ng-template #displayRes>\n                    <div\n                      class=\"row\"\n                      *ngFor=\"\n                        let res of listDataSource[item.value.restField.name]\n                      \"\n                    >\n                      <ngx-rest-resource-detail\n                        [resource]=\"res.resource\"\n                        [ID]=\"res.id\"\n                        [ressourceName]=\"res.resourceName\"\n                        [container]=\"true\"\n                        [style]=\"res.style\"\n                      ></ngx-rest-resource-detail>\n                    </div>\n                  </ng-template>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"\n                  item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\n                \"\n              >\n                <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                  <tr\n                    nbTreeGridRow\n                    *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                  ></tr>\n\n                  <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                    <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                      <ngx-fs-icon\n                        [expanded]=\"row.expanded\"\n                        [place]=\"row.data.place\"\n                      ></ngx-fs-icon>\n                      <ng-container\n                        *ngIf=\"\n                          !item.value.restField.metaData.listConfig\n                            .restBelongToManyResources.template\n                        \"\n                      >\n                        <b> {{ row.data[customColumn] }}</b>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.metaData.listConfig\n                            .restBelongToManyResources.template\n                        \"\n                      >\n                        <span *ngIf=\"row.data.place\">{{\n                          item.value.restField.name\n                        }}</span>\n                        <ng-container *ngIf=\"!row.data.place\">\n                          <cng-html-compiler\n                            [template]=\"\n                              item.value.restField.metaData.listConfig\n                                .restBelongToManyResources.template\n                            \"\n                            [componentClass]=\"row.data.item\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n                    </td>\n                  </ng-container>\n                </table>\n              </ng-container>\n            </nb-list-item>\n          </nb-list>\n        </nb-tab>\n      </nb-tabset>\n    </ng-template>\n  </nb-card-body>\n\n  <nb-card-footer *ngIf=\"datas && !container\">\n    <div class=\"buttons-row\">\n      <button\n        nbButton\n        status=\"danger\"\n        style=\"margin-right: 10px\"\n        (click)=\"listEntity()\"\n      >\n        {{ \"rest-detail.btnCancel\" | translate }}\n      </button>\n\n      <button nbButton status=\"primary\" (click)=\"editEntity()\">\n        {{ \"rest-detail.btnEdit\" | translate }}\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: ["b{margin-right:20px}.belongTo-link{color:#598bff!important}.belongTo-link:hover{text-decoration:underline!important;cursor:pointer}img{max-width:300px;max-height:200px}.color-card{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}:host nb-tab{padding:1.25rem}.rest-item-align{margin-right:5px}\n"], components: [{ type: i1__namespace.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace.NbListComponent, selector: "nb-list", inputs: ["role"] }, { type: i1__namespace.NbListItemComponent, selector: "nb-list-item", inputs: ["role"] }, { type: i3__namespace.CngHtmlCompilerComponent, selector: "cng-html-compiler", inputs: ["template", "componentClass", "imports"] }, { type: i1__namespace.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1__namespace.NbTreeGridComponent, selector: "table[nbTreeGrid]", inputs: ["levelPadding", "nbTreeGrid", "equalColumnsWidth"] }, { type: i1__namespace.NbTreeGridRowComponent, selector: "tr[nbTreeGridRow]", inputs: ["doubleClickDelay", "clickToToggle"] }, { type: FsIconCComponent, selector: "ngx-fs-icon", inputs: ["expanded", "place"] }, { type: RestResourceDetailComponent, selector: "ngx-rest-resource-detail", inputs: ["resource", "ID", "ressourceName", "container", "style"] }, { type: i1__namespace.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1__namespace.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1__namespace.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace.NbTooltipDirective, selector: "[nbTooltip]", inputs: ["nbTooltipPlacement", "nbTooltipTrigger", "nbTooltipOffset", "nbTooltipAdjustment", "nbTooltipClass", "nbTooltipIcon", "nbTooltipStatus", "nbTooltip"], outputs: ["nbTooltipShowStateChange"], exportAs: ["nbTooltip"] }, { type: i1__namespace.NbTreeGridRowDefDirective, selector: "[nbTreeGridRowDef]", inputs: ["nbTreeGridRowDefColumns"] }, { type: i1__namespace.NbTreeGridColumnDefDirective, selector: "[nbTreeGridColumnDef]", inputs: ["nbTreeGridColumnDef", "hideOn", "showOn"] }, { type: i1__namespace.NbTreeGridCellDefDirective, selector: "[nbTreeGridCellDef]" }, { type: i1__namespace.NbTreeGridCellDirective, selector: "td[nbTreeGridCell]" }], pipes: { "titlecase": i8__namespace.TitleCasePipe, "keyvalue": i8__namespace.KeyValuePipe, "date": i8__namespace.DatePipe, "translate": i1__namespace$2.TranslatePipe } });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceDetailComponent, decorators: [{
                 type: i0.Component,
                 args: [{
-                        selector: "ngx-rest-resource-detail",
-                        templateUrl: "./rest-resource-detail.component.html",
-                        styleUrls: ["./rest-resource-detail.component.scss"],
+                        selector: 'ngx-rest-resource-detail',
+                        templateUrl: './rest-resource-detail.component.html',
+                        styleUrls: ['./rest-resource-detail.component.scss'],
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace.ActivatedRoute }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1__namespace.Router }, { type: i1__namespace$1.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, propDecorators: { resource: [{
+            }], ctorParameters: function () { return [{ type: i2__namespace.ActivatedRoute }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i2__namespace.Router }, { type: i1__namespace.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, propDecorators: { resource: [{
                     type: i0.Input
                 }], ID: [{
                     type: i0.Input
@@ -2494,9 +2887,10 @@
                 }] } });
 
     var RestResourceDeleteComponent = /** @class */ (function () {
-        function RestResourceDeleteComponent(ref, serviceRestResource) {
+        function RestResourceDeleteComponent(ref, serviceRestResource, notificationService) {
             this.ref = ref;
             this.serviceRestResource = serviceRestResource;
+            this.notificationService = notificationService;
             this.isSubmit = false;
         }
         RestResourceDeleteComponent.prototype.dismiss = function (val) {
@@ -2505,38 +2899,68 @@
         };
         RestResourceDeleteComponent.prototype.delete = function () {
             var _this = this;
+            var msg = {};
             this.isSubmit = true;
             this.serviceRestResource
                 .deleteResources(this.listConfig, this.datas.id)
                 .subscribe(function () {
+                msg = {
+                    label: "msg-deleting-success",
+                    resourceName: _this.resourceName,
+                };
                 _this.isSubmit = false;
+                _this.notificationService.successToast(msg);
                 _this.dismiss(true);
             }, function (err) {
+                msg = {
+                    label: "msg-deleting-fail",
+                    resourceName: _this.resourceName,
+                };
                 _this.isSubmit = false;
-                console.log(err);
+                _this.notificationService.dangerToast(msg);
             });
         };
         return RestResourceDeleteComponent;
     }());
-    RestResourceDeleteComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceDeleteComponent, deps: [{ token: i1__namespace$1.NbDialogRef }, { token: RestResourceService }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestResourceDeleteComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDeleteComponent, selector: "ngx-rest-resource-delete", inputs: { datas: "datas", title: "title", listConfig: "listConfig" }, ngImport: i0__namespace, template: "<nb-card>\n  <nb-card-header>{{ title }}</nb-card-header>\n  <nb-card-body> Voulez vous vraiment le supprimer? </nb-card-body>\n  <nb-card-footer>\n    <button\n      style=\"margin-right: 10px\"\n      nbButton\n      hero\n      status=\"primary\"\n      (click)=\"dismiss()\"\n    >\n      Non\n    </button>\n\n    <button\n      nbButton\n      status=\"danger\"\n      size=\"medium\"\n      (click)=\"delete()\"\n      [nbSpinner]=\"isSubmit\"\n      nbSpinnerStatus=\"danger\"\n      nbSpinnerMessage=\"\"\n    >\n      Oui\n    </button>\n  </nb-card-footer>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card{max-width:600px;max-height:500px}.nb-theme-dark :host nb-card{max-width:600px;max-height:500px}.nb-theme-cosmic :host nb-card{max-width:600px;max-height:500px}.nb-theme-corporate :host nb-card{max-width:600px;max-height:500px}\n"], components: [{ type: i1__namespace$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i1__namespace$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }] });
+    RestResourceDeleteComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceDeleteComponent, deps: [{ token: i1__namespace.NbDialogRef }, { token: RestResourceService }, { token: NotificationService }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    RestResourceDeleteComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDeleteComponent, selector: "ngx-rest-resource-delete", inputs: { datas: "datas", title: "title", listConfig: "listConfig", resourceName: "resourceName" }, ngImport: i0__namespace, template: "<nb-card>\n  <nb-card-header>{{ title }}</nb-card-header>\n  <nb-card-body> Voulez vous vraiment le supprimer? </nb-card-body>\n  <nb-card-footer>\n    <button\n      style=\"margin-right: 10px\"\n      nbButton\n      hero\n      status=\"primary\"\n      (click)=\"dismiss()\"\n    >\n      Non\n    </button>\n\n    <button\n      nbButton\n      status=\"danger\"\n      size=\"medium\"\n      (click)=\"delete()\"\n      [nbSpinner]=\"isSubmit\"\n      nbSpinnerStatus=\"danger\"\n      nbSpinnerMessage=\"\"\n    >\n      Oui\n    </button>\n  </nb-card-footer>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card{max-width:600px;max-height:500px}.nb-theme-dark :host nb-card{max-width:600px;max-height:500px}.nb-theme-cosmic :host nb-card{max-width:600px;max-height:500px}.nb-theme-corporate :host nb-card{max-width:600px;max-height:500px}\n"], components: [{ type: i1__namespace.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i1__namespace.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceDeleteComponent, decorators: [{
                 type: i0.Component,
                 args: [{
-                        selector: "ngx-rest-resource-delete",
-                        templateUrl: "./rest-resource-delete.component.html",
-                        styleUrls: ["./rest-resource-delete.component.scss"],
+                        selector: 'ngx-rest-resource-delete',
+                        templateUrl: './rest-resource-delete.component.html',
+                        styleUrls: ['./rest-resource-delete.component.scss'],
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$1.NbDialogRef }, { type: RestResourceService }]; }, propDecorators: { datas: [{
+            }], ctorParameters: function () { return [{ type: i1__namespace.NbDialogRef }, { type: RestResourceService }, { type: NotificationService }]; }, propDecorators: { datas: [{
                     type: i0.Input
                 }], title: [{
                     type: i0.Input
                 }], listConfig: [{
                     type: i0.Input
+                }], resourceName: [{
+                    type: i0.Input
                 }] } });
 
+    var RestShareService = /** @class */ (function () {
+        function RestShareService() {
+            this.listLoader = false;
+        }
+        RestShareService.prototype.setLoader = function (value) {
+            this.listLoader = value;
+        };
+        return RestShareService;
+    }());
+    RestShareService.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestShareService, deps: [], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    RestShareService.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestShareService, providedIn: 'root' });
+    i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestShareService, decorators: [{
+                type: i0.Injectable,
+                args: [{
+                        providedIn: 'root',
+                    }]
+            }], ctorParameters: function () { return []; } });
+
     var RestResourceListComponent = /** @class */ (function () {
-        function RestResourceListComponent(serviceRestConfig, serviceRestResources, http, dialogService, activatedRoute, router, nbMenuService, exportService) {
+        function RestResourceListComponent(serviceRestConfig, serviceRestResources, http, dialogService, activatedRoute, router, nbMenuService, exportService, restShare) {
             this.serviceRestConfig = serviceRestConfig;
             this.serviceRestResources = serviceRestResources;
             this.http = http;
@@ -2545,55 +2969,56 @@
             this.router = router;
             this.nbMenuService = nbMenuService;
             this.exportService = exportService;
+            this.restShare = restShare;
             this.alphabelt = ALPHABET;
             this.isFetching = true;
-            this.ressourceName = "";
-            this.filterBy = "";
+            this.ressourceName = '';
+            this.filterBy = '';
             this.filterOperator = FILTER_OPERATORS;
             this.exportAsConfig = {
-                type: "png",
-                elementId: "myTableElementId", // the id of html/table element
+                type: 'png',
+                elementId: 'myTableElementId', // the id of html/table element
             };
             this.searchItems = [];
-            this.searchItem = "";
+            this.searchItem = '';
             this.items = [
-                { title: "All formats" },
-                { title: "CSV" },
-                { title: "EXCEL" },
-                { title: "PDF" },
+                { title: 'All formats' },
+                { title: 'CSV' },
+                { title: 'EXCEL' },
+                { title: 'PDF' },
             ];
             this.perPagesOptions = [
-                { title: "5", value: 5 },
-                { title: "10", value: 10 },
-                { title: "20", value: 20 },
-                { title: "50", value: 50 },
-                { title: "100", value: 100 },
+                { title: '5', value: 5 },
+                { title: '10', value: 10 },
+                { title: '20', value: 20 },
+                { title: '50', value: 50 },
+                { title: '100', value: 100 },
             ];
             this.ressourceName =
-                this.activatedRoute.snapshot.url[this.activatedRoute.snapshot.url.length - 1].path.split("-")[0];
+                this.activatedRoute.snapshot.url[this.activatedRoute.snapshot.url.length - 1].path.split('-')[0];
             this.resource = this.serviceRestConfig.getSpecificResource(this.ressourceName);
         }
         RestResourceListComponent.prototype.ngOnInit = function () {
             var _this = this;
             if (this.resource.listConfig.searchFilter) {
                 this.searchItems.push({
-                    field: "",
-                    operator: "",
-                    terms: "",
+                    field: '',
+                    operator: '',
+                    terms: '',
                 });
             }
             this.currentPerPage = this.resource.listConfig.perPage;
             this.settings = {
                 hideSubHeader: this.resource.listConfig.hideAddSubHeader,
                 actions: {
-                    position: "right",
+                    position: 'right',
                     custom: [
                         {
-                            name: "detail",
+                            name: 'detail',
                             title: "<i class='nb-compose'></i>",
                         },
                         {
-                            name: "delete",
+                            name: 'delete',
                             title: "<i  class='nb-trash text-danger' ></i> ",
                         },
                     ],
@@ -2623,27 +3048,27 @@
             this.getList();
             this.source.onChanged().subscribe(function (e) {
                 setTimeout(function () {
-                    _this.isFetching = false;
+                    _this.restShare.setLoader(false);
                 });
             });
             this.nbMenuService
                 .onItemClick()
                 .pipe(operators.filter(function (_a) {
                 var tag = _a.tag;
-                return tag === "my-context";
+                return tag === 'my-context';
             }), operators.map(function (_a) {
                 var title = _a.item.title;
                 return title;
             }))
                 .subscribe(function (title) {
                 switch (title) {
-                    case "EXCEL":
+                    case 'EXCEL':
                         _this.exportToExcel();
                         break;
-                    case "PDF":
+                    case 'PDF':
                         _this.exportToPdf();
                         break;
-                    case "CSV":
+                    case 'CSV':
                         _this.exportToCsv();
                         break;
                     default:
@@ -2657,8 +3082,9 @@
             var dialog = this.dialogService.open(RestResourceDeleteComponent, {
                 context: {
                     datas: event.data,
-                    title: "SUPPRESSION",
+                    title: 'SUPPRESSION',
                     listConfig: this.resource.listConfig,
+                    resourceName: this.ressourceName,
                 },
             });
             dialog.onClose.subscribe(function (resp) {
@@ -2684,7 +3110,7 @@
                 .forEach(function (elt) {
                 colunms[elt.name] = {
                     title: elt.label,
-                    type: "custom",
+                    type: 'custom',
                     filter: false,
                     addable: true,
                     valuePrepareFunction: function (cell, row) { return ({
@@ -2693,7 +3119,7 @@
                         row: row,
                     }); },
                     editor: {
-                        type: "custom",
+                        type: 'custom',
                         component: RestResourceEditorFieldsComponent,
                     },
                     renderComponent: RestResourceListFieldComponent,
@@ -2705,28 +3131,29 @@
             var _this = this;
             if (page === void 0) { page = null; }
             if (perPage === void 0) { perPage = null; }
+            this.restShare.setLoader(true);
             if (page) {
                 this.resource.queryParams = Object.assign(Object.assign({}, this.resource.queryParams), { page: page });
             }
             if (perPage) {
                 this.resource.queryParams = Object.assign(Object.assign({}, this.resource.queryParams), { per_page: perPage });
             }
-            this.source = new i9.ServerDataSource(this.http, {
+            this.source = new i10.ServerDataSource(this.http, {
                 endPoint: this.serviceRestConfig.restBaseUrl +
-                    "/" +
+                    '/' +
                     this.resource.listConfig.api +
-                    "?" +
+                    '?' +
                     Object.keys(this.resource.listConfig.queryParams)
                         .reduce(function (cumul, item) { return cumul +
                         item +
-                        "=" +
+                        '=' +
                         _this.resource.listConfig.queryParams[item] +
-                        ","; }, "")
+                        ','; }, '')
                         .slice(0, -1),
-                dataKey: "data",
-                pagerPageKey: "page",
-                pagerLimitKey: "per_page",
-                totalKey: "total",
+                dataKey: 'data',
+                pagerPageKey: 'page',
+                pagerLimitKey: 'per_page',
+                totalKey: 'total',
                 filterFieldKey: "#_include#",
             });
         };
@@ -2754,8 +3181,8 @@
                         for (var index_1 = 0; index_1 < element.resources.length; index_1++) {
                             var item = element.resources[index_1];
                             var data = (_a = {},
-                                _a[item["saveRelatedIdName"]] = item[item["saveRelatedIdName"]],
-                                _a[item["saveResourceIdName"]] = response.id,
+                                _a[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
+                                _a[item['saveResourceIdName']] = response.id,
                                 _a);
                             proms.push(_this.serviceRestResources
                                 .addResources(restResource.addConfig, data)
@@ -2772,10 +3199,10 @@
         };
         RestResourceListComponent.prototype.onCustom = function (event) {
             switch (event.action) {
-                case "delete":
+                case 'delete':
                     this.onDeleteConfirm(event);
                     break;
-                case "detail":
+                case 'detail':
                     this.detailEntity(event);
                     break;
             }
@@ -2807,7 +3234,7 @@
             var edata = [];
             var udt = {
                 data: [
-                    { A: "Rest Excel export" },
+                    { A: 'Rest Excel export' },
                     sheetHeader, // table header
                 ],
                 skipHeader: true,
@@ -2823,7 +3250,7 @@
                     udt.data.push(elt);
                 });
                 edata.push(udt);
-                _this.exportService.exportToExcel(edata, "rest_file_excel");
+                _this.exportService.exportToExcel(edata, 'rest_file_excel');
             });
         };
         RestResourceListComponent.prototype.exportToPdf = function () {
@@ -2846,7 +3273,7 @@
                     customData.push(elt);
                 });
                 var fileTitle = _this.resource.name;
-                _this.exportService.exportToPdf(header, customData, "rest_file_pdf", fileTitle);
+                _this.exportService.exportToPdf(header, customData, 'rest_file_pdf', fileTitle);
             });
         };
         RestResourceListComponent.prototype.exportToCsv = function () {
@@ -2868,7 +3295,7 @@
                     });
                     customData.push(elt);
                 });
-                _this.exportService.exportToCsv(header, customData, "rest_file_csv");
+                _this.exportService.exportToCsv(header, customData, 'rest_file_csv');
             });
         };
         RestResourceListComponent.prototype.exportAll = function () {
@@ -2894,7 +3321,7 @@
                 sheetHeader[_this.alphabelt[index]] = key;
             });
             var excelData = {
-                data: [{ A: "Rest Excel export" }, sheetHeader],
+                data: [{ A: 'Rest Excel export' }, sheetHeader],
                 skipHeader: true,
             };
             var keys = Object.keys(sheetHeader);
@@ -2945,7 +3372,7 @@
             }
         };
         RestResourceListComponent.prototype.addFieldSearch = function () {
-            this.searchItems.push({ field: "", operator: "", terms: "" });
+            this.searchItems.push({ field: '', operator: '', terms: '' });
         };
         RestResourceListComponent.prototype.removeFieldSearch = function (index) {
             this.searchItems.splice(index, 1);
@@ -2953,11 +3380,11 @@
         RestResourceListComponent.prototype.startSearch = function () {
             var _this = this;
             var params = {};
-            var search = "";
+            var search = '';
             this.searchItems.forEach(function (element) {
-                if (element.field != "" && element.terms != "") {
-                    if (element.operator != "=") {
-                        params[element.field + "-" + element.operator] = "" + element.terms;
+                if (element.field != '' && element.terms != '') {
+                    if (element.operator != '=') {
+                        params[element.field + '-' + element.operator] = "" + element.terms;
                     }
                     else {
                         params[element.field] = "" + element.terms;
@@ -2965,44 +3392,44 @@
                 }
             });
             search = Object.keys(this.resource.listConfig.queryParams)
-                .reduce(function (cumul, item) { return cumul + item + "=" + _this.resource.listConfig.queryParams[item] + ","; }, "")
+                .reduce(function (cumul, item) { return cumul + item + '=' + _this.resource.listConfig.queryParams[item] + ','; }, '')
                 .slice(0, -1);
-            if (search != "") {
-                search += "&";
+            if (search != '') {
+                search += '&';
             }
             search += Object.keys(params)
-                .reduce(function (cumul, item) { return cumul + item + "=" + params[item] + "&"; }, "")
+                .reduce(function (cumul, item) { return cumul + item + '=' + params[item] + '&'; }, '')
                 .slice(0, -1);
             // console.log(search);
-            this.source = new i9.ServerDataSource(this.http, {
+            this.source = new i10.ServerDataSource(this.http, {
                 endPoint: this.serviceRestConfig.restBaseUrl +
-                    "/" +
+                    '/' +
                     this.resource.listConfig.api +
-                    "?" +
+                    '?' +
                     search,
-                dataKey: "data",
-                pagerPageKey: "page",
-                pagerLimitKey: "per_page",
-                totalKey: "total",
+                dataKey: 'data',
+                pagerPageKey: 'page',
+                pagerLimitKey: 'per_page',
+                totalKey: 'total',
                 filterFieldKey: "#_include#",
             });
         };
         return RestResourceListComponent;
     }());
-    RestResourceListComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceListComponent, deps: [{ token: RestAdminConfigService }, { token: RestResourceService }, { token: i1__namespace$2.HttpClient }, { token: i1__namespace$1.NbDialogService }, { token: i1__namespace.ActivatedRoute }, { token: i1__namespace.Router }, { token: i1__namespace$1.NbMenuService }, { token: RestExportService }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestResourceListComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListComponent, selector: "ngx-rest-resource-list", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "search", first: true, predicate: ["search"], descendants: true }], ngImport: i0__namespace, template: "<nb-card status=\"success\">\n  <nb-card-header>\n    <div class=\"row\">\n      <div class=\"col-10\">\n        {{ this.resource.listConfig.title }}\n      </div>\n\n      <div class=\"col-1\"></div>\n      <div class=\"col-1\" style=\"display: flex\">\n        <button nbButton ghost status=\"control\" (click)=\"addNewEntity()\">\n          <nb-icon icon=\"plus-circle\"></nb-icon>\n        </button>\n        <button\n          nbButton\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n          ghost\n          status=\"control\"\n        >\n          <nb-icon icon=\"menu\"></nb-icon>\n        </button>\n\n        <!-- <button\n          nbButton\n          status=\"primary\"\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n        >\n          {{ \"rest-list.export\" | translate }}\n        </button> -->\n      </div>\n    </div>\n  </nb-card-header>\n\n  <nb-card-body\n    [nbSpinner]=\"isFetching\"\n    nbSpinnerSize=\"large\"\n    nbSpinnerStatus=\"primary\"\n  >\n    <!-- Rest-search implement -->\n    <div class=\"row mb-5\" *ngIf=\"this.resource.listConfig.searchFilter\">\n      <ng-container\n        *ngIf=\"this.resource.listConfig.searchFilter.filterBy.length > 0\"\n      >\n        <ng-container *ngFor=\"let search of searchItems; let index = index\">\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <!-- Select with filter by -->\n            <nb-select\n              [placeholder]=\"'rest-list.filterPlaceholder' | translate\"\n              fullWidth\n              (selectedChange)=\"selectFilterBy($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"\n                  let filter of this.resource.listConfig.searchFilter.filterBy\n                \"\n                [value]=\"filter\"\n                >{{ filter | titlecase }}</nb-option\n              >\n            </nb-select>\n          </div>\n\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <nb-select\n              [placeholder]=\"'rest-list.operator' | translate\"\n              fullWidth\n              (selectedChange)=\"selectOperator($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"let operator of filterOperator\"\n                [value]=\"operator.value\"\n                >{{ operator.name | translate }}\n              </nb-option>\n            </nb-select>\n          </div>\n          <div\n            class=\"col-lg-4 col-md-12 col-xs-12 input-space\"\n            [ngClass]=\"{\n              'col-12': this.resource.listConfig.searchFilter == null\n            }\"\n          >\n            <input\n              nbInput\n              (input)=\"onFilter($event.target, index)\"\n              fullWidth\n              [placeholder]=\"'rest-list.searchPlaceholder' | translate\"\n              type=\"text\"\n            />\n          </div>\n          <div\n            class=\"col-lg-1 col-md-6 col-xs-6 input-space\"\n            *ngIf=\"index == 0\"\n          >\n            <button nbButton fullWidth status=\"primary\" (click)=\"startSearch()\">\n              <nb-icon icon=\"search-outline\"></nb-icon>\n            </button>\n          </div>\n          <div\n            class=\"col-lg-1 col-md-6 col-xs-6 input-space\"\n            *ngIf=\"index == 0; else elseBlock\"\n          >\n            <button\n              nbButton\n              fullWidth\n              status=\"primary\"\n              (click)=\"addFieldSearch()\"\n            >\n              <nb-icon icon=\"plus-outline\"></nb-icon>\n            </button>\n          </div>\n          <ng-template #elseBlock>\n            <div class=\"col-lg-1 col-md-6 col-xs-6 input-space\">\n              <button\n                nbButton\n                fullWidth\n                status=\"danger\"\n                (click)=\"removeFieldSearch(index)\"\n              >\n                <nb-icon icon=\"minus-outline\"></nb-icon>\n              </button>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n    </div>\n\n    <ng2-smart-table\n      [settings]=\"settings\"\n      [source]=\"source\"\n      (deleteConfirm)=\"onDeleteConfirm($event)\"\n      (createConfirm)=\"onCreateConfirm($event)\"\n      (userRowSelect)=\"detailEntity($event)\"\n      (custom)=\"onCustom($event)\"\n    >\n    </ng2-smart-table>\n\n    <div\n      class=\"row align-items-center justify-content-end\"\n      style=\"margin-top: 1rem\"\n    >\n      <label class=\"label mx-2\">{{ \"options.per_page\" | translate }}</label>\n      <nb-select\n        [placeholder]=\"resource.listConfig.perPage.toString()\"\n        [(selected)]=\"currentPerPage\"\n      >\n        <nb-option\n          *ngFor=\"let perPage of perPagesOptions\"\n          (click)=\"setPager(perPage.value)\"\n          value=\"perPage.value\"\n          >{{ perPage.title }}</nb-option\n        >\n      </nb-select>\n    </div>\n  </nb-card-body>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card-body{display:block}.nb-theme-default :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-default :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-default :host .result-from-dialog{flex-direction:column}.nb-theme-default :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-default :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-default :host button{padding:.75rem}}.nb-theme-dark :host nb-card-body{display:block}.nb-theme-dark :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-dark :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-dark :host .result-from-dialog{flex-direction:column}.nb-theme-dark :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-dark :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-dark :host button{padding:.75rem}}.nb-theme-cosmic :host nb-card-body{display:block}.nb-theme-cosmic :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-cosmic :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-cosmic :host .result-from-dialog{flex-direction:column}.nb-theme-cosmic :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-cosmic :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-cosmic :host button{padding:.75rem}}.nb-theme-corporate :host nb-card-body{display:block}.nb-theme-corporate :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-corporate :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-corporate :host .result-from-dialog{flex-direction:column}.nb-theme-corporate :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-corporate :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-corporate :host button{padding:.75rem}}::ng-deep ng2-st-tbody-edit-delete{display:none;height:0!important}::ng-deep ng2-st-tbody-custom{display:flex;text-align:center}.input-space{margin-top:1rem}.nb-theme-default ng2-smart-table th.ng2-smart-actions-title-add a{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}\n"], components: [{ type: i1__namespace$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i1__namespace$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1__namespace$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i9__namespace.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }], directives: [{ type: i1__namespace$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }, { type: i1__namespace$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }, { type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i8__namespace.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { type: i1__namespace$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }], pipes: { "translate": i1__namespace$3.TranslatePipe, "titlecase": i8__namespace.TitleCasePipe } });
+    RestResourceListComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceListComponent, deps: [{ token: RestAdminConfigService }, { token: RestResourceService }, { token: i1__namespace$1.HttpClient }, { token: i1__namespace.NbDialogService }, { token: i2__namespace.ActivatedRoute }, { token: i2__namespace.Router }, { token: i1__namespace.NbMenuService }, { token: RestExportService }, { token: RestShareService }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    RestResourceListComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListComponent, selector: "ngx-rest-resource-list", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "search", first: true, predicate: ["search"], descendants: true }], ngImport: i0__namespace, template: "<nb-card status=\"success\">\n  <nb-card-header>\n    <div class=\"row\">\n      <div class=\"col-10\">\n        {{ this.resource.listConfig.title }}\n      </div>\n\n      <div class=\"col-1\"></div>\n      <div class=\"col-1\" style=\"display: flex\">\n        <button nbButton ghost status=\"control\" (click)=\"addNewEntity()\">\n          <nb-icon icon=\"plus-circle\"></nb-icon>\n        </button>\n        <button\n          nbButton\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n          ghost\n          status=\"control\"\n        >\n          <nb-icon icon=\"menu\"></nb-icon>\n        </button>\n\n        <!-- <button\n          nbButton\n          status=\"primary\"\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n        >\n          {{ \"rest-list.export\" | translate }}\n        </button> -->\n      </div>\n    </div>\n  </nb-card-header>\n\n  <nb-card-body\n    [nbSpinner]=\"this.restShare.listLoader\"\n    nbSpinnerSize=\"large\"\n    nbSpinnerStatus=\"primary\"\n  >\n    <!-- Rest-search implement -->\n    <div class=\"row mb-5\" *ngIf=\"this.resource.listConfig.searchFilter\">\n      <ng-container\n        *ngIf=\"this.resource.listConfig.searchFilter.filterBy.length > 0\"\n      >\n        <ng-container *ngFor=\"let search of searchItems; let index = index\">\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <!-- Select with filter by -->\n            <nb-select\n              [placeholder]=\"'rest-list.filterPlaceholder' | translate\"\n              fullWidth\n              (selectedChange)=\"selectFilterBy($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"\n                  let filter of this.resource.listConfig.searchFilter.filterBy\n                \"\n                [value]=\"filter\"\n                >{{ filter | titlecase }}</nb-option\n              >\n            </nb-select>\n          </div>\n\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <nb-select\n              [placeholder]=\"'rest-list.operator' | translate\"\n              fullWidth\n              (selectedChange)=\"selectOperator($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"let operator of filterOperator\"\n                [value]=\"operator.value\"\n                >{{ operator.name | translate }}\n              </nb-option>\n            </nb-select>\n          </div>\n          <div\n            class=\"col-lg-4 col-md-12 col-xs-12 input-space\"\n            [ngClass]=\"{\n              'col-12': this.resource.listConfig.searchFilter == null\n            }\"\n          >\n            <input\n              nbInput\n              (input)=\"onFilter($event.target, index)\"\n              fullWidth\n              [placeholder]=\"'rest-list.searchPlaceholder' | translate\"\n              type=\"text\"\n            />\n          </div>\n          <div\n            class=\"col-lg-1 col-md-6 col-xs-6 input-space\"\n            *ngIf=\"index == 0\"\n          >\n            <button nbButton fullWidth status=\"primary\" (click)=\"startSearch()\">\n              <nb-icon icon=\"search-outline\"></nb-icon>\n            </button>\n          </div>\n          <div\n            class=\"col-lg-1 col-md-6 col-xs-6 input-space\"\n            *ngIf=\"index == 0; else elseBlock\"\n          >\n            <button\n              nbButton\n              fullWidth\n              status=\"primary\"\n              (click)=\"addFieldSearch()\"\n            >\n              <nb-icon icon=\"plus-outline\"></nb-icon>\n            </button>\n          </div>\n          <ng-template #elseBlock>\n            <div class=\"col-lg-1 col-md-6 col-xs-6 input-space\">\n              <button\n                nbButton\n                fullWidth\n                status=\"danger\"\n                (click)=\"removeFieldSearch(index)\"\n              >\n                <nb-icon icon=\"minus-outline\"></nb-icon>\n              </button>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n    </div>\n\n    <ng2-smart-table\n      [settings]=\"settings\"\n      [source]=\"source\"\n      (deleteConfirm)=\"onDeleteConfirm($event)\"\n      (createConfirm)=\"onCreateConfirm($event)\"\n      (userRowSelect)=\"detailEntity($event)\"\n      (custom)=\"onCustom($event)\"\n    >\n    </ng2-smart-table>\n\n    <div\n      class=\"row align-items-center justify-content-end\"\n      style=\"margin-top: 1rem\"\n    >\n      <label class=\"label mx-2\">{{ \"options.per_page\" | translate }}</label>\n      <nb-select\n        [placeholder]=\"resource.listConfig.perPage.toString()\"\n        [(selected)]=\"currentPerPage\"\n      >\n        <nb-option\n          *ngFor=\"let perPage of perPagesOptions\"\n          (click)=\"setPager(perPage.value)\"\n          value=\"perPage.value\"\n          >{{ perPage.title }}</nb-option\n        >\n      </nb-select>\n    </div>\n  </nb-card-body>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card-body{display:block}.nb-theme-default :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-default :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-default :host .result-from-dialog{flex-direction:column}.nb-theme-default :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-default :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-default :host button{padding:.75rem}}.nb-theme-dark :host nb-card-body{display:block}.nb-theme-dark :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-dark :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-dark :host .result-from-dialog{flex-direction:column}.nb-theme-dark :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-dark :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-dark :host button{padding:.75rem}}.nb-theme-cosmic :host nb-card-body{display:block}.nb-theme-cosmic :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-cosmic :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-cosmic :host .result-from-dialog{flex-direction:column}.nb-theme-cosmic :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-cosmic :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-cosmic :host button{padding:.75rem}}.nb-theme-corporate :host nb-card-body{display:block}.nb-theme-corporate :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-corporate :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-corporate :host .result-from-dialog{flex-direction:column}.nb-theme-corporate :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-corporate :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-corporate :host button{padding:.75rem}}::ng-deep ng2-st-tbody-edit-delete{display:none;height:0!important}::ng-deep ng2-st-tbody-custom{display:flex;text-align:center}.input-space{margin-top:1rem}.nb-theme-default ng2-smart-table th.ng2-smart-actions-title-add a{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}\n"], components: [{ type: i1__namespace.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1__namespace.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i1__namespace.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1__namespace.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1__namespace.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i10__namespace.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }], directives: [{ type: i1__namespace.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }, { type: i1__namespace.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }, { type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i8__namespace.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { type: i1__namespace.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }], pipes: { "translate": i1__namespace$2.TranslatePipe, "titlecase": i8__namespace.TitleCasePipe } });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestResourceListComponent, decorators: [{
                 type: i0.Component,
                 args: [{
-                        selector: "ngx-rest-resource-list",
-                        templateUrl: "./rest-resource-list.component.html",
-                        styleUrls: ["./rest-resource-list.component.scss"],
+                        selector: 'ngx-rest-resource-list',
+                        templateUrl: './rest-resource-list.component.html',
+                        styleUrls: ['./rest-resource-list.component.scss'],
                     }]
-            }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: RestResourceService }, { type: i1__namespace$2.HttpClient }, { type: i1__namespace$1.NbDialogService }, { type: i1__namespace.ActivatedRoute }, { type: i1__namespace.Router }, { type: i1__namespace$1.NbMenuService }, { type: RestExportService }]; }, propDecorators: { resource: [{
+            }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: RestResourceService }, { type: i1__namespace$1.HttpClient }, { type: i1__namespace.NbDialogService }, { type: i2__namespace.ActivatedRoute }, { type: i2__namespace.Router }, { type: i1__namespace.NbMenuService }, { type: RestExportService }, { type: RestShareService }]; }, propDecorators: { resource: [{
                     type: i0.Input
                 }], search: [{
                     type: i0.ViewChild,
-                    args: ["search"]
+                    args: ['search']
                 }] } });
 
     var RestAdminConfigService = /** @class */ (function () {
@@ -3280,7 +3707,7 @@
                 : '/auth/login';
             rest.logoutEndPoint = params.logoutEndPoint
                 ? params.logoutEndPoint
-                : 'auth/logout';
+                : '/auth/logout';
             rest.userInfoEndPoint = params.userInfoEndPoint
                 ? params.userInfoEndPoint
                 : '/users/me';
@@ -3298,7 +3725,6 @@
             rest.tokenLocationInResponse = params.tokenLocationInResponse
                 ? params.tokenLocationInResponse
                 : 'data.token';
-            console.log('res--->', rest);
             return rest;
         };
         RestAdminConfigService.prototype.checkIfRouteExist = function (route) {
@@ -3376,18 +3802,19 @@
                         picture: resp[_this.serviceRestAdmin.restAuthParams.profilePictureEndPoint],
                         defaultPicture: 'M',
                     };
-                    var namePath = (_this.serviceRestAdmin.restAuthParams.profileNameEndPoint).split('.');
+                    var namePath = _this.serviceRestAdmin.restAuthParams.profileNameEndPoint.split('.');
                     namePath.map(function (val) {
                         user['name'] = data[val];
                         data = data[val];
                     });
                     data = resp;
-                    var picturePath = (_this.serviceRestAdmin.restAuthParams.profilePictureEndPoint).split('.');
+                    var picturePath = _this.serviceRestAdmin.restAuthParams.profilePictureEndPoint.split('.');
                     picturePath.map(function (val) {
                         user['picture'] = data[val];
                         data = data[val];
                     });
-                    user['defaultPicture'] = "https://ui-avatars.com/api/?name=" + (user['name']).toString() + "&rounded=true";
+                    if (user['name'])
+                        user['defaultPicture'] = "https://ui-avatars.com/api/?name=" + user['name'].toString() + "&rounded=true";
                     _this.user = user;
                     _this.isAuth = true;
                 });
@@ -3420,7 +3847,7 @@
                 switch (title) {
                     case 'Déconnexion':
                         _this.httpClient
-                            .post(_this.serviceRestAdmin.restBaseUrl + "/" + _this.serviceRestAdmin.restAuthParams.logoutEndPoint, {})
+                            .post("" + _this.serviceRestAdmin.restBaseUrl + _this.serviceRestAdmin.restAuthParams.logoutEndPoint, {})
                             .subscribe(function (resp) {
                             localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
                             _this.router.navigateByUrl('/login');
@@ -3464,8 +3891,8 @@
         };
         return HeaderComponent;
     }());
-    HeaderComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HeaderComponent, deps: [{ token: i1__namespace$1.NbSidebarService }, { token: i1__namespace$1.NbMenuService }, { token: i1__namespace$1.NbThemeService }, { token: LayoutService }, { token: i1__namespace$1.NbMediaBreakpointsService }, { token: RestAdminConfigService }, { token: i1__namespace$5.NbAuthService }, { token: i1__namespace.Router }, { token: RestLangService }, { token: i1__namespace$2.HttpClient }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    HeaderComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: HeaderComponent, selector: "ngx-header", ngImport: i0__namespace, template: "<div class=\"header-container\">\n  <div class=\"logo-container\">\n    <a (click)=\"toggleSidebar()\" href=\"#\" class=\"sidebar-toggle\">\n      <nb-icon icon=\"menu-2-outline\"></nb-icon>\n    </a>\n    <a class=\"logo\" href=\"#\" (click)=\"navigateHome()\"\n      ><span>{{ serviceRestAdmin.siteName }}</span></a\n    >\n  </div>\n  <nb-select\n    [selected]=\"currentTheme\"\n    (selectedChange)=\"changeTheme($event)\"\n    status=\"primary\"\n  >\n    <nb-option *ngFor=\"let theme of themes\" [value]=\"theme.value\">\n      {{ theme.name }}</nb-option\n    >\n  </nb-select>\n</div>\n\n<div class=\"header-container\">\n  <nb-select\n    [selected]=\"currentLang\"\n    (selectedChange)=\"changeLang($event)\"\n    status=\"primary\"\n  >\n    <nb-option *ngFor=\"let lang of appLanguage\" [value]=\"lang.value\">\n      {{ lang.value | uppercase }}</nb-option\n    >\n  </nb-select>\n\n  <nb-actions size=\"small\">\n    <!-- <nb-action class=\"control-item\">\n      <nb-search type=\"rotate-layout\"></nb-search>\n    </nb-action> -->\n\n    <nb-action class=\"user-action\" *nbIsGranted=\"['view', 'user']\">\n      <nb-user\n        [nbContextMenu]=\"userMenu\"\n        nbContextMenuTag=\"my-context-menu\"\n        [name]=\"user?.name\"\n        [picture]=\"user?.picture ? user?.picture : user?.defaultPicture\"\n      >\n      </nb-user>\n    </nb-action>\n\n    <!-- <nb-action *ngIf=\"!isAuth\"\n      ><button nbButton (click)=\"signin()\" status=\"primary\">\n        Connexion\n      </button></nb-action\n    > -->\n  </nb-actions>\n</div>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host{display:flex;justify-content:space-between;width:100%}.nb-theme-default :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-default :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-default :host nb-user{cursor:pointer}.nb-theme-default :host ::ng-deep nb-search button{padding:0!important}.nb-theme-default :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-default :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-default :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-default :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-default :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-default :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-default :host .header-container .logo{border-left:1px solid #edf1f7}[dir=rtl] .nb-theme-default :host .header-container .logo{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-default :host .control-item{display:none}.nb-theme-default :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-default :host nb-select{display:none}}.nb-theme-dark :host{display:flex;justify-content:space-between;width:100%}.nb-theme-dark :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-dark :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-dark :host nb-user{cursor:pointer}.nb-theme-dark :host ::ng-deep nb-search button{padding:0!important}.nb-theme-dark :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-dark :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-dark :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-dark :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-dark :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-dark :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-dark :host .header-container .logo{border-left:1px solid #151a30}[dir=rtl] .nb-theme-dark :host .header-container .logo{border-right:1px solid #151a30}@media (max-width: 767.98px){.nb-theme-dark :host .control-item{display:none}.nb-theme-dark :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-dark :host nb-select{display:none}}.nb-theme-cosmic :host{display:flex;justify-content:space-between;width:100%}.nb-theme-cosmic :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-cosmic :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-cosmic :host nb-user{cursor:pointer}.nb-theme-cosmic :host ::ng-deep nb-search button{padding:0!important}.nb-theme-cosmic :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-cosmic :host .header-container .sidebar-toggle{text-decoration:none;color:#b4b4db}[dir=ltr] .nb-theme-cosmic :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-cosmic :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-cosmic :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-cosmic :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-cosmic :host .header-container .logo{border-left:1px solid #1b1b38}[dir=rtl] .nb-theme-cosmic :host .header-container .logo{border-right:1px solid #1b1b38}@media (max-width: 767.98px){.nb-theme-cosmic :host .control-item{display:none}.nb-theme-cosmic :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-cosmic :host nb-select{display:none}}.nb-theme-corporate :host{display:flex;justify-content:space-between;width:100%}.nb-theme-corporate :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-corporate :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-corporate :host nb-user{cursor:pointer}.nb-theme-corporate :host ::ng-deep nb-search button{padding:0!important}.nb-theme-corporate :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-corporate :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-corporate :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-corporate :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-corporate :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-corporate :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-corporate :host .header-container .logo{border-left:1px solid #edf1f7}[dir=rtl] .nb-theme-corporate :host .header-container .logo{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-corporate :host .control-item{display:none}.nb-theme-corporate :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-corporate :host nb-select{display:none}}\n"], components: [{ type: i1__namespace$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1__namespace$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1__namespace$1.NbActionsComponent, selector: "nb-actions", inputs: ["size", "fullWidth"] }, { type: i1__namespace$1.NbActionComponent, selector: "nb-action", inputs: ["title", "badgeStatus", "disabled", "badgeDot", "link", "href", "icon", "badgeText", "badgePosition"] }, { type: i1__namespace$1.NbUserComponent, selector: "nb-user", inputs: ["name", "size", "shape", "badgeStatus", "picture", "showName", "showTitle", "showInitials", "onlyPicture", "title", "color", "badgeText", "badgePosition"] }], directives: [{ type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9__namespace$1.NbIsGrantedDirective, selector: "[nbIsGranted]", inputs: ["nbIsGranted"] }, { type: i1__namespace$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "uppercase": i8__namespace.UpperCasePipe } });
+    HeaderComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HeaderComponent, deps: [{ token: i1__namespace.NbSidebarService }, { token: i1__namespace.NbMenuService }, { token: i1__namespace.NbThemeService }, { token: LayoutService }, { token: i1__namespace.NbMediaBreakpointsService }, { token: RestAdminConfigService }, { token: i1__namespace$4.NbAuthService }, { token: i2__namespace.Router }, { token: RestLangService }, { token: i1__namespace$1.HttpClient }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    HeaderComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: HeaderComponent, selector: "ngx-header", ngImport: i0__namespace, template: "<div class=\"header-container\">\n  <div class=\"logo-container\">\n    <a (click)=\"toggleSidebar()\" href=\"#\" class=\"sidebar-toggle\">\n      <nb-icon icon=\"menu-2-outline\"></nb-icon>\n    </a>\n    <a class=\"logo\" href=\"#\" (click)=\"navigateHome()\"\n      ><span>{{ serviceRestAdmin.siteName }}</span></a\n    >\n  </div>\n  <nb-select\n    [selected]=\"currentTheme\"\n    (selectedChange)=\"changeTheme($event)\"\n    status=\"primary\"\n  >\n    <nb-option *ngFor=\"let theme of themes\" [value]=\"theme.value\">\n      {{ theme.name }}</nb-option\n    >\n  </nb-select>\n</div>\n\n<div class=\"header-container\">\n  <nb-select\n    [selected]=\"currentLang\"\n    (selectedChange)=\"changeLang($event)\"\n    status=\"primary\"\n  >\n    <nb-option *ngFor=\"let lang of appLanguage\" [value]=\"lang.value\">\n      {{ lang.value | uppercase }}</nb-option\n    >\n  </nb-select>\n\n  <nb-actions size=\"small\">\n    <!-- <nb-action class=\"control-item\">\n      <nb-search type=\"rotate-layout\"></nb-search>\n    </nb-action> -->\n\n    <nb-action class=\"user-action\" *nbIsGranted=\"['view', 'user']\">\n      <nb-user\n        [nbContextMenu]=\"userMenu\"\n        nbContextMenuTag=\"my-context-menu\"\n        [name]=\"user?.name\"\n        [picture]=\"user?.picture ? user?.picture : user?.defaultPicture\"\n      >\n      </nb-user>\n    </nb-action>\n\n    <!-- <nb-action *ngIf=\"!isAuth\"\n      ><button nbButton (click)=\"signin()\" status=\"primary\">\n        Connexion\n      </button></nb-action\n    > -->\n  </nb-actions>\n</div>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host{display:flex;justify-content:space-between;width:100%}.nb-theme-default :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-default :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-default :host nb-user{cursor:pointer}.nb-theme-default :host ::ng-deep nb-search button{padding:0!important}.nb-theme-default :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-default :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-default :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-default :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-default :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-default :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-default :host .header-container .logo{border-left:1px solid #edf1f7}[dir=rtl] .nb-theme-default :host .header-container .logo{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-default :host .control-item{display:none}.nb-theme-default :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-default :host nb-select{display:none}}.nb-theme-dark :host{display:flex;justify-content:space-between;width:100%}.nb-theme-dark :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-dark :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-dark :host nb-user{cursor:pointer}.nb-theme-dark :host ::ng-deep nb-search button{padding:0!important}.nb-theme-dark :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-dark :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-dark :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-dark :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-dark :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-dark :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-dark :host .header-container .logo{border-left:1px solid #151a30}[dir=rtl] .nb-theme-dark :host .header-container .logo{border-right:1px solid #151a30}@media (max-width: 767.98px){.nb-theme-dark :host .control-item{display:none}.nb-theme-dark :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-dark :host nb-select{display:none}}.nb-theme-cosmic :host{display:flex;justify-content:space-between;width:100%}.nb-theme-cosmic :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-cosmic :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-cosmic :host nb-user{cursor:pointer}.nb-theme-cosmic :host ::ng-deep nb-search button{padding:0!important}.nb-theme-cosmic :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-cosmic :host .header-container .sidebar-toggle{text-decoration:none;color:#b4b4db}[dir=ltr] .nb-theme-cosmic :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-cosmic :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-cosmic :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-cosmic :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-cosmic :host .header-container .logo{border-left:1px solid #1b1b38}[dir=rtl] .nb-theme-cosmic :host .header-container .logo{border-right:1px solid #1b1b38}@media (max-width: 767.98px){.nb-theme-cosmic :host .control-item{display:none}.nb-theme-cosmic :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-cosmic :host nb-select{display:none}}.nb-theme-corporate :host{display:flex;justify-content:space-between;width:100%}.nb-theme-corporate :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-corporate :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-corporate :host nb-user{cursor:pointer}.nb-theme-corporate :host ::ng-deep nb-search button{padding:0!important}.nb-theme-corporate :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-corporate :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-corporate :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-corporate :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-corporate :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-corporate :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-corporate :host .header-container .logo{border-left:1px solid #edf1f7}[dir=rtl] .nb-theme-corporate :host .header-container .logo{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-corporate :host .control-item{display:none}.nb-theme-corporate :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-corporate :host nb-select{display:none}}\n"], components: [{ type: i1__namespace.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1__namespace.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1__namespace.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1__namespace.NbActionsComponent, selector: "nb-actions", inputs: ["size", "fullWidth"] }, { type: i1__namespace.NbActionComponent, selector: "nb-action", inputs: ["title", "badgeStatus", "disabled", "badgeDot", "link", "href", "icon", "badgeText", "badgePosition"] }, { type: i1__namespace.NbUserComponent, selector: "nb-user", inputs: ["name", "size", "shape", "badgeStatus", "picture", "showName", "showTitle", "showInitials", "onlyPicture", "title", "color", "badgeText", "badgePosition"] }], directives: [{ type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9__namespace.NbIsGrantedDirective, selector: "[nbIsGranted]", inputs: ["nbIsGranted"] }, { type: i1__namespace.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "uppercase": i8__namespace.UpperCasePipe } });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HeaderComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -3473,7 +3900,7 @@
                         styleUrls: ['./header.component.scss'],
                         templateUrl: './header.component.html',
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace$1.NbSidebarService }, { type: i1__namespace$1.NbMenuService }, { type: i1__namespace$1.NbThemeService }, { type: LayoutService }, { type: i1__namespace$1.NbMediaBreakpointsService }, { type: RestAdminConfigService }, { type: i1__namespace$5.NbAuthService }, { type: i1__namespace.Router }, { type: RestLangService }, { type: i1__namespace$2.HttpClient }]; } });
+            }], ctorParameters: function () { return [{ type: i1__namespace.NbSidebarService }, { type: i1__namespace.NbMenuService }, { type: i1__namespace.NbThemeService }, { type: LayoutService }, { type: i1__namespace.NbMediaBreakpointsService }, { type: RestAdminConfigService }, { type: i1__namespace$4.NbAuthService }, { type: i2__namespace.Router }, { type: RestLangService }, { type: i1__namespace$1.HttpClient }]; } });
 
     var FooterComponent = /** @class */ (function () {
         function FooterComponent() {
@@ -3658,7 +4085,7 @@
         return OneColumnLayoutComponent;
     }());
     OneColumnLayoutComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: OneColumnLayoutComponent, deps: [], target: i0__namespace.ɵɵFactoryTarget.Component });
-    OneColumnLayoutComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: OneColumnLayoutComponent, selector: "ngx-one-column-layout", ngImport: i0__namespace, template: "\n    <nb-layout windowMode>\n      <nb-layout-header fixed>\n        <ngx-header></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" tag=\"menu-sidebar\" responsive>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column>\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n    </nb-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1__namespace$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1__namespace$1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1__namespace$1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1__namespace$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1__namespace$1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
+    OneColumnLayoutComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: OneColumnLayoutComponent, selector: "ngx-one-column-layout", ngImport: i0__namespace, template: "\n    <nb-layout windowMode>\n      <nb-layout-header fixed>\n        <ngx-header></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" tag=\"menu-sidebar\" responsive>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column>\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n    </nb-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1__namespace.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1__namespace.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1__namespace.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1__namespace.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1__namespace.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: OneColumnLayoutComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -3674,7 +4101,7 @@
         return TwoColumnsLayoutComponent;
     }());
     TwoColumnsLayoutComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: TwoColumnsLayoutComponent, deps: [], target: i0__namespace.ɵɵFactoryTarget.Component });
-    TwoColumnsLayoutComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: TwoColumnsLayoutComponent, selector: "ngx-two-columns-layout", ngImport: i0__namespace, template: "\n    <nb-layout windowMode>\n      <nb-layout-header fixed>\n        <ngx-header></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" tag=\"menu-sidebar\" responsive>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column class=\"small\">\n      </nb-layout-column>\n\n      <nb-layout-column>\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n\n    </nb-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1__namespace$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1__namespace$1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1__namespace$1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1__namespace$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1__namespace$1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
+    TwoColumnsLayoutComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: TwoColumnsLayoutComponent, selector: "ngx-two-columns-layout", ngImport: i0__namespace, template: "\n    <nb-layout windowMode>\n      <nb-layout-header fixed>\n        <ngx-header></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" tag=\"menu-sidebar\" responsive>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column class=\"small\">\n      </nb-layout-column>\n\n      <nb-layout-column>\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n\n    </nb-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1__namespace.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1__namespace.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1__namespace.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1__namespace.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1__namespace.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: TwoColumnsLayoutComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -3690,7 +4117,7 @@
         return ThreeColumnsLayoutComponent;
     }());
     ThreeColumnsLayoutComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: ThreeColumnsLayoutComponent, deps: [], target: i0__namespace.ɵɵFactoryTarget.Component });
-    ThreeColumnsLayoutComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: ThreeColumnsLayoutComponent, selector: "ngx-three-columns-layout", ngImport: i0__namespace, template: "\n    <nb-layout windowMode>\n      <nb-layout-header fixed>\n        <ngx-header></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" tag=\"menu-sidebar\" responsive>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column class=\"small\">\n      </nb-layout-column>\n\n      <nb-layout-column>\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-column class=\"small\">\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n    </nb-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1__namespace$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1__namespace$1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1__namespace$1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1__namespace$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1__namespace$1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
+    ThreeColumnsLayoutComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: ThreeColumnsLayoutComponent, selector: "ngx-three-columns-layout", ngImport: i0__namespace, template: "\n    <nb-layout windowMode>\n      <nb-layout-header fixed>\n        <ngx-header></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" tag=\"menu-sidebar\" responsive>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column class=\"small\">\n      </nb-layout-column>\n\n      <nb-layout-column>\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-column class=\"small\">\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n    </nb-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1__namespace.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1__namespace.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1__namespace.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1__namespace.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1__namespace.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: ThreeColumnsLayoutComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -3700,7 +4127,7 @@
                     }]
             }] });
 
-    var baseThemeVariables$3 = i1$1.DEFAULT_THEME.variables;
+    var baseThemeVariables$3 = i1.DEFAULT_THEME.variables;
     var DEFAULT_THEME = {
         name: 'default',
         base: 'default',
@@ -3959,7 +4386,7 @@
         },
     };
 
-    var baseThemeVariables$2 = i1$1.COSMIC_THEME.variables;
+    var baseThemeVariables$2 = i1.COSMIC_THEME.variables;
     var COSMIC_THEME = {
         name: 'cosmic',
         base: 'cosmic',
@@ -4212,7 +4639,7 @@
         },
     };
 
-    var baseThemeVariables$1 = i1$1.CORPORATE_THEME.variables;
+    var baseThemeVariables$1 = i1.CORPORATE_THEME.variables;
     var CORPORATE_THEME = {
         name: 'corporate',
         base: 'corporate',
@@ -4465,7 +4892,7 @@
         },
     };
 
-    var baseThemeVariables = i1$1.DARK_THEME.variables;
+    var baseThemeVariables = i1.DARK_THEME.variables;
     var DARK_THEME = {
         name: 'dark',
         base: 'dark',
@@ -4725,19 +5152,19 @@
     };
 
     var NB_MODULES = [
-        i1$1.NbLayoutModule,
-        i1$1.NbMenuModule,
-        i1$1.NbUserModule,
-        i1$1.NbActionsModule,
-        i1$1.NbSearchModule,
-        i1$1.NbSidebarModule,
-        i1$1.NbContextMenuModule,
-        i9$1.NbSecurityModule,
-        i1$1.NbButtonModule,
-        i1$1.NbSelectModule,
-        i1$1.NbIconModule,
+        i1.NbLayoutModule,
+        i1.NbMenuModule,
+        i1.NbUserModule,
+        i1.NbActionsModule,
+        i1.NbSearchModule,
+        i1.NbSidebarModule,
+        i1.NbContextMenuModule,
+        i9.NbSecurityModule,
+        i1.NbButtonModule,
+        i1.NbSelectModule,
+        i1.NbIconModule,
         evaIcons.NbEvaIconsModule,
-        i1$1.NbToggleModule,
+        i1.NbToggleModule,
     ];
     var COMPONENTS = [
         HeaderComponent,
@@ -4761,10 +5188,10 @@
         ThemeModule.forRoot = function () {
             return {
                 ngModule: ThemeModule,
-                providers: __spreadArray(__spreadArray([], __read(i1$1.NbThemeModule.forRoot({
+                providers: __spreadArray(__spreadArray([], __read(i1.NbThemeModule.forRoot({
                     name: 'default',
                 }, [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME]).providers)), [
-                    i1$1.NbSidebarService,
+                    i1.NbSidebarService,
                 ]),
             };
         };
@@ -4781,19 +5208,19 @@
             PluralPipe,
             RoundPipe,
             TimingPipe,
-            NumberWithCommasPipe], imports: [i8.CommonModule, i1$1.NbLayoutModule,
-            i1$1.NbMenuModule,
-            i1$1.NbUserModule,
-            i1$1.NbActionsModule,
-            i1$1.NbSearchModule,
-            i1$1.NbSidebarModule,
-            i1$1.NbContextMenuModule,
-            i9$1.NbSecurityModule,
-            i1$1.NbButtonModule,
-            i1$1.NbSelectModule,
-            i1$1.NbIconModule,
+            NumberWithCommasPipe], imports: [i8.CommonModule, i1.NbLayoutModule,
+            i1.NbMenuModule,
+            i1.NbUserModule,
+            i1.NbActionsModule,
+            i1.NbSearchModule,
+            i1.NbSidebarModule,
+            i1.NbContextMenuModule,
+            i9.NbSecurityModule,
+            i1.NbButtonModule,
+            i1.NbSelectModule,
+            i1.NbIconModule,
             evaIcons.NbEvaIconsModule,
-            i1$1.NbToggleModule], exports: [i8.CommonModule, CapitalizePipe,
+            i1.NbToggleModule], exports: [i8.CommonModule, CapitalizePipe,
             PluralPipe,
             RoundPipe,
             TimingPipe,
@@ -4828,8 +5255,8 @@
         };
         return RestMainComponentComponent;
     }());
-    RestMainComponentComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestMainComponentComponent, deps: [{ token: RestAdminConfigService }, { token: i1__namespace.ActivatedRoute }, { token: RestLangService }, { token: i1__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Component });
-    RestMainComponentComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestMainComponentComponent, selector: "ngx-rest-main-component", ngImport: i0__namespace, template: "\n    <ngx-one-column-layout>\n      <nb-menu [items]=\"menu\"></nb-menu>\n      <router-outlet></router-outlet>\n    </ngx-one-column-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}\n"], components: [{ type: OneColumnLayoutComponent, selector: "ngx-one-column-layout" }, { type: i1__namespace$1.NbMenuComponent, selector: "nb-menu", inputs: ["autoCollapse", "tag", "items"] }], directives: [{ type: i1__namespace.RouterOutlet, selector: "router-outlet", outputs: ["activate", "deactivate"], exportAs: ["outlet"] }] });
+    RestMainComponentComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestMainComponentComponent, deps: [{ token: RestAdminConfigService }, { token: i2__namespace.ActivatedRoute }, { token: RestLangService }, { token: i2__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Component });
+    RestMainComponentComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestMainComponentComponent, selector: "ngx-rest-main-component", ngImport: i0__namespace, template: "\n    <ngx-one-column-layout>\n      <nb-menu [items]=\"menu\"></nb-menu>\n      <router-outlet></router-outlet>\n    </ngx-one-column-layout>\n  ", isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}\n"], components: [{ type: OneColumnLayoutComponent, selector: "ngx-one-column-layout" }, { type: i1__namespace.NbMenuComponent, selector: "nb-menu", inputs: ["autoCollapse", "tag", "items"] }], directives: [{ type: i2__namespace.RouterOutlet, selector: "router-outlet", outputs: ["activate", "deactivate"], exportAs: ["outlet"] }] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestMainComponentComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -4837,7 +5264,7 @@
                         styleUrls: ["./rest-main-component.component.scss"],
                         template: "\n    <ngx-one-column-layout>\n      <nb-menu [items]=\"menu\"></nb-menu>\n      <router-outlet></router-outlet>\n    </ngx-one-column-layout>\n  ",
                     }]
-            }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: i1__namespace.ActivatedRoute }, { type: RestLangService }, { type: i1__namespace.Router }]; } });
+            }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: i2__namespace.ActivatedRoute }, { type: RestLangService }, { type: i2__namespace.Router }]; } });
 
     // import { LocalStorageService } from '../local-storage/local-storage.service';
     // import { AUTH_TOKEN } from '../auth/auth.models';
@@ -4857,22 +5284,22 @@
         };
         return HttpAuthInterceptor;
     }());
-    HttpAuthInterceptor.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpAuthInterceptor, deps: [{ token: i1__namespace$5.NbAuthService }, { token: i1__namespace$5.NbTokenStorage }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    HttpAuthInterceptor.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpAuthInterceptor, deps: [{ token: i1__namespace$4.NbAuthService }, { token: i1__namespace$4.NbTokenStorage }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     HttpAuthInterceptor.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpAuthInterceptor });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpAuthInterceptor, decorators: [{
                 type: i0.Injectable
-            }], ctorParameters: function () { return [{ type: i1__namespace$5.NbAuthService }, { type: i1__namespace$5.NbTokenStorage }]; } });
+            }], ctorParameters: function () { return [{ type: i1__namespace$4.NbAuthService }, { type: i1__namespace$4.NbTokenStorage }]; } });
 
     var PaginationInterceptor = /** @class */ (function () {
         function PaginationInterceptor() {
         }
         PaginationInterceptor.prototype.intercept = function (request, next) {
             return next.handle(request).pipe(operators.map(function (event) {
-                if (event instanceof i1$2.HttpResponse) {
+                if (event instanceof i1$1.HttpResponse) {
                     // console.log(event, "one");
                     if (event.body.total) {
                         // console.log(event, "two");
-                        var newHeaders = new i1$2.HttpHeaders({
+                        var newHeaders = new i1$1.HttpHeaders({
                             "X-Total-Count": String(event.body.total),
                         });
                         var newEvent = event.clone({ headers: newHeaders });
@@ -4895,22 +5322,36 @@
 
     /** Passes HttpErrorResponse to application-wide error handler */
     var HttpErrorInterceptor = /** @class */ (function () {
-        function HttpErrorInterceptor(injector, router) {
-            this.injector = injector;
+        function HttpErrorInterceptor(serviceNotification, router, restShare) {
+            this.serviceNotification = serviceNotification;
             this.router = router;
+            this.restShare = restShare;
+            this.positions = i1.NbGlobalPhysicalPosition;
         }
         HttpErrorInterceptor.prototype.intercept = function (request, next) {
             var _this = this;
             return next.handle(request).pipe(operators.tap({
                 error: function (err) {
-                    if (err instanceof i1$2.HttpErrorResponse) {
-                        // const appErrorHandler = this.injector.get(ErrorHandler);
-                        // appErrorHandler.handleError(err);
+                    if (err instanceof i1$1.HttpErrorResponse) {
                         switch (err.status) {
                             case 401:
-                                _this.router.navigateByUrl('/login');
+                                _this.router.navigate(['/login']);
+                                _this.restShare.setLoader(false);
+                                break;
+                            case 403:
+                                _this.serviceNotification.dangerToast("msg-not-authorized");
+                                _this.restShare.setLoader(false);
+                                break;
+                            case 404:
+                                _this.serviceNotification.dangerToast("msg-not-found");
+                                _this.restShare.setLoader(false);
+                                break;
+                            case 500:
+                                _this.serviceNotification.dangerToast("msg-internal-error");
+                                _this.restShare.setLoader(false);
                                 break;
                             default:
+                                _this.restShare.setLoader(false);
                                 break;
                         }
                     }
@@ -4919,11 +5360,11 @@
         };
         return HttpErrorInterceptor;
     }());
-    HttpErrorInterceptor.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpErrorInterceptor, deps: [{ token: i0__namespace.Injector }, { token: i1__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    HttpErrorInterceptor.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpErrorInterceptor, deps: [{ token: NotificationService }, { token: i2__namespace.Router }, { token: RestShareService }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     HttpErrorInterceptor.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpErrorInterceptor });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: HttpErrorInterceptor, decorators: [{
                 type: i0.Injectable
-            }], ctorParameters: function () { return [{ type: i0__namespace.Injector }, { type: i1__namespace.Router }]; } });
+            }], ctorParameters: function () { return [{ type: NotificationService }, { type: i2__namespace.Router }, { type: RestShareService }]; } });
 
     function throwIfAlreadyLoaded(parentModule, moduleName) {
         if (parentModule) {
@@ -6619,10 +7060,10 @@
             return rxjs.of('guest');
         };
         return NbSimpleRoleProvider;
-    }(i9$1.NbRoleProvider));
-    var NB_CORE_PROVIDERS = __spreadArray(__spreadArray(__spreadArray(__spreadArray([], __read(MockDataModule.forRoot().providers)), __read(DATA_SERVICES)), __read(i1$5.NbAuthModule.forRoot({
+    }(i9.NbRoleProvider));
+    var NB_CORE_PROVIDERS = __spreadArray(__spreadArray(__spreadArray(__spreadArray([], __read(MockDataModule.forRoot().providers)), __read(DATA_SERVICES)), __read(i1$4.NbAuthModule.forRoot({
         strategies: [
-            i1$5.NbDummyAuthStrategy.setup({
+            i1$4.NbDummyAuthStrategy.setup({
                 name: 'email',
                 delay: 3000,
             }),
@@ -6636,7 +7077,7 @@
             },
         },
     }).providers)), [
-        i9$1.NbSecurityModule.forRoot({
+        i9.NbSecurityModule.forRoot({
             accessControl: {
                 guest: {
                     view: '*',
@@ -6650,7 +7091,7 @@
             },
         }).providers,
         {
-            provide: i9$1.NbRoleProvider,
+            provide: i9.NbRoleProvider,
             useClass: NbSimpleRoleProvider,
         },
         AnalyticsService,
@@ -6672,13 +7113,13 @@
         return CoreModule;
     }());
     CoreModule.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: CoreModule, deps: [{ token: CoreModule, optional: true, skipSelf: true }], target: i0__namespace.ɵɵFactoryTarget.NgModule });
-    CoreModule.ɵmod = i0__namespace.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: CoreModule, imports: [i8.CommonModule], exports: [i1$5.NbAuthModule] });
-    CoreModule.ɵinj = i0__namespace.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: CoreModule, imports: [[i8.CommonModule], i1$5.NbAuthModule] });
+    CoreModule.ɵmod = i0__namespace.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: CoreModule, imports: [i8.CommonModule], exports: [i1$4.NbAuthModule] });
+    CoreModule.ɵinj = i0__namespace.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: CoreModule, imports: [[i8.CommonModule], i1$4.NbAuthModule] });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: CoreModule, decorators: [{
                 type: i0.NgModule,
                 args: [{
                         imports: [i8.CommonModule],
-                        exports: [i1$5.NbAuthModule],
+                        exports: [i1$4.NbAuthModule],
                         declarations: [],
                     }]
             }], ctorParameters: function () {
@@ -6695,9 +7136,9 @@
             return _super !== null && _super.apply(this, arguments) || this;
         }
         return LoginComponent;
-    }(i1$5.NbLoginComponent));
+    }(i1$4.NbLoginComponent));
     LoginComponent.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: LoginComponent, deps: null, target: i0__namespace.ɵɵFactoryTarget.Component });
-    LoginComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: LoginComponent, selector: "ngx-login", usesInheritance: true, ngImport: i0__namespace, template: "<h1 id=\"title\" class=\"title\">{{ \"login.main\" | translate }}</h1>\n<p class=\"sub-title\">{{ \"login.labelMessage\" | translate }}.</p>\n\n<nb-alert\n  *ngIf=\"showMessages.error && errors?.length && !submitted\"\n  outline=\"danger\"\n  role=\"alert\"\n>\n  <p class=\"alert-title\"><b>Oh snap!</b></p>\n  <ul class=\"alert-message-list\">\n    <li *ngFor=\"let error of errors\" class=\"alert-message\">{{ error }}</li>\n  </ul>\n</nb-alert>\n\n<nb-alert\n  *ngIf=\"showMessages.success && messages?.length && !submitted\"\n  outline=\"success\"\n  role=\"alert\"\n>\n  <p class=\"alert-title\"><b>Hooray!</b></p>\n  <ul class=\"alert-message-list\">\n    <li *ngFor=\"let message of messages\" class=\"alert-message\">\n      {{ message }}\n    </li>\n  </ul>\n</nb-alert>\n\n<form (ngSubmit)=\"login()\" #form=\"ngForm\" aria-labelledby=\"title\">\n  <div class=\"form-control-group\">\n    <label class=\"label\" for=\"input-email\"\n      >{{ \"login.email\" | translate }}:</label\n    >\n    <input\n      nbInput\n      fullWidth\n      [(ngModel)]=\"user.login\"\n      #email=\"ngModel\"\n      name=\"login\"\n      id=\"input-email\"\n      pattern=\".+@.+\\..+\"\n      placeholder=\"Email address\"\n      fieldSize=\"large\"\n      autofocus\n      [status]=\"email.dirty ? (email.invalid ? 'danger' : 'success') : 'basic'\"\n      [required]=\"getConfigValue('forms.validation.email.required')\"\n      [attr.aria-invalid]=\"email.invalid && email.touched ? true : null\"\n    />\n    <ng-container *ngIf=\"email.invalid && email.touched\">\n      <p class=\"caption status-danger\" *ngIf=\"email.errors?.required\">\n        Email is required!\n      </p>\n      <p class=\"caption status-danger\" *ngIf=\"email.errors?.pattern\">\n        Email should be the real one!\n      </p>\n    </ng-container>\n  </div>\n\n  <div class=\"form-control-group\">\n    <span class=\"label-with-link\">\n      <label class=\"label\" for=\"input-password\"\n        >{{ \"login.password\" | translate }}:</label\n      >\n      <a class=\"forgot-password caption-2\" routerLink=\"../request-password\"\n        >{{ \"login.forgetPassword\" | translate }}?</a\n      >\n    </span>\n    <input\n      nbInput\n      fullWidth\n      [(ngModel)]=\"user.password\"\n      #password=\"ngModel\"\n      name=\"password\"\n      type=\"password\"\n      id=\"input-password\"\n      placeholder=\"Password\"\n      fieldSize=\"large\"\n      [status]=\"\n        password.dirty ? (password.invalid ? 'danger' : 'success') : 'basic'\n      \"\n      [required]=\"getConfigValue('forms.validation.password.required')\"\n      [minlength]=\"getConfigValue('forms.validation.password.minLength')\"\n      [maxlength]=\"getConfigValue('forms.validation.password.maxLength')\"\n      [attr.aria-invalid]=\"password.invalid && password.touched ? true : null\"\n    />\n    <ng-container *ngIf=\"password.invalid && password.touched\">\n      <p class=\"caption status-danger\" *ngIf=\"password.errors?.required\">\n        Password is required!\n      </p>\n      <p\n        class=\"caption status-danger\"\n        *ngIf=\"password.errors?.minlength || password.errors?.maxlength\"\n      >\n        Password should contain from\n        {{ getConfigValue(\"forms.validation.password.minLength\") }} to\n        {{ getConfigValue(\"forms.validation.password.maxLength\") }}\n        characters\n      </p>\n    </ng-container>\n  </div>\n\n  <div class=\"form-control-group accept-group\">\n    <nb-checkbox\n      name=\"rememberMe\"\n      [(ngModel)]=\"user.rememberMe\"\n      *ngIf=\"rememberMe\"\n      >{{ \"login.rememberMe\" | translate }}</nb-checkbox\n    >\n  </div>\n\n  <button\n    nbButton\n    fullWidth\n    status=\"primary\"\n    size=\"large\"\n    [disabled]=\"submitted || !form.valid\"\n    [class.btn-pulse]=\"submitted\"\n  >\n    {{ \"login.logIn\" | translate }}\n  </button>\n</form>\n\n<!-- <section\n  *ngIf=\"socialLinks && socialLinks.length > 0\"\n  class=\"links\"\n  aria-label=\"Social sign in\"\n>\n  or enter with:\n  <div class=\"socials\">\n    <ng-container *ngFor=\"let socialLink of socialLinks\">\n      <a\n        *ngIf=\"socialLink.link\"\n        [routerLink]=\"socialLink.link\"\n        [attr.target]=\"socialLink.target\"\n        [attr.class]=\"socialLink.icon\"\n        [class.with-icon]=\"socialLink.icon\"\n      >\n        <nb-icon\n          *ngIf=\"socialLink.icon; else title\"\n          [icon]=\"socialLink.icon\"\n        ></nb-icon>\n        <ng-template #title>{{ socialLink.title }}</ng-template>\n      </a>\n      <a\n        *ngIf=\"socialLink.url\"\n        [attr.href]=\"socialLink.url\"\n        [attr.target]=\"socialLink.target\"\n        [attr.class]=\"socialLink.icon\"\n        [class.with-icon]=\"socialLink.icon\"\n      >\n        <nb-icon\n          *ngIf=\"socialLink.icon; else title\"\n          [icon]=\"socialLink.icon\"\n        ></nb-icon>\n        <ng-template #title>{{ socialLink.title }}</ng-template>\n      </a>\n    </ng-container>\n  </div>\n</section> -->\n\n<!-- <section class=\"another-action\" aria-label=\"Register\">\n  Don't have an account?\n  <a class=\"text-link\" routerLink=\"../register\">Register</a>\n</section> -->\n", styles: ["::ng-deep .navigation .link nb-icon{display:none!important}\n"], components: [{ type: i1__namespace$1.NbAlertComponent, selector: "nb-alert", inputs: ["size", "status", "accent", "outline", "closable"], outputs: ["close"] }, { type: i1__namespace$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1__namespace$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace$4.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1__namespace$4.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1__namespace$4.NgForm, selector: "form:not([ngNoForm]):not([formGroup]),ng-form,[ngForm]", inputs: ["ngFormOptions"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i1__namespace$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1__namespace$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1__namespace$4.PatternValidator, selector: "[pattern][formControlName],[pattern][formControl],[pattern][ngModel]", inputs: ["pattern"] }, { type: i1__namespace$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1__namespace$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1__namespace$4.RequiredValidator, selector: ":not([type=checkbox])[required][formControlName],:not([type=checkbox])[required][formControl],:not([type=checkbox])[required][ngModel]", inputs: ["required"] }, { type: i1__namespace.RouterLinkWithHref, selector: "a[routerLink],area[routerLink]", inputs: ["routerLink", "target", "queryParams", "fragment", "queryParamsHandling", "preserveFragment", "skipLocationChange", "replaceUrl", "state", "relativeTo"] }, { type: i1__namespace$4.MinLengthValidator, selector: "[minlength][formControlName],[minlength][formControl],[minlength][ngModel]", inputs: ["minlength"] }, { type: i1__namespace$4.MaxLengthValidator, selector: "[maxlength][formControlName],[maxlength][formControl],[maxlength][ngModel]", inputs: ["maxlength"] }], pipes: { "translate": i1__namespace$3.TranslatePipe } });
+    LoginComponent.ɵcmp = i0__namespace.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: LoginComponent, selector: "ngx-login", usesInheritance: true, ngImport: i0__namespace, template: "<h1 id=\"title\" class=\"title\">{{ \"login.main\" | translate }}</h1>\n<p class=\"sub-title\">{{ \"login.labelMessage\" | translate }}.</p>\n\n<nb-alert\n  *ngIf=\"showMessages.error && errors?.length && !submitted\"\n  outline=\"danger\"\n  role=\"alert\"\n>\n  <p class=\"alert-title\"><b>Oh snap!</b></p>\n  <ul class=\"alert-message-list\">\n    <li *ngFor=\"let error of errors\" class=\"alert-message\">{{ error }}</li>\n  </ul>\n</nb-alert>\n\n<nb-alert\n  *ngIf=\"showMessages.success && messages?.length && !submitted\"\n  outline=\"success\"\n  role=\"alert\"\n>\n  <p class=\"alert-title\"><b>Hooray!</b></p>\n  <ul class=\"alert-message-list\">\n    <li *ngFor=\"let message of messages\" class=\"alert-message\">\n      {{ message }}\n    </li>\n  </ul>\n</nb-alert>\n\n<form (ngSubmit)=\"login()\" #form=\"ngForm\" aria-labelledby=\"title\">\n  <div class=\"form-control-group\">\n    <label class=\"label\" for=\"input-email\"\n      >{{ \"login.email\" | translate }}:</label\n    >\n    <input\n      nbInput\n      fullWidth\n      [(ngModel)]=\"user.login\"\n      #email=\"ngModel\"\n      name=\"login\"\n      id=\"input-email\"\n      pattern=\".+@.+\\..+\"\n      placeholder=\"Email address\"\n      fieldSize=\"large\"\n      autofocus\n      [status]=\"email.dirty ? (email.invalid ? 'danger' : 'success') : 'basic'\"\n      [required]=\"getConfigValue('forms.validation.email.required')\"\n      [attr.aria-invalid]=\"email.invalid && email.touched ? true : null\"\n    />\n    <ng-container *ngIf=\"email.invalid && email.touched\">\n      <p class=\"caption status-danger\" *ngIf=\"email.errors?.required\">\n        Email is required!\n      </p>\n      <p class=\"caption status-danger\" *ngIf=\"email.errors?.pattern\">\n        Email should be the real one!\n      </p>\n    </ng-container>\n  </div>\n\n  <div class=\"form-control-group\">\n    <span class=\"label-with-link\">\n      <label class=\"label\" for=\"input-password\"\n        >{{ \"login.password\" | translate }}:</label\n      >\n      <a class=\"forgot-password caption-2\" routerLink=\"../request-password\"\n        >{{ \"login.forgetPassword\" | translate }}?</a\n      >\n    </span>\n    <input\n      nbInput\n      fullWidth\n      [(ngModel)]=\"user.password\"\n      #password=\"ngModel\"\n      name=\"password\"\n      type=\"password\"\n      id=\"input-password\"\n      placeholder=\"Password\"\n      fieldSize=\"large\"\n      [status]=\"\n        password.dirty ? (password.invalid ? 'danger' : 'success') : 'basic'\n      \"\n      [required]=\"getConfigValue('forms.validation.password.required')\"\n      [minlength]=\"getConfigValue('forms.validation.password.minLength')\"\n      [maxlength]=\"getConfigValue('forms.validation.password.maxLength')\"\n      [attr.aria-invalid]=\"password.invalid && password.touched ? true : null\"\n    />\n    <ng-container *ngIf=\"password.invalid && password.touched\">\n      <p class=\"caption status-danger\" *ngIf=\"password.errors?.required\">\n        Password is required!\n      </p>\n      <p\n        class=\"caption status-danger\"\n        *ngIf=\"password.errors?.minlength || password.errors?.maxlength\"\n      >\n        Password should contain from\n        {{ getConfigValue(\"forms.validation.password.minLength\") }} to\n        {{ getConfigValue(\"forms.validation.password.maxLength\") }}\n        characters\n      </p>\n    </ng-container>\n  </div>\n\n  <div class=\"form-control-group accept-group\">\n    <nb-checkbox\n      name=\"rememberMe\"\n      [(ngModel)]=\"user.rememberMe\"\n      *ngIf=\"rememberMe\"\n      >{{ \"login.rememberMe\" | translate }}</nb-checkbox\n    >\n  </div>\n\n  <button\n    nbButton\n    fullWidth\n    status=\"primary\"\n    size=\"large\"\n    [disabled]=\"submitted || !form.valid\"\n    [class.btn-pulse]=\"submitted\"\n  >\n    {{ \"login.logIn\" | translate }}\n  </button>\n</form>\n\n<!-- <section\n  *ngIf=\"socialLinks && socialLinks.length > 0\"\n  class=\"links\"\n  aria-label=\"Social sign in\"\n>\n  or enter with:\n  <div class=\"socials\">\n    <ng-container *ngFor=\"let socialLink of socialLinks\">\n      <a\n        *ngIf=\"socialLink.link\"\n        [routerLink]=\"socialLink.link\"\n        [attr.target]=\"socialLink.target\"\n        [attr.class]=\"socialLink.icon\"\n        [class.with-icon]=\"socialLink.icon\"\n      >\n        <nb-icon\n          *ngIf=\"socialLink.icon; else title\"\n          [icon]=\"socialLink.icon\"\n        ></nb-icon>\n        <ng-template #title>{{ socialLink.title }}</ng-template>\n      </a>\n      <a\n        *ngIf=\"socialLink.url\"\n        [attr.href]=\"socialLink.url\"\n        [attr.target]=\"socialLink.target\"\n        [attr.class]=\"socialLink.icon\"\n        [class.with-icon]=\"socialLink.icon\"\n      >\n        <nb-icon\n          *ngIf=\"socialLink.icon; else title\"\n          [icon]=\"socialLink.icon\"\n        ></nb-icon>\n        <ng-template #title>{{ socialLink.title }}</ng-template>\n      </a>\n    </ng-container>\n  </div>\n</section> -->\n\n<!-- <section class=\"another-action\" aria-label=\"Register\">\n  Don't have an account?\n  <a class=\"text-link\" routerLink=\"../register\">Register</a>\n</section> -->\n", styles: ["::ng-deep .navigation .link nb-icon{display:none!important}\n"], components: [{ type: i1__namespace.NbAlertComponent, selector: "nb-alert", inputs: ["size", "status", "accent", "outline", "closable"], outputs: ["close"] }, { type: i1__namespace.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1__namespace.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i8__namespace.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i8__namespace.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1__namespace$3.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1__namespace$3.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1__namespace$3.NgForm, selector: "form:not([ngNoForm]):not([formGroup]),ng-form,[ngForm]", inputs: ["ngFormOptions"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i1__namespace.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1__namespace$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1__namespace$3.PatternValidator, selector: "[pattern][formControlName],[pattern][formControl],[pattern][ngModel]", inputs: ["pattern"] }, { type: i1__namespace$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1__namespace$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1__namespace$3.RequiredValidator, selector: ":not([type=checkbox])[required][formControlName],:not([type=checkbox])[required][formControl],:not([type=checkbox])[required][ngModel]", inputs: ["required"] }, { type: i2__namespace.RouterLinkWithHref, selector: "a[routerLink],area[routerLink]", inputs: ["routerLink", "target", "queryParams", "fragment", "queryParamsHandling", "preserveFragment", "skipLocationChange", "replaceUrl", "state", "relativeTo"] }, { type: i1__namespace$3.MinLengthValidator, selector: "[minlength][formControlName],[minlength][formControl],[minlength][ngModel]", inputs: ["minlength"] }, { type: i1__namespace$3.MaxLengthValidator, selector: "[maxlength][formControlName],[maxlength][formControl],[maxlength][ngModel]", inputs: ["maxlength"] }], pipes: { "translate": i1__namespace$2.TranslatePipe } });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: LoginComponent, decorators: [{
                 type: i0.Component,
                 args: [{
@@ -6723,11 +7164,11 @@
         };
         return isAuthGuard;
     }());
-    isAuthGuard.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: isAuthGuard, deps: [{ token: RestAdminConfigService }, { token: i1__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
+    isAuthGuard.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: isAuthGuard, deps: [{ token: RestAdminConfigService }, { token: i2__namespace.Router }], target: i0__namespace.ɵɵFactoryTarget.Injectable });
     isAuthGuard.ɵprov = i0__namespace.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: isAuthGuard });
     i0__namespace.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: isAuthGuard, decorators: [{
                 type: i0.Injectable
-            }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: i1__namespace.Router }]; } });
+            }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: i2__namespace.Router }]; } });
 
     // serviceRestConfig.restPathFileTranslate
     function createTranslateHttpLoader(http) {
@@ -6765,10 +7206,10 @@
             this.restLangService.setInitialAppLanguage();
             var tempModule = i0.NgModule({
                 imports: [
-                    i1.RouterModule.forChild([
+                    i2.RouterModule.forChild([
                         {
                             path: 'login',
-                            component: i1$5.NbAuthComponent,
+                            component: i1$4.NbAuthComponent,
                             canActivate: [isAuthGuard],
                             children: [
                                 {
@@ -6786,9 +7227,9 @@
                         { path: '', redirectTo: '/login', pathMatch: 'full' },
                         { path: '**', redirectTo: '/' },
                     ]),
-                    i1$5.NbAuthModule.forRoot({
+                    i1$4.NbAuthModule.forRoot({
                         strategies: [
-                            i1$5.NbPasswordAuthStrategy.setup({
+                            i1$4.NbPasswordAuthStrategy.setup({
                                 name: this.serviceRestAdmin.restAuthParams.strategy,
                                 baseEndpoint: this.serviceRestAdmin.restAuthParams.baseEndpoint,
                                 login: {
@@ -6801,7 +7242,7 @@
                                     },
                                 },
                                 token: {
-                                    class: i1$5.NbAuthSimpleToken,
+                                    class: i1$4.NbAuthSimpleToken,
                                     key: this.serviceRestAdmin.restAuthParams
                                         .tokenLocationInResponse,
                                 },
@@ -6845,7 +7286,7 @@
         };
         return RestAdminModule;
     }());
-    RestAdminModule.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestAdminModule, deps: [{ token: i1__namespace.Router }, { token: i0__namespace.Compiler }, { token: RestAdminConfigService }, { token: i1__namespace$1.NbIconLibraries }, { token: RestLangService }], target: i0__namespace.ɵɵFactoryTarget.NgModule });
+    RestAdminModule.ɵfac = i0__namespace.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestAdminModule, deps: [{ token: i2__namespace.Router }, { token: i0__namespace.Compiler }, { token: RestAdminConfigService }, { token: i1__namespace.NbIconLibraries }, { token: RestLangService }], target: i0__namespace.ɵɵFactoryTarget.NgModule });
     RestAdminModule.ɵmod = i0__namespace.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestAdminModule, declarations: [RestResourceListComponent,
             RestResourceAddComponent,
             RestResourceDeleteComponent,
@@ -6856,35 +7297,37 @@
             UploadFileComponent,
             FsIconCComponent,
             LoginComponent], imports: [i8.CommonModule,
-            i1.RouterModule,
-            i1$4.ReactiveFormsModule,
-            i1$4.FormsModule,
-            i1$2.HttpClientModule,
-            i1$1.NbActionsModule,
-            i1$1.NbButtonModule,
-            i1$1.NbCardModule,
-            i1$1.NbCheckboxModule,
-            i1$1.NbInputModule,
-            i1$1.NbTagModule,
-            i1$1.NbRadioModule,
-            i1$1.NbUserModule,
-            i1$1.NbTreeGridModule,
-            i1$1.NbAlertModule,
-            i1$1.NbAutocompleteModule,
-            i9.Ng2SmartTableModule,
-            i2.FileUploadModule,
+            platformBrowser.BrowserModule,
+            animations.BrowserAnimationsModule,
+            i2.RouterModule,
+            i1$3.ReactiveFormsModule,
+            i1$3.FormsModule,
+            i1$1.HttpClientModule,
+            i1.NbActionsModule,
+            i1.NbButtonModule,
+            i1.NbCardModule,
+            i1.NbCheckboxModule,
+            i1.NbInputModule,
+            i1.NbTagModule,
+            i1.NbRadioModule,
+            i1.NbUserModule,
+            i1.NbTreeGridModule,
+            i1.NbAlertModule,
+            i1.NbAutocompleteModule,
+            i10.Ng2SmartTableModule,
+            i2$1.FileUploadModule,
             i3.CngHtmlCompilerModule,
-            i1$1.NbSpinnerModule,
-            i1$1.NbTabsetModule,
-            i1$1.NbPopoverModule,
+            i1.NbSpinnerModule,
+            i1.NbTabsetModule,
+            i1.NbPopoverModule,
             i5.ImageCropperModule,
-            i1$1.NbToggleModule,
-            i1$1.NbListModule,
-            i1$1.NbTooltipModule,
-            i1$1.NbContextMenuModule,
-            i1$3.TranslateModule,
-            i7.NgxDropzoneModule, i5__namespace$1.NgxPermissionsModule, i1$1.NbSelectModule,
-            i1$1.NbSidebarModule, i1__namespace$1.NbMenuModule, i1__namespace$1.NbDatepickerModule, i1__namespace$1.NbDialogModule, i1__namespace$1.NbWindowModule, i1__namespace$1.NbToastrModule, i1__namespace$1.NbTimepickerModule, CoreModule, ThemeModule, i1$1.NbIconModule, i1__namespace$3.TranslateModule], exports: [RestResourceListComponent,
+            i1.NbToggleModule,
+            i1.NbListModule,
+            i1.NbTooltipModule,
+            i1.NbContextMenuModule,
+            i1$2.TranslateModule,
+            i8$1.NgxDropzoneModule, i5__namespace$1.NgxPermissionsModule, i1.NbSelectModule,
+            i1.NbSidebarModule, i1__namespace.NbMenuModule, i1__namespace.NbDatepickerModule, i1__namespace.NbDialogModule, i1__namespace.NbWindowModule, i1__namespace.NbToastrModule, i1__namespace.NbTimepickerModule, CoreModule, ThemeModule, i1.NbIconModule, i1__namespace$2.TranslateModule], exports: [RestResourceListComponent,
             RestResourceAddComponent,
             RestResourceDeleteComponent,
             RestMainComponentComponent,
@@ -6894,10 +7337,10 @@
             UploadFileComponent,
             LoginComponent] });
     RestAdminModule.ɵinj = i0__namespace.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0__namespace, type: RestAdminModule, providers: [
-            { provide: i1$2.HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
-            { provide: i1$2.HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+            { provide: i1$1.HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
+            { provide: i1$1.HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
             {
-                provide: i1$2.HTTP_INTERCEPTORS,
+                provide: i1$1.HTTP_INTERCEPTORS,
                 useClass: PaginationInterceptor,
                 multi: true,
             },
@@ -6907,53 +7350,57 @@
             RestAdminConfigService,
             RestExportService,
             RestLangService,
+            NotificationService,
+            RestShareService,
         ], imports: [[
                 i8.CommonModule,
-                i1.RouterModule,
-                i1$4.ReactiveFormsModule,
-                i1$4.FormsModule,
-                i1$2.HttpClientModule,
-                i1$1.NbActionsModule,
-                i1$1.NbButtonModule,
-                i1$1.NbCardModule,
-                i1$1.NbCheckboxModule,
-                i1$1.NbInputModule,
-                i1$1.NbTagModule,
-                i1$1.NbRadioModule,
-                i1$1.NbUserModule,
-                i1$1.NbTreeGridModule,
-                i1$1.NbAlertModule,
-                i1$1.NbAutocompleteModule,
-                i9.Ng2SmartTableModule,
-                i2.FileUploadModule,
+                platformBrowser.BrowserModule,
+                animations.BrowserAnimationsModule,
+                i2.RouterModule,
+                i1$3.ReactiveFormsModule,
+                i1$3.FormsModule,
+                i1$1.HttpClientModule,
+                i1.NbActionsModule,
+                i1.NbButtonModule,
+                i1.NbCardModule,
+                i1.NbCheckboxModule,
+                i1.NbInputModule,
+                i1.NbTagModule,
+                i1.NbRadioModule,
+                i1.NbUserModule,
+                i1.NbTreeGridModule,
+                i1.NbAlertModule,
+                i1.NbAutocompleteModule,
+                i10.Ng2SmartTableModule,
+                i2$1.FileUploadModule,
                 i3.CngHtmlCompilerModule,
-                i1$1.NbSpinnerModule,
-                i1$1.NbTabsetModule,
-                i1$1.NbPopoverModule,
+                i1.NbSpinnerModule,
+                i1.NbTabsetModule,
+                i1.NbPopoverModule,
                 i5.ImageCropperModule,
-                i1$1.NbToggleModule,
-                i1$1.NbListModule,
-                i1$1.NbTooltipModule,
-                i1$1.NbContextMenuModule,
-                i1$3.TranslateModule,
-                i7.NgxDropzoneModule,
+                i1.NbToggleModule,
+                i1.NbListModule,
+                i1.NbTooltipModule,
+                i1.NbContextMenuModule,
+                i1$2.TranslateModule,
+                i8$1.NgxDropzoneModule,
                 i5$1.NgxPermissionsModule.forChild(),
-                i1$1.NbSelectModule,
-                i1$1.NbSidebarModule,
-                i1$1.NbMenuModule.forRoot(),
-                i1$1.NbDatepickerModule.forRoot(),
-                i1$1.NbDialogModule.forRoot(),
-                i1$1.NbWindowModule.forRoot(),
-                i1$1.NbToastrModule.forRoot(),
-                i1$1.NbTimepickerModule.forRoot(),
+                i1.NbSelectModule,
+                i1.NbSidebarModule,
+                i1.NbMenuModule.forRoot(),
+                i1.NbDatepickerModule.forRoot(),
+                i1.NbDialogModule.forRoot(),
+                i1.NbWindowModule.forRoot(),
+                i1.NbToastrModule.forRoot(),
+                i1.NbTimepickerModule.forRoot(),
                 CoreModule.forRoot(),
                 ThemeModule.forRoot(),
-                i1$1.NbIconModule,
-                i1$3.TranslateModule.forRoot({
+                i1.NbIconModule,
+                i1$2.TranslateModule.forRoot({
                     loader: {
-                        provide: i1$3.TranslateLoader,
+                        provide: i1$2.TranslateLoader,
                         useFactory: createTranslateHttpLoader,
-                        deps: [i1$2.HttpClient],
+                        deps: [i1$1.HttpClient],
                     },
                 }),
             ]] });
@@ -6997,59 +7444,61 @@
                         ],
                         imports: [
                             i8.CommonModule,
-                            i1.RouterModule,
-                            i1$4.ReactiveFormsModule,
-                            i1$4.FormsModule,
-                            i1$2.HttpClientModule,
-                            i1$1.NbActionsModule,
-                            i1$1.NbButtonModule,
-                            i1$1.NbCardModule,
-                            i1$1.NbCheckboxModule,
-                            i1$1.NbInputModule,
-                            i1$1.NbTagModule,
-                            i1$1.NbRadioModule,
-                            i1$1.NbUserModule,
-                            i1$1.NbTreeGridModule,
-                            i1$1.NbAlertModule,
-                            i1$1.NbAutocompleteModule,
-                            i9.Ng2SmartTableModule,
-                            i2.FileUploadModule,
+                            platformBrowser.BrowserModule,
+                            animations.BrowserAnimationsModule,
+                            i2.RouterModule,
+                            i1$3.ReactiveFormsModule,
+                            i1$3.FormsModule,
+                            i1$1.HttpClientModule,
+                            i1.NbActionsModule,
+                            i1.NbButtonModule,
+                            i1.NbCardModule,
+                            i1.NbCheckboxModule,
+                            i1.NbInputModule,
+                            i1.NbTagModule,
+                            i1.NbRadioModule,
+                            i1.NbUserModule,
+                            i1.NbTreeGridModule,
+                            i1.NbAlertModule,
+                            i1.NbAutocompleteModule,
+                            i10.Ng2SmartTableModule,
+                            i2$1.FileUploadModule,
                             i3.CngHtmlCompilerModule,
-                            i1$1.NbSpinnerModule,
-                            i1$1.NbTabsetModule,
-                            i1$1.NbPopoverModule,
+                            i1.NbSpinnerModule,
+                            i1.NbTabsetModule,
+                            i1.NbPopoverModule,
                             i5.ImageCropperModule,
-                            i1$1.NbToggleModule,
-                            i1$1.NbListModule,
-                            i1$1.NbTooltipModule,
-                            i1$1.NbContextMenuModule,
-                            i1$3.TranslateModule,
-                            i7.NgxDropzoneModule,
+                            i1.NbToggleModule,
+                            i1.NbListModule,
+                            i1.NbTooltipModule,
+                            i1.NbContextMenuModule,
+                            i1$2.TranslateModule,
+                            i8$1.NgxDropzoneModule,
                             i5$1.NgxPermissionsModule.forChild(),
-                            i1$1.NbSelectModule,
-                            i1$1.NbSidebarModule,
-                            i1$1.NbMenuModule.forRoot(),
-                            i1$1.NbDatepickerModule.forRoot(),
-                            i1$1.NbDialogModule.forRoot(),
-                            i1$1.NbWindowModule.forRoot(),
-                            i1$1.NbToastrModule.forRoot(),
-                            i1$1.NbTimepickerModule.forRoot(),
+                            i1.NbSelectModule,
+                            i1.NbSidebarModule,
+                            i1.NbMenuModule.forRoot(),
+                            i1.NbDatepickerModule.forRoot(),
+                            i1.NbDialogModule.forRoot(),
+                            i1.NbWindowModule.forRoot(),
+                            i1.NbToastrModule.forRoot(),
+                            i1.NbTimepickerModule.forRoot(),
                             CoreModule.forRoot(),
                             ThemeModule.forRoot(),
-                            i1$1.NbIconModule,
-                            i1$3.TranslateModule.forRoot({
+                            i1.NbIconModule,
+                            i1$2.TranslateModule.forRoot({
                                 loader: {
-                                    provide: i1$3.TranslateLoader,
+                                    provide: i1$2.TranslateLoader,
                                     useFactory: createTranslateHttpLoader,
-                                    deps: [i1$2.HttpClient],
+                                    deps: [i1$1.HttpClient],
                                 },
                             }),
                         ],
                         providers: [
-                            { provide: i1$2.HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
-                            { provide: i1$2.HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+                            { provide: i1$1.HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
+                            { provide: i1$1.HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
                             {
-                                provide: i1$2.HTTP_INTERCEPTORS,
+                                provide: i1$1.HTTP_INTERCEPTORS,
                                 useClass: PaginationInterceptor,
                                 multi: true,
                             },
@@ -7059,9 +7508,11 @@
                             RestAdminConfigService,
                             RestExportService,
                             RestLangService,
+                            NotificationService,
+                            RestShareService,
                         ],
                     }]
-            }], ctorParameters: function () { return [{ type: i1__namespace.Router }, { type: i0__namespace.Compiler }, { type: RestAdminConfigService }, { type: i1__namespace$1.NbIconLibraries }, { type: RestLangService }]; } });
+            }], ctorParameters: function () { return [{ type: i2__namespace.Router }, { type: i0__namespace.Compiler }, { type: RestAdminConfigService }, { type: i1__namespace.NbIconLibraries }, { type: RestLangService }]; } });
 
     var RestResource = /** @class */ (function () {
         function RestResource(mainConfig, fields, listConfig, addConfig, editConfig, detailConfig) {
@@ -7092,7 +7543,7 @@
         });
         Object.defineProperty(RestResource.prototype, "api", {
             get: function () {
-                return this._api == null ? this.name.toLowerCase() + "s" : this._api;
+                return this._api == null ? this.name.toLowerCase() + 's' : this._api;
             },
             set: function (v) {
                 this._api = v;
@@ -7123,8 +7574,8 @@
         Object.defineProperty(RestResource.prototype, "icon", {
             get: function () {
                 if (this._icon == null)
-                    return "browser-outline";
-                else if (typeof this._icon == "string")
+                    return 'browser-outline';
+                else if (typeof this._icon == 'string')
                     return this._icon;
                 else
                     return { icon: this._icon.icon, pack: this._icon.pack };
@@ -7154,7 +7605,11 @@
         });
         Object.defineProperty(RestResource.prototype, "hasFile", {
             get: function () {
-                return this.fields.findIndex(function (field) { return ([exports.REST_FIELD_TYPES.IMAGE, exports.REST_FIELD_TYPES.PDF, exports.REST_FIELD_TYPES.FILE].includes(field.type)); }) >= 0;
+                return (this.fields.findIndex(function (field) { return [
+                    exports.REST_FIELD_TYPES.IMAGE,
+                    exports.REST_FIELD_TYPES.PDF,
+                    exports.REST_FIELD_TYPES.FILE,
+                ].includes(field.type); }) >= 0);
             },
             enumerable: false,
             configurable: true
@@ -7215,23 +7670,23 @@
                     : this.queryParams;
                 rest.description = this._listConfig.description
                     ? this._listConfig.description
-                    : "list of " + this.name;
+                    : 'list of ' + this.name;
                 rest.perPage = this._listConfig.perPage ? this._listConfig.perPage : 25;
                 rest.title = this._listConfig.title
                     ? this._listConfig.title
-                    : "List of " + this.name;
+                    : 'List of ' + this.name;
                 rest.searchFilter = this._listConfig.searchFilter
                     ? this._listConfig.searchFilter
                     : null;
                 if (rest.group) {
                     rest.group = this._listConfig.group;
                     rest.group.priority = rest.group.priority ? rest.group.priority : 0;
-                    rest.group.icon = rest.group.icon ? rest.group.icon : "folder-outline";
+                    rest.group.icon = rest.group.icon ? rest.group.icon : 'folder-outline';
                 }
                 else
                     rest.group = {
                         priority: 0,
-                        name: "default",
+                        name: 'default',
                         type: exports.TYPE_GROUP.DEFAULT,
                     };
                 return rest;
@@ -7248,7 +7703,7 @@
                 rest.api = this._addConfig.api ? this._addConfig.api : this.api;
                 rest.title = this._addConfig.title
                     ? this._addConfig.title
-                    : "Add " + this.name;
+                    : 'Add ' + this.name;
                 rest.method = this._addConfig.method
                     ? this._addConfig.method
                     : exports.TYPE_METHOD_REQUEST.POST;
@@ -7270,15 +7725,11 @@
                 rest.method = this._editConfig.method
                     ? this._editConfig.method
                     : exports.TYPE_METHOD_REQUEST.POST;
-                rest.body = this._editConfig.body
-                    ? this._editConfig.body
-                    : {};
-                rest.header = this._editConfig.header
-                    ? this._editConfig.header
-                    : {};
+                rest.body = this._editConfig.body ? this._editConfig.body : {};
+                rest.header = this._editConfig.header ? this._editConfig.header : {};
                 rest.title = this._editConfig.title
                     ? this._editConfig.title
-                    : "Edit " + this.name;
+                    : 'Edit ' + this.name;
                 rest.queryParams = this._editConfig.queryParams
                     ? this._editConfig.queryParams
                     : this.queryParams;
@@ -7294,13 +7745,16 @@
             get: function () {
                 var rest = {};
                 rest.api = this._detailConfig.api ? this._detailConfig.api : this.api;
-                rest.title = this._detailConfig.title ? this._detailConfig.title : "";
+                rest.title = this._detailConfig.title ? this._detailConfig.title : '';
                 rest.tabsConfig = this._detailConfig.tabsConfig
                     ? this._detailConfig.tabsConfig
                     : null;
                 rest.queryParams = this._detailConfig.queryParams
                     ? this._detailConfig.queryParams
                     : this.queryParams;
+                rest.preparedStatementQuery = this._detailConfig.preparedStatementQuery
+                    ? this._detailConfig.preparedStatementQuery
+                    : null;
                 return rest;
             },
             set: function (v) {
@@ -7312,7 +7766,7 @@
         Object.defineProperty(RestResource.prototype, "description", {
             get: function () {
                 return this._description == null
-                    ? "manage " + this.name
+                    ? 'manage ' + this.name
                     : this._description;
             },
             set: function (v) {

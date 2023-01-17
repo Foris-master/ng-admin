@@ -10,6 +10,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestExportService } from '../service/rest-export.service';
+import { NotificationService } from '../service/notification.service';
 import * as i0 from "@angular/core";
 export declare class RestResourceAddComponent implements OnInit {
     private fb;
@@ -20,8 +21,10 @@ export declare class RestResourceAddComponent implements OnInit {
     private exportService;
     private dialogService;
     private router;
+    private notificationService;
     resource: RestResource;
     ressourceName: string;
+    message: string;
     form: FormGroup;
     formState: any;
     entity: any;
@@ -49,7 +52,7 @@ export declare class RestResourceAddComponent implements OnInit {
     source: LocalDataSource;
     settings: any;
     morphFields: {};
-    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router);
+    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService);
     ngOnInit(): void;
     initForm(datas: any): void;
     trackByFn(index: any): any;

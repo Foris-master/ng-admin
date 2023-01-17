@@ -5,6 +5,19 @@ nb-card-body {
 .input-space {
   margin-top: 1rem;
 }
+.color-row {
+  justify-content: space-between;
+}
+.color-card {
+  width: 80px;
+  height: 30px;
+  border-radius: 2px;
+  border-width: 2px;
+  border-color: #909293;
+  margin-left: 5px;
+  justify-content: center;
+  align-items: center;
+}
 // .full-name-inputs,
 // .validation-checkboxes {
 //   display: flex;

@@ -10,7 +10,7 @@ import {
   DetailConfig,
   TYPE_GROUP,
   TYPE_METHOD_REQUEST,
-} from "./rest-resource.model";
+} from './rest-resource.model';
 
 export class RestResource {
   private _api: string;
@@ -29,7 +29,7 @@ export class RestResource {
   private _detailConfig: DetailConfig;
 
   private _queryParams: any;
-  
+
   constructor(
     mainConfig: MainConfig,
     fields: RestField[],
@@ -59,7 +59,7 @@ export class RestResource {
   }
 
   get api(): string {
-    return this._api == null ? this.name.toLowerCase() + "s" : this._api;
+    return this._api == null ? this.name.toLowerCase() + 's' : this._api;
   }
 
   get authRequired(): boolean {
@@ -71,8 +71,8 @@ export class RestResource {
   }
 
   get icon(): string | CustomIcon {
-    if (this._icon == null) return "browser-outline";
-    else if (typeof this._icon == "string") return this._icon;
+    if (this._icon == null) return 'browser-outline';
+    else if (typeof this._icon == 'string') return this._icon;
     else return { icon: this._icon.icon, pack: this._icon.pack };
   }
 
@@ -88,9 +88,15 @@ export class RestResource {
   }
 
   get hasFile(): boolean {
-    return this.fields.findIndex((field) => (
-      [REST_FIELD_TYPES.IMAGE, REST_FIELD_TYPES.PDF, REST_FIELD_TYPES.FILE].includes(field.type)
-    )) >=0;
+    return (
+      this.fields.findIndex((field) =>
+        [
+          REST_FIELD_TYPES.IMAGE,
+          REST_FIELD_TYPES.PDF,
+          REST_FIELD_TYPES.FILE,
+        ].includes(field.type)
+      ) >= 0
+    );
   }
 
   get permissions(): string[] {
@@ -147,22 +153,22 @@ export class RestResource {
       : this.queryParams;
     rest.description = this._listConfig.description
       ? this._listConfig.description
-      : "list of " + this.name;
+      : 'list of ' + this.name;
     rest.perPage = this._listConfig.perPage ? this._listConfig.perPage : 25;
     rest.title = this._listConfig.title
       ? this._listConfig.title
-      : "List of " + this.name;
+      : 'List of ' + this.name;
     rest.searchFilter = this._listConfig.searchFilter
       ? this._listConfig.searchFilter
       : null;
     if (rest.group) {
       rest.group = this._listConfig.group;
       rest.group.priority = rest.group.priority ? rest.group.priority : 0;
-      rest.group.icon = rest.group.icon ? rest.group.icon : "folder-outline";
+      rest.group.icon = rest.group.icon ? rest.group.icon : 'folder-outline';
     } else
       rest.group = {
         priority: 0,
-        name: "default",
+        name: 'default',
         type: TYPE_GROUP.DEFAULT,
       };
 
@@ -175,7 +181,7 @@ export class RestResource {
     rest.api = this._addConfig.api ? this._addConfig.api : this.api;
     rest.title = this._addConfig.title
       ? this._addConfig.title
-      : "Add " + this.name;
+      : 'Add ' + this.name;
 
     rest.method = this._addConfig.method
       ? this._addConfig.method
@@ -193,21 +199,17 @@ export class RestResource {
       ? this._editConfig.isLaravel
       : false;
     this._hasFile = this.hasFile;
-    
+
     rest.method = this._editConfig.method
       ? this._editConfig.method
       : TYPE_METHOD_REQUEST.POST;
 
-    rest.body = this._editConfig.body
-      ? this._editConfig.body
-      : {};
-    rest.header = this._editConfig.header
-      ? this._editConfig.header
-      : {};
+    rest.body = this._editConfig.body ? this._editConfig.body : {};
+    rest.header = this._editConfig.header ? this._editConfig.header : {};
 
     rest.title = this._editConfig.title
       ? this._editConfig.title
-      : "Edit " + this.name;
+      : 'Edit ' + this.name;
     rest.queryParams = this._editConfig.queryParams
       ? this._editConfig.queryParams
       : this.queryParams;
@@ -217,19 +219,23 @@ export class RestResource {
   get detailConfig(): DetailConfig {
     const rest: DetailConfig = {};
     rest.api = this._detailConfig.api ? this._detailConfig.api : this.api;
-    rest.title = this._detailConfig.title ? this._detailConfig.title : "";
+    rest.title = this._detailConfig.title ? this._detailConfig.title : '';
     rest.tabsConfig = this._detailConfig.tabsConfig
       ? this._detailConfig.tabsConfig
       : null;
     rest.queryParams = this._detailConfig.queryParams
       ? this._detailConfig.queryParams
       : this.queryParams;
+
+    rest.preparedStatementQuery = this._detailConfig.preparedStatementQuery
+      ? this._detailConfig.preparedStatementQuery
+      : null;
     return rest;
   }
 
   get description(): string {
     return this._description == null
-      ? "manage " + this.name
+      ? 'manage ' + this.name
       : this._description;
   }
 
