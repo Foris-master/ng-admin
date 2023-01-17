@@ -1936,20 +1936,22 @@
                 Object.keys(formData).forEach(function (key, index) {
                     var _a;
                     var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
-                    if (search && formData[key] !== null && formData[key] !== undefined) {
+                    if (search && formData[key] !== undefined) {
                         switch (search.type) {
                             case exports.REST_FIELD_TYPES.DATE:
                                 datas.append(key, "" + moment__namespace(formData[key]).format('YYYY-MM-DD'));
                                 break;
                             case exports.REST_FIELD_TYPES.JSON:
                                 var jsonFields_1 = {};
-                                if (typeof _this.jsonEditorOptions[key] == 'object') {
-                                    _this.jsonEditorOptions[key].map(function (elt) {
-                                        var _c;
-                                        jsonFields_1 = Object.assign(Object.assign({}, jsonFields_1), (_c = {}, _c[elt.label] = elt.value, _c));
-                                    });
+                                if (_this.jsonEditorOptions[key] !== null) {
+                                    if (typeof _this.jsonEditorOptions[key] == 'object') {
+                                        _this.jsonEditorOptions[key].map(function (elt) {
+                                            var _c;
+                                            jsonFields_1 = Object.assign(Object.assign({}, jsonFields_1), (_c = {}, _c[elt.label] = elt.value, _c));
+                                        });
+                                    }
+                                    datas.append(key, JSON.stringify(jsonFields_1));
                                 }
-                                datas.append(key, JSON.stringify(jsonFields_1));
                                 break;
                             case exports.REST_FIELD_TYPES.BOOLEAN:
                                 if ((_a = search.metaData) === null || _a === void 0 ? void 0 : _a.number) {
@@ -1963,8 +1965,14 @@
                                     datas.append(key, formData[key]);
                                 }
                                 break;
+                            case exports.REST_FIELD_TYPES.IMAGE:
+                                if (formData[key] !== null)
+                                    datas.append(key, formData[key]);
+                                break;
                             default:
-                                datas.append(key, formData[key]);
+                                // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
+                                if (formData[key] !== '')
+                                    datas.append(key, formData[key]);
                                 break;
                         }
                     }
@@ -1974,8 +1982,17 @@
                 });
             }
             else {
-                datas = this.form.value;
-                datas = Object.assign(Object.assign({}, datas), _body);
+                var tab_1 = {};
+                Object.keys(formData).forEach(function (key, index) {
+                    var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
+                    if (search &&
+                        _this.jsonEditorOptions[key] !== null &&
+                        formData[key] !== undefined &&
+                        formData[key] !== "") {
+                        tab_1[key] = formData[key];
+                    }
+                });
+                datas = Object.assign(Object.assign({}, tab_1), _body);
             }
             var saveBelongTomany = [];
             this.resource.fields.forEach(function (elt) {
@@ -2041,23 +2058,25 @@
             var _body = this.resource.editConfig.body;
             if (this.resource.hasFile) {
                 datas = new FormData();
-                Object.keys(formData).forEach(function (key) {
+                Object.keys(formData).forEach(function (key, index) {
                     var _a;
                     var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
-                    if (search && formData[key] !== null && formData[key] !== undefined) {
+                    if (search && formData[key] !== undefined) {
                         switch (search.type) {
                             case exports.REST_FIELD_TYPES.DATE:
                                 datas.append(key, "" + moment__namespace(formData[key]).format('YYYY-MM-DD'));
                                 break;
                             case exports.REST_FIELD_TYPES.JSON:
                                 var jsonFields_2 = {};
-                                if (typeof _this.jsonEditorOptions[key] == 'object') {
-                                    _this.jsonEditorOptions[key].map(function (elt) {
-                                        var _c;
-                                        jsonFields_2 = Object.assign(Object.assign({}, jsonFields_2), (_c = {}, _c[elt.label] = elt.value, _c));
-                                    });
+                                if (_this.jsonEditorOptions[key] !== null) {
+                                    if (typeof _this.jsonEditorOptions[key] == 'object') {
+                                        _this.jsonEditorOptions[key].map(function (elt) {
+                                            var _c;
+                                            jsonFields_2 = Object.assign(Object.assign({}, jsonFields_2), (_c = {}, _c[elt.label] = elt.value, _c));
+                                        });
+                                    }
+                                    datas.append(key, JSON.stringify(jsonFields_2));
                                 }
-                                datas.append(key, JSON.stringify(jsonFields_2));
                                 break;
                             case exports.REST_FIELD_TYPES.BOOLEAN:
                                 if ((_a = search.metaData) === null || _a === void 0 ? void 0 : _a.number) {
@@ -2072,22 +2091,33 @@
                                 }
                                 break;
                             case exports.REST_FIELD_TYPES.IMAGE:
-                                if (_this.filesUpload[key].length > 0)
+                                if (formData[key] !== null)
                                     datas.append(key, formData[key]);
                                 break;
                             default:
-                                datas.append(key, formData[key]);
+                                // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
+                                if (formData[key] !== '')
+                                    datas.append(key, formData[key]);
                                 break;
                         }
                     }
                 });
-                Object.keys(_body).map(function (key, index) {
+                Object.keys(_body).map(function (key) {
                     datas.append(key, _body[key]);
                 });
             }
             else {
-                datas = this.form.value;
-                datas = Object.assign(Object.assign({}, datas), _body);
+                var tab_2 = {};
+                Object.keys(formData).forEach(function (key, index) {
+                    var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
+                    if (search &&
+                        _this.jsonEditorOptions[key] !== null &&
+                        formData[key] !== undefined &&
+                        formData[key] !== "") {
+                        tab_2[key] = formData[key];
+                    }
+                });
+                datas = Object.assign(Object.assign({}, tab_2), _body);
             }
             var saveBelongTomany = [];
             this.resource.fields.forEach(function (elt) {

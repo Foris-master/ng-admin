@@ -256,11 +256,11 @@ export class RestResourceAddComponent implements OnInit {
                 ...cumul,
                 [elt.name]: [datas[elt.name], Validator.url],
               };
-              case REST_FIELD_TYPES.COLOR:
-                return {
-                  ...cumul,
-                  [elt.name]: datas[elt.name],
-                };
+            case REST_FIELD_TYPES.COLOR:
+              return {
+                ...cumul,
+                [elt.name]: datas[elt.name],
+              };
             case REST_FIELD_TYPES.JSON:
               const jsonFiels = [];
               elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
@@ -624,7 +624,8 @@ export class RestResourceAddComponent implements OnInit {
         const search: RestField = this.resource.fields.find(
           (elt) => elt.name == key
         );
-        if (search && formData[key] !== null && formData[key] !== undefined) {
+
+        if (search && formData[key] !== undefined) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
               datas.append(
@@ -634,12 +635,14 @@ export class RestResourceAddComponent implements OnInit {
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
-              if (typeof this.jsonEditorOptions[key] == 'object') {
-                this.jsonEditorOptions[key].map((elt) => {
-                  jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                });
-              }
-              datas.append(key, JSON.stringify(jsonFields));
+              if (this.jsonEditorOptions[key] !== null) {
+                  if (typeof this.jsonEditorOptions[key] == 'object') {
+                    this.jsonEditorOptions[key].map((elt) => {
+                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                    });
+                  }
+                  datas.append(key, JSON.stringify(jsonFields));
+                }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
@@ -650,8 +653,12 @@ export class RestResourceAddComponent implements OnInit {
                 datas.append(key, formData[key]);
               }
               break;
+            case REST_FIELD_TYPES.IMAGE:
+              if (formData[key] !== null) datas.append(key, formData[key]);
+              break;
             default:
-              datas.append(key, formData[key]);
+              // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
+              if (formData[key] !== '') datas.append(key, formData[key]);
               break;
           }
         }
@@ -660,8 +667,21 @@ export class RestResourceAddComponent implements OnInit {
         datas.append(key, _body[key]);
       });
     } else {
-      datas = this.form.value;
-      datas = { ...datas, ..._body };
+      const tab = {};
+      Object.keys(formData).forEach((key, index) => {
+        const search: RestField = this.resource.fields.find(
+          (elt) => elt.name == key
+        );
+        if (
+          search &&
+          this.jsonEditorOptions[key] !== null &&
+          formData[key] !== undefined &&
+          formData[key] !== ""
+        ) {
+          tab[key] = formData[key];
+        }
+      });
+      datas = { ...tab, ..._body };
     }
 
     const saveBelongTomany = [];
@@ -738,11 +758,12 @@ export class RestResourceAddComponent implements OnInit {
     const _body = this.resource.editConfig.body;
     if (this.resource.hasFile) {
       datas = new FormData();
-      Object.keys(formData).forEach((key) => {
+      Object.keys(formData).forEach((key, index) => {
         const search: RestField = this.resource.fields.find(
           (elt) => elt.name == key
         );
-        if (search && formData[key] !== null && formData[key] !== undefined) {
+
+        if (search && formData[key] !== undefined) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
               datas.append(
@@ -752,39 +773,53 @@ export class RestResourceAddComponent implements OnInit {
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
-              if (typeof this.jsonEditorOptions[key] == 'object') {
-                this.jsonEditorOptions[key].map((elt) => {
-                  jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                });
-              }
-              datas.append(key, JSON.stringify(jsonFields));
-              break;
-              case REST_FIELD_TYPES.BOOLEAN:
-                if (search.metaData?.number) {
-                  if (formData[key]) {
-                    datas.append(key, 1);
-                  } else datas.append(key, 0);
-                } else {
-                  datas.append(key, formData[key]);
+              if (this.jsonEditorOptions[key] !== null) {
+                  if (typeof this.jsonEditorOptions[key] == 'object') {
+                    this.jsonEditorOptions[key].map((elt) => {
+                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                    });
+                  }
+                  datas.append(key, JSON.stringify(jsonFields));
                 }
-                break;
-            case REST_FIELD_TYPES.IMAGE:
-              if (this.filesUpload[key].length > 0)
-                datas.append(key, formData[key]);
               break;
-
+            case REST_FIELD_TYPES.BOOLEAN:
+              if (search.metaData?.number) {
+                if (formData[key]) {
+                  datas.append(key, 1);
+                } else datas.append(key, 0);
+              } else {
+                datas.append(key, formData[key]);
+              }
+              break;
+            case REST_FIELD_TYPES.IMAGE:
+              if (formData[key] !== null) datas.append(key, formData[key]);
+              break;
             default:
-              datas.append(key, formData[key]);
+              // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
+              if (formData[key] !== '') datas.append(key, formData[key]);
               break;
           }
         }
       });
-      Object.keys(_body).map((key, index) => {
+      Object.keys(_body).map((key) => {
         datas.append(key, _body[key]);
       });
     } else {
-      datas = this.form.value;
-      datas = { ...datas, ..._body };
+      const tab = {};
+      Object.keys(formData).forEach((key, index) => {
+        const search: RestField = this.resource.fields.find(
+          (elt) => elt.name == key
+        );
+        if (
+          search &&
+          this.jsonEditorOptions[key] !== null &&
+          formData[key] !== undefined &&
+          formData[key] !== ""
+        ) {
+          tab[key] = formData[key];
+        }
+      });
+      datas = { ...tab, ..._body };
     }
     const saveBelongTomany = [];
 

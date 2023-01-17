@@ -3,7 +3,7 @@ import { resources } from './resources';
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
   name: 'Name of the app',
-  baseUrl: 'https://api.example.com/api',
+  baseUrl: 'https://api.marylis.com/api',
   resources: resources,
   authConfig: {
     strategy: STRATEGY_AUTH.EMAIL,
