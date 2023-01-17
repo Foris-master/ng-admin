@@ -641,7 +641,6 @@ export class RestResourceAddComponent implements OnInit {
               } else {
                 datas.append(key, formData[key]);
               }
-              console.log(formData[key]);
               break;
             default:
               datas.append(key, formData[key]);
@@ -739,6 +738,15 @@ export class RestResourceAddComponent implements OnInit {
               }
               datas.append(key, JSON.stringify(jsonFields));
               break;
+              case REST_FIELD_TYPES.BOOLEAN:
+                if (search.metaData?.number) {
+                  if (formData[key]) {
+                    datas.append(key, 1);
+                  } else datas.append(key, 0);
+                } else {
+                  datas.append(key, formData[key]);
+                }
+                break;
             case REST_FIELD_TYPES.IMAGE:
               if (this.filesUpload[key].length > 0)
                 datas.append(key, formData[key]);

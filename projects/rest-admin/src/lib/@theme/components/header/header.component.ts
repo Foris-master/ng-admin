@@ -94,7 +94,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
             user['picture'] = data[val];
             data = data[val];
           });
-          user['defaultPicture']= `https://ui-avatars.com/api/?name=${(user['name']).toString()}&rounded=true`
+          if (user['name'])
+            user['defaultPicture']= `https://ui-avatars.com/api/?name=${(user['name']).toString()}&rounded=true`
 
           this.user = user;
           this.isAuth = true;
