@@ -259,7 +259,7 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.COLOR:
               return {
                 ...cumul,
-                [elt.name]: datas[elt.name],
+                [elt.name]: '#e44',
               };
             case REST_FIELD_TYPES.JSON:
               const jsonFiels = [];

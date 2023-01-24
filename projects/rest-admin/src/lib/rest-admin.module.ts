@@ -84,6 +84,7 @@ import { NotificationService } from './rest-admin/rest-resource/service/notifica
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestShareService } from './rest-admin/rest-resource/service/rest-share.service';
+import { AttributeDirective } from './rest-admin/directives/attribute.directive';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -107,6 +108,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     UploadFileComponent,
     FsIconCComponent,
     LoginComponent,
+    AttributeDirective,
   ],
   exports: [
     RestResourceListComponent,

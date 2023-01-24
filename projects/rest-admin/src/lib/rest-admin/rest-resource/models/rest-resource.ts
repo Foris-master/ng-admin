@@ -82,7 +82,7 @@ export class RestResource {
       type: field.type ? field.type : REST_FIELD_TYPES.STRING,
       label: field.label ? field.label : field.name,
       inForm: field.inForm !== undefined ? field.inForm : true,
-      metaData: field.metaData,
+      metaData: field.metaData?.attributes !== undefined ? field.metaData : {...field?.metaData,  attributes: {}},
       i18n: field.i18n !== undefined ? field.i18n : false,
     }));
   }

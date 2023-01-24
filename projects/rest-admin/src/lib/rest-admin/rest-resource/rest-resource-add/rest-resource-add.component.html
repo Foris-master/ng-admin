@@ -50,25 +50,10 @@
                   nbInput
                   fullWidth
                   [id]="i"
+                  [attributes]="field.metaData.attributes"
                   [placeholder]="field.label"
                   [formControlName]="field.name"
                   type="text"
-                />
-              </div>
-
-              <!-- Input type password  -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.PASSWORD"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  nbInput
-                  fullWidth
-                  [id]="i"
-                  [placeholder]="field.label"
-                  [formControlName]="field.name"
-                  type="password"
                 />
               </div>
 
@@ -82,6 +67,7 @@
                   nbInput
                   fullWidth
                   [id]="i"
+                  [attributes]="field.metaData.attributes"
                   [placeholder]="field.label"
                   [formControlName]="field.name"
                 ></textarea>
@@ -97,6 +83,7 @@
                   nbInput
                   fullWidth
                   [id]="i"
+                  [attributes]="field.metaData.attributes"
                   [placeholder]="field.label"
                   [formControlName]="field.name"
                   type="number"
@@ -113,6 +100,7 @@
                   nbInput
                   [placeholder]="field.label"
                   [nbDatepicker]="formpicker"
+                  [attributes]="field.metaData.attributes"
                   fullWidth
                   [formControlName]="field.name"
                 />
@@ -128,6 +116,7 @@
                 <input
                   nbInput
                   fullWidth
+                  [attributes]="field.metaData.attributes"
                   [placeholder]="field.label"
                   [nbDatepicker]="dateTimePicker"
                   [formControlName]="field.name"
@@ -147,6 +136,7 @@
                 <input
                   [nbTimepicker]="timepicker"
                   fullWidth
+                  [attributes]="field.metaData.attributes"
                   [formControlName]="field.name"
                   twelveHoursFormat
                   nbInput
@@ -163,6 +153,7 @@
                 <nb-select
                   fullWidth
                   [formControlName]="field.name"
+                  [attributes]="field.metaData.attributes"
                   [placeholder]="field.label"
                 >
                   <nb-option
@@ -208,6 +199,7 @@
                       urlsImage[field.name] != '' &&
                       filesUpload[field.name].length <= 0
                     "
+                    [attributes]="field.metaData.attributes"
                     [src]="urlsImage[field.name]"
                     class="custom-img-dropzone"
                   />
@@ -253,6 +245,7 @@
                       urlsImage[field.name] != '' &&
                       filesUpload[field.name].length <= 0
                     "
+                    [attributes]="field.metaData.attributes"
                     [src]="urlsImage[field.name]"
                     class="custom-img-dropzone"
                   />
@@ -338,6 +331,7 @@
                     type="text"
                     fullWidth
                     nbTagInput
+                    [attributes]="field.metaData.attributes"
                     [placeholder]="field.label"
                     (tagAdd)="onTagAdd($event, field.name)"
                   />
@@ -355,6 +349,7 @@
                   nbInput
                   fullWidth
                   type="text"
+                  [attributes]="field.metaData.attributes"
                   [formControlName]="field.name"
                   placeholder="Enter value"
                   [nbAutocomplete]="autoComplete"
@@ -375,6 +370,7 @@
                           : 'id'
                       ]
                     "
+                    [attributes]="field.metaData.attributes"
                   >
                     {{
                       option[
@@ -406,12 +402,14 @@
                               .filterKeys[0]
                       ]
                     "
+                    [attributes]="field.metaData.attributes"
                     removable
                   ></nb-tag>
                   <input
                     type="text"
                     nbTagInput
                     #autoBelongToMany
+                    [attributes]="field.metaData.attributes"
                     [nbAutocomplete]="belongToField"
                     (keyup)="filterInput($event, field)"
                     [placeholder]="field.label"
@@ -427,6 +425,7 @@
                   <nb-option
                     *ngFor="let option of allFilterContains[field.name] | async"
                     [value]="option"
+                    [attributes]="field.metaData.attributes"
                   >
                     {{
                       option[
@@ -451,15 +450,13 @@
                   <input
                     nbInput
                     fullWidth
+                    style="height: 45px;"
                     [id]="i"
+                    [attributes]="field.metaData.attributes"
                     [placeholder]="field.label"
                     [formControlName]="field.name"
-                    type="text"
+                    type="color"
                   />
-                  <div
-                    class="text-center color-card"
-                    [style.background-color]="form.value[field.name]"
-                  ></div>
                 </div>
               </div>
 
@@ -474,6 +471,7 @@
                   nbInput
                   fullWidth
                   [id]="i"
+                  [attributes]="field.metaData.attributes"
                   [placeholder]="field.label"
                   [formControlName]="field.name"
                   type="text"
@@ -502,6 +500,7 @@
                     status="primary"
                     shape="round"
                     size="small"
+                    [attributes]="field.metaData.attributes"
                     outline
                     ghost
                     *ngIf="field.metaData.addConfig.jsonConfig.isOpen"
@@ -524,6 +523,7 @@
                       nbInput
                       *ngIf="item.add; else elseBlock"
                       [(ngModel)]="item.label"
+                      [attributes]="field.metaData.attributes"
                       [ngModelOptions]="{ standalone: true }"
                     />
                     <ng-template #elseBlock>
@@ -571,6 +571,7 @@
                           let option of field.metaData.addConfig.morphConfig
                             .related
                         "
+                        [attributes]="field.metaData.attributes"
                         [value]="option.value"
                         >{{ option.label }}</nb-option
                       >
@@ -584,6 +585,7 @@
                       nbInput
                       fullWidth
                       type="text"
+                      [attributes]="field.metaData.attributes"
                       [formControlName]="field.name"
                       placeholder="Enter value"
                       [nbAutocomplete]="autoComplete"
@@ -606,6 +608,7 @@
                               : 'id'
                           ]
                         "
+                        [attributes]="field.metaData.attributes"
                       >
                         {{
                           option[

@@ -18,10 +18,16 @@ export const address = new RestResource(
     {
       name: 'name',
       type: REST_FIELD_TYPES.COLOR,
+      metaData: {
+        // attributes: {
+        //   style: "color: red; font-weight: bold;",
+        //   type: "checkbox",
+        // }
+      }
     },
     {
       name: 'zip_code',
-      type: REST_FIELD_TYPES.COLOR,
+      type: REST_FIELD_TYPES.STRING,
     },
     {
       name: 'user_id',

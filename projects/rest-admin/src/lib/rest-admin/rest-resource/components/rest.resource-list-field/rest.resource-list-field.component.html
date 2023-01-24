@@ -27,11 +27,16 @@
 
 <div
   *ngIf="restField.type == REST_FIELD_TYPES.COLOR"
-  class="text-center"
-  style="width: 80px; height: 30px"
-  [style.background-color]="val"
+  style="height: 50px; display: flex"
 >
-  <ng-container>{{ val }}</ng-container>
+  <ng-container style="align-self: center">{{ val }}</ng-container>
+  <input
+    style="height: 45px; width: 80px; margin-left: 5px"
+    disabled="true"
+    [placeholder]="val"
+    [value]="val"
+    type="color"
+  />
 </div>
 
 <div *ngIf="restField.type == REST_FIELD_TYPES.IMAGE" class="text-center">

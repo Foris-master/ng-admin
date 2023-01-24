@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestAdminModule } from 'rest-admin';
 
 import { AppRoutingModule } from './app-routing.module';
