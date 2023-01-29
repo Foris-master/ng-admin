@@ -454,7 +454,7 @@ export class RestResourceAddComponent implements OnInit {
           return field.metaData.addConfig.belongToOptions.filterKeys.some(
             (elt) =>
               `${optionValue[elt].toLowerCase()}`.includes(
-                `${'value'.toLowerCase()}`
+                `${value.toLowerCase()}`
               )
           );
         });
@@ -636,13 +636,13 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
               if (this.jsonEditorOptions[key] !== null) {
-                  if (typeof this.jsonEditorOptions[key] == 'object') {
-                    this.jsonEditorOptions[key].map((elt) => {
-                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    });
-                  }
-                  datas.append(key, JSON.stringify(jsonFields));
+                if (typeof this.jsonEditorOptions[key] == 'object') {
+                  this.jsonEditorOptions[key].map((elt) => {
+                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                  });
                 }
+                datas.append(key, JSON.stringify(jsonFields));
+              }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
@@ -676,7 +676,7 @@ export class RestResourceAddComponent implements OnInit {
           search &&
           this.jsonEditorOptions[key] !== null &&
           formData[key] !== undefined &&
-          formData[key] !== ""
+          formData[key] !== ''
         ) {
           tab[key] = formData[key];
         }
@@ -774,13 +774,13 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
               if (this.jsonEditorOptions[key] !== null) {
-                  if (typeof this.jsonEditorOptions[key] == 'object') {
-                    this.jsonEditorOptions[key].map((elt) => {
-                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    });
-                  }
-                  datas.append(key, JSON.stringify(jsonFields));
+                if (typeof this.jsonEditorOptions[key] == 'object') {
+                  this.jsonEditorOptions[key].map((elt) => {
+                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                  });
                 }
+                datas.append(key, JSON.stringify(jsonFields));
+              }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
@@ -814,7 +814,7 @@ export class RestResourceAddComponent implements OnInit {
           search &&
           this.jsonEditorOptions[key] !== null &&
           formData[key] !== undefined &&
-          formData[key] !== ""
+          formData[key] !== ''
         ) {
           tab[key] = formData[key];
         }
@@ -970,9 +970,6 @@ export class RestResourceAddComponent implements OnInit {
   onMorphSelectField(event, field) {
     const ressources = this.serviceRestAdminConfig.getSpecificResource(event);
     const fieldConfig = this.resource.fields.find((elt) => elt.name == field);
-
-    // console.log(ressources);
-    // console.log(fieldConfig);
 
     this.serviceRest
       .getResources({
