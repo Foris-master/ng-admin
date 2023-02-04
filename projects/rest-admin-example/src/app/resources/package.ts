@@ -1,53 +1,58 @@
-import { packageContent } from "./packageContent";
-import { RestResource, REST_FIELD_TYPES, TYPE_GROUP, TYPE_METHOD_REQUEST } from "rest-admin";
-import { expeditionRequest } from "./expeditionRequest";
+import { packageContent } from './packageContent';
+import {
+  RestResource,
+  REST_FIELD_TYPES,
+  TYPE_GROUP,
+  TYPE_METHOD_REQUEST,
+} from 'rest-admin';
+import { expeditionRequest } from './expeditionRequest';
 
 export const _package = new RestResource(
   {
-    name: "package",
-    api: "packages",
+    name: 'package',
+    api: 'packages',
     icon: {
-      icon: "cube",
-      pack: "fas",
+      icon: 'cube',
+      pack: 'fas',
     },
   },
   [
     {
-      name: "id",
+      name: 'id',
       type: REST_FIELD_TYPES.NUMBER,
       inForm: false,
     },
     {
-      name: "name",
+      name: 'name',
       type: REST_FIELD_TYPES.STRING,
       metaData: {
         listConfig: {},
       },
     },
     {
-      name: "picture1",
+      name: 'picture1',
       type: REST_FIELD_TYPES.IMAGE,
       metaData: {
         listConfig: {
           style:
-            "max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;",
+            'max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;',
         },
       },
     },
     {
-      name: "package_contents",
+      name: 'package_contents',
       type: REST_FIELD_TYPES.HAS_MANY,
       metaData: {
         listConfig: {
           restManyResources: {
-            label: "name",
-            template: "<span> {{name}} </span>",
-            name: "name",
+            label: 'name',
+            template: '<span> {{name}} </span>',
+            name: 'name',
           },
         },
         detailConfig: {
           restManyResources: {
-            resourceName: "packageContent",
+            resourceName: 'packageContent',
             resource: packageContent,
           },
         },
@@ -55,19 +60,19 @@ export const _package = new RestResource(
       inForm: false,
     },
     {
-      name: "expedition_requests",
+      name: 'expedition_requests',
       type: REST_FIELD_TYPES.HAS_MANY,
       metaData: {
         listConfig: {
           restManyResources: {
-            label: "expedition_type",
-            template: "<span> {{expedition_type}} </span>",
-            name: "expedition_type",
+            label: 'expedition_type',
+            template: '<span> {{expedition_type}} </span>',
+            name: 'expedition_type',
           },
         },
         detailConfig: {
           restManyResources: {
-            resourceName: "expeditionRequest",
+            resourceName: 'expeditionRequest',
             resource: expeditionRequest,
           },
         },
@@ -75,53 +80,53 @@ export const _package = new RestResource(
       inForm: false,
     },
     {
-      name: "status",
+      name: 'status',
       type: REST_FIELD_TYPES.ENUM,
       metaData: {
         addConfig: {
           enumOptions: [
             {
-              label: "proposed",
-              value: "proposed",
+              label: 'proposed',
+              value: 'proposed',
             },
             {
-              label: "accepted",
-              value: "accepted",
+              label: 'accepted',
+              value: 'accepted',
             },
             {
-              label: "refused",
-              value: "refused",
+              label: 'refused',
+              value: 'refused',
             },
           ],
         },
       },
     },
     {
-      name: "nature",
+      name: 'nature',
       type: REST_FIELD_TYPES.STRING,
     },
     {
-      name: "code",
+      name: 'code',
       type: REST_FIELD_TYPES.NUMBER,
       inForm: false,
     },
     {
-      name: "value",
+      name: 'value',
       type: REST_FIELD_TYPES.NUMBER,
     },
     {
-      name: "is_sensitive",
+      name: 'is_sensitive',
       type: REST_FIELD_TYPES.BOOLEAN,
       metaData: {
         number: true,
-      }
+      },
     },
     {
-      name: "should_notify",
+      name: 'should_notify',
       type: REST_FIELD_TYPES.BOOLEAN,
     },
     {
-      name: "price",
+      name: 'price',
       type: REST_FIELD_TYPES.NUMBER,
     },
     {
@@ -130,23 +135,23 @@ export const _package = new RestResource(
       // inForm: false,
     },
     {
-      name: "concern_id",
+      name: 'concern_id',
       type: REST_FIELD_TYPES.MORPH,
       metaData: {
         addConfig: {
           morphConfig: {
             related: [
               {
-                label: "giftRegistry",
-                value: "giftRegistry",
+                label: 'giftRegistry',
+                value: 'giftRegistry',
               },
               {
-                label: "partOrder",
-                value: "partOrder",
+                label: 'partOrder',
+                value: 'partOrder',
               },
             ],
-            filterKeys: ["description"],
-            value: "id",
+            filterKeys: ['description'],
+            value: 'id',
             queryParams: {
               should_paginate: false,
             },
@@ -155,62 +160,62 @@ export const _package = new RestResource(
       },
     },
     {
-      name: "concern_type",
+      name: 'concern_type',
       type: REST_FIELD_TYPES.ENUM,
       metaData: {
         addConfig: {
           enumOptions: [
             {
-              label: "giftRegistry",
-              value: "App\\Models\\GiftRegistry",
+              label: 'giftRegistry',
+              value: 'App\\Models\\GiftRegistry',
             },
             {
-              label: "partOrder",
-              value: "App\\Models\\PartOrder",
+              label: 'partOrder',
+              value: 'App\\Models\\PartOrder',
             },
           ],
         },
       },
     },
     {
-      name: "picture2",
+      name: 'picture2',
       type: REST_FIELD_TYPES.IMAGE,
       metaData: {
         listConfig: {
           style:
-            "max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;",
+            'max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;',
         },
       },
     },
     {
-      name: "picture3",
+      name: 'picture3',
       type: REST_FIELD_TYPES.IMAGE,
       metaData: {
         listConfig: {
           style:
-            "max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;",
+            'max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;',
         },
       },
     },
     {
-      name: "picture4",
+      name: 'picture4',
       type: REST_FIELD_TYPES.IMAGE,
       metaData: {
         listConfig: {
           style:
-            "max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;",
+            'max-width: 100px;border-radius: 5px;box-shadow: 5px 3px gray;',
         },
       },
     },
     {
-      name: "currency_id",
+      name: 'currency_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
           belongToOptions: {
-            resourceName: "currency",
-            filterKeys: ["symbol"],
-            value: "id",
+            resourceName: 'currency',
+            filterKeys: ['code'],
+            value: 'id',
             queryParams: {
               should_paginate: false,
             },
@@ -218,98 +223,32 @@ export const _package = new RestResource(
         },
         listConfig: {
           restHasOneResources: {
-            name: "symbol",
+            name: 'symbol',
           },
         },
       },
     },
     {
-      name: "currency",
+      name: 'currency',
       type: REST_FIELD_TYPES.HAS_ONE,
       metaData: {
         listConfig: {
           restHasOneResources: {
-            name: "symbol",
+            name: 'symbol',
           },
         },
       },
       inForm: false,
     },
-    // {
-    //   name: "contact_1_id",
-    //   type: REST_FIELD_TYPES.BELONG_TO,
-    //   metaData: {
-    //     addConfig: {
-    //       belongToOptions: {
-    //         resourceName: "contact",
-    //         filterKeys: ["first_name", "last_name"],
-    //         value: "id",
-    //         queryParams: {
-    //           should_paginate: false,
-    //         },
-    //       },
-    //     },
-    //     listConfig: {
-    //       restHasOneResources: {
-    //         name: "contact_1.first_name",
-    //       },
-    //     },
-    //   },
-    // },
-    // {
-    //   name: "contact_1",
-    //   type: REST_FIELD_TYPES.HAS_ONE,
-    //   metaData: {
-    //     listConfig: {
-    //       restHasOneResources: {
-    //         name: "first_name",
-    //       },
-    //     },
-    //   },
-    //   inForm: false,
-    // },
-    // {
-    //   name: "contact_2_id",
-    //   type: REST_FIELD_TYPES.BELONG_TO,
-    //   metaData: {
-    //     addConfig: {
-    //       belongToOptions: {
-    //         resourceName: "contact",
-    //         filterKeys: ["first_name", "last_name"],
-    //         value: "id",
-    //         queryParams: {
-    //           should_paginate: false,
-    //         },
-    //       },
-    //     },
-    //     listConfig: {
-    //       restHasOneResources: {
-    //         name: "contact_2.first_name",
-    //       },
-    //     },
-    //   },
-    // },
-    // {
-    //   name: "contact_2",
-    //   type: REST_FIELD_TYPES.HAS_ONE,
-    //   metaData: {
-    //     listConfig: {
-    //       restHasOneResources: {
-    //         name: "first_name",
-    //       },
-    //     },
-    //   },
-    //   inForm: false,
-    // },
     {
-      name: "package_type_id",
+      name: 'package_type_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
           belongToOptions: {
-            resourceName: "packageType",
-            filterKeys: ["name", "description"],
-            value: "id",
+            resourceName: 'packageType',
+            filterKeys: ['name', 'description'],
+            value: 'id',
             queryParams: {
               should_paginate: false,
             },
@@ -317,32 +256,32 @@ export const _package = new RestResource(
         },
         listConfig: {
           restHasOneResources: {
-            name: "package_type.name",
+            name: 'package_type.name',
           },
         },
       },
     },
     {
-      name: "package_type",
+      name: 'package_type',
       type: REST_FIELD_TYPES.HAS_ONE,
       metaData: {
         listConfig: {
           restHasOneResources: {
-            name: "name",
+            name: 'name',
           },
         },
       },
       inForm: false,
     },
     {
-      name: "user_id",
+      name: 'user_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
           belongToOptions: {
-            resourceName: "user",
-            filterKeys: ["full_name", "email"],
-            value: "id",
+            resourceName: 'user',
+            filterKeys: ['full_name', 'email'],
+            value: 'id',
             queryParams: {
               should_paginate: false,
             },
@@ -350,41 +289,41 @@ export const _package = new RestResource(
         },
         listConfig: {
           restHasOneResources: {
-            name: "user.full_name",
+            name: 'user.full_name',
           },
         },
       },
     },
     {
-      name: "user",
+      name: 'user',
       type: REST_FIELD_TYPES.HAS_ONE,
       metaData: {
         listConfig: {
           restHasOneResources: {
-            name: "full_name",
+            name: 'full_name',
           },
         },
       },
       inForm: false,
     },
     {
-      name: "metadata",
+      name: 'metadata',
       type: REST_FIELD_TYPES.JSON,
       metaData: {
         addConfig: {
           jsonConfig: {
-            jsonFields: ["volume", "weight"],
+            jsonFields: ['volume', 'weight'],
           },
         },
       },
     },
     {
-      name: "created_at",
+      name: 'created_at',
       type: REST_FIELD_TYPES.DATE,
       inForm: false,
     },
     {
-      name: "updated_at",
+      name: 'updated_at',
       type: REST_FIELD_TYPES.DATE,
       inForm: false,
     },
@@ -411,35 +350,35 @@ export const _package = new RestResource(
       "concern_type",
       "created_at",
     ],
-    api: "packages",
+    api: 'packages',
     queryParams: {
       _includes:
-        "package_contents,expedition_requests,currency,contact_1,contact_2,package_type,user",
+        'package_contents,expedition_requests,currency,contact_1,contact_2,package_type,user',
     },
     group: {
-      name: "CLIENT",
+      name: 'CLIENT',
       type: TYPE_GROUP.SEPARATOR, // Regroupe les ressources dans un menu deroulant
     },
     searchFilter: {
-      filterBy: ["name", "code"],
+      filterBy: ['name', 'code'],
     },
   },
   {
-    api: "packages",
-    title: "Add package",
+    api: 'packages',
+    title: 'Add package',
     inList: true,
   },
   {
-    api: "packages",
+    api: 'packages',
     method: TYPE_METHOD_REQUEST.POST,
     body: {
-      "_method": TYPE_METHOD_REQUEST.PUT,
+      _method: TYPE_METHOD_REQUEST.PUT,
     },
   },
   {
     tabsConfig: [
       {
-        name: "Package",
+        name: 'Package',
         datas: [
           "name",
           "code",
@@ -454,16 +393,16 @@ export const _package = new RestResource(
         ],
       },
       {
-        name: "Package Contents",
-        datas: ["package_contents"],
+        name: 'Package Contents',
+        datas: ['package_contents'],
       },
       {
-        name: "Expedition Requests",
-        datas: ["expedition_requests"],
+        name: 'Expedition Requests',
+        datas: ['expedition_requests'],
       },
     ],
     queryParams: {
-      _includes: "package_contents,expedition_requests",
+      _includes: 'package_contents,expedition_requests',
     },
   }
 );

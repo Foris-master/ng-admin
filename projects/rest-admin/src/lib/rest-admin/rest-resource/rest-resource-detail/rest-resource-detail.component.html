@@ -35,6 +35,44 @@
           </div>
         </ng-container>
 
+        <ng-container *ngIf="item.value.restField.type == REST_FIELD_TYPES.PDF">
+          <ng-container *ngIf="!item.value.restField.template">
+            <div class="">
+              <b>{{ item.key | titlecase }}: </b>
+            </div>
+
+            <ng-container *ngIf="!item.value.restField.template">
+              <div class="">
+                <b>{{ item.key | titlecase }}: </b>
+              </div>
+              <div class="">
+                {{ item.value.data }}
+              </div>
+              <div class="">
+                <ngx-dropzone (change)="onSelect($event)">
+                  <ngx-dropzone-preview
+                    [removable]="true"
+                    (removed)="onRemove(filesUpload[item.key])"
+                  >
+                    <ngx-dropzone-label
+                      >{{ item?.value?.data }} ({{
+                        'pdf'
+                      }})</ngx-dropzone-label
+                    >
+                  </ngx-dropzone-preview>
+                </ngx-dropzone>
+              </div>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="item.value.restField.template">
+            <cng-html-compiler
+              [template]="item.value.restField.template"
+              [componentClass]="jsonValue(item.value)"
+            >
+            </cng-html-compiler>
+          </ng-container>
+        </ng-container>
+
         <ng-container
           *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
         >

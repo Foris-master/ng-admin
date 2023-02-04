@@ -1,22 +1,10 @@
-import { RestLangService } from "./../rest-resource/service/rest-lang.service";
-import {
-  Compiler,
-  Component,
-  ComponentFactory,
-  ComponentFactoryResolver,
-  ComponentRef,
-  NgModule,
-  OnInit,
-  ViewChild,
-  ViewContainerRef,
-} from "@angular/core";
-import { ActivatedRoute, Router, RouterModule } from "@angular/router";
-import { RestAdminConfigService } from "../rest-resource/service/rest-admin-config.service";
-import { GLOBALS } from "../../utils/globals";
-import { NgxPermissionsService } from "ngx-permissions";
+import { RestLangService } from './../rest-resource/service/rest-lang.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestAdminConfigService } from '../rest-resource/service/rest-admin-config.service';
 @Component({
-  selector: "ngx-rest-main-component",
-  styleUrls: ["./rest-main-component.component.scss"],
+  selector: 'ngx-rest-main-component',
+  styleUrls: ['./rest-main-component.component.scss'],
   template: `
     <ngx-one-column-layout>
       <nb-menu [items]="menu"></nb-menu>
@@ -29,11 +17,9 @@ export class RestMainComponentComponent implements OnInit {
 
   constructor(
     private serviceConfig: RestAdminConfigService,
-    private activatedRoute: ActivatedRoute,
     private restLangService: RestLangService,
-    private router: Router
-  ) // private permissionsService: NgxPermissionsService
-  {}
+    private router: Router // private permissionsService: NgxPermissionsService
+  ) {}
 
   ngOnInit(): void {
     this.restLangService.setInitialAppLanguage();

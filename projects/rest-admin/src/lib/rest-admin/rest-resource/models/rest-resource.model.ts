@@ -111,8 +111,10 @@ export interface REST_FIELD_METADATA {
     restManyResources?: RestField;
     restBelongToManyResources?: RestField;
     restHasOneResources?: RestField;
+    belongToSecondFieldLabel?: string;
   };
   addConfig?: {
+    belongToSecondFieldLabel?: string;
     enumOptions?: {
       value: string;
       label: string;
@@ -161,6 +163,7 @@ export interface REST_FIELD_METADATA {
     };
   };
   detailConfig?: {
+    belongToSecondFieldLabel?: string;
     restManyResources?: RestField | RestManyOptionsCustom;
   };
 }
@@ -193,7 +196,6 @@ export enum REST_FIELD_TYPES {
   STRING,
   TEXT,
   NUMBER,
-  PASSWORD,
   COLOR,
   BOOLEAN,
   DATE,

@@ -17,13 +17,13 @@ export const address = new RestResource(
     },
     {
       name: 'name',
-      type: REST_FIELD_TYPES.COLOR,
+      // type: REST_FIELD_TYPES.COLOR,
       metaData: {
-        // attributes: {
-        //   style: "color: red; font-weight: bold;",
-        //   type: "checkbox",
-        // }
-      }
+        attributes: {
+          style: 'color: red; font-weight: bold;',
+          type: 'password',
+        },
+      },
     },
     {
       name: 'zip_code',
@@ -34,6 +34,7 @@ export const address = new RestResource(
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
+          belongToSecondFieldLabel: 'full_name',
           belongToOptions: {
             resourceName: 'user',
             filterKeys: ['full_name', 'email'],
@@ -43,7 +44,11 @@ export const address = new RestResource(
             },
           },
         },
+        detailConfig: {
+          belongToSecondFieldLabel: 'user.full_name',
+        },
         listConfig: {
+          belongToSecondFieldLabel: 'user.full_name',
           restHasOneResources: {
             name: 'user.full_name',
           },
@@ -67,6 +72,7 @@ export const address = new RestResource(
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
         addConfig: {
+          belongToSecondFieldLabel: 'name',
           belongToOptions: {
             resourceName: 'town',
             filterKeys: ['name'],
@@ -76,7 +82,11 @@ export const address = new RestResource(
             },
           },
         },
+        detailConfig: {
+          belongToSecondFieldLabel: 'town.name',
+        },
         listConfig: {
+          belongToSecondFieldLabel: 'town.name',
           restHasOneResources: {
             name: 'town.name',
           },
@@ -123,19 +133,22 @@ export const address = new RestResource(
   {},
   {},
   {
-    // tabsConfig: [
-    //   {
-    //     name: 'Address',
-    //     datas: ['id', 'name', 'zip_code', 'user', 'town', 'created_at'],
-    //   },
-    //   {
-    //     name: 'User',
-    //     datas: ['user'],
-    //   },
-    //   {
-    //     name: 'Town',
-    //     datas: [],
-    //   },
-    // ],
+    tabsConfig: [
+      {
+        name: 'Address',
+        datas: ['id', 'name', 'zip_code', 'user_id', 'town_id', 'created_at'],
+      },
+      {
+        name: 'User',
+        datas: ['user'],
+      },
+      {
+        name: 'Town',
+        datas: [],
+      },
+    ],
+    queryParams: {
+      _includes: 'user,town',
+    },
   }
 );

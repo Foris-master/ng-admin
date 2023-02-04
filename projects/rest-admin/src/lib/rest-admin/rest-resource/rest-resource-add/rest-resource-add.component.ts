@@ -1,7 +1,7 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Component, Input, OnInit, QueryList, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, QueryList, ViewChild } from '@angular/core';
 import {
   NbDialogService,
   NbMenuService,
@@ -52,6 +52,7 @@ export class RestResourceAddComponent implements OnInit {
   //BELONG_TO FIELD
   options: any = {};
   allFilterContains: any = {};
+  belongToValue: any = {};
   belongToMany: any = {};
 
   //json editor
@@ -96,7 +97,8 @@ export class RestResourceAddComponent implements OnInit {
     private exportService: RestExportService,
     private dialogService: NbDialogService,
     private router: Router,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private cdref: ChangeDetectorRef
   ) {
     activatedRoute.params.subscribe((params) => {
       this.ressourceName =
@@ -175,11 +177,13 @@ export class RestResourceAddComponent implements OnInit {
       },
       columns: this.createMatTableColumns(),
     };
+    this.cdref.detectChanges();
   }
 
   initForm(datas) {
     if (datas != null) {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -219,7 +223,16 @@ export class RestResourceAddComponent implements OnInit {
                     : restResource.queryParams,
                 })
                 .subscribe((response: any) => {
-                  this.options[elt.name] = response;
+                  this.options[elt.name] = [...response].sort((x, y) =>
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(
+                        y[filterKey]
+                          .toString()
+                          .toLowerCase()
+                      )
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
 
@@ -241,7 +254,16 @@ export class RestResourceAddComponent implements OnInit {
                     : resource.queryParams,
                 })
                 .subscribe((response: any) => {
-                  this.options[elt.name] = response;
+                  this.options[elt.name] = [...response].sort((x, y) =>
+                  x[filterKey]
+                    .toString()
+                    .toLowerCase()
+                    ?.localeCompare(
+                      y[filterKey]
+                        .toString()
+                        .toLowerCase()
+                    )
+                );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set(datas[elt.name]);
@@ -303,6 +325,7 @@ export class RestResourceAddComponent implements OnInit {
       }, {});
     } else {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -343,7 +366,16 @@ export class RestResourceAddComponent implements OnInit {
                       : restResource.queryParams,
                   })
                   .subscribe((response: any) => {
-                    this.options[elt.name] = response;
+                    this.options[elt.name] = [...response].sort((x, y) =>
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(
+                        y[filterKey]
+                          .toString()
+                          .toLowerCase()
+                      )
+                  );
                     this.allFilterContains[elt.name] = of(
                       this.options[elt.name]
                     );
@@ -368,7 +400,16 @@ export class RestResourceAddComponent implements OnInit {
                     : resource.queryParams,
                 })
                 .subscribe((response: any) => {
-                  this.options[elt.name] = response;
+                  this.options[elt.name] = [...response].sort((x, y) =>
+                  x[filterKey]
+                    .toString()
+                    .toLowerCase()
+                    ?.localeCompare(
+                      (y[filterKey])
+                        .toString()
+                        .toLowerCase()
+                    )
+                );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set();
@@ -454,7 +495,7 @@ export class RestResourceAddComponent implements OnInit {
           return field.metaData.addConfig.belongToOptions.filterKeys.some(
             (elt) =>
               `${optionValue[elt].toLowerCase()}`.includes(
-                `${'value'.toLowerCase()}`
+                `${value.toLowerCase()}`
               )
           );
         });
@@ -478,6 +519,14 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onSelectionChange(event, field: RestField) {
+    const bVal = this.options[field.name] ? this.options[field.name].find((elt) => elt?.id === event) : {};
+    this.belongToValue[field.name] = bVal
+      ? bVal[
+          field?.metaData?.addConfig?.belongToSecondFieldLabel
+            ? field?.metaData?.addConfig?.belongToSecondFieldLabel
+            : 'name'
+        ]
+      : '';
     this.allFilterContains[field.name] = this.getFilteredOptions(event, field);
   }
 
@@ -636,13 +685,13 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
               if (this.jsonEditorOptions[key] !== null) {
-                  if (typeof this.jsonEditorOptions[key] == 'object') {
-                    this.jsonEditorOptions[key].map((elt) => {
-                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    });
-                  }
-                  datas.append(key, JSON.stringify(jsonFields));
+                if (typeof this.jsonEditorOptions[key] == 'object') {
+                  this.jsonEditorOptions[key].map((elt) => {
+                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                  });
                 }
+                datas.append(key, JSON.stringify(jsonFields));
+              }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
@@ -676,7 +725,7 @@ export class RestResourceAddComponent implements OnInit {
           search &&
           this.jsonEditorOptions[key] !== null &&
           formData[key] !== undefined &&
-          formData[key] !== ""
+          formData[key] !== ''
         ) {
           tab[key] = formData[key];
         }
@@ -774,13 +823,13 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
               if (this.jsonEditorOptions[key] !== null) {
-                  if (typeof this.jsonEditorOptions[key] == 'object') {
-                    this.jsonEditorOptions[key].map((elt) => {
-                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    });
-                  }
-                  datas.append(key, JSON.stringify(jsonFields));
+                if (typeof this.jsonEditorOptions[key] == 'object') {
+                  this.jsonEditorOptions[key].map((elt) => {
+                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                  });
                 }
+                datas.append(key, JSON.stringify(jsonFields));
+              }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
@@ -814,7 +863,7 @@ export class RestResourceAddComponent implements OnInit {
           search &&
           this.jsonEditorOptions[key] !== null &&
           formData[key] !== undefined &&
-          formData[key] !== ""
+          formData[key] !== ''
         ) {
           tab[key] = formData[key];
         }
@@ -970,9 +1019,6 @@ export class RestResourceAddComponent implements OnInit {
   onMorphSelectField(event, field) {
     const ressources = this.serviceRestAdminConfig.getSpecificResource(event);
     const fieldConfig = this.resource.fields.find((elt) => elt.name == field);
-
-    // console.log(ressources);
-    // console.log(fieldConfig);
 
     this.serviceRest
       .getResources({

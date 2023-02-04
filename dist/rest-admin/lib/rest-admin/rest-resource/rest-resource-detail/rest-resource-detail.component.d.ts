@@ -31,11 +31,14 @@ export declare class RestResourceDetailComponent implements OnInit {
     listDataSource: any;
     isTabsMenu: boolean;
     tabsName: any[];
+    filesUpload: {};
     constructor(activatedRoute: ActivatedRoute, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, router: Router, dataSourceBuilder: NbTreeGridDataSourceBuilder<any>, langService: RestLangService);
     ngOnInit(): void;
     editEntity(): void;
     listEntity(): void;
     get REST_FIELD_TYPES(): typeof REST_FIELD_TYPES;
+    onSelect(event: any): void;
+    onRemove(field: any): void;
     loadBelongToDetail(data: any): void;
     isObject: (a: any) => boolean;
     isArray: (a: any) => boolean;

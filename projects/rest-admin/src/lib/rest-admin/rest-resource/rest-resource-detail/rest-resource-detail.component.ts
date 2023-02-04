@@ -6,7 +6,9 @@ import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
 import { NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { RestLangService } from '../service/rest-lang.service';
+// import urlToFile from '../../../utils/';
 import * as _ from 'lodash';
+import urlToFile from '../../../utils/urlToFile';
 
 @Component({
   selector: 'ngx-rest-resource-detail',
@@ -29,6 +31,7 @@ export class RestResourceDetailComponent implements OnInit {
   listDataSource: any = {};
   isTabsMenu = false;
   tabsName = [];
+  filesUpload = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -260,6 +263,26 @@ export class RestResourceDetailComponent implements OnInit {
                           this.dataSourceBuilder.create(rowsBelongToMany);
                         break;
 
+                      case REST_FIELD_TYPES.BELONG_TO:
+                        const belongVal =
+                          search.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                            '.'
+                          );
+                        let dat = response;
+                        if (belongVal && belongVal?.length > 0) {
+                          belongVal.forEach((val) => {
+                            dat = dat[val];
+                          });
+                        } else {
+                          dat = '';
+                        }
+                        if (search) {
+                          temp[search.name] = {
+                            restField: search,
+                            data: `${dat} (${response[search.label]})`,
+                          };
+                        }
+                        break;
                       default:
                         break;
                     }
@@ -270,10 +293,29 @@ export class RestResourceDetailComponent implements OnInit {
                 this.datas1 = colunms;
               } else {
                 this.resource.fields.forEach((elt) => {
-                  colunms[elt.name] = {
-                    restField: elt,
-                    data: response[elt.label],
-                  };
+                  if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
+                    const belongVal =
+                      elt.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                        '.'
+                      );
+                    let dat = response;
+                    if (belongVal && belongVal?.length > 0) {
+                      belongVal.forEach((val) => {
+                        dat = dat[val];
+                      });
+                    } else {
+                      dat = '';
+                    }
+                    colunms[elt.name] = {
+                      restField: elt,
+                      data: `${dat} (${response[elt.label]})`,
+                    };
+                  } else {
+                    colunms[elt.name] = {
+                      restField: elt,
+                      data: response[elt.label],
+                    };
+                  }
                 });
                 this.datas = colunms;
                 for (const property in this.datas) {
@@ -377,8 +419,6 @@ export class RestResourceDetailComponent implements OnInit {
                                 : '',
                             });
                           });
-                          console.log(this.datas[property]);
-                          console.log(this.listDataSource);
                         }
                       }
 
@@ -590,6 +630,31 @@ export class RestResourceDetailComponent implements OnInit {
                       this.dataSourceBuilder.create(rowsBelongToMany);
                     break;
 
+                  case REST_FIELD_TYPES.BELONG_TO:
+                    const belongVal =
+                      search.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                        '.'
+                      );
+                    let dat = response;
+                    if (belongVal && belongVal?.length > 0) {
+                      belongVal.forEach((val) => {
+                        dat = dat[val];
+                      });
+                    } else {
+                      dat = '';
+                    }
+                    if (search) {
+                      temp[search.name] = {
+                        restField: search,
+                        data: `${dat} (${response[search.label]})`,
+                      };
+                    }
+                    break;
+
+                  case REST_FIELD_TYPES.PDF:
+                    const file = urlToFile(response[search.label], search.label, 'pdf');
+                    this.filesUpload[search.label] = file;
+                    break;
                   default:
                     break;
                 }
@@ -600,10 +665,29 @@ export class RestResourceDetailComponent implements OnInit {
             this.datas1 = colunms;
           } else {
             this.resource.fields.forEach((elt) => {
-              colunms[elt.name] = {
-                restField: elt,
-                data: response[elt.label],
-              };
+              if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
+                const belongVal =
+                  elt.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                    '.'
+                  );
+                let dat = response;
+                if (belongVal && belongVal?.length > 0) {
+                  belongVal.forEach((val) => {
+                    dat = dat[val];
+                  });
+                } else {
+                  dat = '';
+                }
+                colunms[elt.name] = {
+                  restField: elt,
+                  data: `${dat} (${response[elt.label]})`,
+                };
+              } else {
+                colunms[elt.name] = {
+                  restField: elt,
+                  data: response[elt.label],
+                };
+              }
             });
             this.datas = colunms;
             for (const property in this.datas) {
@@ -703,8 +787,6 @@ export class RestResourceDetailComponent implements OnInit {
                             : '',
                         });
                       });
-                      console.log(this.datas[property]);
-                      console.log(this.listDataSource);
                     }
                   }
 
@@ -745,6 +827,7 @@ export class RestResourceDetailComponent implements OnInit {
           }
         });
     }
+
   }
 
   editEntity() {
@@ -757,6 +840,14 @@ export class RestResourceDetailComponent implements OnInit {
 
   get REST_FIELD_TYPES() {
     return REST_FIELD_TYPES;
+  }
+
+
+  //Image input
+  onSelect(event) {
+  }
+
+  onRemove(field) {
   }
 
   loadBelongToDetail(data) {

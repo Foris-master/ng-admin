@@ -344,18 +344,45 @@
                 class="input-space"
               >
                 <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  #autoInput
-                  nbInput
-                  fullWidth
-                  type="text"
-                  [attributes]="field.metaData.attributes"
-                  [formControlName]="field.name"
-                  placeholder="Enter value"
-                  [nbAutocomplete]="autoComplete"
-                  (keyup)="filterInput($event, field)"
-                  [id]="i"
-                />
+
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      flex-wrap: wrap;
+                      justify-content: space-between;
+                    "
+                  >
+                    <div class="full-width-field">
+                      <input
+                        #autoInput
+                        nbInput
+                        type="text"
+                        [attributes]="field.metaData.attributes"
+                        [formControlName]="field.name"
+                        placeholder="Enter value"
+                        [nbAutocomplete]="autoComplete"
+                        (keyup)="filterInput($event, field)"
+                        [id]="i"
+                      />
+                    </div>
+                    <div class="full-width-field">
+                      <input
+                        nbInput
+                        [attributes]="field.metaData.attributes"
+                        disabled="true"
+                        type="text"
+                        placeholder="Value"
+                        [value]="
+                          belongToValue[field.name]
+                            ? belongToValue[field.name]
+                            : ''
+                        "
+                        [id]="i+100"
+                      />
+                    </div>
+                  </div>
+                </div>
 
                 <nb-autocomplete
                   #autoComplete
@@ -450,7 +477,7 @@
                   <input
                     nbInput
                     fullWidth
-                    style="height: 45px;"
+                    style="height: 45px"
                     [id]="i"
                     [attributes]="field.metaData.attributes"
                     [placeholder]="field.label"
@@ -461,7 +488,6 @@
               </div>
 
               <!-- Input type link -->
-
               <div
                 class="input-space"
                 *ngIf="field.type == REST_FIELD_TYPES.LINK"

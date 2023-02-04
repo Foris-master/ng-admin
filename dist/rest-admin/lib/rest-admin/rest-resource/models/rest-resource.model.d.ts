@@ -96,8 +96,10 @@ export interface REST_FIELD_METADATA {
         restManyResources?: RestField;
         restBelongToManyResources?: RestField;
         restHasOneResources?: RestField;
+        belongToSecondFieldLabel?: string;
     };
     addConfig?: {
+        belongToSecondFieldLabel?: string;
         enumOptions?: {
             value: string;
             label: string;
@@ -146,6 +148,7 @@ export interface REST_FIELD_METADATA {
         };
     };
     detailConfig?: {
+        belongToSecondFieldLabel?: string;
         restManyResources?: RestField | RestManyOptionsCustom;
     };
 }
@@ -173,26 +176,25 @@ export declare enum REST_FIELD_TYPES {
     STRING = 0,
     TEXT = 1,
     NUMBER = 2,
-    PASSWORD = 3,
-    COLOR = 4,
-    BOOLEAN = 5,
-    DATE = 6,
-    DATETIME = 7,
-    TIME = 8,
-    IMAGE = 9,
-    PDF = 10,
-    FILE = 11,
-    BELONG_TO = 12,
-    HAS_ONE = 13,
-    HAS_MANY = 14,
-    BELONG_TO_MANY = 15,
-    MORPH_MANY = 16,
-    MORPH_ONE = 17,
-    MORPH = 18,
-    JSON = 19,
-    MAP = 20,
-    ENUM = 21,
-    LINK = 22
+    COLOR = 3,
+    BOOLEAN = 4,
+    DATE = 5,
+    DATETIME = 6,
+    TIME = 7,
+    IMAGE = 8,
+    PDF = 9,
+    FILE = 10,
+    BELONG_TO = 11,
+    HAS_ONE = 12,
+    HAS_MANY = 13,
+    BELONG_TO_MANY = 14,
+    MORPH_MANY = 15,
+    MORPH_ONE = 16,
+    MORPH = 17,
+    JSON = 18,
+    MAP = 19,
+    ENUM = 20,
+    LINK = 21
 }
 export interface REST_CONFIG {
     name: string;

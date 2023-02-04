@@ -1,7 +1,7 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { OnInit, QueryList } from '@angular/core';
+import { ChangeDetectorRef, OnInit, QueryList } from '@angular/core';
 import { NbDialogService, NbMenuService, NbTagComponent, NbTagInputAddEvent } from '@nebular/theme';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { RestResource } from '../models/rest-resource';
@@ -22,6 +22,7 @@ export declare class RestResourceAddComponent implements OnInit {
     private dialogService;
     private router;
     private notificationService;
+    private cdref;
     resource: RestResource;
     ressourceName: string;
     message: string;
@@ -32,6 +33,7 @@ export declare class RestResourceAddComponent implements OnInit {
     private subscription;
     options: any;
     allFilterContains: any;
+    belongToValue: any;
     belongToMany: any;
     jsonEditorOptions: {};
     belongTo: QueryList<any>;
@@ -52,7 +54,7 @@ export declare class RestResourceAddComponent implements OnInit {
     source: LocalDataSource;
     settings: any;
     morphFields: {};
-    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService);
+    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService, cdref: ChangeDetectorRef);
     ngOnInit(): void;
     initForm(datas: any): void;
     trackByFn(index: any): any;
