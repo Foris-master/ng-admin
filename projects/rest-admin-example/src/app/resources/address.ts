@@ -33,9 +33,10 @@ export const address = new RestResource(
       name: 'user_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
+        belongToSecondFieldLabel: 'full_name',
         addConfig: {
-          belongToSecondFieldLabel: 'full_name',
           belongToOptions: {
+            // secondField: true,
             resourceName: 'user',
             filterKeys: ['full_name', 'email'],
             value: 'id',
@@ -44,11 +45,7 @@ export const address = new RestResource(
             },
           },
         },
-        detailConfig: {
-          belongToSecondFieldLabel: 'user.full_name',
-        },
         listConfig: {
-          belongToSecondFieldLabel: 'user.full_name',
           restHasOneResources: {
             name: 'user.full_name',
           },
@@ -71,8 +68,8 @@ export const address = new RestResource(
       name: 'town_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
+        belongToSecondFieldLabel: 'name',
         addConfig: {
-          belongToSecondFieldLabel: 'name',
           belongToOptions: {
             resourceName: 'town',
             filterKeys: ['name'],
@@ -82,11 +79,7 @@ export const address = new RestResource(
             },
           },
         },
-        detailConfig: {
-          belongToSecondFieldLabel: 'town.name',
-        },
         listConfig: {
-          belongToSecondFieldLabel: 'town.name',
           restHasOneResources: {
             name: 'town.name',
           },
@@ -147,8 +140,8 @@ export const address = new RestResource(
         datas: [],
       },
     ],
-    queryParams: {
-      _includes: 'user,town',
-    },
+    // queryParams: {
+    //   _includes: 'user,town',
+    // },
   }
 );

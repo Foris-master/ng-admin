@@ -2454,7 +2454,11 @@ class RestResourceDetailComponent {
                                     let dat = response;
                                     if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
                                         belongVal.forEach((val) => {
-                                            dat = dat[val];
+                                            if (dat[val]) {
+                                                dat = dat[val];
+                                            }
+                                            else
+                                                dat = '';
                                         });
                                     }
                                     else {

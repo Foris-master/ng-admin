@@ -2880,7 +2880,11 @@
                                         var dat_3 = response;
                                         if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
                                             belongVal.forEach(function (val) {
-                                                dat_3 = dat_3[val];
+                                                if (dat_3[val]) {
+                                                    dat_3 = dat_3[val];
+                                                }
+                                                else
+                                                    dat_3 = '';
                                             });
                                         }
                                         else {

@@ -522,8 +522,8 @@ export class RestResourceAddComponent implements OnInit {
     const bVal = this.options[field.name] ? this.options[field.name].find((elt) => elt?.id === event) : {};
     this.belongToValue[field.name] = bVal
       ? bVal[
-          field?.metaData?.addConfig?.belongToSecondFieldLabel
-            ? field?.metaData?.addConfig?.belongToSecondFieldLabel
+          field?.metaData?.belongToSecondFieldLabel
+            ? field?.metaData?.belongToSecondFieldLabel
             : 'name'
         ]
       : '';

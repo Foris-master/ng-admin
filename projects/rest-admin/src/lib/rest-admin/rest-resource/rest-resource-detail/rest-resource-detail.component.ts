@@ -265,7 +265,7 @@ export class RestResourceDetailComponent implements OnInit {
 
                       case REST_FIELD_TYPES.BELONG_TO:
                         const belongVal =
-                          search.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                        `${search.metaData?.addConfig?.belongToOptions?.resourceName}.${search.metaData?.belongToSecondFieldLabel}`.split(
                             '.'
                           );
                         let dat = response;
@@ -295,7 +295,7 @@ export class RestResourceDetailComponent implements OnInit {
                 this.resource.fields.forEach((elt) => {
                   if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
                     const belongVal =
-                      elt.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                    `${elt.metaData?.addConfig?.belongToOptions?.resourceName}.${elt.metaData?.belongToSecondFieldLabel}`.split(
                         '.'
                       );
                     let dat = response;
@@ -632,13 +632,15 @@ export class RestResourceDetailComponent implements OnInit {
 
                   case REST_FIELD_TYPES.BELONG_TO:
                     const belongVal =
-                      search.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                    `${search.metaData?.addConfig?.belongToOptions?.resourceName}.${search.metaData?.belongToSecondFieldLabel}`.split(
                         '.'
                       );
                     let dat = response;
                     if (belongVal && belongVal?.length > 0) {
                       belongVal.forEach((val) => {
-                        dat = dat[val];
+                        if (dat[val]) {
+                          dat = dat[val];
+                        } else dat = '';
                       });
                     } else {
                       dat = '';
@@ -667,7 +669,7 @@ export class RestResourceDetailComponent implements OnInit {
             this.resource.fields.forEach((elt) => {
               if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
                 const belongVal =
-                  elt.metaData?.detailConfig?.belongToSecondFieldLabel.split(
+                  `${elt.metaData?.addConfig?.belongToOptions?.resourceName}.${elt.metaData?.belongToSecondFieldLabel}`.split(
                     '.'
                   );
                 let dat = response;
