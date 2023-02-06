@@ -1987,6 +1987,24 @@ class RestResourceDetailComponent {
         this.isArray = (a) => {
             return !!a && a.constructor === Array;
         };
+        this.getBelongToSecondField = (elt, response) => {
+            var _a, _b, _c, _d;
+            const belongVal = `${(_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.resourceName}.${(_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.belongToSecondFieldLabel}`.split('.');
+            let dat = response;
+            if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
+                belongVal.forEach((val) => {
+                    if (dat[val]) {
+                        dat = dat[val];
+                    }
+                    else
+                        dat = '';
+                });
+            }
+            else {
+                dat = '';
+            }
+            return dat;
+        };
         this.jsonValue = (val) => {
             let _jsonValue;
             if (val.restField.i18n == true) {
@@ -2059,7 +2077,7 @@ class RestResourceDetailComponent {
                             this.tabsName.push(tab.name);
                             const temp = {};
                             tab.datas.forEach((elt) => {
-                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                                 const search = this.resource.fields.find((field) => field.label === elt);
                                 if (search) {
                                     temp[search.name] = {
@@ -2167,16 +2185,7 @@ class RestResourceDetailComponent {
                                             this.dataSourceBuilder.create(rowsBelongToMany);
                                         break;
                                     case REST_FIELD_TYPES.BELONG_TO:
-                                        const belongVal = `${(_q = (_p = (_o = search.metaData) === null || _o === void 0 ? void 0 : _o.addConfig) === null || _p === void 0 ? void 0 : _p.belongToOptions) === null || _q === void 0 ? void 0 : _q.resourceName}.${(_r = search.metaData) === null || _r === void 0 ? void 0 : _r.belongToSecondFieldLabel}`.split('.');
-                                        let dat = response;
-                                        if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                            belongVal.forEach((val) => {
-                                                dat = dat[val];
-                                            });
-                                        }
-                                        else {
-                                            dat = '';
-                                        }
+                                        let dat = this.getBelongToSecondField(search, response);
                                         if (search) {
                                             temp[search.name] = {
                                                 restField: search,
@@ -2195,18 +2204,8 @@ class RestResourceDetailComponent {
                     }
                     else {
                         this.resource.fields.forEach((elt) => {
-                            var _a, _b, _c, _d;
                             if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
-                                const belongVal = `${(_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.resourceName}.${(_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.belongToSecondFieldLabel}`.split('.');
-                                let dat = response;
-                                if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                    belongVal.forEach((val) => {
-                                        dat = dat[val];
-                                    });
-                                }
-                                else {
-                                    dat = '';
-                                }
+                                let dat = this.getBelongToSecondField(elt, response);
                                 colunms[elt.name] = {
                                     restField: elt,
                                     data: `${dat} (${response[elt.label]})`,
@@ -2339,7 +2338,7 @@ class RestResourceDetailComponent {
                         this.tabsName.push(tab.name);
                         const temp = {};
                         tab.datas.forEach((elt) => {
-                            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+                            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                             const search = this.resource.fields.find((field) => field.label === elt);
                             if (search) {
                                 temp[search.name] = {
@@ -2450,20 +2449,7 @@ class RestResourceDetailComponent {
                                         this.dataSourceBuilder.create(rowsBelongToMany);
                                     break;
                                 case REST_FIELD_TYPES.BELONG_TO:
-                                    const belongVal = `${(_q = (_p = (_o = search.metaData) === null || _o === void 0 ? void 0 : _o.addConfig) === null || _p === void 0 ? void 0 : _p.belongToOptions) === null || _q === void 0 ? void 0 : _q.resourceName}.${(_r = search.metaData) === null || _r === void 0 ? void 0 : _r.belongToSecondFieldLabel}`.split('.');
-                                    let dat = response;
-                                    if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                        belongVal.forEach((val) => {
-                                            if (dat[val]) {
-                                                dat = dat[val];
-                                            }
-                                            else
-                                                dat = '';
-                                        });
-                                    }
-                                    else {
-                                        dat = '';
-                                    }
+                                    let dat = this.getBelongToSecondField(search, response);
                                     if (search) {
                                         temp[search.name] = {
                                             restField: search,
@@ -2486,18 +2472,8 @@ class RestResourceDetailComponent {
                 }
                 else {
                     this.resource.fields.forEach((elt) => {
-                        var _a, _b, _c, _d;
                         if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
-                            const belongVal = `${(_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.resourceName}.${(_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.belongToSecondFieldLabel}`.split('.');
-                            let dat = response;
-                            if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                belongVal.forEach((val) => {
-                                    dat = dat[val];
-                                });
-                            }
-                            else {
-                                dat = '';
-                            }
+                            let dat = this.getBelongToSecondField(elt, response);
                             colunms[elt.name] = {
                                 restField: elt,
                                 data: `${dat} (${response[elt.label]})`,
@@ -2626,10 +2602,8 @@ class RestResourceDetailComponent {
         return REST_FIELD_TYPES;
     }
     //Image input
-    onSelect(event) {
-    }
-    onRemove(field) {
-    }
+    onSelect(event) { }
+    onRemove(field) { }
     loadBelongToDetail(data) {
         const resourceName = data.restField.metaData.addConfig.belongToOptions.resourceName;
         this.router.navigate([`/admin/${resourceName}-detail`, data.data]);

@@ -33,7 +33,7 @@ export const address = new RestResource(
       name: 'user_id',
       type: REST_FIELD_TYPES.BELONG_TO,
       metaData: {
-        belongToSecondFieldLabel: 'full_name',
+        // belongToSecondFieldLabel: 'full_name',
         addConfig: {
           belongToOptions: {
             // secondField: true,
@@ -140,8 +140,8 @@ export const address = new RestResource(
         datas: [],
       },
     ],
-    queryParams: {
-      _includes: 'user,town',
-    },
+    // queryParams: {
+    //   _includes: 'user,town',
+    // },
   }
 );

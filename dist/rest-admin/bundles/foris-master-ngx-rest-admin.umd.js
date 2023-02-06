@@ -2409,6 +2409,24 @@
             this.isArray = function (a) {
                 return !!a && a.constructor === Array;
             };
+            this.getBelongToSecondField = function (elt, response) {
+                var _a, _b, _c, _d;
+                var belongVal = (((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.resourceName) + "." + ((_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.belongToSecondFieldLabel)).split('.');
+                var dat = response;
+                if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
+                    belongVal.forEach(function (val) {
+                        if (dat[val]) {
+                            dat = dat[val];
+                        }
+                        else
+                            dat = '';
+                    });
+                }
+                else {
+                    dat = '';
+                }
+                return dat;
+            };
             this.jsonValue = function (val) {
                 var _jsonValue;
                 if (val.restField.i18n == true) {
@@ -2482,7 +2500,7 @@
                                 _this.tabsName.push(tab.name);
                                 var temp = {};
                                 tab.datas.forEach(function (elt) {
-                                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+                                    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                                     var search = _this.resource.fields.find(function (field) { return field.label === elt; });
                                     if (search) {
                                         temp[search.name] = {
@@ -2590,20 +2608,11 @@
                                                 _this.dataSourceBuilder.create(rowsBelongToMany);
                                             break;
                                         case exports.REST_FIELD_TYPES.BELONG_TO:
-                                            var belongVal = (((_q = (_p = (_o = search.metaData) === null || _o === void 0 ? void 0 : _o.addConfig) === null || _p === void 0 ? void 0 : _p.belongToOptions) === null || _q === void 0 ? void 0 : _q.resourceName) + "." + ((_r = search.metaData) === null || _r === void 0 ? void 0 : _r.belongToSecondFieldLabel)).split('.');
-                                            var dat_1 = response;
-                                            if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                                belongVal.forEach(function (val) {
-                                                    dat_1 = dat_1[val];
-                                                });
-                                            }
-                                            else {
-                                                dat_1 = '';
-                                            }
+                                            var dat = _this.getBelongToSecondField(search, response);
                                             if (search) {
                                                 temp[search.name] = {
                                                     restField: search,
-                                                    data: dat_1 + " (" + response[search.label] + ")",
+                                                    data: dat + " (" + response[search.label] + ")",
                                                 };
                                             }
                                             break;
@@ -2618,21 +2627,11 @@
                         }
                         else {
                             _this.resource.fields.forEach(function (elt) {
-                                var _a, _b, _c, _d;
                                 if (elt.type === exports.REST_FIELD_TYPES.BELONG_TO) {
-                                    var belongVal = (((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.resourceName) + "." + ((_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.belongToSecondFieldLabel)).split('.');
-                                    var dat_2 = response;
-                                    if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                        belongVal.forEach(function (val) {
-                                            dat_2 = dat_2[val];
-                                        });
-                                    }
-                                    else {
-                                        dat_2 = '';
-                                    }
+                                    var dat = _this.getBelongToSecondField(elt, response);
                                     colunms[elt.name] = {
                                         restField: elt,
-                                        data: dat_2 + " (" + response[elt.label] + ")",
+                                        data: dat + " (" + response[elt.label] + ")",
                                     };
                                 }
                                 else {
@@ -2765,7 +2764,7 @@
                             _this.tabsName.push(tab.name);
                             var temp = {};
                             tab.datas.forEach(function (elt) {
-                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
+                                var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
                                 var search = _this.resource.fields.find(function (field) { return field.label === elt; });
                                 if (search) {
                                     temp[search.name] = {
@@ -2876,24 +2875,11 @@
                                             _this.dataSourceBuilder.create(rowsBelongToMany);
                                         break;
                                     case exports.REST_FIELD_TYPES.BELONG_TO:
-                                        var belongVal = (((_q = (_p = (_o = search.metaData) === null || _o === void 0 ? void 0 : _o.addConfig) === null || _p === void 0 ? void 0 : _p.belongToOptions) === null || _q === void 0 ? void 0 : _q.resourceName) + "." + ((_r = search.metaData) === null || _r === void 0 ? void 0 : _r.belongToSecondFieldLabel)).split('.');
-                                        var dat_3 = response;
-                                        if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                            belongVal.forEach(function (val) {
-                                                if (dat_3[val]) {
-                                                    dat_3 = dat_3[val];
-                                                }
-                                                else
-                                                    dat_3 = '';
-                                            });
-                                        }
-                                        else {
-                                            dat_3 = '';
-                                        }
+                                        var dat = _this.getBelongToSecondField(search, response);
                                         if (search) {
                                             temp[search.name] = {
                                                 restField: search,
-                                                data: dat_3 + " (" + response[search.label] + ")",
+                                                data: dat + " (" + response[search.label] + ")",
                                             };
                                         }
                                         break;
@@ -2912,21 +2898,11 @@
                     }
                     else {
                         _this.resource.fields.forEach(function (elt) {
-                            var _a, _b, _c, _d;
                             if (elt.type === exports.REST_FIELD_TYPES.BELONG_TO) {
-                                var belongVal = (((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.resourceName) + "." + ((_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.belongToSecondFieldLabel)).split('.');
-                                var dat_4 = response;
-                                if (belongVal && (belongVal === null || belongVal === void 0 ? void 0 : belongVal.length) > 0) {
-                                    belongVal.forEach(function (val) {
-                                        dat_4 = dat_4[val];
-                                    });
-                                }
-                                else {
-                                    dat_4 = '';
-                                }
+                                var dat = _this.getBelongToSecondField(elt, response);
                                 colunms[elt.name] = {
                                     restField: elt,
-                                    data: dat_4 + " (" + response[elt.label] + ")",
+                                    data: dat + " (" + response[elt.label] + ")",
                                 };
                             }
                             else {
@@ -3059,10 +3035,8 @@
             configurable: true
         });
         //Image input
-        RestResourceDetailComponent.prototype.onSelect = function (event) {
-        };
-        RestResourceDetailComponent.prototype.onRemove = function (field) {
-        };
+        RestResourceDetailComponent.prototype.onSelect = function (event) { };
+        RestResourceDetailComponent.prototype.onRemove = function (field) { };
         RestResourceDetailComponent.prototype.loadBelongToDetail = function (data) {
             var resourceName = data.restField.metaData.addConfig.belongToOptions.resourceName;
             this.router.navigate(["/admin/" + resourceName + "-detail", data.data]);

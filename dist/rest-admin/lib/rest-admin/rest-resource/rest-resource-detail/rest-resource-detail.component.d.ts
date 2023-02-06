@@ -42,6 +42,7 @@ export declare class RestResourceDetailComponent implements OnInit {
     loadBelongToDetail(data: any): void;
     isObject: (a: any) => boolean;
     isArray: (a: any) => boolean;
+    getBelongToSecondField: (elt: any, response: any) => any;
     jsonValue: (val: any) => any;
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceDetailComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceDetailComponent, "ngx-rest-resource-detail", never, { "resource": "resource"; "ID": "ID"; "ressourceName": "ressourceName"; "container": "container"; "style": "style"; }, {}, never, never>;
