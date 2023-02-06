@@ -140,8 +140,8 @@ export const address = new RestResource(
         datas: [],
       },
     ],
-    // queryParams: {
-    //   _includes: 'user,town',
-    // },
+    queryParams: {
+      _includes: 'user,town',
+    },
   }
 );
