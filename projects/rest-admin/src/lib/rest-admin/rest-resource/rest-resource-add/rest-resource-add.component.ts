@@ -1,7 +1,14 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ChangeDetectorRef, Component, Input, OnInit, QueryList, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  QueryList,
+  ViewChild,
+} from '@angular/core';
 import {
   NbDialogService,
   NbMenuService,
@@ -183,7 +190,9 @@ export class RestResourceAddComponent implements OnInit {
   initForm(datas) {
     if (datas != null) {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
-        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -201,6 +210,20 @@ export class RestResourceAddComponent implements OnInit {
               return {
                 ...cumul,
                 [elt.name]: new Set([datas[elt.name]]),
+              };
+            case REST_FIELD_TYPES.PASSWORD:
+              if (elt.metaData?.addConfig?.passwordOptions?.isNeedConfirm) {
+                return {
+                  ...cumul,
+                  [elt.name]: [''],
+                  [elt.metaData?.addConfig?.passwordOptions?.confirmField
+                    ? elt.metaData.addConfig.passwordOptions.confirmField
+                    : elt.name + '_confirmation']: [''],
+                };
+              }
+              return {
+                ...cumul,
+                [elt.name]: [''],
               };
 
             case REST_FIELD_TYPES.BOOLEAN:
@@ -227,11 +250,7 @@ export class RestResourceAddComponent implements OnInit {
                     x[filterKey]
                       .toString()
                       .toLowerCase()
-                      ?.localeCompare(
-                        y[filterKey]
-                          .toString()
-                          .toLowerCase()
-                      )
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
                   );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
@@ -255,15 +274,11 @@ export class RestResourceAddComponent implements OnInit {
                 })
                 .subscribe((response: any) => {
                   this.options[elt.name] = [...response].sort((x, y) =>
-                  x[filterKey]
-                    .toString()
-                    .toLowerCase()
-                    ?.localeCompare(
-                      y[filterKey]
-                        .toString()
-                        .toLowerCase()
-                    )
-                );
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set(datas[elt.name]);
@@ -325,7 +340,9 @@ export class RestResourceAddComponent implements OnInit {
       }, {});
     } else {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
-        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -337,6 +354,21 @@ export class RestResourceAddComponent implements OnInit {
               return {
                 ...cumul,
                 [elt.name]: [null],
+              };
+
+            case REST_FIELD_TYPES.PASSWORD:
+              if (elt.metaData?.addConfig?.passwordOptions?.isNeedConfirm) {
+                return {
+                  ...cumul,
+                  [elt.name]: [''],
+                  [elt.metaData?.addConfig?.passwordOptions?.confirmField
+                    ? elt.metaData.addConfig.passwordOptions.confirmField
+                    : elt.name + '_confirmation']: [''],
+                };
+              }
+              return {
+                ...cumul,
+                [elt.name]: [''],
               };
 
             case REST_FIELD_TYPES.HAS_MANY:
@@ -367,15 +399,11 @@ export class RestResourceAddComponent implements OnInit {
                   })
                   .subscribe((response: any) => {
                     this.options[elt.name] = [...response].sort((x, y) =>
-                    x[filterKey]
-                      .toString()
-                      .toLowerCase()
-                      ?.localeCompare(
-                        y[filterKey]
-                          .toString()
-                          .toLowerCase()
-                      )
-                  );
+                      x[filterKey]
+                        .toString()
+                        .toLowerCase()
+                        ?.localeCompare(y[filterKey].toString().toLowerCase())
+                    );
                     this.allFilterContains[elt.name] = of(
                       this.options[elt.name]
                     );
@@ -401,15 +429,11 @@ export class RestResourceAddComponent implements OnInit {
                 })
                 .subscribe((response: any) => {
                   this.options[elt.name] = [...response].sort((x, y) =>
-                  x[filterKey]
-                    .toString()
-                    .toLowerCase()
-                    ?.localeCompare(
-                      (y[filterKey])
-                        .toString()
-                        .toLowerCase()
-                    )
-                );
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set();
@@ -519,7 +543,9 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onSelectionChange(event, field: RestField) {
-    const bVal = this.options[field.name] ? this.options[field.name].find((elt) => elt?.id === event) : {};
+    const bVal = this.options[field.name]
+      ? this.options[field.name].find((elt) => elt?.id === event)
+      : {};
     this.belongToValue[field.name] = bVal
       ? bVal[
           field?.metaData?.addConfig?.belongToSecondFieldLabel
@@ -681,6 +707,20 @@ export class RestResourceAddComponent implements OnInit {
                 key,
                 `${moment(formData[key]).format('YYYY-MM-DD')}`
               );
+              break;
+            case REST_FIELD_TYPES.PASSWORD:
+              if (search.metaData?.addConfig?.passwordOptions?.isNeedConfirm) {
+                const nameFiels = search.metaData?.addConfig?.passwordOptions
+                  ?.confirmField
+                  ? search.metaData.addConfig.passwordOptions.confirmField
+                  : search.name + '_confirmation';
+                if (formData[key] == formData[nameFiels]) {
+                  datas.append(key, formData[key]);
+                  datas.append(nameFiels, formData[nameFiels]);
+                }
+              } else {
+                datas.append(key, formData[key]);
+              }
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
