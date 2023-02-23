@@ -22,6 +22,15 @@
     "projects/rest-admin/src/lib/@core/mock/mock-data.module.ts",
     "projects/rest-admin/src/lib/@theme/theme.module.ts",
     "projects/rest-admin/src/lib/auth/auth-routing.module.ts",
-    "projects/rest-admin/src/lib/auth/auth.module.ts"
+    "projects/rest-admin/src/lib/auth/auth.module.ts",
+
+    //classes
+    "projects/rest-admin/src/lib/@core/utils/player.service.ts",
+
+    //injectables
+    "projects/rest-admin/src/lib/@core/utils/*.ts",
+
+    //others
+    "projects/rest-admin/src/lib/@core/module-import-guard.ts"
   ]
 }

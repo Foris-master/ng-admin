@@ -12,6 +12,6 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
     userInfoEndPoint: '/users/me',
     // profileNameEndPoint: 'name',
     // profilePictureEndPoint: 'picture',
-    redirectRouteAfterLogin: '/address', //juste mettre le nom de la ressource
+    redirectRouteAfterLogin: '/address', //just put the resource name
   },
 };
