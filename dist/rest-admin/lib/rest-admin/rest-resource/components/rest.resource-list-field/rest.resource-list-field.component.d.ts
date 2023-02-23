@@ -1,8 +1,8 @@
-import { OnInit } from "@angular/core";
-import { ViewCell } from "ng2-smart-table";
-import { RestField, REST_FIELD_TYPES } from "../../models/rest-resource.model";
-import { RestLangService } from "../../service/rest-lang.service";
-import { NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from "@nebular/theme";
+import { OnInit } from '@angular/core';
+import { ViewCell } from 'ng2-smart-table';
+import { RestField, REST_FIELD_TYPES } from '../../models/rest-resource.model';
+import { RestLangService } from '../../service/rest-lang.service';
+import { NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import * as i0 from "@angular/core";
 export declare class RestResourceListFieldComponent implements OnInit, ViewCell {
     private dataSourceBuilder;
