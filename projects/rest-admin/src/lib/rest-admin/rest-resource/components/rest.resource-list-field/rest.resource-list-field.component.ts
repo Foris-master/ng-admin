@@ -1,19 +1,19 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { ViewCell } from "ng2-smart-table";
-import { RestField, REST_FIELD_TYPES } from "../../models/rest-resource.model";
-import { RestLangService } from "../../service/rest-lang.service";
-import * as _ from "lodash";
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ViewCell } from 'ng2-smart-table';
+import { RestField, REST_FIELD_TYPES } from '../../models/rest-resource.model';
+import { RestLangService } from '../../service/rest-lang.service';
+import * as _ from 'lodash';
 import {
   NbTreeGridDataSource,
   NbSortDirection,
   NbTreeGridDataSourceBuilder,
   NbSortRequest,
-} from "@nebular/theme";
+} from '@nebular/theme';
 
 @Component({
-  selector: "ngx-rest-resource-list-field",
-  templateUrl: "./rest.resource-list-field.component.html",
-  styleUrls: ["./rest.resource-list-field.component.scss"],
+  selector: 'ngx-rest-resource-list-field',
+  templateUrl: './rest.resource-list-field.component.html',
+  styleUrls: ['./rest.resource-list-field.component.scss'],
 })
 export class RestResourceListFieldComponent implements OnInit, ViewCell {
   @Input() value: any;
@@ -23,7 +23,7 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
   class!: string;
   style!: string;
 
-  customColumn = "name";
+  customColumn = 'name';
   allColumns = [this.customColumn];
   dataSource!: NbTreeGridDataSource<any>;
   image: any;
@@ -59,7 +59,7 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
           {
             data: {
               name: this.restField.name,
-              place: "header-place",
+              place: 'header-place',
             },
             children: datas,
           },
@@ -86,7 +86,7 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
           {
             data: {
               name: this.restField.name,
-              place: "header-place",
+              place: 'header-place',
             },
             children: items,
           },
@@ -105,11 +105,11 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
             ];
         }
         break;
-        case REST_FIELD_TYPES.COLOR:
-          if (!this.val) {
-            this.val = '#E4E4E4';
-          }
-          break;
+      case REST_FIELD_TYPES.COLOR:
+        if (!this.val) {
+          this.val = '#E4E4E4';
+        }
+        break;
       default:
         break;
     }
@@ -125,8 +125,8 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
     if (this.restField.i18n == true) {
       this.restField.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
         if (field == this.langService.selected) {
-          if (this.val[0] == "{") this._jsonValue = JSON.parse(this.val)[field];
-          else if (typeof this.val !== "string")
+          if (this.val[0] == '{') this._jsonValue = JSON.parse(this.val)[field];
+          else if (typeof this.val !== 'string')
             this._jsonValue = this.val[field];
           else this._jsonValue = this.val;
         }
@@ -135,9 +135,7 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
       this._jsonValue = this.val;
     }
 
-    if (typeof this.val == "object") return JSON.stringify(this._jsonValue);
+    if (typeof this.val == 'object') return JSON.stringify(this._jsonValue);
     else return this._jsonValue;
   }
 }
-
-

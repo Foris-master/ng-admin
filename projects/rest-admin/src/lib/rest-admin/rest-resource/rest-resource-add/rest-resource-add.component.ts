@@ -548,8 +548,8 @@ export class RestResourceAddComponent implements OnInit {
       : {};
     this.belongToValue[field.name] = bVal
       ? bVal[
-          field?.metaData?.addConfig?.belongToSecondFieldLabel
-            ? field?.metaData?.addConfig?.belongToSecondFieldLabel
+          field?.metaData?.belongToSecondFieldLabel
+            ? field?.metaData?.belongToSecondFieldLabel
             : 'name'
         ]
       : '';

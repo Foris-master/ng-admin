@@ -90,21 +90,21 @@ export interface REST_FIELD_METADATA {
     format?: string;
     number?: Boolean;
     attributes?: any;
+    belongToSecondFieldLabel?: string;
     listConfig?: {
         class?: string;
         style?: string;
         restManyResources?: RestField;
         restBelongToManyResources?: RestField;
         restHasOneResources?: RestField;
-        belongToSecondFieldLabel?: string;
     };
     addConfig?: {
-        belongToSecondFieldLabel?: string;
         enumOptions?: {
             value: string;
             label: string;
         }[];
         belongToOptions?: {
+            secondField?: Boolean;
             resourceName: string;
             filterKeys?: string[];
             value?: string;
@@ -148,7 +148,6 @@ export interface REST_FIELD_METADATA {
         };
     };
     detailConfig?: {
-        belongToSecondFieldLabel?: string;
         restManyResources?: RestField | RestManyOptionsCustom;
     };
 }

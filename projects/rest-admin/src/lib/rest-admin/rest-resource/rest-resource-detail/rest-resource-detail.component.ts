@@ -264,18 +264,7 @@ export class RestResourceDetailComponent implements OnInit {
                         break;
 
                       case REST_FIELD_TYPES.BELONG_TO:
-                        const belongVal =
-                          search.metaData?.detailConfig?.belongToSecondFieldLabel.split(
-                            '.'
-                          );
-                        let dat = response;
-                        if (belongVal && belongVal?.length > 0) {
-                          belongVal.forEach((val) => {
-                            dat = dat[val];
-                          });
-                        } else {
-                          dat = '';
-                        }
+                        let dat = this.getBelongToSecondField(search, response);
                         if (search) {
                           temp[search.name] = {
                             restField: search,
@@ -294,18 +283,7 @@ export class RestResourceDetailComponent implements OnInit {
               } else {
                 this.resource.fields.forEach((elt) => {
                   if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
-                    const belongVal =
-                      elt.metaData?.detailConfig?.belongToSecondFieldLabel.split(
-                        '.'
-                      );
-                    let dat = response;
-                    if (belongVal && belongVal?.length > 0) {
-                      belongVal.forEach((val) => {
-                        dat = dat[val];
-                      });
-                    } else {
-                      dat = '';
-                    }
+                    let dat = this.getBelongToSecondField(elt, response);
                     colunms[elt.name] = {
                       restField: elt,
                       data: `${dat} (${response[elt.label]})`,
@@ -631,18 +609,7 @@ export class RestResourceDetailComponent implements OnInit {
                     break;
 
                   case REST_FIELD_TYPES.BELONG_TO:
-                    const belongVal =
-                      search.metaData?.detailConfig?.belongToSecondFieldLabel.split(
-                        '.'
-                      );
-                    let dat = response;
-                    if (belongVal && belongVal?.length > 0) {
-                      belongVal.forEach((val) => {
-                        dat = dat[val];
-                      });
-                    } else {
-                      dat = '';
-                    }
+                    let dat = this.getBelongToSecondField(search, response);
                     if (search) {
                       temp[search.name] = {
                         restField: search,
@@ -652,7 +619,11 @@ export class RestResourceDetailComponent implements OnInit {
                     break;
 
                   case REST_FIELD_TYPES.PDF:
-                    const file = urlToFile(response[search.label], search.label, 'pdf');
+                    const file = urlToFile(
+                      response[search.label],
+                      search.label,
+                      'pdf'
+                    );
                     this.filesUpload[search.label] = file;
                     break;
                   default:
@@ -666,18 +637,7 @@ export class RestResourceDetailComponent implements OnInit {
           } else {
             this.resource.fields.forEach((elt) => {
               if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
-                const belongVal =
-                  elt.metaData?.detailConfig?.belongToSecondFieldLabel.split(
-                    '.'
-                  );
-                let dat = response;
-                if (belongVal && belongVal?.length > 0) {
-                  belongVal.forEach((val) => {
-                    dat = dat[val];
-                  });
-                } else {
-                  dat = '';
-                }
+                let dat = this.getBelongToSecondField(elt, response);
                 colunms[elt.name] = {
                   restField: elt,
                   data: `${dat} (${response[elt.label]})`,
@@ -827,7 +787,6 @@ export class RestResourceDetailComponent implements OnInit {
           }
         });
     }
-
   }
 
   editEntity() {
@@ -842,13 +801,10 @@ export class RestResourceDetailComponent implements OnInit {
     return REST_FIELD_TYPES;
   }
 
-
   //Image input
-  onSelect(event) {
-  }
+  onSelect(event) {}
 
-  onRemove(field) {
-  }
+  onRemove(field) {}
 
   loadBelongToDetail(data) {
     const resourceName =
@@ -869,6 +825,24 @@ export class RestResourceDetailComponent implements OnInit {
 
   isArray = (a) => {
     return !!a && a.constructor === Array;
+  };
+
+  getBelongToSecondField = (elt, response) => {
+    const belongVal =
+      `${elt.metaData?.addConfig?.belongToOptions?.resourceName}.${elt.metaData?.belongToSecondFieldLabel}`.split(
+        '.'
+      );
+    let dat = response;
+    if (belongVal && belongVal?.length > 0) {
+      belongVal.forEach((val) => {
+        if (dat[val]) {
+          dat = dat[val];
+        } else dat = '';
+      });
+    } else {
+      dat = '';
+    }
+    return dat;
   };
 
   jsonValue = (val) => {
