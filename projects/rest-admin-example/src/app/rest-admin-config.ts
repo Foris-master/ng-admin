@@ -2,7 +2,7 @@ import { REST_CONFIG, STRATEGY_AUTH } from 'rest-admin';
 import { resources } from './resources';
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
-  name: 'Name of the app',
+  name: 'My admin',
   baseUrl: 'https://api.marylis.com/api',
   resources: resources,
   authConfig: {

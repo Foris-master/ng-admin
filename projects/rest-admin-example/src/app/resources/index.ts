@@ -1,14 +1,14 @@
-import { address } from "./address";
+import { address } from './address';
 // import { person } from "./person";
-import { town } from "./town";
-import { user } from "./user";
-import { country } from "./country";
+import { town } from './town';
+import { user } from './user';
+import { country } from './country';
 // import { enterprise } from "./enterprise";
 // import { contact } from "./contact";
 // import { consolidator } from "./consolidator";
 // import { container } from "./container";
 // import { bill } from "./bill";
-import { currency } from "./currency";
+import { currency } from './currency';
 // import { stock } from "./stock";
 // import { vehicule } from "./vehicule";
 // import { vehiculePart } from "./vehiculePart";
@@ -28,9 +28,9 @@ import { currency } from "./currency";
 // import { eventTypeGift } from "./eventTypeGift";
 // import { invitation } from "./invitation";
 // import { message } from "./message";
-import { packageContent } from "./packageContent";
-import { packageType } from "./packageType";
-import { _package } from "./package";
+import { packageContent } from './packageContent';
+import { packageType } from './packageType';
+import { _package } from './package';
 // import { partType } from "./partType";
 // import { partTypeVehiculeModels } from "./partTypeVehiculeModels";
 // import { paymentMethod } from "./paymentMethod";
@@ -44,7 +44,7 @@ import { _package } from "./package";
 // import { giftRegistry } from "./giftRegistry";
 // import { gift } from "./gift";
 // import { flight } from "./flight";
-import { expeditionRequest } from "./expeditionRequest";
+import { expeditionRequest } from './expeditionRequest';
 // import { eventType } from "./eventType";
 // import { _event } from "./event";
 // import { Disclaimer } from "./Disclaimer";
@@ -63,7 +63,7 @@ import { expeditionRequest } from "./expeditionRequest";
 // import { vehiculeModel } from "./vehiculeModel";
 
 export const resources = [
-  address,
+  // address,
   // auth,
   // person,
   user,
@@ -76,8 +76,8 @@ export const resources = [
   // bill,
   // Disclaimer,
   // destination,
-  currency,
-  expeditionRequest,
+  // currency,
+  // expeditionRequest,
   // eventType,
   // _event,
   // stock,
@@ -103,9 +103,9 @@ export const resources = [
   // gift,
   // flight,
   // message,
-  packageContent,
-  packageType,
-  _package,
+  // packageContent,
+  // packageType,
+  // _package,
   // partType,
   // partTypeVehiculeModels,
   // paymentMethod,

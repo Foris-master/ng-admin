@@ -2,9 +2,27 @@
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
 
-# RestAdmin for Angular
+# Demo pictures
 
-![example](https://github.com/Foris-master/ngx-admin/tree/dev_geol/projects/rest-admin-example)
+The demo site is coming [demo rest-admin](https://github.com/Foris-master/ngx-admin)
+
+## Demo pictures
+
+### Login page
+
+![](https://raw.githubusercontent.com/Foris-master/ngx-admin/main/login.png)
+
+### Create page
+
+![](https://raw.githubusercontent.com/Foris-master/ngx-admin/main/create.png)
+
+### Update page
+
+![](https://raw.githubusercontent.com/Foris-master/ngx-admin/main/update.png)
+
+### Listing page
+
+![](https://raw.githubusercontent.com/Foris-master/ngx-admin/main/read1.png)
 
 ## License
 
@@ -138,7 +156,7 @@ to **angular.json** styles array:
 
 #### Examples and Tutorials
 
-A great step-by-step [example of making an Angular CLI project with a library distributed separate from the app](https://github.com/Foris-master/ngx-admin/tree/dev_geol/projects/rest-admin-example) ![example](https://github.com/Foris-master/ngx-admin/tree/dev_geol/projects/rest-admin-example), by Geol1
+A great step-by-step [example of making an Angular CLI project with a library distributed separate from the app](https://github.com/Foris-master/ngx-admin/tree/dev_geol/projects/rest-admin-example)
 
 ## Library Contributions
 
