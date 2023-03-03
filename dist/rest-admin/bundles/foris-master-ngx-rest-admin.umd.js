@@ -2019,9 +2019,11 @@
                                         _this.jsonEditorOptions[key].map(function (elt) {
                                             var _j;
                                             jsonFields_1 = Object.assign(Object.assign({}, jsonFields_1), (_j = {}, _j[elt.label] = elt.value, _j));
+                                            datas.append(key + "[" + elt.label + "]", elt.value);
                                         });
                                     }
-                                    datas.append(key, JSON.stringify(jsonFields_1));
+                                    // datas.append(key, JSON.stringify(jsonFields));
+                                    // datas.append(key, jsonFields);
                                 }
                                 break;
                             case exports.REST_FIELD_TYPES.BOOLEAN:

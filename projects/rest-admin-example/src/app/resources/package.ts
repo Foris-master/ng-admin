@@ -86,24 +86,78 @@ export const _package = new RestResource(
         addConfig: {
           enumOptions: [
             {
-              label: 'proposed',
-              value: 'proposed',
+              label: "new",
+              value: "new",
             },
             {
-              label: 'accepted',
-              value: 'accepted',
+              label: "boat_start",
+              value: "boat_start",
             },
             {
-              label: 'refused',
-              value: 'refused',
+              label: "board_end",
+              value: "board_end",
+            },
+            {
+              label: "in_transit",
+              value: "in_transit",
+            },
+            {
+              label: "arrived",
+              value: "arrived",
+            },
+            {
+              label: "routing_to_depot",
+              value: "routing_to_depot",
+            },
+            {
+              label: "shipping_in_progress",
+              value: "shipping_in_progress",
+            },
+            {
+              label: "book",
+              value: "book",
+            },
+            {
+              label: "client_confirmed",
+              value: "client_confirmed",
+            },
+            {
+              label: "deleted",
+              value: "deleted",
             },
           ],
         },
       },
     },
     {
-      name: 'nature',
-      type: REST_FIELD_TYPES.STRING,
+      name: "nature",
+      type: REST_FIELD_TYPES.ENUM,
+      metaData: {
+        addConfig: {
+          enumOptions: [
+            {
+              label: "solid",
+              value: "solid",
+            },
+            {
+              label: "liquid",
+              value: "liquid",
+            },
+            {
+              label: "gaseous",
+              value: "gaseous",
+            },
+            {
+              label: "breakable",
+              value: "breakable",
+            },
+            {
+              label: "flammable",
+              value: "flammable",
+            },
+          ],
+        },
+      },
     },
     {
       name: 'code',

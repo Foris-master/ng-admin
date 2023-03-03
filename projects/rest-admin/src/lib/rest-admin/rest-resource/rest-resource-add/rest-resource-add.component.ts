@@ -688,9 +688,11 @@ export class RestResourceAddComponent implements OnInit {
                 if (typeof this.jsonEditorOptions[key] == 'object') {
                   this.jsonEditorOptions[key].map((elt) => {
                     jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                    datas.append(`${key}[${elt.label}]`, elt.value);
                   });
                 }
-                datas.append(key, JSON.stringify(jsonFields));
+                // datas.append(key, JSON.stringify(jsonFields));
+                // datas.append(key, jsonFields);
               }
               break;
             case REST_FIELD_TYPES.BOOLEAN:

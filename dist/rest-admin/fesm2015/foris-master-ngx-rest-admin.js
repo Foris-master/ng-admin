@@ -1618,9 +1618,11 @@ class RestResourceAddComponent {
                                 if (typeof this.jsonEditorOptions[key] == 'object') {
                                     this.jsonEditorOptions[key].map((elt) => {
                                         jsonFields = Object.assign(Object.assign({}, jsonFields), { [elt.label]: elt.value });
+                                        datas.append(`${key}[${elt.label}]`, elt.value);
                                     });
                                 }
-                                datas.append(key, JSON.stringify(jsonFields));
+                                // datas.append(key, JSON.stringify(jsonFields));
+                                // datas.append(key, jsonFields);
                             }
                             break;
                         case REST_FIELD_TYPES.BOOLEAN:

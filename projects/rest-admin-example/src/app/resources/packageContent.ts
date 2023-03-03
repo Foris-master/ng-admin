@@ -30,6 +30,10 @@ export const packageContent = new RestResource(
       type: REST_FIELD_TYPES.STRING,
     },
     {
+      name: "note",
+      type: REST_FIELD_TYPES.TEXT,
+    },
+    {
       name: "quantity",
       type: REST_FIELD_TYPES.NUMBER,
     },
@@ -78,7 +82,7 @@ export const packageContent = new RestResource(
     },
   ],
   {
-    columns: ["id", "picture", "name", "quantity", "package", "created_at"],
+    columns: ["id", "picture", "name", "note", "quantity", "package", "created_at"],
     group: {
       name: "CLIENT",
       type: TYPE_GROUP.SEPARATOR, // Regroupe les ressources dans un menu deroulant
