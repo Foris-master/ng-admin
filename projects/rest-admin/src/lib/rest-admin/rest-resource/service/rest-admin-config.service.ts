@@ -81,7 +81,7 @@ export class RestAdminConfigService {
               menus_group[item.listConfig.group.name].push({
                 title: item.name,
                 icon: item.icon,
-                link: item.name.toLowerCase() + '-list',
+                link: '/admin/' + item.name.toLowerCase() + '-list',
               });
             else {
               menus_group[item.listConfig.group.name] = [
@@ -93,26 +93,35 @@ export class RestAdminConfigService {
               menus_group[item.listConfig.group.name].push({
                 title: item.name,
                 icon: item.icon,
-                link: item.name.toLowerCase() + '-list',
+                link: '/admin/' + item.name.toLowerCase() + '-list',
               });
             }
             break;
           case TYPE_GROUP.MENU:
             if (Array.isArray(menus_group[item.listConfig.group.name])) {
-              menus_group[item.listConfig.group.name][0].children.push({
-                title: item.name,
-                link: item.name.toLowerCase() + '-list',
-                icon: item.icon,
-              });
+              if (Array.isArray(menus_group[item.listConfig.group.name][0]['children'])) {
+                menus_group[item.listConfig.group.name][0].children.push({
+                  title: item.name,
+                  link: '/admin/' + item.name.toLowerCase() + '-list',
+                  icon: item.icon,
+                });
+              } else {
+                menus_group[item.listConfig.group.name][0]['children'] = [{
+                  title: item.name,
+                  link: '/admin/' + item.name.toLowerCase() + '-list',
+                  icon: item.icon,
+                }];
+              }
             } else {
               menus_group[item.listConfig.group.name] = [
                 {
                   title: item.listConfig.group.name,
                   icon: item.listConfig.group.icon,
+                  expanded: true,
                   children: [
                     {
                       title: item.name,
-                      link: item.name.toLowerCase() + '-list',
+                      link: '/admin/' + item.name.toLowerCase() + '-list',
                       icon: item.icon,
                     },
                   ],
@@ -142,13 +151,13 @@ export class RestAdminConfigService {
           menus_group[TYPE_GROUP.DEFAULT].push({
             title: item.name,
             icon: item.icon,
-            link: item.name.toLowerCase() + '-list',
+            link: '/admin/' + item.name.toLowerCase() + '-list',
           });
         else {
           menus_group[TYPE_GROUP.DEFAULT] = [];
           menus_group[TYPE_GROUP.DEFAULT].push({
             title: item.name,
-            link: item.name.toLowerCase() + '-list',
+            link: '/admin/' + item.name.toLowerCase() + '-list',
             icon: item.icon,
           });
         }

@@ -17,13 +17,13 @@ export const address = new RestResource(
     },
     {
       name: 'name',
-      // type: REST_FIELD_TYPES.COLOR,
-      metaData: {
-        attributes: {
-          style: 'color: red; font-weight: bold;',
-          type: 'password',
-        },
-      },
+      type: REST_FIELD_TYPES.COLOR,
+      // metaData: {
+      //   attributes: {
+      //     style: 'color: red; font-weight: bold;',
+      //     type: 'password',
+      //   },
+      // },
     },
     {
       name: 'zip_code',

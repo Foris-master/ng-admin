@@ -43,6 +43,8 @@ export class RestResourceAddComponent implements OnInit {
   };
 
   entity: any;
+  // Loader
+  loading = false;
 
   // Test
   public uploadedFile: BehaviorSubject<any>;
@@ -71,6 +73,9 @@ export class RestResourceAddComponent implements OnInit {
   isCrop: any = {};
 
   controlsImage: any = {};
+
+  // Color
+  colors = [];
 
   // End test
 
@@ -281,7 +286,7 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.COLOR:
               return {
                 ...cumul,
-                [elt.name]: '#e44',
+                [elt.name]: datas[elt.name],
               };
             case REST_FIELD_TYPES.JSON:
               const jsonFiels = [];
@@ -665,6 +670,7 @@ export class RestResourceAddComponent implements OnInit {
       label: `msg-adding-success`,
       resourceName: this.ressourceName,
     };
+    this.loading = true;
     const formData = this.form.value;
     const _body = this.resource.addConfig.body;
     if (this.resource.hasFile) {
@@ -779,12 +785,14 @@ export class RestResourceAddComponent implements OnInit {
               }
             });
           });
+          this.loading = false;
         } else {
           this.notificationService.successToast(msg);
           this.router.navigate([
             `/admin/${this.ressourceName}-detail`,
             response.id,
           ]);
+          this.loading = false;
           this.reset();
         }
       },
@@ -793,9 +801,11 @@ export class RestResourceAddComponent implements OnInit {
           label: `msg-adding-error`,
           resourceName: this.ressourceName,
         };
+        this.loading = false;
         this.notificationService.dangerToast(msgError);
       }
     );
+
   }
 
   onEdit() {
@@ -803,7 +813,7 @@ export class RestResourceAddComponent implements OnInit {
       label: `msg-updating-success`,
       resourceName: this.ressourceName,
     };
-
+    this.loading = true;
     let datas;
     const formData = this.form.value;
     const _body = this.resource.editConfig.body;
@@ -922,12 +932,14 @@ export class RestResourceAddComponent implements OnInit {
                 }
               });
             });
+            this.loading = false;
           } else {
             this.notificationService.successToast(msg);
             this.router.navigate([
               `/admin/${this.ressourceName}-detail`,
               this.formState.idEntity,
             ]);
+            this.loading = false;
             this.reset();
           }
         },
@@ -936,6 +948,7 @@ export class RestResourceAddComponent implements OnInit {
             label: `msg-updating-fail`,
             resourceName: this.ressourceName,
           };
+          this.loading = false;
           this.notificationService.dangerToast(msgError);
         }
       );

@@ -126,6 +126,11 @@ export interface REST_FIELD_METADATA {
       template?: string; // Le template a affciher
       queryParams?: any;
     };
+    passwordOptions?: {
+      isNeedConfirm?: boolean;
+      confirmLabel?: string;
+      confirmField?: string;
+    };
     belongToManyOptions?: {
       relatedName: string; // Le nom des  ressources a referencer
       filterKeys?: string[];
@@ -214,6 +219,7 @@ export enum REST_FIELD_TYPES {
   MAP,
   ENUM,
   LINK,
+  PASSWORD,
 }
 
 interface LINK {

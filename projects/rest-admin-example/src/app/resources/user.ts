@@ -180,7 +180,7 @@ export const user = new RestResource(
     ],
     group: {
       name: "ACL",
-      type: TYPE_GROUP.SEPARATOR,
+      type: TYPE_GROUP.MENU,
     },
     queryParams: {
       _includes: "address,addresses",

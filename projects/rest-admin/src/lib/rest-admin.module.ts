@@ -41,6 +41,7 @@ import {
   NbContextMenuModule,
   NbIconLibraries,
   NbAlertModule,
+  NbLayoutModule,
 } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from './@theme/theme.module';
@@ -85,6 +86,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestShareService } from './rest-admin/rest-resource/service/rest-share.service';
 import { AttributeDirective } from './rest-admin/directives/attribute.directive';
+import { MenuFilterPipe } from './rest-admin/rest-main-component/menu-filter.pipe';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -109,6 +111,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     FsIconCComponent,
     LoginComponent,
     AttributeDirective,
+    MenuFilterPipe,
   ],
   exports: [
     RestResourceListComponent,
@@ -166,6 +169,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     TranslateModule,
     NgxDropzoneModule,
     NgxPermissionsModule.forChild(),
+    NbLayoutModule,
 
     NbSelectModule,
     NbSidebarModule,

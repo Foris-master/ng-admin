@@ -331,6 +331,7 @@ var REST_FIELD_TYPES;
     REST_FIELD_TYPES[REST_FIELD_TYPES["MAP"] = 19] = "MAP";
     REST_FIELD_TYPES[REST_FIELD_TYPES["ENUM"] = 20] = "ENUM";
     REST_FIELD_TYPES[REST_FIELD_TYPES["LINK"] = 21] = "LINK";
+    REST_FIELD_TYPES[REST_FIELD_TYPES["PASSWORD"] = 22] = "PASSWORD";
 })(REST_FIELD_TYPES || (REST_FIELD_TYPES = {}));
 var STRATEGY_AUTH;
 (function (STRATEGY_AUTH) {
@@ -679,7 +680,7 @@ class RestResourceListFieldComponent {
     constructor(dataSourceBuilder, langService) {
         this.dataSourceBuilder = dataSourceBuilder;
         this.langService = langService;
-        this.customColumn = "name";
+        this.customColumn = 'name';
         this.allColumns = [this.customColumn];
     }
     ngOnInit() {
@@ -704,7 +705,7 @@ class RestResourceListFieldComponent {
                     {
                         data: {
                             name: this.restField.name,
-                            place: "header-place",
+                            place: 'header-place',
                         },
                         children: datas,
                     },
@@ -726,7 +727,7 @@ class RestResourceListFieldComponent {
                     {
                         data: {
                             name: this.restField.name,
-                            place: "header-place",
+                            place: 'header-place',
                         },
                         children: items,
                     },
@@ -758,9 +759,9 @@ class RestResourceListFieldComponent {
         if (this.restField.i18n == true) {
             this.restField.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
                 if (field == this.langService.selected) {
-                    if (this.val[0] == "{")
+                    if (this.val[0] == '{')
                         this._jsonValue = JSON.parse(this.val)[field];
-                    else if (typeof this.val !== "string")
+                    else if (typeof this.val !== 'string')
                         this._jsonValue = this.val[field];
                     else
                         this._jsonValue = this.val;
@@ -770,7 +771,7 @@ class RestResourceListFieldComponent {
         else {
             this._jsonValue = this.val;
         }
-        if (typeof this.val == "object")
+        if (typeof this.val == 'object')
             return JSON.stringify(this._jsonValue);
         else
             return this._jsonValue;
@@ -781,9 +782,9 @@ RestResourceListFieldComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListFieldComponent, decorators: [{
             type: Component,
             args: [{
-                    selector: "ngx-rest-resource-list-field",
-                    templateUrl: "./rest.resource-list-field.component.html",
-                    styleUrls: ["./rest.resource-list-field.component.scss"],
+                    selector: 'ngx-rest-resource-list-field',
+                    templateUrl: './rest.resource-list-field.component.html',
+                    styleUrls: ['./rest.resource-list-field.component.scss'],
                 }]
         }], ctorParameters: function () { return [{ type: i1$1.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, propDecorators: { value: [{
                 type: Input
@@ -1191,6 +1192,8 @@ class RestResourceAddComponent {
             idEntity: null,
             onReady: false,
         };
+        // Loader
+        this.loading = false;
         // End test
         //BELONG_TO FIELD
         this.options = {};
@@ -1205,6 +1208,8 @@ class RestResourceAddComponent {
         this.croppedImage = {};
         this.isCrop = {};
         this.controlsImage = {};
+        // Color
+        this.colors = [];
         // End test
         //Import
         this.items = [{ title: 'Download template' }, { title: 'Import' }];
@@ -1339,7 +1344,7 @@ class RestResourceAddComponent {
                         case REST_FIELD_TYPES.LINK:
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: [datas[elt.name], Validator.url] });
                         case REST_FIELD_TYPES.COLOR:
-                            return Object.assign(Object.assign({}, cumul), { [elt.name]: '#e44' });
+                            return Object.assign(Object.assign({}, cumul), { [elt.name]: datas[elt.name] });
                         case REST_FIELD_TYPES.JSON:
                             const jsonFiels = [];
                             elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
@@ -1600,6 +1605,7 @@ class RestResourceAddComponent {
             label: `msg-adding-success`,
             resourceName: this.ressourceName,
         };
+        this.loading = true;
         const formData = this.form.value;
         const _body = this.resource.addConfig.body;
         if (this.resource.hasFile) {
@@ -1701,6 +1707,7 @@ class RestResourceAddComponent {
                         }
                     });
                 });
+                this.loading = false;
             }
             else {
                 this.notificationService.successToast(msg);
@@ -1708,6 +1715,7 @@ class RestResourceAddComponent {
                     `/admin/${this.ressourceName}-detail`,
                     response.id,
                 ]);
+                this.loading = false;
                 this.reset();
             }
         }, (error) => {
@@ -1715,6 +1723,7 @@ class RestResourceAddComponent {
                 label: `msg-adding-error`,
                 resourceName: this.ressourceName,
             };
+            this.loading = false;
             this.notificationService.dangerToast(msgError);
         });
     }
@@ -1723,6 +1732,7 @@ class RestResourceAddComponent {
             label: `msg-updating-success`,
             resourceName: this.ressourceName,
         };
+        this.loading = true;
         let datas;
         const formData = this.form.value;
         const _body = this.resource.editConfig.body;
@@ -1825,6 +1835,7 @@ class RestResourceAddComponent {
                         }
                     });
                 });
+                this.loading = false;
             }
             else {
                 this.notificationService.successToast(msg);
@@ -1832,6 +1843,7 @@ class RestResourceAddComponent {
                     `/admin/${this.ressourceName}-detail`,
                     this.formState.idEntity,
                 ]);
+                this.loading = false;
                 this.reset();
             }
         }, (error) => {
@@ -1839,6 +1851,7 @@ class RestResourceAddComponent {
                 label: `msg-updating-fail`,
                 resourceName: this.ressourceName,
             };
+            this.loading = false;
             this.notificationService.dangerToast(msgError);
         });
     }
@@ -1930,7 +1943,7 @@ class RestResourceAddComponent {
     }
 }
 RestResourceAddComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceAddComponent, deps: [{ token: i1$4.FormBuilder }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i1.ActivatedRoute }, { token: i1$1.NbMenuService }, { token: RestExportService }, { token: i1$1.NbDialogService }, { token: i1.Router }, { token: NotificationService }, { token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceAddComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceAddComponent, selector: "ngx-rest-resource-add", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "belongTo", first: true, predicate: ["belongTo"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0, template: "<nb-card>\n  <!-- <nb-card-header class=\"row\">\n    <div class=\"col-9\" *ngIf=\"formState.isAdd\">\n      {{ resource.addConfig.title }}\n    </div>\n\n    <div class=\"col-3\">\n      <button\n        nbButton\n        status=\"primary\"\n        [nbContextMenu]=\"items\"\n        nbContextMenuTag=\"my-context-menu\"\n      >\n        {{ \"rest-add.import\" | translate }}\n      </button>\n    </div>\n  </nb-card-header> -->\n\n  <nb-card-header *ngIf=\"formState.onReady && !formState.isAdd\"\n    >{{ resource.editConfig.title }}\n  </nb-card-header>\n\n  <nb-card-header *ngIf=\"formState.onReady && formState.isAdd\"\n    >{{ resource.addConfig.title }}\n  </nb-card-header>\n\n  <nb-card-body>\n    <nb-tabset>\n      <nb-tab tabTitle=\"Ajout simple\">\n        <form [formGroup]=\"form\" class=\"row\" *ngIf=\"formState.onReady\">\n          <div\n            *ngFor=\"\n              let field of resource.fields;\n              trackBy: trackByFn;\n              let i = index\n            \"\n            class=\"col-12\"\n          >\n            <ng-container *ngIf=\"field.inForm\">\n              <!-- Input type string  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.STRING ||\n                  field.type == REST_FIELD_TYPES.HAS_ONE\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n              </div>\n\n              <!-- Input type text -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <textarea\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                ></textarea>\n              </div>\n\n              <!-- Input type number  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"number\"\n                />\n              </div>\n\n              <!-- Input type date -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"formpicker\"\n                  [attributes]=\"field.metaData.attributes\"\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                />\n                <nb-datepicker #formpicker></nb-datepicker>\n              </div>\n\n              <!-- Input type dateTime -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"dateTimePicker\"\n                  [formControlName]=\"field.name\"\n                />\n                <nb-date-timepicker\n                  withSeconds\n                  #dateTimePicker\n                ></nb-date-timepicker>\n              </div>\n\n              <!-- Input type time -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  [nbTimepicker]=\"timepicker\"\n                  fullWidth\n                  [attributes]=\"field.metaData.attributes\"\n                  [formControlName]=\"field.name\"\n                  twelveHoursFormat\n                  nbInput\n                />\n                <nb-timepicker #timepicker></nb-timepicker>\n              </div>\n\n              <!-- Input type enum -->\n              <ng-container\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-select\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n                    [value]=\"option.value\"\n                    >{{ option.label }}</nb-option\n                  >\n                </nb-select>\n              </ng-container>\n\n              <!-- Input type boolean -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                <div style=\"display: flex; align-items: center\">\n                  <label style=\"margin-right: 0.5em\">{{\n                    field.label | titlecase\n                  }}</label>\n                  <!-- [name]=\"field.name\" -->\n                  <nb-toggle [formControlName]=\"field.name\"></nb-toggle>\n                </div>\n              </div>\n\n              <!-- Input type file -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.FILE ||\n                  field.type == REST_FIELD_TYPES.PDF\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"filesUpload[field.name].length <= 0\"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <ngx-dropzone-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                    <ngx-dropzone-label\n                      >{{ f.name }} ({{ f.type }})</ngx-dropzone-label\n                    >\n                  </ngx-dropzone-preview>\n                </div>\n              </div>\n\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"\n                      filesUpload[field.name].length <= 0 &&\n                      urlsImage[field.name] == ''\n                    \"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <!-- <ng-container\n                    *ngIf=\"filesUpload[field.name].length > 0\"\n                  > -->\n                  <ngx-dropzone-image-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                  </ngx-dropzone-image-preview>\n                  <!-- </ng-container> -->\n                </div>\n\n                <button\n                  nbButton\n                  status=\"primary\"\n                  *ngIf=\"\n                    !isCrop[field.name] && controlCroper[field.name] != null\n                  \"\n                  (click)=\"activeCroper(field)\"\n                >\n                  CROP\n                </button>\n\n                <ng-container *ngIf=\"isCrop[field.name]\">\n                  <image-cropper\n                    [imageFile]=\"controlCroper[field.name]\"\n                    [maintainAspectRatio]=\"true\"\n                    [aspectRatio]=\"4 / 3\"\n                    format=\"png\"\n                    (imageCropped)=\"imageCropped($event, field)\"\n                  ></image-cropper>\n\n                  <button nbButton status=\"primary\" (click)=\"saveCroper(field)\">\n                    SAVE CHANGE\n                  </button>\n                  <button\n                    nbButton\n                    status=\"danger\"\n                    (click)=\"desactiveCrop(field)\"\n                  >\n                    Cancel\n                  </button>\n                </ng-container>\n\n                <!-- <img [src]=\"croppedImage\" /> -->\n              </div>\n\n              <!-- Input type hasMany -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list\n                  (tagRemove)=\"onTagRemove($event, field.name)\"\n                  fullWidth\n                >\n                  <nb-tag\n                    *ngFor=\"let tree of form.get([field.name]).value\"\n                    [text]=\"tree\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    fullWidth\n                    nbTagInput\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    (tagAdd)=\"onTagAdd($event, field.name)\"\n                  />\n                </nb-tag-list>\n              </div>\n\n              <!-- Input type belong_to -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                <div class=\"row\">\n                  <div class=\"col-9\">\n                    <input\n                      #autoInput\n                      nbInput\n                      fullWidth\n                      type=\"text\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [formControlName]=\"field.name\"\n                      placeholder=\"Enter value\"\n                      [nbAutocomplete]=\"autoComplete\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [id]=\"i\"\n                    />\n                  </div>\n                  <div *ngIf=\"!field.metaData?.addConfig?.belongToOptions?.secondField\" class=\"col-3\">\n                    <input\n                      nbInput\n                      fullWidth\n                      [attributes]=\"field.metaData.attributes\"\n                      disabled=\"true\"\n                      type=\"text\"\n                      placeholder=\"Value\"\n                      [value]=\"\n                        belongToValue[field.name]\n                          ? belongToValue[field.name]\n                          : ''\n                      \"\n                      [id]=\"i + 100\"\n                    />\n                  </div>\n                </div>\n\n                <nb-autocomplete\n                  #autoComplete\n                  (selectedChange)=\"onSelectionChange($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"\n                      option[\n                        field?.metaData?.addConfig.belongToOptions?.value\n                          ? field?.metaData?.addConfig?.belongToOptions?.value\n                          : 'id'\n                      ]\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToOptions.template\n                          ? field.metaData.addConfig.belongToOptions.template\n                          : field.metaData.addConfig.belongToOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type belong_to_many -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event, field)\">\n                  <nb-tag\n                    *ngFor=\"let tree of belongToMany[field.name]\"\n                    [text]=\"\n                      tree[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    nbTagInput\n                    #autoBelongToMany\n                    [attributes]=\"field.metaData.attributes\"\n                    [nbAutocomplete]=\"belongToField\"\n                    (keyup)=\"filterInput($event, field)\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    fullWidth\n                  />\n                </nb-tag-list>\n\n                <nb-autocomplete\n                  #belongToField\n                  (selectedChange)=\"onChoose($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"option\"\n                    [attributes]=\"field.metaData.attributes\"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type color  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div class=\"color-row\">\n                  <input\n                    nbInput\n                    fullWidth\n                    style=\"height: 45px\"\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"color\"\n                  />\n                </div>\n              </div>\n\n              <!-- Input type link -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n\n                <!-- <div\n                *ngIf=\"\n                  form.get([field.name]).hasError('invalidUrl') &&\n                  form.get([field.name]).touched\n                \"\n                class=\"text-error\"\n              >\n                {{ \"rest-add.invalid-link\" | translate }}\n              </div> -->\n              </div>\n\n              <!-- Input type JSON -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.JSON\"\n              >\n                <div>\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <button\n                    nbButton\n                    status=\"primary\"\n                    shape=\"round\"\n                    size=\"small\"\n                    [attributes]=\"field.metaData.attributes\"\n                    outline\n                    ghost\n                    *ngIf=\"field.metaData.addConfig.jsonConfig.isOpen\"\n                    (click)=\"addJSONField(field)\"\n                  >\n                    <nb-icon icon=\"plus\" pack=\"fas\"></nb-icon>\n                  </button>\n                </div>\n\n                <div\n                  class=\"row mb-2\"\n                  *ngFor=\"\n                    let item of jsonEditorOptions[field.name];\n                    let index = index\n                  \"\n                >\n                  <div class=\"col\" [id]=\"index\">\n                    <input\n                      fullWidth\n                      nbInput\n                      *ngIf=\"item.add; else elseBlock\"\n                      [(ngModel)]=\"item.label\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                    <ng-template #elseBlock>\n                      <input fullWidth nbInput disabled [value]=\"item.label\" />\n                    </ng-template>\n                  </div>\n                  <div class=\"col\">\n                    <input\n                      fullWidth\n                      nbInput\n                      [(ngModel)]=\"item.value\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                  </div>\n                  <div class=\"col\" *ngIf=\"item.add\">\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      shape=\"round\"\n                      size=\"small\"\n                      outline\n                      ghost\n                      (click)=\"removeJSONField(field, index)\"\n                    >\n                      <nb-icon icon=\"trash-alt\" pack=\"fas\"></nb-icon>\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n              <!-- Input type MORPH -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.MORPH\"\n              >\n                <div class=\"row\">\n                  <div class=\"col-3\">\n                    <label class=\"label\">Ressources</label>\n                    <nb-select\n                      fullWidth\n                      (selectedChange)=\"onMorphSelectField($event, field.name)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of field.metaData.addConfig.morphConfig\n                            .related\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                        [value]=\"option.value\"\n                        >{{ option.label }}</nb-option\n                      >\n                    </nb-select>\n                  </div>\n\n                  <div class=\"col-9\">\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      #autoInput\n                      nbInput\n                      fullWidth\n                      type=\"text\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [formControlName]=\"field.name\"\n                      placeholder=\"Enter value\"\n                      [nbAutocomplete]=\"autoComplete\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [id]=\"i\"\n                      [disabled]=\"!allFilterContains[field.name]\"\n                    />\n                    <nb-autocomplete\n                      #autoComplete\n                      (selectedChange)=\"onSelectionChange($event, field)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of allFilterContains[field.name] | async\n                        \"\n                        [value]=\"\n                          option[\n                            field?.metaData?.addConfig.morphConfig?.value\n                              ? field?.metaData?.addConfig.morphConfig?.value\n                              : 'id'\n                          ]\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                      >\n                        {{\n                          option[\n                            field.metaData.addConfig.morphConfig.template\n                              ? field.metaData.addConfig.morphConfig.template\n                              : field.metaData.addConfig.morphConfig\n                                  .filterKeys[0]\n                          ]\n                        }}\n                      </nb-option>\n                    </nb-autocomplete>\n                  </div>\n                </div>\n              </div>\n            </ng-container>\n          </div>\n        </form>\n      </nb-tab>\n      <nb-tab tabTitle=\"Importation\">\n        <div class=\"row\">\n          <div class=\"col-9\"></div>\n          <div class=\"col-3\">\n            <button\n              nbButton\n              status=\"primary\"\n              [nbContextMenu]=\"items\"\n              nbContextMenuTag=\"my-context-add\"\n            >\n              {{ \"rest-add.import\" | translate }}\n            </button>\n          </div>\n        </div>\n\n        <div>\n          <ng2-smart-table [settings]=\"settings\" [source]=\"source\">\n          </ng2-smart-table>\n        </div>\n      </nb-tab>\n    </nb-tabset>\n  </nb-card-body>\n\n  <nb-card-footer>\n    <div class=\"buttons-row\">\n      <button nbButton (click)=\"onSumbit()\" status=\"primary\">\n        {{ formState.btnLabel }}\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: ["nb-card-body{overflow:visible;padding-top:0}.input-space{margin-top:1rem}.color-row{justify-content:space-between;height:45px}.color-card{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .buttons-row{margin:-.5rem}.nb-theme-default :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-default :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-default :host .action-icon{margin-left:.5rem}.nb-theme-default :host .actions-card{height:8rem}.nb-theme-dark :host .buttons-row{margin:-.5rem}.nb-theme-dark :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-dark :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-dark :host .action-icon{margin-left:.5rem}.nb-theme-dark :host .actions-card{height:8rem}.nb-theme-cosmic :host .buttons-row{margin:-.5rem}.nb-theme-cosmic :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-cosmic :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-cosmic :host .action-icon{margin-left:.5rem}.nb-theme-cosmic :host .actions-card{height:8rem}.nb-theme-corporate :host .buttons-row{margin:-.5rem}.nb-theme-corporate :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-corporate :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-corporate :host .action-icon{margin-left:.5rem}.nb-theme-corporate :host .actions-card{height:8rem}.icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1$1.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1$1.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1$1.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1$1.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i8.NgxDropzoneComponent, selector: "ngx-dropzone, [ngx-dropzone]", inputs: ["accept", "disabled", "multiple", "maxFileSize", "expandable", "disableClick", "processDirectoryDrop", "id", "aria-label", "aria-labelledby", "aria-describedby"], outputs: ["change"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i8.NgxDropzonePreviewComponent, selector: "ngx-dropzone-preview", inputs: ["file", "removable"], outputs: ["removed"] }, { type: i8.NgxDropzoneImagePreviewComponent, selector: "ngx-dropzone-image-preview", inputs: ["file"] }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i10.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }], directives: [{ type: i9.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$4.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1$4.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$4.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i9.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: AttributeDirective, selector: "[attributes]", inputs: ["attributes"] }, { type: i1$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$4.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }, { type: i1$4.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1$1.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1$1.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i8.NgxDropzoneLabelDirective, selector: "ngx-dropzone-label" }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "titlecase": i9.TitleCasePipe, "async": i9.AsyncPipe, "translate": i1$3.TranslatePipe } });
+RestResourceAddComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceAddComponent, selector: "ngx-rest-resource-add", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "belongTo", first: true, predicate: ["belongTo"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0, template: "<nb-card>\n  <!-- <nb-card-header class=\"row\">\n    <div class=\"col-9\" *ngIf=\"formState.isAdd\">\n      {{ resource.addConfig.title }}\n    </div>\n\n    <div class=\"col-3\">\n      <button\n        nbButton\n        status=\"primary\"\n        [nbContextMenu]=\"items\"\n        nbContextMenuTag=\"my-context-menu\"\n      >\n        {{ \"rest-add.import\" | translate }}\n      </button>\n    </div>\n  </nb-card-header> -->\n\n  <nb-card-header *ngIf=\"formState.onReady && !formState.isAdd\"\n    >{{ resource.editConfig.title }}\n  </nb-card-header>\n\n  <nb-card-header *ngIf=\"formState.onReady && formState.isAdd\"\n    >{{ resource.addConfig.title }}\n  </nb-card-header>\n\n  <nb-card-body>\n    <nb-tabset>\n      <nb-tab tabTitle=\"Ajout simple\">\n        <form [formGroup]=\"form\" class=\"row\" *ngIf=\"formState.onReady\">\n          <div\n            *ngFor=\"\n              let field of resource.fields;\n              trackBy: trackByFn;\n              let i = index\n            \"\n            class=\"col-12\"\n          >\n            <ng-container *ngIf=\"field.inForm\">\n              <!-- Input type string  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.STRING ||\n                  field.type == REST_FIELD_TYPES.HAS_ONE\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n              </div>\n\n              <!-- Input type text -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <textarea\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                ></textarea>\n              </div>\n\n              <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.PASSWORD\">\n                <div class=\"input-space\">\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    nbInput\n                    fullWidth\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"password\"\n                  />\n                </div>\n                <ng-container\n                  *ngIf=\"\n                    field?.metaData?.addConfig?.passwordOptions?.isNeedConfirm\n                  \"\n                >\n                  <div class=\"input-space\">\n                    <label class=\"label\">{{\n                      field?.metaData?.addConfig?.passwordOptions?.confirmLabel\n                        ? field?.metaData?.addConfig?.passwordOptions\n                            ?.confirmLabel\n                        : (field.label + \"_confirmation\" | titlecase)\n                    }}</label>\n                    <input\n                      nbInput\n                      fullWidth\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label + '_confirmation'\"\n                      [formControlName]=\"\n                        field.metaData?.addConfig?.passwordOptions?.confirmField\n                          ? field.metaData.addConfig.passwordOptions\n                              .confirmField\n                          : field.name + '_confirmation'\n                      \"\n                      type=\"password\"\n                    />\n                  </div>\n                </ng-container>\n              </ng-container>\n\n              <!-- Input type number  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"number\"\n                />\n              </div>\n\n              <!-- Input type date -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"formpicker\"\n                  [attributes]=\"field.metaData.attributes\"\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                />\n                <nb-datepicker #formpicker></nb-datepicker>\n              </div>\n\n              <!-- Input type dateTime -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [nbDatepicker]=\"dateTimePicker\"\n                  [formControlName]=\"field.name\"\n                />\n                <nb-date-timepicker\n                  withSeconds\n                  #dateTimePicker\n                ></nb-date-timepicker>\n              </div>\n\n              <!-- Input type time -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.TIME\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  [nbTimepicker]=\"timepicker\"\n                  fullWidth\n                  [attributes]=\"field.metaData.attributes\"\n                  [formControlName]=\"field.name\"\n                  twelveHoursFormat\n                  nbInput\n                />\n                <nb-timepicker #timepicker></nb-timepicker>\n              </div>\n\n              <!-- Input type enum -->\n              <ng-container\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-select\n                  fullWidth\n                  [formControlName]=\"field.name\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n                    [value]=\"option.value\"\n                    >{{ option.label }}</nb-option\n                  >\n                </nb-select>\n              </ng-container>\n\n              <!-- Input type boolean -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                <div style=\"display: flex; align-items: center\">\n                  <label style=\"margin-right: 0.5em\">{{\n                    field.label | titlecase\n                  }}</label>\n                  <!-- [name]=\"field.name\" -->\n                  <nb-toggle [formControlName]=\"field.name\"></nb-toggle>\n                </div>\n              </div>\n\n              <!-- Input type file -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"\n                  field.type == REST_FIELD_TYPES.FILE ||\n                  field.type == REST_FIELD_TYPES.PDF\n                \"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"filesUpload[field.name].length <= 0\"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <ngx-dropzone-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                    <ngx-dropzone-label\n                      >{{ f.name }} ({{ f.type }})</ngx-dropzone-label\n                    >\n                  </ngx-dropzone-preview>\n                </div>\n              </div>\n\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                <div\n                  style=\"border: dashed; display: flex\"\n                  class=\"custom-dropzone form-control-custom rounded m-2\"\n                  ngx-dropzone\n                  (change)=\"onSelect($event, field)\"\n                >\n                  <img\n                    *ngIf=\"\n                      urlsImage[field.name] != '' &&\n                      filesUpload[field.name].length <= 0\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                    [src]=\"urlsImage[field.name]\"\n                    class=\"custom-img-dropzone\"\n                  />\n\n                  <ngx-dropzone-label\n                    *ngIf=\"\n                      filesUpload[field.name].length <= 0 &&\n                      urlsImage[field.name] == ''\n                    \"\n                  >\n                    <nb-icon\n                      icon=\"cloud-upload-outline\"\n                      style=\"font-size: 2em; color: #ccc\"\n                    ></nb-icon>\n                    Drag and drop files here or click to upload\n                  </ngx-dropzone-label>\n\n                  <!-- <ng-container\n                    *ngIf=\"filesUpload[field.name].length > 0\"\n                  > -->\n                  <ngx-dropzone-image-preview\n                    ngProjectAs=\"ngx-dropzone-preview\"\n                    *ngFor=\"let f of filesUpload[field.name]\"\n                    [file]=\"f\"\n                    [removable]=\"true\"\n                    (removed)=\"onRemove(field)\"\n                  >\n                  </ngx-dropzone-image-preview>\n                  <!-- </ng-container> -->\n                </div>\n\n                <button\n                  nbButton\n                  status=\"primary\"\n                  *ngIf=\"\n                    !isCrop[field.name] && controlCroper[field.name] != null\n                  \"\n                  (click)=\"activeCroper(field)\"\n                >\n                  CROP\n                </button>\n\n                <ng-container *ngIf=\"isCrop[field.name]\">\n                  <image-cropper\n                    [imageFile]=\"controlCroper[field.name]\"\n                    [maintainAspectRatio]=\"true\"\n                    [aspectRatio]=\"4 / 3\"\n                    format=\"png\"\n                    (imageCropped)=\"imageCropped($event, field)\"\n                  ></image-cropper>\n\n                  <button nbButton status=\"primary\" (click)=\"saveCroper(field)\">\n                    SAVE CHANGE\n                  </button>\n                  <button\n                    nbButton\n                    status=\"danger\"\n                    (click)=\"desactiveCrop(field)\"\n                  >\n                    Cancel\n                  </button>\n                </ng-container>\n\n                <!-- <img [src]=\"croppedImage\" /> -->\n              </div>\n\n              <!-- Input type hasMany -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list\n                  (tagRemove)=\"onTagRemove($event, field.name)\"\n                  fullWidth\n                >\n                  <nb-tag\n                    *ngFor=\"let tree of form.get([field.name]).value\"\n                    [text]=\"tree\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    fullWidth\n                    nbTagInput\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    (tagAdd)=\"onTagAdd($event, field.name)\"\n                  />\n                </nb-tag-list>\n              </div>\n\n              <!-- Input type belong_to -->\n              <div\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\"\n                class=\"input-space\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                <div class=\"row\">\n                  <div class=\"col-9\">\n                    <input\n                      #autoInput\n                      nbInput\n                      fullWidth\n                      type=\"text\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [formControlName]=\"field.name\"\n                      placeholder=\"Enter value\"\n                      [nbAutocomplete]=\"autoComplete\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [id]=\"i\"\n                    />\n                  </div>\n                  <div\n                    *ngIf=\"\n                      !field.metaData?.addConfig?.belongToOptions?.secondField\n                    \"\n                    class=\"col-3\"\n                  >\n                    <input\n                      nbInput\n                      fullWidth\n                      [attributes]=\"field.metaData.attributes\"\n                      disabled=\"true\"\n                      type=\"text\"\n                      placeholder=\"Value\"\n                      [value]=\"\n                        belongToValue[field.name]\n                          ? belongToValue[field.name]\n                          : ''\n                      \"\n                      [id]=\"i + 100\"\n                    />\n                  </div>\n                </div>\n\n                <nb-autocomplete\n                  #autoComplete\n                  (selectedChange)=\"onSelectionChange($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"\n                      option[\n                        field?.metaData?.addConfig.belongToOptions?.value\n                          ? field?.metaData?.addConfig?.belongToOptions?.value\n                          : 'id'\n                      ]\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToOptions.template\n                          ? field.metaData.addConfig.belongToOptions.template\n                          : field.metaData.addConfig.belongToOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type belong_to_many -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event, field)\">\n                  <nb-tag\n                    *ngFor=\"let tree of belongToMany[field.name]\"\n                    [text]=\"\n                      tree[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    \"\n                    [attributes]=\"field.metaData.attributes\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    nbTagInput\n                    #autoBelongToMany\n                    [attributes]=\"field.metaData.attributes\"\n                    [nbAutocomplete]=\"belongToField\"\n                    (keyup)=\"filterInput($event, field)\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    fullWidth\n                  />\n                </nb-tag-list>\n\n                <nb-autocomplete\n                  #belongToField\n                  (selectedChange)=\"onChoose($event, field)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains[field.name] | async\"\n                    [value]=\"option\"\n                    [attributes]=\"field.metaData.attributes\"\n                  >\n                    {{\n                      option[\n                        field.metaData.addConfig.belongToManyOptions.template\n                          ? field.metaData.addConfig.belongToManyOptions\n                              .template\n                          : field.metaData.addConfig.belongToManyOptions\n                              .filterKeys[0]\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n\n              <!-- Input type color  -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <div class=\"color-row\">\n                  <input\n                    nbInput\n                    fullWidth\n                    style=\"height: 45px\"\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"color\"\n                  />\n                </div>\n              </div>\n\n              <!-- Input type link -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n              >\n                <label class=\"label\">{{ field.label | titlecase }}</label>\n                <input\n                  nbInput\n                  fullWidth\n                  [id]=\"i\"\n                  [attributes]=\"field.metaData.attributes\"\n                  [placeholder]=\"field.label\"\n                  [formControlName]=\"field.name\"\n                  type=\"text\"\n                />\n\n                <!-- <div\n                *ngIf=\"\n                  form.get([field.name]).hasError('invalidUrl') &&\n                  form.get([field.name]).touched\n                \"\n                class=\"text-error\"\n              >\n                {{ \"rest-add.invalid-link\" | translate }}\n              </div> -->\n              </div>\n\n              <!-- Input type JSON -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.JSON\"\n              >\n                <div>\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <button\n                    nbButton\n                    status=\"primary\"\n                    shape=\"round\"\n                    size=\"small\"\n                    [attributes]=\"field.metaData.attributes\"\n                    outline\n                    ghost\n                    *ngIf=\"field.metaData.addConfig.jsonConfig.isOpen\"\n                    (click)=\"addJSONField(field)\"\n                  >\n                    <nb-icon icon=\"plus\" pack=\"fas\"></nb-icon>\n                  </button>\n                </div>\n\n                <div\n                  class=\"row mb-2\"\n                  *ngFor=\"\n                    let item of jsonEditorOptions[field.name];\n                    let index = index\n                  \"\n                >\n                  <div class=\"col\" [id]=\"index\">\n                    <input\n                      fullWidth\n                      nbInput\n                      *ngIf=\"item.add; else elseBlock\"\n                      [(ngModel)]=\"item.label\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                    <ng-template #elseBlock>\n                      <input fullWidth nbInput disabled [value]=\"item.label\" />\n                    </ng-template>\n                  </div>\n                  <div class=\"col\">\n                    <input\n                      fullWidth\n                      nbInput\n                      [(ngModel)]=\"item.value\"\n                      [ngModelOptions]=\"{ standalone: true }\"\n                    />\n                  </div>\n                  <div class=\"col\" *ngIf=\"item.add\">\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      shape=\"round\"\n                      size=\"small\"\n                      outline\n                      ghost\n                      (click)=\"removeJSONField(field, index)\"\n                    >\n                      <nb-icon icon=\"trash-alt\" pack=\"fas\"></nb-icon>\n                    </button>\n                  </div>\n                </div>\n              </div>\n\n              <!-- Input type MORPH -->\n              <div\n                class=\"input-space\"\n                *ngIf=\"field.type == REST_FIELD_TYPES.MORPH\"\n              >\n                <div class=\"row\">\n                  <div class=\"col-3\">\n                    <label class=\"label\">Ressources</label>\n                    <nb-select\n                      fullWidth\n                      (selectedChange)=\"onMorphSelectField($event, field.name)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of field.metaData.addConfig.morphConfig\n                            .related\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                        [value]=\"option.value\"\n                        >{{ option.label }}</nb-option\n                      >\n                    </nb-select>\n                  </div>\n\n                  <div class=\"col-9\">\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      #autoInput\n                      nbInput\n                      fullWidth\n                      type=\"text\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [formControlName]=\"field.name\"\n                      placeholder=\"Enter value\"\n                      [nbAutocomplete]=\"autoComplete\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [id]=\"i\"\n                      [disabled]=\"!allFilterContains[field.name]\"\n                    />\n                    <nb-autocomplete\n                      #autoComplete\n                      (selectedChange)=\"onSelectionChange($event, field)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of allFilterContains[field.name] | async\n                        \"\n                        [value]=\"\n                          option[\n                            field?.metaData?.addConfig.morphConfig?.value\n                              ? field?.metaData?.addConfig.morphConfig?.value\n                              : 'id'\n                          ]\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                      >\n                        {{\n                          option[\n                            field.metaData.addConfig.morphConfig.template\n                              ? field.metaData.addConfig.morphConfig.template\n                              : field.metaData.addConfig.morphConfig\n                                  .filterKeys[0]\n                          ]\n                        }}\n                      </nb-option>\n                    </nb-autocomplete>\n                  </div>\n                </div>\n              </div>\n            </ng-container>\n          </div>\n        </form>\n      </nb-tab>\n      <nb-tab tabTitle=\"Importation\">\n        <div class=\"row\">\n          <div class=\"col-9\"></div>\n          <div class=\"col-3\">\n            <button\n              nbButton\n              status=\"primary\"\n              [nbContextMenu]=\"items\"\n              nbContextMenuTag=\"my-context-add\"\n            >\n              {{ \"rest-add.import\" | translate }}\n            </button>\n          </div>\n        </div>\n\n        <div>\n          <ng2-smart-table [settings]=\"settings\" [source]=\"source\">\n          </ng2-smart-table>\n        </div>\n      </nb-tab>\n    </nb-tabset>\n  </nb-card-body>\n\n  <nb-card-footer>\n    <div class=\"buttons-row\">\n      <button nbButton (click)=\"onSumbit()\" status=\"primary\" [disabled]=\"loading\">\n        <span *ngIf=\"loading\" class=\"spinner-border spinner-border-sm mr-2\"></span>\n        {{ formState.btnLabel }}\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: ["nb-card-body{overflow:visible;padding-top:0}.input-space{margin-top:1rem}.color-row{justify-content:space-between;height:45px}.color-card{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .buttons-row{margin:-.5rem}.nb-theme-default :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-default :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-default :host .action-icon{margin-left:.5rem}.nb-theme-default :host .actions-card{height:8rem}.nb-theme-dark :host .buttons-row{margin:-.5rem}.nb-theme-dark :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-dark :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-dark :host .action-icon{margin-left:.5rem}.nb-theme-dark :host .actions-card{height:8rem}.nb-theme-cosmic :host .buttons-row{margin:-.5rem}.nb-theme-cosmic :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-cosmic :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-cosmic :host .action-icon{margin-left:.5rem}.nb-theme-cosmic :host .actions-card{height:8rem}.nb-theme-corporate :host .buttons-row{margin:-.5rem}.nb-theme-corporate :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-corporate :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-corporate :host .action-icon{margin-left:.5rem}.nb-theme-corporate :host .actions-card{height:8rem}.icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1$1.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1$1.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1$1.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1$1.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i8.NgxDropzoneComponent, selector: "ngx-dropzone, [ngx-dropzone]", inputs: ["accept", "disabled", "multiple", "maxFileSize", "expandable", "disableClick", "processDirectoryDrop", "id", "aria-label", "aria-labelledby", "aria-describedby"], outputs: ["change"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i8.NgxDropzonePreviewComponent, selector: "ngx-dropzone-preview", inputs: ["file", "removable"], outputs: ["removed"] }, { type: i8.NgxDropzoneImagePreviewComponent, selector: "ngx-dropzone-image-preview", inputs: ["file"] }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i10.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }], directives: [{ type: i9.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$4.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1$4.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$4.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i9.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: AttributeDirective, selector: "[attributes]", inputs: ["attributes"] }, { type: i1$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$4.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }, { type: i1$4.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1$1.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1$1.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i8.NgxDropzoneLabelDirective, selector: "ngx-dropzone-label" }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "titlecase": i9.TitleCasePipe, "async": i9.AsyncPipe, "translate": i1$3.TranslatePipe } });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceAddComponent, decorators: [{
             type: Component,
             args: [{
@@ -3208,7 +3221,7 @@ class RestAdminConfigService {
                             menus_group[item.listConfig.group.name].push({
                                 title: item.name,
                                 icon: item.icon,
-                                link: item.name.toLowerCase() + '-list',
+                                link: '/admin/' + item.name.toLowerCase() + '-list',
                             });
                         else {
                             menus_group[item.listConfig.group.name] = [
@@ -3220,27 +3233,37 @@ class RestAdminConfigService {
                             menus_group[item.listConfig.group.name].push({
                                 title: item.name,
                                 icon: item.icon,
-                                link: item.name.toLowerCase() + '-list',
+                                link: '/admin/' + item.name.toLowerCase() + '-list',
                             });
                         }
                         break;
                     case TYPE_GROUP.MENU:
                         if (Array.isArray(menus_group[item.listConfig.group.name])) {
-                            menus_group[item.listConfig.group.name][0].children.push({
-                                title: item.name,
-                                link: item.name.toLowerCase() + '-list',
-                                icon: item.icon,
-                            });
+                            if (Array.isArray(menus_group[item.listConfig.group.name][0]['children'])) {
+                                menus_group[item.listConfig.group.name][0].children.push({
+                                    title: item.name,
+                                    link: '/admin/' + item.name.toLowerCase() + '-list',
+                                    icon: item.icon,
+                                });
+                            }
+                            else {
+                                menus_group[item.listConfig.group.name][0]['children'] = [{
+                                        title: item.name,
+                                        link: '/admin/' + item.name.toLowerCase() + '-list',
+                                        icon: item.icon,
+                                    }];
+                            }
                         }
                         else {
                             menus_group[item.listConfig.group.name] = [
                                 {
                                     title: item.listConfig.group.name,
                                     icon: item.listConfig.group.icon,
+                                    expanded: true,
                                     children: [
                                         {
                                             title: item.name,
-                                            link: item.name.toLowerCase() + '-list',
+                                            link: '/admin/' + item.name.toLowerCase() + '-list',
                                             icon: item.icon,
                                         },
                                     ],
@@ -3271,13 +3294,13 @@ class RestAdminConfigService {
                     menus_group[TYPE_GROUP.DEFAULT].push({
                         title: item.name,
                         icon: item.icon,
-                        link: item.name.toLowerCase() + '-list',
+                        link: '/admin/' + item.name.toLowerCase() + '-list',
                     });
                 else {
                     menus_group[TYPE_GROUP.DEFAULT] = [];
                     menus_group[TYPE_GROUP.DEFAULT].push({
                         title: item.name,
-                        link: item.name.toLowerCase() + '-list',
+                        link: '/admin/' + item.name.toLowerCase() + '-list',
                         icon: item.icon,
                     });
                 }
@@ -3776,11 +3799,12 @@ class OneColumnLayoutComponent {
 OneColumnLayoutComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OneColumnLayoutComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
 OneColumnLayoutComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: OneColumnLayoutComponent, selector: "ngx-one-column-layout", ngImport: i0, template: `
     <nb-layout windowMode>
-      <nb-layout-header fixed>
+      <nb-layout-header >
         <ngx-header></ngx-header>
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
+        <ng-content select="input"></ng-content>
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
@@ -3800,11 +3824,12 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                     styleUrls: ['./one-column.layout.scss'],
                     template: `
     <nb-layout windowMode>
-      <nb-layout-header fixed>
+      <nb-layout-header >
         <ngx-header></ngx-header>
       </nb-layout-header>
 
       <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
+        <ng-content select="input"></ng-content>
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
@@ -5050,39 +5075,157 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                 }]
         }] });
 
+// import { MenuItem } from './menu-item';
+class MenuFilterPipe {
+    transform(items, searchText) {
+        if (!items) {
+            return [];
+        }
+        if (!searchText) {
+            return items;
+        }
+        searchText = searchText.toLowerCase();
+        return items.filter((item) => {
+            return (item.title.toLowerCase().includes(searchText) ||
+                (item.children &&
+                    item.children.filter((child) => child.title.toLowerCase().includes(searchText)).length > 0));
+        });
+    }
+}
+MenuFilterPipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MenuFilterPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
+MenuFilterPipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MenuFilterPipe, name: "menuFilter" });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MenuFilterPipe, decorators: [{
+            type: Pipe,
+            args: [{
+                    name: 'menuFilter'
+                }]
+        }] });
+
 class RestMainComponentComponent {
-    constructor(serviceConfig, restLangService, router // private permissionsService: NgxPermissionsService
+    constructor(activatedRoute, serviceConfig, restLangService, router // private permissionsService: NgxPermissionsService
     ) {
+        this.activatedRoute = activatedRoute;
         this.serviceConfig = serviceConfig;
         this.restLangService = restLangService;
         this.router = router;
-        this.menu = [...this.serviceConfig.generateMenus()];
+        this.searchText = '';
+        this.menuItems = [...this.serviceConfig.generateMenus()];
+        this.title$ = this.activatedRoute.data.pipe(map((data) => data.title));
     }
     ngOnInit() {
         this.restLangService.setInitialAppLanguage();
         // this.permissionsService.loadPermissions([]);
     }
+    transformTitle(title) {
+        return title.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\b\w/g, (letter) => letter.toUpperCase());
+    }
+    onChange(event) {
+        this.searchText = event;
+    }
 }
-RestMainComponentComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestMainComponentComponent, deps: [{ token: RestAdminConfigService }, { token: RestLangService }, { token: i1.Router }], target: i0.ɵɵFactoryTarget.Component });
-RestMainComponentComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestMainComponentComponent, selector: "ngx-rest-main-component", ngImport: i0, template: `
+RestMainComponentComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestMainComponentComponent, deps: [{ token: i1.ActivatedRoute }, { token: RestAdminConfigService }, { token: RestLangService }, { token: i1.Router }], target: i0.ɵɵFactoryTarget.Component });
+RestMainComponentComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestMainComponentComponent, selector: "ngx-rest-main-component", providers: [MenuFilterPipe], ngImport: i0, template: `
     <ngx-one-column-layout>
-      <nb-menu [items]="menu"></nb-menu>
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (ngModelChange)="onChange($event)"
+        [placeholder]="'rest-list.searchPlaceholder' | translate"
+        nbInput
+        fullWidth
+        nbPrefixIcon="search-outline"
+      />
+
+      <nb-menu tag="menu" [items]="menuItems | menuFilter: searchText">
+        <ng-container *ngFor="let item of menuItems">
+          <ng-container *ngIf="!item.children; else subMenu">
+            <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
+              <ng-container
+              >
+                <nb-icon [icon]="item.icon"></nb-icon>
+                {{ transformTitle(item.title) }}
+              </ng-container>
+            </nb-menu-item>
+          </ng-container>
+          <ng-template #subMenu>
+            <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
+              <ng-container
+              >
+                <nb-icon [icon]="item.icon"></nb-icon>
+                {{ transformTitle(item.title) }}
+              </ng-container>
+            </nb-menu-item>
+            <ng-template let-childItem ngFor [ngForOf]="item.children">
+              <nb-menu-item [routerLink]="childItem.link" routerLinkActive="active">
+                <ng-container
+                >
+                  <nb-icon [icon]="item.icon"></nb-icon>
+                  {{ transformTitle(childItem.title) }}
+                </ng-container>
+              </nb-menu-item>
+            </ng-template>
+          </ng-template>
+        </ng-container>
+      </nb-menu>
+
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}\n"], components: [{ type: OneColumnLayoutComponent, selector: "ngx-one-column-layout" }, { type: i1$1.NbMenuComponent, selector: "nb-menu", inputs: ["autoCollapse", "tag", "items"] }], directives: [{ type: i1.RouterOutlet, selector: "router-outlet", outputs: ["activate", "deactivate"], exportAs: ["outlet"] }] });
+  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}\n"], components: [{ type: OneColumnLayoutComponent, selector: "ngx-one-column-layout" }, { type: i1$1.NbMenuComponent, selector: "nb-menu", inputs: ["autoCollapse", "tag", "items"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }], directives: [{ type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i9.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1.RouterLinkActive, selector: "[routerLinkActive]", inputs: ["routerLinkActiveOptions", "routerLinkActive"], exportAs: ["routerLinkActive"] }, { type: i1.RouterLink, selector: ":not(a):not(area)[routerLink]", inputs: ["routerLink", "queryParams", "fragment", "queryParamsHandling", "preserveFragment", "skipLocationChange", "replaceUrl", "state", "relativeTo"] }, { type: i1.RouterOutlet, selector: "router-outlet", outputs: ["activate", "deactivate"], exportAs: ["outlet"] }], pipes: { "translate": i1$3.TranslatePipe, "menuFilter": MenuFilterPipe } });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestMainComponentComponent, decorators: [{
             type: Component,
             args: [{
                     selector: 'ngx-rest-main-component',
                     styleUrls: ['./rest-main-component.component.scss'],
+                    providers: [MenuFilterPipe],
                     template: `
     <ngx-one-column-layout>
-      <nb-menu [items]="menu"></nb-menu>
+      <input
+        type="text"
+        [(ngModel)]="searchText"
+        (ngModelChange)="onChange($event)"
+        [placeholder]="'rest-list.searchPlaceholder' | translate"
+        nbInput
+        fullWidth
+        nbPrefixIcon="search-outline"
+      />
+
+      <nb-menu tag="menu" [items]="menuItems | menuFilter: searchText">
+        <ng-container *ngFor="let item of menuItems">
+          <ng-container *ngIf="!item.children; else subMenu">
+            <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
+              <ng-container
+              >
+                <nb-icon [icon]="item.icon"></nb-icon>
+                {{ transformTitle(item.title) }}
+              </ng-container>
+            </nb-menu-item>
+          </ng-container>
+          <ng-template #subMenu>
+            <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
+              <ng-container
+              >
+                <nb-icon [icon]="item.icon"></nb-icon>
+                {{ transformTitle(item.title) }}
+              </ng-container>
+            </nb-menu-item>
+            <ng-template let-childItem ngFor [ngForOf]="item.children">
+              <nb-menu-item [routerLink]="childItem.link" routerLinkActive="active">
+                <ng-container
+                >
+                  <nb-icon [icon]="item.icon"></nb-icon>
+                  {{ transformTitle(childItem.title) }}
+                </ng-container>
+              </nb-menu-item>
+            </ng-template>
+          </ng-template>
+        </ng-container>
+      </nb-menu>
+
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
   `,
                 }]
-        }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: RestLangService }, { type: i1.Router }]; } });
+        }], ctorParameters: function () { return [{ type: i1.ActivatedRoute }, { type: RestAdminConfigService }, { type: RestLangService }, { type: i1.Router }]; } });
 
 // import { LocalStorageService } from '../local-storage/local-storage.service';
 // import { AUTH_TOKEN } from '../auth/auth.models';
@@ -5185,1521 +5328,6 @@ function throwIfAlreadyLoaded(parentModule, moduleName) {
     }
 }
 
-class UserData {
-}
-
-class ElectricityData {
-}
-
-class SmartTableData {
-}
-
-class UserActivityData {
-}
-
-class OrdersChartData {
-}
-
-class ProfitChartData {
-}
-
-class TrafficListData {
-}
-
-class EarningData {
-}
-
-class OrdersProfitChartData {
-}
-
-class TrafficBarData {
-}
-
-class ProfitBarAnimationChartData {
-}
-
-class TemperatureHumidityData {
-}
-
-class SolarData {
-}
-
-class TrafficChartData {
-}
-
-class StatsBarData {
-}
-
-class CountryOrderData {
-}
-
-class StatsProgressBarData {
-}
-
-class VisitorsAnalyticsData {
-}
-
-class SecurityCamerasData {
-}
-
-class UserService extends UserData {
-    constructor() {
-        super(...arguments);
-        this.time = new Date;
-        this.users = {
-            nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },
-            eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
-            jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },
-            lee: { name: 'Lee Wong', picture: 'assets/images/lee.png' },
-            alan: { name: 'Alan Thompson', picture: 'assets/images/alan.png' },
-            kate: { name: 'Kate Martinez', picture: 'assets/images/kate.png' },
-        };
-        this.types = {
-            mobile: 'mobile',
-            home: 'home',
-            work: 'work',
-        };
-        this.contacts = [
-            { user: this.users.nick, type: this.types.mobile },
-            { user: this.users.eva, type: this.types.home },
-            { user: this.users.jack, type: this.types.mobile },
-            { user: this.users.lee, type: this.types.mobile },
-            { user: this.users.alan, type: this.types.home },
-            { user: this.users.kate, type: this.types.work },
-        ];
-        this.recentUsers = [
-            { user: this.users.alan, type: this.types.home, time: this.time.setHours(21, 12) },
-            { user: this.users.eva, type: this.types.home, time: this.time.setHours(17, 45) },
-            { user: this.users.nick, type: this.types.mobile, time: this.time.setHours(5, 29) },
-            { user: this.users.lee, type: this.types.mobile, time: this.time.setHours(11, 24) },
-            { user: this.users.jack, type: this.types.mobile, time: this.time.setHours(10, 45) },
-            { user: this.users.kate, type: this.types.work, time: this.time.setHours(9, 42) },
-            { user: this.users.kate, type: this.types.work, time: this.time.setHours(9, 31) },
-            { user: this.users.jack, type: this.types.mobile, time: this.time.setHours(8, 0) },
-        ];
-    }
-    getUsers() {
-        return of(this.users);
-    }
-    getContacts() {
-        return of(this.contacts);
-    }
-    getRecentUsers() {
-        return of(this.recentUsers);
-    }
-}
-UserService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UserService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-UserService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UserService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UserService, decorators: [{
-            type: Injectable
-        }] });
-
-class ElectricityService extends ElectricityData {
-    constructor() {
-        super();
-        this.listData = [
-            {
-                title: '2015',
-                months: [
-                    { month: 'Jan', delta: '0.97', down: true, kWatts: '816', cost: '97' },
-                    { month: 'Feb', delta: '1.83', down: true, kWatts: '806', cost: '95' },
-                    { month: 'Mar', delta: '0.64', down: true, kWatts: '803', cost: '94' },
-                    { month: 'Apr', delta: '2.17', down: false, kWatts: '818', cost: '98' },
-                    { month: 'May', delta: '1.32', down: true, kWatts: '809', cost: '96' },
-                    { month: 'Jun', delta: '0.05', down: true, kWatts: '808', cost: '96' },
-                    { month: 'Jul', delta: '1.39', down: false, kWatts: '815', cost: '97' },
-                    { month: 'Aug', delta: '0.73', down: true, kWatts: '807', cost: '95' },
-                    { month: 'Sept', delta: '2.61', down: true, kWatts: '792', cost: '92' },
-                    { month: 'Oct', delta: '0.16', down: true, kWatts: '791', cost: '92' },
-                    { month: 'Nov', delta: '1.71', down: true, kWatts: '786', cost: '89' },
-                    { month: 'Dec', delta: '0.37', down: false, kWatts: '789', cost: '91' },
-                ],
-            },
-            {
-                title: '2016',
-                active: true,
-                months: [
-                    { month: 'Jan', delta: '1.56', down: true, kWatts: '789', cost: '91' },
-                    { month: 'Feb', delta: '0.33', down: false, kWatts: '791', cost: '92' },
-                    { month: 'Mar', delta: '0.62', down: true, kWatts: '790', cost: '92' },
-                    { month: 'Apr', delta: '1.93', down: true, kWatts: '783', cost: '87' },
-                    { month: 'May', delta: '2.52', down: true, kWatts: '771', cost: '83' },
-                    { month: 'Jun', delta: '0.39', down: false, kWatts: '774', cost: '85' },
-                    { month: 'Jul', delta: '1.61', down: true, kWatts: '767', cost: '81' },
-                    { month: 'Aug', delta: '1.41', down: true, kWatts: '759', cost: '76' },
-                    { month: 'Sept', delta: '1.03', down: true, kWatts: '752', cost: '74' },
-                    { month: 'Oct', delta: '2.94', down: false, kWatts: '769', cost: '82' },
-                    { month: 'Nov', delta: '0.26', down: true, kWatts: '767', cost: '81' },
-                    { month: 'Dec', delta: '1.62', down: true, kWatts: '760', cost: '76' },
-                ],
-            },
-            {
-                title: '2017',
-                months: [
-                    { month: 'Jan', delta: '1.34', down: false, kWatts: '789', cost: '91' },
-                    { month: 'Feb', delta: '0.95', down: false, kWatts: '793', cost: '93' },
-                    { month: 'Mar', delta: '0.25', down: true, kWatts: '791', cost: '92' },
-                    { month: 'Apr', delta: '1.72', down: false, kWatts: '797', cost: '95' },
-                    { month: 'May', delta: '2.62', down: true, kWatts: '786', cost: '90' },
-                    { month: 'Jun', delta: '0.72', down: false, kWatts: '789', cost: '91' },
-                    { month: 'Jul', delta: '0.78', down: true, kWatts: '784', cost: '89' },
-                    { month: 'Aug', delta: '0.36', down: true, kWatts: '782', cost: '88' },
-                    { month: 'Sept', delta: '0.55', down: false, kWatts: '787', cost: '90' },
-                    { month: 'Oct', delta: '1.81', down: true, kWatts: '779', cost: '86' },
-                    { month: 'Nov', delta: '1.12', down: true, kWatts: '774', cost: '84' },
-                    { month: 'Dec', delta: '0.52', down: false, kWatts: '776', cost: '95' },
-                ],
-            },
-        ];
-        this.chartPoints = [
-            490, 490, 495, 500,
-            505, 510, 520, 530,
-            550, 580, 630, 720,
-            800, 840, 860, 870,
-            870, 860, 840, 800,
-            720, 200, 145, 130,
-            130, 145, 200, 570,
-            635, 660, 670, 670,
-            660, 630, 580, 460,
-            380, 350, 340, 340,
-            340, 340, 340, 340,
-            340, 340, 340,
-        ];
-        this.chartData = this.chartPoints.map((p, index) => ({
-            label: (index % 5 === 3) ? `${Math.round(index / 5)}` : '',
-            value: p,
-        }));
-    }
-    getListData() {
-        return of(this.listData);
-    }
-    getChartData() {
-        return of(this.chartData);
-    }
-}
-ElectricityService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ElectricityService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-ElectricityService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ElectricityService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ElectricityService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return []; } });
-
-class SmartTableService extends SmartTableData {
-    constructor() {
-        super(...arguments);
-        this.data = [{
-                id: 1,
-                firstName: 'Mark',
-                lastName: 'Otto',
-                username: '@mdo',
-                email: 'mdo@gmail.com',
-                age: '28',
-            }, {
-                id: 2,
-                firstName: 'Jacob',
-                lastName: 'Thornton',
-                username: '@fat',
-                email: 'fat@yandex.ru',
-                age: '45',
-            }, {
-                id: 3,
-                firstName: 'Larry',
-                lastName: 'Bird',
-                username: '@twitter',
-                email: 'twitter@outlook.com',
-                age: '18',
-            }, {
-                id: 4,
-                firstName: 'John',
-                lastName: 'Snow',
-                username: '@snow',
-                email: 'snow@gmail.com',
-                age: '20',
-            }, {
-                id: 5,
-                firstName: 'Jack',
-                lastName: 'Sparrow',
-                username: '@jack',
-                email: 'jack@yandex.ru',
-                age: '30',
-            }, {
-                id: 6,
-                firstName: 'Ann',
-                lastName: 'Smith',
-                username: '@ann',
-                email: 'ann@gmail.com',
-                age: '21',
-            }, {
-                id: 7,
-                firstName: 'Barbara',
-                lastName: 'Black',
-                username: '@barbara',
-                email: 'barbara@yandex.ru',
-                age: '43',
-            }, {
-                id: 8,
-                firstName: 'Sevan',
-                lastName: 'Bagrat',
-                username: '@sevan',
-                email: 'sevan@outlook.com',
-                age: '13',
-            }, {
-                id: 9,
-                firstName: 'Ruben',
-                lastName: 'Vardan',
-                username: '@ruben',
-                email: 'ruben@gmail.com',
-                age: '22',
-            }, {
-                id: 10,
-                firstName: 'Karen',
-                lastName: 'Sevan',
-                username: '@karen',
-                email: 'karen@yandex.ru',
-                age: '33',
-            }, {
-                id: 11,
-                firstName: 'Mark',
-                lastName: 'Otto',
-                username: '@mark',
-                email: 'mark@gmail.com',
-                age: '38',
-            }, {
-                id: 12,
-                firstName: 'Jacob',
-                lastName: 'Thornton',
-                username: '@jacob',
-                email: 'jacob@yandex.ru',
-                age: '48',
-            }, {
-                id: 13,
-                firstName: 'Haik',
-                lastName: 'Hakob',
-                username: '@haik',
-                email: 'haik@outlook.com',
-                age: '48',
-            }, {
-                id: 14,
-                firstName: 'Garegin',
-                lastName: 'Jirair',
-                username: '@garegin',
-                email: 'garegin@gmail.com',
-                age: '40',
-            }, {
-                id: 15,
-                firstName: 'Krikor',
-                lastName: 'Bedros',
-                username: '@krikor',
-                email: 'krikor@yandex.ru',
-                age: '32',
-            }, {
-                'id': 16,
-                'firstName': 'Francisca',
-                'lastName': 'Brady',
-                'username': '@Gibson',
-                'email': 'franciscagibson@comtours.com',
-                'age': 11,
-            }, {
-                'id': 17,
-                'firstName': 'Tillman',
-                'lastName': 'Figueroa',
-                'username': '@Snow',
-                'email': 'tillmansnow@comtours.com',
-                'age': 34,
-            }, {
-                'id': 18,
-                'firstName': 'Jimenez',
-                'lastName': 'Morris',
-                'username': '@Bryant',
-                'email': 'jimenezbryant@comtours.com',
-                'age': 45,
-            }, {
-                'id': 19,
-                'firstName': 'Sandoval',
-                'lastName': 'Jacobson',
-                'username': '@Mcbride',
-                'email': 'sandovalmcbride@comtours.com',
-                'age': 32,
-            }, {
-                'id': 20,
-                'firstName': 'Griffin',
-                'lastName': 'Torres',
-                'username': '@Charles',
-                'email': 'griffincharles@comtours.com',
-                'age': 19,
-            }, {
-                'id': 21,
-                'firstName': 'Cora',
-                'lastName': 'Parker',
-                'username': '@Caldwell',
-                'email': 'coracaldwell@comtours.com',
-                'age': 27,
-            }, {
-                'id': 22,
-                'firstName': 'Cindy',
-                'lastName': 'Bond',
-                'username': '@Velez',
-                'email': 'cindyvelez@comtours.com',
-                'age': 24,
-            }, {
-                'id': 23,
-                'firstName': 'Frieda',
-                'lastName': 'Tyson',
-                'username': '@Craig',
-                'email': 'friedacraig@comtours.com',
-                'age': 45,
-            }, {
-                'id': 24,
-                'firstName': 'Cote',
-                'lastName': 'Holcomb',
-                'username': '@Rowe',
-                'email': 'coterowe@comtours.com',
-                'age': 20,
-            }, {
-                'id': 25,
-                'firstName': 'Trujillo',
-                'lastName': 'Mejia',
-                'username': '@Valenzuela',
-                'email': 'trujillovalenzuela@comtours.com',
-                'age': 16,
-            }, {
-                'id': 26,
-                'firstName': 'Pruitt',
-                'lastName': 'Shepard',
-                'username': '@Sloan',
-                'email': 'pruittsloan@comtours.com',
-                'age': 44,
-            }, {
-                'id': 27,
-                'firstName': 'Sutton',
-                'lastName': 'Ortega',
-                'username': '@Black',
-                'email': 'suttonblack@comtours.com',
-                'age': 42,
-            }, {
-                'id': 28,
-                'firstName': 'Marion',
-                'lastName': 'Heath',
-                'username': '@Espinoza',
-                'email': 'marionespinoza@comtours.com',
-                'age': 47,
-            }, {
-                'id': 29,
-                'firstName': 'Newman',
-                'lastName': 'Hicks',
-                'username': '@Keith',
-                'email': 'newmankeith@comtours.com',
-                'age': 15,
-            }, {
-                'id': 30,
-                'firstName': 'Boyle',
-                'lastName': 'Larson',
-                'username': '@Summers',
-                'email': 'boylesummers@comtours.com',
-                'age': 32,
-            }, {
-                'id': 31,
-                'firstName': 'Haynes',
-                'lastName': 'Vinson',
-                'username': '@Mckenzie',
-                'email': 'haynesmckenzie@comtours.com',
-                'age': 15,
-            }, {
-                'id': 32,
-                'firstName': 'Miller',
-                'lastName': 'Acosta',
-                'username': '@Young',
-                'email': 'milleryoung@comtours.com',
-                'age': 55,
-            }, {
-                'id': 33,
-                'firstName': 'Johnston',
-                'lastName': 'Brown',
-                'username': '@Knight',
-                'email': 'johnstonknight@comtours.com',
-                'age': 29,
-            }, {
-                'id': 34,
-                'firstName': 'Lena',
-                'lastName': 'Pitts',
-                'username': '@Forbes',
-                'email': 'lenaforbes@comtours.com',
-                'age': 25,
-            }, {
-                'id': 35,
-                'firstName': 'Terrie',
-                'lastName': 'Kennedy',
-                'username': '@Branch',
-                'email': 'terriebranch@comtours.com',
-                'age': 37,
-            }, {
-                'id': 36,
-                'firstName': 'Louise',
-                'lastName': 'Aguirre',
-                'username': '@Kirby',
-                'email': 'louisekirby@comtours.com',
-                'age': 44,
-            }, {
-                'id': 37,
-                'firstName': 'David',
-                'lastName': 'Patton',
-                'username': '@Sanders',
-                'email': 'davidsanders@comtours.com',
-                'age': 26,
-            }, {
-                'id': 38,
-                'firstName': 'Holden',
-                'lastName': 'Barlow',
-                'username': '@Mckinney',
-                'email': 'holdenmckinney@comtours.com',
-                'age': 11,
-            }, {
-                'id': 39,
-                'firstName': 'Baker',
-                'lastName': 'Rivera',
-                'username': '@Montoya',
-                'email': 'bakermontoya@comtours.com',
-                'age': 47,
-            }, {
-                'id': 40,
-                'firstName': 'Belinda',
-                'lastName': 'Lloyd',
-                'username': '@Calderon',
-                'email': 'belindacalderon@comtours.com',
-                'age': 21,
-            }, {
-                'id': 41,
-                'firstName': 'Pearson',
-                'lastName': 'Patrick',
-                'username': '@Clements',
-                'email': 'pearsonclements@comtours.com',
-                'age': 42,
-            }, {
-                'id': 42,
-                'firstName': 'Alyce',
-                'lastName': 'Mckee',
-                'username': '@Daugherty',
-                'email': 'alycedaugherty@comtours.com',
-                'age': 55,
-            }, {
-                'id': 43,
-                'firstName': 'Valencia',
-                'lastName': 'Spence',
-                'username': '@Olsen',
-                'email': 'valenciaolsen@comtours.com',
-                'age': 20,
-            }, {
-                'id': 44,
-                'firstName': 'Leach',
-                'lastName': 'Holcomb',
-                'username': '@Humphrey',
-                'email': 'leachhumphrey@comtours.com',
-                'age': 28,
-            }, {
-                'id': 45,
-                'firstName': 'Moss',
-                'lastName': 'Baxter',
-                'username': '@Fitzpatrick',
-                'email': 'mossfitzpatrick@comtours.com',
-                'age': 51,
-            }, {
-                'id': 46,
-                'firstName': 'Jeanne',
-                'lastName': 'Cooke',
-                'username': '@Ward',
-                'email': 'jeanneward@comtours.com',
-                'age': 59,
-            }, {
-                'id': 47,
-                'firstName': 'Wilma',
-                'lastName': 'Briggs',
-                'username': '@Kidd',
-                'email': 'wilmakidd@comtours.com',
-                'age': 53,
-            }, {
-                'id': 48,
-                'firstName': 'Beatrice',
-                'lastName': 'Perry',
-                'username': '@Gilbert',
-                'email': 'beatricegilbert@comtours.com',
-                'age': 39,
-            }, {
-                'id': 49,
-                'firstName': 'Whitaker',
-                'lastName': 'Hyde',
-                'username': '@Mcdonald',
-                'email': 'whitakermcdonald@comtours.com',
-                'age': 35,
-            }, {
-                'id': 50,
-                'firstName': 'Rebekah',
-                'lastName': 'Duran',
-                'username': '@Gross',
-                'email': 'rebekahgross@comtours.com',
-                'age': 40,
-            }, {
-                'id': 51,
-                'firstName': 'Earline',
-                'lastName': 'Mayer',
-                'username': '@Woodward',
-                'email': 'earlinewoodward@comtours.com',
-                'age': 52,
-            }, {
-                'id': 52,
-                'firstName': 'Moran',
-                'lastName': 'Baxter',
-                'username': '@Johns',
-                'email': 'moranjohns@comtours.com',
-                'age': 20,
-            }, {
-                'id': 53,
-                'firstName': 'Nanette',
-                'lastName': 'Hubbard',
-                'username': '@Cooke',
-                'email': 'nanettecooke@comtours.com',
-                'age': 55,
-            }, {
-                'id': 54,
-                'firstName': 'Dalton',
-                'lastName': 'Walker',
-                'username': '@Hendricks',
-                'email': 'daltonhendricks@comtours.com',
-                'age': 25,
-            }, {
-                'id': 55,
-                'firstName': 'Bennett',
-                'lastName': 'Blake',
-                'username': '@Pena',
-                'email': 'bennettpena@comtours.com',
-                'age': 13,
-            }, {
-                'id': 56,
-                'firstName': 'Kellie',
-                'lastName': 'Horton',
-                'username': '@Weiss',
-                'email': 'kellieweiss@comtours.com',
-                'age': 48,
-            }, {
-                'id': 57,
-                'firstName': 'Hobbs',
-                'lastName': 'Talley',
-                'username': '@Sanford',
-                'email': 'hobbssanford@comtours.com',
-                'age': 28,
-            }, {
-                'id': 58,
-                'firstName': 'Mcguire',
-                'lastName': 'Donaldson',
-                'username': '@Roman',
-                'email': 'mcguireroman@comtours.com',
-                'age': 38,
-            }, {
-                'id': 59,
-                'firstName': 'Rodriquez',
-                'lastName': 'Saunders',
-                'username': '@Harper',
-                'email': 'rodriquezharper@comtours.com',
-                'age': 20,
-            }, {
-                'id': 60,
-                'firstName': 'Lou',
-                'lastName': 'Conner',
-                'username': '@Sanchez',
-                'email': 'lousanchez@comtours.com',
-                'age': 16,
-            }];
-    }
-    getData() {
-        return this.data;
-    }
-}
-SmartTableService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SmartTableService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-SmartTableService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SmartTableService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SmartTableService, decorators: [{
-            type: Injectable
-        }] });
-
-class PeriodsService {
-    getYears() {
-        return [
-            '2010', '2011', '2012',
-            '2013', '2014', '2015',
-            '2016', '2017', '2018',
-        ];
-    }
-    getMonths() {
-        return [
-            'Jan', 'Feb', 'Mar',
-            'Apr', 'May', 'Jun',
-            'Jul', 'Aug', 'Sep',
-            'Oct', 'Nov', 'Dec',
-        ];
-    }
-    getWeeks() {
-        return [
-            'Mon',
-            'Tue',
-            'Wed',
-            'Thu',
-            'Fri',
-            'Sat',
-            'Sun',
-        ];
-    }
-}
-PeriodsService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PeriodsService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-PeriodsService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PeriodsService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PeriodsService, decorators: [{
-            type: Injectable
-        }] });
-
-class UserActivityService extends UserActivityData {
-    constructor(periods) {
-        super();
-        this.periods = periods;
-        this.getRandom = (roundTo) => Math.round(Math.random() * roundTo);
-        this.data = {};
-        this.data = {
-            week: this.getDataWeek(),
-            month: this.getDataMonth(),
-            year: this.getDataYear(),
-        };
-    }
-    generateUserActivityRandomData(date) {
-        return {
-            date,
-            pagesVisitCount: this.getRandom(1000),
-            deltaUp: this.getRandom(1) % 2 === 0,
-            newVisits: this.getRandom(100),
-        };
-    }
-    getDataWeek() {
-        return this.periods.getWeeks().map((week) => {
-            return this.generateUserActivityRandomData(week);
-        });
-    }
-    getDataMonth() {
-        const currentDate = new Date();
-        const days = currentDate.getDate();
-        const month = this.periods.getMonths()[currentDate.getMonth()];
-        return Array.from(Array(days)).map((_, index) => {
-            const date = `${index + 1} ${month}`;
-            return this.generateUserActivityRandomData(date);
-        });
-    }
-    getDataYear() {
-        return this.periods.getYears().map((year) => {
-            return this.generateUserActivityRandomData(year);
-        });
-    }
-    getUserActivityData(period) {
-        return of(this.data[period] || []);
-    }
-}
-UserActivityService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UserActivityService, deps: [{ token: PeriodsService }], target: i0.ɵɵFactoryTarget.Injectable });
-UserActivityService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UserActivityService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UserActivityService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: PeriodsService }]; } });
-
-class OrdersChartService extends OrdersChartData {
-    constructor(period) {
-        super();
-        this.period = period;
-        this.year = [
-            '2012',
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-            '2017',
-            '2018',
-        ];
-        this.data = {};
-        this.data = {
-            week: this.getDataForWeekPeriod(),
-            month: this.getDataForMonthPeriod(),
-            year: this.getDataForYearPeriod(),
-        };
-    }
-    getDataForWeekPeriod() {
-        return {
-            chartLabel: this.getDataLabels(42, this.period.getWeeks()),
-            linesData: [
-                [
-                    184, 267, 326, 366, 389, 399,
-                    392, 371, 340, 304, 265, 227,
-                    191, 158, 130, 108, 95, 91, 97,
-                    109, 125, 144, 166, 189, 212,
-                    236, 259, 280, 300, 316, 329,
-                    338, 342, 339, 329, 312, 288,
-                    258, 221, 178, 128, 71,
-                ],
-                [
-                    158, 178, 193, 205, 212, 213,
-                    204, 190, 180, 173, 168, 164,
-                    162, 160, 159, 158, 159, 166,
-                    179, 195, 215, 236, 257, 276,
-                    292, 301, 304, 303, 300, 293,
-                    284, 273, 262, 251, 241, 234,
-                    232, 232, 232, 232, 232, 232,
-                ],
-                [
-                    58, 137, 202, 251, 288, 312,
-                    323, 324, 311, 288, 257, 222,
-                    187, 154, 124, 100, 81, 68, 61,
-                    58, 61, 69, 80, 96, 115, 137,
-                    161, 186, 210, 233, 254, 271,
-                    284, 293, 297, 297, 297, 297,
-                    297, 297, 297, 297, 297,
-                ],
-            ],
-        };
-    }
-    getDataForMonthPeriod() {
-        return {
-            chartLabel: this.getDataLabels(47, this.period.getMonths()),
-            linesData: [
-                [
-                    5, 63, 113, 156, 194, 225,
-                    250, 270, 283, 289, 290,
-                    286, 277, 264, 244, 220,
-                    194, 171, 157, 151, 150,
-                    152, 155, 160, 166, 170,
-                    167, 153, 135, 115, 97,
-                    82, 71, 64, 63, 62, 61,
-                    62, 65, 73, 84, 102,
-                    127, 159, 203, 259, 333,
-                ],
-                [
-                    6, 83, 148, 200, 240,
-                    265, 273, 259, 211,
-                    122, 55, 30, 28, 36,
-                    50, 68, 88, 109, 129,
-                    146, 158, 163, 165,
-                    173, 187, 208, 236,
-                    271, 310, 346, 375,
-                    393, 400, 398, 387,
-                    368, 341, 309, 275,
-                    243, 220, 206, 202,
-                    207, 222, 247, 286, 348,
-                ],
-                [
-                    398, 348, 315, 292, 274,
-                    261, 251, 243, 237, 231,
-                    222, 209, 192, 172, 152,
-                    132, 116, 102, 90, 80, 71,
-                    64, 58, 53, 49, 48, 54, 66,
-                    84, 104, 125, 142, 156, 166,
-                    172, 174, 172, 167, 159, 149,
-                    136, 121, 105, 86, 67, 45, 22,
-                ],
-            ],
-        };
-    }
-    getDataForYearPeriod() {
-        return {
-            chartLabel: this.getDataLabels(42, this.year),
-            linesData: [
-                [
-                    190, 269, 327, 366, 389, 398,
-                    396, 387, 375, 359, 343, 327,
-                    312, 298, 286, 276, 270, 268,
-                    265, 258, 247, 234, 220, 204,
-                    188, 172, 157, 142, 128, 116,
-                    106, 99, 95, 94, 92, 89, 84,
-                    77, 69, 60, 49, 36, 22,
-                ],
-                [
-                    265, 307, 337, 359, 375, 386,
-                    393, 397, 399, 397, 390, 379,
-                    365, 347, 326, 305, 282, 261,
-                    241, 223, 208, 197, 190, 187,
-                    185, 181, 172, 160, 145, 126,
-                    105, 82, 60, 40, 26, 19, 22,
-                    43, 82, 141, 220, 321,
-                ],
-                [
-                    9, 165, 236, 258, 244, 206,
-                    186, 189, 209, 239, 273, 307,
-                    339, 365, 385, 396, 398, 385,
-                    351, 300, 255, 221, 197, 181,
-                    170, 164, 162, 161, 159, 154,
-                    146, 135, 122, 108, 96, 87,
-                    83, 82, 82, 82, 82, 82, 82,
-                ],
-            ],
-        };
-    }
-    getDataLabels(nPoints, labelsArray) {
-        const labelsArrayLength = labelsArray.length;
-        const step = Math.round(nPoints / labelsArrayLength);
-        return Array.from(Array(nPoints)).map((item, index) => {
-            const dataIndex = Math.round(index / step);
-            return index % step === 0 ? labelsArray[dataIndex] : '';
-        });
-    }
-    getOrdersChartData(period) {
-        return this.data[period];
-    }
-}
-OrdersChartService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OrdersChartService, deps: [{ token: PeriodsService }], target: i0.ɵɵFactoryTarget.Injectable });
-OrdersChartService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OrdersChartService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OrdersChartService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: PeriodsService }]; } });
-
-class ProfitChartService extends ProfitChartData {
-    constructor(period) {
-        super();
-        this.period = period;
-        this.year = [
-            '2012',
-            '2013',
-            '2014',
-            '2015',
-            '2016',
-            '2017',
-            '2018',
-        ];
-        this.data = {};
-        this.data = {
-            week: this.getDataForWeekPeriod(),
-            month: this.getDataForMonthPeriod(),
-            year: this.getDataForYearPeriod(),
-        };
-    }
-    getDataForWeekPeriod() {
-        const nPoint = this.period.getWeeks().length;
-        return {
-            chartLabel: this.period.getWeeks(),
-            data: [
-                this.getRandomData(nPoint),
-                this.getRandomData(nPoint),
-                this.getRandomData(nPoint),
-            ],
-        };
-    }
-    getDataForMonthPeriod() {
-        const nPoint = this.period.getMonths().length;
-        return {
-            chartLabel: this.period.getMonths(),
-            data: [
-                this.getRandomData(nPoint),
-                this.getRandomData(nPoint),
-                this.getRandomData(nPoint),
-            ],
-        };
-    }
-    getDataForYearPeriod() {
-        const nPoint = this.year.length;
-        return {
-            chartLabel: this.year,
-            data: [
-                this.getRandomData(nPoint),
-                this.getRandomData(nPoint),
-                this.getRandomData(nPoint),
-            ],
-        };
-    }
-    getRandomData(nPoints) {
-        return Array.from(Array(nPoints)).map(() => {
-            return Math.round(Math.random() * 500);
-        });
-    }
-    getProfitChartData(period) {
-        return this.data[period];
-    }
-}
-ProfitChartService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ProfitChartService, deps: [{ token: PeriodsService }], target: i0.ɵɵFactoryTarget.Injectable });
-ProfitChartService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ProfitChartService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ProfitChartService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: PeriodsService }]; } });
-
-class TrafficListService extends TrafficListData {
-    constructor(period) {
-        super();
-        this.period = period;
-        this.getRandom = (roundTo) => Math.round(Math.random() * roundTo);
-        this.data = {};
-        this.data = {
-            week: this.getDataWeek(),
-            month: this.getDataMonth(),
-            year: this.getDataYear(),
-        };
-    }
-    getDataWeek() {
-        const getFirstDateInPeriod = () => {
-            const weeks = this.period.getWeeks();
-            return weeks[weeks.length - 1];
-        };
-        return this.reduceData(this.period.getWeeks(), getFirstDateInPeriod);
-    }
-    getDataMonth() {
-        const getFirstDateInPeriod = () => {
-            const months = this.period.getMonths();
-            return months[months.length - 1];
-        };
-        return this.reduceData(this.period.getMonths(), getFirstDateInPeriod);
-    }
-    getDataYear() {
-        const getFirstDateInPeriod = () => {
-            const years = this.period.getYears();
-            return `${parseInt(years[0], 10) - 1}`;
-        };
-        return this.reduceData(this.period.getYears(), getFirstDateInPeriod);
-    }
-    reduceData(timePeriods, getFirstDateInPeriod) {
-        return timePeriods.reduce((result, timePeriod, index) => {
-            const hasResult = result[index - 1];
-            const prevDate = hasResult
-                ? result[index - 1].comparison.nextDate
-                : getFirstDateInPeriod();
-            const prevValue = hasResult
-                ? result[index - 1].comparison.nextValue
-                : this.getRandom(100);
-            const nextValue = this.getRandom(100);
-            const deltaValue = prevValue - nextValue;
-            const item = {
-                date: timePeriod,
-                value: this.getRandom(1000),
-                delta: {
-                    up: deltaValue <= 0,
-                    value: Math.abs(deltaValue),
-                },
-                comparison: {
-                    prevDate,
-                    prevValue,
-                    nextDate: timePeriod,
-                    nextValue,
-                },
-            };
-            return [...result, item];
-        }, []);
-    }
-    // private reduceData(timePeriods: string[], getFirstDateInPeriod: () => string): TrafficList[] {
-    //   return timePeriods.reduce((result, timePeriod, index) => {
-    //     const hasResult = result[index - 1];
-    //     const prevDate = hasResult ?
-    //       result[index - 1].comparison.nextDate :
-    //       getFirstDateInPeriod();
-    //     const prevValue = hasResult ?
-    //       result[index - 1].comparison.nextValue :
-    //       this.getRandom(100);
-    //     const nextValue = this.getRandom(100);
-    //     const deltaValue = prevValue - nextValue;
-    //     const item = {
-    //       date: timePeriod,
-    //       value: this.getRandom(1000),
-    //       delta: {
-    //         up: deltaValue <= 0,
-    //         value: Math.abs(deltaValue),
-    //       },
-    //       comparison: {
-    //         prevDate,
-    //         prevValue,
-    //         nextDate: timePeriod,
-    //         nextValue,
-    //       },
-    //     };
-    //     return [...result, item];
-    //   }, []);
-    // }
-    getTrafficListData(period) {
-        return of(this.data[period]);
-    }
-}
-TrafficListService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficListService, deps: [{ token: PeriodsService }], target: i0.ɵɵFactoryTarget.Injectable });
-TrafficListService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficListService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficListService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: PeriodsService }]; } });
-
-class EarningService extends EarningData {
-    constructor() {
-        super(...arguments);
-        this.currentDate = new Date();
-        this.currentValue = Math.random() * 1000;
-        this.ONE_DAY = 24 * 3600 * 1000;
-        this.pieChartData = [
-            {
-                value: 50,
-                name: 'Bitcoin',
-            },
-            {
-                value: 25,
-                name: 'Tether',
-            },
-            {
-                value: 25,
-                name: 'Ethereum',
-            },
-        ];
-        this.liveUpdateChartData = {
-            bitcoin: {
-                liveChart: [],
-                delta: {
-                    up: true,
-                    value: 4,
-                },
-                dailyIncome: 45895,
-            },
-            tether: {
-                liveChart: [],
-                delta: {
-                    up: false,
-                    value: 9,
-                },
-                dailyIncome: 5862,
-            },
-            ethereum: {
-                liveChart: [],
-                delta: {
-                    up: false,
-                    value: 21,
-                },
-                dailyIncome: 584,
-            },
-        };
-    }
-    getDefaultLiveChartData(elementsNumber) {
-        this.currentDate = new Date();
-        this.currentValue = Math.random() * 1000;
-        return Array.from(Array(elementsNumber))
-            .map(item => this.generateRandomLiveChartData());
-    }
-    generateRandomLiveChartData() {
-        this.currentDate = new Date(+this.currentDate + this.ONE_DAY);
-        this.currentValue = this.currentValue + Math.random() * 20 - 11;
-        if (this.currentValue < 0) {
-            this.currentValue = Math.random() * 100;
-        }
-        return {
-            value: [
-                [
-                    this.currentDate.getFullYear(),
-                    this.currentDate.getMonth(),
-                    this.currentDate.getDate(),
-                ].join('/'),
-                Math.round(this.currentValue),
-            ],
-        };
-    }
-    getEarningLiveUpdateCardData(currency) {
-        const data = this.liveUpdateChartData[currency.toLowerCase()];
-        const newValue = this.generateRandomLiveChartData();
-        data.liveChart.shift();
-        data.liveChart.push(newValue);
-        return of(data.liveChart);
-    }
-    getEarningCardData(currency) {
-        const data = this.liveUpdateChartData[currency.toLowerCase()];
-        data.liveChart = this.getDefaultLiveChartData(150);
-        return of(data);
-    }
-    getEarningPieChartData() {
-        return of(this.pieChartData);
-    }
-}
-EarningService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: EarningService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-EarningService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: EarningService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: EarningService, decorators: [{
-            type: Injectable
-        }] });
-
-class OrdersProfitChartService extends OrdersProfitChartData {
-    constructor(ordersChartService, profitChartService) {
-        super();
-        this.ordersChartService = ordersChartService;
-        this.profitChartService = profitChartService;
-        this.summary = [
-            {
-                title: 'Marketplace',
-                value: 3654,
-            },
-            {
-                title: 'Last Month',
-                value: 946,
-            },
-            {
-                title: 'Last Week',
-                value: 654,
-            },
-            {
-                title: 'Today',
-                value: 230,
-            },
-        ];
-    }
-    getOrderProfitChartSummary() {
-        return of(this.summary);
-    }
-    getOrdersChartData(period) {
-        return of(this.ordersChartService.getOrdersChartData(period));
-    }
-    getProfitChartData(period) {
-        return of(this.profitChartService.getProfitChartData(period));
-    }
-}
-OrdersProfitChartService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OrdersProfitChartService, deps: [{ token: OrdersChartData }, { token: ProfitChartData }], target: i0.ɵɵFactoryTarget.Injectable });
-OrdersProfitChartService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OrdersProfitChartService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OrdersProfitChartService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: OrdersChartData }, { type: ProfitChartData }]; } });
-
-class TrafficBarService extends TrafficBarData {
-    constructor(period) {
-        super();
-        this.period = period;
-        this.data = {};
-        this.data = {
-            week: this.getDataForWeekPeriod(),
-            month: this.getDataForMonthPeriod(),
-            year: this.getDataForYearPeriod(),
-        };
-    }
-    getDataForWeekPeriod() {
-        return {
-            data: [10, 15, 19, 7, 20, 13, 15],
-            labels: this.period.getWeeks(),
-            formatter: '{c0} MB',
-        };
-    }
-    getDataForMonthPeriod() {
-        return {
-            data: [0.5, 0.3, 0.8, 0.2, 0.3, 0.7, 0.8, 1, 0.7, 0.8, 0.6, 0.7],
-            labels: this.period.getMonths(),
-            formatter: '{c0} GB',
-        };
-    }
-    getDataForYearPeriod() {
-        return {
-            data: [10, 15, 19, 7, 20, 13, 15, 19, 11],
-            labels: this.period.getYears(),
-            formatter: '{c0} GB',
-        };
-    }
-    getTrafficBarData(period) {
-        return of(this.data[period]);
-    }
-}
-TrafficBarService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficBarService, deps: [{ token: PeriodsService }], target: i0.ɵɵFactoryTarget.Injectable });
-TrafficBarService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficBarService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficBarService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: PeriodsService }]; } });
-
-class ProfitBarAnimationChartService extends ProfitBarAnimationChartData {
-    constructor() {
-        super();
-        this.data = {
-            firstLine: this.getDataForFirstLine(),
-            secondLine: this.getDataForSecondLine(),
-        };
-    }
-    getDataForFirstLine() {
-        return this.createEmptyArray(100)
-            .map((_, index) => {
-            const oneFifth = index / 5;
-            return (Math.sin(oneFifth) * (oneFifth - 10) + index / 6) * 5;
-        });
-    }
-    getDataForSecondLine() {
-        return this.createEmptyArray(100)
-            .map((_, index) => {
-            const oneFifth = index / 5;
-            return (Math.cos(oneFifth) * (oneFifth - 10) + index / 6) * 5;
-        });
-    }
-    createEmptyArray(nPoints) {
-        return Array.from(Array(nPoints));
-    }
-    getChartData() {
-        return of(this.data);
-    }
-}
-ProfitBarAnimationChartService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ProfitBarAnimationChartService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-ProfitBarAnimationChartService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ProfitBarAnimationChartService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ProfitBarAnimationChartService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return []; } });
-
-class TemperatureHumidityService extends TemperatureHumidityData {
-    constructor() {
-        super(...arguments);
-        this.temperatureDate = {
-            value: 24,
-            min: 12,
-            max: 30,
-        };
-        this.humidityDate = {
-            value: 87,
-            min: 0,
-            max: 100,
-        };
-    }
-    getTemperatureData() {
-        return of(this.temperatureDate);
-    }
-    getHumidityData() {
-        return of(this.humidityDate);
-    }
-}
-TemperatureHumidityService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TemperatureHumidityService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-TemperatureHumidityService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TemperatureHumidityService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TemperatureHumidityService, decorators: [{
-            type: Injectable
-        }] });
-
-class SolarService extends SolarData {
-    constructor() {
-        super(...arguments);
-        this.value = 42;
-    }
-    getSolarData() {
-        return of(this.value);
-    }
-}
-SolarService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SolarService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-SolarService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SolarService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SolarService, decorators: [{
-            type: Injectable
-        }] });
-
-class TrafficChartService extends TrafficChartData {
-    constructor() {
-        super(...arguments);
-        this.data = [
-            300, 520, 435, 530,
-            730, 620, 660, 860,
-        ];
-    }
-    getTrafficChartData() {
-        return of(this.data);
-    }
-}
-TrafficChartService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficChartService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-TrafficChartService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficChartService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TrafficChartService, decorators: [{
-            type: Injectable
-        }] });
-
-class StatsBarService extends StatsBarData {
-    constructor() {
-        super(...arguments);
-        this.statsBarData = [
-            300, 520, 435, 530,
-            730, 620, 660, 860,
-        ];
-    }
-    getStatsBarData() {
-        return of(this.statsBarData);
-    }
-}
-StatsBarService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StatsBarService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-StatsBarService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StatsBarService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StatsBarService, decorators: [{
-            type: Injectable
-        }] });
-
-class CountryOrderService extends CountryOrderData {
-    constructor() {
-        super(...arguments);
-        this.countriesCategories = [
-            'Sofas',
-            'Furniture',
-            'Lighting',
-            'Tables',
-            'Textiles',
-        ];
-        this.countriesCategoriesLength = this.countriesCategories.length;
-    }
-    generateRandomData(nPoints) {
-        return Array.from(Array(nPoints)).map(() => {
-            return Math.round(Math.random() * 20);
-        });
-    }
-    getCountriesCategories() {
-        return of(this.countriesCategories);
-    }
-    getCountriesCategoriesData(country) {
-        return of(this.generateRandomData(this.countriesCategoriesLength));
-    }
-}
-CountryOrderService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CountryOrderService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-CountryOrderService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CountryOrderService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CountryOrderService, decorators: [{
-            type: Injectable
-        }] });
-
-class StatsProgressBarService extends StatsProgressBarData {
-    constructor() {
-        super(...arguments);
-        this.progressInfoData = [
-            {
-                title: 'Today’s Profit',
-                value: 572900,
-                activeProgress: 70,
-                description: 'Better than last week (70%)',
-            },
-            {
-                title: 'New Orders',
-                value: 6378,
-                activeProgress: 30,
-                description: 'Better than last week (30%)',
-            },
-            {
-                title: 'New Comments',
-                value: 200,
-                activeProgress: 55,
-                description: 'Better than last week (55%)',
-            },
-        ];
-    }
-    getProgressInfoData() {
-        return of(this.progressInfoData);
-    }
-}
-StatsProgressBarService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StatsProgressBarService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-StatsProgressBarService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StatsProgressBarService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StatsProgressBarService, decorators: [{
-            type: Injectable
-        }] });
-
-class VisitorsAnalyticsService extends VisitorsAnalyticsData {
-    constructor(periodService) {
-        super();
-        this.periodService = periodService;
-        this.pieChartValue = 75;
-        this.innerLinePoints = [
-            94, 188, 225, 244, 253, 254, 249, 235, 208,
-            173, 141, 118, 105, 97, 94, 96, 104, 121, 147,
-            183, 224, 265, 302, 333, 358, 375, 388, 395,
-            400, 400, 397, 390, 377, 360, 338, 310, 278,
-            241, 204, 166, 130, 98, 71, 49, 32, 20, 13, 9,
-        ];
-        this.outerLinePoints = [
-            85, 71, 59, 50, 45, 42, 41, 44, 58, 88,
-            136, 199, 267, 326, 367, 391, 400, 397,
-            376, 319, 200, 104, 60, 41, 36, 37, 44,
-            55, 74, 100, 131, 159, 180, 193, 199, 200,
-            195, 184, 164, 135, 103, 73, 50, 33, 22, 15, 11,
-        ];
-    }
-    generateOutlineLineData() {
-        const months = this.periodService.getMonths();
-        const outerLinePointsLength = this.outerLinePoints.length;
-        const monthsLength = months.length;
-        return this.outerLinePoints.map((p, index) => {
-            const monthIndex = Math.round(index / 4);
-            const label = (index % Math.round(outerLinePointsLength / monthsLength) === 0)
-                ? months[monthIndex]
-                : '';
-            return {
-                label,
-                value: p,
-            };
-        });
-    }
-    getInnerLineChartData() {
-        return of(this.innerLinePoints);
-    }
-    getOutlineLineChartData() {
-        return of(this.generateOutlineLineData());
-    }
-    getPieChartData() {
-        return of(this.pieChartValue);
-    }
-}
-VisitorsAnalyticsService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: VisitorsAnalyticsService, deps: [{ token: PeriodsService }], target: i0.ɵɵFactoryTarget.Injectable });
-VisitorsAnalyticsService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: VisitorsAnalyticsService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: VisitorsAnalyticsService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: PeriodsService }]; } });
-
-class SecurityCamerasService extends SecurityCamerasData {
-    constructor() {
-        super(...arguments);
-        this.cameras = [
-            {
-                title: 'Camera #1',
-                source: 'assets/images/camera1.jpg',
-            },
-            {
-                title: 'Camera #2',
-                source: 'assets/images/camera2.jpg',
-            },
-            {
-                title: 'Camera #3',
-                source: 'assets/images/camera3.jpg',
-            },
-            {
-                title: 'Camera #4',
-                source: 'assets/images/camera4.jpg',
-            },
-        ];
-    }
-    getCamerasData() {
-        return of(this.cameras);
-    }
-}
-SecurityCamerasService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SecurityCamerasService, deps: null, target: i0.ɵɵFactoryTarget.Injectable });
-SecurityCamerasService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SecurityCamerasService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SecurityCamerasService, decorators: [{
-            type: Injectable
-        }] });
-
-const SERVICES = [
-    UserService,
-    ElectricityService,
-    SmartTableService,
-    UserActivityService,
-    OrdersChartService,
-    ProfitChartService,
-    TrafficListService,
-    PeriodsService,
-    EarningService,
-    OrdersProfitChartService,
-    TrafficBarService,
-    ProfitBarAnimationChartService,
-    TemperatureHumidityService,
-    SolarService,
-    TrafficChartService,
-    StatsBarService,
-    CountryOrderService,
-    StatsProgressBarService,
-    VisitorsAnalyticsService,
-    SecurityCamerasService,
-];
-class MockDataModule {
-    static forRoot() {
-        return {
-            ngModule: MockDataModule,
-            providers: [
-                ...SERVICES,
-            ],
-        };
-    }
-}
-MockDataModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MockDataModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-MockDataModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MockDataModule, imports: [CommonModule] });
-MockDataModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MockDataModule, providers: [
-        ...SERVICES,
-    ], imports: [[
-            CommonModule,
-        ]] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MockDataModule, decorators: [{
-            type: NgModule,
-            args: [{
-                    imports: [
-                        CommonModule,
-                    ],
-                    providers: [
-                        ...SERVICES,
-                    ],
-                }]
-        }] });
-
 const socialLinks = [
     {
         url: 'https://github.com/akveo/nebular',
@@ -6717,30 +5345,6 @@ const socialLinks = [
         icon: 'twitter',
     },
 ];
-const DATA_SERVICES = [
-    { provide: UserData, useClass: UserService },
-    { provide: ElectricityData, useClass: ElectricityService },
-    { provide: SmartTableData, useClass: SmartTableService },
-    { provide: UserActivityData, useClass: UserActivityService },
-    { provide: OrdersChartData, useClass: OrdersChartService },
-    { provide: ProfitChartData, useClass: ProfitChartService },
-    { provide: TrafficListData, useClass: TrafficListService },
-    { provide: EarningData, useClass: EarningService },
-    { provide: OrdersProfitChartData, useClass: OrdersProfitChartService },
-    { provide: TrafficBarData, useClass: TrafficBarService },
-    {
-        provide: ProfitBarAnimationChartData,
-        useClass: ProfitBarAnimationChartService,
-    },
-    { provide: TemperatureHumidityData, useClass: TemperatureHumidityService },
-    { provide: SolarData, useClass: SolarService },
-    { provide: TrafficChartData, useClass: TrafficChartService },
-    { provide: StatsBarData, useClass: StatsBarService },
-    { provide: CountryOrderData, useClass: CountryOrderService },
-    { provide: StatsProgressBarData, useClass: StatsProgressBarService },
-    { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
-    { provide: SecurityCamerasData, useClass: SecurityCamerasService },
-];
 class NbSimpleRoleProvider extends NbRoleProvider {
     getRole() {
         // here you could provide any role based on any auth flow
@@ -6748,8 +5352,6 @@ class NbSimpleRoleProvider extends NbRoleProvider {
     }
 }
 const NB_CORE_PROVIDERS = [
-    ...MockDataModule.forRoot().providers,
-    ...DATA_SERVICES,
     ...NbAuthModule.forRoot({
         strategies: [
             NbDummyAuthStrategy.setup({
@@ -6972,7 +5574,8 @@ RestAdminModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version
         UploadFileComponent,
         FsIconCComponent,
         LoginComponent,
-        AttributeDirective], imports: [CommonModule,
+        AttributeDirective,
+        MenuFilterPipe], imports: [CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
         RouterModule,
@@ -7002,7 +5605,8 @@ RestAdminModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version
         NbTooltipModule,
         NbContextMenuModule,
         TranslateModule,
-        NgxDropzoneModule, i5$1.NgxPermissionsModule, NbSelectModule,
+        NgxDropzoneModule, i5$1.NgxPermissionsModule, NbLayoutModule,
+        NbSelectModule,
         NbSidebarModule, i1$1.NbMenuModule, i1$1.NbDatepickerModule, i1$1.NbDialogModule, i1$1.NbWindowModule, i1$1.NbToastrModule, i1$1.NbTimepickerModule, CoreModule, ThemeModule, NbIconModule, i1$3.TranslateModule], exports: [RestResourceListComponent,
         RestResourceAddComponent,
         RestResourceDeleteComponent,
@@ -7061,6 +5665,7 @@ RestAdminModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version
             TranslateModule,
             NgxDropzoneModule,
             NgxPermissionsModule.forChild(),
+            NbLayoutModule,
             NbSelectModule,
             NbSidebarModule,
             NbMenuModule.forRoot(),
@@ -7095,6 +5700,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                         FsIconCComponent,
                         LoginComponent,
                         AttributeDirective,
+                        MenuFilterPipe,
                     ],
                     exports: [
                         RestResourceListComponent,
@@ -7152,6 +5758,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                         TranslateModule,
                         NgxDropzoneModule,
                         NgxPermissionsModule.forChild(),
+                        NbLayoutModule,
                         NbSelectModule,
                         NbSidebarModule,
                         NbMenuModule.forRoot(),

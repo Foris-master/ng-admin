@@ -38,7 +38,7 @@ export const packageType = new RestResource(
     columns: ["name", "description", "created_at", "updated_at"],
     group: {
       name: "CLIENT",
-      type: TYPE_GROUP.SEPARATOR, // Regroupe les ressources dans un menu deroulant
+      type: TYPE_GROUP.MENU, // Regroupe les ressources dans un menu deroulant
     },
     searchFilter: {
       filterBy: ["name", "description"],

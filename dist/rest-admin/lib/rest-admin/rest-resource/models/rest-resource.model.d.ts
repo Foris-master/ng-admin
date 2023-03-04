@@ -111,6 +111,11 @@ export interface REST_FIELD_METADATA {
             template?: string;
             queryParams?: any;
         };
+        passwordOptions?: {
+            isNeedConfirm?: boolean;
+            confirmLabel?: string;
+            confirmField?: string;
+        };
         belongToManyOptions?: {
             relatedName: string;
             filterKeys?: string[];
@@ -193,7 +198,8 @@ export declare enum REST_FIELD_TYPES {
     JSON = 18,
     MAP = 19,
     ENUM = 20,
-    LINK = 21
+    LINK = 21,
+    PASSWORD = 22
 }
 export interface REST_CONFIG {
     name: string;

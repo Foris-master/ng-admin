@@ -29,6 +29,7 @@ export declare class RestResourceAddComponent implements OnInit {
     form: FormGroup;
     formState: any;
     entity: any;
+    loading: boolean;
     uploadedFile: BehaviorSubject<any>;
     private subscription;
     options: any;
@@ -45,6 +46,7 @@ export declare class RestResourceAddComponent implements OnInit {
     croppedImage: any;
     isCrop: any;
     controlsImage: any;
+    colors: any[];
     items: {
         title: string;
     }[];

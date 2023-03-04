@@ -73,6 +73,49 @@
                 ></textarea>
               </div>
 
+              <ng-container *ngIf="field.type == REST_FIELD_TYPES.PASSWORD">
+                <div class="input-space">
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <input
+                    nbInput
+                    fullWidth
+                    [id]="i"
+                    [attributes]="field.metaData.attributes"
+                    [placeholder]="field.label"
+                    [formControlName]="field.name"
+                    type="password"
+                  />
+                </div>
+                <ng-container
+                  *ngIf="
+                    field?.metaData?.addConfig?.passwordOptions?.isNeedConfirm
+                  "
+                >
+                  <div class="input-space">
+                    <label class="label">{{
+                      field?.metaData?.addConfig?.passwordOptions?.confirmLabel
+                        ? field?.metaData?.addConfig?.passwordOptions
+                            ?.confirmLabel
+                        : (field.label + "_confirmation" | titlecase)
+                    }}</label>
+                    <input
+                      nbInput
+                      fullWidth
+                      [id]="i"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label + '_confirmation'"
+                      [formControlName]="
+                        field.metaData?.addConfig?.passwordOptions?.confirmField
+                          ? field.metaData.addConfig.passwordOptions
+                              .confirmField
+                          : field.name + '_confirmation'
+                      "
+                      type="password"
+                    />
+                  </div>
+                </ng-container>
+              </ng-container>
+
               <!-- Input type number  -->
               <div
                 class="input-space"
@@ -360,7 +403,12 @@
                       [id]="i"
                     />
                   </div>
-                  <div *ngIf="!field.metaData?.addConfig?.belongToOptions?.secondField" class="col-3">
+                  <div
+                    *ngIf="
+                      !field.metaData?.addConfig?.belongToOptions?.secondField
+                    "
+                    class="col-3"
+                  >
                     <input
                       nbInput
                       fullWidth
@@ -672,7 +720,8 @@
 
   <nb-card-footer>
     <div class="buttons-row">
-      <button nbButton (click)="onSumbit()" status="primary">
+      <button nbButton (click)="onSumbit()" status="primary" [disabled]="loading">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-2"></span>
         {{ formState.btnLabel }}
       </button>
     </div>

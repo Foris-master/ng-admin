@@ -1,0 +1,36 @@
+{
+  "include": ["projects/rest-admin/**/*.ts"],
+  "exclude": [
+    //components
+    "projects/rest-admin/src/lib/rest-admin/rest-resource/components/rest.resource-list-field/rest.resource-list-field.component.ts",
+    "projects/rest-admin/src/lib/rest-admin/rest-resource/components/fs-icon-ccomponent/fs-icon.component.ts",
+    "projects/rest-admin-example/src/app/app.component.ts",
+    "projects/rest-admin/src/lib/@theme/components/footer/footer.component.ts",
+    "projects/rest-admin/src/lib/@theme/components/header/header.component.ts",
+    "projects/rest-admin/src/lib/rest-admin/rest-resource/components/upload-file/upload-file.component.ts",
+    "projects/rest-admin/src/lib/@theme/layouts/two-columns/two-columns.layout.ts",
+    "projects/rest-admin/src/lib/@theme/components/tiny-mce/tiny-mce.component.ts",
+    "projects/rest-admin/src/lib/@theme/layouts/three-columns/three-columns.layout.ts",
+    "projects/rest-admin/src/lib/@theme/components/search-input/search-input.component.ts",
+    "projects/rest-admin/src/lib/auth/login/login.component.ts",
+    "projects/rest-admin/src/lib/@theme/layouts/one-column/one-column.layout.ts",
+
+    //modules
+    "projects/rest-admin-example/src/app/app.module.ts",
+    "projects/rest-admin-example/src/app/app-routing.module.ts",
+    "projects/rest-admin/src/lib/@core/core.module.ts",
+    "projects/rest-admin/src/lib/@core/mock/mock-data.module.ts",
+    "projects/rest-admin/src/lib/@theme/theme.module.ts",
+    "projects/rest-admin/src/lib/auth/auth-routing.module.ts",
+    "projects/rest-admin/src/lib/auth/auth.module.ts",
+
+    //classes
+    "projects/rest-admin/src/lib/@core/utils/player.service.ts",
+
+    //injectables
+    "projects/rest-admin/src/lib/@core/utils/*.ts",
+
+    //others
+    "projects/rest-admin/src/lib/@core/module-import-guard.ts"
+  ]
+}
