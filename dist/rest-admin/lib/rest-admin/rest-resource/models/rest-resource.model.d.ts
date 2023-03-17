@@ -10,6 +10,7 @@ export interface Field {
     label?: string;
     name: string;
     template?: string;
+    note?: string;
 }
 export declare enum QUERY_PARAMS_TYPE {
 }

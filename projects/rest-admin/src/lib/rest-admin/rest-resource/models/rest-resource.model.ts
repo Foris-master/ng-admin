@@ -10,6 +10,7 @@ export interface Field {
   label?: string;
   name: string;
   template?: string;
+  note?: string;
 }
 
 // export interface QUERY_PARAMS {
@@ -96,6 +97,7 @@ export interface EditConfig extends ResourceConfig {
 export interface DetailConfig extends ResourceConfig {
   tabsConfig?: TabsOptions[];
 }
+
 export interface TabsOptions {
   name: string;
   datas: string[];

@@ -269,6 +269,7 @@ export class RestResourceDetailComponent implements OnInit {
                           temp[search.name] = {
                             restField: search,
                             data: `${dat} (${response[search.label]})`,
+                            navigationId: response[search.label],
                           };
                         }
                         break;
@@ -287,6 +288,7 @@ export class RestResourceDetailComponent implements OnInit {
                     colunms[elt.name] = {
                       restField: elt,
                       data: `${dat} (${response[elt.label]})`,
+                      navigationId: response[elt.label],
                     };
                   } else {
                     colunms[elt.name] = {
@@ -614,6 +616,7 @@ export class RestResourceDetailComponent implements OnInit {
                       temp[search.name] = {
                         restField: search,
                         data: `${dat} (${response[search.label]})`,
+                        navigationId: response[search.label],
                       };
                     }
                     break;
@@ -641,6 +644,7 @@ export class RestResourceDetailComponent implements OnInit {
                 colunms[elt.name] = {
                   restField: elt,
                   data: `${dat} (${response[elt.label]})`,
+                  navigationId: response[elt.label],
                 };
               } else {
                 colunms[elt.name] = {
@@ -810,7 +814,7 @@ export class RestResourceDetailComponent implements OnInit {
     const resourceName =
       data.restField.metaData.addConfig.belongToOptions.resourceName;
 
-    this.router.navigate([`/admin/${resourceName}-detail`, data.data]);
+    this.router.navigate([`/admin/${resourceName}-detail`, data.navigationId]);
   }
 
   isObject = (a) => {

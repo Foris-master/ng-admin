@@ -80,6 +80,7 @@ export class RestResource {
     return this._fields.map((field) => ({
       name: field.name,
       type: field.type ? field.type : REST_FIELD_TYPES.STRING,
+      note: field.note ? field.note : '',
       label: field.label ? field.label : field.name,
       inForm: field.inForm !== undefined ? field.inForm : true,
       metaData: field.metaData?.attributes !== undefined ? field.metaData : {...field?.metaData,  attributes: {}},

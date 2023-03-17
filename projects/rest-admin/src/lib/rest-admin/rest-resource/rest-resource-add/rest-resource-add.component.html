@@ -25,7 +25,7 @@
   </nb-card-header>
 
   <nb-card-body>
-    <nb-tabset>
+    <nb-tabset fullWidth>
       <nb-tab tabTitle="Ajout simple">
         <form [formGroup]="form" class="row" *ngIf="formState.onReady">
           <div
@@ -692,6 +692,12 @@
                 </div>
               </div>
             </ng-container>
+
+            <div class="">
+              <ng-container *ngIf="field.note != ''">
+                <span class="text-muted ml-20 mt-3">{{ field.note }}</span>
+              </ng-container>
+            </div>
           </div>
         </form>
       </nb-tab>
@@ -720,8 +726,16 @@
 
   <nb-card-footer>
     <div class="buttons-row">
-      <button nbButton (click)="onSumbit()" status="primary" [disabled]="loading">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-2"></span>
+      <button
+        nbButton
+        (click)="onSumbit()"
+        status="primary"
+        [disabled]="loading"
+      >
+        <span
+          *ngIf="loading"
+          class="spinner-border spinner-border-sm mr-2"
+        ></span>
         {{ formState.btnLabel }}
       </button>
     </div>
