@@ -255,7 +255,7 @@ export class RestAdminModule {
             children: [...(this.serviceRestAdmin.generateRoutes() as any)],
           },
           { path: '', redirectTo: '/login', pathMatch: 'full' },
-          { path: '**', redirectTo: '/' },
+          // { path: '**', redirectTo: '/' },
         ]),
         NbAuthModule.forRoot({
           strategies: [

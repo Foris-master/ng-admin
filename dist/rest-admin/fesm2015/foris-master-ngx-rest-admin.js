@@ -5510,7 +5510,7 @@ class RestAdminModule {
                         children: [...this.serviceRestAdmin.generateRoutes()],
                     },
                     { path: '', redirectTo: '/login', pathMatch: 'full' },
-                    { path: '**', redirectTo: '/' },
+                    // { path: '**', redirectTo: '/' },
                 ]),
                 NbAuthModule.forRoot({
                     strategies: [

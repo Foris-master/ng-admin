@@ -5810,7 +5810,7 @@
                             children: __spreadArray([], __read(this.serviceRestAdmin.generateRoutes())),
                         },
                         { path: '', redirectTo: '/login', pathMatch: 'full' },
-                        { path: '**', redirectTo: '/' },
+                        // { path: '**', redirectTo: '/' },
                     ]),
                     i1$5.NbAuthModule.forRoot({
                         strategies: [
