@@ -4,7 +4,7 @@ import { RestResource } from '../models/rest-resource';
 import { REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
-import { NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { RestLangService } from '../service/rest-lang.service';
 import * as i0 from "@angular/core";
 export declare class RestResourceDetailComponent implements OnInit {
@@ -13,6 +13,7 @@ export declare class RestResourceDetailComponent implements OnInit {
     private serviceRestAdminConfig;
     private router;
     private dataSourceBuilder;
+    private dialogService;
     private langService;
     resource: RestResource;
     ID: string;
@@ -32,10 +33,11 @@ export declare class RestResourceDetailComponent implements OnInit {
     isTabsMenu: boolean;
     tabsName: any[];
     filesUpload: {};
-    constructor(activatedRoute: ActivatedRoute, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, router: Router, dataSourceBuilder: NbTreeGridDataSourceBuilder<any>, langService: RestLangService);
+    constructor(activatedRoute: ActivatedRoute, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, router: Router, dataSourceBuilder: NbTreeGridDataSourceBuilder<any>, dialogService: NbDialogService, langService: RestLangService);
     ngOnInit(): void;
     editEntity(): void;
     listEntity(): void;
+    deleteEntity(): void;
     get REST_FIELD_TYPES(): typeof REST_FIELD_TYPES;
     onSelect(event: any): void;
     onRemove(field: any): void;

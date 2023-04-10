@@ -63,10 +63,18 @@ export interface ListConfig extends ResourceConfig {
     belongToConfig?: any;
     description?: string;
     searchFilter?: {
-        filterBy?: string[];
+        filterBy?: filterSearchConfig[];
     };
     hideAddSubHeader?: boolean;
     group?: GroupConfig;
+}
+export interface filterSearchConfig {
+    name: string;
+    value: string;
+    type?: REST_FIELD_TYPES;
+    resourceFieldName?: string;
+    ressourceFilterName?: string;
+    resource?: RestResource;
 }
 export interface AddConfig extends ResourceConfig {
     inList?: boolean;

@@ -1,10 +1,14 @@
 import { Component } from "@angular/core";
 import * as i0 from "@angular/core";
+import * as i1 from "../../../rest-admin/rest-resource/service/rest-admin-config.service";
 export class FooterComponent {
+    constructor(serviceRestAdmin) {
+        this.serviceRestAdmin = serviceRestAdmin;
+    }
 }
-FooterComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FooterComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
+FooterComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FooterComponent, deps: [{ token: i1.RestAdminConfigService }], target: i0.ɵɵFactoryTarget.Component });
 FooterComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: FooterComponent, selector: "ngx-footer", ngImport: i0, template: `
-    <span class="created-by"> <b>ngx-admin</b> 2022 </span>
+    <span class="created-by"> <b>{{ serviceRestAdmin.siteName }}</b> copyright </span>
     <div class="socials">
       <a
         href="https://github.com/Foris-master/ngx-admin"
@@ -19,7 +23,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                     selector: "ngx-footer",
                     styleUrls: ["./footer.component.scss"],
                     template: `
-    <span class="created-by"> <b>ngx-admin</b> 2022 </span>
+    <span class="created-by"> <b>{{ serviceRestAdmin.siteName }}</b> copyright </span>
     <div class="socials">
       <a
         href="https://github.com/Foris-master/ngx-admin"
@@ -29,5 +33,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
     </div>
   `,
                 }]
-        }] });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm9vdGVyLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL3Jlc3QtYWRtaW4vc3JjL2xpYi9AdGhlbWUvY29tcG9uZW50cy9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sZUFBZSxDQUFDOztBQWdCMUMsTUFBTSxPQUFPLGVBQWU7OzRHQUFmLGVBQWU7Z0dBQWYsZUFBZSxrREFYaEI7Ozs7Ozs7OztHQVNUOzJGQUVVLGVBQWU7a0JBZDNCLFNBQVM7bUJBQUM7b0JBQ1QsUUFBUSxFQUFFLFlBQVk7b0JBQ3RCLFNBQVMsRUFBRSxDQUFDLHlCQUF5QixDQUFDO29CQUN0QyxRQUFRLEVBQUU7Ozs7Ozs7OztHQVNUO2lCQUNGIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50IH0gZnJvbSBcIkBhbmd1bGFyL2NvcmVcIjtcblxuQENvbXBvbmVudCh7XG4gIHNlbGVjdG9yOiBcIm5neC1mb290ZXJcIixcbiAgc3R5bGVVcmxzOiBbXCIuL2Zvb3Rlci5jb21wb25lbnQuc2Nzc1wiXSxcbiAgdGVtcGxhdGU6IGBcbiAgICA8c3BhbiBjbGFzcz1cImNyZWF0ZWQtYnlcIj4gPGI+bmd4LWFkbWluPC9iPiAyMDIyIDwvc3Bhbj5cbiAgICA8ZGl2IGNsYXNzPVwic29jaWFsc1wiPlxuICAgICAgPGFcbiAgICAgICAgaHJlZj1cImh0dHBzOi8vZ2l0aHViLmNvbS9Gb3Jpcy1tYXN0ZXIvbmd4LWFkbWluXCJcbiAgICAgICAgdGFyZ2V0PVwiX2JsYW5rXCJcbiAgICAgICAgY2xhc3M9XCJpb24gaW9uLXNvY2lhbC1naXRodWJcIlxuICAgICAgPjwvYT5cbiAgICA8L2Rpdj5cbiAgYCxcbn0pXG5leHBvcnQgY2xhc3MgRm9vdGVyQ29tcG9uZW50IHtcbiAgLy8gY29uc3RydWN0b3IocHVibGljIHJlc3RTZXJpdmU6KSB7fVxufVxuIl19
+        }], ctorParameters: function () { return [{ type: i1.RestAdminConfigService }]; } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm9vdGVyLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL3Jlc3QtYWRtaW4vc3JjL2xpYi9AdGhlbWUvY29tcG9uZW50cy9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sZUFBZSxDQUFDOzs7QUFpQjFDLE1BQU0sT0FBTyxlQUFlO0lBQzFCLFlBQ1MsZ0JBQXdDO1FBQXhDLHFCQUFnQixHQUFoQixnQkFBZ0IsQ0FBd0I7SUFFakQsQ0FBQzs7NEdBSlUsZUFBZTtnR0FBZixlQUFlLGtEQVhoQjs7Ozs7Ozs7O0dBU1Q7MkZBRVUsZUFBZTtrQkFkM0IsU0FBUzttQkFBQztvQkFDVCxRQUFRLEVBQUUsWUFBWTtvQkFDdEIsU0FBUyxFQUFFLENBQUMseUJBQXlCLENBQUM7b0JBQ3RDLFFBQVEsRUFBRTs7Ozs7Ozs7O0dBU1Q7aUJBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQgfSBmcm9tIFwiQGFuZ3VsYXIvY29yZVwiO1xuaW1wb3J0IHsgUmVzdEFkbWluQ29uZmlnU2VydmljZSB9IGZyb20gXCIuLi8uLi8uLi9yZXN0LWFkbWluL3Jlc3QtcmVzb3VyY2Uvc2VydmljZS9yZXN0LWFkbWluLWNvbmZpZy5zZXJ2aWNlXCI7XG5cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogXCJuZ3gtZm9vdGVyXCIsXG4gIHN0eWxlVXJsczogW1wiLi9mb290ZXIuY29tcG9uZW50LnNjc3NcIl0sXG4gIHRlbXBsYXRlOiBgXG4gICAgPHNwYW4gY2xhc3M9XCJjcmVhdGVkLWJ5XCI+IDxiPnt7IHNlcnZpY2VSZXN0QWRtaW4uc2l0ZU5hbWUgfX08L2I+IGNvcHlyaWdodCA8L3NwYW4+XG4gICAgPGRpdiBjbGFzcz1cInNvY2lhbHNcIj5cbiAgICAgIDxhXG4gICAgICAgIGhyZWY9XCJodHRwczovL2dpdGh1Yi5jb20vRm9yaXMtbWFzdGVyL25neC1hZG1pblwiXG4gICAgICAgIHRhcmdldD1cIl9ibGFua1wiXG4gICAgICAgIGNsYXNzPVwiaW9uIGlvbi1zb2NpYWwtZ2l0aHViXCJcbiAgICAgID48L2E+XG4gICAgPC9kaXY+XG4gIGAsXG59KVxuZXhwb3J0IGNsYXNzIEZvb3RlckNvbXBvbmVudCB7XG4gIGNvbnN0cnVjdG9yKFxuICAgIHB1YmxpYyBzZXJ2aWNlUmVzdEFkbWluOiBSZXN0QWRtaW5Db25maWdTZXJ2aWNlLFxuICApIHtcbiAgfVxufVxuIl19
