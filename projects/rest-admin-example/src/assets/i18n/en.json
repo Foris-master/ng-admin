@@ -11,6 +11,7 @@
   "rest-detail": {
     "btnCancel": "cancel",
     "btnEdit": "edit",
+    "btnDelete": "delete",
     "belongToRef": "click to access the referenced resource"
   },
   "rest-list": {
@@ -43,5 +44,6 @@
   "msg-deleting-fail": "failed to delete {{resourceName}}",
   "msg-not-authorized": "You are not authorized to access this resource",
   "msg-not-found": "The requested resource was not found",
-  "msg-internal-error": "An error occurred on the server"
+  "msg-internal-error": "An error occurred on the server",
+  "add": "Add"
 }

@@ -791,10 +791,10 @@
   </nb-card-body>
 
   <nb-card-footer *ngIf="datas && !container">
-    <div class="buttons-row">
+    <div class="buttons-row text-center" fullWidth>
       <button
         nbButton
-        status="danger"
+        status="secondary"
         style="margin-right: 10px"
         (click)="listEntity()"
       >
@@ -803,6 +803,15 @@
 
       <button nbButton status="primary" (click)="editEntity()">
         {{ "rest-detail.btnEdit" | translate }}
+      </button>
+
+      <button
+        nbButton
+        status="danger"
+        style="margin-left: 10px"
+        (click)="deleteEntity()"
+      >
+        {{ "rest-detail.btnDelete" | translate }}
       </button>
     </div>
   </nb-card-footer>

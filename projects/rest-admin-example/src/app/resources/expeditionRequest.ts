@@ -299,9 +299,9 @@ export const expeditionRequest = new RestResource(
     queryParams: {
       _includes: "package,address,to_town,from_town,payment_method",
     },
-    searchFilter: {
-      filterBy: ["status", "expedition_type"],
-    },
+    // searchFilter: {
+    //   filterBy: ["status", "expedition_type"],
+    // },
   },
   {
     api: "expedition_requests",

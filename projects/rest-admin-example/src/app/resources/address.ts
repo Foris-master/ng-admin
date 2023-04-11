@@ -122,7 +122,8 @@ export const address = new RestResource(
       _includes: 'user,town',
     },
     searchFilter: {
-      filterBy: ['name', 'zip_code'],
+      filterBy: [{name: 'name',
+    value: "name"}, {name: 'zip_code', value: 'zip_code'}],
     },
   },
   {},

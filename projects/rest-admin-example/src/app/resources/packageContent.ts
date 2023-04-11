@@ -90,9 +90,9 @@ export const packageContent = new RestResource(
     queryParams: {
       _includes: "package",
     },
-    searchFilter: {
-      filterBy: ["name"],
-    },
+    // searchFilter: {
+    //   filterBy: ["name"],
+    // },
   },
   {
     api: "package_contents",

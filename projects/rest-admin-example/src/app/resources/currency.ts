@@ -52,9 +52,9 @@ export const currency = new RestResource(
       "sub_unit",
       "created_at",
     ],
-    searchFilter: {
-      filterBy: ["code", "symbol"],
-    },
+    // searchFilter: {
+    //   filterBy: ["code", "symbol"],
+    // },
   },
   {},
   {},

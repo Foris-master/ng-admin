@@ -4,11 +4,12 @@ import { RestResource } from '../models/rest-resource';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
-import { NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { RestLangService } from '../service/rest-lang.service';
 // import urlToFile from '../../../utils/';
 import * as _ from 'lodash';
 import urlToFile from '../../../utils/urlToFile';
+import { RestResourceDeleteComponent } from '../rest-ressource-delete/rest-resource-delete.component';
 
 @Component({
   selector: 'ngx-rest-resource-detail',
@@ -39,6 +40,7 @@ export class RestResourceDetailComponent implements OnInit {
     private serviceRestAdminConfig: RestAdminConfigService,
     private router: Router,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
+    private dialogService: NbDialogService,
     private langService: RestLangService
   ) {}
 
@@ -799,6 +801,23 @@ export class RestResourceDetailComponent implements OnInit {
 
   listEntity() {
     this.router.navigateByUrl(`/admin/${this.ressourceName}-list`);
+  }
+
+  deleteEntity() {
+    const dialog = this.dialogService.open(RestResourceDeleteComponent, {
+      context: {
+        datas: { id: this.entityId},
+        title: 'SUPPRESSION',
+        listConfig: this.resource.listConfig,
+        resourceName: this.ressourceName,
+      },
+    });
+
+    dialog.onClose.subscribe((resp) => {
+      if (resp) {
+        this.router.navigateByUrl(`/admin/${this.ressourceName}-list`);
+      }
+    });
   }
 
   get REST_FIELD_TYPES() {

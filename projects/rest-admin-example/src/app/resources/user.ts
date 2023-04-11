@@ -185,9 +185,9 @@ export const user = new RestResource(
     queryParams: {
       _includes: "address,addresses",
     },
-    searchFilter: {
-      filterBy: ["full_name", "email", "phone"],
-    },
+    // searchFilter: {
+    //   filterBy: ["full_name", "email", "phone"],
+    // },
   },
   {
     api: "users",

@@ -1,13 +1,14 @@
 <nb-card status="success">
   <nb-card-header>
-    <div class="row">
-      <div class="col-10">
+    <div class="row d-flex justify-content-between">
+      <div class="">
         {{ this.resource.listConfig.title }}
       </div>
-
-      <div class="col-1"></div>
-      <div class="col-1" style="display: flex">
+      <!-- <button (click)="toggleShowCheckbox()">Selectionner</button> -->
+      <!-- <div class=""></div> -->
+      <div class="">
         <button nbButton ghost status="control" (click)="addNewEntity()">
+          <span>{{ "add" | translate }}</span>
           <nb-icon icon="plus-circle"></nb-icon>
         </button>
         <button
@@ -17,7 +18,7 @@
           ghost
           status="control"
         >
-          <nb-icon icon="menu"></nb-icon>
+          <nb-icon icon="download-outline"></nb-icon>
         </button>
 
         <!-- <button
@@ -55,25 +56,29 @@
                   let filter of this.resource.listConfig.searchFilter.filterBy
                 "
                 [value]="filter"
-                >{{ filter | titlecase }}</nb-option
+                >{{ filter["name"] | titlecase }}</nb-option
               >
             </nb-select>
           </div>
+            <ng-container *ngIf="this.searchItems[index].field !== 'id'">
+              <div class="col-lg-3 col-md-6 col-xs-12 input-space">
+                <nb-select
+                  [placeholder]="'rest-list.operator' | translate"
+                  fullWidth
+                  (selectedChange)="selectOperator($event, index)"
+                >
+                  <nb-option
+                    *ngFor="let operator of filterOperator"
+                    [value]="operator.value"
+                  >
+                    {{ operator.name | translate }}
+                  </nb-option>
+                </nb-select>
+              </div>
 
-          <div class="col-lg-3 col-md-6 col-xs-12 input-space">
-            <nb-select
-              [placeholder]="'rest-list.operator' | translate"
-              fullWidth
-              (selectedChange)="selectOperator($event, index)"
-            >
-              <nb-option
-                *ngFor="let operator of filterOperator"
-                [value]="operator.value"
-                >{{ operator.name | translate }}
-              </nb-option>
-            </nb-select>
-          </div>
-          <div
+            </ng-container>
+
+            <div *ngIf="this.searchItems[index].field !== 'id'"
             class="col-lg-4 col-md-12 col-xs-12 input-space"
             [ngClass]="{
               'col-12': this.resource.listConfig.searchFilter == null
@@ -87,6 +92,53 @@
               type="text"
             />
           </div>
+          <div [formGroup]="form">
+          <ng-container *ngIf="this.searchItems[index].field === 'id'">
+            <div class="input-space">
+              <!-- <label class="label">{{ field.label | titlecase }}</label> -->
+              <nb-tag-list (tagRemove)="onTagRemoveBelong($event)">
+                <nb-tag
+                  *ngFor="let tree of belongToMany['id']"
+                  [text]="tree['name']"
+                  removable
+                ></nb-tag>
+                <input
+                  type="text"
+                  nbTagInput
+                  #autoBelongToMany
+                  [nbAutocomplete]="belongToField"
+                  (keyup)="filterInput($event, index)"
+                  [placeholder]="
+                    this.searchItems[index].fieldName
+                      ? this.searchItems[index].fieldName
+                      : 'id'
+                  "
+                  [formControlName]="'id'"
+                  fullWidth
+                />
+              </nb-tag-list>
+
+              <nb-autocomplete
+                #belongToField
+                (selectedChange)="onChoose($event, index)"
+              >
+                <nb-option
+                  *ngFor="let option of allFilterContains['id'] | async"
+                  [value]="option"
+                >
+                  {{
+                    option[
+                      this.searchItems[index].fieldName
+                        ? this.searchItems[index].fieldName
+                        : "id"
+                    ]
+                  }}
+                </nb-option>
+              </nb-autocomplete>
+            </div>
+          </ng-container>
+        </div>
+
           <div
             class="col-lg-1 col-md-6 col-xs-6 input-space"
             *ngIf="index == 0"

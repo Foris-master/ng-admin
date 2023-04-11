@@ -499,7 +499,7 @@ export class RestResourceAddComponent implements OnInit {
         return this.options[field.name].filter((optionValue) => {
           return field.metaData.addConfig.belongToOptions.filterKeys.some(
             (elt) =>
-              `${optionValue[elt].toLowerCase()}`.includes(
+              `${optionValue[elt]?.toLowerCase()}`.includes(
                 `${value.toLowerCase()}`
               )
           );
@@ -680,7 +680,7 @@ export class RestResourceAddComponent implements OnInit {
           (elt) => elt.name == key
         );
 
-        if (search && formData[key] !== undefined) {
+        if (search && formData[key] !== undefined && formData[key] !== null) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
               datas.append(
@@ -713,6 +713,12 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.IMAGE:
               if (formData[key] !== null) datas.append(key, formData[key]);
               break;
+              case REST_FIELD_TYPES.PDF:
+                if (formData[key] !== null) datas.append(key, formData[key]);
+                break;
+                case REST_FIELD_TYPES.FILE:
+                  if (formData[key] !== null) datas.append(key, formData[key]);
+                  break;
             default:
               // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
               if (formData[key] !== '') datas.append(key, formData[key]);
@@ -824,7 +830,7 @@ export class RestResourceAddComponent implements OnInit {
           (elt) => elt.name == key
         );
 
-        if (search && formData[key] !== undefined) {
+        if (search && formData[key] !== undefined && formData[key] !== null) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
               datas.append(
@@ -838,9 +844,11 @@ export class RestResourceAddComponent implements OnInit {
                 if (typeof this.jsonEditorOptions[key] == 'object') {
                   this.jsonEditorOptions[key].map((elt) => {
                     jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                    datas.append(`${key}[${elt.label}]`, elt.value);
                   });
                 }
-                datas.append(key, JSON.stringify(jsonFields));
+                // datas.append(key, JSON.stringify(jsonFields));
+                // datas.append(key, jsonFields);
               }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
@@ -853,8 +861,14 @@ export class RestResourceAddComponent implements OnInit {
               }
               break;
             case REST_FIELD_TYPES.IMAGE:
-              if (formData[key] !== null) datas.append(key, formData[key]);
+              if (formData[key] !== null && this.isFile(formData[key])) datas.append(key, formData[key]);
               break;
+              case REST_FIELD_TYPES.PDF:
+                if (formData[key] !== null && this.isFile(formData[key])) datas.append(key, formData[key]);
+                break;
+                case REST_FIELD_TYPES.FILE:
+                  if (formData[key] !== null && this.isFile(formData[key])) datas.append(key, formData[key]);
+                  break;
             default:
               // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
               if (formData[key] !== '') datas.append(key, formData[key]);
@@ -954,6 +968,10 @@ export class RestResourceAddComponent implements OnInit {
       );
   }
 
+  isFile(variable) {
+    return (typeof variable === 'object') && (variable instanceof File);
+  }
+  
   downloadTemplate(): void {
     const colunms: any = {};
     const sheetHeader = {};

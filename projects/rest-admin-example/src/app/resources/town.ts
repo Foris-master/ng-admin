@@ -79,9 +79,9 @@ export const town = new RestResource(
     queryParams: {
       _includes: "country",
     },
-    searchFilter: {
-      filterBy: ["name", "district", "code"],
-    },
+    // searchFilter: {
+    //   filterBy: ["name", "district", "code"],
+    // },
   },
   {},
   {},

@@ -40,9 +40,9 @@ export const packageType = new RestResource(
       name: "CLIENT",
       type: TYPE_GROUP.MENU, // Regroupe les ressources dans un menu deroulant
     },
-    searchFilter: {
-      filterBy: ["name", "description"],
-    },
+    // searchFilter: {
+    //   filterBy: ["name", "description"],
+    // },
   },
   {
     api: "package_types",
