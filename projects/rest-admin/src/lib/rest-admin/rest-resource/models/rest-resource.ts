@@ -161,7 +161,7 @@ export class RestResource {
       : 'List of ' + this.name;
     rest.searchFilter = this._listConfig.searchFilter
       ? this._listConfig.searchFilter
-      : null;
+      : { filterBy: [] };
     if (rest.group) {
       rest.group = this._listConfig.group;
       rest.group.priority = rest.group.priority ? rest.group.priority : 0;

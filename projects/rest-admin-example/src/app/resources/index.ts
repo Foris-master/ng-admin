@@ -9,6 +9,9 @@ import { packageType } from './packageType';
 import { _package } from './package';
 import { expeditionRequest } from './expeditionRequest';
 import { consolidator } from './consolidator';
+import { consolidatorUser } from './consolidatorUser';
+import { vehiculeModel } from './vehiculeModel';
+import { vehicule } from './vehicule';
 
 export const resources = [
   address,
@@ -17,6 +20,7 @@ export const resources = [
   user,
   country,
   town,
+  // consolidatorUser,
   // enterprise,
   currency,
   expeditionRequest,
@@ -24,6 +28,8 @@ export const resources = [
   packageType,
   _package,
   consolidator,
+  vehicule,
+  vehiculeModel,
   // partType,
 ].sort((a, b) => a.name.localeCompare(b.name));
 

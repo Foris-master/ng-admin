@@ -1283,7 +1283,9 @@ class RestResourceAddComponent {
         if (datas != null) {
             this.controls = this.resource.fields.reduce((cumul, elt) => {
                 var _a, _b, _c, _d, _e, _f;
-                var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0]) ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0] : 'name';
+                var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0])
+                    ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0]
+                    : 'name';
                 if (elt.inForm) {
                     switch (elt.type) {
                         case REST_FIELD_TYPES.FILE:
@@ -1311,9 +1313,7 @@ class RestResourceAddComponent {
                                     var _a;
                                     return (_a = x[filterKey]
                                         .toString()
-                                        .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey]
-                                        .toString()
-                                        .toLowerCase());
+                                        .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey].toString().toLowerCase());
                                 });
                                 this.allFilterContains[elt.name] = of(this.options[elt.name]);
                             });
@@ -1333,9 +1333,7 @@ class RestResourceAddComponent {
                                     var _a;
                                     return (_a = x[filterKey]
                                         .toString()
-                                        .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey]
-                                        .toString()
-                                        .toLowerCase());
+                                        .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey].toString().toLowerCase());
                                 });
                                 this.allFilterContains[elt.name] = of(this.options[elt.name]);
                             });
@@ -1376,7 +1374,9 @@ class RestResourceAddComponent {
         else {
             this.controls = this.resource.fields.reduce((cumul, elt) => {
                 var _a, _b, _c, _d, _e, _f, _g, _h;
-                var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0]) ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0] : 'name';
+                var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0])
+                    ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0]
+                    : 'name';
                 if (elt.inForm) {
                     switch (elt.type) {
                         case REST_FIELD_TYPES.FILE:
@@ -1405,9 +1405,7 @@ class RestResourceAddComponent {
                                         var _a;
                                         return (_a = x[filterKey]
                                             .toString()
-                                            .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey]
-                                            .toString()
-                                            .toLowerCase());
+                                            .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey].toString().toLowerCase());
                                     });
                                     this.allFilterContains[elt.name] = of(this.options[elt.name]);
                                 });
@@ -1428,9 +1426,7 @@ class RestResourceAddComponent {
                                     var _a;
                                     return (_a = x[filterKey]
                                         .toString()
-                                        .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare((y[filterKey])
-                                        .toString()
-                                        .toLowerCase());
+                                        .toLowerCase()) === null || _a === void 0 ? void 0 : _a.localeCompare(y[filterKey].toString().toLowerCase());
                                 });
                                 this.allFilterContains[elt.name] = of(this.options[elt.name]);
                             });
@@ -1506,7 +1502,9 @@ class RestResourceAddComponent {
     }
     onSelectionChange(event, field) {
         var _a, _b;
-        const bVal = this.options[field.name] ? this.options[field.name].find((elt) => (elt === null || elt === void 0 ? void 0 : elt.id) === event) : {};
+        const bVal = this.options[field.name]
+            ? this.options[field.name].find((elt) => (elt === null || elt === void 0 ? void 0 : elt.id) === event)
+            : {};
         this.belongToValue[field.name] = bVal
             ? bVal[((_a = field === null || field === void 0 ? void 0 : field.metaData) === null || _a === void 0 ? void 0 : _a.belongToSecondFieldLabel)
                 ? (_b = field === null || field === void 0 ? void 0 : field.metaData) === null || _b === void 0 ? void 0 : _b.belongToSecondFieldLabel
@@ -1595,8 +1593,11 @@ class RestResourceAddComponent {
         });
     }
     filterMany(value, field, options = 'belongToManyOptions') {
+        if (value == null || value == undefined) {
+            return [];
+        }
         if (typeof value == 'string') {
-            return this.options[field.name].filter((optionValue) => {
+            return this.options[field === null || field === void 0 ? void 0 : field.name].filter((optionValue) => {
                 return field.metaData.addConfig[options].filterKeys.some((elt) => `${optionValue[elt].toLowerCase()}`.includes(`${value.toLowerCase()}`));
             });
         }
@@ -1616,13 +1617,20 @@ class RestResourceAddComponent {
             Object.keys(formData).forEach((key, index) => {
                 var _a;
                 const search = this.resource.fields.find((elt) => elt.name == key);
-                if (search && formData[key] !== undefined && formData[key] !== null) {
+                // console.log('====================================');
+                // console.log(this.jsonEditorOptions);
+                // console.log(formData[key]);
+                // console.log('====================================');
+                if (search && formData[key] !== undefined) {
                     switch (search.type) {
                         case REST_FIELD_TYPES.DATE:
                             datas.append(key, `${moment(formData[key]).format('YYYY-MM-DD')}`);
                             break;
                         case REST_FIELD_TYPES.JSON:
                             let jsonFields = {};
+                            console.log('====================================');
+                            console.log(this.jsonEditorOptions);
+                            console.log('====================================');
                             if (this.jsonEditorOptions[key] !== null) {
                                 if (typeof this.jsonEditorOptions[key] == 'object') {
                                     this.jsonEditorOptions[key].map((elt) => {
@@ -1630,8 +1638,6 @@ class RestResourceAddComponent {
                                         datas.append(`${key}[${elt.label}]`, elt.value);
                                     });
                                 }
-                                // datas.append(key, JSON.stringify(jsonFields));
-                                // datas.append(key, jsonFields);
                             }
                             break;
                         case REST_FIELD_TYPES.BOOLEAN:
@@ -1660,7 +1666,7 @@ class RestResourceAddComponent {
                             break;
                         default:
                             // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
-                            if (formData[key] !== '')
+                            if (formData[key] !== '' && formData[key] !== null)
                                 datas.append(key, formData[key]);
                             break;
                     }
@@ -1877,7 +1883,7 @@ class RestResourceAddComponent {
         });
     }
     isFile(variable) {
-        return (typeof variable === 'object') && (variable instanceof File);
+        return typeof variable === 'object' && variable instanceof File;
     }
     downloadTemplate() {
         const colunms = {};
@@ -2001,6 +2007,7 @@ class RestResourceDeleteComponent {
         this.ref = ref;
         this.serviceRestResource = serviceRestResource;
         this.notificationService = notificationService;
+        this.multiSuppress = false;
         this.isSubmit = false;
     }
     dismiss(val = false) {
@@ -2028,9 +2035,33 @@ class RestResourceDeleteComponent {
             this.notificationService.dangerToast(msg);
         });
     }
+    deleteAll() {
+        let msg = {};
+        this.isSubmit = true;
+        const proms = [];
+        this.datas.map(data => proms.push(this.serviceRestResource.deleteResources(this.listConfig, data.id).toPromise()));
+        Promise.all(proms)
+            .then(() => {
+            msg = {
+                label: `msg-deleting-success`,
+                resourceName: this.resourceName,
+            };
+            this.isSubmit = false;
+            this.notificationService.successToast(msg);
+            this.dismiss(true);
+        })
+            .catch(() => {
+            msg = {
+                label: `msg-deleting-fail`,
+                resourceName: this.resourceName,
+            };
+            this.isSubmit = false;
+            this.notificationService.dangerToast(msg);
+        });
+    }
 }
 RestResourceDeleteComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceDeleteComponent, deps: [{ token: i1$1.NbDialogRef }, { token: RestResourceService }, { token: NotificationService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceDeleteComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDeleteComponent, selector: "ngx-rest-resource-delete", inputs: { datas: "datas", title: "title", listConfig: "listConfig", resourceName: "resourceName" }, ngImport: i0, template: "<nb-card class=\"text-center\">\n  <nb-card-header>{{ title }}</nb-card-header>\n  <nb-card-body> Voulez vous vraiment le supprimer? </nb-card-body>\n  <nb-card-footer>\n    <button\n      style=\"margin-right: 10px\"\n      nbButton\n      hero\n      status=\"primary\"\n      (click)=\"dismiss()\"\n    >\n      Non\n    </button>\n\n    <button\n      nbButton\n      status=\"danger\"\n      size=\"medium\"\n      (click)=\"delete()\"\n      [nbSpinner]=\"isSubmit\"\n      nbSpinnerStatus=\"danger\"\n      nbSpinnerMessage=\"\"\n    >\n      Oui\n    </button>\n  </nb-card-footer>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card{max-width:600px;max-height:500px}.nb-theme-dark :host nb-card{max-width:600px;max-height:500px}.nb-theme-cosmic :host nb-card{max-width:600px;max-height:500px}.nb-theme-corporate :host nb-card{max-width:600px;max-height:500px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }] });
+RestResourceDeleteComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDeleteComponent, selector: "ngx-rest-resource-delete", inputs: { datas: "datas", title: "title", listConfig: "listConfig", multiSuppress: "multiSuppress", resourceName: "resourceName" }, ngImport: i0, template: "<nb-card class=\"text-center\">\n  <nb-card-header>{{ title }}</nb-card-header>\n  <nb-card-body> Voulez vous vraiment le supprimer? </nb-card-body>\n  <nb-card-footer>\n    <button\n      style=\"margin-right: 10px\"\n      nbButton\n      hero\n      status=\"primary\"\n      (click)=\"dismiss()\"\n    >\n      Non\n    </button>\n\n    <button\n      nbButton\n      status=\"danger\"\n      size=\"medium\"\n      (click)=\"multiSuppress ? deleteAll() : delete()\"\n      [nbSpinner]=\"isSubmit\"\n      nbSpinnerStatus=\"danger\"\n      nbSpinnerMessage=\"\"\n    >\n      Oui\n    </button>\n  </nb-card-footer>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card{max-width:600px;max-height:500px}.nb-theme-dark :host nb-card{max-width:600px;max-height:500px}.nb-theme-cosmic :host nb-card{max-width:600px;max-height:500px}.nb-theme-corporate :host nb-card{max-width:600px;max-height:500px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }] });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceDeleteComponent, decorators: [{
             type: Component,
             args: [{
@@ -2043,6 +2074,8 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
             }], title: [{
                 type: Input
             }], listConfig: [{
+                type: Input
+            }], multiSuppress: [{
                 type: Input
             }], resourceName: [{
                 type: Input
@@ -2741,6 +2774,46 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                 type: Input
             }] } });
 
+class SelectAllCheckboxRenderComponent {
+    constructor(cdr) {
+        this.cdr = cdr;
+    }
+    ngOnInit() { }
+    selectAllCheckboxClick(event) {
+        event.stopPropagation();
+        const checkbox = event.target;
+        this.value.handleCheckboxClick(checkbox, this.rowData);
+        this.cdr.detectChanges();
+    }
+}
+SelectAllCheckboxRenderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SelectAllCheckboxRenderComponent, deps: [{ token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
+SelectAllCheckboxRenderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: SelectAllCheckboxRenderComponent, selector: "app-select-all-checkbox-render", inputs: { value: "value", rowData: "rowData" }, ngImport: i0, template: `
+    <div class="select-all-checkbox">
+      <nb-checkbox
+        [checked]="value?.selected"
+        (click)="selectAllCheckboxClick($event)"
+      ></nb-checkbox>
+    </div>
+  `, isInline: true, components: [{ type: i1$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SelectAllCheckboxRenderComponent, decorators: [{
+            type: Component,
+            args: [{
+                    selector: 'app-select-all-checkbox-render',
+                    template: `
+    <div class="select-all-checkbox">
+      <nb-checkbox
+        [checked]="value?.selected"
+        (click)="selectAllCheckboxClick($event)"
+      ></nb-checkbox>
+    </div>
+  `,
+                }]
+        }], ctorParameters: function () { return [{ type: i0.ChangeDetectorRef }]; }, propDecorators: { value: [{
+                type: Input
+            }], rowData: [{
+                type: Input
+            }] } });
+
 class RestShareService {
     constructor() {
         this.listLoader = false;
@@ -2760,6 +2833,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
 
 class RestResourceListComponent {
     constructor(fb, serviceRestConfig, serviceRestResources, http, dialogService, activatedRoute, router, nbMenuService, exportService, restShare) {
+        var _a, _b, _c, _d, _e;
         this.fb = fb;
         this.serviceRestConfig = serviceRestConfig;
         this.serviceRestResources = serviceRestResources;
@@ -2782,10 +2856,12 @@ class RestResourceListComponent {
         this.searchItems = [];
         this.searchItem = '';
         this.showCheckbox = false;
+        this.showDetails = false;
         this.options = {};
         this.allFilterContains = {};
         this.belongToValue = {};
         this.belongToMany = {};
+        this.selectedRows = [];
         this.items = [
             { title: 'All formats' },
             { title: 'CSV' },
@@ -2803,15 +2879,17 @@ class RestResourceListComponent {
             this.activatedRoute.snapshot.url[this.activatedRoute.snapshot.url.length - 1].path.split('-')[0];
         this.resource = this.serviceRestConfig.getSpecificResource(this.ressourceName);
         // this.belongToMany['id'] = new Set();
-        this.controls = this.resource.listConfig.searchFilter.filterBy.reduce((cumul, elt) => {
-            switch (elt.type) {
-                case REST_FIELD_TYPES.BELONG_TO_MANY:
-                    this.belongToMany[elt.value] = new Set();
-                    return Object.assign(Object.assign({}, cumul), { [elt.name]: [] });
-                default:
-                    return Object.assign(Object.assign({}, cumul), { [elt.name]: [''] });
-            }
-        }, {});
+        if ((_b = (_a = this.resource.listConfig) === null || _a === void 0 ? void 0 : _a.searchFilter) === null || _b === void 0 ? void 0 : _b.filterBy) {
+            this.controls = (_e = (_d = (_c = this.resource.listConfig) === null || _c === void 0 ? void 0 : _c.searchFilter) === null || _d === void 0 ? void 0 : _d.filterBy) === null || _e === void 0 ? void 0 : _e.reduce((cumul, elt) => {
+                switch (elt.type) {
+                    case REST_FIELD_TYPES.BELONG_TO_MANY:
+                        this.belongToMany[elt.value] = new Set();
+                        return Object.assign(Object.assign({}, cumul), { [elt.name]: [] });
+                    default:
+                        return Object.assign(Object.assign({}, cumul), { [elt.name]: [''] });
+                }
+            }, {});
+        }
         this.form = this.fb.group(this.controls);
         this.belongToMany['id'] = new Set();
     }
@@ -2823,7 +2901,6 @@ class RestResourceListComponent {
                 terms: '',
             });
         }
-        this.showCheckbox = true;
         this.currentPerPage = this.resource.listConfig.perPage;
         this.settings = {
             hideSubHeader: this.resource.listConfig.hideAddSubHeader,
@@ -2890,12 +2967,30 @@ class RestResourceListComponent {
     }
     toggleShowCheckbox() {
         this.showCheckbox = !this.showCheckbox;
+        this.source.refresh();
     }
     onDeleteConfirm(event) {
         const dialog = this.dialogService.open(RestResourceDeleteComponent, {
             context: {
                 datas: event.data,
                 title: 'SUPPRESSION',
+                multiSuppress: false,
+                listConfig: this.resource.listConfig,
+                resourceName: this.ressourceName,
+            },
+        });
+        dialog.onClose.subscribe((resp) => {
+            if (resp) {
+                this.getList(this.source.getPaging().page, this.source.getPaging().perPage);
+            }
+        });
+    }
+    onDeleteAllConfirm() {
+        const dialog = this.dialogService.open(RestResourceDeleteComponent, {
+            context: {
+                datas: this.selectedRows,
+                multiSuppress: true,
+                title: 'TOUT SUPPRIMER',
                 listConfig: this.resource.listConfig,
                 resourceName: this.ressourceName,
             },
@@ -2915,26 +3010,50 @@ class RestResourceListComponent {
             event.data.id,
         ]);
     }
+    onCheckboxClick(event, row) {
+        if (this.selectedRows.indexOf(row) === -1) {
+            this.selectedRows.push(row);
+        }
+        else {
+            this.selectedRows.splice(this.selectedRows.indexOf(row), 1);
+        }
+    }
+    selectAllRows() {
+        this.source.getAll().then(rows => {
+            var _a;
+            if (((_a = this.selectedRows) === null || _a === void 0 ? void 0 : _a.length) !== (rows === null || rows === void 0 ? void 0 : rows.length)) {
+                this.selectedRows = [];
+                rows.forEach(row => {
+                    this.selectedRows.push(row);
+                });
+            }
+            else {
+                this.selectedRows = [];
+            }
+            this.source.refresh();
+        });
+    }
     createMatTableColumns() {
         const colunms = {};
-        // colunms["isChecked"] = {
-        //   title: 'Selected',
-        //   type: 'html',
-        //   filter: false,
-        //   valuePrepareFunction: (value) => {
-        //     return value ? '<i class="fa fa-check"></i>' : '<i class="fa fa-check"></i>';
-        //   },
-        //   filterFunction: (cell?: any, search?: string) => {
-        //     return search === cell;
-        //   },
-        //   width: '5%',
-        //   sort: false,
-        //   editor: {
-        //     type: 'checkbox',
-        //   },
-        //   cellTemplate: `<div *ngIf="visible"> <input type="checkbox" (change)="onChange($event)"></div>`,
-        //   editable: true,
-        // };
+        // if (this.showCheckbox) {
+        colunms["isChecked"] = {
+            title: 'check',
+            type: 'custom',
+            filter: false,
+            addable: true,
+            valuePrepareFunction: (cell, row) => ({
+                handleCheckboxClick: (event, rowData) => this.onCheckboxClick(event, rowData),
+                selected: this.selectedRows.find((elt) => (elt === null || elt === void 0 ? void 0 : elt.id) == (row === null || row === void 0 ? void 0 : row.id)) !== undefined,
+                cell,
+                row,
+            }),
+            editor: {
+                type: 'checkbox',
+            },
+            renderComponent: SelectAllCheckboxRenderComponent,
+            editable: true,
+        };
+        // }
         this.resource.fields
             .filter((item) => this.resource.listConfig.columns.includes(item.name))
             .forEach((elt) => {
@@ -2956,10 +3075,6 @@ class RestResourceListComponent {
             };
         });
         return colunms;
-    }
-    onChange(event) {
-        // Do something with the checked value
-        console.log(event);
     }
     getList(page = null, perPage = null) {
         this.restShare.setLoader(true);
@@ -3246,7 +3361,7 @@ class RestResourceListComponent {
         const cellData = Array.from(this.belongToMany['id']);
         const save = [];
         cellData.forEach((elt) => {
-            if (elt['id'] != tagToRemove.text)
+            if (elt['name'] != tagToRemove.text)
                 save.push(elt);
         });
         this.belongToMany['id'] = new Set(save);
@@ -3328,7 +3443,7 @@ class RestResourceListComponent {
     }
 }
 RestResourceListComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListComponent, deps: [{ token: i1$4.FormBuilder }, { token: RestAdminConfigService }, { token: RestResourceService }, { token: i1$2.HttpClient }, { token: i1$1.NbDialogService }, { token: i1.ActivatedRoute }, { token: i1.Router }, { token: i1$1.NbMenuService }, { token: RestExportService }, { token: RestShareService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceListComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListComponent, selector: "ngx-rest-resource-list", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "search", first: true, predicate: ["search"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0, template: "<nb-card status=\"success\">\n  <nb-card-header>\n    <div class=\"row d-flex justify-content-between\">\n      <div class=\"\">\n        {{ this.resource.listConfig.title }}\n      </div>\n      <!-- <button (click)=\"toggleShowCheckbox()\">Selectionner</button> -->\n      <!-- <div class=\"\"></div> -->\n      <div class=\"\">\n        <button nbButton ghost status=\"control\" (click)=\"addNewEntity()\">\n          <span>{{ \"add\" | translate }}</span>\n          <nb-icon icon=\"plus-circle\"></nb-icon>\n        </button>\n        <button\n          nbButton\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n          ghost\n          status=\"control\"\n        >\n          <nb-icon icon=\"download-outline\"></nb-icon>\n        </button>\n\n        <!-- <button\n          nbButton\n          status=\"primary\"\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n        >\n          {{ \"rest-list.export\" | translate }}\n        </button> -->\n      </div>\n    </div>\n  </nb-card-header>\n\n  <nb-card-body\n    [nbSpinner]=\"this.restShare.listLoader\"\n    nbSpinnerSize=\"large\"\n    nbSpinnerStatus=\"primary\"\n  >\n    <!-- Rest-search implement -->\n    <div class=\"row mb-5\" *ngIf=\"this.resource.listConfig.searchFilter\">\n      <ng-container\n        *ngIf=\"this.resource.listConfig.searchFilter.filterBy.length > 0\"\n      >\n        <ng-container *ngFor=\"let search of searchItems; let index = index\">\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <!-- Select with filter by -->\n            <nb-select\n              [placeholder]=\"'rest-list.filterPlaceholder' | translate\"\n              fullWidth\n              (selectedChange)=\"selectFilterBy($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"\n                  let filter of this.resource.listConfig.searchFilter.filterBy\n                \"\n                [value]=\"filter\"\n                >{{ filter[\"name\"] | titlecase }}</nb-option\n              >\n            </nb-select>\n          </div>\n            <ng-container *ngIf=\"this.searchItems[index].field !== 'id'\">\n              <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n                <nb-select\n                  [placeholder]=\"'rest-list.operator' | translate\"\n                  fullWidth\n                  (selectedChange)=\"selectOperator($event, index)\"\n                >\n                  <nb-option\n                    *ngFor=\"let operator of filterOperator\"\n                    [value]=\"operator.value\"\n                  >\n                    {{ operator.name | translate }}\n                  </nb-option>\n                </nb-select>\n              </div>\n\n            </ng-container>\n\n            <div *ngIf=\"this.searchItems[index].field !== 'id'\"\n            class=\"col-lg-4 col-md-12 col-xs-12 input-space\"\n            [ngClass]=\"{\n              'col-12': this.resource.listConfig.searchFilter == null\n            }\"\n          >\n            <input\n              nbInput\n              (input)=\"onFilter($event.target, index)\"\n              fullWidth\n              [placeholder]=\"'rest-list.searchPlaceholder' | translate\"\n              type=\"text\"\n            />\n          </div>\n          <div [formGroup]=\"form\">\n          <ng-container *ngIf=\"this.searchItems[index].field === 'id'\">\n            <div class=\"input-space\">\n              <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n              <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event)\">\n                <nb-tag\n                  *ngFor=\"let tree of belongToMany['id']\"\n                  [text]=\"tree['name']\"\n                  removable\n                ></nb-tag>\n                <input\n                  type=\"text\"\n                  nbTagInput\n                  #autoBelongToMany\n                  [nbAutocomplete]=\"belongToField\"\n                  (keyup)=\"filterInput($event, index)\"\n                  [placeholder]=\"\n                    this.searchItems[index].fieldName\n                      ? this.searchItems[index].fieldName\n                      : 'id'\n                  \"\n                  [formControlName]=\"'id'\"\n                  fullWidth\n                />\n              </nb-tag-list>\n\n              <nb-autocomplete\n                #belongToField\n                (selectedChange)=\"onChoose($event, index)\"\n              >\n                <nb-option\n                  *ngFor=\"let option of allFilterContains['id'] | async\"\n                  [value]=\"option\"\n                >\n                  {{\n                    option[\n                      this.searchItems[index].fieldName\n                        ? this.searchItems[index].fieldName\n                        : \"id\"\n                    ]\n                  }}\n                </nb-option>\n              </nb-autocomplete>\n            </div>\n          </ng-container>\n        </div>\n\n          <div\n            class=\"col-lg-1 col-md-6 col-xs-6 input-space\"\n            *ngIf=\"index == 0\"\n          >\n            <button nbButton fullWidth status=\"primary\" (click)=\"startSearch()\">\n              <nb-icon icon=\"search-outline\"></nb-icon>\n            </button>\n          </div>\n          <div\n            class=\"col-lg-1 col-md-6 col-xs-6 input-space\"\n            *ngIf=\"index == 0; else elseBlock\"\n          >\n            <button\n              nbButton\n              fullWidth\n              status=\"primary\"\n              (click)=\"addFieldSearch()\"\n            >\n              <nb-icon icon=\"plus-outline\"></nb-icon>\n            </button>\n          </div>\n          <ng-template #elseBlock>\n            <div class=\"col-lg-1 col-md-6 col-xs-6 input-space\">\n              <button\n                nbButton\n                fullWidth\n                status=\"danger\"\n                (click)=\"removeFieldSearch(index)\"\n              >\n                <nb-icon icon=\"minus-outline\"></nb-icon>\n              </button>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n    </div>\n\n    <ng2-smart-table\n      [settings]=\"settings\"\n      [source]=\"source\"\n      (deleteConfirm)=\"onDeleteConfirm($event)\"\n      (createConfirm)=\"onCreateConfirm($event)\"\n      (userRowSelect)=\"detailEntity($event)\"\n      (custom)=\"onCustom($event)\"\n    >\n    </ng2-smart-table>\n\n    <div\n      class=\"row align-items-center justify-content-end\"\n      style=\"margin-top: 1rem\"\n    >\n      <label class=\"label mx-2\">{{ \"options.per_page\" | translate }}</label>\n      <nb-select\n        [placeholder]=\"resource.listConfig.perPage.toString()\"\n        [(selected)]=\"currentPerPage\"\n      >\n        <nb-option\n          *ngFor=\"let perPage of perPagesOptions\"\n          (click)=\"setPager(perPage.value)\"\n          value=\"perPage.value\"\n          >{{ perPage.title }}</nb-option\n        >\n      </nb-select>\n    </div>\n  </nb-card-body>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card-body{display:block}.nb-theme-default :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-default :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-default :host .result-from-dialog{flex-direction:column}.nb-theme-default :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-default :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-default :host button{padding:.75rem}}.nb-theme-dark :host nb-card-body{display:block}.nb-theme-dark :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-dark :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-dark :host .result-from-dialog{flex-direction:column}.nb-theme-dark :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-dark :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-dark :host button{padding:.75rem}}.nb-theme-cosmic :host nb-card-body{display:block}.nb-theme-cosmic :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-cosmic :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-cosmic :host .result-from-dialog{flex-direction:column}.nb-theme-cosmic :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-cosmic :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-cosmic :host button{padding:.75rem}}.nb-theme-corporate :host nb-card-body{display:block}.nb-theme-corporate :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-corporate :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-corporate :host .result-from-dialog{flex-direction:column}.nb-theme-corporate :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-corporate :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-corporate :host button{padding:.75rem}}::ng-deep ng2-st-tbody-edit-delete{display:none;height:0!important}::ng-deep ng2-st-tbody-custom{display:flex;text-align:center}.input-space{margin-top:1rem}.nb-theme-default ng2-smart-table th.ng2-smart-actions-title-add a{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}nb-icon{font-size:50px;margin-right:10px;margin-left:10px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i10.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }], directives: [{ type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }, { type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }, { type: i9.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i9.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$4.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$4.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$4.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }], pipes: { "translate": i1$3.TranslatePipe, "titlecase": i9.TitleCasePipe, "async": i9.AsyncPipe } });
+RestResourceListComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListComponent, selector: "ngx-rest-resource-list", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "search", first: true, predicate: ["search"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0, template: "<nb-card status=\"success\">\n  <nb-card-header>\n    <div class=\"row d-flex justify-content-between\">\n      <div class=\"\">\n        {{ this.resource.listConfig.title }}\n      </div>\n\n      <div class=\"\" *ngIf=\"showCheckbox\">\n        <button nbButton ghost status=\"control\" (click)=\"selectAllRows()\">\n          <input\n            class=\"mr-2\"\n            type=\"checkbox\"\n            [checked]=\"this.selectedRows?.length == this.source.count()\"\n          />Selectionner\n        </button>\n      </div>\n\n      <div class=\"\">\n        <button nbButton ghost status=\"control\" (click)=\"addNewEntity()\">\n          <span>{{ \"add\" | translate }}</span>\n          <nb-icon icon=\"plus-circle\"></nb-icon>\n        </button>\n        <button\n          nbButton\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n          ghost\n          status=\"control\"\n        >\n          <nb-icon icon=\"download-outline\"></nb-icon>\n        </button>\n        <button\n          nbButton\n          *ngIf=\"this.selectedRows?.length > 0\"\n          ghost\n          status=\"control\"\n          (click)=\"onDeleteAllConfirm()\"\n        >\n          <nb-icon icon=\"trash\" color=\"danger\" style=\"color: rgb(238, 130, 157);\"></nb-icon>\n        </button>\n        <button nbButton ghost (click)=\"toggleShowCheckbox()\">\n          <input type=\"checkbox\" [(ngModel)]=\"showCheckbox\" />\n        </button>\n        <!-- <button\n          nbButton\n          status=\"primary\"\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n        >\n          {{ \"rest-list.export\" | translate }}\n        </button> -->\n      </div>\n    </div>\n  </nb-card-header>\n\n  <nb-card-body\n    [nbSpinner]=\"this.restShare.listLoader\"\n    nbSpinnerSize=\"large\"\n    nbSpinnerStatus=\"primary\"\n  >\n    <!-- Rest-search implement -->\n    <div class=\"row mb-5\" *ngIf=\"this.resource.listConfig.searchFilter\">\n      <ng-container\n        *ngIf=\"this.resource.listConfig.searchFilter.filterBy.length > 0\"\n      >\n        <ng-container *ngFor=\"let search of searchItems; let index = index\">\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <!-- Select with filter by -->\n            <nb-select\n              [placeholder]=\"'rest-list.filterPlaceholder' | translate\"\n              fullWidth\n              (selectedChange)=\"selectFilterBy($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"\n                  let filter of this.resource.listConfig.searchFilter.filterBy\n                \"\n                [value]=\"filter\"\n                >{{ filter[\"name\"] | titlecase }}</nb-option\n              >\n            </nb-select>\n          </div>\n          <ng-container *ngIf=\"this.searchItems[index].field !== 'id'\">\n            <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n              <nb-select\n                [placeholder]=\"'rest-list.operator' | translate\"\n                fullWidth\n                (selectedChange)=\"selectOperator($event, index)\"\n              >\n                <nb-option\n                  *ngFor=\"let operator of filterOperator\"\n                  [value]=\"operator.value\"\n                >\n                  {{ operator.name | translate }}\n                </nb-option>\n              </nb-select>\n            </div>\n          </ng-container>\n\n          <div\n            *ngIf=\"this.searchItems[index].field !== 'id'\"\n            class=\"col-lg-4 col-md-12 col-xs-12 input-space\"\n            [ngClass]=\"{\n              'col-12': this.resource.listConfig.searchFilter == null\n            }\"\n          >\n            <input\n              nbInput\n              (input)=\"onFilter($event.target, index)\"\n              fullWidth\n              [placeholder]=\"'rest-list.searchPlaceholder' | translate\"\n              type=\"text\"\n            />\n          </div>\n          <div [formGroup]=\"form\">\n            <ng-container *ngIf=\"this.searchItems[index].field === 'id'\">\n              <div class=\"input-space\">\n                <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event)\">\n                  <nb-tag\n                    *ngFor=\"let tree of belongToMany['id']\"\n                    [text]=\"tree['name']\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    nbTagInput\n                    #autoBelongToMany\n                    [nbAutocomplete]=\"belongToField\"\n                    (keyup)=\"filterInput($event, index)\"\n                    [placeholder]=\"\n                      this.searchItems[index].fieldName\n                        ? this.searchItems[index].fieldName\n                        : 'id'\n                    \"\n                    [formControlName]=\"'id'\"\n                    fullWidth\n                  />\n                </nb-tag-list>\n\n                <nb-autocomplete\n                  #belongToField\n                  (selectedChange)=\"onChoose($event, index)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains['id'] | async\"\n                    [value]=\"option\"\n                  >\n                    {{\n                      option[\n                        this.searchItems[index].fieldName\n                          ? this.searchItems[index].fieldName\n                          : \"id\"\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n            </ng-container>\n          </div>\n\n          <div class=\"col-lg-1 input-space row\" *ngIf=\"index == 0\">\n            <button nbButton status=\"primary\" (click)=\"startSearch()\">\n              <nb-icon icon=\"search-outline\"></nb-icon>\n            </button>\n          </div>\n          <div class=\"col-lg-1 input-space\" *ngIf=\"index == 0; else elseBlock\">\n            <button\n              nbButton\n              fullWidth\n              status=\"primary\"\n              (click)=\"addFieldSearch()\"\n            >\n              <nb-icon icon=\"plus-outline\"></nb-icon>\n            </button>\n          </div>\n          <ng-template #elseBlock>\n            <div class=\"col-lg-1 input-space\">\n              <button\n                nbButton\n                fullWidth\n                status=\"danger\"\n                (click)=\"removeFieldSearch(index)\"\n              >\n                <nb-icon icon=\"minus-outline\"></nb-icon>\n              </button>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n    </div>\n\n    <ng2-smart-table\n      [settings]=\"settings\"\n      [source]=\"source\"\n      (deleteConfirm)=\"onDeleteConfirm($event)\"\n      (createConfirm)=\"onCreateConfirm($event)\"\n      (custom)=\"onCustom($event)\"\n      (userRowSelect)=\"detailEntity($event)\"\n    >\n    </ng2-smart-table>\n\n    <div\n      class=\"row align-items-center justify-content-end\"\n      style=\"margin-top: 1rem\"\n    >\n      <label class=\"label mx-2\">{{ \"options.per_page\" | translate }}</label>\n      <nb-select\n        [placeholder]=\"resource.listConfig.perPage.toString()\"\n        [(selected)]=\"currentPerPage\"\n      >\n        <nb-option\n          *ngFor=\"let perPage of perPagesOptions\"\n          (click)=\"setPager(perPage.value)\"\n          value=\"perPage.value\"\n          >{{ perPage.title }}</nb-option\n        >\n      </nb-select>\n    </div>\n  </nb-card-body>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card-body{display:block}.nb-theme-default :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-default :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-default :host .result-from-dialog{flex-direction:column}.nb-theme-default :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-default :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-default :host button{padding:.75rem}}.nb-theme-dark :host nb-card-body{display:block}.nb-theme-dark :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-dark :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-dark :host .result-from-dialog{flex-direction:column}.nb-theme-dark :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-dark :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-dark :host button{padding:.75rem}}.nb-theme-cosmic :host nb-card-body{display:block}.nb-theme-cosmic :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-cosmic :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-cosmic :host .result-from-dialog{flex-direction:column}.nb-theme-cosmic :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-cosmic :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-cosmic :host button{padding:.75rem}}.nb-theme-corporate :host nb-card-body{display:block}.nb-theme-corporate :host nb-card-body button{width:100%;margin-bottom:2rem;display:block}.nb-theme-corporate :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-corporate :host .result-from-dialog{flex-direction:column}.nb-theme-corporate :host .form-input-card nb-card-body{display:block}@media (max-width: 1199.98px){.nb-theme-corporate :host button{padding:.8rem}}@media (max-width: 575.98px){.nb-theme-corporate :host button{padding:.75rem}}::ng-deep ng2-st-tbody-edit-delete{display:none;height:0!important}::ng-deep ng2-st-tbody-custom{display:flex;text-align:center}.input-space{margin-top:1rem}.nb-theme-default ng2-smart-table th.ng2-smart-actions-title-add a{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}nb-icon{font-size:50px;margin-right:10px;margin-left:10px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i10.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }], directives: [{ type: i9.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }, { type: i1$4.CheckboxControlValueAccessor, selector: "input[type=checkbox][formControlName],input[type=checkbox][formControl],input[type=checkbox][ngModel]" }, { type: i1$4.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$4.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }, { type: i9.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$4.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$4.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1$4.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$4.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }], pipes: { "translate": i1$3.TranslatePipe, "titlecase": i9.TitleCasePipe, "async": i9.AsyncPipe } });
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListComponent, decorators: [{
             type: Component,
             args: [{
@@ -5758,6 +5873,7 @@ RestAdminModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version
         RestResourceListFieldComponent,
         RestResourceDetailComponent,
         UploadFileComponent,
+        SelectAllCheckboxRenderComponent,
         FsIconCComponent,
         LoginComponent,
         AttributeDirective,
@@ -5883,6 +5999,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                         RestResourceListFieldComponent,
                         RestResourceDetailComponent,
                         UploadFileComponent,
+                        SelectAllCheckboxRenderComponent,
                         FsIconCComponent,
                         LoginComponent,
                         AttributeDirective,
@@ -5904,6 +6021,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
                         RestResourceListFieldComponent,
                         RestResourceAddComponent,
                         FsIconCComponent,
+                        SelectAllCheckboxRenderComponent,
                         RestResourceDeleteComponent,
                         RestMainComponentComponent,
                         RestResourceEditorFieldsComponent,
@@ -6096,7 +6214,7 @@ class RestResource {
             : 'List of ' + this.name;
         rest.searchFilter = this._listConfig.searchFilter
             ? this._listConfig.searchFilter
-            : null;
+            : { filterBy: [] };
         if (rest.group) {
             rest.group = this._listConfig.group;
             rest.group.priority = rest.group.priority ? rest.group.priority : 0;

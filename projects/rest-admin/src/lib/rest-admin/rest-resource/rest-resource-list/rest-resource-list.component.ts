@@ -1,10 +1,9 @@
 import { FILTER_OPERATORS } from './../service/rest-resource.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   Input,
   OnInit,
-  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { ServerDataSource } from 'ng2-smart-table';
@@ -23,6 +22,8 @@ import { ALPHABET, RestExportService } from '../service/rest-export.service';
 import { RestShareService } from '../service/rest-share.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
+import { SelectAllCheckboxRenderComponent } from '../components/fs-icon-ccomponent/select.component';
+
 
 @Component({
   selector: 'ngx-rest-resource-list',
@@ -52,11 +53,14 @@ export class RestResourceListComponent implements OnInit {
   searchItem = '';
 
   showCheckbox = false;
+  showDetails = false;
   options: any = {};
   allFilterContains: any = {};
   belongToValue: any = {};
   belongToMany: any = {};
   controls: any;
+
+  selectedRows: any[] = [];
 
   items = [
     { title: 'All formats' },
@@ -93,25 +97,26 @@ export class RestResourceListComponent implements OnInit {
     );
 
     // this.belongToMany['id'] = new Set();
-    this.controls = this.resource.listConfig.searchFilter.filterBy.reduce(
-      (cumul, elt) => {
-        switch (elt.type) {
-          case REST_FIELD_TYPES.BELONG_TO_MANY:
-            this.belongToMany[elt.value] = new Set();
-            return {
-              ...cumul,
-              [elt.name]: [],
-            };
-
-          default:
-            return {
-              ...cumul,
-              [elt.name]: [''],
-            };
-        }
-      },
-      {}
-    );
+    if ( this.resource.listConfig?.searchFilter?.filterBy) {
+      this.controls = this.resource.listConfig?.searchFilter?.filterBy?.reduce(
+        (cumul, elt) => {
+          switch (elt.type) {
+            case REST_FIELD_TYPES.BELONG_TO_MANY:
+              this.belongToMany[elt.value] = new Set();
+              return {
+                ...cumul,
+                [elt.name]: [],
+              };
+            default:
+              return {
+                ...cumul,
+                [elt.name]: [''],
+              };
+          }
+        },
+        {}
+      );
+    }
 
     this.form = this.fb.group(this.controls);
     this.belongToMany['id'] = new Set();
@@ -125,7 +130,6 @@ export class RestResourceListComponent implements OnInit {
         terms: '',
       });
     }
-    this.showCheckbox = true;
 
     this.currentPerPage = this.resource.listConfig.perPage;
     this.settings = {
@@ -202,6 +206,7 @@ export class RestResourceListComponent implements OnInit {
 
   toggleShowCheckbox() {
     this.showCheckbox = !this.showCheckbox;
+    this.source.refresh();
   }
 
   onDeleteConfirm(event) {
@@ -209,6 +214,28 @@ export class RestResourceListComponent implements OnInit {
       context: {
         datas: event.data,
         title: 'SUPPRESSION',
+        multiSuppress: false,
+        listConfig: this.resource.listConfig,
+        resourceName: this.ressourceName,
+      },
+    });
+
+    dialog.onClose.subscribe((resp) => {
+      if (resp) {
+        this.getList(
+          this.source.getPaging().page,
+          this.source.getPaging().perPage
+        );
+      }
+    });
+  }
+
+  onDeleteAllConfirm() {
+    const dialog = this.dialogService.open(RestResourceDeleteComponent, {
+      context: {
+        datas: this.selectedRows,
+        multiSuppress: true,
+        title: 'TOUT SUPPRIMER',
         listConfig: this.resource.listConfig,
         resourceName: this.ressourceName,
       },
@@ -234,27 +261,48 @@ export class RestResourceListComponent implements OnInit {
       event.data.id,
     ]);
   }
+  onCheckboxClick(event: any, row: any) {
+    if (this.selectedRows.indexOf(row) === -1) {
+      this.selectedRows.push(row);
+    } else {
+      this.selectedRows.splice(this.selectedRows.indexOf(row), 1);
+    }
+  }
+  selectAllRows() {
+    this.source.getAll().then(rows => {
+      if (this.selectedRows?.length !== rows?.length) {
+        this.selectedRows = [];
+        rows.forEach(row => {
+          this.selectedRows.push(row);
+        });
+      } else {
+        this.selectedRows = [];
+      }
+      this.source.refresh();
+    });
+  }  
 
   private createMatTableColumns() {
     const colunms: any = {};
-    // colunms["isChecked"] = {
-    //   title: 'Selected',
-    //   type: 'html',
-    //   filter: false,
-    //   valuePrepareFunction: (value) => {
-    //     return value ? '<i class="fa fa-check"></i>' : '<i class="fa fa-check"></i>';
-    //   },
-    //   filterFunction: (cell?: any, search?: string) => {
-    //     return search === cell;
-    //   },
-    //   width: '5%',
-    //   sort: false,
-    //   editor: {
-    //     type: 'checkbox',
-    //   },
-    //   cellTemplate: `<div *ngIf="visible"> <input type="checkbox" (change)="onChange($event)"></div>`,
-    //   editable: true,
-    // };
+    // if (this.showCheckbox) {
+      colunms["isChecked"] = {
+        title: 'check',
+        type: 'custom',
+        filter: false,
+        addable: true,
+        valuePrepareFunction: (cell, row) => ({
+          handleCheckboxClick: (event, rowData) => this.onCheckboxClick(event, rowData),
+          selected: this.selectedRows.find((elt) => elt?.id == row?.id) !== undefined,
+          cell,
+          row,
+        }),
+        editor: {
+          type: 'checkbox',
+        },
+        renderComponent: SelectAllCheckboxRenderComponent,
+        editable: true,
+      };
+    // }
     this.resource.fields
       .filter((item) => this.resource.listConfig.columns.includes(item.name))
       .forEach((elt) => {
@@ -277,11 +325,8 @@ export class RestResourceListComponent implements OnInit {
       });
     return colunms;
   }
+  
 
-  onChange(event) {
-    // Do something with the checked value
-    console.log(event);
-  }
   getList(page = null, perPage = null) {
     this.restShare.setLoader(true);
     if (page) {
@@ -633,9 +678,8 @@ export class RestResourceListComponent implements OnInit {
   onTagRemoveBelong(tagToRemove: NbTagComponent): void {
     const cellData = Array.from(this.belongToMany['id']);
     const save = [];
-
     cellData.forEach((elt) => {
-      if (elt['id'] != tagToRemove.text) save.push(elt);
+      if (elt['name'] != tagToRemove.text) save.push(elt);
     });
 
     this.belongToMany['id'] = new Set(save);

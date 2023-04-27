@@ -1,7 +1,14 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ChangeDetectorRef, Component, Input, OnInit, QueryList, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  QueryList,
+  ViewChild,
+} from '@angular/core';
 import {
   NbDialogService,
   NbMenuService,
@@ -188,7 +195,9 @@ export class RestResourceAddComponent implements OnInit {
   initForm(datas) {
     if (datas != null) {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
-        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -232,11 +241,7 @@ export class RestResourceAddComponent implements OnInit {
                     x[filterKey]
                       .toString()
                       .toLowerCase()
-                      ?.localeCompare(
-                        y[filterKey]
-                          .toString()
-                          .toLowerCase()
-                      )
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
                   );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
@@ -260,15 +265,11 @@ export class RestResourceAddComponent implements OnInit {
                 })
                 .subscribe((response: any) => {
                   this.options[elt.name] = [...response].sort((x, y) =>
-                  x[filterKey]
-                    .toString()
-                    .toLowerCase()
-                    ?.localeCompare(
-                      y[filterKey]
-                        .toString()
-                        .toLowerCase()
-                    )
-                );
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set(datas[elt.name]);
@@ -330,7 +331,9 @@ export class RestResourceAddComponent implements OnInit {
       }, {});
     } else {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
-        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -372,15 +375,11 @@ export class RestResourceAddComponent implements OnInit {
                   })
                   .subscribe((response: any) => {
                     this.options[elt.name] = [...response].sort((x, y) =>
-                    x[filterKey]
-                      .toString()
-                      .toLowerCase()
-                      ?.localeCompare(
-                        y[filterKey]
-                          .toString()
-                          .toLowerCase()
-                      )
-                  );
+                      x[filterKey]
+                        .toString()
+                        .toLowerCase()
+                        ?.localeCompare(y[filterKey].toString().toLowerCase())
+                    );
                     this.allFilterContains[elt.name] = of(
                       this.options[elt.name]
                     );
@@ -406,15 +405,11 @@ export class RestResourceAddComponent implements OnInit {
                 })
                 .subscribe((response: any) => {
                   this.options[elt.name] = [...response].sort((x, y) =>
-                  x[filterKey]
-                    .toString()
-                    .toLowerCase()
-                    ?.localeCompare(
-                      (y[filterKey])
-                        .toString()
-                        .toLowerCase()
-                    )
-                );
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set();
@@ -524,7 +519,9 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onSelectionChange(event, field: RestField) {
-    const bVal = this.options[field.name] ? this.options[field.name].find((elt) => elt?.id === event) : {};
+    const bVal = this.options[field.name]
+      ? this.options[field.name].find((elt) => elt?.id === event)
+      : {};
     this.belongToValue[field.name] = bVal
       ? bVal[
           field?.metaData?.belongToSecondFieldLabel
@@ -650,11 +647,14 @@ export class RestResourceAddComponent implements OnInit {
 
   private filterMany(
     value: any,
-    field,
+    field: any,
     options = 'belongToManyOptions'
   ): string[] {
+    if (value == null || value == undefined) {
+      return [];
+    }
     if (typeof value == 'string') {
-      return this.options[field.name].filter((optionValue) => {
+      return this.options[field?.name].filter((optionValue) => {
         return field.metaData.addConfig[options].filterKeys.some((elt) =>
           `${optionValue[elt].toLowerCase()}`.includes(`${value.toLowerCase()}`)
         );
@@ -679,8 +679,12 @@ export class RestResourceAddComponent implements OnInit {
         const search: RestField = this.resource.fields.find(
           (elt) => elt.name == key
         );
+        // console.log('====================================');
+        // console.log(this.jsonEditorOptions);
+        // console.log(formData[key]);
+        // console.log('====================================');
 
-        if (search && formData[key] !== undefined && formData[key] !== null) {
+        if (search && formData[key] !== undefined) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
               datas.append(
@@ -690,6 +694,9 @@ export class RestResourceAddComponent implements OnInit {
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
+              console.log('====================================');
+              console.log(this.jsonEditorOptions);
+              console.log('====================================');
               if (this.jsonEditorOptions[key] !== null) {
                 if (typeof this.jsonEditorOptions[key] == 'object') {
                   this.jsonEditorOptions[key].map((elt) => {
@@ -697,8 +704,6 @@ export class RestResourceAddComponent implements OnInit {
                     datas.append(`${key}[${elt.label}]`, elt.value);
                   });
                 }
-                // datas.append(key, JSON.stringify(jsonFields));
-                // datas.append(key, jsonFields);
               }
               break;
             case REST_FIELD_TYPES.BOOLEAN:
@@ -713,15 +718,16 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.IMAGE:
               if (formData[key] !== null) datas.append(key, formData[key]);
               break;
-              case REST_FIELD_TYPES.PDF:
-                if (formData[key] !== null) datas.append(key, formData[key]);
-                break;
-                case REST_FIELD_TYPES.FILE:
-                  if (formData[key] !== null) datas.append(key, formData[key]);
-                  break;
+            case REST_FIELD_TYPES.PDF:
+              if (formData[key] !== null) datas.append(key, formData[key]);
+              break;
+            case REST_FIELD_TYPES.FILE:
+              if (formData[key] !== null) datas.append(key, formData[key]);
+              break;
             default:
               // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
-              if (formData[key] !== '') datas.append(key, formData[key]);
+              if (formData[key] !== '' && formData[key] !== null)
+                datas.append(key, formData[key]);
               break;
           }
         }
@@ -811,7 +817,6 @@ export class RestResourceAddComponent implements OnInit {
         this.notificationService.dangerToast(msgError);
       }
     );
-
   }
 
   onEdit() {
@@ -861,14 +866,17 @@ export class RestResourceAddComponent implements OnInit {
               }
               break;
             case REST_FIELD_TYPES.IMAGE:
-              if (formData[key] !== null && this.isFile(formData[key])) datas.append(key, formData[key]);
+              if (formData[key] !== null && this.isFile(formData[key]))
+                datas.append(key, formData[key]);
               break;
-              case REST_FIELD_TYPES.PDF:
-                if (formData[key] !== null && this.isFile(formData[key])) datas.append(key, formData[key]);
-                break;
-                case REST_FIELD_TYPES.FILE:
-                  if (formData[key] !== null && this.isFile(formData[key])) datas.append(key, formData[key]);
-                  break;
+            case REST_FIELD_TYPES.PDF:
+              if (formData[key] !== null && this.isFile(formData[key]))
+                datas.append(key, formData[key]);
+              break;
+            case REST_FIELD_TYPES.FILE:
+              if (formData[key] !== null && this.isFile(formData[key]))
+                datas.append(key, formData[key]);
+              break;
             default:
               // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
               if (formData[key] !== '') datas.append(key, formData[key]);
@@ -969,9 +977,9 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   isFile(variable) {
-    return (typeof variable === 'object') && (variable instanceof File);
+    return typeof variable === 'object' && variable instanceof File;
   }
-  
+
   downloadTemplate(): void {
     const colunms: any = {};
     const sheetHeader = {};

@@ -87,6 +87,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestShareService } from './rest-admin/rest-resource/service/rest-share.service';
 import { AttributeDirective } from './rest-admin/directives/attribute.directive';
 import { MenuFilterPipe } from './rest-admin/rest-main-component/menu-filter.pipe';
+import { SelectAllCheckboxRenderComponent } from './rest-admin/rest-resource/components/fs-icon-ccomponent/select.component';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -108,6 +109,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceListFieldComponent,
     RestResourceDetailComponent,
     UploadFileComponent,
+    SelectAllCheckboxRenderComponent,
     FsIconCComponent,
     LoginComponent,
     AttributeDirective,
@@ -129,6 +131,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceListFieldComponent,
     RestResourceAddComponent,
     FsIconCComponent,
+    SelectAllCheckboxRenderComponent,
     RestResourceDeleteComponent,
     RestMainComponentComponent,
     RestResourceEditorFieldsComponent,

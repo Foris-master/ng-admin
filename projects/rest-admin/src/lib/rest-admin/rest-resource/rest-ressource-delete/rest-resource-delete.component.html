@@ -16,7 +16,7 @@
       nbButton
       status="danger"
       size="medium"
-      (click)="delete()"
+      (click)="multiSuppress ? deleteAll() : delete()"
       [nbSpinner]="isSubmit"
       nbSpinnerStatus="danger"
       nbSpinnerMessage=""

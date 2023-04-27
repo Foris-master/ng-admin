@@ -13,6 +13,7 @@ export class RestResourceDeleteComponent {
   @Input() datas: any;
   @Input() title: string;
   @Input() listConfig: ListConfig;
+  @Input() multiSuppress: Boolean = false;
   @Input() resourceName: string;
 
   isSubmit = false;
@@ -40,7 +41,6 @@ export class RestResourceDeleteComponent {
           };
           this.isSubmit = false;
           this.notificationService.successToast(msg);
-
           this.dismiss(true);
         },
         (err) => {
@@ -52,5 +52,32 @@ export class RestResourceDeleteComponent {
           this.notificationService.dangerToast(msg);
         }
       );
+  }
+  deleteAll() {
+    let msg = {};
+    this.isSubmit = true;
+    const proms = [];
+    this.datas.map(data =>
+      proms.push(this.serviceRestResource.deleteResources(this.listConfig, data.id).toPromise())
+    );
+  
+    Promise.all(proms)
+      .then(() => {
+        msg = {
+          label: `msg-deleting-success`,
+          resourceName: this.resourceName,
+        };
+        this.isSubmit = false;
+        this.notificationService.successToast(msg);
+        this.dismiss(true);
+      })
+      .catch(() => {
+        msg = {
+          label: `msg-deleting-fail`,
+          resourceName: this.resourceName,
+        };
+        this.isSubmit = false;
+        this.notificationService.dangerToast(msg);
+      });
   }
 }

@@ -45,11 +45,13 @@ export declare class RestResourceListComponent implements OnInit {
     searchItems: any[];
     searchItem: string;
     showCheckbox: boolean;
+    showDetails: boolean;
     options: any;
     allFilterContains: any;
     belongToValue: any;
     belongToMany: any;
     controls: any;
+    selectedRows: any[];
     items: {
         title: string;
     }[];
@@ -61,10 +63,12 @@ export declare class RestResourceListComponent implements OnInit {
     ngOnInit(): void;
     toggleShowCheckbox(): void;
     onDeleteConfirm(event: any): void;
+    onDeleteAllConfirm(): void;
     addNewEntity(): void;
     detailEntity(event: any): void;
+    onCheckboxClick(event: any, row: any): void;
+    selectAllRows(): void;
     private createMatTableColumns;
-    onChange(event: any): void;
     getList(page?: any, perPage?: any): void;
     onCreateConfirm(event: any): void;
     onCustom(event: any): void;

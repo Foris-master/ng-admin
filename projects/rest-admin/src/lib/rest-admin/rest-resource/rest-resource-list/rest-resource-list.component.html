@@ -4,8 +4,17 @@
       <div class="">
         {{ this.resource.listConfig.title }}
       </div>
-      <!-- <button (click)="toggleShowCheckbox()">Selectionner</button> -->
-      <!-- <div class=""></div> -->
+
+      <div class="" *ngIf="showCheckbox">
+        <button nbButton ghost status="control" (click)="selectAllRows()">
+          <input
+            class="mr-2"
+            type="checkbox"
+            [checked]="this.selectedRows?.length == this.source.count()"
+          />Selectionner
+        </button>
+      </div>
+
       <div class="">
         <button nbButton ghost status="control" (click)="addNewEntity()">
           <span>{{ "add" | translate }}</span>
@@ -20,7 +29,18 @@
         >
           <nb-icon icon="download-outline"></nb-icon>
         </button>
-
+        <button
+          nbButton
+          *ngIf="this.selectedRows?.length > 0"
+          ghost
+          status="control"
+          (click)="onDeleteAllConfirm()"
+        >
+          <nb-icon icon="trash" color="danger" style="color: rgb(238, 130, 157);"></nb-icon>
+        </button>
+        <button nbButton ghost (click)="toggleShowCheckbox()">
+          <input type="checkbox" [(ngModel)]="showCheckbox" />
+        </button>
         <!-- <button
           nbButton
           status="primary"
@@ -60,25 +80,25 @@
               >
             </nb-select>
           </div>
-            <ng-container *ngIf="this.searchItems[index].field !== 'id'">
-              <div class="col-lg-3 col-md-6 col-xs-12 input-space">
-                <nb-select
-                  [placeholder]="'rest-list.operator' | translate"
-                  fullWidth
-                  (selectedChange)="selectOperator($event, index)"
+          <ng-container *ngIf="this.searchItems[index].field !== 'id'">
+            <div class="col-lg-3 col-md-6 col-xs-12 input-space">
+              <nb-select
+                [placeholder]="'rest-list.operator' | translate"
+                fullWidth
+                (selectedChange)="selectOperator($event, index)"
+              >
+                <nb-option
+                  *ngFor="let operator of filterOperator"
+                  [value]="operator.value"
                 >
-                  <nb-option
-                    *ngFor="let operator of filterOperator"
-                    [value]="operator.value"
-                  >
-                    {{ operator.name | translate }}
-                  </nb-option>
-                </nb-select>
-              </div>
+                  {{ operator.name | translate }}
+                </nb-option>
+              </nb-select>
+            </div>
+          </ng-container>
 
-            </ng-container>
-
-            <div *ngIf="this.searchItems[index].field !== 'id'"
+          <div
+            *ngIf="this.searchItems[index].field !== 'id'"
             class="col-lg-4 col-md-12 col-xs-12 input-space"
             [ngClass]="{
               'col-12': this.resource.listConfig.searchFilter == null
@@ -93,64 +113,58 @@
             />
           </div>
           <div [formGroup]="form">
-          <ng-container *ngIf="this.searchItems[index].field === 'id'">
-            <div class="input-space">
-              <!-- <label class="label">{{ field.label | titlecase }}</label> -->
-              <nb-tag-list (tagRemove)="onTagRemoveBelong($event)">
-                <nb-tag
-                  *ngFor="let tree of belongToMany['id']"
-                  [text]="tree['name']"
-                  removable
-                ></nb-tag>
-                <input
-                  type="text"
-                  nbTagInput
-                  #autoBelongToMany
-                  [nbAutocomplete]="belongToField"
-                  (keyup)="filterInput($event, index)"
-                  [placeholder]="
-                    this.searchItems[index].fieldName
-                      ? this.searchItems[index].fieldName
-                      : 'id'
-                  "
-                  [formControlName]="'id'"
-                  fullWidth
-                />
-              </nb-tag-list>
-
-              <nb-autocomplete
-                #belongToField
-                (selectedChange)="onChoose($event, index)"
-              >
-                <nb-option
-                  *ngFor="let option of allFilterContains['id'] | async"
-                  [value]="option"
-                >
-                  {{
-                    option[
+            <ng-container *ngIf="this.searchItems[index].field === 'id'">
+              <div class="input-space">
+                <!-- <label class="label">{{ field.label | titlecase }}</label> -->
+                <nb-tag-list (tagRemove)="onTagRemoveBelong($event)">
+                  <nb-tag
+                    *ngFor="let tree of belongToMany['id']"
+                    [text]="tree['name']"
+                    removable
+                  ></nb-tag>
+                  <input
+                    type="text"
+                    nbTagInput
+                    #autoBelongToMany
+                    [nbAutocomplete]="belongToField"
+                    (keyup)="filterInput($event, index)"
+                    [placeholder]="
                       this.searchItems[index].fieldName
                         ? this.searchItems[index].fieldName
-                        : "id"
-                    ]
-                  }}
-                </nb-option>
-              </nb-autocomplete>
-            </div>
-          </ng-container>
-        </div>
+                        : 'id'
+                    "
+                    [formControlName]="'id'"
+                    fullWidth
+                  />
+                </nb-tag-list>
 
-          <div
-            class="col-lg-1 col-md-6 col-xs-6 input-space"
-            *ngIf="index == 0"
-          >
-            <button nbButton fullWidth status="primary" (click)="startSearch()">
+                <nb-autocomplete
+                  #belongToField
+                  (selectedChange)="onChoose($event, index)"
+                >
+                  <nb-option
+                    *ngFor="let option of allFilterContains['id'] | async"
+                    [value]="option"
+                  >
+                    {{
+                      option[
+                        this.searchItems[index].fieldName
+                          ? this.searchItems[index].fieldName
+                          : "id"
+                      ]
+                    }}
+                  </nb-option>
+                </nb-autocomplete>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="col-lg-1 input-space row" *ngIf="index == 0">
+            <button nbButton status="primary" (click)="startSearch()">
               <nb-icon icon="search-outline"></nb-icon>
             </button>
           </div>
-          <div
-            class="col-lg-1 col-md-6 col-xs-6 input-space"
-            *ngIf="index == 0; else elseBlock"
-          >
+          <div class="col-lg-1 input-space" *ngIf="index == 0; else elseBlock">
             <button
               nbButton
               fullWidth
@@ -161,7 +175,7 @@
             </button>
           </div>
           <ng-template #elseBlock>
-            <div class="col-lg-1 col-md-6 col-xs-6 input-space">
+            <div class="col-lg-1 input-space">
               <button
                 nbButton
                 fullWidth
@@ -181,8 +195,8 @@
       [source]="source"
       (deleteConfirm)="onDeleteConfirm($event)"
       (createConfirm)="onCreateConfirm($event)"
-      (userRowSelect)="detailEntity($event)"
       (custom)="onCustom($event)"
+      (userRowSelect)="detailEntity($event)"
     >
     </ng2-smart-table>
 
