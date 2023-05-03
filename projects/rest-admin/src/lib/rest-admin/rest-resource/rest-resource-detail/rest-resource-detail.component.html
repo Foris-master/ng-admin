@@ -6,8 +6,8 @@
     <nb-list *ngIf="!isTabsMenu; else tabsContent" class="list-group">
       <nb-list-item
         *ngFor="let item of datas | keyvalue"
-        class="rest-item-align list-group-item"
-      >
+        >
+        <!-- class="rest-item-align list-group-item" -->
         <div class="d-block" style="margin-left: 15px">
           <div class="row">
             <ng-container
@@ -425,8 +425,8 @@
           <nb-list class="list-group">
             <nb-list-item
               *ngFor="let item of datas1[tabs] | keyvalue"
-              class="rest-item-align list-group-item"
-            >
+              >
+              <!-- class="rest-item-align list-group-item" -->
               <div class="d-block" style="margin-left: 15px">
                 <div class="row">
                   <ng-container

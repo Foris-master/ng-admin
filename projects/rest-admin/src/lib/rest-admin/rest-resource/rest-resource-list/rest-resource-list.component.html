@@ -1,8 +1,10 @@
-<nb-card status="success">
+<nb-card status="primary">
   <nb-card-header>
     <div class="row d-flex justify-content-between">
-      <div class="">
-        {{ this.resource.listConfig.title }}
+      <div class="d-flex align-items-center">
+        <h6 class="text-white">
+          {{ this.resource.listConfig.title }}
+        </h6>
       </div>
 
       <div class="" *ngIf="showCheckbox">
@@ -15,7 +17,10 @@
         </button>
       </div>
 
-      <div class="">
+      <div class="" style="height: 40px;">
+        <button nbButton ghost (click)="toggleShowCheckbox()">
+          <input type="checkbox" [(ngModel)]="showCheckbox" />
+        </button>
         <button nbButton ghost status="control" (click)="addNewEntity()">
           <span>{{ "add" | translate }}</span>
           <nb-icon icon="plus-circle"></nb-icon>
@@ -37,9 +42,6 @@
           (click)="onDeleteAllConfirm()"
         >
           <nb-icon icon="trash" color="danger" style="color: rgb(238, 130, 157);"></nb-icon>
-        </button>
-        <button nbButton ghost (click)="toggleShowCheckbox()">
-          <input type="checkbox" [(ngModel)]="showCheckbox" />
         </button>
         <!-- <button
           nbButton
@@ -159,12 +161,12 @@
             </ng-container>
           </div>
 
-          <div class="col-lg-1 input-space row" *ngIf="index == 0">
-            <button nbButton status="primary" (click)="startSearch()">
+          <div class="col-lg-1 col-md-2 col-xs-4 input-space row" *ngIf="index == 0">
+            <button nbButton fullWidth status="primary" (click)="startSearch()">
               <nb-icon icon="search-outline"></nb-icon>
             </button>
           </div>
-          <div class="col-lg-1 input-space" *ngIf="index == 0; else elseBlock">
+          <div class="col-lg-1 col-md-2 col-xs-4 input-space" *ngIf="index == 0; else elseBlock">
             <button
               nbButton
               fullWidth

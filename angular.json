@@ -80,7 +80,7 @@
               "node_modules/pace-js/templates/pace-theme-flash.tmpl.css",
               "node_modules/leaflet/dist/leaflet.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "projects/rest-admin/src/lib/@theme/styles/styles.scss",
+              "projects/rest-admin-example/src/assets/styles/styles.scss",
               "projects/rest-admin-example/src/styles.scss"
             ],
             "scripts": []
