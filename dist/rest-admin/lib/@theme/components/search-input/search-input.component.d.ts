@@ -10,3 +10,4 @@ export declare class SearchInputComponent {
     static ɵfac: i0.ɵɵFactoryDeclaration<SearchInputComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<SearchInputComponent, "ngx-search-input", never, {}, { "search": "search"; }, never, never>;
 }
+//# sourceMappingURL=search-input.component.d.ts.map

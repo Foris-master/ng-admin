@@ -87,6 +87,9 @@ export declare class RestResourceAddComponent implements OnInit {
     addJSONField(event: any): void;
     removeJSONField(event: any, index: any): void;
     onMorphSelectField(event: any, field: any): void;
+    onLatChange(value: any, fieldName: any): void;
+    onLngChange(value: any, fieldName: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceAddComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceAddComponent, "ngx-rest-resource-add", never, { "resource": "resource"; }, {}, never, never>;
 }
+//# sourceMappingURL=rest-resource-add.component.d.ts.map

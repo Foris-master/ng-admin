@@ -14,6 +14,7 @@ export * from './lib/rest-admin/rest-resource/service/rest-export.service';
 export * from './lib/rest-admin/rest-resource/service/rest-lang.service';
 export * from './lib/rest-admin/rest-resource/service/rest-resource.service';
 export * from './lib/rest-admin/rest-resource/components/fs-icon-ccomponent/fs-icon.component';
+export * from './lib/rest-admin/rest-resource/components/gmaps/gmaps.component';
 export * from './lib/@core/core.module';
 export * from './lib/@theme/theme.module';
 export * from './lib/auth/login/login.component';
@@ -25,3 +26,4 @@ export * from './lib/@theme/pipes/index';
 export * from './lib/@theme/layouts/index';
 export * from './lib/utils/auth.guard';
 export * from './lib/@core/utils/index';
+//# sourceMappingURL=public-api.d.ts.map

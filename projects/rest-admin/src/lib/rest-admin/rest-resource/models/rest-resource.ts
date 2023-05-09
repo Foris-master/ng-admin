@@ -82,7 +82,10 @@ export class RestResource {
       type: field.type ? field.type : REST_FIELD_TYPES.STRING,
       label: field.label ? field.label : field.name,
       inForm: field.inForm !== undefined ? field.inForm : true,
-      metaData: field.metaData?.attributes !== undefined ? field.metaData : {...field?.metaData,  attributes: {}},
+      metaData:
+        field.metaData?.attributes !== undefined
+          ? field.metaData
+          : { ...field?.metaData, attributes: {} },
       i18n: field.i18n !== undefined ? field.i18n : false,
     }));
   }
@@ -108,21 +111,33 @@ export class RestResource {
   //   const metaData: REST_FIELD_METADATA = {};
 
   //   this._fields.forEach((field) => {
+  //     if (field.metaData && field.metaData.addConfig) {
+  //       if (field.metaData.addConfig.mapConfig) {
+  //         metaData.addConfig.mapConfig.lattiudeKeyField = field.metaData
+  //           .addConfig.mapConfig.lattiudeKeyField
+  //           ? field.metaData.addConfig.mapConfig.lattiudeKeyField
+  //           : 'latitude';
+  //         metaData.addConfig.mapConfig.longitudeKeyField = field.metaData
+  //           .addConfig.mapConfig.longitudeKeyField
+  //           ? field.metaData.addConfig.mapConfig.longitudeKeyField
+  //           : 'longitude';
+  //       }
+  //     }
   //     switch (metaData.addConfig) {
-  //       case metaData.addConfig?.belongToOptions:
-  //         metaData.addConfig.belongToOptions = {
-  //           ...metaData.addConfig?.belongToOptions,
-  //           value: field?.metaData?.addConfig.belongToOptions?.value
-  //             ? field?.metaData?.addConfig?.belongToOptions?.value
-  //             : "id",
-  //           template: field.metaData.addConfig.belongToOptions.template
-  //             ? field.metaData.addConfig.belongToOptions.template
-  //             : field.metaData.addConfig.belongToOptions.filterKeys[0],
-  //           filterKeys: field.metaData.addConfig.belongToOptions.filterKeys
-  //             ? field.metaData.addConfig.belongToOptions.filterKeys
-  //             : ["name"],
-  //         };
-  //         break;
+  //       // case metaData.addConfig?.belongToOptions:
+  //       //   metaData.addConfig.belongToOptions = {
+  //       //     ...metaData.addConfig?.belongToOptions,
+  //       //     value: field?.metaData?.addConfig.belongToOptions?.value
+  //       //       ? field?.metaData?.addConfig?.belongToOptions?.value
+  //       //       : "id",
+  //       //     template: field.metaData.addConfig.belongToOptions.template
+  //       //       ? field.metaData.addConfig.belongToOptions.template
+  //       //       : field.metaData.addConfig.belongToOptions.filterKeys[0],
+  //       //     filterKeys: field.metaData.addConfig.belongToOptions.filterKeys
+  //       //       ? field.metaData.addConfig.belongToOptions.filterKeys
+  //       //       : ["name"],
+  //       //   };
+  //       //   break;
 
   //       default:
   //         break;

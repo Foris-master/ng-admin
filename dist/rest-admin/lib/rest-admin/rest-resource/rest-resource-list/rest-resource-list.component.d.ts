@@ -70,3 +70,4 @@ export declare class RestResourceListComponent implements OnInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceListComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceListComponent, "ngx-rest-resource-list", never, { "resource": "resource"; }, {}, never, never>;
 }
+//# sourceMappingURL=rest-resource-list.component.d.ts.map

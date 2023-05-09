@@ -9,6 +9,7 @@ import { packageType } from './packageType';
 import { _package } from './package';
 import { expeditionRequest } from './expeditionRequest';
 import { consolidator } from './consolidator';
+import { agency } from './agency';
 
 export const resources = [
   address,
@@ -24,12 +25,13 @@ export const resources = [
   packageType,
   _package,
   consolidator,
+  agency,
   // partType,
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 // GROUPS : SEPERATOR
 /**
- * 1-CLIENTS, 
+ * 1-CLIENTS,
  * -address,
  * -contact,
  * -country,
@@ -42,22 +44,22 @@ export const resources = [
  * message,
  * suggestion,
  * town,
- * 
+ *
  * 8-ACL
  * user,
- * 
- * 
- * 
+ *
+ *
+ *
  * AJOUR
  * -theme
- * 
+ *
  * person (add email)
  * user( status: all_status, ) : introuvable
  * addresses
  * is_active(sur les menus),
  * chat_user (add user_id),
  * select_perPage
- * 
+ *
  * scrool horizontal
  * disable (fields code)
  * has_many (user-addre) : pas possible
@@ -68,14 +70,14 @@ export const resources = [
  * registery (gift)
  * tchat(user)
  * travel(expeditionsRequest, pricerange)
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  * belong_many(registry, gift)
- * 
- * 
+ *
+ *
  * morph:(type(app model container), id)))
- * 
+ *
  * 'new','enabled','disabled'
  */

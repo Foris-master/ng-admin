@@ -4,6 +4,7 @@ import {
   HttpClient,
   HttpClientModule,
   HTTP_INTERCEPTORS,
+  HttpClientJsonpModule,
 } from '@angular/common/http';
 import {
   Compiler,
@@ -87,6 +88,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestShareService } from './rest-admin/rest-resource/service/rest-share.service';
 import { AttributeDirective } from './rest-admin/directives/attribute.directive';
 import { MenuFilterPipe } from './rest-admin/rest-main-component/menu-filter.pipe';
+import { GmapsComponent } from './rest-admin/rest-resource/components/gmaps/gmaps.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -112,6 +115,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     LoginComponent,
     AttributeDirective,
     MenuFilterPipe,
+    GmapsComponent,
   ],
   exports: [
     RestResourceListComponent,
@@ -123,6 +127,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceDetailComponent,
     UploadFileComponent,
     LoginComponent,
+    GmapsComponent,
   ],
   entryComponents: [
     RestResourceListComponent,
@@ -135,6 +140,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceDetailComponent,
     UploadFileComponent,
     LoginComponent,
+    GmapsComponent,
   ],
   imports: [
     CommonModule,
@@ -144,6 +150,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     NbActionsModule,
     NbButtonModule,
     NbCardModule,
@@ -182,6 +189,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     NbIconModule,
+    GoogleMapsModule,
+
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -47,3 +47,4 @@ export declare class RestResourceDetailComponent implements OnInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceDetailComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceDetailComponent, "ngx-rest-resource-detail", never, { "resource": "resource"; "ID": "ID"; "ressourceName": "ressourceName"; "container": "container"; "style": "style"; }, {}, never, never>;
 }
+//# sourceMappingURL=rest-resource-detail.component.d.ts.map

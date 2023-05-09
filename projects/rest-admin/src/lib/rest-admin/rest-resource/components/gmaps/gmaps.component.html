@@ -1,0 +1,19 @@
+<nb-card>
+  <nb-card-body>
+    <ng-container *ngIf="apiLoaded | async">
+      <google-map
+        [options]="mapOptions"
+        [zoom]="8"
+        width="100%"
+        height="36.5625rem"
+      >
+        <map-marker
+          [position]="{ lat: lat, lng: lng }"
+          [options]="markerOptions"
+          (mapDragend)="onPositionChange($event)"
+        ></map-marker>
+      </google-map>
+    </ng-container>
+  </nb-card-body>
+</nb-card>
+<!-- [nbSpinner]="apiLoaded | async">  -->

@@ -19,22 +19,24 @@ import * as i9 from "./rest-admin/rest-resource/components/fs-icon-ccomponent/fs
 import * as i10 from "./auth/login/login.component";
 import * as i11 from "./rest-admin/directives/attribute.directive";
 import * as i12 from "./rest-admin/rest-main-component/menu-filter.pipe";
-import * as i13 from "@angular/common";
-import * as i14 from "@angular/platform-browser";
-import * as i15 from "@angular/platform-browser/animations";
-import * as i16 from "@angular/router";
-import * as i17 from "@angular/forms";
-import * as i18 from "@angular/common/http";
-import * as i19 from "@nebular/theme";
-import * as i20 from "ng2-smart-table";
-import * as i21 from "@iplab/ngx-file-upload";
-import * as i22 from "@codehint-ng/html-compiler";
-import * as i23 from "ngx-image-cropper";
-import * as i24 from "@ngx-translate/core";
-import * as i25 from "ngx-dropzone";
-import * as i26 from "ngx-permissions";
-import * as i27 from "./@core/core.module";
-import * as i28 from "./@theme/theme.module";
+import * as i13 from "./rest-admin/rest-resource/components/gmaps/gmaps.component";
+import * as i14 from "@angular/common";
+import * as i15 from "@angular/platform-browser";
+import * as i16 from "@angular/platform-browser/animations";
+import * as i17 from "@angular/router";
+import * as i18 from "@angular/forms";
+import * as i19 from "@angular/common/http";
+import * as i20 from "@nebular/theme";
+import * as i21 from "ng2-smart-table";
+import * as i22 from "@iplab/ngx-file-upload";
+import * as i23 from "@codehint-ng/html-compiler";
+import * as i24 from "ngx-image-cropper";
+import * as i25 from "@ngx-translate/core";
+import * as i26 from "ngx-dropzone";
+import * as i27 from "ngx-permissions";
+import * as i28 from "./@core/core.module";
+import * as i29 from "./@theme/theme.module";
+import * as i30 from "@angular/google-maps";
 export declare function createTranslateHttpLoader(http: HttpClient): TranslateHttpLoader;
 export declare class RestAdminModule {
     private router;
@@ -45,6 +47,7 @@ export declare class RestAdminModule {
     constructor(router: Router, compiler: Compiler, serviceRestAdmin: RestAdminConfigService, iconLibraries: NbIconLibraries, restLangService: RestLangService);
     static forRoot(restConfig: REST_CONFIG): ModuleWithProviders<RestAdminModule>;
     static ɵfac: i0.ɵɵFactoryDeclaration<RestAdminModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<RestAdminModule, [typeof i1.RestResourceListComponent, typeof i2.RestResourceAddComponent, typeof i3.RestResourceDeleteComponent, typeof i4.RestMainComponentComponent, typeof i5.RestResourceEditorFieldsComponent, typeof i6.RestResourceListFieldComponent, typeof i7.RestResourceDetailComponent, typeof i8.UploadFileComponent, typeof i9.FsIconCComponent, typeof i10.LoginComponent, typeof i11.AttributeDirective, typeof i12.MenuFilterPipe], [typeof i13.CommonModule, typeof i14.BrowserModule, typeof i15.BrowserAnimationsModule, typeof i16.RouterModule, typeof i17.ReactiveFormsModule, typeof i17.FormsModule, typeof i18.HttpClientModule, typeof i19.NbActionsModule, typeof i19.NbButtonModule, typeof i19.NbCardModule, typeof i19.NbCheckboxModule, typeof i19.NbInputModule, typeof i19.NbTagModule, typeof i19.NbRadioModule, typeof i19.NbUserModule, typeof i19.NbTreeGridModule, typeof i19.NbAlertModule, typeof i19.NbAutocompleteModule, typeof i20.Ng2SmartTableModule, typeof i21.FileUploadModule, typeof i22.CngHtmlCompilerModule, typeof i19.NbSpinnerModule, typeof i19.NbTabsetModule, typeof i19.NbPopoverModule, typeof i23.ImageCropperModule, typeof i19.NbToggleModule, typeof i19.NbListModule, typeof i19.NbTooltipModule, typeof i19.NbContextMenuModule, typeof i24.TranslateModule, typeof i25.NgxDropzoneModule, typeof i26.NgxPermissionsModule, typeof i19.NbLayoutModule, typeof i19.NbSelectModule, typeof i19.NbSidebarModule, typeof i19.NbMenuModule, typeof i19.NbDatepickerModule, typeof i19.NbDialogModule, typeof i19.NbWindowModule, typeof i19.NbToastrModule, typeof i19.NbTimepickerModule, typeof i27.CoreModule, typeof i28.ThemeModule, typeof i19.NbIconModule, typeof i24.TranslateModule], [typeof i1.RestResourceListComponent, typeof i2.RestResourceAddComponent, typeof i3.RestResourceDeleteComponent, typeof i4.RestMainComponentComponent, typeof i5.RestResourceEditorFieldsComponent, typeof i6.RestResourceListFieldComponent, typeof i7.RestResourceDetailComponent, typeof i8.UploadFileComponent, typeof i10.LoginComponent]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<RestAdminModule, [typeof i1.RestResourceListComponent, typeof i2.RestResourceAddComponent, typeof i3.RestResourceDeleteComponent, typeof i4.RestMainComponentComponent, typeof i5.RestResourceEditorFieldsComponent, typeof i6.RestResourceListFieldComponent, typeof i7.RestResourceDetailComponent, typeof i8.UploadFileComponent, typeof i9.FsIconCComponent, typeof i10.LoginComponent, typeof i11.AttributeDirective, typeof i12.MenuFilterPipe, typeof i13.GmapsComponent], [typeof i14.CommonModule, typeof i15.BrowserModule, typeof i16.BrowserAnimationsModule, typeof i17.RouterModule, typeof i18.ReactiveFormsModule, typeof i18.FormsModule, typeof i19.HttpClientModule, typeof i19.HttpClientJsonpModule, typeof i20.NbActionsModule, typeof i20.NbButtonModule, typeof i20.NbCardModule, typeof i20.NbCheckboxModule, typeof i20.NbInputModule, typeof i20.NbTagModule, typeof i20.NbRadioModule, typeof i20.NbUserModule, typeof i20.NbTreeGridModule, typeof i20.NbAlertModule, typeof i20.NbAutocompleteModule, typeof i21.Ng2SmartTableModule, typeof i22.FileUploadModule, typeof i23.CngHtmlCompilerModule, typeof i20.NbSpinnerModule, typeof i20.NbTabsetModule, typeof i20.NbPopoverModule, typeof i24.ImageCropperModule, typeof i20.NbToggleModule, typeof i20.NbListModule, typeof i20.NbTooltipModule, typeof i20.NbContextMenuModule, typeof i25.TranslateModule, typeof i26.NgxDropzoneModule, typeof i27.NgxPermissionsModule, typeof i20.NbLayoutModule, typeof i20.NbSelectModule, typeof i20.NbSidebarModule, typeof i20.NbMenuModule, typeof i20.NbDatepickerModule, typeof i20.NbDialogModule, typeof i20.NbWindowModule, typeof i20.NbToastrModule, typeof i20.NbTimepickerModule, typeof i28.CoreModule, typeof i29.ThemeModule, typeof i20.NbIconModule, typeof i30.GoogleMapsModule, typeof i25.TranslateModule], [typeof i1.RestResourceListComponent, typeof i2.RestResourceAddComponent, typeof i3.RestResourceDeleteComponent, typeof i4.RestMainComponentComponent, typeof i5.RestResourceEditorFieldsComponent, typeof i6.RestResourceListFieldComponent, typeof i7.RestResourceDetailComponent, typeof i8.UploadFileComponent, typeof i10.LoginComponent, typeof i13.GmapsComponent]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<RestAdminModule>;
 }
+//# sourceMappingURL=rest-admin.module.d.ts.map

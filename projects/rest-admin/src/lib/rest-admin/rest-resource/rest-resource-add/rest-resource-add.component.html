@@ -691,6 +691,18 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Input type GOOGLEMAP -->
+              <div
+                class="input-space"
+                *ngIf="field.type == REST_FIELD_TYPES.MAP"
+              >
+                <label class="label">{{ field.label | titlecase }}</label>
+                <ngx-gmaps
+                  (latChange)="onLatChange($event, field.name)"
+                  (lngChange)="onLngChange($event, field.name)"
+                ></ngx-gmaps>
+              </div>
             </ng-container>
           </div>
         </form>
@@ -720,8 +732,16 @@
 
   <nb-card-footer>
     <div class="buttons-row">
-      <button nbButton (click)="onSumbit()" status="primary" [disabled]="loading">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-2"></span>
+      <button
+        nbButton
+        (click)="onSumbit()"
+        status="primary"
+        [disabled]="loading"
+      >
+        <span
+          *ngIf="loading"
+          class="spinner-border spinner-border-sm mr-2"
+        ></span>
         {{ formState.btnLabel }}
       </button>
     </div>

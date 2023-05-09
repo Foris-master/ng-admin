@@ -166,6 +166,10 @@ export interface REST_FIELD_METADATA {
       template?: string; // Le template a affciher
       queryParams?: any | PreparedStatementQuery;
     };
+    mapConfig?: {
+      lattiudeKeyField: string;
+      longitudeKeyField: string;
+    };
   };
   detailConfig?: {
     restManyResources?: RestField | RestManyOptionsCustom;
@@ -240,6 +244,7 @@ export interface REST_CONFIG {
     }[];
   };
   authConfig?: REST_AUTH;
+  googleMapApiKey?: string; // Clef google map
 }
 
 interface StandartField extends Field {

@@ -1,7 +1,14 @@
 import { LocalDataSource } from 'ng2-smart-table';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ChangeDetectorRef, Component, Input, OnInit, QueryList, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  QueryList,
+  ViewChild,
+} from '@angular/core';
 import {
   NbDialogService,
   NbMenuService,
@@ -188,7 +195,9 @@ export class RestResourceAddComponent implements OnInit {
   initForm(datas) {
     if (datas != null) {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
-        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -232,11 +241,7 @@ export class RestResourceAddComponent implements OnInit {
                     x[filterKey]
                       .toString()
                       .toLowerCase()
-                      ?.localeCompare(
-                        y[filterKey]
-                          .toString()
-                          .toLowerCase()
-                      )
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
                   );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
@@ -260,15 +265,11 @@ export class RestResourceAddComponent implements OnInit {
                 })
                 .subscribe((response: any) => {
                   this.options[elt.name] = [...response].sort((x, y) =>
-                  x[filterKey]
-                    .toString()
-                    .toLowerCase()
-                    ?.localeCompare(
-                      y[filterKey]
-                        .toString()
-                        .toLowerCase()
-                    )
-                );
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set(datas[elt.name]);
@@ -317,6 +318,15 @@ export class RestResourceAddComponent implements OnInit {
                 ...cumul,
                 [elt.name]: [null],
               };
+
+            case REST_FIELD_TYPES.MAP:
+              const lat = elt.metaData.addConfig.mapConfig.lattiudeKeyField;
+              const long = elt.metaData.addConfig.mapConfig.longitudeKeyField;
+              return {
+                ...cumul,
+                [lat]: datas[lat],
+                [long]: datas[long],
+              };
             default:
               return {
                 ...cumul,
@@ -330,7 +340,9 @@ export class RestResourceAddComponent implements OnInit {
       }, {});
     } else {
       this.controls = this.resource.fields.reduce((cumul, elt) => {
-        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0] : 'name';
+        var filterKey = elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          ? elt.metaData?.addConfig?.belongToOptions?.filterKeys[0]
+          : 'name';
         if (elt.inForm) {
           switch (elt.type) {
             case REST_FIELD_TYPES.FILE:
@@ -372,15 +384,11 @@ export class RestResourceAddComponent implements OnInit {
                   })
                   .subscribe((response: any) => {
                     this.options[elt.name] = [...response].sort((x, y) =>
-                    x[filterKey]
-                      .toString()
-                      .toLowerCase()
-                      ?.localeCompare(
-                        y[filterKey]
-                          .toString()
-                          .toLowerCase()
-                      )
-                  );
+                      x[filterKey]
+                        .toString()
+                        .toLowerCase()
+                        ?.localeCompare(y[filterKey].toString().toLowerCase())
+                    );
                     this.allFilterContains[elt.name] = of(
                       this.options[elt.name]
                     );
@@ -406,15 +414,11 @@ export class RestResourceAddComponent implements OnInit {
                 })
                 .subscribe((response: any) => {
                   this.options[elt.name] = [...response].sort((x, y) =>
-                  x[filterKey]
-                    .toString()
-                    .toLowerCase()
-                    ?.localeCompare(
-                      (y[filterKey])
-                        .toString()
-                        .toLowerCase()
-                    )
-                );
+                    x[filterKey]
+                      .toString()
+                      .toLowerCase()
+                      ?.localeCompare(y[filterKey].toString().toLowerCase())
+                  );
                   this.allFilterContains[elt.name] = of(this.options[elt.name]);
                 });
               this.belongToMany[elt.name] = new Set();
@@ -439,6 +443,14 @@ export class RestResourceAddComponent implements OnInit {
               return {
                 ...cumul,
                 [elt.name]: [null],
+              };
+            case REST_FIELD_TYPES.MAP:
+              const lat = elt.metaData.addConfig.mapConfig.lattiudeKeyField;
+              const long = elt.metaData.addConfig.mapConfig.longitudeKeyField;
+              return {
+                ...cumul,
+                [lat]: [null],
+                [long]: [null],
               };
             default:
               return {
@@ -524,7 +536,9 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   onSelectionChange(event, field: RestField) {
-    const bVal = this.options[field.name] ? this.options[field.name].find((elt) => elt?.id === event) : {};
+    const bVal = this.options[field.name]
+      ? this.options[field.name].find((elt) => elt?.id === event)
+      : {};
     this.belongToValue[field.name] = bVal
       ? bVal[
           field?.metaData?.belongToSecondFieldLabel
@@ -672,7 +686,10 @@ export class RestResourceAddComponent implements OnInit {
     };
     this.loading = true;
     const formData = this.form.value;
+    console.log('this.form', this.form.value);
+
     const _body = this.resource.addConfig.body;
+
     if (this.resource.hasFile) {
       datas = new FormData();
       Object.keys(formData).forEach((key, index) => {
@@ -723,21 +740,48 @@ export class RestResourceAddComponent implements OnInit {
       Object.keys(_body).map((key) => {
         datas.append(key, _body[key]);
       });
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.lattiudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField]
+        );
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.longitudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField]
+        );
+      });
     } else {
       const tab = {};
       Object.keys(formData).forEach((key, index) => {
         const search: RestField = this.resource.fields.find(
           (elt) => elt.name == key
         );
-        if (
-          search &&
-          this.jsonEditorOptions[key] !== null &&
-          formData[key] !== undefined &&
-          formData[key] !== ''
-        ) {
-          tab[key] = formData[key];
+        if (search) {
+          if (
+            this.jsonEditorOptions[key] !== null &&
+            formData[key] !== undefined &&
+            formData[key] !== ''
+          ) {
+            tab[key] = formData[key];
+          }
         }
       });
+
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        tab[elt.metaData.addConfig.mapConfig.lattiudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField];
+        tab[elt.metaData.addConfig.mapConfig.longitudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField];
+      });
+
       datas = { ...tab, ..._body };
     }
 
@@ -805,7 +849,6 @@ export class RestResourceAddComponent implements OnInit {
         this.notificationService.dangerToast(msgError);
       }
     );
-
   }
 
   onEdit() {
@@ -865,6 +908,20 @@ export class RestResourceAddComponent implements OnInit {
       Object.keys(_body).map((key) => {
         datas.append(key, _body[key]);
       });
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.lattiudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField]
+        );
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.longitudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField]
+        );
+      });
     } else {
       const tab = {};
       Object.keys(formData).forEach((key, index) => {
@@ -879,6 +936,17 @@ export class RestResourceAddComponent implements OnInit {
         ) {
           tab[key] = formData[key];
         }
+      });
+
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        tab[elt.metaData.addConfig.mapConfig.lattiudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField];
+        tab[elt.metaData.addConfig.mapConfig.longitudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField];
       });
       datas = { ...tab, ..._body };
     }
@@ -1046,5 +1114,22 @@ export class RestResourceAddComponent implements OnInit {
         this.options[field] = response;
         this.allFilterContains[field] = of(this.options[field]);
       });
+  }
+
+  onLatChange(value, fieldName) {
+    const fieldLat = this.resource.fields.find((elt) => elt.name == fieldName);
+    const name = fieldLat.metaData.addConfig.mapConfig.lattiudeKeyField;
+
+    this.form.patchValue({
+      [name]: value,
+    });
+  }
+  onLngChange(value, fieldName) {
+    const fieldLat = this.resource.fields.find((elt) => elt.name == fieldName);
+    const name = fieldLat.metaData.addConfig.mapConfig.longitudeKeyField;
+
+    this.form.patchValue({
+      [name]: value,
+    });
   }
 }

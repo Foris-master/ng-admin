@@ -1,6 +1,6 @@
 {
   "name": "@foris-master/ngx-rest-admin",
-  "version": "1.0.16",
+  "version": "0.0.0-watch+1683610470701",
   "license": "MIT",
   "typings": "foris-master-ngx-rest-admin.d.ts",
   "exports": {
@@ -120,5 +120,8 @@
   "es2015": "fesm2015/foris-master-ngx-rest-admin.js",
   "esm2015": "esm2015/foris-master-ngx-rest-admin.js",
   "fesm2015": "fesm2015/foris-master-ngx-rest-admin.js",
-  "sideEffects": false
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy in full compilation mode. This is not allowed.\\nPlease delete and rebuild the package with Ivy partial compilation mode, before attempting to publish.\\n')\" && exit 1"
+  }
 }

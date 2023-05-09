@@ -151,6 +151,10 @@ export interface REST_FIELD_METADATA {
             template?: string;
             queryParams?: any | PreparedStatementQuery;
         };
+        mapConfig?: {
+            lattiudeKeyField: string;
+            longitudeKeyField: string;
+        };
     };
     detailConfig?: {
         restManyResources?: RestField | RestManyOptionsCustom;
@@ -213,6 +217,7 @@ export interface REST_CONFIG {
         }[];
     };
     authConfig?: REST_AUTH;
+    googleMapApiKey?: string;
 }
 export interface REST_AUTH {
     strategy?: STRATEGY_AUTH;
@@ -235,3 +240,4 @@ export declare enum PERMISSION {
     D = "delete",
     A = "all"
 }
+//# sourceMappingURL=rest-resource.model.d.ts.map

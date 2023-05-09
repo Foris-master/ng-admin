@@ -42,3 +42,4 @@ export declare class RestResource {
     set showInMenu(v: boolean);
     set permissions(v: string[]);
 }
+//# sourceMappingURL=rest-resource.d.ts.map
