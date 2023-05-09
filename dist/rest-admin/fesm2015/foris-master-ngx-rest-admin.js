@@ -795,7 +795,7 @@ class RestResourceListFieldComponent {
         }
         catch (err) {
             console.log(`Error occurred in jsonValue: ${err}`);
-            this._jsonValue = this.val.toString();
+            this._jsonValue = JSON.stringify(this.val);
         }
         return this._jsonValue;
     }
@@ -2188,7 +2188,7 @@ class RestResourceDetailComponent {
             }
             catch (err) {
                 console.log(`Error occurred in jsonValue: ${err}`);
-                _jsonValue = val.data.toString();
+                _jsonValue = JSON.stringify(val.data);
             }
             return _jsonValue;
         };

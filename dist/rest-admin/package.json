@@ -1,6 +1,6 @@
 {
   "name": "@foris-master/ngx-rest-admin",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "license": "MIT",
   "typings": "foris-master-ngx-rest-admin.d.ts",
   "exports": {

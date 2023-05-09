@@ -900,7 +900,7 @@ export class RestResourceDetailComponent implements OnInit {
       }
     } catch (err) {
       console.log(`Error occurred in jsonValue: ${err}`);
-      _jsonValue = val.data.toString();
+      _jsonValue = JSON.stringify(val.data);
     }
   
     return _jsonValue;
