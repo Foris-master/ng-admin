@@ -51,6 +51,7 @@ export declare class RestResourceListComponent implements OnInit {
     belongToValue: any;
     belongToMany: any;
     controls: any;
+    isChecked: any;
     selectedRows: any[];
     items: {
         title: string;

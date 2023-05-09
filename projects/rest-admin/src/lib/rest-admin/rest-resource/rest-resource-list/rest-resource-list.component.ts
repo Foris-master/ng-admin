@@ -59,6 +59,7 @@ export class RestResourceListComponent implements OnInit {
   belongToValue: any = {};
   belongToMany: any = {};
   controls: any;
+  isChecked: any = { };
 
   selectedRows: any[] = [];
 
@@ -132,6 +133,34 @@ export class RestResourceListComponent implements OnInit {
     }
 
     this.currentPerPage = this.resource.listConfig.perPage;
+    
+
+    this.getList();
+
+    this.source.onChanged().subscribe((e) => {
+      setTimeout(() => {
+        this.restShare.setLoader(false);
+      });
+    });
+
+    this.isChecked = {
+      title: 'check',
+      type: 'custom',
+      filter: false,
+      addable: true,
+      valuePrepareFunction: (cell, row) => ({
+        handleCheckboxClick: (event, rowData) => this.onCheckboxClick(event, rowData),
+        selected: this.selectedRows.find((elt) => elt?.id == row?.id) !== undefined,
+        cell,
+        row,
+      }),
+      editor: {
+        type: 'checkbox',
+      },
+      renderComponent: SelectAllCheckboxRenderComponent,
+      editable: true,
+    };
+
     this.settings = {
       hideSubHeader: this.resource.listConfig.hideAddSubHeader,
       actions: {
@@ -171,14 +200,6 @@ export class RestResourceListComponent implements OnInit {
       //   confirmDelete: true,
       // },
     };
-
-    this.getList();
-
-    this.source.onChanged().subscribe((e) => {
-      setTimeout(() => {
-        this.restShare.setLoader(false);
-      });
-    });
 
     this.nbMenuService
       .onItemClick()
@@ -284,25 +305,9 @@ export class RestResourceListComponent implements OnInit {
 
   private createMatTableColumns() {
     const colunms: any = {};
-    // if (this.showCheckbox) {
-      colunms["isChecked"] = {
-        title: 'check',
-        type: 'custom',
-        filter: false,
-        addable: true,
-        valuePrepareFunction: (cell, row) => ({
-          handleCheckboxClick: (event, rowData) => this.onCheckboxClick(event, rowData),
-          selected: this.selectedRows.find((elt) => elt?.id == row?.id) !== undefined,
-          cell,
-          row,
-        }),
-        editor: {
-          type: 'checkbox',
-        },
-        renderComponent: SelectAllCheckboxRenderComponent,
-        editable: true,
-      };
-    // }
+    if (!this.showCheckbox) {
+      colunms["isChecked"] = this.isChecked;
+    }
     this.resource.fields
       .filter((item) => this.resource.listConfig.columns.includes(item.name))
       .forEach((elt) => {

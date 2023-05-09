@@ -868,19 +868,42 @@ export class RestResourceDetailComponent implements OnInit {
     return dat;
   };
 
-  jsonValue = (val) => {
+  jsonValue = (val: any): any => {
     let _jsonValue: any;
-    if (val.restField.i18n == true) {
-      if (val.data[0] == '{')
-        _jsonValue = JSON.parse(val.data)[this.langService.selected];
-      else if (typeof val.data !== 'string')
-        _jsonValue = val.data[this.langService.selected];
-      else _jsonValue = val.data;
-    } else {
-      _jsonValue = val.data;
+  
+    try {
+      if (!val || !val.restField || !val.data) {
+        throw new Error('Missing required data properties');
+      }
+  
+      if (val.restField.i18n === true) {
+        if (typeof val.data === 'string' && val.data[0] === '{') {
+          const parsedData = JSON.parse(val.data);
+          if (parsedData[this.langService.selected]) {
+            _jsonValue = parsedData[this.langService.selected];
+          } else {
+            throw new Error('Invalid i18n language selected');
+          }
+        } else if (typeof val.data === 'object' && val.data[this.langService.selected]) {
+          _jsonValue = val.data[this.langService.selected];
+        } else if (typeof val.data === 'string') {
+          _jsonValue = val.data;
+        } else {
+          throw new Error('Invalid data format for i18n field');
+        }
+      } else {
+        _jsonValue = val.data;
+      }
+  
+      if (typeof _jsonValue === 'object') {
+        _jsonValue = JSON.stringify(_jsonValue);
+      }
+    } catch (err) {
+      console.log(`Error occurred in jsonValue: ${err}`);
+      _jsonValue = val.data.toString();
     }
-
-    if (typeof val.data == 'object') return JSON.stringify(_jsonValue);
-    else return _jsonValue;
+  
+    return _jsonValue;
   };
+  
 }

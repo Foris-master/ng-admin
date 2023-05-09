@@ -32,6 +32,16 @@ export const country = new RestResource(
     },
     {
       name: 'name',
+      // type: REST_FIELD_TYPES.JSON,
+      // i18n: true,
+      // metaData: {
+      //   addConfig: {
+      //     jsonConfig: {
+      //       jsonFields: ["fr", "en"],
+      //       // isOpen: true,
+      //     },
+      //   },
+      // },
     },
     {
       name: 'full_name',

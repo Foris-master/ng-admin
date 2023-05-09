@@ -192,6 +192,18 @@
       </ng-container>
     </div>
 
+    <!-- <ng2-smart-table
+    *ngIf="showCheckbox"
+      [settings]="{...settings, columns: { ...settings.columns, isChecked } }"
+      [source]="source"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (createConfirm)="onCreateConfirm($event)"
+      (custom)="onCustom($event)"
+      (userRowSelect)="detailEntity($event)"
+    >
+    </ng2-smart-table> -->
+
+    <!-- *ngIf="!showCheckbox" -->
     <ng2-smart-table
       [settings]="settings"
       [source]="source"

@@ -4,9 +4,7 @@
   </nb-card-header>
   <nb-card-body>
     <nb-list *ngIf="!isTabsMenu; else tabsContent" class="list-group">
-      <nb-list-item
-        *ngFor="let item of datas | keyvalue"
-        >
+      <nb-list-item *ngFor="let item of datas | keyvalue">
         <!-- class="rest-item-align list-group-item" -->
         <div class="d-block" style="margin-left: 15px">
           <div class="row">
@@ -423,9 +421,7 @@
       <nb-tabset fullWidth>
         <nb-tab [tabTitle]="tabs" *ngFor="let tabs of tabsName">
           <nb-list class="list-group">
-            <nb-list-item
-              *ngFor="let item of datas1[tabs] | keyvalue"
-              >
+            <nb-list-item *ngFor="let item of datas1[tabs] | keyvalue">
               <!-- class="rest-item-align list-group-item" -->
               <div class="d-block" style="margin-left: 15px">
                 <div class="row">
@@ -530,6 +526,26 @@
                       <cng-html-compiler
                         [template]="item.value.restField.template"
                         [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON"
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        {{ jsonValue(item.value) }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="jsonValue(item.value)"
                       >
                       </cng-html-compiler>
                     </ng-container>
