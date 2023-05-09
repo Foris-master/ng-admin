@@ -156,7 +156,7 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
         this._jsonValue = JSON.stringify(this._jsonValue);
       }
     } catch (err) {
-      console.log(`Error occurred in jsonValue: ${err}`);
+      // console.log(`Error occurred in jsonValue: ${err}`);
       this._jsonValue = JSON.stringify(this.val);
     }
   

@@ -12,6 +12,7 @@ import { consolidator } from './consolidator';
 import { consolidatorUser } from './consolidatorUser';
 import { vehiculeModel } from './vehiculeModel';
 import { vehicule } from './vehicule';
+import { searchItem } from './searchItem';
 
 export const resources = [
   address,
@@ -22,6 +23,7 @@ export const resources = [
   town,
   // consolidatorUser,
   // enterprise,
+  searchItem,
   currency,
   expeditionRequest,
   packageContent,

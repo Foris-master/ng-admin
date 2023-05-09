@@ -1144,7 +1144,7 @@
                     }
                 }
                 catch (err) {
-                    console.log("Error occurred in jsonValue: " + err);
+                    // console.log(`Error occurred in jsonValue: ${err}`);
                     this._jsonValue = JSON.stringify(this.val);
                 }
                 return this._jsonValue;
@@ -1653,11 +1653,11 @@
             var _this = this;
             this.nbMenuService
                 .onItemClick()
-                .pipe(operators.filter(function (_j) {
-                var tag = _j.tag;
+                .pipe(operators.filter(function (_g) {
+                var tag = _g.tag;
                 return tag === 'my-context-add';
-            }), operators.map(function (_j) {
-                var title = _j.item.title;
+            }), operators.map(function (_g) {
+                var title = _g.item.title;
                 return title;
             }))
                 .subscribe(function (title) {
@@ -1687,7 +1687,7 @@
             var _this = this;
             if (datas != null) {
                 this.controls = this.resource.fields.reduce(function (cumul, elt) {
-                    var _j, _k, _l, _m, _o, _p, _q, _r, _s, _t;
+                    var _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
                     var _a, _b, _c, _d, _e, _f;
                     var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0])
                         ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0]
@@ -1699,11 +1699,11 @@
                             case exports.REST_FIELD_TYPES.IMAGE:
                                 _this.filesUpload[elt.name] = [];
                                 _this.urlsImage[elt.name] = datas[elt.name];
-                                return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = datas[elt.name], _j));
+                                return Object.assign(Object.assign({}, cumul), (_g = {}, _g[elt.name] = datas[elt.name], _g));
                             case exports.REST_FIELD_TYPES.HAS_MANY:
-                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = new Set([datas[elt.name]]), _k));
+                                return Object.assign(Object.assign({}, cumul), (_h = {}, _h[elt.name] = new Set([datas[elt.name]]), _h));
                             case exports.REST_FIELD_TYPES.BOOLEAN:
-                                return Object.assign(Object.assign({}, cumul), (_l = {}, _l[elt.name] = datas[elt.name], _l));
+                                return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = datas[elt.name], _j));
                             case exports.REST_FIELD_TYPES.BELONG_TO:
                                 var restResource = _this.serviceRestAdminConfig.getSpecificResource(elt.metaData.addConfig.belongToOptions.resourceName);
                                 _this.serviceRest
@@ -1723,7 +1723,7 @@
                                     });
                                     _this.allFilterContains[elt.name] = rxjs.of(_this.options[elt.name]);
                                 });
-                                return Object.assign(Object.assign({}, cumul), (_m = {}, _m[elt.name] = [datas[elt.name]], _m));
+                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = [datas[elt.name]], _k));
                             case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
                                 var resource = _this.serviceRestAdminConfig.getSpecificResource(elt.metaData.addConfig.belongToManyOptions.relatedName);
                                 _this.serviceRest
@@ -1744,33 +1744,60 @@
                                     _this.allFilterContains[elt.name] = rxjs.of(_this.options[elt.name]);
                                 });
                                 _this.belongToMany[elt.name] = new Set(datas[elt.name]);
-                                return Object.assign(Object.assign({}, cumul), (_o = {}, _o[elt.name] = [datas[elt.name]], _o));
+                                return Object.assign(Object.assign({}, cumul), (_l = {}, _l[elt.name] = [datas[elt.name]], _l));
                             case exports.REST_FIELD_TYPES.LINK:
-                                return Object.assign(Object.assign({}, cumul), (_p = {}, _p[elt.name] = [datas[elt.name], ngxInputValidator.Validator.url], _p));
+                                return Object.assign(Object.assign({}, cumul), (_m = {}, _m[elt.name] = [datas[elt.name], ngxInputValidator.Validator.url], _m));
                             case exports.REST_FIELD_TYPES.COLOR:
-                                return Object.assign(Object.assign({}, cumul), (_q = {}, _q[elt.name] = datas[elt.name], _q));
+                                return Object.assign(Object.assign({}, cumul), (_o = {}, _o[elt.name] = datas[elt.name], _o));
                             case exports.REST_FIELD_TYPES.JSON:
-                                var jsonFiels_1 = [];
-                                elt.metaData.addConfig.jsonConfig.jsonFields.map(function (field) {
-                                    jsonFiels_1.push({
-                                        label: field,
-                                        value: datas[elt.name][0] == '{'
-                                            ? JSON.parse(datas[elt.name])[field]
-                                            : typeof datas[elt.name] !== 'string'
-                                                ? datas[elt.name][field]
-                                                : datas[elt.name],
+                                var jsonFields_1 = [];
+                                if (elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+                                    elt.metaData.addConfig.jsonConfig.jsonFields.map(function (field) {
+                                        if (datas[elt.name]) {
+                                            if (datas[elt.name][0] == '{') {
+                                                try {
+                                                    jsonFields_1.push({
+                                                        label: field,
+                                                        value: JSON.parse(datas[elt.name])[field],
+                                                    });
+                                                }
+                                                catch (error) {
+                                                    console.error("Error parsing JSON for " + field + " in " + elt.name + ": " + error);
+                                                }
+                                            }
+                                            else if (typeof datas[elt.name] !== 'string') {
+                                                try {
+                                                    jsonFields_1.push({
+                                                        label: field,
+                                                        value: datas[elt.name][field],
+                                                    });
+                                                }
+                                                catch (error) {
+                                                    console.error("Error accessing field " + field + " in " + elt.name + ": " + error);
+                                                }
+                                            }
+                                            else {
+                                                jsonFields_1.push({
+                                                    label: field,
+                                                    value: datas[elt.name],
+                                                });
+                                            }
+                                        }
+                                        else {
+                                            jsonFields_1.push({ label: field, value: '' });
+                                        }
                                     });
-                                });
-                                _this.jsonEditorOptions[elt.name] = jsonFiels_1;
-                                return Object.assign(Object.assign({}, cumul), (_r = {}, _r[elt.name] = datas[elt.name], _r));
+                                }
+                                _this.jsonEditorOptions[elt.name] = jsonFields_1;
+                                return Object.assign(Object.assign({}, cumul), (_p = {}, _p[elt.name] = datas[elt.name], _p));
                             case exports.REST_FIELD_TYPES.MORPH_ONE:
                                 _this.morphFields[elt.name] = {
                                     type: datas[elt.name].type,
                                     id: datas[elt.name].id,
                                 };
-                                return Object.assign(Object.assign({}, cumul), (_s = {}, _s[elt.name] = [null], _s));
+                                return Object.assign(Object.assign({}, cumul), (_q = {}, _q[elt.name] = [null], _q));
                             default:
-                                return Object.assign(Object.assign({}, cumul), (_t = {}, _t[elt.name] = datas[elt.name], _t));
+                                return Object.assign(Object.assign({}, cumul), (_r = {}, _r[elt.name] = datas[elt.name], _r));
                         }
                     }
                     else
@@ -1779,8 +1806,8 @@
             }
             else {
                 this.controls = this.resource.fields.reduce(function (cumul, elt) {
-                    var _j, _k, _l, _m, _o, _p, _q, _r;
-                    var _a, _b, _c, _d, _e, _f, _g, _h;
+                    var _g, _h, _j, _k, _l, _m, _o, _p;
+                    var _a, _b, _c, _d, _e, _f;
                     var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0])
                         ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0]
                         : 'name';
@@ -1791,11 +1818,11 @@
                             case exports.REST_FIELD_TYPES.IMAGE:
                                 _this.filesUpload[elt.name] = [];
                                 _this.urlsImage[elt.name] = '';
-                                return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = [null], _j));
+                                return Object.assign(Object.assign({}, cumul), (_g = {}, _g[elt.name] = [null], _g));
                             case exports.REST_FIELD_TYPES.HAS_MANY:
-                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = new Set([]), _k));
+                                return Object.assign(Object.assign({}, cumul), (_h = {}, _h[elt.name] = new Set([]), _h));
                             case exports.REST_FIELD_TYPES.BOOLEAN:
-                                return Object.assign(Object.assign({}, cumul), (_l = {}, _l[elt.name] = false, _l));
+                                return Object.assign(Object.assign({}, cumul), (_j = {}, _j[elt.name] = false, _j));
                             case exports.REST_FIELD_TYPES.BELONG_TO:
                                 var restResource = _this.serviceRestAdminConfig.getSpecificResource(elt.metaData.addConfig.belongToOptions.resourceName);
                                 if (restResource) {
@@ -1817,7 +1844,7 @@
                                         _this.allFilterContains[elt.name] = rxjs.of(_this.options[elt.name]);
                                     });
                                 }
-                                return Object.assign(Object.assign({}, cumul), (_m = {}, _m[elt.name] = [''], _m));
+                                return Object.assign(Object.assign({}, cumul), (_k = {}, _k[elt.name] = [''], _k));
                             case exports.REST_FIELD_TYPES.BELONG_TO_MANY:
                                 var resource = _this.serviceRestAdminConfig.getSpecificResource(elt.metaData.addConfig.belongToManyOptions.relatedName);
                                 _this.serviceRest
@@ -1838,18 +1865,24 @@
                                     _this.allFilterContains[elt.name] = rxjs.of(_this.options[elt.name]);
                                 });
                                 _this.belongToMany[elt.name] = new Set();
-                                return Object.assign(Object.assign({}, cumul), (_o = {}, _o[elt.name] = [], _o));
+                                return Object.assign(Object.assign({}, cumul), (_l = {}, _l[elt.name] = [], _l));
                             case exports.REST_FIELD_TYPES.LINK:
-                                return Object.assign(Object.assign({}, cumul), (_p = {}, _p[elt.name] = ['', ngxInputValidator.Validator.url], _p));
+                                return Object.assign(Object.assign({}, cumul), (_m = {}, _m[elt.name] = ['', ngxInputValidator.Validator.url], _m));
                             case exports.REST_FIELD_TYPES.JSON:
-                                var jsonFiels_2 = [];
-                                (_h = (_g = elt === null || elt === void 0 ? void 0 : elt.metaData) === null || _g === void 0 ? void 0 : _g.addConfig) === null || _h === void 0 ? void 0 : _h.jsonConfig.jsonFields.map(function (field) {
-                                    jsonFiels_2.push({ label: field, value: '' });
-                                });
-                                _this.jsonEditorOptions[elt.name] = jsonFiels_2;
-                                return Object.assign(Object.assign({}, cumul), (_q = {}, _q[elt.name] = [null], _q));
+                                if (elt && elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+                                    var jsonFields_2 = [];
+                                    elt.metaData.addConfig.jsonConfig.jsonFields.forEach(function (field) {
+                                        jsonFields_2.push({ label: field, value: '' });
+                                    });
+                                    _this.jsonEditorOptions[elt.name] = jsonFields_2;
+                                }
+                                else {
+                                    // Si une propriété requise n'est pas présente, renvoyer une erreur
+                                    throw new Error("Une erreur s'est produite lors du traitement de l'élément.");
+                                }
+                                return Object.assign(Object.assign({}, cumul), (_o = {}, _o[elt.name] = [null], _o));
                             default:
-                                return Object.assign(Object.assign({}, cumul), (_r = {}, _r[elt.name] = [''], _r));
+                                return Object.assign(Object.assign({}, cumul), (_p = {}, _p[elt.name] = [''], _p));
                         }
                     }
                     else
@@ -1873,22 +1906,22 @@
         });
         //Tags
         RestResourceAddComponent.prototype.onTagRemove = function (tagToRemove, name) {
-            var _j;
+            var _g;
             var treesA = new Set(this.form.get([name]).value);
             treesA.delete(tagToRemove.text);
-            this.form.patchValue((_j = {},
-                _j[name] = Array.from(treesA.values()),
-                _j));
+            this.form.patchValue((_g = {},
+                _g[name] = Array.from(treesA.values()),
+                _g));
         };
-        RestResourceAddComponent.prototype.onTagAdd = function (_j, name) {
-            var _k;
-            var value = _j.value, input = _j.input;
+        RestResourceAddComponent.prototype.onTagAdd = function (_g, name) {
+            var _h;
+            var value = _g.value, input = _g.input;
             if (value) {
                 var treesA = new Set(this.form.get([name]).value);
                 treesA.add(value);
-                this.form.patchValue((_k = {},
-                    _k[name] = Array.from(treesA.values()),
-                    _k));
+                this.form.patchValue((_h = {},
+                    _h[name] = Array.from(treesA.values()),
+                    _h));
             }
             input.nativeElement.value = '';
         };
@@ -1936,7 +1969,7 @@
         // End Autocomplete
         //Image input
         RestResourceAddComponent.prototype.onSelect = function (event, field) {
-            var _j;
+            var _g;
             this.filesUpload[field.name] = [];
             var addedFiles = event.addedFiles;
             this.filesUpload[field.name] = [addedFiles[0]];
@@ -1944,16 +1977,16 @@
                 this.isCrop[field.name] = true;
                 this.controlCroper[field.name] = addedFiles[0];
             }
-            this.form.patchValue((_j = {},
-                _j[field.name] = addedFiles[0],
-                _j));
+            this.form.patchValue((_g = {},
+                _g[field.name] = addedFiles[0],
+                _g));
         };
         RestResourceAddComponent.prototype.onRemove = function (field) {
-            var _j;
+            var _g;
             this.filesUpload[field.name] = [];
-            this.form.patchValue((_j = {},
-                _j[field.name] = null,
-                _j));
+            this.form.patchValue((_g = {},
+                _g[field.name] = null,
+                _g));
         };
         RestResourceAddComponent.prototype.imageCropped = function (event, field) {
             this.croppedImage[field.name] = event.base64;
@@ -1965,41 +1998,41 @@
             this.isCrop[field.name] = false;
         };
         RestResourceAddComponent.prototype.saveCroper = function (field) {
-            var _j;
+            var _g;
             this.isCrop[field.name] = false;
             this.filesUpload[field.name] = [
                 i5.base64ToFile(this.croppedImage[field.name]),
             ];
-            this.form.patchValue((_j = {},
-                _j[field.name] = new File([i5.base64ToFile(this.croppedImage[field.name])], field.name),
-                _j));
+            this.form.patchValue((_g = {},
+                _g[field.name] = new File([i5.base64ToFile(this.croppedImage[field.name])], field.name),
+                _g));
         };
         //belongToManyOptions
         RestResourceAddComponent.prototype.onChoose = function (event, field) {
-            var _j, _k;
+            var _g, _h;
             var cellData = Array.from(this.belongToMany[field.name]);
             if (event.id) {
                 var search = cellData.find(function (elt) { return elt.id == event.id; });
                 if (search == undefined) {
-                    var newElt = (_j = {
+                    var newElt = (_g = {
                             id: event.id
                         },
-                        _j[field.metaData.addConfig.belongToManyOptions.relatedIdName] = event.id,
-                        _j[field.metaData.addConfig.belongToManyOptions.resourceIdName] = '',
-                        _j[field.metaData.addConfig.belongToManyOptions.filterKeys[0]] = event[field.metaData.addConfig.belongToManyOptions.filterKeys[0]],
-                        _j.saveRelatedIdName = field.metaData.addConfig.belongToManyOptions.relatedIdName,
-                        _j.saveResourceIdName = field.metaData.addConfig.belongToManyOptions.resourceIdName,
-                        _j);
+                        _g[field.metaData.addConfig.belongToManyOptions.relatedIdName] = event.id,
+                        _g[field.metaData.addConfig.belongToManyOptions.resourceIdName] = '',
+                        _g[field.metaData.addConfig.belongToManyOptions.filterKeys[0]] = event[field.metaData.addConfig.belongToManyOptions.filterKeys[0]],
+                        _g.saveRelatedIdName = field.metaData.addConfig.belongToManyOptions.relatedIdName,
+                        _g.saveResourceIdName = field.metaData.addConfig.belongToManyOptions.resourceIdName,
+                        _g);
                     this.belongToMany[field.name].add(newElt);
-                    this.form.patchValue((_k = {},
-                        _k[field.name] = Array.from(this.belongToMany[field.name].values()),
-                        _k));
+                    this.form.patchValue((_h = {},
+                        _h[field.name] = Array.from(this.belongToMany[field.name].values()),
+                        _h));
                 }
             }
             this.inputBelongToMany.nativeElement.value = '';
         };
         RestResourceAddComponent.prototype.onTagRemoveBelong = function (tagToRemove, field) {
-            var _j;
+            var _g;
             var cellData = Array.from(this.belongToMany[field.name]);
             var save = [];
             cellData.forEach(function (elt) {
@@ -2009,9 +2042,9 @@
                     save.push(elt);
             });
             this.belongToMany[field.name] = new Set(save);
-            this.form.patchValue((_j = {},
-                _j[field.name] = save,
-                _j));
+            this.form.patchValue((_g = {},
+                _g[field.name] = save,
+                _g));
         };
         RestResourceAddComponent.prototype.filterMany = function (value, field, options) {
             if (options === void 0) { options = 'belongToManyOptions'; }
@@ -2040,28 +2073,32 @@
                 Object.keys(formData).forEach(function (key, index) {
                     var _a;
                     var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
-                    // console.log('====================================');
-                    // console.log(this.jsonEditorOptions);
-                    // console.log(formData[key]);
-                    // console.log('====================================');
                     if (search && formData[key] !== undefined) {
                         switch (search.type) {
                             case exports.REST_FIELD_TYPES.DATE:
                                 datas.append(key, "" + moment__namespace(formData[key]).format('YYYY-MM-DD'));
                                 break;
                             case exports.REST_FIELD_TYPES.JSON:
-                                var jsonFields_1 = {};
-                                console.log('====================================');
-                                console.log(_this.jsonEditorOptions);
-                                console.log('====================================');
+                                var jsonFields_3 = {};
                                 if (_this.jsonEditorOptions[key] !== null) {
-                                    if (typeof _this.jsonEditorOptions[key] == 'object') {
+                                    if (typeof _this.jsonEditorOptions[key] === 'object' && Array.isArray(_this.jsonEditorOptions[key])) {
                                         _this.jsonEditorOptions[key].map(function (elt) {
-                                            var _j;
-                                            jsonFields_1 = Object.assign(Object.assign({}, jsonFields_1), (_j = {}, _j[elt.label] = elt.value, _j));
-                                            datas.append(key + "[" + elt.label + "]", elt.value);
+                                            var _g;
+                                            if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                                                jsonFields_3 = Object.assign(Object.assign({}, jsonFields_3), (_g = {}, _g[elt.label] = elt.value, _g));
+                                                datas.append(key + "[" + elt.label + "]", elt.value);
+                                            }
+                                            else {
+                                                console.error("Error: Invalid element in jsonEditorOptions[" + key + "]: " + JSON.stringify(elt));
+                                            }
                                         });
                                     }
+                                    else {
+                                        console.error("Error: Invalid type of jsonEditorOptions[" + key + "]: " + typeof _this.jsonEditorOptions[key]);
+                                    }
+                                }
+                                else {
+                                    console.error("Error: Missing jsonEditorOptions[" + key + "]");
                                 }
                                 break;
                             case exports.REST_FIELD_TYPES.BOOLEAN:
@@ -2125,15 +2162,15 @@
             this.serviceRest.addResources(this.resource.addConfig, datas).subscribe(function (response) {
                 if (saveBelongTomany.length > 0) {
                     saveBelongTomany.forEach(function (element, index) {
-                        var _j;
+                        var _g;
                         var restResource = _this.serviceRestAdminConfig.getSpecificResource(element.pivot);
                         var proms = [];
                         for (var index_1 = 0; index_1 < element.resources.length; index_1++) {
                             var item = element.resources[index_1];
-                            var data = (_j = {},
-                                _j[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
-                                _j[item['saveResourceIdName']] = response.id,
-                                _j);
+                            var data = (_g = {},
+                                _g[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
+                                _g[item['saveResourceIdName']] = response.id,
+                                _g);
                             proms.push(_this.serviceRest
                                 .addResources(restResource.addConfig, data)
                                 .toPromise());
@@ -2184,23 +2221,35 @@
                 Object.keys(formData).forEach(function (key, index) {
                     var _a;
                     var search = _this.resource.fields.find(function (elt) { return elt.name == key; });
-                    if (search && formData[key] !== undefined && formData[key] !== null) {
+                    if (search && formData[key] !== undefined) {
                         switch (search.type) {
                             case exports.REST_FIELD_TYPES.DATE:
                                 datas.append(key, "" + moment__namespace(formData[key]).format('YYYY-MM-DD'));
                                 break;
                             case exports.REST_FIELD_TYPES.JSON:
-                                var jsonFields_2 = {};
+                                var jsonFields_4 = {};
                                 if (_this.jsonEditorOptions[key] !== null) {
-                                    if (typeof _this.jsonEditorOptions[key] == 'object') {
+                                    if (typeof _this.jsonEditorOptions[key] === 'object') {
                                         _this.jsonEditorOptions[key].map(function (elt) {
-                                            var _j;
-                                            jsonFields_2 = Object.assign(Object.assign({}, jsonFields_2), (_j = {}, _j[elt.label] = elt.value, _j));
-                                            datas.append(key + "[" + elt.label + "]", elt.value);
+                                            var _g;
+                                            if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                                                jsonFields_4 = Object.assign(Object.assign({}, jsonFields_4), (_g = {}, _g[elt.label] = elt.value, _g));
+                                                datas.append(key + "[" + elt.label + "]", elt.value);
+                                            }
+                                            else {
+                                                if (elt.label) {
+                                                    datas.append(key + "[" + elt.label + "]", "");
+                                                }
+                                                console.error("Error: Invalid element in jsonEditorOptions[" + key + "]: " + JSON.stringify(elt));
+                                            }
                                         });
                                     }
-                                    // datas.append(key, JSON.stringify(jsonFields));
-                                    // datas.append(key, jsonFields);
+                                    else {
+                                        console.error("Error: Invalid type of jsonEditorOptions[" + key + "]: " + typeof _this.jsonEditorOptions[key]);
+                                    }
+                                }
+                                else {
+                                    console.error("Error: Missing jsonEditorOptions[" + key + "]");
                                 }
                                 break;
                             case exports.REST_FIELD_TYPES.BOOLEAN:
@@ -2266,15 +2315,15 @@
                 .subscribe(function (response) {
                 if (saveBelongTomany.length > 0) {
                     saveBelongTomany.forEach(function (element, index) {
-                        var _j;
+                        var _g;
                         var restResource = _this.serviceRestAdminConfig.getSpecificResource(element.pivot);
                         var proms = [];
                         for (var index_2 = 0; index_2 < element.resources.length; index_2++) {
                             var item = element.resources[index_2];
-                            var data = (_j = {},
-                                _j[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
-                                _j[item['saveResourceIdName']] = response.id,
-                                _j);
+                            var data = (_g = {},
+                                _g[item['saveRelatedIdName']] = item[item['saveRelatedIdName']],
+                                _g[item['saveResourceIdName']] = response.id,
+                                _g);
                             proms.push(_this.serviceRest
                                 .addResources(restResource.addConfig, data)
                                 .toPromise());
@@ -2324,8 +2373,8 @@
                     title: elt.label,
                 };
             });
-            Object.entries(colunms).forEach(function (_j, index) {
-                var _k = __read(_j, 2), key = _k[0], value = _k[1];
+            Object.entries(colunms).forEach(function (_g, index) {
+                var _h = __read(_g, 2), key = _h[0], value = _h[1];
                 sheetHeader[_this.alphabelt[index]] = key;
             });
             var edata = [];
@@ -2613,7 +2662,7 @@
                     }
                 }
                 catch (err) {
-                    console.log("Error occurred in jsonValue: " + err);
+                    // console.log(`Error occurred in jsonValue: ${err}`);
                     _jsonValue = JSON.stringify(val.data);
                 }
                 return _jsonValue;

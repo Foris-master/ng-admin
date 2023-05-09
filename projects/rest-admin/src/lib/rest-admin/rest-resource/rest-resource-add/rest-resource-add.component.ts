@@ -289,26 +289,46 @@ export class RestResourceAddComponent implements OnInit {
                 ...cumul,
                 [elt.name]: datas[elt.name],
               };
-            case REST_FIELD_TYPES.JSON:
-              const jsonFiels = [];
-              elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-                jsonFiels.push({
-                  label: field,
-                  value:
-                    datas[elt.name][0] == '{'
-                      ? JSON.parse(datas[elt.name])[field]
-                      : typeof datas[elt.name] !== 'string'
-                      ? datas[elt.name][field]
-                      : datas[elt.name],
-                });
-              });
-
-              this.jsonEditorOptions[elt.name] = jsonFiels;
-              return {
-                ...cumul,
-                [elt.name]: datas[elt.name],
-              };
-
+              case REST_FIELD_TYPES.JSON:
+  const jsonFields = [];
+  if (elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+    elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+      if (datas[elt.name]) {
+        if (datas[elt.name][0] == '{') {
+          try {
+            jsonFields.push({
+              label: field,
+              value: JSON.parse(datas[elt.name])[field],
+            });
+          } catch (error) {
+            console.error(`Error parsing JSON for ${field} in ${elt.name}: ${error}`);
+          }
+        } else if (typeof datas[elt.name] !== 'string') {
+          try {
+            jsonFields.push({
+              label: field,
+              value: datas[elt.name][field],
+            });
+          } catch (error) {
+            console.error(`Error accessing field ${field} in ${elt.name}: ${error}`);
+          }
+        } else {
+          jsonFields.push({
+            label: field,
+            value: datas[elt.name],
+          });
+        }
+      } else {
+          jsonFields.push({ label: field, value: '' });
+      }
+    });
+  }
+  this.jsonEditorOptions[elt.name] = jsonFields;
+  return {
+    ...cumul,
+    [elt.name]: datas[elt.name],
+  };
+              
             case REST_FIELD_TYPES.MORPH_ONE:
               this.morphFields[elt.name] = {
                 type: datas[elt.name].type,
@@ -425,12 +445,19 @@ export class RestResourceAddComponent implements OnInit {
                 [elt.name]: ['', Validator.url],
               };
             case REST_FIELD_TYPES.JSON:
-              const jsonFiels = [];
-              elt?.metaData?.addConfig?.jsonConfig.jsonFields.map((field) => {
-                jsonFiels.push({ label: field, value: '' });
-              });
-
-              this.jsonEditorOptions[elt.name] = jsonFiels;
+              if (elt && elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+                const jsonFields = [];
+              
+                elt.metaData.addConfig.jsonConfig.jsonFields.forEach((field) => {
+                  jsonFields.push({ label: field, value: '' });
+                });
+              
+                this.jsonEditorOptions[elt.name] = jsonFields;
+              } else {
+                // Si une propriété requise n'est pas présente, renvoyer une erreur
+                throw new Error("Une erreur s'est produite lors du traitement de l'élément.");
+              }
+              
               return {
                 ...cumul,
                 [elt.name]: [null],
@@ -679,10 +706,6 @@ export class RestResourceAddComponent implements OnInit {
         const search: RestField = this.resource.fields.find(
           (elt) => elt.name == key
         );
-        // console.log('====================================');
-        // console.log(this.jsonEditorOptions);
-        // console.log(formData[key]);
-        // console.log('====================================');
 
         if (search && formData[key] !== undefined) {
           switch (search.type) {
@@ -694,18 +717,23 @@ export class RestResourceAddComponent implements OnInit {
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
-              console.log('====================================');
-              console.log(this.jsonEditorOptions);
-              console.log('====================================');
               if (this.jsonEditorOptions[key] !== null) {
-                if (typeof this.jsonEditorOptions[key] == 'object') {
+                if (typeof this.jsonEditorOptions[key] === 'object' && Array.isArray(this.jsonEditorOptions[key])) {
                   this.jsonEditorOptions[key].map((elt) => {
-                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    datas.append(`${key}[${elt.label}]`, elt.value);
+                    if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                      datas.append(`${key}[${elt.label}]`, elt.value);
+                    } else {
+                      console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                    }
                   });
+                } else {
+                  console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
                 }
+              } else {
+                console.error(`Error: Missing jsonEditorOptions[${key}]`);
               }
-              break;
+              break;            
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
                 if (formData[key]) {
@@ -835,7 +863,7 @@ export class RestResourceAddComponent implements OnInit {
           (elt) => elt.name == key
         );
 
-        if (search && formData[key] !== undefined && formData[key] !== null) {
+        if (search && formData[key] !== undefined) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
               datas.append(
@@ -843,19 +871,28 @@ export class RestResourceAddComponent implements OnInit {
                 `${moment(formData[key]).format('YYYY-MM-DD')}`
               );
               break;
-            case REST_FIELD_TYPES.JSON:
-              let jsonFields = {};
-              if (this.jsonEditorOptions[key] !== null) {
-                if (typeof this.jsonEditorOptions[key] == 'object') {
-                  this.jsonEditorOptions[key].map((elt) => {
-                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    datas.append(`${key}[${elt.label}]`, elt.value);
-                  });
+              case REST_FIELD_TYPES.JSON:
+                let jsonFields = {};
+                if (this.jsonEditorOptions[key] !== null) {
+                  if (typeof this.jsonEditorOptions[key] === 'object') {
+                    this.jsonEditorOptions[key].map((elt) => {
+                      if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                        jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                        datas.append(`${key}[${elt.label}]`, elt.value);
+                      } else {
+                        if (elt.label) {
+                        datas.append(`${key}[${elt.label}]`, "");
+                        }
+                        console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                      }
+                    });
+                  } else {
+                    console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
+                  }
+                } else {
+                  console.error(`Error: Missing jsonEditorOptions[${key}]`);
                 }
-                // datas.append(key, JSON.stringify(jsonFields));
-                // datas.append(key, jsonFields);
-              }
-              break;
+                break;   
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
                 if (formData[key]) {

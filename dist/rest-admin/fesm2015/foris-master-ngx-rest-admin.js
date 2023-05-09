@@ -794,7 +794,7 @@ class RestResourceListFieldComponent {
             }
         }
         catch (err) {
-            console.log(`Error occurred in jsonValue: ${err}`);
+            // console.log(`Error occurred in jsonValue: ${err}`);
             this._jsonValue = JSON.stringify(this.val);
         }
         return this._jsonValue;
@@ -1367,18 +1367,45 @@ class RestResourceAddComponent {
                         case REST_FIELD_TYPES.COLOR:
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: datas[elt.name] });
                         case REST_FIELD_TYPES.JSON:
-                            const jsonFiels = [];
-                            elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-                                jsonFiels.push({
-                                    label: field,
-                                    value: datas[elt.name][0] == '{'
-                                        ? JSON.parse(datas[elt.name])[field]
-                                        : typeof datas[elt.name] !== 'string'
-                                            ? datas[elt.name][field]
-                                            : datas[elt.name],
+                            const jsonFields = [];
+                            if (elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+                                elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+                                    if (datas[elt.name]) {
+                                        if (datas[elt.name][0] == '{') {
+                                            try {
+                                                jsonFields.push({
+                                                    label: field,
+                                                    value: JSON.parse(datas[elt.name])[field],
+                                                });
+                                            }
+                                            catch (error) {
+                                                console.error(`Error parsing JSON for ${field} in ${elt.name}: ${error}`);
+                                            }
+                                        }
+                                        else if (typeof datas[elt.name] !== 'string') {
+                                            try {
+                                                jsonFields.push({
+                                                    label: field,
+                                                    value: datas[elt.name][field],
+                                                });
+                                            }
+                                            catch (error) {
+                                                console.error(`Error accessing field ${field} in ${elt.name}: ${error}`);
+                                            }
+                                        }
+                                        else {
+                                            jsonFields.push({
+                                                label: field,
+                                                value: datas[elt.name],
+                                            });
+                                        }
+                                    }
+                                    else {
+                                        jsonFields.push({ label: field, value: '' });
+                                    }
                                 });
-                            });
-                            this.jsonEditorOptions[elt.name] = jsonFiels;
+                            }
+                            this.jsonEditorOptions[elt.name] = jsonFields;
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: datas[elt.name] });
                         case REST_FIELD_TYPES.MORPH_ONE:
                             this.morphFields[elt.name] = {
@@ -1396,7 +1423,7 @@ class RestResourceAddComponent {
         }
         else {
             this.controls = this.resource.fields.reduce((cumul, elt) => {
-                var _a, _b, _c, _d, _e, _f, _g, _h;
+                var _a, _b, _c, _d, _e, _f;
                 var filterKey = ((_c = (_b = (_a = elt.metaData) === null || _a === void 0 ? void 0 : _a.addConfig) === null || _b === void 0 ? void 0 : _b.belongToOptions) === null || _c === void 0 ? void 0 : _c.filterKeys[0])
                     ? (_f = (_e = (_d = elt.metaData) === null || _d === void 0 ? void 0 : _d.addConfig) === null || _e === void 0 ? void 0 : _e.belongToOptions) === null || _f === void 0 ? void 0 : _f.filterKeys[0]
                     : 'name';
@@ -1458,11 +1485,17 @@ class RestResourceAddComponent {
                         case REST_FIELD_TYPES.LINK:
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: ['', Validator.url] });
                         case REST_FIELD_TYPES.JSON:
-                            const jsonFiels = [];
-                            (_h = (_g = elt === null || elt === void 0 ? void 0 : elt.metaData) === null || _g === void 0 ? void 0 : _g.addConfig) === null || _h === void 0 ? void 0 : _h.jsonConfig.jsonFields.map((field) => {
-                                jsonFiels.push({ label: field, value: '' });
-                            });
-                            this.jsonEditorOptions[elt.name] = jsonFiels;
+                            if (elt && elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+                                const jsonFields = [];
+                                elt.metaData.addConfig.jsonConfig.jsonFields.forEach((field) => {
+                                    jsonFields.push({ label: field, value: '' });
+                                });
+                                this.jsonEditorOptions[elt.name] = jsonFields;
+                            }
+                            else {
+                                // Si une propriété requise n'est pas présente, renvoyer une erreur
+                                throw new Error("Une erreur s'est produite lors du traitement de l'élément.");
+                            }
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: [null] });
                         default:
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: [''] });
@@ -1640,10 +1673,6 @@ class RestResourceAddComponent {
             Object.keys(formData).forEach((key, index) => {
                 var _a;
                 const search = this.resource.fields.find((elt) => elt.name == key);
-                // console.log('====================================');
-                // console.log(this.jsonEditorOptions);
-                // console.log(formData[key]);
-                // console.log('====================================');
                 if (search && formData[key] !== undefined) {
                     switch (search.type) {
                         case REST_FIELD_TYPES.DATE:
@@ -1651,16 +1680,24 @@ class RestResourceAddComponent {
                             break;
                         case REST_FIELD_TYPES.JSON:
                             let jsonFields = {};
-                            console.log('====================================');
-                            console.log(this.jsonEditorOptions);
-                            console.log('====================================');
                             if (this.jsonEditorOptions[key] !== null) {
-                                if (typeof this.jsonEditorOptions[key] == 'object') {
+                                if (typeof this.jsonEditorOptions[key] === 'object' && Array.isArray(this.jsonEditorOptions[key])) {
                                     this.jsonEditorOptions[key].map((elt) => {
-                                        jsonFields = Object.assign(Object.assign({}, jsonFields), { [elt.label]: elt.value });
-                                        datas.append(`${key}[${elt.label}]`, elt.value);
+                                        if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                                            jsonFields = Object.assign(Object.assign({}, jsonFields), { [elt.label]: elt.value });
+                                            datas.append(`${key}[${elt.label}]`, elt.value);
+                                        }
+                                        else {
+                                            console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                                        }
                                     });
                                 }
+                                else {
+                                    console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
+                                }
+                            }
+                            else {
+                                console.error(`Error: Missing jsonEditorOptions[${key}]`);
                             }
                             break;
                         case REST_FIELD_TYPES.BOOLEAN:
@@ -1781,7 +1818,7 @@ class RestResourceAddComponent {
             Object.keys(formData).forEach((key, index) => {
                 var _a;
                 const search = this.resource.fields.find((elt) => elt.name == key);
-                if (search && formData[key] !== undefined && formData[key] !== null) {
+                if (search && formData[key] !== undefined) {
                     switch (search.type) {
                         case REST_FIELD_TYPES.DATE:
                             datas.append(key, `${moment(formData[key]).format('YYYY-MM-DD')}`);
@@ -1789,14 +1826,26 @@ class RestResourceAddComponent {
                         case REST_FIELD_TYPES.JSON:
                             let jsonFields = {};
                             if (this.jsonEditorOptions[key] !== null) {
-                                if (typeof this.jsonEditorOptions[key] == 'object') {
+                                if (typeof this.jsonEditorOptions[key] === 'object') {
                                     this.jsonEditorOptions[key].map((elt) => {
-                                        jsonFields = Object.assign(Object.assign({}, jsonFields), { [elt.label]: elt.value });
-                                        datas.append(`${key}[${elt.label}]`, elt.value);
+                                        if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                                            jsonFields = Object.assign(Object.assign({}, jsonFields), { [elt.label]: elt.value });
+                                            datas.append(`${key}[${elt.label}]`, elt.value);
+                                        }
+                                        else {
+                                            if (elt.label) {
+                                                datas.append(`${key}[${elt.label}]`, "");
+                                            }
+                                            console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                                        }
                                     });
                                 }
-                                // datas.append(key, JSON.stringify(jsonFields));
-                                // datas.append(key, jsonFields);
+                                else {
+                                    console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
+                                }
+                            }
+                            else {
+                                console.error(`Error: Missing jsonEditorOptions[${key}]`);
                             }
                             break;
                         case REST_FIELD_TYPES.BOOLEAN:
@@ -2187,7 +2236,7 @@ class RestResourceDetailComponent {
                 }
             }
             catch (err) {
-                console.log(`Error occurred in jsonValue: ${err}`);
+                // console.log(`Error occurred in jsonValue: ${err}`);
                 _jsonValue = JSON.stringify(val.data);
             }
             return _jsonValue;
