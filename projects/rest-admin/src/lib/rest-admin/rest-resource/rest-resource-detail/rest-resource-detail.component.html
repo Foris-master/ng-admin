@@ -55,9 +55,7 @@
                     (removed)="onRemove(filesUpload[item.key])"
                   >
                     <ngx-dropzone-label
-                      >{{ item?.value?.data }} ({{
-                        'pdf'
-                      }})</ngx-dropzone-label
+                      >{{ item?.value?.data }} ({{ "pdf" }})</ngx-dropzone-label
                     >
                   </ngx-dropzone-preview>
                 </ngx-dropzone>
@@ -397,6 +395,34 @@
             </ng-container>
           </table>
         </ng-container>
+
+        <ng-container
+          *ngIf="item.value.restField.type == REST_FIELD_TYPES.LINK"
+        >
+          <ng-container *ngIf="!item.value.restField.template">
+            <div class="">
+              <b>{{ item.key | titlecase }}: </b>
+            </div>
+            <div class="">
+              <iframe
+                src="{{ item.value.data }}"
+                height="300px"
+                width="100%"
+              ></iframe>
+              <a [href]="item.value.data" target="_blank"
+                >{{ item.value.data }}
+              </a>
+            </div>
+          </ng-container>
+
+          <div *ngIf="item.value.restField.template">
+            <cng-html-compiler
+              [template]="item.value.restField.template"
+              [componentClass]="item.value.data"
+            >
+            </cng-html-compiler>
+          </div>
+        </ng-container>
       </nb-list-item>
     </nb-list>
     <ng-template #tabsContent>
@@ -422,6 +448,34 @@
                   </div>
                   <div class="">
                     {{ item.value.data }}
+                  </div>
+                </ng-container>
+
+                <div *ngIf="item.value.restField.template">
+                  <cng-html-compiler
+                    [template]="item.value.restField.template"
+                    [componentClass]="item.value.data"
+                  >
+                  </cng-html-compiler>
+                </div>
+              </ng-container>
+
+              <ng-container
+                *ngIf="item.value.restField.type == REST_FIELD_TYPES.LINK"
+              >
+                <ng-container *ngIf="!item.value.restField.template">
+                  <div class="">
+                    <b>{{ item.key | titlecase }}: </b>
+                  </div>
+                  <div class="">
+                    <iframe
+                      src="{{ item.value.data }}"
+                      height="300px"
+                      width="100%"
+                    ></iframe>
+                    <a [href]="item.value.data" target="_blank"
+                      >{{ item.value.data }}
+                    </a>
                   </div>
                 </ng-container>
 

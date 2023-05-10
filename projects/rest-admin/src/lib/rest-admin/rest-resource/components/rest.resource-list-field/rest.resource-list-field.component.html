@@ -165,3 +165,14 @@
     </ng-container>
   </table>
 </div>
+
+<div *ngIf="restField.type == REST_FIELD_TYPES.LINK">
+  <ng-container *ngIf="!restField.template">
+    <a [href]="val" target="_blank" rel="noopener noreferrer">{{ val }}</a>
+  </ng-container>
+
+  <ng-container *ngIf="restField.template">
+    <cng-html-compiler [template]="restField.template" [componentClass]="val">
+    </cng-html-compiler>
+  </ng-container>
+</div>

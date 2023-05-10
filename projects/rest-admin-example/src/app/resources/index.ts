@@ -10,6 +10,7 @@ import { _package } from './package';
 import { expeditionRequest } from './expeditionRequest';
 import { consolidator } from './consolidator';
 import { agency } from './agency';
+import { enterprise } from './enterprise';
 
 export const resources = [
   address,
@@ -18,7 +19,7 @@ export const resources = [
   user,
   country,
   town,
-  // enterprise,
+  enterprise,
   currency,
   expeditionRequest,
   packageContent,
