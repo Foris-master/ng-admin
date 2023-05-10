@@ -25,7 +25,7 @@
   </nb-card-header>
 
   <nb-card-body>
-    <nb-tabset>
+    <nb-tabset fullWidth>
       <nb-tab tabTitle="Ajout simple">
         <form [formGroup]="form" class="row" *ngIf="formState.onReady">
           <div
@@ -704,6 +704,12 @@
                 ></ngx-gmaps>
               </div>
             </ng-container>
+
+            <div class="">
+              <ng-container *ngIf="field.note != ''">
+                <span class="text-muted ml-20 mt-3">{{ field.note }}</span>
+              </ng-container>
+            </div>
           </div>
         </form>
       </nb-tab>
@@ -738,6 +744,8 @@
         status="primary"
         [disabled]="loading"
       >
+        >
+        <!-- [disabled]="loading" -->
         <span
           *ngIf="loading"
           class="spinner-border spinner-border-sm mr-2"

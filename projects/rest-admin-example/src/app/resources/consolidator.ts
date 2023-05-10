@@ -1,4 +1,5 @@
 import { RestResource, REST_FIELD_TYPES, TYPE_GROUP } from 'rest-admin';
+import { user } from './user';
 
 export const consolidator = new RestResource(
   {
@@ -100,6 +101,19 @@ export const consolidator = new RestResource(
     },
     queryParams: {
       _includes: 'user',
+    },
+    searchFilter: {
+      filterBy: [{
+        name: "status",
+        value: 'status',
+      },{
+        name: "user",
+        value: 'id',
+        resourceFieldName: 'full_name',
+        resource: user,
+        ressourceFilterName: 'user_id',
+        type: REST_FIELD_TYPES.BELONG_TO_MANY
+      }],
     },
   },
   {},

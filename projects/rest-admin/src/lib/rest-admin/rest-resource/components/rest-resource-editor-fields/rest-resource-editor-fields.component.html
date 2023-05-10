@@ -14,6 +14,21 @@
     fullWidth
   />
 
+  <!-- Input type link -->
+  <input
+    type="text"
+    *ngIf="field.type == REST_FIELD_TYPES.LINK"
+    [(ngModel)]="cell.newValue"
+    [name]="cell.getId()"
+    [placeholder]="cell.getTitle()"
+    [disabled]="!cell.isEditable()"
+    (click)="onClick.emit($event)"
+    (keydown.enter)="onEdited.emit($event)"
+    (keydown.esc)="onStopEditing.emit()"
+    class="form-control ng-valid ng-touched ng-dirty"
+    fullWidth
+  />
+
   <!-- Input type text -->
   <textarea
     [(ngModel)]="cell.newValue"
@@ -56,14 +71,13 @@
     class="form-control ng-valid ng-touched ng-dirty"
     *ngIf="field.type == REST_FIELD_TYPES.COLOR"
   />
-    <!-- fullWidth -->
+  <!-- fullWidth -->
   <div
     *ngIf="field.type == REST_FIELD_TYPES.COLOR"
     class="text-center"
     style="width: 80px; height: 30px"
     [style.background-color]="cell.newValue"
-  >
-  </div>
+  ></div>
 
   <!-- Input type date -->
   <input
@@ -165,9 +179,7 @@
     <!-- [(ngModel)]="cell.newValue"
     class="file-image"
     [name]="field.label" -->
-    <file-upload
-      [control]="control"
-    >
+    <file-upload [control]="control">
       <ng-template
         let-isFileDragDropAvailable="isFileDragDropAvailable"
         #placeholder

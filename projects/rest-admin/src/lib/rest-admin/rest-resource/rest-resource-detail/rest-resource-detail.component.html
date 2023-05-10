@@ -3,445 +3,45 @@
     {{ resource.detailConfig?.title | titlecase }}
   </nb-card-header>
   <nb-card-body>
-    <nb-list *ngIf="!isTabsMenu; else tabsContent">
-      <nb-list-item
-        *ngFor="let item of datas | keyvalue"
-        class="rest-item-align"
-      >
-        <!-- style="display: block" -->
-        <ng-container
-          *ngIf="
-            item.value.restField.type == REST_FIELD_TYPES.TEXT ||
-            item.value.restField.type == REST_FIELD_TYPES.STRING ||
-            item.value.restField.type == REST_FIELD_TYPES.NUMBER ||
-            item.value.restField.type == REST_FIELD_TYPES.ENUM
-          "
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-            <div class="">
-              {{ item.value.data }}
-            </div>
-          </ng-container>
-
-          <div *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </div>
-        </ng-container>
-
-        <ng-container *ngIf="item.value.restField.type == REST_FIELD_TYPES.PDF">
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-
-            <ng-container *ngIf="!item.value.restField.template">
-              <div class="">
-                <b>{{ item.key | titlecase }}: </b>
-              </div>
-              <div class="">
-                {{ item.value.data }}
-              </div>
-              <div class="">
-                <ngx-dropzone (change)="onSelect($event)">
-                  <ngx-dropzone-preview
-                    [removable]="true"
-                    (removed)="onRemove(filesUpload[item.key])"
-                  >
-                    <ngx-dropzone-label
-                      >{{ item?.value?.data }} ({{ "pdf" }})</ngx-dropzone-label
-                    >
-                  </ngx-dropzone-preview>
-                </ngx-dropzone>
-              </div>
-            </ng-container>
-          </ng-container>
-          <ng-container *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="jsonValue(item.value)"
-            >
-            </cng-html-compiler>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-            <div class="">
-              {{ item.value.data }}
-            </div>
-            <div
-              class="text-center color-card"
-              [style.background-color]="item.value.data"
-            >
-              <ng-container>{{ item.value.data }}</ng-container>
-            </div>
-          </ng-container>
-
-          <div *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </div>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-            <div class="">
-              {{ jsonValue(item.value) }}
-            </div>
-          </ng-container>
-          <ng-container *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="jsonValue(item.value)"
-            >
-            </cng-html-compiler>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.BOOLEAN"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-
-            <div class="">
-              <nb-checkbox
-                [checked]="item.value.data"
-                [disabled]="true"
-              ></nb-checkbox>
-            </div>
-          </ng-container>
-
-          <ng-container *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.IMAGE"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-            <div class="">
-              <img
-                class="rest-img"
-                [src]="item.value.data"
-                alt=""
-                [style]="style"
-              />
-            </div>
-          </ng-container>
-          <ng-container *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.DATE"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-            <div class="">
-              {{ item.value.data | date }}
-            </div>
-          </ng-container>
-          <ng-container *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.BELONG_TO"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.value.restField.label | titlecase }}: </b>
-            </div>
-            <div class="">
-              <a
-                (click)="loadBelongToDetail(item.value)"
-                nbTooltip="{{ 'rest-detail.belongToRef' | translate }}"
-                nbTooltipPlacement="top"
-                class="belongTo-link"
-              >
-                {{ item.value.data }}
-              </a>
-            </div>
-          </ng-container>
-          <ng-container *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.HAS_MANY"
-        >
-          <!-- CAS 1 -->
-          <ng-container
-            *ngIf="
-              item.value.restField?.metaData?.listConfig?.restManyResources &&
-              !item.value.restField?.metaData?.detailConfig?.restManyResources
-            "
-          >
-            <table [nbTreeGrid]="listDataSource[item.key]">
-              <tr
-                nbTreeGridRow
-                *nbTreeGridRowDef="let row; columns: allColumns"
-              ></tr>
-
-              <ng-container [nbTreeGridColumnDef]="customColumn">
-                <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                  <ngx-fs-icon
-                    [expanded]="row.expanded"
-                    [place]="row.data.place"
-                  ></ngx-fs-icon>
-                  <ng-container
-                    *ngIf="
-                      !item.value.restField?.metaData?.listConfig
-                        ?.restManyResources.template
-                    "
-                  >
-                    <b> {{ row.data[customColumn] }}</b>
-                  </ng-container>
-
-                  <ng-container
-                    *ngIf="
-                      item.value.restField?.metaData?.listConfig
-                        ?.restManyResources.template
-                    "
-                  >
-                    <span *ngIf="row.data.place">
-                      {{ item.value.restField.name }}</span
-                    >
-                    <ng-container *ngIf="!row.data.place">
-                      <cng-html-compiler
-                        [template]="
-                          item.value.restField.metaData.listConfig
-                            .restManyResources.template
-                        "
-                        [componentClass]="row.data.item"
-                      >
-                      </cng-html-compiler>
-                    </ng-container>
-                  </ng-container>
-                </td>
-              </ng-container>
-            </table>
-          </ng-container>
-
-          <!-- CAS 2 -->
-          <ng-container
-            *ngIf="
-              item.value.restField?.metaData?.detailConfig?.restManyResources
-            "
-          >
-            <div
+    <nb-list *ngIf="!isTabsMenu; else tabsContent" class="list-group">
+      <nb-list-item *ngFor="let item of datas | keyvalue">
+        <!-- class="rest-item-align list-group-item" -->
+        <div class="d-block" style="margin-left: 15px">
+          <div class="row">
+            <ng-container
               *ngIf="
-                isObject(
-                  item.value.restField.metaData.detailConfig.restManyResources
-                );
-                else cas21
+                item.value.restField.type == REST_FIELD_TYPES.TEXT ||
+                item.value.restField.type == REST_FIELD_TYPES.STRING ||
+                item.value.restField.type == REST_FIELD_TYPES.NUMBER ||
+                item.value.restField.type == REST_FIELD_TYPES.ENUM
               "
             >
-              <table [nbTreeGrid]="listDataSource[item.key]">
-                <tr
-                  nbTreeGridRow
-                  *nbTreeGridRowDef="let row; columns: allColumns"
-                ></tr>
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+                <div class="">
+                  {{ item.value.data }}
+                </div>
+              </ng-container>
 
-                <ng-container [nbTreeGridColumnDef]="customColumn">
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    <ngx-fs-icon
-                      [expanded]="row.expanded"
-                      [place]="row.data.place"
-                    ></ngx-fs-icon>
-                    <ng-container
-                      *ngIf="
-                        !item.value.restField.metaData.detailConfig
-                          .restManyResources?.template
-                      "
-                    >
-                      <b> {{ row.data[customColumn] }}</b>
-                    </ng-container>
-
-                    <ng-container
-                      *ngIf="
-                        item.value.restField.metaData.detailConfig
-                          .restManyResources?.template
-                      "
-                    >
-                      <span *ngIf="row.data.place">
-                        {{ item.value.restField.name }}</span
-                      >
-                      <ng-container *ngIf="!row.data.place">
-                        <cng-html-compiler
-                          [template]="
-                            item.value.restField.metaData.detailConfig
-                              .restManyResources.template
-                          "
-                          [componentClass]="row.data.item"
-                        >
-                        </cng-html-compiler>
-                      </ng-container>
-                    </ng-container>
-                  </td>
-                </ng-container>
-              </table>
-            </div>
-            <ng-template #cas21>
-              <div
-                class="row"
-                *ngFor="let res of listDataSource[item.value.restField.name]"
-              >
-                <ngx-rest-resource-detail
-                  [resource]="res.resource"
-                  [ID]="res.id"
-                  [ressourceName]="res.resourceName"
-                  [container]="true"
-                  [style]="res.style"
-                ></ngx-rest-resource-detail>
+              <div *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
+                >
+                </cng-html-compiler>
               </div>
-            </ng-template>
-          </ng-container>
-        </ng-container>
-
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY"
-        >
-          <table [nbTreeGrid]="listDataSource[item.key]">
-            <tr
-              nbTreeGridRow
-              *nbTreeGridRowDef="let row; columns: allColumns"
-            ></tr>
-
-            <ng-container [nbTreeGridColumnDef]="customColumn">
-              <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                <ngx-fs-icon
-                  [expanded]="row.expanded"
-                  [place]="row.data.place"
-                ></ngx-fs-icon>
-                <ng-container
-                  *ngIf="
-                    !item.value.restField.metaData.listConfig
-                      .restBelongToManyResources.template
-                  "
-                >
-                  <b> {{ row.data[customColumn] }}</b>
-                </ng-container>
-
-                <ng-container
-                  *ngIf="
-                    item.value.restField.metaData.listConfig
-                      .restBelongToManyResources.template
-                  "
-                >
-                  <span *ngIf="row.data.place">{{
-                    item.value.restField.name
-                  }}</span>
-                  <ng-container *ngIf="!row.data.place">
-                    <cng-html-compiler
-                      [template]="
-                        item.value.restField.metaData.listConfig
-                          .restBelongToManyResources.template
-                      "
-                      [componentClass]="row.data.item"
-                    >
-                    </cng-html-compiler>
-                  </ng-container>
-                </ng-container>
-              </td>
             </ng-container>
-          </table>
-        </ng-container>
 
-        <ng-container
-          *ngIf="item.value.restField.type == REST_FIELD_TYPES.LINK"
-        >
-          <ng-container *ngIf="!item.value.restField.template">
-            <div class="">
-              <b>{{ item.key | titlecase }}: </b>
-            </div>
-            <div class="">
-              <iframe
-                src="{{ item.value.data }}"
-                height="300px"
-                width="100%"
-              ></iframe>
-              <a [href]="item.value.data" target="_blank"
-                >{{ item.value.data }}
-              </a>
-            </div>
-          </ng-container>
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.PDF"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
 
-          <div *ngIf="item.value.restField.template">
-            <cng-html-compiler
-              [template]="item.value.restField.template"
-              [componentClass]="item.value.data"
-            >
-            </cng-html-compiler>
-          </div>
-        </ng-container>
-      </nb-list-item>
-    </nb-list>
-    <ng-template #tabsContent>
-      <nb-tabset>
-        <nb-tab [tabTitle]="tabs" *ngFor="let tabs of tabsName">
-          <nb-list>
-            <nb-list-item
-              *ngFor="let item of datas1[tabs] | keyvalue"
-              class="rest-item-align"
-            >
-              <!-- style="display: flex, " -->
-              <ng-container
-                *ngIf="
-                  item.value.restField.type == REST_FIELD_TYPES.TEXT ||
-                  item.value.restField.type == REST_FIELD_TYPES.STRING ||
-                  item.value.restField.type == REST_FIELD_TYPES.NUMBER ||
-                  item.value.restField.type == REST_FIELD_TYPES.ENUM
-                "
-              >
                 <ng-container *ngIf="!item.value.restField.template">
                   <div class="">
                     <b>{{ item.key | titlecase }}: </b>
@@ -449,308 +49,185 @@
                   <div class="">
                     {{ item.value.data }}
                   </div>
+                  <div class="">
+                    <ngx-dropzone (change)="onSelect($event)">
+                      <ngx-dropzone-preview
+                        [removable]="true"
+                        (removed)="onRemove(filesUpload[item.key])"
+                      >
+                        <ngx-dropzone-label
+                          >{{ item?.value?.data }} ({{
+                            "pdf"
+                          }})</ngx-dropzone-label
+                        >
+                      </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                  </div>
                 </ng-container>
+              </ng-container>
+              <ng-container *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="jsonValue(item.value)"
+                >
+                </cng-html-compiler>
+              </ng-container>
+            </ng-container>
 
-                <div *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+                <div class="">
+                  {{ item.value.data }}
+                </div>
+                <div
+                  class="text-center color-card"
+                  [style.background-color]="item.value.data"
+                >
+                  <ng-container>{{ item.value.data }}</ng-container>
                 </div>
               </ng-container>
 
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.LINK"
-              >
-                <ng-container *ngIf="!item.value.restField.template">
-                  <div class="">
-                    <b>{{ item.key | titlecase }}: </b>
-                  </div>
-                  <div class="">
-                    <iframe
-                      src="{{ item.value.data }}"
-                      height="300px"
-                      width="100%"
-                    ></iframe>
-                    <a [href]="item.value.data" target="_blank"
-                      >{{ item.value.data }}
-                    </a>
-                  </div>
-                </ng-container>
+              <div *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
+                >
+                </cng-html-compiler>
+              </div>
+            </ng-container>
 
-                <div *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+                <div class="">
+                  {{ jsonValue(item.value) }}
+                </div>
+              </ng-container>
+              <ng-container *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="jsonValue(item.value)"
+                >
+                </cng-html-compiler>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.BOOLEAN"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+
+                <div class="">
+                  <nb-checkbox
+                    [checked]="item.value.data"
+                    [disabled]="true"
+                  ></nb-checkbox>
                 </div>
               </ng-container>
 
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
-              >
-                <ng-container *ngIf="!item.value.restField.template">
-                  <div class="">
-                    <b>{{ item.key | titlecase }}: </b>
-                  </div>
-                  <div class="">
-                    {{ item.value.data }}
-                  </div>
-                  <input
-                    style="height: 45px; width: 80px; margin-left: 5px"
-                    disabled="true"
-                    [placeholder]="item.value.data"
-                    [value]="item.value.data"
-                    type="color"
+              <ng-container *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
+                >
+                </cng-html-compiler>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.IMAGE"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+                <div class="">
+                  <img
+                    class="rest-img"
+                    [src]="item.value.data"
+                    alt=""
+                    [style]="style"
                   />
-                </ng-container>
-
-                <div *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
                 </div>
               </ng-container>
-
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.BOOLEAN"
-              >
-                <ng-container *ngIf="!item.value.restField.template">
-                  <div class="">
-                    <b>{{ item.key | titlecase }}: </b>
-                  </div>
-
-                  <div class="">
-                    <nb-checkbox
-                      [checked]="item.value.data"
-                      [disabled]="true"
-                    ></nb-checkbox>
-                  </div>
-                </ng-container>
-
-                <ng-container *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
-                </ng-container>
-              </ng-container>
-
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.IMAGE"
-              >
-                <ng-container *ngIf="!item.value.restField.template">
-                  <div class="">
-                    <b>{{ item.key | titlecase }}: </b>
-                  </div>
-                  <div class="">
-                    <img
-                      class="rest-img"
-                      [src]="item.value.data"
-                      alt=""
-                      [style]="style"
-                    />
-                  </div>
-                </ng-container>
-                <ng-container *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
-                </ng-container>
-              </ng-container>
-
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.DATE"
-              >
-                <ng-container *ngIf="!item.value.restField.template">
-                  <div class="">
-                    <b>{{ item.key | titlecase }}: </b>
-                  </div>
-                  <div class="">
-                    {{ item.value.data | date }}
-                  </div>
-                </ng-container>
-                <ng-container *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
-                </ng-container>
-              </ng-container>
-
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.BELONG_TO"
-              >
-                <ng-container *ngIf="!item.value.restField.template">
-                  <div class="">
-                    <b>{{ item.value.restField.label | titlecase }}: </b>
-                  </div>
-                  <div class="">
-                    <a
-                      (click)="loadBelongToDetail(item.value)"
-                      nbTooltip="{{ 'rest-detail.belongToRef' | translate }}"
-                      nbTooltipPlacement="top"
-                      class="belongTo-link"
-                    >
-                      {{ item.value.data }}
-                    </a>
-                  </div>
-                </ng-container>
-                <ng-container *ngIf="item.value.restField.template">
-                  <cng-html-compiler
-                    [template]="item.value.restField.template"
-                    [componentClass]="item.value.data"
-                  >
-                  </cng-html-compiler>
-                </ng-container>
-              </ng-container>
-
-              <ng-container
-                *ngIf="item.value.restField.type == REST_FIELD_TYPES.HAS_MANY"
-              >
-                <ng-container
-                  *ngIf="
-                    item.value.restField?.metaData?.listConfig
-                      ?.restManyResources &&
-                    !item.value.restField?.metaData?.detailConfig
-                      ?.restManyResources
-                  "
+              <ng-container *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
                 >
-                  <table [nbTreeGrid]="listDataSource[item.key]">
-                    <tr
-                      nbTreeGridRow
-                      *nbTreeGridRowDef="let row; columns: allColumns"
-                    ></tr>
-
-                    <ng-container [nbTreeGridColumnDef]="customColumn">
-                      <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                        <ngx-fs-icon
-                          [expanded]="row.expanded"
-                          [place]="row.data.place"
-                        ></ngx-fs-icon>
-                        <ng-container
-                          *ngIf="
-                            !item.value.restField?.metaData?.listConfig
-                              ?.restManyResources.template
-                          "
-                        >
-                          <b> {{ row.data[customColumn] }}</b>
-                        </ng-container>
-
-                        <ng-container
-                          *ngIf="
-                            item.value.restField?.metaData?.listConfig
-                              ?.restManyResources.template
-                          "
-                        >
-                          <span *ngIf="row.data.place">
-                            {{ item.value.restField.name }}</span
-                          >
-                          <ng-container *ngIf="!row.data.place">
-                            <cng-html-compiler
-                              [template]="
-                                item.value.restField.metaData.listConfig
-                                  .restManyResources.template
-                              "
-                              [componentClass]="row.data.item"
-                            >
-                            </cng-html-compiler>
-                          </ng-container>
-                        </ng-container>
-                      </td>
-                    </ng-container>
-                  </table>
-                </ng-container>
-                <ng-container
-                  *ngIf="
-                    item.value.restField?.metaData?.detailConfig
-                      ?.restManyResources
-                  "
-                >
-                  <ng-container
-                    *ngIf="
-                      isObject(
-                        item.value.restField?.metaData?.detailConfig
-                          ?.restManyResources
-                      );
-                      else displayRes
-                    "
-                  >
-                    <table [nbTreeGrid]="listDataSource[item.key]">
-                      <tr
-                        nbTreeGridRow
-                        *nbTreeGridRowDef="let row; columns: allColumns"
-                      ></tr>
-
-                      <ng-container [nbTreeGridColumnDef]="customColumn">
-                        <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                          <ngx-fs-icon
-                            [expanded]="row.expanded"
-                            [place]="row.data.place"
-                          ></ngx-fs-icon>
-                          <ng-container
-                            *ngIf="
-                              !item.value.restField?.metaData?.detailConfig
-                                ?.restManyResources.template
-                            "
-                          >
-                            <b> {{ row.data[customColumn] }}</b>
-                          </ng-container>
-
-                          <ng-container
-                            *ngIf="
-                              item.value.restField?.metaData?.detailConfig
-                                ?.restManyResources.template
-                            "
-                          >
-                            <span *ngIf="row.data.place">
-                              {{ item.value.restField.name }}</span
-                            >
-                            <ng-container *ngIf="!row.data.place">
-                              <cng-html-compiler
-                                [template]="
-                                  item.value.restField.metaData.detailConfig
-                                    .restManyResources.template
-                                "
-                                [componentClass]="row.data.item"
-                              >
-                              </cng-html-compiler>
-                            </ng-container>
-                          </ng-container>
-                        </td>
-                      </ng-container>
-                    </table>
-                  </ng-container>
-                  <ng-template #displayRes>
-                    <div
-                      class="row"
-                      *ngFor="
-                        let res of listDataSource[item.value.restField.name]
-                      "
-                    >
-                      <ngx-rest-resource-detail
-                        [resource]="res.resource"
-                        [ID]="res.id"
-                        [ressourceName]="res.resourceName"
-                        [container]="true"
-                        [style]="res.style"
-                      ></ngx-rest-resource-detail>
-                    </div>
-                  </ng-template>
-                </ng-container>
+                </cng-html-compiler>
               </ng-container>
+            </ng-container>
 
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.DATE"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+                <div class="">
+                  {{ item.value.data | date }}
+                </div>
+              </ng-container>
+              <ng-container *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
+                >
+                </cng-html-compiler>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.BELONG_TO"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.value.restField.label | titlecase }}: </b>
+                </div>
+                <div class="">
+                  <a
+                    (click)="loadBelongToDetail(item.value)"
+                    nbTooltip="{{ 'rest-detail.belongToRef' | translate }}"
+                    nbTooltipPlacement="top"
+                    class="belongTo-link"
+                  >
+                    {{ item.value.data }}
+                  </a>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
+                >
+                </cng-html-compiler>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.HAS_MANY"
+            >
+              <!-- CAS 1 -->
               <ng-container
                 *ngIf="
-                  item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY
+                  item.value.restField?.metaData?.listConfig
+                    ?.restManyResources &&
+                  !item.value.restField?.metaData?.detailConfig
+                    ?.restManyResources
                 "
               >
                 <table [nbTreeGrid]="listDataSource[item.key]">
@@ -767,8 +244,8 @@
                       ></ngx-fs-icon>
                       <ng-container
                         *ngIf="
-                          !item.value.restField.metaData.listConfig
-                            .restBelongToManyResources.template
+                          !item.value.restField?.metaData?.listConfig
+                            ?.restManyResources.template
                         "
                       >
                         <b> {{ row.data[customColumn] }}</b>
@@ -776,18 +253,18 @@
 
                       <ng-container
                         *ngIf="
-                          item.value.restField.metaData.listConfig
-                            .restBelongToManyResources.template
+                          item.value.restField?.metaData?.listConfig
+                            ?.restManyResources.template
                         "
                       >
-                        <span *ngIf="row.data.place">{{
-                          item.value.restField.name
-                        }}</span>
+                        <span *ngIf="row.data.place">
+                          {{ item.value.restField.name }}</span
+                        >
                         <ng-container *ngIf="!row.data.place">
                           <cng-html-compiler
                             [template]="
                               item.value.restField.metaData.listConfig
-                                .restBelongToManyResources.template
+                                .restManyResources.template
                             "
                             [componentClass]="row.data.item"
                           >
@@ -798,6 +275,603 @@
                   </ng-container>
                 </table>
               </ng-container>
+
+              <!-- CAS 2 -->
+              <ng-container
+                *ngIf="
+                  item.value.restField?.metaData?.detailConfig
+                    ?.restManyResources
+                "
+              >
+                <div
+                  *ngIf="
+                    isObject(
+                      item.value.restField.metaData.detailConfig
+                        .restManyResources
+                    );
+                    else cas21
+                  "
+                >
+                  <table [nbTreeGrid]="listDataSource[item.key]">
+                    <tr
+                      nbTreeGridRow
+                      *nbTreeGridRowDef="let row; columns: allColumns"
+                    ></tr>
+
+                    <ng-container [nbTreeGridColumnDef]="customColumn">
+                      <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                        <ngx-fs-icon
+                          [expanded]="row.expanded"
+                          [place]="row.data.place"
+                        ></ngx-fs-icon>
+                        <ng-container
+                          *ngIf="
+                            !item.value.restField.metaData.detailConfig
+                              .restManyResources?.template
+                          "
+                        >
+                          <b> {{ row.data[customColumn] }}</b>
+                        </ng-container>
+
+                        <ng-container
+                          *ngIf="
+                            item.value.restField.metaData.detailConfig
+                              .restManyResources?.template
+                          "
+                        >
+                          <span *ngIf="row.data.place">
+                            {{ item.value.restField.name }}</span
+                          >
+                          <ng-container *ngIf="!row.data.place">
+                            <cng-html-compiler
+                              [template]="
+                                item.value.restField.metaData.detailConfig
+                                  .restManyResources.template
+                              "
+                              [componentClass]="row.data.item"
+                            >
+                            </cng-html-compiler>
+                          </ng-container>
+                        </ng-container>
+                      </td>
+                    </ng-container>
+                  </table>
+                </div>
+                <ng-template #cas21>
+                  <div
+                    class="row"
+                    *ngFor="
+                      let res of listDataSource[item.value.restField.name]
+                    "
+                  >
+                    <ngx-rest-resource-detail
+                      [resource]="res.resource"
+                      [ID]="res.id"
+                      [ressourceName]="res.resourceName"
+                      [container]="true"
+                      [style]="res.style"
+                    ></ngx-rest-resource-detail>
+                  </div>
+                </ng-template>
+              </ng-container>
+            </ng-container>
+
+            <ng-container
+              *ngIf="
+                item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY
+              "
+            >
+              <table [nbTreeGrid]="listDataSource[item.key]">
+                <tr
+                  nbTreeGridRow
+                  *nbTreeGridRowDef="let row; columns: allColumns"
+                ></tr>
+
+                <ng-container [nbTreeGridColumnDef]="customColumn">
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    <ngx-fs-icon
+                      [expanded]="row.expanded"
+                      [place]="row.data.place"
+                    ></ngx-fs-icon>
+                    <ng-container
+                      *ngIf="
+                        !item.value.restField.metaData.listConfig
+                          .restBelongToManyResources.template
+                      "
+                    >
+                      <b> {{ row.data[customColumn] }}</b>
+                    </ng-container>
+
+                    <ng-container
+                      *ngIf="
+                        item.value.restField.metaData.listConfig
+                          .restBelongToManyResources.template
+                      "
+                    >
+                      <span *ngIf="row.data.place">{{
+                        item.value.restField.name
+                      }}</span>
+                      <ng-container *ngIf="!row.data.place">
+                        <cng-html-compiler
+                          [template]="
+                            item.value.restField.metaData.listConfig
+                              .restBelongToManyResources.template
+                          "
+                          [componentClass]="row.data.item"
+                        >
+                        </cng-html-compiler>
+                      </ng-container>
+                    </ng-container>
+                  </td>
+                </ng-container>
+              </table>
+            </ng-container>
+
+            <ng-container
+              *ngIf="item.value.restField.type == REST_FIELD_TYPES.LINK"
+            >
+              <ng-container *ngIf="!item.value.restField.template">
+                <div class="marg">
+                  <b>{{ item.key | titlecase }}: </b>
+                </div>
+                <div class="">
+                  <a [href]="item.value.data" target="_blank"
+                    >{{ item.value.data }}
+                  </a>
+
+                  <iframe
+                    [src]="sanitizerUrl(item.value.data)"
+                    *ngIf="
+                      item.value.restField?.metaData?.detailConfig?.linkConfig
+                        ? !item.value.restField?.metaData?.detailConfig
+                            ?.linkConfig.disabledIframePreview
+                        : true
+                    "
+                    height="400px"
+                    width="100%"
+                    class="mt-2"
+                  ></iframe>
+                </div>
+              </ng-container>
+
+              <div *ngIf="item.value.restField.template">
+                <cng-html-compiler
+                  [template]="item.value.restField.template"
+                  [componentClass]="item.value.data"
+                >
+                </cng-html-compiler>
+              </div>
+            </ng-container>
+          </div>
+          <div class="">
+            <ng-container *ngIf="item.value.restField.note != ''">
+              <span class="text-muted ml-20 mt-3">{{
+                item.value.restField.note
+              }}</span>
+            </ng-container>
+          </div>
+        </div>
+      </nb-list-item>
+    </nb-list>
+    <ng-template #tabsContent>
+      <nb-tabset fullWidth>
+        <nb-tab [tabTitle]="tabs" *ngFor="let tabs of tabsName">
+          <nb-list class="list-group">
+            <nb-list-item *ngFor="let item of datas1[tabs] | keyvalue">
+              <!-- class="rest-item-align list-group-item" -->
+              <div class="d-block" style="margin-left: 15px">
+                <div class="row">
+                  <ng-container
+                    *ngIf="
+                      item.value.restField.type == REST_FIELD_TYPES.TEXT ||
+                      item.value.restField.type == REST_FIELD_TYPES.STRING ||
+                      item.value.restField.type == REST_FIELD_TYPES.NUMBER ||
+                      item.value.restField.type == REST_FIELD_TYPES.ENUM
+                    "
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        {{ item.value.data }}
+                      </div>
+                    </ng-container>
+
+                    <div *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </div>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="item.value.restField.type == REST_FIELD_TYPES.COLOR"
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        {{ item.value.data }}
+                      </div>
+                      <input
+                        style="height: 45px; width: 80px; margin-left: 5px"
+                        disabled="true"
+                        [placeholder]="item.value.data"
+                        [value]="item.value.data"
+                        type="color"
+                      />
+                    </ng-container>
+
+                    <div *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </div>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="
+                      item.value.restField.type == REST_FIELD_TYPES.BOOLEAN
+                    "
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+
+                      <div class="">
+                        <nb-checkbox
+                          [checked]="item.value.data"
+                          [disabled]="true"
+                        ></nb-checkbox>
+                      </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="item.value.restField.type == REST_FIELD_TYPES.IMAGE"
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        <img
+                          class="rest-img"
+                          [src]="item.value.data"
+                          alt=""
+                          [style]="style"
+                        />
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="item.value.restField.type == REST_FIELD_TYPES.JSON"
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        {{ jsonValue(item.value) }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="jsonValue(item.value)"
+                      >
+                      </cng-html-compiler>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="item.value.restField.type == REST_FIELD_TYPES.DATE"
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        {{ item.value.data | date }}
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="
+                      item.value.restField.type == REST_FIELD_TYPES.BELONG_TO
+                    "
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.value.restField.label | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        <a
+                          (click)="loadBelongToDetail(item.value)"
+                          nbTooltip="{{
+                            'rest-detail.belongToRef' | translate
+                          }}"
+                          nbTooltipPlacement="top"
+                          class="belongTo-link"
+                        >
+                          {{ item.value.data }}
+                        </a>
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="
+                      item.value.restField.type == REST_FIELD_TYPES.HAS_MANY
+                    "
+                  >
+                    <ng-container
+                      *ngIf="
+                        item.value.restField?.metaData?.listConfig
+                          ?.restManyResources &&
+                        !item.value.restField?.metaData?.detailConfig
+                          ?.restManyResources
+                      "
+                    >
+                      <table [nbTreeGrid]="listDataSource[item.key]">
+                        <tr
+                          nbTreeGridRow
+                          *nbTreeGridRowDef="let row; columns: allColumns"
+                        ></tr>
+
+                        <ng-container [nbTreeGridColumnDef]="customColumn">
+                          <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                            <ngx-fs-icon
+                              [expanded]="row.expanded"
+                              [place]="row.data.place"
+                            ></ngx-fs-icon>
+                            <ng-container
+                              *ngIf="
+                                !item.value.restField?.metaData?.listConfig
+                                  ?.restManyResources.template
+                              "
+                            >
+                              <b> {{ row.data[customColumn] }}</b>
+                            </ng-container>
+
+                            <ng-container
+                              *ngIf="
+                                item.value.restField?.metaData?.listConfig
+                                  ?.restManyResources.template
+                              "
+                            >
+                              <span *ngIf="row.data.place">
+                                {{ item.value.restField.name }}</span
+                              >
+                              <ng-container *ngIf="!row.data.place">
+                                <cng-html-compiler
+                                  [template]="
+                                    item.value.restField.metaData.listConfig
+                                      .restManyResources.template
+                                  "
+                                  [componentClass]="row.data.item"
+                                >
+                                </cng-html-compiler>
+                              </ng-container>
+                            </ng-container>
+                          </td>
+                        </ng-container>
+                      </table>
+                    </ng-container>
+                    <ng-container
+                      *ngIf="
+                        item.value.restField?.metaData?.detailConfig
+                          ?.restManyResources
+                      "
+                    >
+                      <ng-container
+                        *ngIf="
+                          isObject(
+                            item.value.restField?.metaData?.detailConfig
+                              ?.restManyResources
+                          );
+                          else displayRes
+                        "
+                      >
+                        <table [nbTreeGrid]="listDataSource[item.key]">
+                          <tr
+                            nbTreeGridRow
+                            *nbTreeGridRowDef="let row; columns: allColumns"
+                          ></tr>
+
+                          <ng-container [nbTreeGridColumnDef]="customColumn">
+                            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                              <ngx-fs-icon
+                                [expanded]="row.expanded"
+                                [place]="row.data.place"
+                              ></ngx-fs-icon>
+                              <ng-container
+                                *ngIf="
+                                  !item.value.restField?.metaData?.detailConfig
+                                    ?.restManyResources.template
+                                "
+                              >
+                                <b> {{ row.data[customColumn] }}</b>
+                              </ng-container>
+
+                              <ng-container
+                                *ngIf="
+                                  item.value.restField?.metaData?.detailConfig
+                                    ?.restManyResources.template
+                                "
+                              >
+                                <span *ngIf="row.data.place">
+                                  {{ item.value.restField.name }}</span
+                                >
+                                <ng-container *ngIf="!row.data.place">
+                                  <cng-html-compiler
+                                    [template]="
+                                      item.value.restField.metaData.detailConfig
+                                        .restManyResources.template
+                                    "
+                                    [componentClass]="row.data.item"
+                                  >
+                                  </cng-html-compiler>
+                                </ng-container>
+                              </ng-container>
+                            </td>
+                          </ng-container>
+                        </table>
+                      </ng-container>
+                      <ng-template #displayRes>
+                        <div
+                          class="row"
+                          *ngFor="
+                            let res of listDataSource[item.value.restField.name]
+                          "
+                        >
+                          <ngx-rest-resource-detail
+                            [resource]="res.resource"
+                            [ID]="res.id"
+                            [ressourceName]="res.resourceName"
+                            [container]="true"
+                            [style]="res.style"
+                          ></ngx-rest-resource-detail>
+                        </div>
+                      </ng-template>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="
+                      item.value.restField.type ==
+                      REST_FIELD_TYPES.BELONG_TO_MANY
+                    "
+                  >
+                    <table [nbTreeGrid]="listDataSource[item.key]">
+                      <tr
+                        nbTreeGridRow
+                        *nbTreeGridRowDef="let row; columns: allColumns"
+                      ></tr>
+
+                      <ng-container [nbTreeGridColumnDef]="customColumn">
+                        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                          <ngx-fs-icon
+                            [expanded]="row.expanded"
+                            [place]="row.data.place"
+                          ></ngx-fs-icon>
+                          <ng-container
+                            *ngIf="
+                              !item.value.restField.metaData.listConfig
+                                .restBelongToManyResources.template
+                            "
+                          >
+                            <b> {{ row.data[customColumn] }}</b>
+                          </ng-container>
+
+                          <ng-container
+                            *ngIf="
+                              item.value.restField.metaData.listConfig
+                                .restBelongToManyResources.template
+                            "
+                          >
+                            <span *ngIf="row.data.place">{{
+                              item.value.restField.name
+                            }}</span>
+                            <ng-container *ngIf="!row.data.place">
+                              <cng-html-compiler
+                                [template]="
+                                  item.value.restField.metaData.listConfig
+                                    .restBelongToManyResources.template
+                                "
+                                [componentClass]="row.data.item"
+                              >
+                              </cng-html-compiler>
+                            </ng-container>
+                          </ng-container>
+                        </td>
+                      </ng-container>
+                    </table>
+                  </ng-container>
+
+                  <ng-container
+                    *ngIf="item.value.restField.type == REST_FIELD_TYPES.LINK"
+                  >
+                    <ng-container *ngIf="!item.value.restField.template">
+                      <div class="marg">
+                        <b>{{ item.key | titlecase }}: </b>
+                      </div>
+                      <div class="">
+                        <a [href]="item.value.data" target="_blank"
+                          >{{ item.value.data }}
+                        </a>
+
+                        <iframe
+                          [src]="sanitizerUrl(item.value.data)"
+                          *ngIf="
+                            item.value.restField?.metaData?.detailConfig
+                              ?.linkConfig
+                              ? !item.value.restField?.metaData?.detailConfig
+                                  ?.linkConfig.disabledIframePreview
+                              : true
+                          "
+                          height="400px"
+                          width="100%"
+                          class="mt-2"
+                        ></iframe>
+                      </div>
+                    </ng-container>
+
+                    <div *ngIf="item.value.restField.template">
+                      <cng-html-compiler
+                        [template]="item.value.restField.template"
+                        [componentClass]="item.value.data"
+                      >
+                      </cng-html-compiler>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="">
+                  <ng-container *ngIf="item.value.restField.note != ''">
+                    <span class="text-muted ml-20 mt-3">{{
+                      item.value.restField.note
+                    }}</span>
+                  </ng-container>
+                </div>
+              </div>
             </nb-list-item>
           </nb-list>
         </nb-tab>
@@ -806,10 +880,10 @@
   </nb-card-body>
 
   <nb-card-footer *ngIf="datas && !container">
-    <div class="buttons-row">
+    <div class="buttons-row text-center" fullWidth>
       <button
         nbButton
-        status="danger"
+        status="secondary"
         style="margin-right: 10px"
         (click)="listEntity()"
       >
@@ -818,6 +892,15 @@
 
       <button nbButton status="primary" (click)="editEntity()">
         {{ "rest-detail.btnEdit" | translate }}
+      </button>
+
+      <button
+        nbButton
+        status="danger"
+        style="margin-left: 10px"
+        (click)="deleteEntity()"
+      >
+        {{ "rest-detail.btnDelete" | translate }}
       </button>
     </div>
   </nb-card-footer>

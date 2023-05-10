@@ -413,9 +413,9 @@ export const _package = new RestResource(
       name: 'CLIENT',
       type: TYPE_GROUP.MENU, // Regroupe les ressources dans un menu deroulant
     },
-    searchFilter: {
-      filterBy: ['name', 'code'],
-    },
+    // searchFilter: {
+    //   filterBy: ['name', 'code'],
+    // },
   },
   {
     api: 'packages',

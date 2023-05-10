@@ -17,7 +17,8 @@ export const address = new RestResource(
     },
     {
       name: 'name',
-      type: REST_FIELD_TYPES.COLOR,
+      type: REST_FIELD_TYPES.STRING,
+      note: 'Affichage du champ nom de votre ressource address',
       // metaData: {
       //   attributes: {
       //     style: 'color: red; font-weight: bold;',
@@ -67,6 +68,7 @@ export const address = new RestResource(
     {
       name: 'town_id',
       type: REST_FIELD_TYPES.BELONG_TO,
+      note: 'Affichage du champ nom de votre ressource town',
       metaData: {
         belongToSecondFieldLabel: 'name',
         addConfig: {
@@ -120,7 +122,10 @@ export const address = new RestResource(
       _includes: 'user,town',
     },
     searchFilter: {
-      filterBy: ['name', 'zip_code'],
+      filterBy: [
+        { name: 'name', value: 'name' },
+        { name: 'zip_code', value: 'zip_code' },
+      ],
     },
   },
   {},

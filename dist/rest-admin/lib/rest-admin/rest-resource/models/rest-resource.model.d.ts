@@ -10,6 +10,7 @@ export interface Field {
     label?: string;
     name: string;
     template?: string;
+    note?: string;
 }
 export declare enum QUERY_PARAMS_TYPE {
 }
@@ -62,10 +63,18 @@ export interface ListConfig extends ResourceConfig {
     belongToConfig?: any;
     description?: string;
     searchFilter?: {
-        filterBy?: string[];
+        filterBy?: filterSearchConfig[];
     };
     hideAddSubHeader?: boolean;
     group?: GroupConfig;
+}
+export interface filterSearchConfig {
+    name: string;
+    value: string;
+    type?: REST_FIELD_TYPES;
+    resourceFieldName?: string;
+    ressourceFilterName?: string;
+    resource?: RestResource;
 }
 export interface AddConfig extends ResourceConfig {
     inList?: boolean;
@@ -158,6 +167,9 @@ export interface REST_FIELD_METADATA {
     };
     detailConfig?: {
         restManyResources?: RestField | RestManyOptionsCustom;
+        linkConfig?: {
+            disabledIframePreview?: boolean;
+        };
     };
 }
 export interface PreparedStatementQuery {

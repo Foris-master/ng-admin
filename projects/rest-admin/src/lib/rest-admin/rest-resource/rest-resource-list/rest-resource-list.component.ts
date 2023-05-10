@@ -1,16 +1,15 @@
 import { FILTER_OPERATORS } from './../service/rest-resource.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   Input,
   OnInit,
-  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { ServerDataSource } from 'ng2-smart-table';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import * as _ from 'lodash';
-import { NbDialogService, NbMenuService } from '@nebular/theme';
+import { NbDialogService, NbMenuService, NbTagComponent } from '@nebular/theme';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceEditorFieldsComponent } from '../components/rest-resource-editor-fields/rest-resource-editor-fields.component';
@@ -21,6 +20,10 @@ import { RestResourceService } from '../service/rest-resource.service';
 import { filter, map } from 'rxjs/operators';
 import { ALPHABET, RestExportService } from '../service/rest-export.service';
 import { RestShareService } from '../service/rest-share.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable, of } from 'rxjs';
+import { SelectAllCheckboxRenderComponent } from '../components/fs-icon-ccomponent/select.component';
+
 
 @Component({
   selector: 'ngx-rest-resource-list',
@@ -30,6 +33,8 @@ import { RestShareService } from '../service/rest-share.service';
 export class RestResourceListComponent implements OnInit {
   @Input() resource: RestResource;
   @ViewChild('search') search;
+  @ViewChild('autoBelongToMany') inputBelongToMany;
+  form: FormGroup;
 
   alphabelt: string[] = ALPHABET;
   data: any;
@@ -47,6 +52,17 @@ export class RestResourceListComponent implements OnInit {
   searchItems = [];
   searchItem = '';
 
+  showCheckbox = false;
+  showDetails = false;
+  options: any = {};
+  allFilterContains: any = {};
+  belongToValue: any = {};
+  belongToMany: any = {};
+  controls: any;
+  isChecked: any = { };
+
+  selectedRows: any[] = [];
+
   items = [
     { title: 'All formats' },
     { title: 'CSV' },
@@ -61,6 +77,7 @@ export class RestResourceListComponent implements OnInit {
     { title: '100', value: 100 },
   ];
   constructor(
+    private fb: FormBuilder,
     private serviceRestConfig: RestAdminConfigService,
     private serviceRestResources: RestResourceService,
     private http: HttpClient,
@@ -79,6 +96,31 @@ export class RestResourceListComponent implements OnInit {
     this.resource = this.serviceRestConfig.getSpecificResource(
       this.ressourceName
     );
+
+    // this.belongToMany['id'] = new Set();
+    if ( this.resource.listConfig?.searchFilter?.filterBy) {
+      this.controls = this.resource.listConfig?.searchFilter?.filterBy?.reduce(
+        (cumul, elt) => {
+          switch (elt.type) {
+            case REST_FIELD_TYPES.BELONG_TO_MANY:
+              this.belongToMany[elt.value] = new Set();
+              return {
+                ...cumul,
+                [elt.name]: [],
+              };
+            default:
+              return {
+                ...cumul,
+                [elt.name]: [''],
+              };
+          }
+        },
+        {}
+      );
+    }
+
+    this.form = this.fb.group(this.controls);
+    this.belongToMany['id'] = new Set();
   }
 
   ngOnInit(): void {
@@ -91,6 +133,34 @@ export class RestResourceListComponent implements OnInit {
     }
 
     this.currentPerPage = this.resource.listConfig.perPage;
+    
+
+    this.getList();
+
+    this.source.onChanged().subscribe((e) => {
+      setTimeout(() => {
+        this.restShare.setLoader(false);
+      });
+    });
+
+    this.isChecked = {
+      title: 'check',
+      type: 'custom',
+      filter: false,
+      addable: true,
+      valuePrepareFunction: (cell, row) => ({
+        handleCheckboxClick: (event, rowData) => this.onCheckboxClick(event, rowData),
+        selected: this.selectedRows.find((elt) => elt?.id == row?.id) !== undefined,
+        cell,
+        row,
+      }),
+      editor: {
+        type: 'checkbox',
+      },
+      renderComponent: SelectAllCheckboxRenderComponent,
+      editable: true,
+    };
+
     this.settings = {
       hideSubHeader: this.resource.listConfig.hideAddSubHeader,
       actions: {
@@ -131,14 +201,6 @@ export class RestResourceListComponent implements OnInit {
       // },
     };
 
-    this.getList();
-
-    this.source.onChanged().subscribe((e) => {
-      setTimeout(() => {
-        this.restShare.setLoader(false);
-      });
-    });
-
     this.nbMenuService
       .onItemClick()
       .pipe(
@@ -163,11 +225,38 @@ export class RestResourceListComponent implements OnInit {
       });
   }
 
+  toggleShowCheckbox() {
+    this.showCheckbox = !this.showCheckbox;
+    this.source.refresh();
+  }
+
   onDeleteConfirm(event) {
     const dialog = this.dialogService.open(RestResourceDeleteComponent, {
       context: {
         datas: event.data,
         title: 'SUPPRESSION',
+        multiSuppress: false,
+        listConfig: this.resource.listConfig,
+        resourceName: this.ressourceName,
+      },
+    });
+
+    dialog.onClose.subscribe((resp) => {
+      if (resp) {
+        this.getList(
+          this.source.getPaging().page,
+          this.source.getPaging().perPage
+        );
+      }
+    });
+  }
+
+  onDeleteAllConfirm() {
+    const dialog = this.dialogService.open(RestResourceDeleteComponent, {
+      context: {
+        datas: this.selectedRows,
+        multiSuppress: true,
+        title: 'TOUT SUPPRIMER',
         listConfig: this.resource.listConfig,
         resourceName: this.ressourceName,
       },
@@ -193,9 +282,32 @@ export class RestResourceListComponent implements OnInit {
       event.data.id,
     ]);
   }
+  onCheckboxClick(event: any, row: any) {
+    if (this.selectedRows.indexOf(row) === -1) {
+      this.selectedRows.push(row);
+    } else {
+      this.selectedRows.splice(this.selectedRows.indexOf(row), 1);
+    }
+  }
+  selectAllRows() {
+    this.source.getAll().then(rows => {
+      if (this.selectedRows?.length !== rows?.length) {
+        this.selectedRows = [];
+        rows.forEach(row => {
+          this.selectedRows.push(row);
+        });
+      } else {
+        this.selectedRows = [];
+      }
+      this.source.refresh();
+    });
+  }  
 
   private createMatTableColumns() {
     const colunms: any = {};
+    if (!this.showCheckbox) {
+      colunms["isChecked"] = this.isChecked;
+    }
     this.resource.fields
       .filter((item) => this.resource.listConfig.columns.includes(item.name))
       .forEach((elt) => {
@@ -218,6 +330,7 @@ export class RestResourceListComponent implements OnInit {
       });
     return colunms;
   }
+  
 
   getList(page = null, perPage = null) {
     this.restShare.setLoader(true);
@@ -487,8 +600,32 @@ export class RestResourceListComponent implements OnInit {
     this.settings = Object.assign({}, this.settings);
   }
 
-  selectFilterBy(value, index) {
-    this.searchItems[index].field = value;
+  selectFilterBy(data, index) {
+    this.searchItems[index].field = data['value'];
+    this.searchItems[index].fieldName = data['resourceFieldName'];
+    this.searchItems[index].resource = data['resource'];
+    this.searchItems[index].ressourceFilterName = data['ressourceFilterName'];
+    if (data['value'] === 'id') {
+      const resource = data?.resource?.addConfig;
+      this.serviceRestResources
+        .getResources({
+          api: resource.api,
+          queryParams: {
+            should_paginate: false,
+          },
+        })
+        .subscribe((response: any) => {
+          this.options[data['value']] = [...response].sort((x, y) =>
+            x['id']
+              .toString()
+              .toLowerCase()
+              ?.localeCompare(y['id'].toString().toLowerCase())
+          );
+          this.allFilterContains[data['value']] = of(
+            this.options[data['value']]
+          );
+        });
+    }
   }
   selectOperator(value, index) {
     this.searchItems[index].operator = value;
@@ -510,15 +647,101 @@ export class RestResourceListComponent implements OnInit {
     this.searchItems.splice(index, 1);
   }
 
+  private filterMany(
+    value: any,
+    index: number,
+    options = 'belongToManyOptions'
+  ): string[] {
+    if (typeof value == 'string' && this.options['id']?.length > 0) {
+      return this.options['id'].filter((optionValue) => {
+        return [
+          this.searchItems[index].fieldName
+            ? this.searchItems[index].fieldName
+            : 'id',
+        ].some((elt) => {
+          return `${optionValue[elt]?.toLowerCase()}`.includes(
+            `${value.toLowerCase()}`
+          );
+        });
+      });
+    }
+  }
+
+  getFilteredOptions(value: any, index: number): Observable<string[]> {
+    return of(value).pipe(
+      map((filterString: string) => this.filterMany(filterString, index))
+    );
+  }
+
+  filterInput(event, index: number) {
+    this.allFilterContains['id'] = this.getFilteredOptions(
+      event.target.value,
+      index
+    );
+  }
+
+  onTagRemoveBelong(tagToRemove: NbTagComponent): void {
+    const cellData = Array.from(this.belongToMany['id']);
+    const save = [];
+    cellData.forEach((elt) => {
+      if (elt['name'] != tagToRemove.text) save.push(elt);
+    });
+
+    this.belongToMany['id'] = new Set(save);
+
+    this.form.patchValue({
+      ['id']: save,
+    });
+  }
+  //belongToManyOptions
+  onChoose(event, index: number) {
+    const cellData: any[] = Array.from(this.belongToMany['id']);
+    if (event.id) {
+      const search = cellData.find((elt: any) => elt.id == event.id);
+      if (search == undefined) {
+        const newElt = {
+          id: event.id,
+          saveRelatedIdName: event.id,
+          saveResourceIdName: event.id,
+          name: event[
+            this.searchItems[index].fieldName
+              ? this.searchItems[index].fieldName
+              : 'id'
+          ],
+        };
+        this.belongToMany['id'].add(newElt);
+        this.form.patchValue({
+          ['id']: Array.from(this.belongToMany['id'].values()),
+        });
+      }
+    }
+    this.inputBelongToMany.nativeElement.value = '';
+  }
+
   startSearch() {
     const params = {};
     let search = '';
-    this.searchItems.forEach((element) => {
-      if (element.field != '' && element.terms != '') {
-        if (element.operator != '=') {
-          params[element.field + '-' + element.operator] = `${element.terms}`;
-        } else {
-          params[element.field] = `${element.terms}`;
+    this.searchItems.forEach((element, ind) => {
+      if (element?.field === 'id') {
+        let tab = [];
+        for (const item of this.belongToMany['id']) {
+          if (item) {
+            tab.push(item);
+          }
+        }
+        if (tab.length > 0) {
+          let listId = tab.map((elt: any) => elt?.id).join(',');
+          params[`${element?.ressourceFilterName}-in`] = `${listId}`;
+        }
+      } else {
+        if (element?.field != '' && element?.terms != '') {
+          if (element?.operator != '=') {
+            params[
+              element?.field + '-' + element?.operator
+            ] = `${element?.terms}`;
+          } else {
+            params[element?.field] = `${element?.terms}`;
+          }
         }
       }
     });
@@ -529,6 +752,7 @@ export class RestResourceListComponent implements OnInit {
         ''
       )
       .slice(0, -1);
+
     if (search != '') {
       search += '&';
     }
@@ -536,7 +760,7 @@ export class RestResourceListComponent implements OnInit {
       .reduce((cumul, item) => cumul + item + '=' + params[item] + '&', '')
       .slice(0, -1);
 
-    // console.log(search);
+    console.log(search);
 
     this.source = new ServerDataSource(this.http, {
       endPoint:

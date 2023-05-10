@@ -11,6 +11,7 @@
   "rest-detail": {
     "btnCancel": "annuler",
     "btnEdit": "modifier",
+    "btnDelete": "supprimer",
     "belongToRef": "cliquer pour accéder à la ressource referencée"
   },
   "rest-list": {
@@ -43,5 +44,6 @@
   "msg-deleting-fail": "Une erreur est survenue lors de la suppression de {{resourceName}}",
   "msg-not-authorized": "Vous n'êtes pas autorisé à accéder à cette ressource",
   "msg-not-found": "La ressource demandée n'a pas été trouvée",
-  "msg-internal-error": "Une erreur s'est produite sur le serveur"
+  "msg-internal-error": "Une erreur s'est produite sur le serveur",
+  "add": "Ajouter"
 }

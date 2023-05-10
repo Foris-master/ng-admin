@@ -32,6 +32,16 @@ export const country = new RestResource(
     },
     {
       name: 'name',
+      // type: REST_FIELD_TYPES.JSON,
+      // i18n: true,
+      // metaData: {
+      //   addConfig: {
+      //     jsonConfig: {
+      //       jsonFields: ["fr", "en"],
+      //       // isOpen: true,
+      //     },
+      //   },
+      // },
     },
     {
       name: 'full_name',
@@ -101,9 +111,9 @@ export const country = new RestResource(
       name: 'CLIENT',
       type: TYPE_GROUP.SEPARATOR, // Regroupe les ressources dans un menu deroulant
     },
-    searchFilter: {
-      filterBy: ['name', 'capital', 'calling_code'],
-    },
+    // searchFilter: {
+    //   filterBy: ['name', 'capital', 'calling_code'],
+    // },
   },
   {},
   {

@@ -52,9 +52,9 @@ export const agency = new RestResource(
     // queryParams: {
     //   _includes: 'user,town',
     // },
-    searchFilter: {
-      filterBy: ['name', 'address'],
-    },
+    // searchFilter: {
+    //   filterBy: ['name', 'address'],
+    // },
   },
   {},
   {},

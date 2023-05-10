@@ -121,21 +121,45 @@ export class RestResourceListFieldComponent implements OnInit, ViewCell {
   get REST_FIELD_TYPES() {
     return REST_FIELD_TYPES;
   }
-  get jsonValue() {
-    if (this.restField.i18n == true) {
-      this.restField.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-        if (field == this.langService.selected) {
-          if (this.val[0] == '{') this._jsonValue = JSON.parse(this.val)[field];
-          else if (typeof this.val !== 'string')
-            this._jsonValue = this.val[field];
-          else this._jsonValue = this.val;
+  get jsonValue(): any {
+    try {
+      if (!this.restField || !this.val) {
+        throw new Error('Missing required data properties');
+      }
+  
+      if (this.restField.i18n === true && this.restField.metaData && this.restField.metaData.addConfig.jsonConfig) {
+        const selectedField = this.restField.metaData.addConfig.jsonConfig.jsonFields.find((field) => field === this.langService.selected);
+  
+        if (selectedField) {
+          if (typeof this.val === 'string' && this.val[0] === '{') {
+            const parsedData = JSON.parse(this.val);
+            if (parsedData[selectedField]) {
+              this._jsonValue = parsedData[selectedField];
+            } else {
+              throw new Error('Invalid i18n language selected');
+            }
+          } else if (typeof this.val === 'object' && this.val[selectedField]) {
+            this._jsonValue = this.val[selectedField];
+          } else if (typeof this.val === 'string') {
+            this._jsonValue = this.val;
+          } else {
+            throw new Error('Invalid data format for i18n field');
+          }
+        } else {
+          throw new Error('Invalid i18n language selected');
         }
-      });
-    } else {
-      this._jsonValue = this.val;
+      } else {
+        this._jsonValue = this.val;
+      }
+  
+      if (typeof this._jsonValue === 'object') {
+        this._jsonValue = JSON.stringify(this._jsonValue);
+      }
+    } catch (err) {
+      // console.log(`Error occurred in jsonValue: ${err}`);
+      this._jsonValue = JSON.stringify(this.val);
     }
-
-    if (typeof this.val == 'object') return JSON.stringify(this._jsonValue);
-    else return this._jsonValue;
+  
+    return this._jsonValue;
   }
 }

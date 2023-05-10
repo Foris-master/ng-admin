@@ -80,6 +80,7 @@ export class RestResource {
     return this._fields.map((field) => ({
       name: field.name,
       type: field.type ? field.type : REST_FIELD_TYPES.STRING,
+      note: field.note ? field.note : '',
       label: field.label ? field.label : field.name,
       inForm: field.inForm !== undefined ? field.inForm : true,
       metaData:
@@ -175,7 +176,7 @@ export class RestResource {
       : 'List of ' + this.name;
     rest.searchFilter = this._listConfig.searchFilter
       ? this._listConfig.searchFilter
-      : null;
+      : { filterBy: [] };
     if (rest.group) {
       rest.group = this._listConfig.group;
       rest.group.priority = rest.group.priority ? rest.group.priority : 0;

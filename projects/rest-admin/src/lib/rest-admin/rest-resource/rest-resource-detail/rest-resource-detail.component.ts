@@ -4,11 +4,13 @@ import { RestResource } from '../models/rest-resource';
 import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
-import { NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { RestLangService } from '../service/rest-lang.service';
 // import urlToFile from '../../../utils/';
 import * as _ from 'lodash';
 import urlToFile from '../../../utils/urlToFile';
+import { RestResourceDeleteComponent } from '../rest-ressource-delete/rest-resource-delete.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'ngx-rest-resource-detail',
@@ -39,7 +41,9 @@ export class RestResourceDetailComponent implements OnInit {
     private serviceRestAdminConfig: RestAdminConfigService,
     private router: Router,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
-    private langService: RestLangService
+    private dialogService: NbDialogService,
+    private langService: RestLangService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -269,6 +273,7 @@ export class RestResourceDetailComponent implements OnInit {
                           temp[search.name] = {
                             restField: search,
                             data: `${dat} (${response[search.label]})`,
+                            navigationId: response[search.label],
                           };
                         }
                         break;
@@ -287,6 +292,7 @@ export class RestResourceDetailComponent implements OnInit {
                     colunms[elt.name] = {
                       restField: elt,
                       data: `${dat} (${response[elt.label]})`,
+                      navigationId: response[elt.label],
                     };
                   } else {
                     colunms[elt.name] = {
@@ -614,6 +620,7 @@ export class RestResourceDetailComponent implements OnInit {
                       temp[search.name] = {
                         restField: search,
                         data: `${dat} (${response[search.label]})`,
+                        navigationId: response[search.label],
                       };
                     }
                     break;
@@ -641,6 +648,7 @@ export class RestResourceDetailComponent implements OnInit {
                 colunms[elt.name] = {
                   restField: elt,
                   data: `${dat} (${response[elt.label]})`,
+                  navigationId: response[elt.label],
                 };
               } else {
                 colunms[elt.name] = {
@@ -797,6 +805,23 @@ export class RestResourceDetailComponent implements OnInit {
     this.router.navigateByUrl(`/admin/${this.ressourceName}-list`);
   }
 
+  deleteEntity() {
+    const dialog = this.dialogService.open(RestResourceDeleteComponent, {
+      context: {
+        datas: { id: this.entityId },
+        title: 'SUPPRESSION',
+        listConfig: this.resource.listConfig,
+        resourceName: this.ressourceName,
+      },
+    });
+
+    dialog.onClose.subscribe((resp) => {
+      if (resp) {
+        this.router.navigateByUrl(`/admin/${this.ressourceName}-list`);
+      }
+    });
+  }
+
   get REST_FIELD_TYPES() {
     return REST_FIELD_TYPES;
   }
@@ -810,7 +835,7 @@ export class RestResourceDetailComponent implements OnInit {
     const resourceName =
       data.restField.metaData.addConfig.belongToOptions.resourceName;
 
-    this.router.navigate([`/admin/${resourceName}-detail`, data.data]);
+    this.router.navigate([`/admin/${resourceName}-detail`, data.navigationId]);
   }
 
   isObject = (a) => {
@@ -845,19 +870,49 @@ export class RestResourceDetailComponent implements OnInit {
     return dat;
   };
 
-  jsonValue = (val) => {
+  jsonValue = (val: any): any => {
     let _jsonValue: any;
-    if (val.restField.i18n == true) {
-      if (val.data[0] == '{')
-        _jsonValue = JSON.parse(val.data)[this.langService.selected];
-      else if (typeof val.data !== 'string')
-        _jsonValue = val.data[this.langService.selected];
-      else _jsonValue = val.data;
-    } else {
-      _jsonValue = val.data;
+
+    try {
+      if (!val || !val.restField || !val.data) {
+        throw new Error('Missing required data properties');
+      }
+
+      if (val.restField.i18n === true) {
+        if (typeof val.data === 'string' && val.data[0] === '{') {
+          const parsedData = JSON.parse(val.data);
+          if (parsedData[this.langService.selected]) {
+            _jsonValue = parsedData[this.langService.selected];
+          } else {
+            throw new Error('Invalid i18n language selected');
+          }
+        } else if (
+          typeof val.data === 'object' &&
+          val.data[this.langService.selected]
+        ) {
+          _jsonValue = val.data[this.langService.selected];
+        } else if (typeof val.data === 'string') {
+          _jsonValue = val.data;
+        } else {
+          throw new Error('Invalid data format for i18n field');
+        }
+      } else {
+        _jsonValue = val.data;
+      }
+
+      if (typeof _jsonValue === 'object') {
+        _jsonValue = JSON.stringify(_jsonValue);
+      }
+    } catch (err) {
+      // console.log(`Error occurred in jsonValue: ${err}`);
+      _jsonValue = JSON.stringify(val.data);
     }
 
-    if (typeof val.data == 'object') return JSON.stringify(_jsonValue);
-    else return _jsonValue;
+    return _jsonValue;
   };
+
+  sanitizerUrl(link) {
+    console.log('link', link);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(link);
+  }
 }

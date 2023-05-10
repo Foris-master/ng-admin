@@ -10,12 +10,14 @@ export declare class RestResourceDeleteComponent {
     datas: any;
     title: string;
     listConfig: ListConfig;
+    multiSuppress: Boolean;
     resourceName: string;
     isSubmit: boolean;
     constructor(ref: NbDialogRef<RestResourceDeleteComponent>, serviceRestResource: RestResourceService, notificationService: NotificationService);
     dismiss(val?: boolean): void;
     delete(): void;
+    deleteAll(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceDeleteComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceDeleteComponent, "ngx-rest-resource-delete", never, { "datas": "datas"; "title": "title"; "listConfig": "listConfig"; "resourceName": "resourceName"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceDeleteComponent, "ngx-rest-resource-delete", never, { "datas": "datas"; "title": "title"; "listConfig": "listConfig"; "multiSuppress": "multiSuppress"; "resourceName": "resourceName"; }, {}, never, never>;
 }
 //# sourceMappingURL=rest-resource-delete.component.d.ts.map

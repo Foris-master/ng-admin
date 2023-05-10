@@ -80,6 +80,7 @@ export declare class RestResourceAddComponent implements OnInit {
     private filterMany;
     onCreate(): void;
     onEdit(): void;
+    isFile(variable: any): boolean;
     downloadTemplate(): void;
     importData(): void;
     private createMatTableColumns;

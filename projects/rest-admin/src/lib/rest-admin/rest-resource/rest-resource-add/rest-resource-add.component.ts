@@ -289,26 +289,46 @@ export class RestResourceAddComponent implements OnInit {
                 ...cumul,
                 [elt.name]: datas[elt.name],
               };
-            case REST_FIELD_TYPES.JSON:
-              const jsonFiels = [];
-              elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-                jsonFiels.push({
-                  label: field,
-                  value:
-                    datas[elt.name][0] == '{'
-                      ? JSON.parse(datas[elt.name])[field]
-                      : typeof datas[elt.name] !== 'string'
-                      ? datas[elt.name][field]
-                      : datas[elt.name],
-                });
-              });
-
-              this.jsonEditorOptions[elt.name] = jsonFiels;
-              return {
-                ...cumul,
-                [elt.name]: datas[elt.name],
-              };
-
+              case REST_FIELD_TYPES.JSON:
+  const jsonFields = [];
+  if (elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+    elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+      if (datas[elt.name]) {
+        if (datas[elt.name][0] == '{') {
+          try {
+            jsonFields.push({
+              label: field,
+              value: JSON.parse(datas[elt.name])[field],
+            });
+          } catch (error) {
+            console.error(`Error parsing JSON for ${field} in ${elt.name}: ${error}`);
+          }
+        } else if (typeof datas[elt.name] !== 'string') {
+          try {
+            jsonFields.push({
+              label: field,
+              value: datas[elt.name][field],
+            });
+          } catch (error) {
+            console.error(`Error accessing field ${field} in ${elt.name}: ${error}`);
+          }
+        } else {
+          jsonFields.push({
+            label: field,
+            value: datas[elt.name],
+          });
+        }
+      } else {
+          jsonFields.push({ label: field, value: '' });
+      }
+    });
+  }
+  this.jsonEditorOptions[elt.name] = jsonFields;
+  return {
+    ...cumul,
+    [elt.name]: datas[elt.name],
+  };
+              
             case REST_FIELD_TYPES.MORPH_ONE:
               this.morphFields[elt.name] = {
                 type: datas[elt.name].type,
@@ -434,12 +454,19 @@ export class RestResourceAddComponent implements OnInit {
                 [elt.name]: ['', Validator.url],
               };
             case REST_FIELD_TYPES.JSON:
-              const jsonFiels = [];
-              elt?.metaData?.addConfig?.jsonConfig.jsonFields.map((field) => {
-                jsonFiels.push({ label: field, value: '' });
-              });
-
-              this.jsonEditorOptions[elt.name] = jsonFiels;
+              if (elt && elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+                const jsonFields = [];
+              
+                elt.metaData.addConfig.jsonConfig.jsonFields.forEach((field) => {
+                  jsonFields.push({ label: field, value: '' });
+                });
+              
+                this.jsonEditorOptions[elt.name] = jsonFields;
+              } else {
+                // Si une propriété requise n'est pas présente, renvoyer une erreur
+                throw new Error("Une erreur s'est produite lors du traitement de l'élément.");
+              }
+              
               return {
                 ...cumul,
                 [elt.name]: [null],
@@ -511,7 +538,7 @@ export class RestResourceAddComponent implements OnInit {
         return this.options[field.name].filter((optionValue) => {
           return field.metaData.addConfig.belongToOptions.filterKeys.some(
             (elt) =>
-              `${optionValue[elt].toLowerCase()}`.includes(
+              `${optionValue[elt]?.toLowerCase()}`.includes(
                 `${value.toLowerCase()}`
               )
           );
@@ -664,11 +691,14 @@ export class RestResourceAddComponent implements OnInit {
 
   private filterMany(
     value: any,
-    field,
+    field: any,
     options = 'belongToManyOptions'
   ): string[] {
+    if (value == null || value == undefined) {
+      return [];
+    }
     if (typeof value == 'string') {
-      return this.options[field.name].filter((optionValue) => {
+      return this.options[field?.name].filter((optionValue) => {
         return field.metaData.addConfig[options].filterKeys.some((elt) =>
           `${optionValue[elt].toLowerCase()}`.includes(`${value.toLowerCase()}`)
         );
@@ -708,16 +738,22 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
               if (this.jsonEditorOptions[key] !== null) {
-                if (typeof this.jsonEditorOptions[key] == 'object') {
+                if (typeof this.jsonEditorOptions[key] === 'object' && Array.isArray(this.jsonEditorOptions[key])) {
                   this.jsonEditorOptions[key].map((elt) => {
-                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                    datas.append(`${key}[${elt.label}]`, elt.value);
+                    if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                      datas.append(`${key}[${elt.label}]`, elt.value);
+                    } else {
+                      console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                    }
                   });
+                } else {
+                  console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
                 }
-                // datas.append(key, JSON.stringify(jsonFields));
-                // datas.append(key, jsonFields);
+              } else {
+                console.error(`Error: Missing jsonEditorOptions[${key}]`);
               }
-              break;
+              break;            
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
                 if (formData[key]) {
@@ -730,9 +766,16 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.IMAGE:
               if (formData[key] !== null) datas.append(key, formData[key]);
               break;
+            case REST_FIELD_TYPES.PDF:
+              if (formData[key] !== null) datas.append(key, formData[key]);
+              break;
+            case REST_FIELD_TYPES.FILE:
+              if (formData[key] !== null) datas.append(key, formData[key]);
+              break;
             default:
               // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
-              if (formData[key] !== '') datas.append(key, formData[key]);
+              if (formData[key] !== '' && formData[key] !== null)
+                datas.append(key, formData[key]);
               break;
           }
         }
@@ -875,17 +918,28 @@ export class RestResourceAddComponent implements OnInit {
                 `${moment(formData[key]).format('YYYY-MM-DD')}`
               );
               break;
-            case REST_FIELD_TYPES.JSON:
-              let jsonFields = {};
-              if (this.jsonEditorOptions[key] !== null) {
-                if (typeof this.jsonEditorOptions[key] == 'object') {
-                  this.jsonEditorOptions[key].map((elt) => {
-                    jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                  });
+              case REST_FIELD_TYPES.JSON:
+                let jsonFields = {};
+                if (this.jsonEditorOptions[key] !== null) {
+                  if (typeof this.jsonEditorOptions[key] === 'object') {
+                    this.jsonEditorOptions[key].map((elt) => {
+                      if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                        jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                        datas.append(`${key}[${elt.label}]`, elt.value);
+                      } else {
+                        if (elt.label) {
+                        datas.append(`${key}[${elt.label}]`, "");
+                        }
+                        console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                      }
+                    });
+                  } else {
+                    console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
+                  }
+                } else {
+                  console.error(`Error: Missing jsonEditorOptions[${key}]`);
                 }
-                datas.append(key, JSON.stringify(jsonFields));
-              }
-              break;
+                break;   
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
                 if (formData[key]) {
@@ -896,7 +950,16 @@ export class RestResourceAddComponent implements OnInit {
               }
               break;
             case REST_FIELD_TYPES.IMAGE:
-              if (formData[key] !== null) datas.append(key, formData[key]);
+              if (formData[key] !== null && this.isFile(formData[key]))
+                datas.append(key, formData[key]);
+              break;
+            case REST_FIELD_TYPES.PDF:
+              if (formData[key] !== null && this.isFile(formData[key]))
+                datas.append(key, formData[key]);
+              break;
+            case REST_FIELD_TYPES.FILE:
+              if (formData[key] !== null && this.isFile(formData[key]))
+                datas.append(key, formData[key]);
               break;
             default:
               // if (search.type === REST_FIELD_TYPES.STRING || search.type === REST_FIELD_TYPES.NUMBER || search.type === REST_FIELD_TYPES.PASSWORD)
@@ -1020,6 +1083,10 @@ export class RestResourceAddComponent implements OnInit {
           this.notificationService.dangerToast(msgError);
         }
       );
+  }
+
+  isFile(variable) {
+    return typeof variable === 'object' && variable instanceof File;
   }
 
   downloadTemplate(): void {

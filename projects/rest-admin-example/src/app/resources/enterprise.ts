@@ -82,18 +82,18 @@ export const enterprise = new RestResource(
         },
       },
     },
-    // {
-    //   name: 'town',
-    //   type: REST_FIELD_TYPES.HAS_ONE,
-    //   metaData: {
-    //     listConfig: {
-    //       restHasOneResources: {
-    //         name: 'name',
-    //       },
-    //     },
-    //   },
-    //   inForm: false,
-    // },
+    {
+      name: 'town',
+      type: REST_FIELD_TYPES.HAS_ONE,
+      metaData: {
+        listConfig: {
+          restHasOneResources: {
+            name: 'name',
+          },
+        },
+      },
+      inForm: false,
+    },
     {
       name: 'description',
       type: REST_FIELD_TYPES.TEXT,
@@ -101,10 +101,17 @@ export const enterprise = new RestResource(
     {
       name: 'web_site',
       type: REST_FIELD_TYPES.LINK,
+      metaData: {
+        detailConfig: {
+          linkConfig: {
+            disabledIframePreview: false,
+          },
+        },
+      },
     },
   ],
   {
-    columns: ['id', 'name', 'address', 'web_site', 'user'],
+    columns: ['id', 'name', 'address', 'web_site'],
     group: {
       name: 'CLIENT',
       type: TYPE_GROUP.SEPARATOR, // Regroupe les ressources dans un menu deroulant
@@ -113,9 +120,9 @@ export const enterprise = new RestResource(
     queryParams: {
       _includes: 'user,town',
     },
-    searchFilter: {
-      filterBy: ['name'],
-    },
+    // searchFilter: {
+    //   filterBy: ['name'],
+    // },
   },
   {},
   {},

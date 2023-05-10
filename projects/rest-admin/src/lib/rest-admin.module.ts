@@ -90,6 +90,7 @@ import { AttributeDirective } from './rest-admin/directives/attribute.directive'
 import { MenuFilterPipe } from './rest-admin/rest-main-component/menu-filter.pipe';
 import { GmapsComponent } from './rest-admin/rest-resource/components/gmaps/gmaps.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SelectAllCheckboxRenderComponent } from './rest-admin/rest-resource/components/fs-icon-ccomponent/select.component';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -111,6 +112,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceListFieldComponent,
     RestResourceDetailComponent,
     UploadFileComponent,
+    SelectAllCheckboxRenderComponent,
     FsIconCComponent,
     LoginComponent,
     AttributeDirective,
@@ -134,6 +136,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     RestResourceListFieldComponent,
     RestResourceAddComponent,
     FsIconCComponent,
+    SelectAllCheckboxRenderComponent,
     RestResourceDeleteComponent,
     RestMainComponentComponent,
     RestResourceEditorFieldsComponent,
@@ -264,7 +267,7 @@ export class RestAdminModule {
             children: [...(this.serviceRestAdmin.generateRoutes() as any)],
           },
           { path: '', redirectTo: '/login', pathMatch: 'full' },
-          { path: '**', redirectTo: '/' },
+          // { path: '**', redirectTo: '/' },
         ]),
         NbAuthModule.forRoot({
           strategies: [
