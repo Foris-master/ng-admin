@@ -35,6 +35,7 @@ export interface MainConfig {
   description?: string;
   authRequired?: boolean; // Savoir si on a besoin d'etre authentifier pour consulter la ressource
   showInMenu?: boolean; //Afficher dans le menu
+  permissions?: PermissionConfig[];
 }
 export interface CustomIcon {
   icon?: string;
@@ -283,9 +284,13 @@ export enum STRATEGY_AUTH {
 }
 
 export enum PERMISSION {
-  C = 'create',
-  R = 'read',
-  U = 'update',
-  D = 'delete',
-  A = 'all',
+  CREATE = 'create',
+  READ = 'read',
+  UPDATE = 'update',
+  DELETE = 'delete',
+}
+export interface PermissionConfig {
+  type: PERMISSION;
+  fieldKey: PreparedStatementQuery;
+  name?: string;
 }

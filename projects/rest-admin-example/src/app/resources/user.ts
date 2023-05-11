@@ -1,10 +1,45 @@
-import { RestResource, REST_FIELD_TYPES, TYPE_GROUP } from 'rest-admin';
+import {
+  RestResource,
+  REST_FIELD_TYPES,
+  TYPE_GROUP,
+  PERMISSION,
+} from 'rest-admin';
 import { address } from './address';
 
 export const user = new RestResource(
   {
     name: 'user',
     icon: 'person',
+    permissions: [
+      // {
+      //   type: PERMISSION.CREATE,
+      //   fieldKey: {
+      //     api: '/users/me',
+      //     fieldForNextQuery: ['original.is_consolidator'],
+      //   },
+      // },
+      // {
+      //   type: PERMISSION.UPDATE,
+      //   fieldKey: {
+      //     api: '/users/me',
+      //     fieldForNextQuery: ['original.is_consolidator'],
+      //   },
+      // },
+      // {
+      //   type: PERMISSION.DELETE,
+      //   fieldKey: {
+      //     api: '/users/me',
+      //     fieldForNextQuery: ['original.is_consolidator'],
+      //   },
+      // },
+      {
+        type: PERMISSION.READ,
+        fieldKey: {
+          api: '/users/me',
+          fieldForNextQuery: ['original.is_consolidator'],
+        },
+      },
+    ],
   },
   [
     {
@@ -140,6 +175,7 @@ export const user = new RestResource(
     },
     {
       name: 'password',
+      type: REST_FIELD_TYPES.PASSWORD,
     },
     {
       name: 'is_consolidator',
@@ -158,11 +194,11 @@ export const user = new RestResource(
       type: REST_FIELD_TYPES.DATE,
       inForm: false,
     },
-    {
-      name: 'updated_at',
-      type: REST_FIELD_TYPES.DATE,
-      inForm: false,
-    },
+    // {
+    //   name: 'updated_at',
+    //   type: REST_FIELD_TYPES.DATE,
+    //   inForm: false,
+    // },
   ],
   {
     columns: [
@@ -191,7 +227,7 @@ export const user = new RestResource(
   {
     api: 'users',
     title: 'Add user',
-    inList: true,
+    inList: false,
   },
   {},
   {

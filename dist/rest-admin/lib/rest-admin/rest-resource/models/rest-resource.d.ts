@@ -1,4 +1,4 @@
-import { RestField, ListConfig, AddConfig, MainConfig, EditConfig, CustomIcon, DetailConfig } from './rest-resource.model';
+import { RestField, ListConfig, AddConfig, MainConfig, EditConfig, CustomIcon, DetailConfig, PermissionConfig } from './rest-resource.model';
 export declare class RestResource {
     private _api;
     private _description;
@@ -13,6 +13,7 @@ export declare class RestResource {
     private _addConfig;
     private _editConfig;
     private _detailConfig;
+    private _mainConfig;
     private _queryParams;
     constructor(mainConfig: MainConfig, fields: RestField[], listConfig: ListConfig, addConfig: AddConfig, editConfig: EditConfig, detailConfig: DetailConfig);
     get name(): string;
@@ -22,7 +23,7 @@ export declare class RestResource {
     get icon(): string | CustomIcon;
     get fields(): RestField[];
     get hasFile(): boolean;
-    get permissions(): string[];
+    get permissions(): PermissionConfig[];
     get listConfig(): ListConfig;
     get addConfig(): AddConfig;
     get editConfig(): EditConfig;
@@ -40,6 +41,6 @@ export declare class RestResource {
     set queryParams(v: any);
     set authRequired(v: boolean);
     set showInMenu(v: boolean);
-    set permissions(v: string[]);
+    set permissions(v: PermissionConfig[]);
 }
 //# sourceMappingURL=rest-resource.d.ts.map

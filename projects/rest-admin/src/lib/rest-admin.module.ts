@@ -178,9 +178,8 @@ export function createTranslateHttpLoader(http: HttpClient) {
     NbContextMenuModule,
     TranslateModule,
     NgxDropzoneModule,
-    NgxPermissionsModule.forChild(),
+    NgxPermissionsModule.forRoot(),
     NbLayoutModule,
-
     NbSelectModule,
     NbSidebarModule,
     NbMenuModule.forRoot(),

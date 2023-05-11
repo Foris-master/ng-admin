@@ -10,6 +10,7 @@ import {
   DetailConfig,
   TYPE_GROUP,
   TYPE_METHOD_REQUEST,
+  PermissionConfig,
 } from './rest-resource.model';
 
 export class RestResource {
@@ -20,13 +21,14 @@ export class RestResource {
   private _authRequired: boolean;
   private _hasFile = false;
   private _showInMenu: boolean;
-  private _permissions: string[];
+  private _permissions: PermissionConfig[];
 
   private _fields: RestField[];
   private _listConfig: ListConfig;
   private _addConfig: AddConfig;
   private _editConfig: EditConfig;
   private _detailConfig: DetailConfig;
+  private _mainConfig: MainConfig;
 
   private _queryParams: any;
 
@@ -50,6 +52,7 @@ export class RestResource {
     this._addConfig = addConfig;
     this._editConfig = editConfig;
     this._detailConfig = detailConfig;
+    this._mainConfig = mainConfig;
   }
 
   // Getters
@@ -103,8 +106,8 @@ export class RestResource {
     );
   }
 
-  get permissions(): string[] {
-    return this._permissions == null ? [] : this._permissions;
+  get permissions(): PermissionConfig[] {
+    return this._mainConfig.permissions ? this._mainConfig.permissions : [];
   }
 
   // Defini afin de tester les valeurs des metadatas
@@ -304,7 +307,7 @@ export class RestResource {
     this._showInMenu = v;
   }
 
-  set permissions(v: string[]) {
+  set permissions(v: PermissionConfig[]) {
     this._permissions = v;
   }
 }

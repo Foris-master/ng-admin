@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { OnInit } from '@angular/core';
 import { ServerDataSource } from 'ng2-smart-table';
+import { PERMISSION } from '../models/rest-resource.model';
 import { NbDialogService, NbMenuService, NbTagComponent } from '@nebular/theme';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
@@ -10,6 +11,7 @@ import { RestExportService } from '../service/rest-export.service';
 import { RestShareService } from '../service/rest-share.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { NgxPermissionsService } from 'ngx-permissions';
 import * as i0 from "@angular/core";
 export declare class RestResourceListComponent implements OnInit {
     private fb;
@@ -22,6 +24,8 @@ export declare class RestResourceListComponent implements OnInit {
     private nbMenuService;
     private exportService;
     restShare: RestShareService;
+    private permissionsService;
+    private serviceRest;
     resource: RestResource;
     search: any;
     inputBelongToMany: any;
@@ -60,7 +64,10 @@ export declare class RestResourceListComponent implements OnInit {
         title: string;
         value: number;
     }[];
-    constructor(fb: FormBuilder, serviceRestConfig: RestAdminConfigService, serviceRestResources: RestResourceService, http: HttpClient, dialogService: NbDialogService, activatedRoute: ActivatedRoute, router: Router, nbMenuService: NbMenuService, exportService: RestExportService, restShare: RestShareService);
+    permissions: PERMISSION[];
+    get PERMISSION(): typeof PERMISSION;
+    custom: boolean;
+    constructor(fb: FormBuilder, serviceRestConfig: RestAdminConfigService, serviceRestResources: RestResourceService, http: HttpClient, dialogService: NbDialogService, activatedRoute: ActivatedRoute, router: Router, nbMenuService: NbMenuService, exportService: RestExportService, restShare: RestShareService, permissionsService: NgxPermissionsService, serviceRest: RestResourceService);
     ngOnInit(): void;
     toggleShowCheckbox(): void;
     onDeleteConfirm(event: any): void;

@@ -3,7 +3,7 @@ import { resources } from './resources';
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
   name: 'My admin',
-  baseUrl: 'https://api.mydashs.com/api',
+  baseUrl: 'https://api.example.com/api',
   resources: resources,
   authConfig: {
     strategy: STRATEGY_AUTH.EMAIL,

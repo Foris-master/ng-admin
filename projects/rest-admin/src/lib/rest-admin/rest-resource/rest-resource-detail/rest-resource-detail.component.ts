@@ -1,7 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestResource } from '../models/rest-resource';
-import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import {
+  RestField,
+  REST_FIELD_TYPES,
+  PERMISSION,
+} from '../models/rest-resource.model';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
 import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
@@ -11,6 +15,7 @@ import * as _ from 'lodash';
 import urlToFile from '../../../utils/urlToFile';
 import { RestResourceDeleteComponent } from '../rest-ressource-delete/rest-resource-delete.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'ngx-rest-resource-detail',
@@ -35,6 +40,13 @@ export class RestResourceDetailComponent implements OnInit {
   tabsName = [];
   filesUpload = {};
 
+  permissions = [
+    PERMISSION.CREATE,
+    PERMISSION.UPDATE,
+    PERMISSION.DELETE,
+    PERMISSION.READ,
+  ];
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private serviceRest: RestResourceService,
@@ -43,8 +55,13 @@ export class RestResourceDetailComponent implements OnInit {
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
     private dialogService: NbDialogService,
     private langService: RestLangService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private permissionsService: NgxPermissionsService
   ) {}
+
+  get PERMISSION() {
+    return PERMISSION;
+  }
 
   ngOnInit(): void {
     let id;
@@ -795,6 +812,27 @@ export class RestResourceDetailComponent implements OnInit {
           }
         });
     }
+
+    if (this.resource.permissions.length > 0) {
+      this.resource.permissions.forEach((permission) => {
+        this.serviceRest
+          .getResources({
+            api: permission.fieldKey.api.substring(1),
+            queryParams: permission.fieldKey.queryParams
+              ? permission.fieldKey.queryParams
+              : {},
+          })
+          .subscribe((resp) => {
+            const val = {};
+            permission.fieldKey.fieldForNextQuery.forEach((item) => {
+              val[item] = _.get(resp, item);
+              if (val[item]) {
+                this.permissionsService.addPermission(permission.type);
+              }
+            });
+          });
+      });
+    }
   }
 
   editEntity() {
@@ -911,8 +949,5 @@ export class RestResourceDetailComponent implements OnInit {
     return _jsonValue;
   };
 
-  sanitizerUrl(link) {
-    console.log('link', link);
-    return this.sanitizer.bypassSecurityTrustResourceUrl(link);
-  }
+  sanitizerUrl = (link) => this.sanitizer.bypassSecurityTrustResourceUrl(link);
 }

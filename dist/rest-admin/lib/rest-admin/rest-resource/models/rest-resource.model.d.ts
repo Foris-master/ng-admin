@@ -28,6 +28,7 @@ export interface MainConfig {
     description?: string;
     authRequired?: boolean;
     showInMenu?: boolean;
+    permissions?: PermissionConfig[];
 }
 export interface CustomIcon {
     icon?: string;
@@ -246,10 +247,14 @@ export declare enum STRATEGY_AUTH {
     EMAIL = "email"
 }
 export declare enum PERMISSION {
-    C = "create",
-    R = "read",
-    U = "update",
-    D = "delete",
-    A = "all"
+    CREATE = "create",
+    READ = "read",
+    UPDATE = "update",
+    DELETE = "delete"
+}
+export interface PermissionConfig {
+    type: PERMISSION;
+    fieldKey: PreparedStatementQuery;
+    name?: string;
 }
 //# sourceMappingURL=rest-resource.model.d.ts.map

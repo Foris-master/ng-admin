@@ -1,5 +1,5 @@
 import { LocalDataSource } from 'ng2-smart-table';
-import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import { RestField, REST_FIELD_TYPES, PERMISSION } from '../models/rest-resource.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChangeDetectorRef, OnInit, QueryList } from '@angular/core';
 import { NbDialogService, NbMenuService, NbTagComponent, NbTagInputAddEvent } from '@nebular/theme';
@@ -11,6 +11,7 @@ import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestExportService } from '../service/rest-export.service';
 import { NotificationService } from '../service/notification.service';
+import { NgxPermissionsService } from 'ngx-permissions';
 import * as i0 from "@angular/core";
 export declare class RestResourceAddComponent implements OnInit {
     private fb;
@@ -23,6 +24,7 @@ export declare class RestResourceAddComponent implements OnInit {
     private router;
     private notificationService;
     private cdref;
+    private permissionsService;
     resource: RestResource;
     ressourceName: string;
     message: string;
@@ -56,12 +58,14 @@ export declare class RestResourceAddComponent implements OnInit {
     source: LocalDataSource;
     settings: any;
     morphFields: {};
-    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService, cdref: ChangeDetectorRef);
+    permissions: PERMISSION[];
+    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService, cdref: ChangeDetectorRef, permissionsService: NgxPermissionsService);
     ngOnInit(): void;
     initForm(datas: any): void;
     trackByFn(index: any): any;
     reset(): void;
     get REST_FIELD_TYPES(): typeof REST_FIELD_TYPES;
+    get PERMISSION(): typeof PERMISSION;
     onTagRemove(tagToRemove: NbTagComponent, name: any): void;
     onTagAdd({ value, input }: NbTagInputAddEvent, name: any): void;
     private filter;
