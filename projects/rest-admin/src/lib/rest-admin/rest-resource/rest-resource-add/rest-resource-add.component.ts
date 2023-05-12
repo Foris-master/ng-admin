@@ -1,5 +1,9 @@
 import { LocalDataSource } from 'ng2-smart-table';
-import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import {
+  RestField,
+  REST_FIELD_TYPES,
+  PERMISSION,
+} from '../models/rest-resource.model';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {
   ChangeDetectorRef,
@@ -30,6 +34,8 @@ import { RestResourceEditorFieldsComponent } from '../components/rest-resource-e
 import { Validator } from 'ngx-input-validator';
 import * as moment from 'moment';
 import { NotificationService } from '../service/notification.service';
+import * as _ from 'lodash';
+import { NgxPermissionsService } from 'ngx-permissions';
 @Component({
   selector: 'ngx-rest-resource-add',
   templateUrl: './rest-resource-add.component.html',
@@ -100,6 +106,8 @@ export class RestResourceAddComponent implements OnInit {
   //Morph_field
   morphFields = {};
 
+  permissions = [PERMISSION.CREATE, PERMISSION.UPDATE];
+
   constructor(
     private fb: FormBuilder,
     private serviceRest: RestResourceService,
@@ -110,7 +118,8 @@ export class RestResourceAddComponent implements OnInit {
     private dialogService: NbDialogService,
     private router: Router,
     private notificationService: NotificationService,
-    private cdref: ChangeDetectorRef
+    private cdref: ChangeDetectorRef,
+    private permissionsService: NgxPermissionsService
   ) {
     activatedRoute.params.subscribe((params) => {
       this.ressourceName =
@@ -190,6 +199,27 @@ export class RestResourceAddComponent implements OnInit {
       columns: this.createMatTableColumns(),
     };
     this.cdref.detectChanges();
+
+    if (this.resource.permissions.length > 0) {
+      this.resource.permissions.forEach((permission) => {
+        this.serviceRest
+          .getResources({
+            api: permission.fieldKey.api.substring(1),
+            queryParams: permission.fieldKey.queryParams
+              ? permission.fieldKey.queryParams
+              : {},
+          })
+          .subscribe((resp) => {
+            const val = {};
+            permission.fieldKey.fieldForNextQuery.forEach((item) => {
+              val[item] = _.get(resp, item);
+              if (val[item]) {
+                this.permissionsService.addPermission(permission.type);
+              }
+            });
+          });
+      });
+    }
   }
 
   initForm(datas) {
@@ -289,46 +319,55 @@ export class RestResourceAddComponent implements OnInit {
                 ...cumul,
                 [elt.name]: datas[elt.name],
               };
-              case REST_FIELD_TYPES.JSON:
-  const jsonFields = [];
-  if (elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
-    elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
-      if (datas[elt.name]) {
-        if (datas[elt.name][0] == '{') {
-          try {
-            jsonFields.push({
-              label: field,
-              value: JSON.parse(datas[elt.name])[field],
-            });
-          } catch (error) {
-            console.error(`Error parsing JSON for ${field} in ${elt.name}: ${error}`);
-          }
-        } else if (typeof datas[elt.name] !== 'string') {
-          try {
-            jsonFields.push({
-              label: field,
-              value: datas[elt.name][field],
-            });
-          } catch (error) {
-            console.error(`Error accessing field ${field} in ${elt.name}: ${error}`);
-          }
-        } else {
-          jsonFields.push({
-            label: field,
-            value: datas[elt.name],
-          });
-        }
-      } else {
-          jsonFields.push({ label: field, value: '' });
-      }
-    });
-  }
-  this.jsonEditorOptions[elt.name] = jsonFields;
-  return {
-    ...cumul,
-    [elt.name]: datas[elt.name],
-  };
-              
+            case REST_FIELD_TYPES.JSON:
+              const jsonFields = [];
+              if (
+                elt.metaData &&
+                elt.metaData.addConfig &&
+                elt.metaData.addConfig.jsonConfig &&
+                elt.metaData.addConfig.jsonConfig.jsonFields
+              ) {
+                elt.metaData.addConfig.jsonConfig.jsonFields.map((field) => {
+                  if (datas[elt.name]) {
+                    if (datas[elt.name][0] == '{') {
+                      try {
+                        jsonFields.push({
+                          label: field,
+                          value: JSON.parse(datas[elt.name])[field],
+                        });
+                      } catch (error) {
+                        console.error(
+                          `Error parsing JSON for ${field} in ${elt.name}: ${error}`
+                        );
+                      }
+                    } else if (typeof datas[elt.name] !== 'string') {
+                      try {
+                        jsonFields.push({
+                          label: field,
+                          value: datas[elt.name][field],
+                        });
+                      } catch (error) {
+                        console.error(
+                          `Error accessing field ${field} in ${elt.name}: ${error}`
+                        );
+                      }
+                    } else {
+                      jsonFields.push({
+                        label: field,
+                        value: datas[elt.name],
+                      });
+                    }
+                  } else {
+                    jsonFields.push({ label: field, value: '' });
+                  }
+                });
+              }
+              this.jsonEditorOptions[elt.name] = jsonFields;
+              return {
+                ...cumul,
+                [elt.name]: datas[elt.name],
+              };
+
             case REST_FIELD_TYPES.MORPH_ONE:
               this.morphFields[elt.name] = {
                 type: datas[elt.name].type,
@@ -337,6 +376,15 @@ export class RestResourceAddComponent implements OnInit {
               return {
                 ...cumul,
                 [elt.name]: [null],
+              };
+
+            case REST_FIELD_TYPES.MAP:
+              const lat = elt.metaData.addConfig.mapConfig.lattiudeKeyField;
+              const long = elt.metaData.addConfig.mapConfig.longitudeKeyField;
+              return {
+                ...cumul,
+                [lat]: datas[lat],
+                [long]: datas[long],
               };
             default:
               return {
@@ -445,22 +493,40 @@ export class RestResourceAddComponent implements OnInit {
                 [elt.name]: ['', Validator.url],
               };
             case REST_FIELD_TYPES.JSON:
-              if (elt && elt.metaData && elt.metaData.addConfig && elt.metaData.addConfig.jsonConfig && elt.metaData.addConfig.jsonConfig.jsonFields) {
+              if (
+                elt &&
+                elt.metaData &&
+                elt.metaData.addConfig &&
+                elt.metaData.addConfig.jsonConfig &&
+                elt.metaData.addConfig.jsonConfig.jsonFields
+              ) {
                 const jsonFields = [];
-              
-                elt.metaData.addConfig.jsonConfig.jsonFields.forEach((field) => {
-                  jsonFields.push({ label: field, value: '' });
-                });
-              
+
+                elt.metaData.addConfig.jsonConfig.jsonFields.forEach(
+                  (field) => {
+                    jsonFields.push({ label: field, value: '' });
+                  }
+                );
+
                 this.jsonEditorOptions[elt.name] = jsonFields;
               } else {
                 // Si une propriété requise n'est pas présente, renvoyer une erreur
-                throw new Error("Une erreur s'est produite lors du traitement de l'élément.");
+                throw new Error(
+                  "Une erreur s'est produite lors du traitement de l'élément."
+                );
               }
-              
+
               return {
                 ...cumul,
                 [elt.name]: [null],
+              };
+            case REST_FIELD_TYPES.MAP:
+              const lat = elt.metaData.addConfig.mapConfig.lattiudeKeyField;
+              const long = elt.metaData.addConfig.mapConfig.longitudeKeyField;
+              return {
+                ...cumul,
+                [lat]: [null],
+                [long]: [null],
               };
             default:
               return {
@@ -488,6 +554,10 @@ export class RestResourceAddComponent implements OnInit {
 
   get REST_FIELD_TYPES() {
     return REST_FIELD_TYPES;
+  }
+
+  get PERMISSION() {
+    return PERMISSION;
   }
 
   //Tags
@@ -699,7 +769,10 @@ export class RestResourceAddComponent implements OnInit {
     };
     this.loading = true;
     const formData = this.form.value;
+    console.log('this.form', this.form.value);
+
     const _body = this.resource.addConfig.body;
+
     if (this.resource.hasFile) {
       datas = new FormData();
       Object.keys(formData).forEach((key, index) => {
@@ -718,22 +791,37 @@ export class RestResourceAddComponent implements OnInit {
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
               if (this.jsonEditorOptions[key] !== null) {
-                if (typeof this.jsonEditorOptions[key] === 'object' && Array.isArray(this.jsonEditorOptions[key])) {
+                if (
+                  typeof this.jsonEditorOptions[key] === 'object' &&
+                  Array.isArray(this.jsonEditorOptions[key])
+                ) {
                   this.jsonEditorOptions[key].map((elt) => {
-                    if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
+                    if (
+                      typeof elt === 'object' &&
+                      elt !== null &&
+                      elt.label &&
+                      elt.value
+                    ) {
                       jsonFields = { ...jsonFields, [elt.label]: elt.value };
                       datas.append(`${key}[${elt.label}]`, elt.value);
                     } else {
-                      console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+                      console.error(
+                        `Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(
+                          elt
+                        )}`
+                      );
                     }
                   });
                 } else {
-                  console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
+                  console.error(
+                    `Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this
+                      .jsonEditorOptions[key]}`
+                  );
                 }
               } else {
                 console.error(`Error: Missing jsonEditorOptions[${key}]`);
               }
-              break;            
+              break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
                 if (formData[key]) {
@@ -763,21 +851,48 @@ export class RestResourceAddComponent implements OnInit {
       Object.keys(_body).map((key) => {
         datas.append(key, _body[key]);
       });
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.lattiudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField]
+        );
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.longitudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField]
+        );
+      });
     } else {
       const tab = {};
       Object.keys(formData).forEach((key, index) => {
         const search: RestField = this.resource.fields.find(
           (elt) => elt.name == key
         );
-        if (
-          search &&
-          this.jsonEditorOptions[key] !== null &&
-          formData[key] !== undefined &&
-          formData[key] !== ''
-        ) {
-          tab[key] = formData[key];
+        if (search) {
+          if (
+            this.jsonEditorOptions[key] !== null &&
+            formData[key] !== undefined &&
+            formData[key] !== ''
+          ) {
+            tab[key] = formData[key];
+          }
         }
       });
+
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        tab[elt.metaData.addConfig.mapConfig.lattiudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField];
+        tab[elt.metaData.addConfig.mapConfig.longitudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField];
+      });
+
       datas = { ...tab, ..._body };
     }
 
@@ -873,28 +988,40 @@ export class RestResourceAddComponent implements OnInit {
                 );
               } 
               break;
-              case REST_FIELD_TYPES.JSON:
-                let jsonFields = {};
-                if (this.jsonEditorOptions[key] !== null) {
-                  if (typeof this.jsonEditorOptions[key] === 'object') {
-                    this.jsonEditorOptions[key].map((elt) => {
-                      if (typeof elt === 'object' && elt !== null && elt.label && elt.value) {
-                        jsonFields = { ...jsonFields, [elt.label]: elt.value };
-                        datas.append(`${key}[${elt.label}]`, elt.value);
-                      } else {
-                        if (elt.label) {
-                        datas.append(`${key}[${elt.label}]`, "");
-                        }
-                        console.error(`Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(elt)}`);
+            case REST_FIELD_TYPES.JSON:
+              let jsonFields = {};
+              if (this.jsonEditorOptions[key] !== null) {
+                if (typeof this.jsonEditorOptions[key] === 'object') {
+                  this.jsonEditorOptions[key].map((elt) => {
+                    if (
+                      typeof elt === 'object' &&
+                      elt !== null &&
+                      elt.label &&
+                      elt.value
+                    ) {
+                      jsonFields = { ...jsonFields, [elt.label]: elt.value };
+                      datas.append(`${key}[${elt.label}]`, elt.value);
+                    } else {
+                      if (elt.label) {
+                        datas.append(`${key}[${elt.label}]`, '');
                       }
-                    });
-                  } else {
-                    console.error(`Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this.jsonEditorOptions[key]}`);
-                  }
+                      console.error(
+                        `Error: Invalid element in jsonEditorOptions[${key}]: ${JSON.stringify(
+                          elt
+                        )}`
+                      );
+                    }
+                  });
                 } else {
-                  console.error(`Error: Missing jsonEditorOptions[${key}]`);
+                  console.error(
+                    `Error: Invalid type of jsonEditorOptions[${key}]: ${typeof this
+                      .jsonEditorOptions[key]}`
+                  );
                 }
-                break;   
+              } else {
+                console.error(`Error: Missing jsonEditorOptions[${key}]`);
+              }
+              break;
             case REST_FIELD_TYPES.BOOLEAN:
               if (search.metaData?.number) {
                 if (formData[key]) {
@@ -926,6 +1053,20 @@ export class RestResourceAddComponent implements OnInit {
       Object.keys(_body).map((key) => {
         datas.append(key, _body[key]);
       });
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.lattiudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField]
+        );
+        datas.append(
+          [elt.metaData.addConfig.mapConfig.longitudeKeyField],
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField]
+        );
+      });
     } else {
       const tab = {};
       Object.keys(formData).forEach((key, index) => {
@@ -940,6 +1081,17 @@ export class RestResourceAddComponent implements OnInit {
         ) {
           tab[key] = formData[key];
         }
+      });
+
+      // Add map type;
+      const mapField = this.resource.fields.filter(
+        (item) => item.type === REST_FIELD_TYPES.MAP
+      );
+      mapField.forEach((elt) => {
+        tab[elt.metaData.addConfig.mapConfig.lattiudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.lattiudeKeyField];
+        tab[elt.metaData.addConfig.mapConfig.longitudeKeyField] =
+          formData[elt.metaData.addConfig.mapConfig.longitudeKeyField];
       });
       datas = { ...tab, ..._body };
     }
@@ -1111,5 +1263,22 @@ export class RestResourceAddComponent implements OnInit {
         this.options[field] = response;
         this.allFilterContains[field] = of(this.options[field]);
       });
+  }
+
+  onLatChange(value, fieldName) {
+    const fieldLat = this.resource.fields.find((elt) => elt.name == fieldName);
+    const name = fieldLat.metaData.addConfig.mapConfig.lattiudeKeyField;
+
+    this.form.patchValue({
+      [name]: value,
+    });
+  }
+  onLngChange(value, fieldName) {
+    const fieldLat = this.resource.fields.find((elt) => elt.name == fieldName);
+    const name = fieldLat.metaData.addConfig.mapConfig.longitudeKeyField;
+
+    this.form.patchValue({
+      [name]: value,
+    });
   }
 }

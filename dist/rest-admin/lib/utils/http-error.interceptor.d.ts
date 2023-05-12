@@ -16,3 +16,4 @@ export declare class HttpErrorInterceptor implements HttpInterceptor {
     static ɵfac: i0.ɵɵFactoryDeclaration<HttpErrorInterceptor, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<HttpErrorInterceptor>;
 }
+//# sourceMappingURL=http-error.interceptor.d.ts.map

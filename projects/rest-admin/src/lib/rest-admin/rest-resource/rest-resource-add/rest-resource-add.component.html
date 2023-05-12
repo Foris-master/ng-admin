@@ -1,80 +1,34 @@
-<nb-card>
-  <!-- <nb-card-header class="row">
-    <div class="col-9" *ngIf="formState.isAdd">
-      {{ resource.addConfig.title }}
-    </div>
+<ng-container *ngIf="resource.permissions.length <= 0">
+  <nb-card>
+    <nb-card-header *ngIf="formState.onReady && !formState.isAdd"
+      >{{ resource.editConfig.title }}
+    </nb-card-header>
 
-    <div class="col-3">
-      <button
-        nbButton
-        status="primary"
-        [nbContextMenu]="items"
-        nbContextMenuTag="my-context-menu"
-      >
-        {{ "rest-add.import" | translate }}
-      </button>
-    </div>
-  </nb-card-header> -->
+    <nb-card-header *ngIf="formState.onReady && formState.isAdd"
+      >{{ resource.addConfig.title }}
+    </nb-card-header>
 
-  <nb-card-header *ngIf="formState.onReady && !formState.isAdd"
-    >{{ resource.editConfig.title }}
-  </nb-card-header>
-
-  <nb-card-header *ngIf="formState.onReady && formState.isAdd"
-    >{{ resource.addConfig.title }}
-  </nb-card-header>
-
-  <nb-card-body>
-    <nb-tabset fullWidth>
-      <nb-tab tabTitle="Ajout simple">
-        <form [formGroup]="form" class="row" *ngIf="formState.onReady">
-          <div
-            *ngFor="
-              let field of resource.fields;
-              trackBy: trackByFn;
-              let i = index
-            "
-            class="col-12"
-          >
-            <ng-container *ngIf="field.inForm">
-              <!-- Input type string  -->
-              <div
-                class="input-space"
-                *ngIf="
-                  field.type == REST_FIELD_TYPES.STRING ||
-                  field.type == REST_FIELD_TYPES.HAS_ONE
-                "
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  nbInput
-                  fullWidth
-                  [id]="i"
-                  [attributes]="field.metaData.attributes"
-                  [placeholder]="field.label"
-                  [formControlName]="field.name"
-                  type="text"
-                />
-              </div>
-
-              <!-- Input type text -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.TEXT"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <textarea
-                  nbInput
-                  fullWidth
-                  [id]="i"
-                  [attributes]="field.metaData.attributes"
-                  [placeholder]="field.label"
-                  [formControlName]="field.name"
-                ></textarea>
-              </div>
-
-              <ng-container *ngIf="field.type == REST_FIELD_TYPES.PASSWORD">
-                <div class="input-space">
+    <nb-card-body>
+      <nb-tabset fullWidth>
+        <nb-tab tabTitle="Ajout simple">
+          <form [formGroup]="form" class="row" *ngIf="formState.onReady">
+            <div
+              *ngFor="
+                let field of resource.fields;
+                trackBy: trackByFn;
+                let i = index
+              "
+              class="col-12"
+            >
+              <ng-container *ngIf="field.inForm">
+                <!-- Input type string  -->
+                <div
+                  class="input-space"
+                  *ngIf="
+                    field.type == REST_FIELD_TYPES.STRING ||
+                    field.type == REST_FIELD_TYPES.HAS_ONE
+                  "
+                >
                   <label class="label">{{ field.label | titlecase }}</label>
                   <input
                     nbInput
@@ -83,584 +37,1152 @@
                     [attributes]="field.metaData.attributes"
                     [placeholder]="field.label"
                     [formControlName]="field.name"
-                    type="password"
+                    type="text"
                   />
                 </div>
-                <ng-container
-                  *ngIf="
-                    field?.metaData?.addConfig?.passwordOptions?.isNeedConfirm
-                  "
+
+                <!-- Input type text -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.TEXT"
                 >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <textarea
+                    nbInput
+                    fullWidth
+                    [id]="i"
+                    [attributes]="field.metaData.attributes"
+                    [placeholder]="field.label"
+                    [formControlName]="field.name"
+                  ></textarea>
+                </div>
+
+                <ng-container *ngIf="field.type == REST_FIELD_TYPES.PASSWORD">
                   <div class="input-space">
-                    <label class="label">{{
-                      field?.metaData?.addConfig?.passwordOptions?.confirmLabel
-                        ? field?.metaData?.addConfig?.passwordOptions
-                            ?.confirmLabel
-                        : (field.label + "_confirmation" | titlecase)
-                    }}</label>
+                    <label class="label">{{ field.label | titlecase }}</label>
                     <input
                       nbInput
                       fullWidth
                       [id]="i"
                       [attributes]="field.metaData.attributes"
-                      [placeholder]="field.label + '_confirmation'"
-                      [formControlName]="
-                        field.metaData?.addConfig?.passwordOptions?.confirmField
-                          ? field.metaData.addConfig.passwordOptions
-                              .confirmField
-                          : field.name + '_confirmation'
-                      "
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
                       type="password"
                     />
                   </div>
-                </ng-container>
-              </ng-container>
-
-              <!-- Input type number  -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.NUMBER"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  nbInput
-                  fullWidth
-                  [id]="i"
-                  [attributes]="field.metaData.attributes"
-                  [placeholder]="field.label"
-                  [formControlName]="field.name"
-                  type="number"
-                />
-              </div>
-
-              <!-- Input type date -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.DATE"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  nbInput
-                  [placeholder]="field.label"
-                  [nbDatepicker]="formpicker"
-                  [attributes]="field.metaData.attributes"
-                  fullWidth
-                  [formControlName]="field.name"
-                />
-                <nb-datepicker #formpicker></nb-datepicker>
-              </div>
-
-              <!-- Input type dateTime -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.DATETIME"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  nbInput
-                  fullWidth
-                  [attributes]="field.metaData.attributes"
-                  [placeholder]="field.label"
-                  [nbDatepicker]="dateTimePicker"
-                  [formControlName]="field.name"
-                />
-                <nb-date-timepicker
-                  withSeconds
-                  #dateTimePicker
-                ></nb-date-timepicker>
-              </div>
-
-              <!-- Input type time -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.TIME"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  [nbTimepicker]="timepicker"
-                  fullWidth
-                  [attributes]="field.metaData.attributes"
-                  [formControlName]="field.name"
-                  twelveHoursFormat
-                  nbInput
-                />
-                <nb-timepicker #timepicker></nb-timepicker>
-              </div>
-
-              <!-- Input type enum -->
-              <ng-container
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.ENUM"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <nb-select
-                  fullWidth
-                  [formControlName]="field.name"
-                  [attributes]="field.metaData.attributes"
-                  [placeholder]="field.label"
-                >
-                  <nb-option
-                    *ngFor="let option of field.metaData.addConfig.enumOptions"
-                    [value]="option.value"
-                    >{{ option.label }}</nb-option
-                  >
-                </nb-select>
-              </ng-container>
-
-              <!-- Input type boolean -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.BOOLEAN"
-              >
-                <!-- <label class="label">{{ field.label | titlecase }}</label> -->
-                <div style="display: flex; align-items: center">
-                  <label style="margin-right: 0.5em">{{
-                    field.label | titlecase
-                  }}</label>
-                  <!-- [name]="field.name" -->
-                  <nb-toggle [formControlName]="field.name"></nb-toggle>
-                </div>
-              </div>
-
-              <!-- Input type file -->
-              <div
-                class="input-space"
-                *ngIf="
-                  field.type == REST_FIELD_TYPES.FILE ||
-                  field.type == REST_FIELD_TYPES.PDF
-                "
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <div
-                  style="border: dashed; display: flex"
-                  class="custom-dropzone form-control-custom rounded m-2"
-                  ngx-dropzone
-                  (change)="onSelect($event, field)"
-                >
-                  <img
+                  <ng-container
                     *ngIf="
-                      urlsImage[field.name] != '' &&
-                      filesUpload[field.name].length <= 0
-                    "
-                    [attributes]="field.metaData.attributes"
-                    [src]="urlsImage[field.name]"
-                    class="custom-img-dropzone"
-                  />
-
-                  <ngx-dropzone-label
-                    *ngIf="filesUpload[field.name].length <= 0"
-                  >
-                    <nb-icon
-                      icon="cloud-upload-outline"
-                      style="font-size: 2em; color: #ccc"
-                    ></nb-icon>
-                    Drag and drop files here or click to upload
-                  </ngx-dropzone-label>
-
-                  <ngx-dropzone-preview
-                    ngProjectAs="ngx-dropzone-preview"
-                    *ngFor="let f of filesUpload[field.name]"
-                    [file]="f"
-                    [removable]="true"
-                    (removed)="onRemove(field)"
-                  >
-                    <ngx-dropzone-label
-                      >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
-                    >
-                  </ngx-dropzone-preview>
-                </div>
-              </div>
-
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.IMAGE"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-
-                <div
-                  style="border: dashed; display: flex"
-                  class="custom-dropzone form-control-custom rounded m-2"
-                  ngx-dropzone
-                  (change)="onSelect($event, field)"
-                >
-                  <img
-                    *ngIf="
-                      urlsImage[field.name] != '' &&
-                      filesUpload[field.name].length <= 0
-                    "
-                    [attributes]="field.metaData.attributes"
-                    [src]="urlsImage[field.name]"
-                    class="custom-img-dropzone"
-                  />
-
-                  <ngx-dropzone-label
-                    *ngIf="
-                      filesUpload[field.name].length <= 0 &&
-                      urlsImage[field.name] == ''
+                      field?.metaData?.addConfig?.passwordOptions?.isNeedConfirm
                     "
                   >
-                    <nb-icon
-                      icon="cloud-upload-outline"
-                      style="font-size: 2em; color: #ccc"
-                    ></nb-icon>
-                    Drag and drop files here or click to upload
-                  </ngx-dropzone-label>
-
-                  <!-- <ng-container
-                    *ngIf="filesUpload[field.name].length > 0"
-                  > -->
-                  <ngx-dropzone-image-preview
-                    ngProjectAs="ngx-dropzone-preview"
-                    *ngFor="let f of filesUpload[field.name]"
-                    [file]="f"
-                    [removable]="true"
-                    (removed)="onRemove(field)"
-                  >
-                  </ngx-dropzone-image-preview>
-                  <!-- </ng-container> -->
-                </div>
-
-                <button
-                  nbButton
-                  status="primary"
-                  *ngIf="
-                    !isCrop[field.name] && controlCroper[field.name] != null
-                  "
-                  (click)="activeCroper(field)"
-                >
-                  CROP
-                </button>
-
-                <ng-container *ngIf="isCrop[field.name]">
-                  <image-cropper
-                    [imageFile]="controlCroper[field.name]"
-                    [maintainAspectRatio]="true"
-                    [aspectRatio]="4 / 3"
-                    format="png"
-                    (imageCropped)="imageCropped($event, field)"
-                  ></image-cropper>
-
-                  <button nbButton status="primary" (click)="saveCroper(field)">
-                    SAVE CHANGE
-                  </button>
-                  <button
-                    nbButton
-                    status="danger"
-                    (click)="desactiveCrop(field)"
-                  >
-                    Cancel
-                  </button>
+                    <div class="input-space">
+                      <label class="label">{{
+                        field?.metaData?.addConfig?.passwordOptions
+                          ?.confirmLabel
+                          ? field?.metaData?.addConfig?.passwordOptions
+                              ?.confirmLabel
+                          : (field.label + "_confirmation" | titlecase)
+                      }}</label>
+                      <input
+                        nbInput
+                        fullWidth
+                        [id]="i"
+                        [attributes]="field.metaData.attributes"
+                        [placeholder]="field.label + '_confirmation'"
+                        [formControlName]="
+                          field.metaData?.addConfig?.passwordOptions
+                            ?.confirmField
+                            ? field.metaData.addConfig.passwordOptions
+                                .confirmField
+                            : field.name + '_confirmation'
+                        "
+                        type="password"
+                      />
+                    </div>
+                  </ng-container>
                 </ng-container>
 
-                <!-- <img [src]="croppedImage" /> -->
-              </div>
-
-              <!-- Input type hasMany -->
-              <div
-                *ngIf="field.type == REST_FIELD_TYPES.HAS_MANY"
-                class="input-space"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <nb-tag-list
-                  (tagRemove)="onTagRemove($event, field.name)"
-                  fullWidth
+                <!-- Input type number  -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.NUMBER"
                 >
-                  <nb-tag
-                    *ngFor="let tree of form.get([field.name]).value"
-                    [text]="tree"
-                    removable
-                  ></nb-tag>
-                  <input
-                    type="text"
-                    fullWidth
-                    nbTagInput
-                    [attributes]="field.metaData.attributes"
-                    [placeholder]="field.label"
-                    (tagAdd)="onTagAdd($event, field.name)"
-                  />
-                </nb-tag-list>
-              </div>
-
-              <!-- Input type belong_to -->
-              <div
-                *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO"
-                class="input-space"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-
-                <div class="row">
-                  <div class="col-9">
-                    <input
-                      #autoInput
-                      nbInput
-                      fullWidth
-                      type="text"
-                      [attributes]="field.metaData.attributes"
-                      [formControlName]="field.name"
-                      placeholder="Enter value"
-                      [nbAutocomplete]="autoComplete"
-                      (keyup)="filterInput($event, field)"
-                      [id]="i"
-                    />
-                  </div>
-                  <div
-                    *ngIf="
-                      !field.metaData?.addConfig?.belongToOptions?.secondField
-                    "
-                    class="col-3"
-                  >
-                    <input
-                      nbInput
-                      fullWidth
-                      [attributes]="field.metaData.attributes"
-                      disabled="true"
-                      type="text"
-                      placeholder="Value"
-                      [value]="
-                        belongToValue[field.name]
-                          ? belongToValue[field.name]
-                          : ''
-                      "
-                      [id]="i + 100"
-                    />
-                  </div>
-                </div>
-
-                <nb-autocomplete
-                  #autoComplete
-                  (selectedChange)="onSelectionChange($event, field)"
-                >
-                  <nb-option
-                    *ngFor="let option of allFilterContains[field.name] | async"
-                    [value]="
-                      option[
-                        field?.metaData?.addConfig.belongToOptions?.value
-                          ? field?.metaData?.addConfig?.belongToOptions?.value
-                          : 'id'
-                      ]
-                    "
-                    [attributes]="field.metaData.attributes"
-                  >
-                    {{
-                      option[
-                        field.metaData.addConfig.belongToOptions.template
-                          ? field.metaData.addConfig.belongToOptions.template
-                          : field.metaData.addConfig.belongToOptions
-                              .filterKeys[0]
-                      ]
-                    }}
-                  </nb-option>
-                </nb-autocomplete>
-              </div>
-
-              <!-- Input type belong_to_many -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <nb-tag-list (tagRemove)="onTagRemoveBelong($event, field)">
-                  <nb-tag
-                    *ngFor="let tree of belongToMany[field.name]"
-                    [text]="
-                      tree[
-                        field.metaData.addConfig.belongToManyOptions.template
-                          ? field.metaData.addConfig.belongToManyOptions
-                              .template
-                          : field.metaData.addConfig.belongToManyOptions
-                              .filterKeys[0]
-                      ]
-                    "
-                    [attributes]="field.metaData.attributes"
-                    removable
-                  ></nb-tag>
-                  <input
-                    type="text"
-                    nbTagInput
-                    #autoBelongToMany
-                    [attributes]="field.metaData.attributes"
-                    [nbAutocomplete]="belongToField"
-                    (keyup)="filterInput($event, field)"
-                    [placeholder]="field.label"
-                    [formControlName]="field.name"
-                    fullWidth
-                  />
-                </nb-tag-list>
-
-                <nb-autocomplete
-                  #belongToField
-                  (selectedChange)="onChoose($event, field)"
-                >
-                  <nb-option
-                    *ngFor="let option of allFilterContains[field.name] | async"
-                    [value]="option"
-                    [attributes]="field.metaData.attributes"
-                  >
-                    {{
-                      option[
-                        field.metaData.addConfig.belongToManyOptions.template
-                          ? field.metaData.addConfig.belongToManyOptions
-                              .template
-                          : field.metaData.addConfig.belongToManyOptions
-                              .filterKeys[0]
-                      ]
-                    }}
-                  </nb-option>
-                </nb-autocomplete>
-              </div>
-
-              <!-- Input type color  -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.COLOR"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <div class="color-row">
+                  <label class="label">{{ field.label | titlecase }}</label>
                   <input
                     nbInput
                     fullWidth
-                    style="height: 45px"
                     [id]="i"
                     [attributes]="field.metaData.attributes"
                     [placeholder]="field.label"
                     [formControlName]="field.name"
-                    type="color"
+                    type="number"
                   />
                 </div>
-              </div>
 
-              <!-- Input type link -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.LINK"
-              >
-                <label class="label">{{ field.label | titlecase }}</label>
-                <input
-                  nbInput
-                  fullWidth
-                  [id]="i"
-                  [attributes]="field.metaData.attributes"
-                  [placeholder]="field.label"
-                  [formControlName]="field.name"
-                  type="text"
-                />
-
-                <!-- <div
-                *ngIf="
-                  form.get([field.name]).hasError('invalidUrl') &&
-                  form.get([field.name]).touched
-                "
-                class="text-error"
-              >
-                {{ "rest-add.invalid-link" | translate }}
-              </div> -->
-              </div>
-
-              <!-- Input type JSON -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.JSON"
-              >
-                <div>
+                <!-- Input type date -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.DATE"
+                >
                   <label class="label">{{ field.label | titlecase }}</label>
-                  <button
-                    nbButton
-                    status="primary"
-                    shape="round"
-                    size="small"
+                  <input
+                    nbInput
+                    [placeholder]="field.label"
+                    [nbDatepicker]="formpicker"
                     [attributes]="field.metaData.attributes"
-                    outline
-                    ghost
-                    *ngIf="field.metaData.addConfig.jsonConfig.isOpen"
-                    (click)="addJSONField(field)"
+                    fullWidth
+                    [formControlName]="field.name"
+                  />
+                  <nb-datepicker #formpicker></nb-datepicker>
+                </div>
+
+                <!-- Input type dateTime -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.DATETIME"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <input
+                    nbInput
+                    fullWidth
+                    [attributes]="field.metaData.attributes"
+                    [placeholder]="field.label"
+                    [nbDatepicker]="dateTimePicker"
+                    [formControlName]="field.name"
+                  />
+                  <nb-date-timepicker
+                    withSeconds
+                    #dateTimePicker
+                  ></nb-date-timepicker>
+                </div>
+
+                <!-- Input type time -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.TIME"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <input
+                    [nbTimepicker]="timepicker"
+                    fullWidth
+                    [attributes]="field.metaData.attributes"
+                    [formControlName]="field.name"
+                    twelveHoursFormat
+                    nbInput
+                  />
+                  <nb-timepicker #timepicker></nb-timepicker>
+                </div>
+
+                <!-- Input type enum -->
+                <ng-container
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.ENUM"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <nb-select
+                    fullWidth
+                    [formControlName]="field.name"
+                    [attributes]="field.metaData.attributes"
+                    [placeholder]="field.label"
                   >
-                    <nb-icon icon="plus" pack="fas"></nb-icon>
-                  </button>
+                    <nb-option
+                      *ngFor="
+                        let option of field.metaData.addConfig.enumOptions
+                      "
+                      [value]="option.value"
+                      >{{ option.label }}</nb-option
+                    >
+                  </nb-select>
+                </ng-container>
+
+                <!-- Input type boolean -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.BOOLEAN"
+                >
+                  <!-- <label class="label">{{ field.label | titlecase }}</label> -->
+                  <div style="display: flex; align-items: center">
+                    <label style="margin-right: 0.5em">{{
+                      field.label | titlecase
+                    }}</label>
+                    <!-- [name]="field.name" -->
+                    <nb-toggle [formControlName]="field.name"></nb-toggle>
+                  </div>
+                </div>
+
+                <!-- Input type file -->
+                <div
+                  class="input-space"
+                  *ngIf="
+                    field.type == REST_FIELD_TYPES.FILE ||
+                    field.type == REST_FIELD_TYPES.PDF
+                  "
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <div
+                    style="border: dashed; display: flex"
+                    class="custom-dropzone form-control-custom rounded m-2"
+                    ngx-dropzone
+                    (change)="onSelect($event, field)"
+                  >
+                    <img
+                      *ngIf="
+                        urlsImage[field.name] != '' &&
+                        filesUpload[field.name].length <= 0
+                      "
+                      [attributes]="field.metaData.attributes"
+                      [src]="urlsImage[field.name]"
+                      class="custom-img-dropzone"
+                    />
+
+                    <ngx-dropzone-label
+                      *ngIf="filesUpload[field.name].length <= 0"
+                    >
+                      <nb-icon
+                        icon="cloud-upload-outline"
+                        style="font-size: 2em; color: #ccc"
+                      ></nb-icon>
+                      Drag and drop files here or click to upload
+                    </ngx-dropzone-label>
+
+                    <ngx-dropzone-preview
+                      ngProjectAs="ngx-dropzone-preview"
+                      *ngFor="let f of filesUpload[field.name]"
+                      [file]="f"
+                      [removable]="true"
+                      (removed)="onRemove(field)"
+                    >
+                      <ngx-dropzone-label
+                        >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                      >
+                    </ngx-dropzone-preview>
+                  </div>
                 </div>
 
                 <div
-                  class="row mb-2"
-                  *ngFor="
-                    let item of jsonEditorOptions[field.name];
-                    let index = index
-                  "
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.IMAGE"
                 >
-                  <div class="col" [id]="index">
-                    <input
-                      fullWidth
-                      nbInput
-                      *ngIf="item.add; else elseBlock"
-                      [(ngModel)]="item.label"
+                  <label class="label">{{ field.label | titlecase }}</label>
+
+                  <div
+                    style="border: dashed; display: flex"
+                    class="custom-dropzone form-control-custom rounded m-2"
+                    ngx-dropzone
+                    (change)="onSelect($event, field)"
+                  >
+                    <img
+                      *ngIf="
+                        urlsImage[field.name] != '' &&
+                        filesUpload[field.name].length <= 0
+                      "
                       [attributes]="field.metaData.attributes"
-                      [ngModelOptions]="{ standalone: true }"
+                      [src]="urlsImage[field.name]"
+                      class="custom-img-dropzone"
                     />
-                    <ng-template #elseBlock>
-                      <input fullWidth nbInput disabled [value]="item.label" />
-                    </ng-template>
+
+                    <ngx-dropzone-label
+                      *ngIf="
+                        filesUpload[field.name].length <= 0 &&
+                        urlsImage[field.name] == ''
+                      "
+                    >
+                      <nb-icon
+                        icon="cloud-upload-outline"
+                        style="font-size: 2em; color: #ccc"
+                      ></nb-icon>
+                      Drag and drop files here or click to upload
+                    </ngx-dropzone-label>
+
+                    <!-- <ng-container
+                      *ngIf="filesUpload[field.name].length > 0"
+                    > -->
+                    <ngx-dropzone-image-preview
+                      ngProjectAs="ngx-dropzone-preview"
+                      *ngFor="let f of filesUpload[field.name]"
+                      [file]="f"
+                      [removable]="true"
+                      (removed)="onRemove(field)"
+                    >
+                    </ngx-dropzone-image-preview>
+                    <!-- </ng-container> -->
                   </div>
-                  <div class="col">
+
+                  <button
+                    nbButton
+                    status="primary"
+                    *ngIf="
+                      !isCrop[field.name] && controlCroper[field.name] != null
+                    "
+                    (click)="activeCroper(field)"
+                  >
+                    CROP
+                  </button>
+
+                  <ng-container *ngIf="isCrop[field.name]">
+                    <image-cropper
+                      [imageFile]="controlCroper[field.name]"
+                      [maintainAspectRatio]="true"
+                      [aspectRatio]="4 / 3"
+                      format="png"
+                      (imageCropped)="imageCropped($event, field)"
+                    ></image-cropper>
+
+                    <button
+                      nbButton
+                      status="primary"
+                      (click)="saveCroper(field)"
+                    >
+                      SAVE CHANGE
+                    </button>
+                    <button
+                      nbButton
+                      status="danger"
+                      (click)="desactiveCrop(field)"
+                    >
+                      Cancel
+                    </button>
+                  </ng-container>
+
+                  <!-- <img [src]="croppedImage" /> -->
+                </div>
+
+                <!-- Input type hasMany -->
+                <div
+                  *ngIf="field.type == REST_FIELD_TYPES.HAS_MANY"
+                  class="input-space"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <nb-tag-list
+                    (tagRemove)="onTagRemove($event, field.name)"
+                    fullWidth
+                  >
+                    <nb-tag
+                      *ngFor="let tree of form.get([field.name]).value"
+                      [text]="tree"
+                      removable
+                    ></nb-tag>
                     <input
+                      type="text"
                       fullWidth
+                      nbTagInput
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      (tagAdd)="onTagAdd($event, field.name)"
+                    />
+                  </nb-tag-list>
+                </div>
+
+                <!-- Input type belong_to -->
+                <div
+                  *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO"
+                  class="input-space"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+
+                  <div class="row">
+                    <div class="col-9">
+                      <input
+                        #autoInput
+                        nbInput
+                        fullWidth
+                        type="text"
+                        [attributes]="field.metaData.attributes"
+                        [formControlName]="field.name"
+                        placeholder="Enter value"
+                        [nbAutocomplete]="autoComplete"
+                        (keyup)="filterInput($event, field)"
+                        [id]="i"
+                      />
+                    </div>
+                    <div
+                      *ngIf="
+                        !field.metaData?.addConfig?.belongToOptions?.secondField
+                      "
+                      class="col-3"
+                    >
+                      <input
+                        nbInput
+                        fullWidth
+                        [attributes]="field.metaData.attributes"
+                        disabled="true"
+                        type="text"
+                        placeholder="Value"
+                        [value]="
+                          belongToValue[field.name]
+                            ? belongToValue[field.name]
+                            : ''
+                        "
+                        [id]="i + 100"
+                      />
+                    </div>
+                  </div>
+
+                  <nb-autocomplete
+                    #autoComplete
+                    (selectedChange)="onSelectionChange($event, field)"
+                  >
+                    <nb-option
+                      *ngFor="
+                        let option of allFilterContains[field.name] | async
+                      "
+                      [value]="
+                        option[
+                          field?.metaData?.addConfig.belongToOptions?.value
+                            ? field?.metaData?.addConfig?.belongToOptions?.value
+                            : 'id'
+                        ]
+                      "
+                      [attributes]="field.metaData.attributes"
+                    >
+                      {{
+                        option[
+                          field.metaData.addConfig.belongToOptions.template
+                            ? field.metaData.addConfig.belongToOptions.template
+                            : field.metaData.addConfig.belongToOptions
+                                .filterKeys[0]
+                        ]
+                      }}
+                    </nb-option>
+                  </nb-autocomplete>
+                </div>
+
+                <!-- Input type belong_to_many -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <nb-tag-list (tagRemove)="onTagRemoveBelong($event, field)">
+                    <nb-tag
+                      *ngFor="let tree of belongToMany[field.name]"
+                      [text]="
+                        tree[
+                          field.metaData.addConfig.belongToManyOptions.template
+                            ? field.metaData.addConfig.belongToManyOptions
+                                .template
+                            : field.metaData.addConfig.belongToManyOptions
+                                .filterKeys[0]
+                        ]
+                      "
+                      [attributes]="field.metaData.attributes"
+                      removable
+                    ></nb-tag>
+                    <input
+                      type="text"
+                      nbTagInput
+                      #autoBelongToMany
+                      [attributes]="field.metaData.attributes"
+                      [nbAutocomplete]="belongToField"
+                      (keyup)="filterInput($event, field)"
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
+                      fullWidth
+                    />
+                  </nb-tag-list>
+
+                  <nb-autocomplete
+                    #belongToField
+                    (selectedChange)="onChoose($event, field)"
+                  >
+                    <nb-option
+                      *ngFor="
+                        let option of allFilterContains[field.name] | async
+                      "
+                      [value]="option"
+                      [attributes]="field.metaData.attributes"
+                    >
+                      {{
+                        option[
+                          field.metaData.addConfig.belongToManyOptions.template
+                            ? field.metaData.addConfig.belongToManyOptions
+                                .template
+                            : field.metaData.addConfig.belongToManyOptions
+                                .filterKeys[0]
+                        ]
+                      }}
+                    </nb-option>
+                  </nb-autocomplete>
+                </div>
+
+                <!-- Input type color  -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.COLOR"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <div class="color-row">
+                    <input
                       nbInput
-                      [(ngModel)]="item.value"
-                      [ngModelOptions]="{ standalone: true }"
+                      fullWidth
+                      style="height: 45px"
+                      [id]="i"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
+                      type="color"
                     />
                   </div>
-                  <div class="col" *ngIf="item.add">
+                </div>
+
+                <!-- Input type link -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.LINK"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <input
+                    nbInput
+                    fullWidth
+                    [id]="i"
+                    [attributes]="field.metaData.attributes"
+                    [placeholder]="field.label"
+                    [formControlName]="field.name"
+                    type="text"
+                  />
+
+                  <!-- <div
+                  *ngIf="
+                    form.get([field.name]).hasError('invalidUrl') &&
+                    form.get([field.name]).touched
+                  "
+                  class="text-error"
+                >
+                  {{ "rest-add.invalid-link" | translate }}
+                </div> -->
+                </div>
+
+                <!-- Input type JSON -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.JSON"
+                >
+                  <div>
+                    <label class="label">{{ field.label | titlecase }}</label>
                     <button
                       nbButton
                       status="primary"
                       shape="round"
                       size="small"
+                      [attributes]="field.metaData.attributes"
                       outline
                       ghost
-                      (click)="removeJSONField(field, index)"
+                      *ngIf="field.metaData.addConfig.jsonConfig.isOpen"
+                      (click)="addJSONField(field)"
                     >
-                      <nb-icon icon="trash-alt" pack="fas"></nb-icon>
+                      <nb-icon icon="plus" pack="fas"></nb-icon>
                     </button>
                   </div>
-                </div>
-              </div>
 
-              <!-- Input type MORPH -->
-              <div
-                class="input-space"
-                *ngIf="field.type == REST_FIELD_TYPES.MORPH"
+                  <div
+                    class="row mb-2"
+                    *ngFor="
+                      let item of jsonEditorOptions[field.name];
+                      let index = index
+                    "
+                  >
+                    <div class="col" [id]="index">
+                      <input
+                        fullWidth
+                        nbInput
+                        *ngIf="item.add; else elseBlock"
+                        [(ngModel)]="item.label"
+                        [attributes]="field.metaData.attributes"
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                      <ng-template #elseBlock>
+                        <input
+                          fullWidth
+                          nbInput
+                          disabled
+                          [value]="item.label"
+                        />
+                      </ng-template>
+                    </div>
+                    <div class="col">
+                      <input
+                        fullWidth
+                        nbInput
+                        [(ngModel)]="item.value"
+                        [ngModelOptions]="{ standalone: true }"
+                      />
+                    </div>
+                    <div class="col" *ngIf="item.add">
+                      <button
+                        nbButton
+                        status="primary"
+                        shape="round"
+                        size="small"
+                        outline
+                        ghost
+                        (click)="removeJSONField(field, index)"
+                      >
+                        <nb-icon icon="trash-alt" pack="fas"></nb-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Input type MORPH -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.MORPH"
+                >
+                  <div class="row">
+                    <div class="col-3">
+                      <label class="label">Ressources</label>
+                      <nb-select
+                        fullWidth
+                        (selectedChange)="
+                          onMorphSelectField($event, field.name)
+                        "
+                      >
+                        <nb-option
+                          *ngFor="
+                            let option of field.metaData.addConfig.morphConfig
+                              .related
+                          "
+                          [attributes]="field.metaData.attributes"
+                          [value]="option.value"
+                          >{{ option.label }}</nb-option
+                        >
+                      </nb-select>
+                    </div>
+
+                    <div class="col-9">
+                      <label class="label">{{ field.label | titlecase }}</label>
+                      <input
+                        #autoInput
+                        nbInput
+                        fullWidth
+                        type="text"
+                        [attributes]="field.metaData.attributes"
+                        [formControlName]="field.name"
+                        placeholder="Enter value"
+                        [nbAutocomplete]="autoComplete"
+                        (keyup)="filterInput($event, field)"
+                        [id]="i"
+                        [disabled]="!allFilterContains[field.name]"
+                      />
+                      <nb-autocomplete
+                        #autoComplete
+                        (selectedChange)="onSelectionChange($event, field)"
+                      >
+                        <nb-option
+                          *ngFor="
+                            let option of allFilterContains[field.name] | async
+                          "
+                          [value]="
+                            option[
+                              field?.metaData?.addConfig.morphConfig?.value
+                                ? field?.metaData?.addConfig.morphConfig?.value
+                                : 'id'
+                            ]
+                          "
+                          [attributes]="field.metaData.attributes"
+                        >
+                          {{
+                            option[
+                              field.metaData.addConfig.morphConfig.template
+                                ? field.metaData.addConfig.morphConfig.template
+                                : field.metaData.addConfig.morphConfig
+                                    .filterKeys[0]
+                            ]
+                          }}
+                        </nb-option>
+                      </nb-autocomplete>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Input type GOOGLEMAP -->
+                <div
+                  class="input-space"
+                  *ngIf="field.type == REST_FIELD_TYPES.MAP"
+                >
+                  <label class="label">{{ field.label | titlecase }}</label>
+                  <ngx-gmaps
+                    (latChange)="onLatChange($event, field.name)"
+                    (lngChange)="onLngChange($event, field.name)"
+                  ></ngx-gmaps>
+                </div>
+              </ng-container>
+
+              <div class="">
+                <ng-container *ngIf="field.note != ''">
+                  <span class="text-muted ml-20 mt-3">{{ field.note }}</span>
+                </ng-container>
+              </div>
+            </div>
+          </form>
+        </nb-tab>
+        <nb-tab tabTitle="Importation">
+          <div class="row">
+            <div class="col-9"></div>
+            <div class="col-3">
+              <button
+                nbButton
+                status="primary"
+                [nbContextMenu]="items"
+                nbContextMenuTag="my-context-add"
               >
-                <div class="row">
-                  <div class="col-3">
-                    <label class="label">Ressources</label>
+                {{ "rest-add.import" | translate }}
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <ng2-smart-table [settings]="settings" [source]="source">
+            </ng2-smart-table>
+          </div>
+        </nb-tab>
+      </nb-tabset>
+    </nb-card-body>
+
+    <nb-card-footer>
+      <div class="buttons-row">
+        <button
+          nbButton
+          (click)="onSumbit()"
+          status="primary"
+          [disabled]="loading"
+        >
+          >
+          <!-- [disabled]="loading" -->
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm mr-2"
+          ></span>
+          {{ formState.btnLabel }}
+        </button>
+      </div>
+    </nb-card-footer>
+  </nb-card>
+</ng-container>
+
+<ng-container *ngIf="resource.permissions.length > 0">
+  <div *ngxPermissionsOnly="permissions">
+    <nb-card>
+      <nb-card-header *ngIf="formState.onReady && !formState.isAdd"
+        >{{ resource.editConfig.title }}
+      </nb-card-header>
+
+      <nb-card-header *ngIf="formState.onReady && formState.isAdd"
+        >{{ resource.addConfig.title }}
+      </nb-card-header>
+
+      <nb-card-body>
+        <nb-tabset fullWidth>
+          <nb-tab tabTitle="Ajout simple">
+            <form [formGroup]="form" class="row" *ngIf="formState.onReady">
+              <div
+                *ngFor="
+                  let field of resource.fields;
+                  trackBy: trackByFn;
+                  let i = index
+                "
+                class="col-12"
+              >
+                <ng-container *ngIf="field.inForm">
+                  <!-- Input type string  -->
+                  <div
+                    class="input-space"
+                    *ngIf="
+                      field.type == REST_FIELD_TYPES.STRING ||
+                      field.type == REST_FIELD_TYPES.HAS_ONE
+                    "
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      nbInput
+                      fullWidth
+                      [id]="i"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
+                      type="text"
+                    />
+                  </div>
+
+                  <!-- Input type text -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.TEXT"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <textarea
+                      nbInput
+                      fullWidth
+                      [id]="i"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
+                    ></textarea>
+                  </div>
+
+                  <ng-container *ngIf="field.type == REST_FIELD_TYPES.PASSWORD">
+                    <div class="input-space">
+                      <label class="label">{{ field.label | titlecase }}</label>
+                      <input
+                        nbInput
+                        fullWidth
+                        [id]="i"
+                        [attributes]="field.metaData.attributes"
+                        [placeholder]="field.label"
+                        [formControlName]="field.name"
+                        type="password"
+                      />
+                    </div>
+                    <ng-container
+                      *ngIf="
+                        field?.metaData?.addConfig?.passwordOptions
+                          ?.isNeedConfirm
+                      "
+                    >
+                      <div class="input-space">
+                        <label class="label">{{
+                          field?.metaData?.addConfig?.passwordOptions
+                            ?.confirmLabel
+                            ? field?.metaData?.addConfig?.passwordOptions
+                                ?.confirmLabel
+                            : (field.label + "_confirmation" | titlecase)
+                        }}</label>
+                        <input
+                          nbInput
+                          fullWidth
+                          [id]="i"
+                          [attributes]="field.metaData.attributes"
+                          [placeholder]="field.label + '_confirmation'"
+                          [formControlName]="
+                            field.metaData?.addConfig?.passwordOptions
+                              ?.confirmField
+                              ? field.metaData.addConfig.passwordOptions
+                                  .confirmField
+                              : field.name + '_confirmation'
+                          "
+                          type="password"
+                        />
+                      </div>
+                    </ng-container>
+                  </ng-container>
+
+                  <!-- Input type number  -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.NUMBER"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      nbInput
+                      fullWidth
+                      [id]="i"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
+                      type="number"
+                    />
+                  </div>
+
+                  <!-- Input type date -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.DATE"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      nbInput
+                      [placeholder]="field.label"
+                      [nbDatepicker]="formpicker"
+                      [attributes]="field.metaData.attributes"
+                      fullWidth
+                      [formControlName]="field.name"
+                    />
+                    <nb-datepicker #formpicker></nb-datepicker>
+                  </div>
+
+                  <!-- Input type dateTime -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.DATETIME"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      nbInput
+                      fullWidth
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      [nbDatepicker]="dateTimePicker"
+                      [formControlName]="field.name"
+                    />
+                    <nb-date-timepicker
+                      withSeconds
+                      #dateTimePicker
+                    ></nb-date-timepicker>
+                  </div>
+
+                  <!-- Input type time -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.TIME"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      [nbTimepicker]="timepicker"
+                      fullWidth
+                      [attributes]="field.metaData.attributes"
+                      [formControlName]="field.name"
+                      twelveHoursFormat
+                      nbInput
+                    />
+                    <nb-timepicker #timepicker></nb-timepicker>
+                  </div>
+
+                  <!-- Input type enum -->
+                  <ng-container
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.ENUM"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
                     <nb-select
                       fullWidth
-                      (selectedChange)="onMorphSelectField($event, field.name)"
+                      [formControlName]="field.name"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
                     >
                       <nb-option
                         *ngFor="
-                          let option of field.metaData.addConfig.morphConfig
-                            .related
+                          let option of field.metaData.addConfig.enumOptions
                         "
-                        [attributes]="field.metaData.attributes"
                         [value]="option.value"
                         >{{ option.label }}</nb-option
                       >
                     </nb-select>
+                  </ng-container>
+
+                  <!-- Input type boolean -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.BOOLEAN"
+                  >
+                    <!-- <label class="label">{{ field.label | titlecase }}</label> -->
+                    <div style="display: flex; align-items: center">
+                      <label style="margin-right: 0.5em">{{
+                        field.label | titlecase
+                      }}</label>
+                      <!-- [name]="field.name" -->
+                      <nb-toggle [formControlName]="field.name"></nb-toggle>
+                    </div>
                   </div>
 
-                  <div class="col-9">
+                  <!-- Input type file -->
+                  <div
+                    class="input-space"
+                    *ngIf="
+                      field.type == REST_FIELD_TYPES.FILE ||
+                      field.type == REST_FIELD_TYPES.PDF
+                    "
+                  >
                     <label class="label">{{ field.label | titlecase }}</label>
-                    <input
-                      #autoInput
-                      nbInput
+                    <div
+                      style="border: dashed; display: flex"
+                      class="custom-dropzone form-control-custom rounded m-2"
+                      ngx-dropzone
+                      (change)="onSelect($event, field)"
+                    >
+                      <img
+                        *ngIf="
+                          urlsImage[field.name] != '' &&
+                          filesUpload[field.name].length <= 0
+                        "
+                        [attributes]="field.metaData.attributes"
+                        [src]="urlsImage[field.name]"
+                        class="custom-img-dropzone"
+                      />
+
+                      <ngx-dropzone-label
+                        *ngIf="filesUpload[field.name].length <= 0"
+                      >
+                        <nb-icon
+                          icon="cloud-upload-outline"
+                          style="font-size: 2em; color: #ccc"
+                        ></nb-icon>
+                        Drag and drop files here or click to upload
+                      </ngx-dropzone-label>
+
+                      <ngx-dropzone-preview
+                        ngProjectAs="ngx-dropzone-preview"
+                        *ngFor="let f of filesUpload[field.name]"
+                        [file]="f"
+                        [removable]="true"
+                        (removed)="onRemove(field)"
+                      >
+                        <ngx-dropzone-label
+                          >{{ f.name }} ({{ f.type }})</ngx-dropzone-label
+                        >
+                      </ngx-dropzone-preview>
+                    </div>
+                  </div>
+
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.IMAGE"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+
+                    <div
+                      style="border: dashed; display: flex"
+                      class="custom-dropzone form-control-custom rounded m-2"
+                      ngx-dropzone
+                      (change)="onSelect($event, field)"
+                    >
+                      <img
+                        *ngIf="
+                          urlsImage[field.name] != '' &&
+                          filesUpload[field.name].length <= 0
+                        "
+                        [attributes]="field.metaData.attributes"
+                        [src]="urlsImage[field.name]"
+                        class="custom-img-dropzone"
+                      />
+
+                      <ngx-dropzone-label
+                        *ngIf="
+                          filesUpload[field.name].length <= 0 &&
+                          urlsImage[field.name] == ''
+                        "
+                      >
+                        <nb-icon
+                          icon="cloud-upload-outline"
+                          style="font-size: 2em; color: #ccc"
+                        ></nb-icon>
+                        Drag and drop files here or click to upload
+                      </ngx-dropzone-label>
+
+                      <!-- <ng-container
+                        *ngIf="filesUpload[field.name].length > 0"
+                      > -->
+                      <ngx-dropzone-image-preview
+                        ngProjectAs="ngx-dropzone-preview"
+                        *ngFor="let f of filesUpload[field.name]"
+                        [file]="f"
+                        [removable]="true"
+                        (removed)="onRemove(field)"
+                      >
+                      </ngx-dropzone-image-preview>
+                      <!-- </ng-container> -->
+                    </div>
+
+                    <button
+                      nbButton
+                      status="primary"
+                      *ngIf="
+                        !isCrop[field.name] && controlCroper[field.name] != null
+                      "
+                      (click)="activeCroper(field)"
+                    >
+                      CROP
+                    </button>
+
+                    <ng-container *ngIf="isCrop[field.name]">
+                      <image-cropper
+                        [imageFile]="controlCroper[field.name]"
+                        [maintainAspectRatio]="true"
+                        [aspectRatio]="4 / 3"
+                        format="png"
+                        (imageCropped)="imageCropped($event, field)"
+                      ></image-cropper>
+
+                      <button
+                        nbButton
+                        status="primary"
+                        (click)="saveCroper(field)"
+                      >
+                        SAVE CHANGE
+                      </button>
+                      <button
+                        nbButton
+                        status="danger"
+                        (click)="desactiveCrop(field)"
+                      >
+                        Cancel
+                      </button>
+                    </ng-container>
+
+                    <!-- <img [src]="croppedImage" /> -->
+                  </div>
+
+                  <!-- Input type hasMany -->
+                  <div
+                    *ngIf="field.type == REST_FIELD_TYPES.HAS_MANY"
+                    class="input-space"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <nb-tag-list
+                      (tagRemove)="onTagRemove($event, field.name)"
                       fullWidth
-                      type="text"
-                      [attributes]="field.metaData.attributes"
-                      [formControlName]="field.name"
-                      placeholder="Enter value"
-                      [nbAutocomplete]="autoComplete"
-                      (keyup)="filterInput($event, field)"
-                      [id]="i"
-                      [disabled]="!allFilterContains[field.name]"
-                    />
+                    >
+                      <nb-tag
+                        *ngFor="let tree of form.get([field.name]).value"
+                        [text]="tree"
+                        removable
+                      ></nb-tag>
+                      <input
+                        type="text"
+                        fullWidth
+                        nbTagInput
+                        [attributes]="field.metaData.attributes"
+                        [placeholder]="field.label"
+                        (tagAdd)="onTagAdd($event, field.name)"
+                      />
+                    </nb-tag-list>
+                  </div>
+
+                  <!-- Input type belong_to -->
+                  <div
+                    *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO"
+                    class="input-space"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+
+                    <div class="row">
+                      <div class="col-9">
+                        <input
+                          #autoInput
+                          nbInput
+                          fullWidth
+                          type="text"
+                          [attributes]="field.metaData.attributes"
+                          [formControlName]="field.name"
+                          placeholder="Enter value"
+                          [nbAutocomplete]="autoComplete"
+                          (keyup)="filterInput($event, field)"
+                          [id]="i"
+                        />
+                      </div>
+                      <div
+                        *ngIf="
+                          !field.metaData?.addConfig?.belongToOptions
+                            ?.secondField
+                        "
+                        class="col-3"
+                      >
+                        <input
+                          nbInput
+                          fullWidth
+                          [attributes]="field.metaData.attributes"
+                          disabled="true"
+                          type="text"
+                          placeholder="Value"
+                          [value]="
+                            belongToValue[field.name]
+                              ? belongToValue[field.name]
+                              : ''
+                          "
+                          [id]="i + 100"
+                        />
+                      </div>
+                    </div>
+
                     <nb-autocomplete
                       #autoComplete
                       (selectedChange)="onSelectionChange($event, field)"
@@ -671,8 +1193,9 @@
                         "
                         [value]="
                           option[
-                            field?.metaData?.addConfig.morphConfig?.value
-                              ? field?.metaData?.addConfig.morphConfig?.value
+                            field?.metaData?.addConfig.belongToOptions?.value
+                              ? field?.metaData?.addConfig?.belongToOptions
+                                  ?.value
                               : 'id'
                           ]
                         "
@@ -680,64 +1203,350 @@
                       >
                         {{
                           option[
-                            field.metaData.addConfig.morphConfig.template
-                              ? field.metaData.addConfig.morphConfig.template
-                              : field.metaData.addConfig.morphConfig
+                            field.metaData.addConfig.belongToOptions.template
+                              ? field.metaData.addConfig.belongToOptions
+                                  .template
+                              : field.metaData.addConfig.belongToOptions
                                   .filterKeys[0]
                           ]
                         }}
                       </nb-option>
                     </nb-autocomplete>
                   </div>
+
+                  <!-- Input type belong_to_many -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.BELONG_TO_MANY"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <nb-tag-list (tagRemove)="onTagRemoveBelong($event, field)">
+                      <nb-tag
+                        *ngFor="let tree of belongToMany[field.name]"
+                        [text]="
+                          tree[
+                            field.metaData.addConfig.belongToManyOptions
+                              .template
+                              ? field.metaData.addConfig.belongToManyOptions
+                                  .template
+                              : field.metaData.addConfig.belongToManyOptions
+                                  .filterKeys[0]
+                          ]
+                        "
+                        [attributes]="field.metaData.attributes"
+                        removable
+                      ></nb-tag>
+                      <input
+                        type="text"
+                        nbTagInput
+                        #autoBelongToMany
+                        [attributes]="field.metaData.attributes"
+                        [nbAutocomplete]="belongToField"
+                        (keyup)="filterInput($event, field)"
+                        [placeholder]="field.label"
+                        [formControlName]="field.name"
+                        fullWidth
+                      />
+                    </nb-tag-list>
+
+                    <nb-autocomplete
+                      #belongToField
+                      (selectedChange)="onChoose($event, field)"
+                    >
+                      <nb-option
+                        *ngFor="
+                          let option of allFilterContains[field.name] | async
+                        "
+                        [value]="option"
+                        [attributes]="field.metaData.attributes"
+                      >
+                        {{
+                          option[
+                            field.metaData.addConfig.belongToManyOptions
+                              .template
+                              ? field.metaData.addConfig.belongToManyOptions
+                                  .template
+                              : field.metaData.addConfig.belongToManyOptions
+                                  .filterKeys[0]
+                          ]
+                        }}
+                      </nb-option>
+                    </nb-autocomplete>
+                  </div>
+
+                  <!-- Input type color  -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.COLOR"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <div class="color-row">
+                      <input
+                        nbInput
+                        fullWidth
+                        style="height: 45px"
+                        [id]="i"
+                        [attributes]="field.metaData.attributes"
+                        [placeholder]="field.label"
+                        [formControlName]="field.name"
+                        type="color"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Input type link -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.LINK"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <input
+                      nbInput
+                      fullWidth
+                      [id]="i"
+                      [attributes]="field.metaData.attributes"
+                      [placeholder]="field.label"
+                      [formControlName]="field.name"
+                      type="text"
+                    />
+
+                    <!-- <div
+                    *ngIf="
+                      form.get([field.name]).hasError('invalidUrl') &&
+                      form.get([field.name]).touched
+                    "
+                    class="text-error"
+                  >
+                    {{ "rest-add.invalid-link" | translate }}
+                  </div> -->
+                  </div>
+
+                  <!-- Input type JSON -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.JSON"
+                  >
+                    <div>
+                      <label class="label">{{ field.label | titlecase }}</label>
+                      <button
+                        nbButton
+                        status="primary"
+                        shape="round"
+                        size="small"
+                        [attributes]="field.metaData.attributes"
+                        outline
+                        ghost
+                        *ngIf="field.metaData.addConfig.jsonConfig.isOpen"
+                        (click)="addJSONField(field)"
+                      >
+                        <nb-icon icon="plus" pack="fas"></nb-icon>
+                      </button>
+                    </div>
+
+                    <div
+                      class="row mb-2"
+                      *ngFor="
+                        let item of jsonEditorOptions[field.name];
+                        let index = index
+                      "
+                    >
+                      <div class="col" [id]="index">
+                        <input
+                          fullWidth
+                          nbInput
+                          *ngIf="item.add; else elseBlock"
+                          [(ngModel)]="item.label"
+                          [attributes]="field.metaData.attributes"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                        <ng-template #elseBlock>
+                          <input
+                            fullWidth
+                            nbInput
+                            disabled
+                            [value]="item.label"
+                          />
+                        </ng-template>
+                      </div>
+                      <div class="col">
+                        <input
+                          fullWidth
+                          nbInput
+                          [(ngModel)]="item.value"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                      </div>
+                      <div class="col" *ngIf="item.add">
+                        <button
+                          nbButton
+                          status="primary"
+                          shape="round"
+                          size="small"
+                          outline
+                          ghost
+                          (click)="removeJSONField(field, index)"
+                        >
+                          <nb-icon icon="trash-alt" pack="fas"></nb-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Input type MORPH -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.MORPH"
+                  >
+                    <div class="row">
+                      <div class="col-3">
+                        <label class="label">Ressources</label>
+                        <nb-select
+                          fullWidth
+                          (selectedChange)="
+                            onMorphSelectField($event, field.name)
+                          "
+                        >
+                          <nb-option
+                            *ngFor="
+                              let option of field.metaData.addConfig.morphConfig
+                                .related
+                            "
+                            [attributes]="field.metaData.attributes"
+                            [value]="option.value"
+                            >{{ option.label }}</nb-option
+                          >
+                        </nb-select>
+                      </div>
+
+                      <div class="col-9">
+                        <label class="label">{{
+                          field.label | titlecase
+                        }}</label>
+                        <input
+                          #autoInput
+                          nbInput
+                          fullWidth
+                          type="text"
+                          [attributes]="field.metaData.attributes"
+                          [formControlName]="field.name"
+                          placeholder="Enter value"
+                          [nbAutocomplete]="autoComplete"
+                          (keyup)="filterInput($event, field)"
+                          [id]="i"
+                          [disabled]="!allFilterContains[field.name]"
+                        />
+                        <nb-autocomplete
+                          #autoComplete
+                          (selectedChange)="onSelectionChange($event, field)"
+                        >
+                          <nb-option
+                            *ngFor="
+                              let option of allFilterContains[field.name]
+                                | async
+                            "
+                            [value]="
+                              option[
+                                field?.metaData?.addConfig.morphConfig?.value
+                                  ? field?.metaData?.addConfig.morphConfig
+                                      ?.value
+                                  : 'id'
+                              ]
+                            "
+                            [attributes]="field.metaData.attributes"
+                          >
+                            {{
+                              option[
+                                field.metaData.addConfig.morphConfig.template
+                                  ? field.metaData.addConfig.morphConfig
+                                      .template
+                                  : field.metaData.addConfig.morphConfig
+                                      .filterKeys[0]
+                              ]
+                            }}
+                          </nb-option>
+                        </nb-autocomplete>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Input type GOOGLEMAP -->
+                  <div
+                    class="input-space"
+                    *ngIf="field.type == REST_FIELD_TYPES.MAP"
+                  >
+                    <label class="label">{{ field.label | titlecase }}</label>
+                    <ngx-gmaps
+                      (latChange)="onLatChange($event, field.name)"
+                      (lngChange)="onLngChange($event, field.name)"
+                    ></ngx-gmaps>
+                  </div>
+                </ng-container>
+
+                <div class="">
+                  <ng-container *ngIf="field.note != ''">
+                    <span class="text-muted ml-20 mt-3">{{ field.note }}</span>
+                  </ng-container>
                 </div>
               </div>
-            </ng-container>
-
-            <div class="">
-              <ng-container *ngIf="field.note != ''">
-                <span class="text-muted ml-20 mt-3">{{ field.note }}</span>
-              </ng-container>
+            </form>
+          </nb-tab>
+          <nb-tab tabTitle="Importation">
+            <div class="row">
+              <div class="col-9"></div>
+              <div class="col-3">
+                <button
+                  nbButton
+                  status="primary"
+                  [nbContextMenu]="items"
+                  nbContextMenuTag="my-context-add"
+                >
+                  {{ "rest-add.import" | translate }}
+                </button>
+              </div>
             </div>
-          </div>
-        </form>
-      </nb-tab>
-      <nb-tab tabTitle="Importation">
-        <div class="row">
-          <div class="col-9"></div>
-          <div class="col-3">
-            <button
-              nbButton
-              status="primary"
-              [nbContextMenu]="items"
-              nbContextMenuTag="my-context-add"
+
+            <div>
+              <ng2-smart-table [settings]="settings" [source]="source">
+              </ng2-smart-table>
+            </div>
+          </nb-tab>
+        </nb-tabset>
+      </nb-card-body>
+
+      <nb-card-footer>
+        <div class="buttons-row" *ngIf="!formState.isAdd">
+          <button
+            nbButton
+            (click)="onEdit()"
+            status="primary"
+            [disabled]="loading"
+            *ngxPermissionsOnly="PERMISSION.UPDATE"
+          >
             >
-              {{ "rest-add.import" | translate }}
-            </button>
-          </div>
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-2"
+            ></span>
+            {{ formState.btnLabel }}
+          </button>
         </div>
-
-        <div>
-          <ng2-smart-table [settings]="settings" [source]="source">
-          </ng2-smart-table>
+        <div class="buttons-row" *ngIf="formState.isAdd">
+          <button
+            nbButton
+            (click)="onCreate()"
+            status="primary"
+            [disabled]="loading"
+            *ngxPermissionsOnly="PERMISSION.CREATE"
+          >
+            >
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm mr-2"
+            ></span>
+            {{ formState.btnLabel }}
+          </button>
         </div>
-      </nb-tab>
-    </nb-tabset>
-  </nb-card-body>
-
-  <nb-card-footer>
-    <div class="buttons-row">
-      <button
-        nbButton
-        (click)="onSumbit()"
-        status="primary"
-        >
-        <!-- [disabled]="loading" -->
-        <span
-          *ngIf="loading"
-          class="spinner-border spinner-border-sm mr-2"
-        ></span>
-        {{ formState.btnLabel }}
-      </button>
-    </div>
-  </nb-card-footer>
-</nb-card>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</ng-container>

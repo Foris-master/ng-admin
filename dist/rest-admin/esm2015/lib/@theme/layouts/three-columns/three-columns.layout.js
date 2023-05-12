@@ -3,40 +3,36 @@ import * as i0 from "@angular/core";
 import * as i1 from "@nebular/theme";
 import * as i2 from "../../components/header/header.component";
 import * as i3 from "../../components/footer/footer.component";
+const _c0 = [[["nb-menu"]], [["router-outlet"]]];
+const _c1 = ["nb-menu", "router-outlet"];
 export class ThreeColumnsLayoutComponent {
 }
-ThreeColumnsLayoutComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThreeColumnsLayoutComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-ThreeColumnsLayoutComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: ThreeColumnsLayoutComponent, selector: "ngx-three-columns-layout", ngImport: i0, template: `
-    <nb-layout windowMode>
-      <nb-layout-header fixed>
-        <ngx-header></ngx-header>
-      </nb-layout-header>
-
-      <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-        <ng-content select="nb-menu"></ng-content>
-      </nb-sidebar>
-
-      <nb-layout-column class="small">
-      </nb-layout-column>
-
-      <nb-layout-column>
-        <ng-content select="router-outlet"></ng-content>
-      </nb-layout-column>
-
-      <nb-layout-column class="small">
-      </nb-layout-column>
-
-      <nb-layout-footer fixed>
-        <ngx-footer></ngx-footer>
-      </nb-layout-footer>
-    </nb-layout>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: i2.HeaderComponent, selector: "ngx-header" }, { type: i1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: i3.FooterComponent, selector: "ngx-footer" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThreeColumnsLayoutComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-three-columns-layout',
-                    styleUrls: ['./three-columns.layout.scss'],
-                    template: `
+ThreeColumnsLayoutComponent.ɵfac = function ThreeColumnsLayoutComponent_Factory(t) { return new (t || ThreeColumnsLayoutComponent)(); };
+ThreeColumnsLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ThreeColumnsLayoutComponent, selectors: [["ngx-three-columns-layout"]], ngContentSelectors: _c1, decls: 11, vars: 0, consts: [["windowMode", ""], ["fixed", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], [1, "small"]], template: function ThreeColumnsLayoutComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵprojectionDef(_c0);
+        i0.ɵɵelementStart(0, "nb-layout", 0);
+        i0.ɵɵelementStart(1, "nb-layout-header", 1);
+        i0.ɵɵelement(2, "ngx-header");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "nb-sidebar", 2);
+        i0.ɵɵprojection(4);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelement(5, "nb-layout-column", 3);
+        i0.ɵɵelementStart(6, "nb-layout-column");
+        i0.ɵɵprojection(7, 1);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelement(8, "nb-layout-column", 3);
+        i0.ɵɵelementStart(9, "nb-layout-footer", 1);
+        i0.ɵɵelement(10, "ngx-footer");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } }, directives: [i1.NbLayoutComponent, i1.NbLayoutHeaderComponent, i2.HeaderComponent, i1.NbSidebarComponent, i1.NbLayoutColumnComponent, i1.NbLayoutFooterComponent, i3.FooterComponent], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-dark   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-cosmic   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-corporate   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ThreeColumnsLayoutComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-three-columns-layout',
+                styleUrls: ['./three-columns.layout.scss'],
+                template: `
     <nb-layout windowMode>
       <nb-layout-header fixed>
         <ngx-header></ngx-header>
@@ -61,6 +57,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       </nb-layout-footer>
     </nb-layout>
   `,
-                }]
-        }] });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGhyZWUtY29sdW1ucy5sYXlvdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9yZXN0LWFkbWluL3NyYy9saWIvQHRoZW1lL2xheW91dHMvdGhyZWUtY29sdW1ucy90aHJlZS1jb2x1bW5zLmxheW91dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sZUFBZSxDQUFDOzs7OztBQStCMUMsTUFBTSxPQUFPLDJCQUEyQjs7d0hBQTNCLDJCQUEyQjs0R0FBM0IsMkJBQTJCLGdFQTFCNUI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQXdCVDsyRkFFVSwyQkFBMkI7a0JBN0J2QyxTQUFTO21CQUFDO29CQUNULFFBQVEsRUFBRSwwQkFBMEI7b0JBQ3BDLFNBQVMsRUFBRSxDQUFDLDZCQUE2QixDQUFDO29CQUMxQyxRQUFRLEVBQUU7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQXdCVDtpQkFDRiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG5AQ29tcG9uZW50KHtcbiAgc2VsZWN0b3I6ICduZ3gtdGhyZWUtY29sdW1ucy1sYXlvdXQnLFxuICBzdHlsZVVybHM6IFsnLi90aHJlZS1jb2x1bW5zLmxheW91dC5zY3NzJ10sXG4gIHRlbXBsYXRlOiBgXG4gICAgPG5iLWxheW91dCB3aW5kb3dNb2RlPlxuICAgICAgPG5iLWxheW91dC1oZWFkZXIgZml4ZWQ+XG4gICAgICAgIDxuZ3gtaGVhZGVyPjwvbmd4LWhlYWRlcj5cbiAgICAgIDwvbmItbGF5b3V0LWhlYWRlcj5cblxuICAgICAgPG5iLXNpZGViYXIgY2xhc3M9XCJtZW51LXNpZGViYXJcIiB0YWc9XCJtZW51LXNpZGViYXJcIiByZXNwb25zaXZlPlxuICAgICAgICA8bmctY29udGVudCBzZWxlY3Q9XCJuYi1tZW51XCI+PC9uZy1jb250ZW50PlxuICAgICAgPC9uYi1zaWRlYmFyPlxuXG4gICAgICA8bmItbGF5b3V0LWNvbHVtbiBjbGFzcz1cInNtYWxsXCI+XG4gICAgICA8L25iLWxheW91dC1jb2x1bW4+XG5cbiAgICAgIDxuYi1sYXlvdXQtY29sdW1uPlxuICAgICAgICA8bmctY29udGVudCBzZWxlY3Q9XCJyb3V0ZXItb3V0bGV0XCI+PC9uZy1jb250ZW50PlxuICAgICAgPC9uYi1sYXlvdXQtY29sdW1uPlxuXG4gICAgICA8bmItbGF5b3V0LWNvbHVtbiBjbGFzcz1cInNtYWxsXCI+XG4gICAgICA8L25iLWxheW91dC1jb2x1bW4+XG5cbiAgICAgIDxuYi1sYXlvdXQtZm9vdGVyIGZpeGVkPlxuICAgICAgICA8bmd4LWZvb3Rlcj48L25neC1mb290ZXI+XG4gICAgICA8L25iLWxheW91dC1mb290ZXI+XG4gICAgPC9uYi1sYXlvdXQ+XG4gIGAsXG59KVxuZXhwb3J0IGNsYXNzIFRocmVlQ29sdW1uc0xheW91dENvbXBvbmVudCB7fVxuIl19
+            }]
+    }], null, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGhyZWUtY29sdW1ucy5sYXlvdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9yZXN0LWFkbWluL3NyYy9saWIvQHRoZW1lL2xheW91dHMvdGhyZWUtY29sdW1ucy90aHJlZS1jb2x1bW5zLmxheW91dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sZUFBZSxDQUFDOzs7Ozs7O0FBK0IxQyxNQUFNLE9BQU8sMkJBQTJCOztzR0FBM0IsMkJBQTJCOzhFQUEzQiwyQkFBMkI7O1FBekJwQyxvQ0FBc0I7UUFDcEIsMkNBQXdCO1FBQ3RCLDZCQUF5QjtRQUMzQixpQkFBbUI7UUFFbkIscUNBQStEO1FBQzdELGtCQUEwQztRQUM1QyxpQkFBYTtRQUViLHNDQUNtQjtRQUVuQix3Q0FBa0I7UUFDaEIscUJBQWdEO1FBQ2xELGlCQUFtQjtRQUVuQixzQ0FDbUI7UUFFbkIsMkNBQXdCO1FBQ3RCLDhCQUF5QjtRQUMzQixpQkFBbUI7UUFDckIsaUJBQVk7O3VGQUdILDJCQUEyQjtjQTdCdkMsU0FBUztlQUFDO2dCQUNULFFBQVEsRUFBRSwwQkFBMEI7Z0JBQ3BDLFNBQVMsRUFBRSxDQUFDLDZCQUE2QixDQUFDO2dCQUMxQyxRQUFRLEVBQUU7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztHQXdCVDthQUNGIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogJ25neC10aHJlZS1jb2x1bW5zLWxheW91dCcsXG4gIHN0eWxlVXJsczogWycuL3RocmVlLWNvbHVtbnMubGF5b3V0LnNjc3MnXSxcbiAgdGVtcGxhdGU6IGBcbiAgICA8bmItbGF5b3V0IHdpbmRvd01vZGU+XG4gICAgICA8bmItbGF5b3V0LWhlYWRlciBmaXhlZD5cbiAgICAgICAgPG5neC1oZWFkZXI+PC9uZ3gtaGVhZGVyPlxuICAgICAgPC9uYi1sYXlvdXQtaGVhZGVyPlxuXG4gICAgICA8bmItc2lkZWJhciBjbGFzcz1cIm1lbnUtc2lkZWJhclwiIHRhZz1cIm1lbnUtc2lkZWJhclwiIHJlc3BvbnNpdmU+XG4gICAgICAgIDxuZy1jb250ZW50IHNlbGVjdD1cIm5iLW1lbnVcIj48L25nLWNvbnRlbnQ+XG4gICAgICA8L25iLXNpZGViYXI+XG5cbiAgICAgIDxuYi1sYXlvdXQtY29sdW1uIGNsYXNzPVwic21hbGxcIj5cbiAgICAgIDwvbmItbGF5b3V0LWNvbHVtbj5cblxuICAgICAgPG5iLWxheW91dC1jb2x1bW4+XG4gICAgICAgIDxuZy1jb250ZW50IHNlbGVjdD1cInJvdXRlci1vdXRsZXRcIj48L25nLWNvbnRlbnQ+XG4gICAgICA8L25iLWxheW91dC1jb2x1bW4+XG5cbiAgICAgIDxuYi1sYXlvdXQtY29sdW1uIGNsYXNzPVwic21hbGxcIj5cbiAgICAgIDwvbmItbGF5b3V0LWNvbHVtbj5cblxuICAgICAgPG5iLWxheW91dC1mb290ZXIgZml4ZWQ+XG4gICAgICAgIDxuZ3gtZm9vdGVyPjwvbmd4LWZvb3Rlcj5cbiAgICAgIDwvbmItbGF5b3V0LWZvb3Rlcj5cbiAgICA8L25iLWxheW91dD5cbiAgYCxcbn0pXG5leHBvcnQgY2xhc3MgVGhyZWVDb2x1bW5zTGF5b3V0Q29tcG9uZW50IHt9XG4iXX0=

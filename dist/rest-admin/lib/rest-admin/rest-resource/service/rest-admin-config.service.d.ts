@@ -16,6 +16,7 @@ export declare class RestAdminConfigService {
     set restResources(v: RestResource[]);
     get siteName(): string;
     get restBaseUrl(): string;
+    get googleMapApiKey(): string;
     get restPathFileTranslate(): string;
     get restLanguage(): any[];
     getSpecificResource(nameResource: string): RestResource;
@@ -27,3 +28,4 @@ export declare class RestAdminConfigService {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestAdminConfigService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestAdminConfigService>;
 }
+//# sourceMappingURL=rest-admin-config.service.d.ts.map

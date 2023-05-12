@@ -9,9 +9,10 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
     strategy: STRATEGY_AUTH.EMAIL,
     loginEndPoint: '/auth/signin',
     logoutEndPoint: '/auth/logout',
-    userInfoEndPoint: '/users/me',
+    // userInfoEndPoint: '/users/me',
     // profileNameEndPoint: 'name',
     // profilePictureEndPoint: 'picture',
     redirectRouteAfterLogin: '/address', //just put the resource name
   },
+  googleMapApiKey: 'AIzaSyBwNMyEHQFYvcQPVXNyigs0GGSsYhzyumE',
 };

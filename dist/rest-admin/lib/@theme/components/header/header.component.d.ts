@@ -44,3 +44,4 @@ export declare class HeaderComponent implements OnInit, OnDestroy {
     static ɵfac: i0.ɵɵFactoryDeclaration<HeaderComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<HeaderComponent, "ngx-header", never, {}, {}, never, never>;
 }
+//# sourceMappingURL=header.component.d.ts.map

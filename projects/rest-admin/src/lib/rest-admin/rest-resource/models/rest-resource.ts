@@ -10,6 +10,7 @@ import {
   DetailConfig,
   TYPE_GROUP,
   TYPE_METHOD_REQUEST,
+  PermissionConfig,
 } from './rest-resource.model';
 
 export class RestResource {
@@ -20,13 +21,14 @@ export class RestResource {
   private _authRequired: boolean;
   private _hasFile = false;
   private _showInMenu: boolean;
-  private _permissions: string[];
+  private _permissions: PermissionConfig[];
 
   private _fields: RestField[];
   private _listConfig: ListConfig;
   private _addConfig: AddConfig;
   private _editConfig: EditConfig;
   private _detailConfig: DetailConfig;
+  private _mainConfig: MainConfig;
 
   private _queryParams: any;
 
@@ -50,6 +52,7 @@ export class RestResource {
     this._addConfig = addConfig;
     this._editConfig = editConfig;
     this._detailConfig = detailConfig;
+    this._mainConfig = mainConfig;
   }
 
   // Getters
@@ -83,7 +86,10 @@ export class RestResource {
       note: field.note ? field.note : '',
       label: field.label ? field.label : field.name,
       inForm: field.inForm !== undefined ? field.inForm : true,
-      metaData: field.metaData?.attributes !== undefined ? field.metaData : {...field?.metaData,  attributes: {}},
+      metaData:
+        field.metaData?.attributes !== undefined
+          ? field.metaData
+          : { ...field?.metaData, attributes: {} },
       i18n: field.i18n !== undefined ? field.i18n : false,
     }));
   }
@@ -100,8 +106,8 @@ export class RestResource {
     );
   }
 
-  get permissions(): string[] {
-    return this._permissions == null ? [] : this._permissions;
+  get permissions(): PermissionConfig[] {
+    return this._mainConfig.permissions ? this._mainConfig.permissions : [];
   }
 
   // Defini afin de tester les valeurs des metadatas
@@ -109,21 +115,33 @@ export class RestResource {
   //   const metaData: REST_FIELD_METADATA = {};
 
   //   this._fields.forEach((field) => {
+  //     if (field.metaData && field.metaData.addConfig) {
+  //       if (field.metaData.addConfig.mapConfig) {
+  //         metaData.addConfig.mapConfig.lattiudeKeyField = field.metaData
+  //           .addConfig.mapConfig.lattiudeKeyField
+  //           ? field.metaData.addConfig.mapConfig.lattiudeKeyField
+  //           : 'latitude';
+  //         metaData.addConfig.mapConfig.longitudeKeyField = field.metaData
+  //           .addConfig.mapConfig.longitudeKeyField
+  //           ? field.metaData.addConfig.mapConfig.longitudeKeyField
+  //           : 'longitude';
+  //       }
+  //     }
   //     switch (metaData.addConfig) {
-  //       case metaData.addConfig?.belongToOptions:
-  //         metaData.addConfig.belongToOptions = {
-  //           ...metaData.addConfig?.belongToOptions,
-  //           value: field?.metaData?.addConfig.belongToOptions?.value
-  //             ? field?.metaData?.addConfig?.belongToOptions?.value
-  //             : "id",
-  //           template: field.metaData.addConfig.belongToOptions.template
-  //             ? field.metaData.addConfig.belongToOptions.template
-  //             : field.metaData.addConfig.belongToOptions.filterKeys[0],
-  //           filterKeys: field.metaData.addConfig.belongToOptions.filterKeys
-  //             ? field.metaData.addConfig.belongToOptions.filterKeys
-  //             : ["name"],
-  //         };
-  //         break;
+  //       // case metaData.addConfig?.belongToOptions:
+  //       //   metaData.addConfig.belongToOptions = {
+  //       //     ...metaData.addConfig?.belongToOptions,
+  //       //     value: field?.metaData?.addConfig.belongToOptions?.value
+  //       //       ? field?.metaData?.addConfig?.belongToOptions?.value
+  //       //       : "id",
+  //       //     template: field.metaData.addConfig.belongToOptions.template
+  //       //       ? field.metaData.addConfig.belongToOptions.template
+  //       //       : field.metaData.addConfig.belongToOptions.filterKeys[0],
+  //       //     filterKeys: field.metaData.addConfig.belongToOptions.filterKeys
+  //       //       ? field.metaData.addConfig.belongToOptions.filterKeys
+  //       //       : ["name"],
+  //       //   };
+  //       //   break;
 
   //       default:
   //         break;
@@ -289,7 +307,7 @@ export class RestResource {
     this._showInMenu = v;
   }
 
-  set permissions(v: string[]) {
+  set permissions(v: PermissionConfig[]) {
     this._permissions = v;
   }
 }

@@ -6,23 +6,27 @@ export class FooterComponent {
         this.serviceRestAdmin = serviceRestAdmin;
     }
 }
-FooterComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FooterComponent, deps: [{ token: i1.RestAdminConfigService }], target: i0.ɵɵFactoryTarget.Component });
-FooterComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: FooterComponent, selector: "ngx-footer", ngImport: i0, template: `
-    <span class="created-by"> <b>{{ serviceRestAdmin.siteName }}</b> copyright </span>
-    <div class="socials">
-      <a
-        href="https://github.com/Foris-master/ngx-admin"
-        target="_blank"
-        class="ion ion-social-github"
-      ></a>
-    </div>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-default :host .socials{font-size:2rem}.nb-theme-default :host .socials a{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-default :host .socials a:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-default :host .socials{font-size:1.5rem}}.nb-theme-dark :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-dark :host .socials{font-size:2rem}.nb-theme-dark :host .socials a{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-dark :host .socials a:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-dark :host .socials{font-size:1.5rem}}.nb-theme-cosmic :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-cosmic :host .socials{font-size:2rem}.nb-theme-cosmic :host .socials a{padding:.4rem;color:#b4b4db;transition:color ease-out .1s}.nb-theme-cosmic :host .socials a:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-cosmic :host .socials{font-size:1.5rem}}.nb-theme-corporate :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-corporate :host .socials{font-size:2rem}.nb-theme-corporate :host .socials a{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-corporate :host .socials a:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-corporate :host .socials{font-size:1.5rem}}\n"] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FooterComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: "ngx-footer",
-                    styleUrls: ["./footer.component.scss"],
-                    template: `
+FooterComponent.ɵfac = function FooterComponent_Factory(t) { return new (t || FooterComponent)(i0.ɵɵdirectiveInject(i1.RestAdminConfigService)); };
+FooterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FooterComponent, selectors: [["ngx-footer"]], decls: 6, vars: 1, consts: [[1, "created-by"], [1, "socials"], ["href", "https://github.com/Foris-master/ngx-admin", "target", "_blank", 1, "ion", "ion-social-github"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "span", 0);
+        i0.ɵɵelementStart(1, "b");
+        i0.ɵɵtext(2);
+        i0.ɵɵelementEnd();
+        i0.ɵɵtext(3, " copyright ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(4, "div", 1);
+        i0.ɵɵelement(5, "a", 2);
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵtextInterpolate(ctx.serviceRestAdmin.siteName);
+    } }, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}.nb-theme-dark   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}.nb-theme-cosmic   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#b4b4db;transition:color ease-out .1s}.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}.nb-theme-corporate   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FooterComponent, [{
+        type: Component,
+        args: [{
+                selector: "ngx-footer",
+                styleUrls: ["./footer.component.scss"],
+                template: `
     <span class="created-by"> <b>{{ serviceRestAdmin.siteName }}</b> copyright </span>
     <div class="socials">
       <a
@@ -32,6 +36,6 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       ></a>
     </div>
   `,
-                }]
-        }], ctorParameters: function () { return [{ type: i1.RestAdminConfigService }]; } });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm9vdGVyLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL3Jlc3QtYWRtaW4vc3JjL2xpYi9AdGhlbWUvY29tcG9uZW50cy9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sZUFBZSxDQUFDOzs7QUFpQjFDLE1BQU0sT0FBTyxlQUFlO0lBQzFCLFlBQ1MsZ0JBQXdDO1FBQXhDLHFCQUFnQixHQUFoQixnQkFBZ0IsQ0FBd0I7SUFFakQsQ0FBQzs7NEdBSlUsZUFBZTtnR0FBZixlQUFlLGtEQVhoQjs7Ozs7Ozs7O0dBU1Q7MkZBRVUsZUFBZTtrQkFkM0IsU0FBUzttQkFBQztvQkFDVCxRQUFRLEVBQUUsWUFBWTtvQkFDdEIsU0FBUyxFQUFFLENBQUMseUJBQXlCLENBQUM7b0JBQ3RDLFFBQVEsRUFBRTs7Ozs7Ozs7O0dBU1Q7aUJBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQgfSBmcm9tIFwiQGFuZ3VsYXIvY29yZVwiO1xuaW1wb3J0IHsgUmVzdEFkbWluQ29uZmlnU2VydmljZSB9IGZyb20gXCIuLi8uLi8uLi9yZXN0LWFkbWluL3Jlc3QtcmVzb3VyY2Uvc2VydmljZS9yZXN0LWFkbWluLWNvbmZpZy5zZXJ2aWNlXCI7XG5cbkBDb21wb25lbnQoe1xuICBzZWxlY3RvcjogXCJuZ3gtZm9vdGVyXCIsXG4gIHN0eWxlVXJsczogW1wiLi9mb290ZXIuY29tcG9uZW50LnNjc3NcIl0sXG4gIHRlbXBsYXRlOiBgXG4gICAgPHNwYW4gY2xhc3M9XCJjcmVhdGVkLWJ5XCI+IDxiPnt7IHNlcnZpY2VSZXN0QWRtaW4uc2l0ZU5hbWUgfX08L2I+IGNvcHlyaWdodCA8L3NwYW4+XG4gICAgPGRpdiBjbGFzcz1cInNvY2lhbHNcIj5cbiAgICAgIDxhXG4gICAgICAgIGhyZWY9XCJodHRwczovL2dpdGh1Yi5jb20vRm9yaXMtbWFzdGVyL25neC1hZG1pblwiXG4gICAgICAgIHRhcmdldD1cIl9ibGFua1wiXG4gICAgICAgIGNsYXNzPVwiaW9uIGlvbi1zb2NpYWwtZ2l0aHViXCJcbiAgICAgID48L2E+XG4gICAgPC9kaXY+XG4gIGAsXG59KVxuZXhwb3J0IGNsYXNzIEZvb3RlckNvbXBvbmVudCB7XG4gIGNvbnN0cnVjdG9yKFxuICAgIHB1YmxpYyBzZXJ2aWNlUmVzdEFkbWluOiBSZXN0QWRtaW5Db25maWdTZXJ2aWNlLFxuICApIHtcbiAgfVxufVxuIl19
+            }]
+    }], function () { return [{ type: i1.RestAdminConfigService }]; }, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZm9vdGVyLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL3Byb2plY3RzL3Jlc3QtYWRtaW4vc3JjL2xpYi9AdGhlbWUvY29tcG9uZW50cy9mb290ZXIvZm9vdGVyLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sZUFBZSxDQUFDOzs7QUFpQjFDLE1BQU0sT0FBTyxlQUFlO0lBQzFCLFlBQ1MsZ0JBQXdDO1FBQXhDLHFCQUFnQixHQUFoQixnQkFBZ0IsQ0FBd0I7SUFFakQsQ0FBQzs7OEVBSlUsZUFBZTtrRUFBZixlQUFlO1FBVnhCLCtCQUF5QjtRQUFDLHlCQUFHO1FBQUEsWUFBK0I7UUFBQSxpQkFBSTtRQUFDLDJCQUFVO1FBQUEsaUJBQU87UUFDbEYsOEJBQXFCO1FBQ25CLHVCQUlLO1FBQ1AsaUJBQU07O1FBUHVCLGVBQStCO1FBQS9CLG1EQUErQjs7dUZBVW5ELGVBQWU7Y0FkM0IsU0FBUztlQUFDO2dCQUNULFFBQVEsRUFBRSxZQUFZO2dCQUN0QixTQUFTLEVBQUUsQ0FBQyx5QkFBeUIsQ0FBQztnQkFDdEMsUUFBUSxFQUFFOzs7Ozs7Ozs7R0FTVDthQUNGIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tcG9uZW50IH0gZnJvbSBcIkBhbmd1bGFyL2NvcmVcIjtcbmltcG9ydCB7IFJlc3RBZG1pbkNvbmZpZ1NlcnZpY2UgfSBmcm9tIFwiLi4vLi4vLi4vcmVzdC1hZG1pbi9yZXN0LXJlc291cmNlL3NlcnZpY2UvcmVzdC1hZG1pbi1jb25maWcuc2VydmljZVwiO1xuXG5AQ29tcG9uZW50KHtcbiAgc2VsZWN0b3I6IFwibmd4LWZvb3RlclwiLFxuICBzdHlsZVVybHM6IFtcIi4vZm9vdGVyLmNvbXBvbmVudC5zY3NzXCJdLFxuICB0ZW1wbGF0ZTogYFxuICAgIDxzcGFuIGNsYXNzPVwiY3JlYXRlZC1ieVwiPiA8Yj57eyBzZXJ2aWNlUmVzdEFkbWluLnNpdGVOYW1lIH19PC9iPiBjb3B5cmlnaHQgPC9zcGFuPlxuICAgIDxkaXYgY2xhc3M9XCJzb2NpYWxzXCI+XG4gICAgICA8YVxuICAgICAgICBocmVmPVwiaHR0cHM6Ly9naXRodWIuY29tL0ZvcmlzLW1hc3Rlci9uZ3gtYWRtaW5cIlxuICAgICAgICB0YXJnZXQ9XCJfYmxhbmtcIlxuICAgICAgICBjbGFzcz1cImlvbiBpb24tc29jaWFsLWdpdGh1YlwiXG4gICAgICA+PC9hPlxuICAgIDwvZGl2PlxuICBgLFxufSlcbmV4cG9ydCBjbGFzcyBGb290ZXJDb21wb25lbnQge1xuICBjb25zdHJ1Y3RvcihcbiAgICBwdWJsaWMgc2VydmljZVJlc3RBZG1pbjogUmVzdEFkbWluQ29uZmlnU2VydmljZSxcbiAgKSB7XG4gIH1cbn1cbiJdfQ==

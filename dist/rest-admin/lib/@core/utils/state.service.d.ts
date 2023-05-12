@@ -20,3 +20,4 @@ export declare class StateService implements OnDestroy {
     static ɵfac: i0.ɵɵFactoryDeclaration<StateService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<StateService>;
 }
+//# sourceMappingURL=state.service.d.ts.map

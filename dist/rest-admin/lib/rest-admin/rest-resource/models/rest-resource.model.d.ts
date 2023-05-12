@@ -28,6 +28,7 @@ export interface MainConfig {
     description?: string;
     authRequired?: boolean;
     showInMenu?: boolean;
+    permissions?: PermissionConfig[];
 }
 export interface CustomIcon {
     icon?: string;
@@ -160,9 +161,16 @@ export interface REST_FIELD_METADATA {
             template?: string;
             queryParams?: any | PreparedStatementQuery;
         };
+        mapConfig?: {
+            lattiudeKeyField: string;
+            longitudeKeyField: string;
+        };
     };
     detailConfig?: {
         restManyResources?: RestField | RestManyOptionsCustom;
+        linkConfig?: {
+            disabledIframePreview?: boolean;
+        };
     };
 }
 export interface PreparedStatementQuery {
@@ -222,6 +230,7 @@ export interface REST_CONFIG {
         }[];
     };
     authConfig?: REST_AUTH;
+    googleMapApiKey?: string;
 }
 export interface REST_AUTH {
     strategy?: STRATEGY_AUTH;
@@ -238,9 +247,14 @@ export declare enum STRATEGY_AUTH {
     EMAIL = "email"
 }
 export declare enum PERMISSION {
-    C = "create",
-    R = "read",
-    U = "update",
-    D = "delete",
-    A = "all"
+    CREATE = "create",
+    READ = "read",
+    UPDATE = "update",
+    DELETE = "delete"
 }
+export interface PermissionConfig {
+    type: PERMISSION;
+    fieldKey: PreparedStatementQuery;
+    name?: string;
+}
+//# sourceMappingURL=rest-resource.model.d.ts.map

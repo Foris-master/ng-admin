@@ -17,14 +17,11 @@
         </button>
       </div>
 
-      <div class="" style="height: 40px;">
+      <div class="" style="height: 40px">
         <button nbButton ghost (click)="toggleShowCheckbox()">
           <input type="checkbox" [(ngModel)]="showCheckbox" />
         </button>
-        <button nbButton ghost status="control" (click)="addNewEntity()">
-          <span>{{ "add" | translate }}</span>
-          <nb-icon icon="plus-circle"></nb-icon>
-        </button>
+
         <button
           nbButton
           [nbContextMenu]="items"
@@ -34,15 +31,55 @@
         >
           <nb-icon icon="download-outline"></nb-icon>
         </button>
-        <button
-          nbButton
-          *ngIf="this.selectedRows?.length > 0"
-          ghost
-          status="control"
-          (click)="onDeleteAllConfirm()"
-        >
-          <nb-icon icon="trash" color="danger" style="color: rgb(238, 130, 157);"></nb-icon>
-        </button>
+
+        <ng-container *ngIf="resource.permissions.length === 0">
+          <button nbButton ghost status="control" (click)="addNewEntity()">
+            <span>{{ "add" | translate }}</span>
+            <nb-icon icon="plus-circle"></nb-icon>
+          </button>
+
+          <button
+            nbButton
+            *ngIf="this.selectedRows?.length > 0"
+            ghost
+            status="control"
+            (click)="onDeleteAllConfirm()"
+          >
+            <nb-icon
+              icon="trash"
+              color="danger"
+              style="color: rgb(238, 130, 157)"
+            ></nb-icon>
+          </button>
+        </ng-container>
+
+        <ng-container *ngIf="resource.permissions.length > 0">
+          <ng-container *ngxPermissionsOnly="permissions">
+            <ng-container *ngxPermissionsOnly="PERMISSION.CREATE">
+              <button nbButton ghost status="control" (click)="addNewEntity()">
+                <span>{{ "add" | translate }}</span>
+                <nb-icon icon="plus-circle"></nb-icon>
+              </button>
+            </ng-container>
+
+            <ng-container *ngxPermissionsOnly="PERMISSION.DELETE">
+              <button
+                nbButton
+                *ngIf="this.selectedRows?.length > 0"
+                ghost
+                status="control"
+                (click)="onDeleteAllConfirm()"
+              >
+                <nb-icon
+                  icon="trash"
+                  color="danger"
+                  style="color: rgb(238, 130, 157)"
+                ></nb-icon>
+              </button>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+
         <!-- <button
           nbButton
           status="primary"
@@ -161,12 +198,18 @@
             </ng-container>
           </div>
 
-          <div class="col-lg-1 col-md-2 col-xs-4 input-space row" *ngIf="index == 0">
+          <div
+            class="col-lg-1 col-md-2 col-xs-4 input-space row"
+            *ngIf="index == 0"
+          >
             <button nbButton fullWidth status="primary" (click)="startSearch()">
               <nb-icon icon="search-outline"></nb-icon>
             </button>
           </div>
-          <div class="col-lg-1 col-md-2 col-xs-4 input-space" *ngIf="index == 0; else elseBlock">
+          <div
+            class="col-lg-1 col-md-2 col-xs-4 input-space"
+            *ngIf="index == 0; else elseBlock"
+          >
             <button
               nbButton
               fullWidth
@@ -204,16 +247,31 @@
     </ng2-smart-table> -->
 
     <!-- *ngIf="!showCheckbox" -->
-    <ng2-smart-table
-      [settings]="settings"
-      [source]="source"
-      (deleteConfirm)="onDeleteConfirm($event)"
-      (createConfirm)="onCreateConfirm($event)"
-      (custom)="onCustom($event)"
-      (userRowSelect)="detailEntity($event)"
-    >
-    </ng2-smart-table>
 
+    <ng-container *ngIf="resource.permissions.length > 0">
+      <ng2-smart-table
+        [settings]="settings"
+        [source]="source"
+        (deleteConfirm)="onDeleteConfirm($event)"
+        (createConfirm)="onCreateConfirm($event)"
+        (custom)="onCustom($event)"
+        (userRowSelect)="detailEntity($event)"
+        *ngIf="custom"
+      >
+      </ng2-smart-table>
+    </ng-container>
+
+    <ng-container *ngIf="resource.permissions.length === 0">
+      <ng2-smart-table
+        [settings]="settings"
+        [source]="source"
+        (deleteConfirm)="onDeleteConfirm($event)"
+        (createConfirm)="onCreateConfirm($event)"
+        (custom)="onCustom($event)"
+        (userRowSelect)="detailEntity($event)"
+      >
+      </ng2-smart-table>
+    </ng-container>
     <div
       class="row align-items-center justify-content-end"
       style="margin-top: 1rem"

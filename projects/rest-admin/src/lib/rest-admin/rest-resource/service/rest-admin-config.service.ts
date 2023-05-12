@@ -49,6 +49,12 @@ export class RestAdminConfigService {
     return this.restConfig.baseUrl;
   }
 
+  public get googleMapApiKey(): string {
+    return this.restConfig.googleMapApiKey
+      ? this.restConfig.googleMapApiKey
+      : '';
+  }
+
   public get restPathFileTranslate(): string {
     return this.restConfig.translate
       ? this.restConfig.translate.filePath
@@ -99,18 +105,24 @@ export class RestAdminConfigService {
             break;
           case TYPE_GROUP.MENU:
             if (Array.isArray(menus_group[item.listConfig.group.name])) {
-              if (Array.isArray(menus_group[item.listConfig.group.name][0]['children'])) {
+              if (
+                Array.isArray(
+                  menus_group[item.listConfig.group.name][0]['children']
+                )
+              ) {
                 menus_group[item.listConfig.group.name][0].children.push({
                   title: item.name,
                   link: '/admin/' + item.name.toLowerCase() + '-list',
                   icon: item.icon,
                 });
               } else {
-                menus_group[item.listConfig.group.name][0]['children'] = [{
-                  title: item.name,
-                  link: '/admin/' + item.name.toLowerCase() + '-list',
-                  icon: item.icon,
-                }];
+                menus_group[item.listConfig.group.name][0]['children'] = [
+                  {
+                    title: item.name,
+                    link: '/admin/' + item.name.toLowerCase() + '-list',
+                    icon: item.icon,
+                  },
+                ];
               }
             } else {
               menus_group[item.listConfig.group.name] = [

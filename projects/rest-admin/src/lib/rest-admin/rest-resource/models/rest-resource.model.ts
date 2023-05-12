@@ -35,6 +35,7 @@ export interface MainConfig {
   description?: string;
   authRequired?: boolean; // Savoir si on a besoin d'etre authentifier pour consulter la ressource
   showInMenu?: boolean; //Afficher dans le menu
+  permissions?: PermissionConfig[];
 }
 export interface CustomIcon {
   icon?: string;
@@ -85,7 +86,7 @@ export interface filterSearchConfig {
   value: string;
   type?: REST_FIELD_TYPES;
   resourceFieldName?: string;
-  ressourceFilterName?: string,
+  ressourceFilterName?: string;
   resource?: RestResource;
 }
 
@@ -177,9 +178,16 @@ export interface REST_FIELD_METADATA {
       template?: string; // Le template a affciher
       queryParams?: any | PreparedStatementQuery;
     };
+    mapConfig?: {
+      lattiudeKeyField: string;
+      longitudeKeyField: string;
+    };
   };
   detailConfig?: {
     restManyResources?: RestField | RestManyOptionsCustom;
+    linkConfig?: {
+      disabledIframePreview?: boolean;
+    };
   };
 }
 
@@ -251,6 +259,7 @@ export interface REST_CONFIG {
     }[];
   };
   authConfig?: REST_AUTH;
+  googleMapApiKey?: string; // Clef google map
 }
 
 interface StandartField extends Field {
@@ -275,9 +284,13 @@ export enum STRATEGY_AUTH {
 }
 
 export enum PERMISSION {
-  C = 'create',
-  R = 'read',
-  U = 'update',
-  D = 'delete',
-  A = 'all',
+  CREATE = 'create',
+  READ = 'read',
+  UPDATE = 'update',
+  DELETE = 'delete',
+}
+export interface PermissionConfig {
+  type: PERMISSION;
+  fieldKey: PreparedStatementQuery;
+  name?: string;
 }

@@ -1,7 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestResource } from '../models/rest-resource';
-import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import {
+  RestField,
+  REST_FIELD_TYPES,
+  PERMISSION,
+} from '../models/rest-resource.model';
 import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
 import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
@@ -10,6 +14,8 @@ import { RestLangService } from '../service/rest-lang.service';
 import * as _ from 'lodash';
 import urlToFile from '../../../utils/urlToFile';
 import { RestResourceDeleteComponent } from '../rest-ressource-delete/rest-resource-delete.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'ngx-rest-resource-detail',
@@ -34,6 +40,13 @@ export class RestResourceDetailComponent implements OnInit {
   tabsName = [];
   filesUpload = {};
 
+  permissions = [
+    PERMISSION.CREATE,
+    PERMISSION.UPDATE,
+    PERMISSION.DELETE,
+    PERMISSION.READ,
+  ];
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private serviceRest: RestResourceService,
@@ -41,8 +54,14 @@ export class RestResourceDetailComponent implements OnInit {
     private router: Router,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
     private dialogService: NbDialogService,
-    private langService: RestLangService
+    private langService: RestLangService,
+    private sanitizer: DomSanitizer,
+    private permissionsService: NgxPermissionsService
   ) {}
+
+  get PERMISSION() {
+    return PERMISSION;
+  }
 
   ngOnInit(): void {
     let id;
@@ -793,6 +812,27 @@ export class RestResourceDetailComponent implements OnInit {
           }
         });
     }
+
+    if (this.resource.permissions.length > 0) {
+      this.resource.permissions.forEach((permission) => {
+        this.serviceRest
+          .getResources({
+            api: permission.fieldKey.api.substring(1),
+            queryParams: permission.fieldKey.queryParams
+              ? permission.fieldKey.queryParams
+              : {},
+          })
+          .subscribe((resp) => {
+            const val = {};
+            permission.fieldKey.fieldForNextQuery.forEach((item) => {
+              val[item] = _.get(resp, item);
+              if (val[item]) {
+                this.permissionsService.addPermission(permission.type);
+              }
+            });
+          });
+      });
+    }
   }
 
   editEntity() {
@@ -806,7 +846,7 @@ export class RestResourceDetailComponent implements OnInit {
   deleteEntity() {
     const dialog = this.dialogService.open(RestResourceDeleteComponent, {
       context: {
-        datas: { id: this.entityId},
+        datas: { id: this.entityId },
         title: 'SUPPRESSION',
         listConfig: this.resource.listConfig,
         resourceName: this.ressourceName,
@@ -870,12 +910,12 @@ export class RestResourceDetailComponent implements OnInit {
 
   jsonValue = (val: any): any => {
     let _jsonValue: any;
-  
+
     try {
       if (!val || !val.restField || !val.data) {
         throw new Error('Missing required data properties');
       }
-  
+
       if (val.restField.i18n === true) {
         if (typeof val.data === 'string' && val.data[0] === '{') {
           const parsedData = JSON.parse(val.data);
@@ -884,7 +924,10 @@ export class RestResourceDetailComponent implements OnInit {
           } else {
             throw new Error('Invalid i18n language selected');
           }
-        } else if (typeof val.data === 'object' && val.data[this.langService.selected]) {
+        } else if (
+          typeof val.data === 'object' &&
+          val.data[this.langService.selected]
+        ) {
           _jsonValue = val.data[this.langService.selected];
         } else if (typeof val.data === 'string') {
           _jsonValue = val.data;
@@ -894,7 +937,7 @@ export class RestResourceDetailComponent implements OnInit {
       } else {
         _jsonValue = val.data;
       }
-  
+
       if (typeof _jsonValue === 'object') {
         _jsonValue = JSON.stringify(_jsonValue);
       }
@@ -902,8 +945,9 @@ export class RestResourceDetailComponent implements OnInit {
       // console.log(`Error occurred in jsonValue: ${err}`);
       _jsonValue = JSON.stringify(val.data);
     }
-  
+
     return _jsonValue;
   };
-  
+
+  sanitizerUrl = (link) => this.sanitizer.bypassSecurityTrustResourceUrl(link);
 }

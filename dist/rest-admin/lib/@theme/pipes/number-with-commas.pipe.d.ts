@@ -5,3 +5,4 @@ export declare class NumberWithCommasPipe implements PipeTransform {
     static ɵfac: i0.ɵɵFactoryDeclaration<NumberWithCommasPipe, never>;
     static ɵpipe: i0.ɵɵPipeDeclaration<NumberWithCommasPipe, "ngxNumberWithCommas">;
 }
+//# sourceMappingURL=number-with-commas.pipe.d.ts.map

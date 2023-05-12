@@ -1,13 +1,12 @@
 import { FILTER_OPERATORS } from './../service/rest-resource.service';
 import { HttpClient } from '@angular/common/http';
-import {
-  Component,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ServerDataSource } from 'ng2-smart-table';
-import { RestField, REST_FIELD_TYPES } from '../models/rest-resource.model';
+import {
+  RestField,
+  REST_FIELD_TYPES,
+  PERMISSION,
+} from '../models/rest-resource.model';
 import * as _ from 'lodash';
 import { NbDialogService, NbMenuService, NbTagComponent } from '@nebular/theme';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,7 +22,7 @@ import { RestShareService } from '../service/rest-share.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { SelectAllCheckboxRenderComponent } from '../components/fs-icon-ccomponent/select.component';
-
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'ngx-rest-resource-list',
@@ -59,7 +58,7 @@ export class RestResourceListComponent implements OnInit {
   belongToValue: any = {};
   belongToMany: any = {};
   controls: any;
-  isChecked: any = { };
+  isChecked: any = {};
 
   selectedRows: any[] = [];
 
@@ -76,6 +75,13 @@ export class RestResourceListComponent implements OnInit {
     { title: '50', value: 50 },
     { title: '100', value: 100 },
   ];
+
+  permissions = [PERMISSION.CREATE, PERMISSION.READ, PERMISSION.DELETE];
+
+  get PERMISSION() {
+    return PERMISSION;
+  }
+  custom = false;
   constructor(
     private fb: FormBuilder,
     private serviceRestConfig: RestAdminConfigService,
@@ -86,7 +92,9 @@ export class RestResourceListComponent implements OnInit {
     private router: Router,
     private nbMenuService: NbMenuService,
     private exportService: RestExportService,
-    public restShare: RestShareService
+    public restShare: RestShareService,
+    private permissionsService: NgxPermissionsService,
+    private serviceRest: RestResourceService
   ) {
     this.ressourceName =
       this.activatedRoute.snapshot.url[
@@ -98,7 +106,7 @@ export class RestResourceListComponent implements OnInit {
     );
 
     // this.belongToMany['id'] = new Set();
-    if ( this.resource.listConfig?.searchFilter?.filterBy) {
+    if (this.resource.listConfig?.searchFilter?.filterBy) {
       this.controls = this.resource.listConfig?.searchFilter?.filterBy?.reduce(
         (cumul, elt) => {
           switch (elt.type) {
@@ -133,7 +141,6 @@ export class RestResourceListComponent implements OnInit {
     }
 
     this.currentPerPage = this.resource.listConfig.perPage;
-    
 
     this.getList();
 
@@ -149,8 +156,10 @@ export class RestResourceListComponent implements OnInit {
       filter: false,
       addable: true,
       valuePrepareFunction: (cell, row) => ({
-        handleCheckboxClick: (event, rowData) => this.onCheckboxClick(event, rowData),
-        selected: this.selectedRows.find((elt) => elt?.id == row?.id) !== undefined,
+        handleCheckboxClick: (event, rowData) =>
+          this.onCheckboxClick(event, rowData),
+        selected:
+          this.selectedRows.find((elt) => elt?.id == row?.id) !== undefined,
         cell,
         row,
       }),
@@ -159,46 +168,6 @@ export class RestResourceListComponent implements OnInit {
       },
       renderComponent: SelectAllCheckboxRenderComponent,
       editable: true,
-    };
-
-    this.settings = {
-      hideSubHeader: this.resource.listConfig.hideAddSubHeader,
-      actions: {
-        position: 'right',
-        custom: [
-          {
-            name: 'detail',
-            title: "<i class='nb-compose'></i>",
-          },
-          {
-            name: 'delete',
-            title: "<i  class='nb-trash text-danger' ></i> ",
-          },
-        ],
-        edit: false,
-        delete: false,
-      },
-      pager: {
-        perPage: this.resource.listConfig.perPage,
-      },
-
-      columns: this.createMatTableColumns(),
-
-      add: {
-        addButtonContent: '<i class="nb-plus" ></i>',
-        createButtonContent: '<i class="nb-checkmark"></i>',
-        cancelButtonContent: '<i class="nb-close"></i>',
-        confirmCreate: true,
-      },
-      // edit: {
-      //   editButtonContent: '<i class="nb-edit"></i>',
-      //   saveButtonContent: '<i class="nb-checkmark"></i>',
-      //   cancelButtonContent: '<i class="nb-close"></i>',
-      // },
-      // delete: {
-      //   deleteButtonContent: '<i  class="nb-trash"></i>',
-      //   confirmDelete: true,
-      // },
     };
 
     this.nbMenuService
@@ -223,6 +192,96 @@ export class RestResourceListComponent implements OnInit {
             break;
         }
       });
+
+    if (this.resource.permissions.length > 0) {
+      const custom = [];
+      this.resource.permissions.forEach((permission) => {
+        this.serviceRest
+          .getResources({
+            api: permission.fieldKey.api.substring(1),
+            queryParams: permission.fieldKey.queryParams
+              ? permission.fieldKey.queryParams
+              : {},
+          })
+          .subscribe((resp) => {
+            const val = {};
+
+            permission.fieldKey.fieldForNextQuery.forEach((item) => {
+              val[item] = _.get(resp, item);
+              if (val[item]) {
+                this.permissionsService.addPermission(permission.type);
+                if (permission.type === PERMISSION.READ) {
+                  custom.push({
+                    name: 'detail',
+                    title: "<i class='nb-compose'></i>",
+                  });
+                }
+                if (permission.type === PERMISSION.DELETE) {
+                  custom.push({
+                    name: 'delete',
+                    title: "<i class='nb-trash text-danger'></i>",
+                  });
+                }
+              }
+              console.log('custom', custom);
+
+              this.custom = true;
+              this.settings = {
+                hideSubHeader: this.resource.listConfig.hideAddSubHeader,
+                actions: {
+                  position: 'right',
+                  custom: custom,
+                  edit: false,
+                  delete: false,
+                },
+                pager: {
+                  perPage: this.resource.listConfig.perPage,
+                },
+
+                columns: this.createMatTableColumns(),
+
+                add: {
+                  addButtonContent: '<i class="nb-plus" ></i>',
+                  createButtonContent: '<i class="nb-checkmark"></i>',
+                  cancelButtonContent: '<i class="nb-close"></i>',
+                  confirmCreate: true,
+                },
+              };
+            });
+          });
+      });
+    } else {
+      this.settings = {
+        hideSubHeader: this.resource.listConfig.hideAddSubHeader,
+        actions: {
+          position: 'right',
+          custom: [
+            {
+              name: 'detail',
+              title: "<i class='nb-compose'></i>",
+            },
+            {
+              name: 'delete',
+              title: "<i class='nb-trash text-danger'></i>",
+            },
+          ],
+          edit: false,
+          delete: false,
+        },
+        pager: {
+          perPage: this.resource.listConfig.perPage,
+        },
+
+        columns: this.createMatTableColumns(),
+
+        add: {
+          addButtonContent: '<i class="nb-plus" ></i>',
+          createButtonContent: '<i class="nb-checkmark"></i>',
+          cancelButtonContent: '<i class="nb-close"></i>',
+          confirmCreate: true,
+        },
+      };
+    }
   }
 
   toggleShowCheckbox() {
@@ -277,11 +336,21 @@ export class RestResourceListComponent implements OnInit {
   }
 
   detailEntity(event) {
-    this.router.navigate([
-      `/admin/${this.ressourceName}-detail`,
-      event.data.id,
-    ]);
+    if (this.resource.permissions.length > 0) {
+      if (this.permissionsService.hasPermission(PERMISSION.READ)) {
+        this.router.navigate([
+          `/admin/${this.ressourceName}-detail`,
+          event.data.id,
+        ]);
+      }
+    } else {
+      this.router.navigate([
+        `/admin/${this.ressourceName}-detail`,
+        event.data.id,
+      ]);
+    }
   }
+
   onCheckboxClick(event: any, row: any) {
     if (this.selectedRows.indexOf(row) === -1) {
       this.selectedRows.push(row);
@@ -290,10 +359,10 @@ export class RestResourceListComponent implements OnInit {
     }
   }
   selectAllRows() {
-    this.source.getAll().then(rows => {
+    this.source.getAll().then((rows) => {
       if (this.selectedRows?.length !== rows?.length) {
         this.selectedRows = [];
-        rows.forEach(row => {
+        rows.forEach((row) => {
           this.selectedRows.push(row);
         });
       } else {
@@ -301,12 +370,12 @@ export class RestResourceListComponent implements OnInit {
       }
       this.source.refresh();
     });
-  }  
+  }
 
   private createMatTableColumns() {
     const colunms: any = {};
     if (!this.showCheckbox) {
-      colunms["isChecked"] = this.isChecked;
+      colunms['isChecked'] = this.isChecked;
     }
     this.resource.fields
       .filter((item) => this.resource.listConfig.columns.includes(item.name))
@@ -330,7 +399,6 @@ export class RestResourceListComponent implements OnInit {
       });
     return colunms;
   }
-  
 
   getList(page = null, perPage = null) {
     this.restShare.setLoader(true);
