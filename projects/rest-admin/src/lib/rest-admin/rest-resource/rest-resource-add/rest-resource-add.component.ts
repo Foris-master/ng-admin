@@ -866,10 +866,12 @@ export class RestResourceAddComponent implements OnInit {
         if (search && formData[key] !== undefined) {
           switch (search.type) {
             case REST_FIELD_TYPES.DATE:
-              datas.append(
-                key,
-                `${moment(formData[key]).format('YYYY-MM-DD')}`
-              );
+              if (formData[key] !== null) {
+                datas.append(
+                  key,
+                  `${moment(formData[key]).format('YYYY-MM-DD')}`
+                );
+              } 
               break;
               case REST_FIELD_TYPES.JSON:
                 let jsonFields = {};
