@@ -231,6 +231,7 @@ export interface REST_CONFIG {
     };
     authConfig?: REST_AUTH;
     googleMapApiKey?: string;
+    permissions?: PermissionConfig[];
 }
 export interface REST_AUTH {
     strategy?: STRATEGY_AUTH;
@@ -250,7 +251,8 @@ export declare enum PERMISSION {
     CREATE = "create",
     READ = "read",
     UPDATE = "update",
-    DELETE = "delete"
+    DELETE = "delete",
+    CANLOGIN = "CANLOGIN"
 }
 export interface PermissionConfig {
     type: PERMISSION;

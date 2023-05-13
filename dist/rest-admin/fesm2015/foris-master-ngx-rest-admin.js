@@ -1,22 +1,22 @@
-import * as i8$1 from '@ngx-translate/core';
+import * as i1$3 from '@ngx-translate/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import * as i1$3 from '@angular/forms';
+import * as i1$4 from '@angular/forms';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import * as i1$2 from '@angular/common/http';
 import { HttpHeaders, HttpResponse, HttpErrorResponse, HTTP_INTERCEPTORS, HttpClientModule, HttpClientJsonpModule, HttpClient } from '@angular/common/http';
 import * as i0 from '@angular/core';
-import { Injectable, PLATFORM_ID, Inject, Component, Input, ViewChild, EventEmitter, Output, Pipe, NgModule, Optional, SkipSelf, Directive } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject, Component, Input, ViewChild, Directive, EventEmitter, Output, Pipe, NgModule, Optional, SkipSelf } from '@angular/core';
 import * as i8 from '@angular/common';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import * as i1$1 from '@nebular/theme';
 import { NbLayoutDirection, NB_DOCUMENT, NbGlobalPhysicalPosition, DEFAULT_THEME as DEFAULT_THEME$1, COSMIC_THEME as COSMIC_THEME$1, CORPORATE_THEME as CORPORATE_THEME$1, DARK_THEME as DARK_THEME$1, NbLayoutModule, NbMenuModule, NbUserModule, NbActionsModule, NbSearchModule, NbSidebarModule, NbContextMenuModule, NbButtonModule, NbSelectModule, NbIconModule, NbToggleModule, NbThemeModule, NbSidebarService, NbCardModule, NbCheckboxModule, NbInputModule, NbTagModule, NbRadioModule, NbTreeGridModule, NbAlertModule, NbAutocompleteModule, NbSpinnerModule, NbTabsetModule, NbPopoverModule, NbListModule, NbTooltipModule, NbDatepickerModule, NbDialogModule, NbWindowModule, NbToastrModule, NbTimepickerModule } from '@nebular/theme';
-import * as i11$1 from 'ng2-smart-table';
+import * as i10 from 'ng2-smart-table';
 import { DefaultEditor, LocalDataSource, ServerDataSource, Ng2SmartTableModule } from 'ng2-smart-table';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import * as i9 from '@nebular/security';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { Subject, BehaviorSubject, of } from 'rxjs';
-import { shareReplay, delay, debounceTime, filter, takeWhile, takeUntil, map, tap, catchError } from 'rxjs/operators';
+import { shareReplay, delay, debounceTime, filter, takeWhile, takeUntil, map, catchError, tap } from 'rxjs/operators';
 import * as i1 from '@angular/router';
 import { NavigationEnd, RouterModule } from '@angular/router';
 import * as i7 from 'ngx-image-cropper';
@@ -33,19 +33,19 @@ import * as i4 from '@codehint-ng/html-compiler';
 import { CngHtmlCompilerModule } from '@codehint-ng/html-compiler';
 import { Validator } from 'ngx-input-validator';
 import * as moment from 'moment';
-import * as i7$1 from 'ngx-permissions';
+import * as i8$1 from 'ngx-permissions';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import * as i12 from 'ngx-dropzone';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import * as i4$1 from '@angular/google-maps';
+import { GoogleMapsModule } from '@angular/google-maps';
 import { __awaiter } from 'tslib';
 import * as i6 from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
-import * as i11 from 'ngx-dropzone';
-import { NgxDropzoneModule } from 'ngx-dropzone';
-import * as i1$4 from '@nebular/auth';
+import * as i1$5 from '@nebular/auth';
 import { NbAuthModule, NbDummyAuthStrategy, NbLoginComponent, NbAuthComponent, NbPasswordAuthStrategy, NbAuthSimpleToken } from '@nebular/auth';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import * as i5 from '@angular/google-maps';
-import { GoogleMapsModule } from '@angular/google-maps';
 
 const APP_NAME = "REST-ADMIN";
 const GLOBALS = {
@@ -346,6 +346,7 @@ var PERMISSION;
     PERMISSION["READ"] = "read";
     PERMISSION["UPDATE"] = "update";
     PERMISSION["DELETE"] = "delete";
+    PERMISSION["CANLOGIN"] = "CANLOGIN";
 })(PERMISSION || (PERMISSION = {}));
 
 class AuthGuard {
@@ -662,14 +663,14 @@ class RestLangService {
         return this.restConfigService.restLanguage;
     }
 }
-RestLangService.ɵfac = function RestLangService_Factory(t) { return new (t || RestLangService)(i0.ɵɵinject(i8$1.TranslateService), i0.ɵɵinject(RestAdminConfigService)); };
+RestLangService.ɵfac = function RestLangService_Factory(t) { return new (t || RestLangService)(i0.ɵɵinject(i1$3.TranslateService), i0.ɵɵinject(RestAdminConfigService)); };
 RestLangService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestLangService, factory: RestLangService.ɵfac, providedIn: "root" });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestLangService, [{
         type: Injectable,
         args: [{
                 providedIn: "root",
             }]
-    }], function () { return [{ type: i8$1.TranslateService }, { type: RestAdminConfigService }]; }, null); })();
+    }], function () { return [{ type: i1$3.TranslateService }, { type: RestAdminConfigService }]; }, null); })();
 
 function FsIconCComponent_nb_tree_grid_row_toggle_0_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelement(0, "nb-tree-grid-row-toggle", 2);
@@ -2011,7 +2012,7 @@ RestResourceEditorFieldsComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({
         i0.ɵɵtemplate(0, RestResourceEditorFieldsComponent_ng_container_0_Template, 20, 17, "ng-container", 0);
     } if (rf & 2) {
         i0.ɵɵproperty("ngIf", ctx.field.inForm == true);
-    } }, directives: [i8.NgIf, i1$1.NbDatepickerComponent, i1$3.DefaultValueAccessor, i1$3.NgControlStatus, i1$3.NgModel, i1$3.NumberValueAccessor, i1$1.NbDatepickerDirective, i1$1.NbInputDirective, i1$1.NbDateTimePickerComponent, i1$1.NbTimePickerDirective, i1$1.NbTimePickerComponent, i1$1.NbSelectComponent, i8.NgForOf, i1$1.NbOptionComponent, i1$1.NbToggleComponent, i2.FileUploadComponent, i1$1.NbButtonComponent, i7.ImageCropperComponent, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbTagComponent, i1$1.NbAutocompleteDirective, i1$1.NbAutocompleteComponent], pipes: [i8.AsyncPipe], styles: [".icon[_ngcontent-%COMP%]{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text[_ngcontent-%COMP%]{overflow:hidden;width:auto;font-size:14px}svg[_ngcontent-%COMP%]{fill:#909293;height:20px}.overlay[_ngcontent-%COMP%]{position:relative}.delete-button[_ngcontent-%COMP%]{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image[_ngcontent-%COMP%]{min-width:300px;max-width:300px}.file-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:100%}nb-toggle[_ngcontent-%COMP%]{text-align:center}"] });
+    } }, directives: [i8.NgIf, i1$1.NbDatepickerComponent, i1$4.DefaultValueAccessor, i1$4.NgControlStatus, i1$4.NgModel, i1$4.NumberValueAccessor, i1$1.NbDatepickerDirective, i1$1.NbInputDirective, i1$1.NbDateTimePickerComponent, i1$1.NbTimePickerDirective, i1$1.NbTimePickerComponent, i1$1.NbSelectComponent, i8.NgForOf, i1$1.NbOptionComponent, i1$1.NbToggleComponent, i2.FileUploadComponent, i1$1.NbButtonComponent, i7.ImageCropperComponent, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbTagComponent, i1$1.NbAutocompleteDirective, i1$1.NbAutocompleteComponent], pipes: [i8.AsyncPipe], styles: [".icon[_ngcontent-%COMP%]{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text[_ngcontent-%COMP%]{overflow:hidden;width:auto;font-size:14px}svg[_ngcontent-%COMP%]{fill:#909293;height:20px}.overlay[_ngcontent-%COMP%]{position:relative}.delete-button[_ngcontent-%COMP%]{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image[_ngcontent-%COMP%]{min-width:300px;max-width:300px}.file-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:100%}nb-toggle[_ngcontent-%COMP%]{text-align:center}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceEditorFieldsComponent, [{
         type: Component,
         args: [{
@@ -2101,16 +2102,123 @@ class NotificationService {
         this.showToast(this.positions.TOP_RIGHT, 'primary', msgInfo);
     }
 }
-NotificationService.ɵfac = function NotificationService_Factory(t) { return new (t || NotificationService)(i0.ɵɵinject(i1$1.NbToastrService), i0.ɵɵinject(i8$1.TranslateService)); };
+NotificationService.ɵfac = function NotificationService_Factory(t) { return new (t || NotificationService)(i0.ɵɵinject(i1$1.NbToastrService), i0.ɵɵinject(i1$3.TranslateService)); };
 NotificationService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: NotificationService, factory: NotificationService.ɵfac, providedIn: 'root' });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NotificationService, [{
         type: Injectable,
         args: [{
                 providedIn: 'root',
             }]
-    }], function () { return [{ type: i1$1.NbToastrService }, { type: i8$1.TranslateService }]; }, null); })();
+    }], function () { return [{ type: i1$1.NbToastrService }, { type: i1$3.TranslateService }]; }, null); })();
 
-const _c0$7 = ["belongTo"];
+class AttributeDirective {
+    constructor(renderer, elementRef) {
+        this.renderer = renderer;
+        this.elementRef = elementRef;
+    }
+    ngOnChanges(changes) {
+        if (changes.attributes) {
+            for (let attributeName in this.attributes) {
+                const attributeValue = this.attributes[attributeName];
+                if (attributeValue) {
+                    this.renderer.setAttribute(this.elementRef.nativeElement, attributeName, attributeValue);
+                }
+                else {
+                    this.renderer.removeAttribute(this.elementRef.nativeElement, attributeName);
+                }
+            }
+        }
+    }
+}
+AttributeDirective.ɵfac = function AttributeDirective_Factory(t) { return new (t || AttributeDirective)(i0.ɵɵdirectiveInject(i0.Renderer2), i0.ɵɵdirectiveInject(i0.ElementRef)); };
+AttributeDirective.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: AttributeDirective, selectors: [["", "attributes", ""]], inputs: { attributes: "attributes" }, features: [i0.ɵɵNgOnChangesFeature] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AttributeDirective, [{
+        type: Directive,
+        args: [{
+                selector: '[attributes]'
+            }]
+    }], function () { return [{ type: i0.Renderer2 }, { type: i0.ElementRef }]; }, { attributes: [{
+            type: Input
+        }] }); })();
+
+const _c0$7 = function (a0, a1) { return { lat: a0, lng: a1 }; };
+function GmapsComponent_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    const _r2 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "google-map", 1);
+    i0.ɵɵelementStart(2, "map-marker", 2);
+    i0.ɵɵlistener("mapDragend", function GmapsComponent_ng_container_2_Template_map_marker_mapDragend_2_listener($event) { i0.ɵɵrestoreView(_r2); const ctx_r1 = i0.ɵɵnextContext(); return ctx_r1.onPositionChange($event); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("options", ctx_r0.mapOptions)("zoom", 8);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("position", i0.ɵɵpureFunction2(4, _c0$7, ctx_r0.lat, ctx_r0.lng))("options", ctx_r0.markerOptions);
+} }
+class GmapsComponent {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.lat = 51.678418;
+        this.lng = 7.809007;
+        this.googleMapKey = '';
+        this.latChange = new EventEmitter();
+        this.lngChange = new EventEmitter();
+        this.markerOptions = { draggable: true };
+    }
+    ngOnInit() {
+        console.log(this.googleMapKey, 'googleMapKey');
+        this.apiLoaded = this.httpClient
+            .jsonp(`https://maps.googleapis.com/maps/api/js?key=${this.googleMapKey}&libraries=places`, 'callback')
+            .pipe(map(() => true), catchError((err) => of(false)));
+        this.mapOptions = {
+            center: { lat: this.lat, lng: this.lng },
+            zoom: 8,
+        };
+    }
+    onPositionChange(event) {
+        if (event) {
+            this.lat = event.latLng.lat();
+            this.lng = event.latLng.lng();
+            this.latChange.emit(this.lat);
+            this.lngChange.emit(this.lng);
+        }
+    }
+}
+GmapsComponent.ɵfac = function GmapsComponent_Factory(t) { return new (t || GmapsComponent)(i0.ɵɵdirectiveInject(i1$2.HttpClient)); };
+GmapsComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: GmapsComponent, selectors: [["ngx-gmaps"]], inputs: { lat: "lat", lng: "lng", googleMapKey: "googleMapKey" }, outputs: { latChange: "latChange", lngChange: "lngChange" }, decls: 4, vars: 3, consts: [[4, "ngIf"], ["width", "100%", "height", "36.5625rem", 3, "options", "zoom"], [3, "position", "options", "mapDragend"]], template: function GmapsComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "nb-card");
+        i0.ɵɵelementStart(1, "nb-card-body");
+        i0.ɵɵtemplate(2, GmapsComponent_ng_container_2_Template, 3, 7, "ng-container", 0);
+        i0.ɵɵpipe(3, "async");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", i0.ɵɵpipeBind1(3, 1, ctx.apiLoaded));
+    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i8.NgIf, i4$1.GoogleMap, i4$1.MapMarker], pipes: [i8.AsyncPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-default   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-dark   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-cosmic   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-corporate   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}agm-map[_ngcontent-%COMP%]{height:300px}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(GmapsComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-gmaps',
+                styleUrls: ['./gmaps.component.scss'],
+                templateUrl: './gmaps.component.html',
+            }]
+    }], function () { return [{ type: i1$2.HttpClient }]; }, { lat: [{
+            type: Input
+        }], lng: [{
+            type: Input
+        }], googleMapKey: [{
+            type: Input
+        }], latChange: [{
+            type: Output
+        }], lngChange: [{
+            type: Output
+        }] }); })();
+
+const _c0$6 = ["belongTo"];
 const _c1$4 = ["autoBelongToMany"];
 function RestResourceAddComponent_ng_container_0_nb_card_header_2_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementStart(0, "nb-card-header");
@@ -2795,8 +2903,11 @@ function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div
     i0.ɵɵelementEnd();
 } if (rf & 2) {
     const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r29 = i0.ɵɵnextContext(3);
     i0.ɵɵadvance(2);
-    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 1, field_r7.label));
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 2, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("googleMapKey", ctx_r29.googleMapKeys);
 } }
 function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementContainerStart(0);
@@ -2818,7 +2929,7 @@ function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_Tem
     i0.ɵɵtemplate(16, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_16_Template, 5, 7, "div", 17);
     i0.ɵɵtemplate(17, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_Template, 7, 5, "div", 17);
     i0.ɵɵtemplate(18, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_Template, 17, 12, "div", 17);
-    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_19_Template, 5, 3, "div", 17);
+    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_19_Template, 5, 4, "div", 17);
     i0.ɵɵelementContainerEnd();
 } if (rf & 2) {
     const field_r7 = i0.ɵɵnextContext().$implicit;
@@ -3641,8 +3752,11 @@ function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container
     i0.ɵɵelementEnd();
 } if (rf & 2) {
     const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r202 = i0.ɵɵnextContext(4);
     i0.ɵɵadvance(2);
-    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 1, field_r180.label));
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 2, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("googleMapKey", ctx_r202.googleMapKeys);
 } }
 function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementContainerStart(0);
@@ -3664,7 +3778,7 @@ function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container
     i0.ɵɵtemplate(16, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_16_Template, 5, 7, "div", 17);
     i0.ɵɵtemplate(17, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_Template, 7, 5, "div", 17);
     i0.ɵɵtemplate(18, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_Template, 17, 12, "div", 17);
-    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_19_Template, 5, 3, "div", 17);
+    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_19_Template, 5, 4, "div", 17);
     i0.ɵɵelementContainerEnd();
 } if (rf & 2) {
     const field_r180 = i0.ɵɵnextContext().$implicit;
@@ -3941,6 +4055,7 @@ class RestResourceAddComponent {
         });
     }
     ngOnInit() {
+        this.googleMapKeys = this.serviceRestAdminConfig.googleMapApiKey;
         this.nbMenuService
             .onItemClick()
             .pipe(filter(({ tag }) => tag === 'my-context-add'), map(({ item: { title } }) => title))
@@ -4800,22 +4915,22 @@ class RestResourceAddComponent {
         });
     }
 }
-RestResourceAddComponent.ɵfac = function RestResourceAddComponent_Factory(t) { return new (t || RestResourceAddComponent)(i0.ɵɵdirectiveInject(i1$3.FormBuilder), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(RestExportService), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(NotificationService), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef), i0.ɵɵdirectiveInject(i7$1.NgxPermissionsService)); };
+RestResourceAddComponent.ɵfac = function RestResourceAddComponent_Factory(t) { return new (t || RestResourceAddComponent)(i0.ɵɵdirectiveInject(i1$4.FormBuilder), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(RestExportService), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(NotificationService), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef), i0.ɵɵdirectiveInject(i8$1.NgxPermissionsService)); };
 RestResourceAddComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceAddComponent, selectors: [["ngx-rest-resource-add"]], viewQuery: function RestResourceAddComponent_Query(rf, ctx) { if (rf & 1) {
-        i0.ɵɵviewQuery(_c0$7, 5);
+        i0.ɵɵviewQuery(_c0$6, 5);
         i0.ɵɵviewQuery(_c1$4, 5);
     } if (rf & 2) {
         let _t;
         i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.belongTo = _t.first);
         i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.inputBelongToMany = _t.first);
-    } }, inputs: { resource: "resource" }, decls: 2, vars: 2, consts: [[4, "ngIf"], ["fullWidth", ""], ["tabTitle", "Ajout simple"], ["class", "row", 3, "formGroup", 4, "ngIf"], ["tabTitle", "Importation"], [1, "row"], [1, "col-9"], [1, "col-3"], ["nbButton", "", "status", "primary", "nbContextMenuTag", "my-context-add", 3, "nbContextMenu"], [3, "settings", "source"], [1, "buttons-row"], ["nbButton", "", "status", "primary", 3, "disabled", "click"], ["class", "spinner-border spinner-border-sm mr-2", 4, "ngIf"], [1, "row", 3, "formGroup"], ["class", "col-12", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "col-12"], [1, ""], ["class", "input-space", 4, "ngIf"], [1, "input-space"], [1, "label"], ["nbInput", "", "fullWidth", "", "type", "text", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", "type", "password", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", "type", "number", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", 3, "placeholder", "nbDatepicker", "attributes", "formControlName"], ["formpicker", ""], ["nbInput", "", "fullWidth", "", 3, "attributes", "placeholder", "nbDatepicker", "formControlName"], ["withSeconds", ""], ["dateTimePicker", ""], ["fullWidth", "", "twelveHoursFormat", "", "nbInput", "", 3, "nbTimepicker", "attributes", "formControlName"], ["timepicker", ""], ["fullWidth", "", 3, "formControlName", "attributes", "placeholder"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "display", "flex", "align-items", "center"], [2, "margin-right", "0.5em"], [3, "formControlName"], ["ngx-dropzone", "", 1, "custom-dropzone", "form-control-custom", "rounded", "m-2", 2, "border", "dashed", "display", "flex", 3, "change"], ["class", "custom-img-dropzone", 3, "attributes", "src", 4, "ngIf"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed", 4, "ngFor", "ngForOf"], [1, "custom-img-dropzone", 3, "attributes", "src"], ["icon", "cloud-upload-outline", 2, "font-size", "2em", "color", "#ccc"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed"], ["nbButton", "", "status", "primary", 3, "click", 4, "ngIf"], ["nbButton", "", "status", "primary", 3, "click"], ["format", "png", 3, "imageFile", "maintainAspectRatio", "aspectRatio", "imageCropped"], ["nbButton", "", "status", "danger", 3, "click"], ["fullWidth", "", 3, "tagRemove"], ["removable", "", 3, "text", 4, "ngFor", "ngForOf"], ["type", "text", "fullWidth", "", "nbTagInput", "", 3, "attributes", "placeholder", "tagAdd"], ["removable", "", 3, "text"], ["nbInput", "", "fullWidth", "", "type", "text", "placeholder", "Enter value", 3, "attributes", "formControlName", "nbAutocomplete", "id", "keyup"], ["autoInput", ""], ["class", "col-3", 4, "ngIf"], [3, "selectedChange"], ["autoComplete", ""], [3, "value", "attributes", 4, "ngFor", "ngForOf"], ["nbInput", "", "fullWidth", "", "disabled", "true", "type", "text", "placeholder", "Value", 3, "attributes", "value", "id"], [3, "value", "attributes"], [3, "tagRemove"], ["removable", "", 3, "text", "attributes", 4, "ngFor", "ngForOf"], ["type", "text", "nbTagInput", "", "fullWidth", "", 3, "attributes", "nbAutocomplete", "placeholder", "formControlName", "keyup"], ["autoBelongToMany", ""], ["belongToField", ""], ["removable", "", 3, "text", "attributes"], [1, "color-row"], ["nbInput", "", "fullWidth", "", "type", "color", 2, "height", "45px", 3, "id", "attributes", "placeholder", "formControlName"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "attributes", "click", 4, "ngIf"], ["class", "row mb-2", 4, "ngFor", "ngForOf"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "attributes", "click"], ["icon", "plus", "pack", "fas"], [1, "row", "mb-2"], [1, "col", 3, "id"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "attributes", "ngModelOptions", "ngModelChange", 4, "ngIf", "ngIfElse"], ["elseBlock", ""], [1, "col"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "ngModelOptions", "ngModelChange"], ["class", "col", 4, "ngIf"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "attributes", "ngModelOptions", "ngModelChange"], ["fullWidth", "", "nbInput", "", "disabled", "", 3, "value"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "click"], ["icon", "trash-alt", "pack", "fas"], ["fullWidth", "", 3, "selectedChange"], [3, "attributes", "value", 4, "ngFor", "ngForOf"], ["nbInput", "", "fullWidth", "", "type", "text", "placeholder", "Enter value", 3, "attributes", "formControlName", "nbAutocomplete", "id", "disabled", "keyup"], [3, "attributes", "value"], [3, "latChange", "lngChange"], [1, "text-muted", "ml-20", "mt-3"], [1, "spinner-border", "spinner-border-sm", "mr-2"], [4, "ngxPermissionsOnly"], ["class", "buttons-row", 4, "ngIf"], ["nbButton", "", "status", "primary", 3, "disabled", "click", 4, "ngxPermissionsOnly"]], template: function RestResourceAddComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { resource: "resource" }, decls: 2, vars: 2, consts: [[4, "ngIf"], ["fullWidth", ""], ["tabTitle", "Ajout simple"], ["class", "row", 3, "formGroup", 4, "ngIf"], ["tabTitle", "Importation"], [1, "row"], [1, "col-9"], [1, "col-3"], ["nbButton", "", "status", "primary", "nbContextMenuTag", "my-context-add", 3, "nbContextMenu"], [3, "settings", "source"], [1, "buttons-row"], ["nbButton", "", "status", "primary", 3, "disabled", "click"], ["class", "spinner-border spinner-border-sm mr-2", 4, "ngIf"], [1, "row", 3, "formGroup"], ["class", "col-12", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, "col-12"], [1, ""], ["class", "input-space", 4, "ngIf"], [1, "input-space"], [1, "label"], ["nbInput", "", "fullWidth", "", "type", "text", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", "type", "password", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", "type", "number", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", 3, "placeholder", "nbDatepicker", "attributes", "formControlName"], ["formpicker", ""], ["nbInput", "", "fullWidth", "", 3, "attributes", "placeholder", "nbDatepicker", "formControlName"], ["withSeconds", ""], ["dateTimePicker", ""], ["fullWidth", "", "twelveHoursFormat", "", "nbInput", "", 3, "nbTimepicker", "attributes", "formControlName"], ["timepicker", ""], ["fullWidth", "", 3, "formControlName", "attributes", "placeholder"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "display", "flex", "align-items", "center"], [2, "margin-right", "0.5em"], [3, "formControlName"], ["ngx-dropzone", "", 1, "custom-dropzone", "form-control-custom", "rounded", "m-2", 2, "border", "dashed", "display", "flex", 3, "change"], ["class", "custom-img-dropzone", 3, "attributes", "src", 4, "ngIf"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed", 4, "ngFor", "ngForOf"], [1, "custom-img-dropzone", 3, "attributes", "src"], ["icon", "cloud-upload-outline", 2, "font-size", "2em", "color", "#ccc"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed"], ["nbButton", "", "status", "primary", 3, "click", 4, "ngIf"], ["nbButton", "", "status", "primary", 3, "click"], ["format", "png", 3, "imageFile", "maintainAspectRatio", "aspectRatio", "imageCropped"], ["nbButton", "", "status", "danger", 3, "click"], ["fullWidth", "", 3, "tagRemove"], ["removable", "", 3, "text", 4, "ngFor", "ngForOf"], ["type", "text", "fullWidth", "", "nbTagInput", "", 3, "attributes", "placeholder", "tagAdd"], ["removable", "", 3, "text"], ["nbInput", "", "fullWidth", "", "type", "text", "placeholder", "Enter value", 3, "attributes", "formControlName", "nbAutocomplete", "id", "keyup"], ["autoInput", ""], ["class", "col-3", 4, "ngIf"], [3, "selectedChange"], ["autoComplete", ""], [3, "value", "attributes", 4, "ngFor", "ngForOf"], ["nbInput", "", "fullWidth", "", "disabled", "true", "type", "text", "placeholder", "Value", 3, "attributes", "value", "id"], [3, "value", "attributes"], [3, "tagRemove"], ["removable", "", 3, "text", "attributes", 4, "ngFor", "ngForOf"], ["type", "text", "nbTagInput", "", "fullWidth", "", 3, "attributes", "nbAutocomplete", "placeholder", "formControlName", "keyup"], ["autoBelongToMany", ""], ["belongToField", ""], ["removable", "", 3, "text", "attributes"], [1, "color-row"], ["nbInput", "", "fullWidth", "", "type", "color", 2, "height", "45px", 3, "id", "attributes", "placeholder", "formControlName"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "attributes", "click", 4, "ngIf"], ["class", "row mb-2", 4, "ngFor", "ngForOf"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "attributes", "click"], ["icon", "plus", "pack", "fas"], [1, "row", "mb-2"], [1, "col", 3, "id"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "attributes", "ngModelOptions", "ngModelChange", 4, "ngIf", "ngIfElse"], ["elseBlock", ""], [1, "col"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "ngModelOptions", "ngModelChange"], ["class", "col", 4, "ngIf"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "attributes", "ngModelOptions", "ngModelChange"], ["fullWidth", "", "nbInput", "", "disabled", "", 3, "value"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "click"], ["icon", "trash-alt", "pack", "fas"], ["fullWidth", "", 3, "selectedChange"], [3, "attributes", "value", 4, "ngFor", "ngForOf"], ["nbInput", "", "fullWidth", "", "type", "text", "placeholder", "Enter value", 3, "attributes", "formControlName", "nbAutocomplete", "id", "disabled", "keyup"], [3, "attributes", "value"], [3, "googleMapKey", "latChange", "lngChange"], [1, "text-muted", "ml-20", "mt-3"], [1, "spinner-border", "spinner-border-sm", "mr-2"], [4, "ngxPermissionsOnly"], ["class", "buttons-row", 4, "ngIf"], ["nbButton", "", "status", "primary", 3, "disabled", "click", 4, "ngxPermissionsOnly"]], template: function RestResourceAddComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵtemplate(0, RestResourceAddComponent_ng_container_0_Template, 23, 12, "ng-container", 0);
         i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_Template, 2, 1, "ng-container", 0);
     } if (rf & 2) {
         i0.ɵɵproperty("ngIf", ctx.resource.permissions.length <= 0);
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngIf", ctx.resource.permissions.length > 0);
-    } }, styles: ["nb-card-body[_ngcontent-%COMP%]{overflow:visible;padding-top:0}.input-space[_ngcontent-%COMP%]{margin-top:1rem}.color-row[_ngcontent-%COMP%]{justify-content:space-between;height:45px}.color-card[_ngcontent-%COMP%]{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-default   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-default   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-dark   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-dark   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-dark   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-cosmic   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-cosmic   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-cosmic   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-corporate   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-corporate   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-corporate   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.icon[_ngcontent-%COMP%]{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text[_ngcontent-%COMP%]{overflow:hidden;width:auto;font-size:14px}svg[_ngcontent-%COMP%]{fill:#909293;height:20px}.overlay[_ngcontent-%COMP%]{position:relative}.delete-button[_ngcontent-%COMP%]{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:100%}nb-toggle[_ngcontent-%COMP%]{text-align:center}"] });
+    } }, directives: [i8.NgIf, i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i1$1.NbTabsetComponent, i1$1.NbTabComponent, i1$1.NbButtonComponent, i1$1.NbContextMenuDirective, i10.Ng2SmartTableComponent, i1$1.NbCardFooterComponent, i1$1.NbCardHeaderComponent, i1$4.ɵNgNoValidate, i1$4.NgControlStatusGroup, i1$4.FormGroupDirective, i8.NgForOf, i1$1.NbInputDirective, i1$4.DefaultValueAccessor, AttributeDirective, i1$4.NgControlStatus, i1$4.FormControlName, i1$4.NumberValueAccessor, i1$1.NbDatepickerDirective, i1$1.NbDatepickerComponent, i1$1.NbDateTimePickerComponent, i1$1.NbTimePickerDirective, i1$1.NbTimePickerComponent, i1$1.NbSelectComponent, i1$1.NbOptionComponent, i1$1.NbToggleComponent, i12.NgxDropzoneComponent, i12.NgxDropzoneLabelDirective, i1$1.NbIconComponent, i12.NgxDropzonePreviewComponent, i12.NgxDropzoneImagePreviewComponent, i7.ImageCropperComponent, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbTagComponent, i1$1.NbAutocompleteDirective, i1$1.NbAutocompleteComponent, i1$4.NgModel, GmapsComponent, i8$1.NgxPermissionsDirective], pipes: [i1$3.TranslatePipe, i8.TitleCasePipe, i8.AsyncPipe], styles: ["nb-card-body[_ngcontent-%COMP%]{overflow:visible;padding-top:0}.input-space[_ngcontent-%COMP%]{margin-top:1rem}.color-row[_ngcontent-%COMP%]{justify-content:space-between;height:45px}.color-card[_ngcontent-%COMP%]{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-default   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-default   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-dark   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-dark   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-dark   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-cosmic   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-cosmic   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-cosmic   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-corporate   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-corporate   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-corporate   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.icon[_ngcontent-%COMP%]{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text[_ngcontent-%COMP%]{overflow:hidden;width:auto;font-size:14px}svg[_ngcontent-%COMP%]{fill:#909293;height:20px}.overlay[_ngcontent-%COMP%]{position:relative}.delete-button[_ngcontent-%COMP%]{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:100%}nb-toggle[_ngcontent-%COMP%]{text-align:center}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceAddComponent, [{
         type: Component,
         args: [{
@@ -4823,7 +4938,7 @@ RestResourceAddComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: Re
                 templateUrl: './rest-resource-add.component.html',
                 styleUrls: ['./rest-resource-add.component.scss'],
             }]
-    }], function () { return [{ type: i1$3.FormBuilder }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.ActivatedRoute }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: i1$1.NbDialogService }, { type: i1.Router }, { type: NotificationService }, { type: i0.ChangeDetectorRef }, { type: i7$1.NgxPermissionsService }]; }, { resource: [{
+    }], function () { return [{ type: i1$4.FormBuilder }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.ActivatedRoute }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: i1$1.NbDialogService }, { type: i1.Router }, { type: NotificationService }, { type: i0.ChangeDetectorRef }, { type: i8$1.NgxPermissionsService }]; }, { resource: [{
             type: Input
         }], belongTo: [{
             type: ViewChild,
@@ -8814,7 +8929,7 @@ class RestResourceDetailComponent {
         this.router.navigate([`/admin/${resourceName}-detail`, data.navigationId]);
     }
 }
-RestResourceDetailComponent.ɵfac = function RestResourceDetailComponent_Factory(t) { return new (t || RestResourceDetailComponent)(i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i1$1.NbTreeGridDataSourceBuilder), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i6.DomSanitizer), i0.ɵɵdirectiveInject(i7$1.NgxPermissionsService)); };
+RestResourceDetailComponent.ɵfac = function RestResourceDetailComponent_Factory(t) { return new (t || RestResourceDetailComponent)(i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i1$1.NbTreeGridDataSourceBuilder), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i6.DomSanitizer), i0.ɵɵdirectiveInject(i8$1.NgxPermissionsService)); };
 RestResourceDetailComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceDetailComponent, selectors: [["ngx-rest-resource-detail"]], inputs: { resource: "resource", ID: "ID", ressourceName: "ressourceName", container: "container", style: "style" }, decls: 2, vars: 2, consts: [[4, "ngIf"], ["class", "list-group", 4, "ngIf", "ngIfElse"], ["tabsContent", ""], [1, "list-group"], [4, "ngFor", "ngForOf"], [1, "d-block", 2, "margin-left", "15px"], [1, "row"], [1, ""], [1, "marg"], [3, "template", "componentClass"], [3, "change"], [3, "removable", "removed"], [1, "text-center", "color-card"], [3, "checked", "disabled"], ["alt", "", 1, "rest-img", 3, "src"], ["nbTooltipPlacement", "top", 1, "belongTo-link", 3, "nbTooltip", "click"], [3, "nbTreeGrid"], ["nbTreeGridRow", "", 4, "nbTreeGridRowDef", "nbTreeGridRowDefColumns"], [3, "nbTreeGridColumnDef"], ["nbTreeGridCell", "", 4, "nbTreeGridCellDef"], ["nbTreeGridRow", ""], ["nbTreeGridCell", ""], [3, "expanded", "place"], [4, "ngIf", "ngIfElse"], ["cas21", ""], ["class", "row", 4, "ngFor", "ngForOf"], [3, "resource", "ID", "ressourceName", "container"], ["target", "_blank", 3, "href"], ["height", "400px", "width", "100%", "class", "mt-2", 3, "src", 4, "ngIf"], ["height", "400px", "width", "100%", 1, "mt-2", 3, "src"], [1, "text-muted", "ml-20", "mt-3"], ["fullWidth", ""], [3, "tabTitle", 4, "ngFor", "ngForOf"], [3, "tabTitle"], ["disabled", "true", "type", "color", 2, "height", "45px", "width", "80px", "margin-left", "5px", 3, "placeholder", "value"], ["displayRes", ""], ["fullWidth", "", 1, "buttons-row", "text-center"], ["nbButton", "", "status", "secondary", 2, "margin-right", "10px", 3, "click"], ["nbButton", "", "status", "primary", 3, "click"], ["nbButton", "", "status", "danger", 2, "margin-left", "10px", 3, "click"], [4, "ngxPermissionsOnly"], ["nbButton", "", "status", "primary", 3, "click", 4, "ngxPermissionsOnly"], ["nbButton", "", "status", "danger", "style", "margin-left: 10px", 3, "click", 4, "ngxPermissionsOnly"]], template: function RestResourceDetailComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵtemplate(0, RestResourceDetailComponent_ng_container_0_Template, 8, 6, "ng-container", 0);
         i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_Template, 2, 1, "ng-container", 0);
@@ -8822,7 +8937,7 @@ RestResourceDetailComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type:
         i0.ɵɵproperty("ngIf", ctx.resource.permissions.length <= 0);
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngIf", ctx.resource.permissions.length > 0);
-    } }, directives: [i8.NgIf, i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i1$1.NbCardHeaderComponent, i1$1.NbListComponent, i8.NgForOf, i1$1.NbListItemComponent, i4.CngHtmlCompilerComponent, i11.NgxDropzoneComponent, i11.NgxDropzonePreviewComponent, i11.NgxDropzoneLabelDirective, i1$1.NbCheckboxComponent, i1$1.NbTooltipDirective, i1$1.NbTreeGridComponent, i1$1.NbTreeGridRowDefDirective, i1$1.NbTreeGridColumnDefDirective, i1$1.NbTreeGridCellDefDirective, i1$1.NbTreeGridRowComponent, i1$1.NbTreeGridCellDirective, FsIconCComponent, RestResourceDetailComponent, i1$1.NbTabsetComponent, i1$1.NbTabComponent, i1$1.NbCardFooterComponent, i1$1.NbButtonComponent, i7$1.NgxPermissionsDirective], pipes: [i8.TitleCasePipe, i8.KeyValuePipe, i8.DatePipe, i8$1.TranslatePipe], styles: [".belongTo-link[_ngcontent-%COMP%]:hover{text-decoration:underline!important;cursor:pointer}img[_ngcontent-%COMP%]{max-width:300px;max-height:200px}.color-card[_ngcontent-%COMP%]{width:80px;height:30px;border-radius:2px;border-width:2px;margin-left:5px;justify-content:center;align-items:center}[_nghost-%COMP%]   nb-tab[_ngcontent-%COMP%]{padding:1.25rem}.rest-item-align[_ngcontent-%COMP%]{padding-block:3}.marg[_ngcontent-%COMP%]{margin-right:25px}"] });
+    } }, directives: [i8.NgIf, i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i1$1.NbCardHeaderComponent, i1$1.NbListComponent, i8.NgForOf, i1$1.NbListItemComponent, i4.CngHtmlCompilerComponent, i12.NgxDropzoneComponent, i12.NgxDropzonePreviewComponent, i12.NgxDropzoneLabelDirective, i1$1.NbCheckboxComponent, i1$1.NbTooltipDirective, i1$1.NbTreeGridComponent, i1$1.NbTreeGridRowDefDirective, i1$1.NbTreeGridColumnDefDirective, i1$1.NbTreeGridCellDefDirective, i1$1.NbTreeGridRowComponent, i1$1.NbTreeGridCellDirective, FsIconCComponent, RestResourceDetailComponent, i1$1.NbTabsetComponent, i1$1.NbTabComponent, i1$1.NbCardFooterComponent, i1$1.NbButtonComponent, i8$1.NgxPermissionsDirective], pipes: [i8.TitleCasePipe, i8.KeyValuePipe, i8.DatePipe, i1$3.TranslatePipe], styles: [".belongTo-link[_ngcontent-%COMP%]:hover{text-decoration:underline!important;cursor:pointer}img[_ngcontent-%COMP%]{max-width:300px;max-height:200px}.color-card[_ngcontent-%COMP%]{width:80px;height:30px;border-radius:2px;border-width:2px;margin-left:5px;justify-content:center;align-items:center}[_nghost-%COMP%]   nb-tab[_ngcontent-%COMP%]{padding:1.25rem}.rest-item-align[_ngcontent-%COMP%]{padding-block:3}.marg[_ngcontent-%COMP%]{margin-right:25px}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceDetailComponent, [{
         type: Component,
         args: [{
@@ -8830,7 +8945,7 @@ RestResourceDetailComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type:
                 templateUrl: './rest-resource-detail.component.html',
                 styleUrls: ['./rest-resource-detail.component.scss'],
             }]
-    }], function () { return [{ type: i1.ActivatedRoute }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.Router }, { type: i1$1.NbTreeGridDataSourceBuilder }, { type: i1$1.NbDialogService }, { type: RestLangService }, { type: i6.DomSanitizer }, { type: i7$1.NgxPermissionsService }]; }, { resource: [{
+    }], function () { return [{ type: i1.ActivatedRoute }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.Router }, { type: i1$1.NbTreeGridDataSourceBuilder }, { type: i1$1.NbDialogService }, { type: RestLangService }, { type: i6.DomSanitizer }, { type: i8$1.NgxPermissionsService }]; }, { resource: [{
             type: Input
         }], ID: [{
             type: Input
@@ -8901,7 +9016,7 @@ RestShareService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestSha
             }]
     }], function () { return []; }, null); })();
 
-const _c0$6 = ["search"];
+const _c0$5 = ["search"];
 const _c1$3 = ["autoBelongToMany"];
 function RestResourceListComponent_div_6_Template(rf, ctx) { if (rf & 1) {
     const _r8 = i0.ɵɵgetCurrentView();
@@ -9902,9 +10017,9 @@ class RestResourceListComponent {
         });
     }
 }
-RestResourceListComponent.ɵfac = function RestResourceListComponent_Factory(t) { return new (t || RestResourceListComponent)(i0.ɵɵdirectiveInject(i1$3.FormBuilder), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(i1$2.HttpClient), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(RestExportService), i0.ɵɵdirectiveInject(RestShareService), i0.ɵɵdirectiveInject(i7$1.NgxPermissionsService), i0.ɵɵdirectiveInject(RestResourceService)); };
+RestResourceListComponent.ɵfac = function RestResourceListComponent_Factory(t) { return new (t || RestResourceListComponent)(i0.ɵɵdirectiveInject(i1$4.FormBuilder), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(i1$2.HttpClient), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(RestExportService), i0.ɵɵdirectiveInject(RestShareService), i0.ɵɵdirectiveInject(i8$1.NgxPermissionsService), i0.ɵɵdirectiveInject(RestResourceService)); };
 RestResourceListComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceListComponent, selectors: [["ngx-rest-resource-list"]], viewQuery: function RestResourceListComponent_Query(rf, ctx) { if (rf & 1) {
-        i0.ɵɵviewQuery(_c0$6, 5);
+        i0.ɵɵviewQuery(_c0$5, 5);
         i0.ɵɵviewQuery(_c1$3, 5);
     } if (rf & 2) {
         let _t;
@@ -9978,7 +10093,7 @@ RestResourceListComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: R
         i0.ɵɵproperty("placeholder", ctx.resource.listConfig.perPage.toString())("selected", ctx.currentPerPage);
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngForOf", ctx.perPagesOptions);
-    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardHeaderComponent, i8.NgIf, i1$1.NbButtonComponent, i1$3.CheckboxControlValueAccessor, i1$3.NgControlStatus, i1$3.NgModel, i1$1.NbContextMenuDirective, i1$1.NbIconComponent, i1$1.NbCardBodyComponent, i1$1.NbSpinnerDirective, i1$1.NbSelectComponent, i8.NgForOf, i7$1.NgxPermissionsDirective, i1$3.NgControlStatusGroup, i1$3.FormGroupDirective, i1$1.NbOptionComponent, i8.NgClass, i1$1.NbInputDirective, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbAutocompleteDirective, i1$3.DefaultValueAccessor, i1$3.FormControlName, i1$1.NbAutocompleteComponent, i1$1.NbTagComponent, i11$1.Ng2SmartTableComponent], pipes: [i8$1.TranslatePipe, i8.TitleCasePipe, i8.AsyncPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-default   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-default   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-dark   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-dark   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-cosmic   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-cosmic   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-corporate   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-corporate   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}  ng2-st-tbody-edit-delete{display:none;height:0!important}  ng2-st-tbody-custom{display:flex;text-align:center}.input-space[_ngcontent-%COMP%]{margin-top:1rem}.nb-theme-default[_ngcontent-%COMP%]   ng2-smart-table[_ngcontent-%COMP%]   th.ng2-smart-actions-title-add[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}"] });
+    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardHeaderComponent, i8.NgIf, i1$1.NbButtonComponent, i1$4.CheckboxControlValueAccessor, i1$4.NgControlStatus, i1$4.NgModel, i1$1.NbContextMenuDirective, i1$1.NbIconComponent, i1$1.NbCardBodyComponent, i1$1.NbSpinnerDirective, i1$1.NbSelectComponent, i8.NgForOf, i8$1.NgxPermissionsDirective, i1$4.NgControlStatusGroup, i1$4.FormGroupDirective, i1$1.NbOptionComponent, i8.NgClass, i1$1.NbInputDirective, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbAutocompleteDirective, i1$4.DefaultValueAccessor, i1$4.FormControlName, i1$1.NbAutocompleteComponent, i1$1.NbTagComponent, i10.Ng2SmartTableComponent], pipes: [i1$3.TranslatePipe, i8.TitleCasePipe, i8.AsyncPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-default   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-default   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-dark   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-dark   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-cosmic   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-cosmic   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-corporate   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-corporate   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}  ng2-st-tbody-edit-delete{display:none;height:0!important}  ng2-st-tbody-custom{display:flex;text-align:center}.input-space[_ngcontent-%COMP%]{margin-top:1rem}.nb-theme-default[_ngcontent-%COMP%]   ng2-smart-table[_ngcontent-%COMP%]   th.ng2-smart-actions-title-add[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceListComponent, [{
         type: Component,
         args: [{
@@ -9986,7 +10101,7 @@ RestResourceListComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: R
                 templateUrl: './rest-resource-list.component.html',
                 styleUrls: ['./rest-resource-list.component.scss'],
             }]
-    }], function () { return [{ type: i1$3.FormBuilder }, { type: RestAdminConfigService }, { type: RestResourceService }, { type: i1$2.HttpClient }, { type: i1$1.NbDialogService }, { type: i1.ActivatedRoute }, { type: i1.Router }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: RestShareService }, { type: i7$1.NgxPermissionsService }, { type: RestResourceService }]; }, { resource: [{
+    }], function () { return [{ type: i1$4.FormBuilder }, { type: RestAdminConfigService }, { type: RestResourceService }, { type: i1$2.HttpClient }, { type: i1$1.NbDialogService }, { type: i1.ActivatedRoute }, { type: i1.Router }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: RestShareService }, { type: i8$1.NgxPermissionsService }, { type: RestResourceService }]; }, { resource: [{
             type: Input
         }], search: [{
             type: ViewChild,
@@ -10013,6 +10128,7 @@ class RestAdminConfigService {
         ];
         this._restResources = restConfig.resources;
         this._restAuthParams = this.checkValueRestAuth(restConfig.authConfig ? restConfig.authConfig : {});
+        this._permissions = restConfig.permissions ? restConfig.permissions : [];
     }
     get restResources() {
         return this._restResources;
@@ -10291,6 +10407,9 @@ class RestAdminConfigService {
             ? true
             : false;
     }
+    get permission() {
+        return this._permissions;
+    }
 }
 RestAdminConfigService.ɵfac = function RestAdminConfigService_Factory(t) { return new (t || RestAdminConfigService)(i0.ɵɵinject('restConfig')); };
 RestAdminConfigService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestAdminConfigService, factory: RestAdminConfigService.ɵfac, providedIn: 'root' });
@@ -10334,7 +10453,7 @@ function HeaderComponent_nb_action_13_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵadvance(1);
     i0.ɵɵproperty("nbContextMenu", ctx_r2.userMenu)("name", ctx_r2.user == null ? null : ctx_r2.user.name)("picture", (ctx_r2.user == null ? null : ctx_r2.user.picture) ? ctx_r2.user == null ? null : ctx_r2.user.picture : ctx_r2.user == null ? null : ctx_r2.user.defaultPicture);
 } }
-const _c0$5 = function () { return ["view", "user"]; };
+const _c0$4 = function () { return ["view", "user"]; };
 class HeaderComponent {
     constructor(sidebarService, menuService, themeService, layoutService, breakpointService, serviceRestAdmin, authService, router, langService, httpClient) {
         this.sidebarService = sidebarService;
@@ -10464,7 +10583,7 @@ class HeaderComponent {
         this.langService.setLanguage(event);
     }
 }
-HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(i0.ɵɵdirectiveInject(i1$1.NbSidebarService), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(i1$1.NbThemeService), i0.ɵɵdirectiveInject(LayoutService), i0.ɵɵdirectiveInject(i1$1.NbMediaBreakpointsService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1$4.NbAuthService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i1$2.HttpClient)); };
+HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(i0.ɵɵdirectiveInject(i1$1.NbSidebarService), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(i1$1.NbThemeService), i0.ɵɵdirectiveInject(LayoutService), i0.ɵɵdirectiveInject(i1$1.NbMediaBreakpointsService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1$5.NbAuthService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i1$2.HttpClient)); };
 HeaderComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: HeaderComponent, selectors: [["ngx-header"]], decls: 14, vars: 7, consts: [[1, "header-container"], [1, "logo-container"], ["href", "#", 1, "sidebar-toggle", 3, "click"], ["icon", "menu-2-outline"], ["href", "#", 1, "logo", 3, "click"], ["status", "primary", 3, "selected", "selectedChange"], [3, "value", 4, "ngFor", "ngForOf"], ["size", "small"], ["class", "user-action", 4, "nbIsGranted"], [3, "value"], [1, "user-action"], ["nbContextMenuTag", "my-context-menu", 3, "nbContextMenu", "name", "picture"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵelementStart(0, "div", 0);
         i0.ɵɵelementStart(1, "div", 1);
@@ -10505,7 +10624,7 @@ HeaderComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: HeaderCompo
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngForOf", ctx.appLanguage);
         i0.ɵɵadvance(2);
-        i0.ɵɵproperty("nbIsGranted", i0.ɵɵpureFunction0(6, _c0$5));
+        i0.ɵɵproperty("nbIsGranted", i0.ɵɵpureFunction0(6, _c0$4));
     } }, directives: [i1$1.NbIconComponent, i1$1.NbSelectComponent, i8.NgForOf, i1$1.NbActionsComponent, i9.NbIsGrantedDirective, i1$1.NbOptionComponent, i1$1.NbActionComponent, i1$1.NbUserComponent, i1$1.NbContextMenuDirective], pipes: [i8.UpperCasePipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-default   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-default   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-default   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-default   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#8f9bb3}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #edf1f7}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-default   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-default   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-default   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}.nb-theme-dark   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-dark   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-dark   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-dark   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-dark   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#8f9bb3}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #151a30}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #151a30}@media (max-width: 767.98px){.nb-theme-dark   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-dark   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-dark   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}.nb-theme-cosmic   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-cosmic   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-cosmic   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-cosmic   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-cosmic   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#b4b4db}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #1b1b38}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #1b1b38}@media (max-width: 767.98px){.nb-theme-cosmic   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-cosmic   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-cosmic   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}.nb-theme-corporate   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-corporate   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-corporate   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-corporate   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-corporate   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#8f9bb3}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #edf1f7}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-corporate   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-corporate   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-corporate   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HeaderComponent, [{
         type: Component,
@@ -10514,7 +10633,7 @@ HeaderComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: HeaderCompo
                 styleUrls: ['./header.component.scss'],
                 templateUrl: './header.component.html',
             }]
-    }], function () { return [{ type: i1$1.NbSidebarService }, { type: i1$1.NbMenuService }, { type: i1$1.NbThemeService }, { type: LayoutService }, { type: i1$1.NbMediaBreakpointsService }, { type: RestAdminConfigService }, { type: i1$4.NbAuthService }, { type: i1.Router }, { type: RestLangService }, { type: i1$2.HttpClient }]; }, null); })();
+    }], function () { return [{ type: i1$1.NbSidebarService }, { type: i1$1.NbMenuService }, { type: i1$1.NbThemeService }, { type: LayoutService }, { type: i1$1.NbMediaBreakpointsService }, { type: RestAdminConfigService }, { type: i1$5.NbAuthService }, { type: i1.Router }, { type: RestLangService }, { type: i1$2.HttpClient }]; }, null); })();
 
 class FooterComponent {
     constructor(serviceRestAdmin) {
@@ -10554,7 +10673,7 @@ FooterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FooterCompo
             }]
     }], function () { return [{ type: RestAdminConfigService }]; }, null); })();
 
-const _c0$4 = ["input"];
+const _c0$3 = ["input"];
 class SearchInputComponent {
     constructor() {
         this.search = new EventEmitter();
@@ -10573,7 +10692,7 @@ class SearchInputComponent {
 }
 SearchInputComponent.ɵfac = function SearchInputComponent_Factory(t) { return new (t || SearchInputComponent)(); };
 SearchInputComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: SearchInputComponent, selectors: [["ngx-search-input"]], viewQuery: function SearchInputComponent_Query(rf, ctx) { if (rf & 1) {
-        i0.ɵɵviewQuery(_c0$4, 7);
+        i0.ɵɵviewQuery(_c0$3, 7);
     } if (rf & 2) {
         let _t;
         i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.input = _t.first);
@@ -10721,13 +10840,13 @@ NumberWithCommasPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "ngxNumber
         args: [{ name: 'ngxNumberWithCommas' }]
     }], null, null); })();
 
-const _c0$3 = [[["input"]], [["nb-menu"]], [["router-outlet"]]];
+const _c0$2 = [[["input"]], [["nb-menu"]], [["router-outlet"]]];
 const _c1$2 = ["input", "nb-menu", "router-outlet"];
 class OneColumnLayoutComponent {
 }
 OneColumnLayoutComponent.ɵfac = function OneColumnLayoutComponent_Factory(t) { return new (t || OneColumnLayoutComponent)(); };
 OneColumnLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OneColumnLayoutComponent, selectors: [["ngx-one-column-layout"]], ngContentSelectors: _c1$2, decls: 10, vars: 0, consts: [["windowMode", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], ["fixed", ""]], template: function OneColumnLayoutComponent_Template(rf, ctx) { if (rf & 1) {
-        i0.ɵɵprojectionDef(_c0$3);
+        i0.ɵɵprojectionDef(_c0$2);
         i0.ɵɵelementStart(0, "nb-layout", 0);
         i0.ɵɵelementStart(1, "nb-layout-header");
         i0.ɵɵelement(2, "ngx-header");
@@ -10772,13 +10891,13 @@ OneColumnLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: On
             }]
     }], null, null); })();
 
-const _c0$2 = [[["nb-menu"]], [["router-outlet"]]];
+const _c0$1 = [[["nb-menu"]], [["router-outlet"]]];
 const _c1$1 = ["nb-menu", "router-outlet"];
 class TwoColumnsLayoutComponent {
 }
 TwoColumnsLayoutComponent.ɵfac = function TwoColumnsLayoutComponent_Factory(t) { return new (t || TwoColumnsLayoutComponent)(); };
 TwoColumnsLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: TwoColumnsLayoutComponent, selectors: [["ngx-two-columns-layout"]], ngContentSelectors: _c1$1, decls: 10, vars: 0, consts: [["windowMode", ""], ["fixed", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], [1, "small"]], template: function TwoColumnsLayoutComponent_Template(rf, ctx) { if (rf & 1) {
-        i0.ɵɵprojectionDef(_c0$2);
+        i0.ɵɵprojectionDef(_c0$1);
         i0.ɵɵelementStart(0, "nb-layout", 0);
         i0.ɵɵelementStart(1, "nb-layout-header", 1);
         i0.ɵɵelement(2, "ngx-header");
@@ -10826,13 +10945,13 @@ TwoColumnsLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: T
             }]
     }], null, null); })();
 
-const _c0$1 = [[["nb-menu"]], [["router-outlet"]]];
+const _c0 = [[["nb-menu"]], [["router-outlet"]]];
 const _c1 = ["nb-menu", "router-outlet"];
 class ThreeColumnsLayoutComponent {
 }
 ThreeColumnsLayoutComponent.ɵfac = function ThreeColumnsLayoutComponent_Factory(t) { return new (t || ThreeColumnsLayoutComponent)(); };
 ThreeColumnsLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ThreeColumnsLayoutComponent, selectors: [["ngx-three-columns-layout"]], ngContentSelectors: _c1, decls: 11, vars: 0, consts: [["windowMode", ""], ["fixed", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], [1, "small"]], template: function ThreeColumnsLayoutComponent_Template(rf, ctx) { if (rf & 1) {
-        i0.ɵɵprojectionDef(_c0$1);
+        i0.ɵɵprojectionDef(_c0);
         i0.ɵɵelementStart(0, "nb-layout", 0);
         i0.ɵɵelementStart(1, "nb-layout-header", 1);
         i0.ɵɵelement(2, "ngx-header");
@@ -12022,115 +12141,212 @@ MenuFilterPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "menuFilter", ty
             }]
     }], null, null); })();
 
-function RestMainComponentComponent_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementContainerStart(0);
-    i0.ɵɵelementStart(1, "nb-menu-item", 5);
+    i0.ɵɵelementStart(1, "nb-menu-item", 6);
     i0.ɵɵelementContainerStart(2);
-    i0.ɵɵelement(3, "nb-icon", 6);
+    i0.ɵɵelement(3, "nb-icon", 7);
     i0.ɵɵtext(4);
     i0.ɵɵelementContainerEnd();
     i0.ɵɵelementEnd();
     i0.ɵɵelementContainerEnd();
 } if (rf & 2) {
-    const item_r1 = i0.ɵɵnextContext().$implicit;
-    const ctx_r2 = i0.ɵɵnextContext();
+    const item_r4 = i0.ɵɵnextContext().$implicit;
+    const ctx_r5 = i0.ɵɵnextContext(2);
     i0.ɵɵadvance(1);
-    i0.ɵɵproperty("routerLink", item_r1.link);
+    i0.ɵɵproperty("routerLink", item_r4.link);
     i0.ɵɵadvance(2);
-    i0.ɵɵproperty("icon", item_r1.icon);
+    i0.ɵɵproperty("icon", item_r4.icon);
     i0.ɵɵadvance(1);
-    i0.ɵɵtextInterpolate1(" ", ctx_r2.transformTitle(item_r1.title), " ");
+    i0.ɵɵtextInterpolate1(" ", ctx_r5.transformTitle(item_r4.title), " ");
 } }
-function RestMainComponentComponent_ng_container_5_ng_template_2_ng_template_4_Template(rf, ctx) { if (rf & 1) {
-    i0.ɵɵelementStart(0, "nb-menu-item", 5);
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-menu-item", 6);
     i0.ɵɵelementContainerStart(1);
-    i0.ɵɵelement(2, "nb-icon", 6);
+    i0.ɵɵelement(2, "nb-icon", 7);
     i0.ɵɵtext(3);
     i0.ɵɵelementContainerEnd();
     i0.ɵɵelementEnd();
 } if (rf & 2) {
-    const childItem_r7 = ctx.$implicit;
-    const item_r1 = i0.ɵɵnextContext(2).$implicit;
-    const ctx_r6 = i0.ɵɵnextContext();
-    i0.ɵɵproperty("routerLink", childItem_r7.link);
+    const childItem_r10 = ctx.$implicit;
+    const item_r4 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r9 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("routerLink", childItem_r10.link);
     i0.ɵɵadvance(2);
-    i0.ɵɵproperty("icon", item_r1.icon);
+    i0.ɵɵproperty("icon", item_r4.icon);
     i0.ɵɵadvance(1);
-    i0.ɵɵtextInterpolate1(" ", ctx_r6.transformTitle(childItem_r7.title), " ");
+    i0.ɵɵtextInterpolate1(" ", ctx_r9.transformTitle(childItem_r10.title), " ");
 } }
-function RestMainComponentComponent_ng_container_5_ng_template_2_Template(rf, ctx) { if (rf & 1) {
-    i0.ɵɵelementStart(0, "nb-menu-item", 5);
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-menu-item", 6);
     i0.ɵɵelementContainerStart(1);
-    i0.ɵɵelement(2, "nb-icon", 6);
+    i0.ɵɵelement(2, "nb-icon", 7);
     i0.ɵɵtext(3);
     i0.ɵɵelementContainerEnd();
     i0.ɵɵelementEnd();
-    i0.ɵɵtemplate(4, RestMainComponentComponent_ng_container_5_ng_template_2_ng_template_4_Template, 4, 3, "ng-template", 7);
+    i0.ɵɵtemplate(4, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_ng_template_4_Template, 4, 3, "ng-template", 8);
 } if (rf & 2) {
-    const item_r1 = i0.ɵɵnextContext().$implicit;
-    const ctx_r4 = i0.ɵɵnextContext();
-    i0.ɵɵproperty("routerLink", item_r1.link);
+    const item_r4 = i0.ɵɵnextContext().$implicit;
+    const ctx_r7 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("routerLink", item_r4.link);
     i0.ɵɵadvance(2);
-    i0.ɵɵproperty("icon", item_r1.icon);
+    i0.ɵɵproperty("icon", item_r4.icon);
     i0.ɵɵadvance(1);
-    i0.ɵɵtextInterpolate1(" ", ctx_r4.transformTitle(item_r1.title), " ");
+    i0.ɵɵtextInterpolate1(" ", ctx_r7.transformTitle(item_r4.title), " ");
     i0.ɵɵadvance(1);
-    i0.ɵɵproperty("ngForOf", item_r1.children);
+    i0.ɵɵproperty("ngForOf", item_r4.children);
 } }
-function RestMainComponentComponent_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementContainerStart(0);
-    i0.ɵɵtemplate(1, RestMainComponentComponent_ng_container_5_ng_container_1_Template, 5, 3, "ng-container", 3);
-    i0.ɵɵtemplate(2, RestMainComponentComponent_ng_container_5_ng_template_2_Template, 5, 4, "ng-template", null, 4, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵtemplate(1, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_container_1_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_Template, 5, 4, "ng-template", null, 5, i0.ɵɵtemplateRefExtractor);
     i0.ɵɵelementContainerEnd();
 } if (rf & 2) {
-    const item_r1 = ctx.$implicit;
-    const _r3 = i0.ɵɵreference(3);
+    const item_r4 = ctx.$implicit;
+    const _r6 = i0.ɵɵreference(3);
     i0.ɵɵadvance(1);
-    i0.ɵɵproperty("ngIf", !item_r1.children)("ngIfElse", _r3);
+    i0.ɵɵproperty("ngIf", !item_r4.children)("ngIfElse", _r6);
+} }
+function RestMainComponentComponent_ngx_one_column_layout_0_Template(rf, ctx) { if (rf & 1) {
+    const _r14 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ngx-one-column-layout");
+    i0.ɵɵelementStart(1, "input", 2);
+    i0.ɵɵlistener("ngModelChange", function RestMainComponentComponent_ngx_one_column_layout_0_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r14); const ctx_r13 = i0.ɵɵnextContext(); return ctx_r13.searchText = $event; })("ngModelChange", function RestMainComponentComponent_ngx_one_column_layout_0_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r14); const ctx_r15 = i0.ɵɵnextContext(); return ctx_r15.onChange($event); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(3, "nb-menu", 3);
+    i0.ɵɵpipe(4, "menuFilter");
+    i0.ɵɵtemplate(5, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_Template, 4, 2, "ng-container", 4);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(6, "router-outlet");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngModel", ctx_r0.searchText)("placeholder", i0.ɵɵpipeBind1(2, 4, "rest-list.searchPlaceholder"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("items", i0.ɵɵpipeBind2(4, 6, ctx_r0.menuItems, ctx_r0.searchText));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", ctx_r0.menuItems);
+} }
+function RestMainComponentComponent_ng_template_1_div_5_Template(rf, ctx) { if (rf & 1) {
+    const _r19 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 11);
+    i0.ɵɵelementStart(1, "h3", 12);
+    i0.ɵɵtext(2, " Vous n'etes pas autoris\u00E9 \u00E0 vous connecter ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(3, "button", 13);
+    i0.ɵɵlistener("click", function RestMainComponentComponent_ng_template_1_div_5_Template_button_click_3_listener() { i0.ɵɵrestoreView(_r19); const ctx_r18 = i0.ɵɵnextContext(2); return ctx_r18.login(); });
+    i0.ɵɵtext(4, " Retour ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} }
+function RestMainComponentComponent_ng_template_1_div_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 11);
+    i0.ɵɵelementStart(1, "h5", 12);
+    i0.ɵɵtext(2, "Veuillez patienter");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} }
+function RestMainComponentComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-layout");
+    i0.ɵɵelementStart(1, "nb-layout-column");
+    i0.ɵɵelementStart(2, "nb-card", 9);
+    i0.ɵɵelement(3, "nb-card-header");
+    i0.ɵɵelementStart(4, "nb-card-body");
+    i0.ɵɵtemplate(5, RestMainComponentComponent_ng_template_1_div_5_Template, 5, 0, "div", 10);
+    i0.ɵɵtemplate(6, RestMainComponentComponent_ng_template_1_div_6_Template, 3, 0, "div", 10);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("nbSpinner", ctx_r2.isPending);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", !ctx_r2.isPending);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r2.isPending);
 } }
 class RestMainComponentComponent {
-    constructor(activatedRoute, serviceConfig, restLangService, router // private permissionsService: NgxPermissionsService
-    ) {
+    constructor(activatedRoute, serviceConfig, restLangService, router, serviceRest) {
         this.activatedRoute = activatedRoute;
         this.serviceConfig = serviceConfig;
         this.restLangService = restLangService;
         this.router = router;
+        this.serviceRest = serviceRest;
         this.searchText = '';
         this.menuItems = [...this.serviceConfig.generateMenus()];
+        this.pageLoad = false;
+        this.isPending = true;
         this.title$ = this.activatedRoute.data.pipe(map((data) => data.title));
     }
     ngOnInit() {
         this.restLangService.setInitialAppLanguage();
-        // this.permissionsService.loadPermissions([]);
+        this.tcheckPermissions();
     }
     transformTitle(title) {
-        return title.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\b\w/g, (letter) => letter.toUpperCase());
+        return title
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            .replace(/\b\w/g, (letter) => letter.toUpperCase());
     }
     onChange(event) {
         this.searchText = event;
     }
+    login() {
+        this.router.navigateByUrl('/login');
+    }
+    tcheckPermissions() {
+        const permissions = this.serviceConfig.permission;
+        if (permissions.length > 0) {
+            permissions.forEach((permission) => {
+                switch (permission.type) {
+                    case PERMISSION.CANLOGIN:
+                        this.serviceRest
+                            .getResources({
+                            api: permission.fieldKey.api.substring(1),
+                            queryParams: permission.fieldKey.queryParams
+                                ? permission.fieldKey.queryParams
+                                : {},
+                        })
+                            .subscribe((resp) => {
+                            const val = {};
+                            let isOk = true;
+                            permission.fieldKey.fieldForNextQuery.forEach((item) => {
+                                val[item] = _.get(resp, item);
+                                if (!val[item]) {
+                                    isOk = false;
+                                }
+                            });
+                            if (!isOk) {
+                                localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                                this.isPending = false;
+                            }
+                            else {
+                                this.pageLoad = true;
+                                this.isPending = false;
+                            }
+                        }, (err) => {
+                            localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                            this.isPending = false;
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            });
+        }
+    }
 }
-RestMainComponentComponent.ɵfac = function RestMainComponentComponent_Factory(t) { return new (t || RestMainComponentComponent)(i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i1.Router)); };
-RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestMainComponentComponent, selectors: [["ngx-rest-main-component"]], features: [i0.ɵɵProvidersFeature([MenuFilterPipe])], decls: 7, vars: 9, consts: [["type", "text", "nbInput", "", "fullWidth", "", "nbPrefixIcon", "search-outline", 3, "ngModel", "placeholder", "ngModelChange"], ["tag", "menu", 3, "items"], [4, "ngFor", "ngForOf"], [4, "ngIf", "ngIfElse"], ["subMenu", ""], ["routerLinkActive", "active", 3, "routerLink"], [3, "icon"], ["ngFor", "", 3, "ngForOf"]], template: function RestMainComponentComponent_Template(rf, ctx) { if (rf & 1) {
-        i0.ɵɵelementStart(0, "ngx-one-column-layout");
-        i0.ɵɵelementStart(1, "input", 0);
-        i0.ɵɵlistener("ngModelChange", function RestMainComponentComponent_Template_input_ngModelChange_1_listener($event) { return ctx.searchText = $event; })("ngModelChange", function RestMainComponentComponent_Template_input_ngModelChange_1_listener($event) { return ctx.onChange($event); });
-        i0.ɵɵpipe(2, "translate");
-        i0.ɵɵelementEnd();
-        i0.ɵɵelementStart(3, "nb-menu", 1);
-        i0.ɵɵpipe(4, "menuFilter");
-        i0.ɵɵtemplate(5, RestMainComponentComponent_ng_container_5_Template, 4, 2, "ng-container", 2);
-        i0.ɵɵelementEnd();
-        i0.ɵɵelement(6, "router-outlet");
-        i0.ɵɵelementEnd();
+RestMainComponentComponent.ɵfac = function RestMainComponentComponent_Factory(t) { return new (t || RestMainComponentComponent)(i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(RestResourceService)); };
+RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestMainComponentComponent, selectors: [["ngx-rest-main-component"]], features: [i0.ɵɵProvidersFeature([MenuFilterPipe])], decls: 3, vars: 2, consts: [[4, "ngIf", "ngIfElse"], ["errorTryAgain", ""], ["type", "text", "nbInput", "", "fullWidth", "", "nbPrefixIcon", "search-outline", 3, "ngModel", "placeholder", "ngModelChange"], ["tag", "menu", 3, "items"], [4, "ngFor", "ngForOf"], ["subMenu", ""], ["routerLinkActive", "active", 3, "routerLink"], [3, "icon"], ["ngFor", "", 3, "ngForOf"], ["nbSpinnerStatus", "primary", "nbSpinnerSize", "large", 1, "card-no-authorize", 3, "nbSpinner"], ["class", "p-2", 4, "ngIf"], [1, "p-2"], [1, "text-center"], ["nbButton", "", "type", "primary", 2, "display", "flex", "margin", "0 auto", 3, "click"]], template: function RestMainComponentComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, RestMainComponentComponent_ngx_one_column_layout_0_Template, 7, 9, "ngx-one-column-layout", 0);
+        i0.ɵɵtemplate(1, RestMainComponentComponent_ng_template_1_Template, 7, 3, "ng-template", null, 1, i0.ɵɵtemplateRefExtractor);
     } if (rf & 2) {
-        i0.ɵɵadvance(1);
-        i0.ɵɵproperty("ngModel", ctx.searchText)("placeholder", i0.ɵɵpipeBind1(2, 4, "rest-list.searchPlaceholder"));
-        i0.ɵɵadvance(2);
-        i0.ɵɵproperty("items", i0.ɵɵpipeBind2(4, 6, ctx.menuItems, ctx.searchText));
-        i0.ɵɵadvance(2);
-        i0.ɵɵproperty("ngForOf", ctx.menuItems);
-    } }, directives: [OneColumnLayoutComponent, i1$1.NbInputDirective, i1$3.DefaultValueAccessor, i1$3.NgControlStatus, i1$3.NgModel, i1$1.NbMenuComponent, i8.NgForOf, i1.RouterOutlet, i8.NgIf, i1.RouterLinkActive, i1.RouterLink, i1$1.NbIconComponent], pipes: [i8$1.TranslatePipe, MenuFilterPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}"] });
+        const _r1 = i0.ɵɵreference(2);
+        i0.ɵɵproperty("ngIf", !ctx.isPending && ctx.pageLoad)("ngIfElse", _r1);
+    } }, directives: [i8.NgIf, OneColumnLayoutComponent, i1$1.NbInputDirective, i1$4.DefaultValueAccessor, i1$4.NgControlStatus, i1$4.NgModel, i1$1.NbMenuComponent, i8.NgForOf, i1.RouterOutlet, i1.RouterLinkActive, i1.RouterLink, i1$1.NbIconComponent, i1$1.NbLayoutComponent, i1$1.NbLayoutColumnComponent, i1$1.NbCardComponent, i1$1.NbSpinnerDirective, i1$1.NbCardHeaderComponent, i1$1.NbCardBodyComponent, i1$1.NbButtonComponent], pipes: [i1$3.TranslatePipe, MenuFilterPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}.card-no-authorize[_ngcontent-%COMP%]{display:block;width:100%;max-width:35rem;min-height:15rem;margin:0 auto}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestMainComponentComponent, [{
         type: Component,
         args: [{
@@ -12138,7 +12354,7 @@ RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: 
                 styleUrls: ['./rest-main-component.component.scss'],
                 providers: [MenuFilterPipe],
                 template: `
-    <ngx-one-column-layout>
+    <ngx-one-column-layout *ngIf="!isPending && pageLoad; else errorTryAgain">
       <input
         type="text"
         [(ngModel)]="searchText"
@@ -12149,12 +12365,11 @@ RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: 
         nbPrefixIcon="search-outline"
       />
 
-      <nb-menu tag="menu" [items]="menuItems | menuFilter: searchText">
+      <nb-menu tag="menu" [items]="menuItems | menuFilter : searchText">
         <ng-container *ngFor="let item of menuItems">
           <ng-container *ngIf="!item.children; else subMenu">
             <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
-              <ng-container
-              >
+              <ng-container>
                 <nb-icon [icon]="item.icon"></nb-icon>
                 {{ transformTitle(item.title) }}
               </ng-container>
@@ -12162,16 +12377,17 @@ RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: 
           </ng-container>
           <ng-template #subMenu>
             <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
-              <ng-container
-              >
+              <ng-container>
                 <nb-icon [icon]="item.icon"></nb-icon>
                 {{ transformTitle(item.title) }}
               </ng-container>
             </nb-menu-item>
             <ng-template let-childItem ngFor [ngForOf]="item.children">
-              <nb-menu-item [routerLink]="childItem.link" routerLinkActive="active">
-                <ng-container
-                >
+              <nb-menu-item
+                [routerLink]="childItem.link"
+                routerLinkActive="active"
+              >
+                <ng-container>
                   <nb-icon [icon]="item.icon"></nb-icon>
                   {{ transformTitle(childItem.title) }}
                 </ng-container>
@@ -12183,9 +12399,48 @@ RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: 
 
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
+
+    <ng-template #errorTryAgain>
+      <nb-layout>
+        <nb-layout-column>
+          <nb-card
+            class="card-no-authorize"
+            [nbSpinner]="isPending"
+            nbSpinnerStatus="primary"
+            nbSpinnerSize="large"
+          >
+            <nb-card-header></nb-card-header>
+            <nb-card-body>
+              <div class="p-2" *ngIf="!isPending">
+                <h3 class="text-center">
+                  Vous n'etes pas autorisé à vous connecter
+                </h3>
+
+                <!-- <nb-alert outline="info" role="alert">
+                  <p class="alert-title">
+                    <b>Vous serez redirigé vers la page de con</b>
+                  </p>
+                </nb-alert> -->
+                <button
+                  nbButton
+                  type="primary"
+                  (click)="login()"
+                  style="display: flex; margin:0 auto"
+                >
+                  Retour
+                </button>
+              </div>
+              <div *ngIf="isPending" class="p-2">
+                <h5 class="text-center">Veuillez patienter</h5>
+              </div>
+            </nb-card-body>
+          </nb-card>
+        </nb-layout-column>
+      </nb-layout>
+    </ng-template>
   `,
             }]
-    }], function () { return [{ type: i1.ActivatedRoute }, { type: RestAdminConfigService }, { type: RestLangService }, { type: i1.Router }]; }, null); })();
+    }], function () { return [{ type: i1.ActivatedRoute }, { type: RestAdminConfigService }, { type: RestLangService }, { type: i1.Router }, { type: RestResourceService }]; }, null); })();
 
 // import { LocalStorageService } from '../local-storage/local-storage.service';
 // import { AUTH_TOKEN } from '../auth/auth.models';
@@ -12204,11 +12459,11 @@ class HttpAuthInterceptor {
         return next.handle(request);
     }
 }
-HttpAuthInterceptor.ɵfac = function HttpAuthInterceptor_Factory(t) { return new (t || HttpAuthInterceptor)(i0.ɵɵinject(i1$4.NbAuthService), i0.ɵɵinject(i1$4.NbTokenStorage)); };
+HttpAuthInterceptor.ɵfac = function HttpAuthInterceptor_Factory(t) { return new (t || HttpAuthInterceptor)(i0.ɵɵinject(i1$5.NbAuthService), i0.ɵɵinject(i1$5.NbTokenStorage)); };
 HttpAuthInterceptor.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: HttpAuthInterceptor, factory: HttpAuthInterceptor.ɵfac });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HttpAuthInterceptor, [{
         type: Injectable
-    }], function () { return [{ type: i1$4.NbAuthService }, { type: i1$4.NbTokenStorage }]; }, null); })();
+    }], function () { return [{ type: i1$5.NbAuthService }, { type: i1$5.NbTokenStorage }]; }, null); })();
 
 class PaginationInterceptor {
     constructor() { }
@@ -12252,8 +12507,11 @@ class HttpErrorInterceptor {
                 if (err instanceof HttpErrorResponse) {
                     switch (err.status) {
                         case 401:
-                            this.router.navigate(['/login']);
-                            this.restShare.setLoader(false);
+                            localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                            setTimeout(() => {
+                                this.router.navigate(['/login']);
+                                this.restShare.setLoader(false);
+                            }, 500);
                             break;
                         case 403:
                             this.serviceNotification.dangerToast(`msg-not-authorized`);
@@ -12577,13 +12835,13 @@ LoginComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: LoginCompone
         i0.ɵɵproperty("disabled", ctx.submitted || !_r2.valid);
         i0.ɵɵadvance(1);
         i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(32, 34, "login.logIn"), " ");
-    } }, directives: [i8.NgIf, i1$3.ɵNgNoValidate, i1$3.NgControlStatusGroup, i1$3.NgForm, i1$1.NbInputDirective, i1$3.DefaultValueAccessor, i1$3.PatternValidator, i1$3.NgControlStatus, i1$3.NgModel, i1$3.RequiredValidator, i1.RouterLinkWithHref, i1$3.MinLengthValidator, i1$3.MaxLengthValidator, i1$1.NbButtonComponent, i1$1.NbAlertComponent, i8.NgForOf, i1$1.NbCheckboxComponent], pipes: [i8$1.TranslatePipe], styles: [".navigation .link nb-icon{display:none!important}"] });
+    } }, directives: [i8.NgIf, i1$4.ɵNgNoValidate, i1$4.NgControlStatusGroup, i1$4.NgForm, i1$1.NbInputDirective, i1$4.DefaultValueAccessor, i1$4.PatternValidator, i1$4.NgControlStatus, i1$4.NgModel, i1$4.RequiredValidator, i1.RouterLinkWithHref, i1$4.MinLengthValidator, i1$4.MaxLengthValidator, i1$1.NbButtonComponent, i1$1.NbAlertComponent, i8.NgForOf, i1$1.NbCheckboxComponent], pipes: [i1$3.TranslatePipe], styles: [".navigation .link nb-icon{display:none!important}"] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(LoginComponent, [{
         type: Component,
         args: [{
-                selector: "ngx-login",
-                templateUrl: "./login.component.html",
-                styleUrls: ["./login.component.scss"],
+                selector: 'ngx-login',
+                templateUrl: './login.component.html',
+                styleUrls: ['./login.component.scss'],
             }]
     }], null, null); })();
 
@@ -12607,110 +12865,6 @@ isAuthGuard.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: isAuthGuard,
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(isAuthGuard, [{
         type: Injectable
     }], function () { return [{ type: RestAdminConfigService }, { type: i1.Router }]; }, null); })();
-
-class AttributeDirective {
-    constructor(renderer, elementRef) {
-        this.renderer = renderer;
-        this.elementRef = elementRef;
-    }
-    ngOnChanges(changes) {
-        if (changes.attributes) {
-            for (let attributeName in this.attributes) {
-                const attributeValue = this.attributes[attributeName];
-                if (attributeValue) {
-                    this.renderer.setAttribute(this.elementRef.nativeElement, attributeName, attributeValue);
-                }
-                else {
-                    this.renderer.removeAttribute(this.elementRef.nativeElement, attributeName);
-                }
-            }
-        }
-    }
-}
-AttributeDirective.ɵfac = function AttributeDirective_Factory(t) { return new (t || AttributeDirective)(i0.ɵɵdirectiveInject(i0.Renderer2), i0.ɵɵdirectiveInject(i0.ElementRef)); };
-AttributeDirective.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: AttributeDirective, selectors: [["", "attributes", ""]], inputs: { attributes: "attributes" }, features: [i0.ɵɵNgOnChangesFeature] });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AttributeDirective, [{
-        type: Directive,
-        args: [{
-                selector: '[attributes]'
-            }]
-    }], function () { return [{ type: i0.Renderer2 }, { type: i0.ElementRef }]; }, { attributes: [{
-            type: Input
-        }] }); })();
-
-const _c0 = function (a0, a1) { return { lat: a0, lng: a1 }; };
-function GmapsComponent_ng_container_2_Template(rf, ctx) { if (rf & 1) {
-    const _r2 = i0.ɵɵgetCurrentView();
-    i0.ɵɵelementContainerStart(0);
-    i0.ɵɵelementStart(1, "google-map", 1);
-    i0.ɵɵelementStart(2, "map-marker", 2);
-    i0.ɵɵlistener("mapDragend", function GmapsComponent_ng_container_2_Template_map_marker_mapDragend_2_listener($event) { i0.ɵɵrestoreView(_r2); const ctx_r1 = i0.ɵɵnextContext(); return ctx_r1.onPositionChange($event); });
-    i0.ɵɵelementEnd();
-    i0.ɵɵelementEnd();
-    i0.ɵɵelementContainerEnd();
-} if (rf & 2) {
-    const ctx_r0 = i0.ɵɵnextContext();
-    i0.ɵɵadvance(1);
-    i0.ɵɵproperty("options", ctx_r0.mapOptions)("zoom", 8);
-    i0.ɵɵadvance(1);
-    i0.ɵɵproperty("position", i0.ɵɵpureFunction2(4, _c0, ctx_r0.lat, ctx_r0.lng))("options", ctx_r0.markerOptions);
-} }
-class GmapsComponent {
-    constructor(httpClient, restAdminConfigService) {
-        this.restAdminConfigService = restAdminConfigService;
-        this.lat = 51.678418;
-        this.lng = 7.809007;
-        this.latChange = new EventEmitter();
-        this.lngChange = new EventEmitter();
-        this.markerOptions = { draggable: true };
-        const googleMapKey = restAdminConfigService.googleMapApiKey;
-        this.apiLoaded = httpClient
-            .jsonp(`https://maps.googleapis.com/maps/api/js?key=${googleMapKey}&libraries=places`, 'callback')
-            .pipe(map(() => true), catchError((err) => of(false)));
-    }
-    ngOnInit() {
-        this.mapOptions = {
-            center: { lat: this.lat, lng: this.lng },
-            zoom: 8,
-        };
-    }
-    onPositionChange(event) {
-        if (event) {
-            this.lat = event.latLng.lat();
-            this.lng = event.latLng.lng();
-            this.latChange.emit(this.lat);
-            this.lngChange.emit(this.lng);
-        }
-    }
-}
-GmapsComponent.ɵfac = function GmapsComponent_Factory(t) { return new (t || GmapsComponent)(i0.ɵɵdirectiveInject(i1$2.HttpClient), i0.ɵɵdirectiveInject(RestAdminConfigService)); };
-GmapsComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: GmapsComponent, selectors: [["ngx-gmaps"]], inputs: { lat: "lat", lng: "lng" }, outputs: { latChange: "latChange", lngChange: "lngChange" }, decls: 4, vars: 3, consts: [[4, "ngIf"], ["width", "100%", "height", "36.5625rem", 3, "options", "zoom"], [3, "position", "options", "mapDragend"]], template: function GmapsComponent_Template(rf, ctx) { if (rf & 1) {
-        i0.ɵɵelementStart(0, "nb-card");
-        i0.ɵɵelementStart(1, "nb-card-body");
-        i0.ɵɵtemplate(2, GmapsComponent_ng_container_2_Template, 3, 7, "ng-container", 0);
-        i0.ɵɵpipe(3, "async");
-        i0.ɵɵelementEnd();
-        i0.ɵɵelementEnd();
-    } if (rf & 2) {
-        i0.ɵɵadvance(2);
-        i0.ɵɵproperty("ngIf", i0.ɵɵpipeBind1(3, 1, ctx.apiLoaded));
-    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i8.NgIf, i5.GoogleMap, i5.MapMarker], pipes: [i8.AsyncPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-default   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-dark   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-cosmic   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-corporate   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}agm-map[_ngcontent-%COMP%]{height:300px}"] });
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(GmapsComponent, [{
-        type: Component,
-        args: [{
-                selector: 'ngx-gmaps',
-                styleUrls: ['./gmaps.component.scss'],
-                templateUrl: './gmaps.component.html',
-            }]
-    }], function () { return [{ type: i1$2.HttpClient }, { type: RestAdminConfigService }]; }, { lat: [{
-            type: Input
-        }], lng: [{
-            type: Input
-        }], latChange: [{
-            type: Output
-        }], lngChange: [{
-            type: Output
-        }] }); })();
 
 // serviceRestConfig.restPathFileTranslate
 function createTranslateHttpLoader(http) {
@@ -13059,10 +13213,10 @@ RestAdminModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [
         NbTooltipModule,
         NbContextMenuModule,
         TranslateModule,
-        NgxDropzoneModule, i7$1.NgxPermissionsModule, NbLayoutModule,
+        NgxDropzoneModule, i8$1.NgxPermissionsModule, NbLayoutModule,
         NbSelectModule,
         NbSidebarModule, i1$1.NbMenuModule, i1$1.NbDatepickerModule, i1$1.NbDialogModule, i1$1.NbWindowModule, i1$1.NbToastrModule, i1$1.NbTimepickerModule, CoreModule, ThemeModule, NbIconModule,
-        GoogleMapsModule, i8$1.TranslateModule], exports: [RestResourceListComponent,
+        GoogleMapsModule, i1$3.TranslateModule], exports: [RestResourceListComponent,
         RestResourceAddComponent,
         RestResourceDeleteComponent,
         RestMainComponentComponent,
@@ -13072,7 +13226,6 @@ RestAdminModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [
         UploadFileComponent,
         LoginComponent,
         GmapsComponent] }); })();
-i0.ɵɵsetComponentScope(RestResourceAddComponent, [i8.NgIf, i1$1.NbCardComponent, i1$1.NbCardHeaderComponent, i1$1.NbCardBodyComponent, i1$1.NbTabsetComponent, i1$1.NbTabComponent, i1$3.ɵNgNoValidate, i1$3.NgControlStatusGroup, i1$3.FormGroupDirective, i8.NgForOf, i1$1.NbInputDirective, i1$3.DefaultValueAccessor, AttributeDirective, i1$3.NgControlStatus, i1$3.FormControlName, i1$3.NumberValueAccessor, i1$1.NbDatepickerDirective, i1$1.NbDatepickerComponent, i1$1.NbDateTimePickerComponent, i1$1.NbTimePickerDirective, i1$1.NbTimePickerComponent, i1$1.NbSelectComponent, i1$1.NbOptionComponent, i1$1.NbToggleComponent, i11.NgxDropzoneComponent, i11.NgxDropzoneLabelDirective, i1$1.NbIconComponent, i11.NgxDropzonePreviewComponent, i11.NgxDropzoneImagePreviewComponent, i1$1.NbButtonComponent, i7.ImageCropperComponent, i1$1.NbTagListComponent, i1$1.NbTagComponent, i1$1.NbTagInputDirective, i1$1.NbAutocompleteDirective, i1$1.NbAutocompleteComponent, i1$3.NgModel, GmapsComponent, i1$1.NbContextMenuDirective, i11$1.Ng2SmartTableComponent, i1$1.NbCardFooterComponent, i7$1.NgxPermissionsDirective], [i8.TitleCasePipe, i8.AsyncPipe, i8$1.TranslatePipe]);
 
 class RestResource {
     constructor(mainConfig, fields, listConfig, addConfig, editConfig, detailConfig) {

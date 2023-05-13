@@ -260,6 +260,7 @@ export interface REST_CONFIG {
   };
   authConfig?: REST_AUTH;
   googleMapApiKey?: string; // Clef google map
+  permissions?: PermissionConfig[];
 }
 
 interface StandartField extends Field {
@@ -288,6 +289,7 @@ export enum PERMISSION {
   READ = 'read',
   UPDATE = 'update',
   DELETE = 'delete',
+  CANLOGIN = 'CANLOGIN',
 }
 export interface PermissionConfig {
   type: PERMISSION;
