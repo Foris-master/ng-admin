@@ -25,4 +25,3 @@ export declare class RestResourceListFieldComponent implements OnInit, ViewCell 
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceListFieldComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceListFieldComponent, "ngx-rest-resource-list-field", never, { "value": "value"; "rowData": "rowData"; }, {}, never, never>;
 }
-//# sourceMappingURL=rest.resource-list-field.component.d.ts.map

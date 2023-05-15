@@ -257,4 +257,3 @@ export interface PermissionConfig {
     fieldKey: PreparedStatementQuery;
     name?: string;
 }
-//# sourceMappingURL=rest-resource.model.d.ts.map

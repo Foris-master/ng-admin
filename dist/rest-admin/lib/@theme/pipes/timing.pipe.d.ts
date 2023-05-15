@@ -6,4 +6,3 @@ export declare class TimingPipe implements PipeTransform {
     static ɵfac: i0.ɵɵFactoryDeclaration<TimingPipe, never>;
     static ɵpipe: i0.ɵɵPipeDeclaration<TimingPipe, "timing">;
 }
-//# sourceMappingURL=timing.pipe.d.ts.map

@@ -7,4 +7,3 @@ export declare class PaginationInterceptor implements HttpInterceptor {
     static ɵfac: i0.ɵɵFactoryDeclaration<PaginationInterceptor, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<PaginationInterceptor>;
 }
-//# sourceMappingURL=pagination.interceptor.d.ts.map

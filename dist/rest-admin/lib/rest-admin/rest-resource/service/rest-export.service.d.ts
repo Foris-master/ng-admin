@@ -15,4 +15,3 @@ export declare class RestExportService {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestExportService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestExportService>;
 }
-//# sourceMappingURL=rest-export.service.d.ts.map

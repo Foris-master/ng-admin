@@ -59,6 +59,7 @@ export declare class RestResourceAddComponent implements OnInit {
     settings: any;
     morphFields: {};
     permissions: PERMISSION[];
+    googleMapApiKey: string;
     constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService, cdref: ChangeDetectorRef, permissionsService: NgxPermissionsService);
     ngOnInit(): void;
     initForm(datas: any): void;
@@ -97,4 +98,3 @@ export declare class RestResourceAddComponent implements OnInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceAddComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceAddComponent, "ngx-rest-resource-add", never, { "resource": "resource"; }, {}, never, never>;
 }
-//# sourceMappingURL=rest-resource-add.component.d.ts.map

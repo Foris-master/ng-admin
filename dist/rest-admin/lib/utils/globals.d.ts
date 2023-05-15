@@ -4,4 +4,3 @@ export declare const GLOBALS: {
     DEFAULT_LANG: string;
     AUTH_APP_TOKEN: string;
 };
-//# sourceMappingURL=globals.d.ts.map

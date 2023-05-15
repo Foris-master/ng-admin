@@ -5,4 +5,3 @@ export declare class PluralPipe implements PipeTransform {
     static ɵfac: i0.ɵɵFactoryDeclaration<PluralPipe, never>;
     static ɵpipe: i0.ɵɵPipeDeclaration<PluralPipe, "ngxPlural">;
 }
-//# sourceMappingURL=plural.pipe.d.ts.map

@@ -11,4 +11,3 @@ export declare class AnalyticsService {
     static ɵfac: i0.ɵɵFactoryDeclaration<AnalyticsService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<AnalyticsService>;
 }
-//# sourceMappingURL=analytics.service.d.ts.map

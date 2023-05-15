@@ -15,4 +15,3 @@ export declare class SeoService implements OnDestroy {
     static ɵfac: i0.ɵɵFactoryDeclaration<SeoService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<SeoService>;
 }
-//# sourceMappingURL=seo.service.d.ts.map

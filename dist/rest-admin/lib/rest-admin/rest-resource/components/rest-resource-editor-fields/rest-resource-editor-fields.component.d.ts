@@ -42,4 +42,3 @@ export declare class RestResourceEditorFieldsComponent extends DefaultEditor {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceEditorFieldsComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceEditorFieldsComponent, "input-editor", never, {}, {}, never, never>;
 }
-//# sourceMappingURL=rest-resource-editor-fields.component.d.ts.map

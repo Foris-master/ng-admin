@@ -21,4 +21,3 @@ export declare class UploadFileComponent implements OnInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<UploadFileComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<UploadFileComponent, "ngx-upload-file", never, { "datas": "datas"; "title": "title"; }, {}, never, never>;
 }
-//# sourceMappingURL=upload-file.component.d.ts.map

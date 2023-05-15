@@ -12,4 +12,3 @@ export declare class TinyMCEComponent implements OnDestroy, AfterViewInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<TinyMCEComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<TinyMCEComponent, "ngx-tiny-mce", never, {}, { "editorKeyup": "editorKeyup"; }, never, never>;
 }
-//# sourceMappingURL=tiny-mce.component.d.ts.map

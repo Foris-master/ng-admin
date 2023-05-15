@@ -10,4 +10,3 @@ export declare class HttpAuthInterceptor implements HttpInterceptor {
     static ɵfac: i0.ɵɵFactoryDeclaration<HttpAuthInterceptor, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<HttpAuthInterceptor>;
 }
-//# sourceMappingURL=http-auth.interceptor.d.ts.map

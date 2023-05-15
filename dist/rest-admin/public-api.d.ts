@@ -26,4 +26,3 @@ export * from './lib/@theme/pipes/index';
 export * from './lib/@theme/layouts/index';
 export * from './lib/utils/auth.guard';
 export * from './lib/@core/utils/index';
-//# sourceMappingURL=public-api.d.ts.map

@@ -6,4 +6,3 @@ export declare class FsIconCComponent {
     static ɵfac: i0.ɵɵFactoryDeclaration<FsIconCComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<FsIconCComponent, "ngx-fs-icon", never, { "expanded": "expanded"; "place": "place"; }, {}, never, never>;
 }
-//# sourceMappingURL=fs-icon.component.d.ts.map

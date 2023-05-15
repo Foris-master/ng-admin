@@ -3,4 +3,3 @@ export declare class TwoColumnsLayoutComponent {
     static ɵfac: i0.ɵɵFactoryDeclaration<TwoColumnsLayoutComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<TwoColumnsLayoutComponent, "ngx-two-columns-layout", never, {}, {}, never, ["nb-menu", "router-outlet"]>;
 }
-//# sourceMappingURL=two-columns.layout.d.ts.map

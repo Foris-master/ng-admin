@@ -13,4 +13,3 @@ export declare class RestLangService {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestLangService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestLangService>;
 }
-//# sourceMappingURL=rest-lang.service.d.ts.map

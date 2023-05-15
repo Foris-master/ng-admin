@@ -25,4 +25,3 @@ export declare class RestResourceService {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestResourceService>;
 }
-//# sourceMappingURL=rest-resource.service.d.ts.map

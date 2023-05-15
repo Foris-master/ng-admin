@@ -6,4 +6,3 @@ export declare class RestShareService {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestShareService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestShareService>;
 }
-//# sourceMappingURL=rest-share.service.d.ts.map
