@@ -36,6 +36,7 @@ import * as moment from 'moment';
 import { NotificationService } from '../service/notification.service';
 import * as _ from 'lodash';
 import { NgxPermissionsService } from 'ngx-permissions';
+
 @Component({
   selector: 'ngx-rest-resource-add',
   templateUrl: './rest-resource-add.component.html',
@@ -107,7 +108,7 @@ export class RestResourceAddComponent implements OnInit {
   morphFields = {};
 
   permissions = [PERMISSION.CREATE, PERMISSION.UPDATE];
-
+  googleMapApiKey: string = '';
   constructor(
     private fb: FormBuilder,
     private serviceRest: RestResourceService,
@@ -121,6 +122,7 @@ export class RestResourceAddComponent implements OnInit {
     private cdref: ChangeDetectorRef,
     private permissionsService: NgxPermissionsService
   ) {
+    this.googleMapApiKey = serviceRestAdminConfig.googleMapApiKey;
     activatedRoute.params.subscribe((params) => {
       this.ressourceName =
         this.activatedRoute.snapshot.url[

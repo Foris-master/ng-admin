@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { RestAdminConfigService } from '../../service/rest-admin-config.service';
+// import { RestAdminConfigService } from '../../service/rest-admin-config.service';
+
 @Component({
   selector: 'ngx-gmaps',
   styleUrls: ['./gmaps.component.scss'],
@@ -11,6 +12,7 @@ import { RestAdminConfigService } from '../../service/rest-admin-config.service'
 export class GmapsComponent {
   @Input() lat = 51.678418;
   @Input() lng = 7.809007;
+  @Input() googleMapKey = '';
 
   @Output() latChange = new EventEmitter<number>();
   @Output() lngChange = new EventEmitter<number>();
@@ -21,12 +23,12 @@ export class GmapsComponent {
 
   constructor(
     httpClient: HttpClient,
-    private restAdminConfigService: RestAdminConfigService
+    // private restAdminConfigService: RestAdminConfigService
   ) {
-    const googleMapKey = restAdminConfigService.googleMapApiKey;
+    // const googleMapKey = "restAdminConfigService.googleMapApiKey";
     this.apiLoaded = httpClient
       .jsonp(
-        `https://maps.googleapis.com/maps/api/js?key=${googleMapKey}&libraries=places`,
+        `https://maps.googleapis.com/maps/api/js?key=${this.googleMapKey}&libraries=places`,
         'callback'
       )
       .pipe(

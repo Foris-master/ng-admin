@@ -31,7 +31,7 @@ export const searchItem = new RestResource(
     },
     {
       name: "url",
-      type: REST_FIELD_TYPES.STRING,
+      type: REST_FIELD_TYPES.LINK,
     },
     {
       name: "price",

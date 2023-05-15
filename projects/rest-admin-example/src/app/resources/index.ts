@@ -11,6 +11,7 @@ import { expeditionRequest } from './expeditionRequest';
 import { consolidator } from './consolidator';
 import { agency } from './agency';
 import { enterprise } from './enterprise';
+import { searchItem } from './searchItem';
 
 export const resources = [
   address,
@@ -27,6 +28,7 @@ export const resources = [
   _package,
   consolidator,
   agency,
+  searchItem,
   // partType,
 ].sort((a, b) => a.name.localeCompare(b.name));
 

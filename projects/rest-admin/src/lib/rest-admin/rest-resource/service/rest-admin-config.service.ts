@@ -7,6 +7,7 @@ import { RestResourceAddComponent } from '../rest-resource-add/rest-resource-add
 import { RestResourceDetailComponent } from '../rest-resource-detail/rest-resource-detail.component';
 import { RestResourceListComponent } from '../rest-resource-list/rest-resource-list.component';
 import * as _ from 'lodash';
+
 @Injectable({
   providedIn: 'root',
 })
