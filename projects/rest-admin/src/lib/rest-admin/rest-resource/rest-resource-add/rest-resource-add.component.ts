@@ -109,6 +109,8 @@ export class RestResourceAddComponent implements OnInit {
 
   permissions = [PERMISSION.CREATE, PERMISSION.UPDATE];
   googleMapApiKey: string = '';
+  googleMapKeys;
+
   constructor(
     private fb: FormBuilder,
     private serviceRest: RestResourceService,
@@ -172,6 +174,7 @@ export class RestResourceAddComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.googleMapKeys = this.serviceRestAdminConfig.googleMapApiKey;
     this.nbMenuService
       .onItemClick()
       .pipe(

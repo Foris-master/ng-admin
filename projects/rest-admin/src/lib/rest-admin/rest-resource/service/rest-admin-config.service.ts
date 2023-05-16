@@ -1,4 +1,8 @@
-import { REST_AUTH, STRATEGY_AUTH } from './../models/rest-resource.model';
+import {
+  PermissionConfig,
+  REST_AUTH,
+  STRATEGY_AUTH,
+} from './../models/rest-resource.model';
 import { Inject, Injectable } from '@angular/core';
 import { AuthGuard } from '../../../utils/auth.guard';
 import { RestResource } from '../models/rest-resource';
@@ -13,6 +17,7 @@ import * as _ from 'lodash';
 })
 export class RestAdminConfigService {
   _restResources: RestResource[];
+  _permissions: PermissionConfig[];
   components = [];
 
   _restAuthParams: REST_AUTH = {
@@ -33,6 +38,7 @@ export class RestAdminConfigService {
     this._restAuthParams = this.checkValueRestAuth(
       restConfig.authConfig ? restConfig.authConfig : {}
     );
+    this._permissions = restConfig.permissions ? restConfig.permissions : [];
   }
 
   public get restResources(): RestResource[] {
@@ -329,5 +335,9 @@ export class RestAdminConfigService {
     return this.generateRoutes().find((item) => item.path === route)
       ? true
       : false;
+  }
+
+  public get permission(): PermissionConfig[] {
+    return this._permissions;
   }
 }

@@ -1,9 +1,9 @@
-import { REST_CONFIG, STRATEGY_AUTH } from 'rest-admin';
+import { PERMISSION, REST_CONFIG, STRATEGY_AUTH } from 'rest-admin';
 import { resources } from './resources';
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
   name: 'My admin',
-  baseUrl: 'https://api.marylis.com/api',
+  baseUrl: 'https://api.example.com/api',
   resources: resources,
   authConfig: {
     strategy: STRATEGY_AUTH.EMAIL,
@@ -14,5 +14,14 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
     // profilePictureEndPoint: 'picture',
     redirectRouteAfterLogin: '/address', //just put the resource name
   },
-  googleMapApiKey: 'AIzaSyBwNMyEHQFYvcQPVXNyigs0GGSsYhzyumE',
+  googleMapApiKey: 'googleMaspKeyss',
+  permissions: [
+    {
+      type: PERMISSION.CANLOGIN,
+      fieldKey: {
+        api: '/users/me',
+        fieldForNextQuery: ['original.is_c'],
+      },
+    },
+  ],
 };

@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-// import { RestAdminConfigService } from '../../service/rest-admin-config.service';
-
 @Component({
   selector: 'ngx-gmaps',
   styleUrls: ['./gmaps.component.scss'],
@@ -21,12 +19,11 @@ export class GmapsComponent {
   mapOptions: google.maps.MapOptions;
   markerOptions: google.maps.MarkerOptions = { draggable: true };
 
-  constructor(
-    httpClient: HttpClient,
-    // private restAdminConfigService: RestAdminConfigService
-  ) {
-    // const googleMapKey = "restAdminConfigService.googleMapApiKey";
-    this.apiLoaded = httpClient
+  constructor(private httpClient: HttpClient) {}
+
+  ngOnInit() {
+    console.log(this.googleMapKey, 'googleMapKey');
+    this.apiLoaded = this.httpClient
       .jsonp(
         `https://maps.googleapis.com/maps/api/js?key=${this.googleMapKey}&libraries=places`,
         'callback'
@@ -35,9 +32,7 @@ export class GmapsComponent {
         map(() => true),
         catchError((err) => of(false))
       );
-  }
 
-  ngOnInit() {
     this.mapOptions = {
       center: { lat: this.lat, lng: this.lng },
       zoom: 8,

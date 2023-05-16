@@ -16,6 +16,7 @@ import {
 } from '@nebular/theme';
 import { NotificationService } from '../rest-admin/rest-resource/service/notification.service';
 import { RestShareService } from '../rest-admin/rest-resource/service/rest-share.service';
+import { GLOBALS } from './globals';
 
 /** Passes HttpErrorResponse to application-wide error handler */
 @Injectable()
@@ -37,8 +38,11 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           if (err instanceof HttpErrorResponse) {
             switch (err.status) {
               case 401:
-                this.router.navigate(['/login']);
-                this.restShare.setLoader(false);
+                localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                setTimeout(() => {
+                  this.router.navigate(['/login']);
+                  this.restShare.setLoader(false);
+                }, 500);
                 break;
               case 403:
                 this.serviceNotification.dangerToast(`msg-not-authorized`);

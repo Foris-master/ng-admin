@@ -272,7 +272,6 @@ export class RestAdminModule {
           strategies: [
             NbPasswordAuthStrategy.setup({
               name: this.serviceRestAdmin.restAuthParams.strategy,
-
               baseEndpoint: this.serviceRestAdmin.restAuthParams.baseEndpoint,
               login: {
                 method: 'post',

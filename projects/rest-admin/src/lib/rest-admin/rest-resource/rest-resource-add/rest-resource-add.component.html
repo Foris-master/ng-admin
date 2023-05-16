@@ -704,7 +704,7 @@
                   <ngx-gmaps
                     (latChange)="onLatChange($event, field.name)"
                     (lngChange)="onLngChange($event, field.name)"
-                    (googleMapKey)="googleMapApiKey"
+                    [googleMapKey]="googleMapKeys"
                   ></ngx-gmaps>
                 </div>
               </ng-container>
@@ -1479,6 +1479,7 @@
                     <ngx-gmaps
                       (latChange)="onLatChange($event, field.name)"
                       (lngChange)="onLngChange($event, field.name)"
+                      [googleMapKey]="googleMapKeys"
                     ></ngx-gmaps>
                   </div>
                 </ng-container>
