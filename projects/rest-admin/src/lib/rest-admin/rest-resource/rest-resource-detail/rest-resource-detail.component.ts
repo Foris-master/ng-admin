@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ComponentFactoryResolver, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestResource } from '../models/rest-resource';
 import {
@@ -10,12 +10,12 @@ import { RestAdminConfigService } from '../service/rest-admin-config.service';
 import { RestResourceService } from '../service/rest-resource.service';
 import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { RestLangService } from '../service/rest-lang.service';
-// import urlToFile from '../../../utils/';
 import * as _ from 'lodash';
 import urlToFile from '../../../utils/urlToFile';
 import { RestResourceDeleteComponent } from '../rest-ressource-delete/rest-resource-delete.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgxPermissionsService } from 'ngx-permissions';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'ngx-rest-resource-detail',
@@ -40,6 +40,9 @@ export class RestResourceDetailComponent implements OnInit {
   tabsName = [];
   filesUpload = {};
 
+  overlayRef: OverlayRef | null = null;
+
+
   permissions = [
     PERMISSION.CREATE,
     PERMISSION.UPDATE,
@@ -56,6 +59,8 @@ export class RestResourceDetailComponent implements OnInit {
     private dialogService: NbDialogService,
     private langService: RestLangService,
     private sanitizer: DomSanitizer,
+    private overlay: Overlay,
+    private componentFactoryResolver: ComponentFactoryResolver,
     private permissionsService: NgxPermissionsService
   ) {}
 
@@ -95,13 +100,13 @@ export class RestResourceDetailComponent implements OnInit {
         .subscribe((resp) => {
           const val = {};
           const params = {};
-          this.resource.detailConfig.preparedStatementQuery.fieldForNextQuery.forEach(
+          this.resource.detailConfig.preparedStatementQuery.fieldForNextQuery?.forEach(
             (item) => {
               val[item] = _.get(resp, item);
             }
           );
 
-          this.resource.detailConfig.preparedStatementQuery.queryParamsComplete.forEach(
+          this.resource.detailConfig.preparedStatementQuery.queryParamsComplete?.forEach(
             (element) => {
               if (element.isPreparedStatement) {
                 params[element.label] = val[element.value];
@@ -128,11 +133,11 @@ export class RestResourceDetailComponent implements OnInit {
               ) {
                 this.isTabsMenu = true;
 
-                this.resource.detailConfig.tabsConfig.forEach((tab) => {
+                this.resource.detailConfig.tabsConfig?.forEach((tab) => {
                   this.tabsName.push(tab.name);
                   const temp = {};
 
-                  tab.datas.forEach((elt) => {
+                  tab.datas?.forEach((elt) => {
                     const search = this.resource.fields.find(
                       (field) => field.label === elt
                     );
@@ -160,7 +165,7 @@ export class RestResourceDetailComponent implements OnInit {
                           // console.log("Xa me concerne");
                           // console.log(temp[search.name]);
 
-                          temp[search.name].data.forEach((item) => {
+                          temp[search.name].data?.forEach((item) => {
                             datas.push({
                               data: {
                                 name: temp[search.name]?.restField?.metaData
@@ -200,7 +205,7 @@ export class RestResourceDetailComponent implements OnInit {
                           ) {
                             const datas = [];
 
-                            temp[search.name].data.forEach((item) => {
+                            temp[search.name].data?.forEach((item) => {
                               datas.push({
                                 data: {
                                   name: temp[search.name]?.restField?.metaData
@@ -232,7 +237,7 @@ export class RestResourceDetailComponent implements OnInit {
                             this.listDataSource[
                               temp[search.name].restField.name
                             ] = [];
-                            temp[search.name].data.forEach((element) => {
+                            temp[search.name].data?.forEach((element) => {
                               this.listDataSource[
                                 temp[search.name].restField.name
                               ].push({
@@ -259,7 +264,7 @@ export class RestResourceDetailComponent implements OnInit {
                       case REST_FIELD_TYPES.BELONG_TO_MANY:
                         const items = [];
 
-                        temp[search.name].data.forEach((item) => {
+                        temp[search.name].data?.forEach((item) => {
                           items.push({
                             data: {
                               name: item[
@@ -303,7 +308,7 @@ export class RestResourceDetailComponent implements OnInit {
                 this.datas = colunms;
                 this.datas1 = colunms;
               } else {
-                this.resource.fields.forEach((elt) => {
+                this.resource.fields?.forEach((elt) => {
                   if (elt.type === REST_FIELD_TYPES.BELONG_TO) {
                     let dat = this.getBelongToSecondField(elt, response);
                     colunms[elt.name] = {
@@ -330,7 +335,7 @@ export class RestResourceDetailComponent implements OnInit {
                       ) {
                         const datas = [];
 
-                        this.datas[property].data.forEach((item) => {
+                        this.datas[property].data?.forEach((item) => {
                           datas.push({
                             data: {
                               name: this.datas[property]?.restField?.metaData
@@ -369,7 +374,7 @@ export class RestResourceDetailComponent implements OnInit {
                         ) {
                           const datas = [];
 
-                          this.datas[property].data.forEach((item) => {
+                          this.datas[property].data?.forEach((item) => {
                             datas.push({
                               data: {
                                 name: this.datas[property]?.restField?.metaData
@@ -401,7 +406,7 @@ export class RestResourceDetailComponent implements OnInit {
                           this.listDataSource[
                             this.datas[property].restField.name
                           ] = [];
-                          this.datas[property].data.forEach((element) => {
+                          this.datas[property].data?.forEach((element) => {
                             this.listDataSource[
                               this.datas[property].restField.name
                             ].push({
@@ -754,24 +759,26 @@ export class RestResourceDetailComponent implements OnInit {
                     } else {
                       this.listDataSource[this.datas[property].restField.name] =
                         [];
-                      this.datas[property].data.forEach((element) => {
-                        this.listDataSource[
-                          this.datas[property].restField.name
-                        ].push({
-                          resource:
-                            this.datas[property].restField?.metaData
-                              ?.detailConfig?.restManyResources.resource,
-                          resourceName:
-                            this.datas[property].restField?.metaData
-                              ?.detailConfig?.restManyResources.resourceName,
-                          id: element?.id,
-                          style: this.datas[property].restField?.metaData
-                            ?.detailConfig?.restManyResources.style
-                            ? this.datas[property].restField?.metaData
-                                ?.detailConfig.restManyResources.style
-                            : '',
+                      if (this.datas[property]?.data?.length > 0) {
+                        this.datas[property]?.data?.forEach((element) => {
+                          this.listDataSource[
+                            this.datas[property].restField.name
+                          ].push({
+                            resource:
+                              this.datas[property].restField?.metaData
+                                ?.detailConfig?.restManyResources.resource,
+                            resourceName:
+                              this.datas[property].restField?.metaData
+                                ?.detailConfig?.restManyResources.resourceName,
+                            id: element?.id,
+                            style: this.datas[property].restField?.metaData
+                              ?.detailConfig?.restManyResources.style
+                              ? this.datas[property].restField?.metaData
+                                  ?.detailConfig.restManyResources.style
+                              : '',
+                          });
                         });
-                      });
+                      }
                     }
                   }
 
@@ -869,6 +876,11 @@ export class RestResourceDetailComponent implements OnInit {
 
   onRemove(field) {}
 
+  zoomImage(imageElement) {
+    // Ajoutez la classe CSS "zoomed" à l'élément de l'image lorsqu'il est cliqué
+    imageElement.classList.add('zoomed');
+  }
+  
   loadBelongToDetail(data) {
     const resourceName =
       data.restField.metaData.addConfig.belongToOptions.resourceName;

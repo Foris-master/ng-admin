@@ -11,27 +11,27 @@ export const user = new RestResource(
     name: 'user',
     icon: 'person',
     permissions: [
-      // {
-      //   type: PERMISSION.CREATE,
-      //   fieldKey: {
-      //     api: '/users/me',
-      //     fieldForNextQuery: ['original.is_consolidator'],
-      //   },
-      // },
-      // {
-      //   type: PERMISSION.UPDATE,
-      //   fieldKey: {
-      //     api: '/users/me',
-      //     fieldForNextQuery: ['original.is_consolidator'],
-      //   },
-      // },
-      // {
-      //   type: PERMISSION.DELETE,
-      //   fieldKey: {
-      //     api: '/users/me',
-      //     fieldForNextQuery: ['original.is_consolidator'],
-      //   },
-      // },
+      {
+        type: PERMISSION.CREATE,
+        fieldKey: {
+          api: '/users/me',
+          fieldForNextQuery: ['original.is_consolidator'],
+        },
+      },
+      {
+        type: PERMISSION.UPDATE,
+        fieldKey: {
+          api: '/users/me',
+          fieldForNextQuery: ['original.is_consolidator'],
+        },
+      },
+      {
+        type: PERMISSION.DELETE,
+        fieldKey: {
+          api: '/users/me',
+          fieldForNextQuery: ['original.is_consolidator'],
+        },
+      },
       {
         type: PERMISSION.READ,
         fieldKey: {

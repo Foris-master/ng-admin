@@ -155,12 +155,9 @@
                     <b>{{ item.key | titlecase }}: </b>
                   </div>
                   <div class="">
-                    <img
-                      class="rest-img"
-                      [src]="item.value.data"
-                      alt=""
-                      [style]="style"
-                    />
+                    <ngx-image-zoom
+                      [imageUrl]="item.value.data"
+                      ></ngx-image-zoom>
                   </div>
                 </ng-container>
                 <ng-container *ngIf="item.value.restField.template">
@@ -420,18 +417,21 @@
                       >{{ item.value.data }}
                     </a>
 
-                    <iframe
-                      [src]="sanitizerUrl(item.value.data)"
-                      *ngIf="
-                        item.value.restField?.metaData?.detailConfig?.linkConfig
-                          ? !item.value.restField?.metaData?.detailConfig
-                              ?.linkConfig.disabledIframePreview
-                          : true
-                      "
-                      height="400px"
-                      width="100%"
-                      class="mt-2"
-                    ></iframe>
+                    <div *ngIf="item.value.data" style="height: 400px; width: 100%;">
+                      <iframe
+                        [src]="sanitizerUrl(item.value.data)"
+                        *ngIf="item.value.restField?.metaData?.detailConfig
+                            ?.linkConfig
+                            ? !item.value.restField?.metaData
+                                ?.detailConfig?.linkConfig
+                                .disabledIframePreview
+                            : true
+                        "
+                        height="400px"
+                        width="100%"
+                        class="mt-2"
+                      ></iframe>
+                    </div>
                   </div>
                 </ng-container>
 
@@ -555,12 +555,9 @@
                           <b>{{ item.key | titlecase }}: </b>
                         </div>
                         <div class="">
-                          <img
-                            class="rest-img"
-                            [src]="item.value.data"
-                            alt=""
-                            [style]="style"
-                          />
+                          <ngx-image-zoom
+                            [imageUrl]="item.value.data"
+                            ></ngx-image-zoom>
                         </div>
                       </ng-container>
                       <ng-container *ngIf="item.value.restField.template">
@@ -848,19 +845,22 @@
                             >{{ item.value.data }}
                           </a>
 
-                          <iframe
-                            [src]="sanitizerUrl(item.value.data)"
-                            *ngIf="
-                              item.value.restField?.metaData?.detailConfig
-                                ?.linkConfig
-                                ? !item.value.restField?.metaData?.detailConfig
-                                    ?.linkConfig.disabledIframePreview
-                                : true
-                            "
-                            height="400px"
-                            width="100%"
-                            class="mt-2"
-                          ></iframe>
+                          
+                          <div *ngIf="item.value.data" style="height: 400px; width: 100%;">
+                            <iframe
+                              [src]="sanitizerUrl(item.value.data)"
+                              *ngIf="item.value.restField?.metaData?.detailConfig
+                                  ?.linkConfig
+                                  ? !item.value.restField?.metaData
+                                      ?.detailConfig?.linkConfig
+                                      .disabledIframePreview
+                                  : true
+                              "
+                              height="400px"
+                              width="100%"
+                              class="mt-2"
+                            ></iframe>
+                          </div>
                         </div>
                       </ng-container>
 
@@ -1074,12 +1074,9 @@
                       <b>{{ item.key | titlecase }}: </b>
                     </div>
                     <div class="">
-                      <img
-                        class="rest-img"
-                        [src]="item.value.data"
-                        alt=""
-                        [style]="style"
-                      />
+                      <ngx-image-zoom
+                        [imageUrl]="item.value.data"
+                        ></ngx-image-zoom>
                     </div>
                   </ng-container>
                   <ng-container *ngIf="item.value.restField.template">
@@ -1341,19 +1338,21 @@
                         >{{ item.value.data }}
                       </a>
 
-                      <iframe
-                        [src]="sanitizerUrl(item.value.data)"
-                        *ngIf="
-                          item.value.restField?.metaData?.detailConfig
-                            ?.linkConfig
-                            ? !item.value.restField?.metaData?.detailConfig
-                                ?.linkConfig.disabledIframePreview
-                            : true
-                        "
-                        height="400px"
-                        width="100%"
-                        class="mt-2"
-                      ></iframe>
+                      <div *ngIf="item.value.data" style="height: 400px; width: 100%;">
+                        <iframe
+                          [src]="sanitizerUrl(item.value.data)"
+                          *ngIf="item.value.restField?.metaData?.detailConfig
+                              ?.linkConfig
+                              ? !item.value.restField?.metaData
+                                  ?.detailConfig?.linkConfig
+                                  .disabledIframePreview
+                              : true
+                          "
+                          height="400px"
+                          width="100%"
+                          class="mt-2"
+                        ></iframe>
+                      </div>
                     </div>
                   </ng-container>
 
@@ -1479,12 +1478,9 @@
                             <b>{{ item.key | titlecase }}: </b>
                           </div>
                           <div class="">
-                            <img
-                              class="rest-img"
-                              [src]="item.value.data"
-                              alt=""
-                              [style]="style"
-                            />
+                            <ngx-image-zoom
+                              [imageUrl]="item.value.data"
+                              ></ngx-image-zoom>
                           </div>
                         </ng-container>
                         <ng-container *ngIf="item.value.restField.template">
@@ -1784,20 +1780,21 @@
                               >{{ item.value.data }}
                             </a>
 
-                            <iframe
-                              [src]="sanitizerUrl(item.value.data)"
-                              *ngIf="
-                                item.value.restField?.metaData?.detailConfig
-                                  ?.linkConfig
-                                  ? !item.value.restField?.metaData
-                                      ?.detailConfig?.linkConfig
-                                      .disabledIframePreview
-                                  : true
-                              "
-                              height="400px"
-                              width="100%"
-                              class="mt-2"
-                            ></iframe>
+                            <div *ngIf="item.value.data" style="height: 400px; width: 100%;">
+                              <iframe
+                                [src]="sanitizerUrl(item.value.data)"
+                                *ngIf="item.value.restField?.metaData?.detailConfig
+                                    ?.linkConfig
+                                    ? !item.value.restField?.metaData
+                                        ?.detailConfig?.linkConfig
+                                        .disabledIframePreview
+                                    : true
+                                "
+                                height="400px"
+                                width="100%"
+                                class="mt-2"
+                              ></iframe>
+                            </div>
                           </div>
                         </ng-container>
 

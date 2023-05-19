@@ -91,6 +91,7 @@ import { MenuFilterPipe } from './rest-admin/rest-main-component/menu-filter.pip
 import { GmapsComponent } from './rest-admin/rest-resource/components/gmaps/gmaps.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { SelectAllCheckboxRenderComponent } from './rest-admin/rest-resource/components/fs-icon-ccomponent/select.component';
+import { ImageZoomComponent } from './rest-admin/rest-resource/components/fs-icon-ccomponent/image-zoom.component';
 
 // serviceRestConfig.restPathFileTranslate
 export function createTranslateHttpLoader(http: HttpClient) {
@@ -118,6 +119,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     AttributeDirective,
     MenuFilterPipe,
     GmapsComponent,
+    ImageZoomComponent,
   ],
   exports: [
     RestResourceListComponent,
@@ -144,6 +146,7 @@ export function createTranslateHttpLoader(http: HttpClient) {
     UploadFileComponent,
     LoginComponent,
     GmapsComponent,
+    ImageZoomComponent,
   ],
   imports: [
     CommonModule,

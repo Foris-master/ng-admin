@@ -13,12 +13,18 @@
             class="mr-2"
             type="checkbox"
             [checked]="this.selectedRows?.length == this.source.count()"
-          />Selectionner
+          />{{ 'rest-detail.select' | translate }}
         </button>
       </div>
 
       <div class="" style="height: 40px">
-        <button nbButton ghost (click)="toggleShowCheckbox()">
+        <button
+          nbButton
+          ghost
+          nbTooltip="{{ 'rest-detail.select' | translate }}"
+          nbTooltipPlacement="top"
+          (click)="toggleShowCheckbox()"
+        >
           <input type="checkbox" [(ngModel)]="showCheckbox" />
         </button>
 
@@ -27,13 +33,22 @@
           [nbContextMenu]="items"
           nbContextMenuTag="my-context"
           ghost
+          nbTooltip="{{ 'rest-list.exportData' | translate }}"
+          nbTooltipPlacement="top"
           status="control"
         >
           <nb-icon icon="download-outline"></nb-icon>
         </button>
 
         <ng-container *ngIf="resource.permissions.length === 0">
-          <button nbButton ghost status="control" (click)="addNewEntity()">
+          <button
+            nbButton
+            ghost
+            status="control"
+            nbTooltip="{{ 'rest-list.add' | translate }}"
+            nbTooltipPlacement="top"
+            (click)="addNewEntity()"
+          >
             <span>{{ "add" | translate }}</span>
             <nb-icon icon="plus-circle"></nb-icon>
           </button>
@@ -42,6 +57,8 @@
             nbButton
             *ngIf="this.selectedRows?.length > 0"
             ghost
+            nbTooltip="{{ 'rest-list.deleteAllSelect' | translate }}"
+            nbTooltipPlacement="top"
             status="control"
             (click)="onDeleteAllConfirm()"
           >
@@ -202,7 +219,14 @@
             class="col-lg-1 col-md-2 col-xs-4 input-space row"
             *ngIf="index == 0"
           >
-            <button nbButton fullWidth status="primary" (click)="startSearch()">
+            <button
+              nbButton
+              fullWidth
+              nbTooltip="{{ 'rest-list.search' | translate }}"
+              nbTooltipPlacement="top"
+              status="primary"
+              (click)="startSearch()"
+            >
               <nb-icon icon="search-outline"></nb-icon>
             </button>
           </div>
@@ -213,6 +237,8 @@
             <button
               nbButton
               fullWidth
+              nbTooltip="{{ 'rest-list.addSearch' | translate }}"
+              nbTooltipPlacement="top"
               status="primary"
               (click)="addFieldSearch()"
             >
@@ -224,6 +250,8 @@
               <button
                 nbButton
                 fullWidth
+                nbTooltip="{{ 'rest-list.removeSearch' | translate }}"
+                nbTooltipPlacement="top"
                 status="danger"
                 (click)="removeFieldSearch(index)"
               >

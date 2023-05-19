@@ -12,12 +12,21 @@
     "btnCancel": "cancel",
     "btnEdit": "edit",
     "btnDelete": "delete",
+    "select": "Selected",
     "belongToRef": "click to access the referenced resource"
   },
   "rest-list": {
     "filterPlaceholder": "Filter by",
     "searchPlaceholder": "Search",
     "operator": "operator",
+    "deleteAll": "Delete all",
+    "deleteAllSelect": "Delete selected items",
+    "selectAll": "Select all",
+    "exportData": "Export data",
+    "add": "Add a new resource",
+    "search": "Start a reseach",
+    "addSearch": "Add a search filter",
+    "removeSearch": "Remove a search filter",
     "export": "Export as"
   },
   "rest-add": {

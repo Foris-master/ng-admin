@@ -12,12 +12,21 @@
     "btnCancel": "annuler",
     "btnEdit": "modifier",
     "btnDelete": "supprimer",
+    "select": "Sélectionner",
     "belongToRef": "cliquer pour accéder à la ressource referencée"
   },
   "rest-list": {
     "filterPlaceholder": "Filtrer par",
     "searchPlaceholder": "Rechercher",
     "operator": "operateur",
+    "deleteAll": "Supprimer tout",
+    "deleteAllSelect": "Supprimer les éléments sélectionnés",
+    "selectAll": "Tout sélectionner",
+    "exportData": "Exporter des données",
+    "add": "Ajouter une nouvelle ressource",
+    "search": "Lancer la recherche",
+    "addSearch": "Ajouter un filtre de recherche",
+    "removeSearch": "Supprimer le filtre de recherche",
     "export": "Exporter en"
   },
   "rest-add": {

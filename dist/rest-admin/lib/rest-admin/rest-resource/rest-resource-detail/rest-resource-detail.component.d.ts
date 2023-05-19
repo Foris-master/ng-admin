@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnInit, ComponentFactoryResolver } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RestResource } from '../models/rest-resource';
 import { REST_FIELD_TYPES, PERMISSION } from '../models/rest-resource.model';
@@ -8,6 +8,7 @@ import { NbDialogService, NbTreeGridDataSourceBuilder } from '@nebular/theme';
 import { RestLangService } from '../service/rest-lang.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgxPermissionsService } from 'ngx-permissions';
+import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import * as i0 from "@angular/core";
 export declare class RestResourceDetailComponent implements OnInit {
     private activatedRoute;
@@ -18,6 +19,8 @@ export declare class RestResourceDetailComponent implements OnInit {
     private dialogService;
     private langService;
     private sanitizer;
+    private overlay;
+    private componentFactoryResolver;
     private permissionsService;
     resource: RestResource;
     ID: string;
@@ -37,8 +40,9 @@ export declare class RestResourceDetailComponent implements OnInit {
     isTabsMenu: boolean;
     tabsName: any[];
     filesUpload: {};
+    overlayRef: OverlayRef | null;
     permissions: PERMISSION[];
-    constructor(activatedRoute: ActivatedRoute, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, router: Router, dataSourceBuilder: NbTreeGridDataSourceBuilder<any>, dialogService: NbDialogService, langService: RestLangService, sanitizer: DomSanitizer, permissionsService: NgxPermissionsService);
+    constructor(activatedRoute: ActivatedRoute, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, router: Router, dataSourceBuilder: NbTreeGridDataSourceBuilder<any>, dialogService: NbDialogService, langService: RestLangService, sanitizer: DomSanitizer, overlay: Overlay, componentFactoryResolver: ComponentFactoryResolver, permissionsService: NgxPermissionsService);
     get PERMISSION(): typeof PERMISSION;
     ngOnInit(): void;
     editEntity(): void;
@@ -47,6 +51,7 @@ export declare class RestResourceDetailComponent implements OnInit {
     get REST_FIELD_TYPES(): typeof REST_FIELD_TYPES;
     onSelect(event: any): void;
     onRemove(field: any): void;
+    zoomImage(imageElement: any): void;
     loadBelongToDetail(data: any): void;
     isObject: (a: any) => boolean;
     isArray: (a: any) => boolean;

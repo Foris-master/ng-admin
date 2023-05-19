@@ -223,7 +223,6 @@ export class RestResourceListComponent implements OnInit {
                   });
                 }
               }
-              console.log('custom', custom);
 
               this.custom = true;
               this.settings = {
@@ -424,7 +423,7 @@ export class RestResourceListComponent implements OnInit {
               item +
               '=' +
               this.resource.listConfig.queryParams[item] +
-              ',',
+              '&',
             ''
           )
           .slice(0, -1),
@@ -816,7 +815,7 @@ export class RestResourceListComponent implements OnInit {
     search = Object.keys(this.resource.listConfig.queryParams)
       .reduce(
         (cumul, item) =>
-          cumul + item + '=' + this.resource.listConfig.queryParams[item] + ',',
+          cumul + item + '=' + this.resource.listConfig.queryParams[item] + '&',
         ''
       )
       .slice(0, -1);
@@ -827,8 +826,6 @@ export class RestResourceListComponent implements OnInit {
     search += Object.keys(params)
       .reduce((cumul, item) => cumul + item + '=' + params[item] + '&', '')
       .slice(0, -1);
-
-    console.log(search);
 
     this.source = new ServerDataSource(this.http, {
       endPoint:

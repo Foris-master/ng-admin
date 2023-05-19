@@ -315,9 +315,15 @@ export class RestResourceAddComponent implements OnInit {
               };
 
             case REST_FIELD_TYPES.LINK:
+              if (datas[elt.name] !== null) {
+                return {
+                  ...cumul,
+                  [elt.name]: [datas[elt.name], Validator.url],
+                };
+              }
               return {
                 ...cumul,
-                [elt.name]: [datas[elt.name], Validator.url],
+                [elt.name]: ["", Validator.url],
               };
             case REST_FIELD_TYPES.COLOR:
               return {

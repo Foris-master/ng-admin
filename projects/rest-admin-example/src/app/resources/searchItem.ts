@@ -139,6 +139,8 @@ export const searchItem = new RestResource(
     },
     queryParams: {
       _includes: "user,currency",
+      _sortDir: 'desc',
+      _sort: 'updated_at',
     },
     searchFilter: {
       filterBy: [{name: "name", value: "name"},{

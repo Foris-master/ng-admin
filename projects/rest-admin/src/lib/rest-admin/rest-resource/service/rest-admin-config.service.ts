@@ -1,4 +1,5 @@
 import {
+  EXTERN_PAGES,
   PermissionConfig,
   REST_AUTH,
   STRATEGY_AUTH,
@@ -18,6 +19,7 @@ import * as _ from 'lodash';
 export class RestAdminConfigService {
   _restResources: RestResource[];
   _permissions: PermissionConfig[];
+  _externPages: EXTERN_PAGES[];
   components = [];
 
   _restAuthParams: REST_AUTH = {
@@ -39,6 +41,7 @@ export class RestAdminConfigService {
       restConfig.authConfig ? restConfig.authConfig : {}
     );
     this._permissions = restConfig.permissions ? restConfig.permissions : [];
+    this._externPages = restConfig.externPages ? restConfig.externPages : [];
   }
 
   public get restResources(): RestResource[] {
@@ -182,6 +185,87 @@ export class RestAdminConfigService {
         }
       }
     });
+
+    this._externPages.forEach((item) => {
+      if (item.showInMenu) {if (item.group) {
+        switch (item.group.type) {
+          case TYPE_GROUP.SEPARATOR:
+            menus_group[item.group.name].push({
+              title: item.name,
+              icon: item.icon,
+              link: '/admin/' + item.path,
+            });
+            break;
+          case TYPE_GROUP.MENU:
+            if (Array.isArray(menus_group[item.group.name])) {
+              if (Array.isArray(menus_group[item.group.name][0]['children'])) {
+                menus_group[item.group.name][0].children.push({
+                  title: item.name,
+                  icon: item.icon,
+                  link: '/admin/' + item.path,
+                });
+              } else {
+                menus_group[item.group.name][0]['children'] = [
+                  {
+                    title: item.name,
+                    icon: item.icon,
+                    link: '/admin/' + item.path,
+                  },
+                ];
+              }
+            } else {
+              menus_group[item.group.name] = [
+                {
+                  title: item.group.name,
+                  icon: item.group.icon,
+                  expanded: true,
+                  children: [
+                    {
+                      title: item.name,
+                      icon: item.icon,
+                      link: '/admin/' + item.path,
+                    },
+                  ],
+                },
+              ];
+            }
+            break;
+          default:
+            if (Array.isArray(menus_group[TYPE_GROUP.DEFAULT]))
+              menus_group[TYPE_GROUP.DEFAULT].push({
+                title: item.name,
+                icon: item.icon,
+                link: '/admin/' + item.path,
+              });
+            else {
+              menus_group[TYPE_GROUP.DEFAULT] = [];
+              menus_group[TYPE_GROUP.DEFAULT].push({
+                title: item.name,
+                icon: item.icon,
+                link: '/admin/' + item.path,
+              });
+            }
+            break;
+        }
+      } else {
+        if (Array.isArray(menus_group[TYPE_GROUP.DEFAULT]))
+          menus_group[TYPE_GROUP.DEFAULT].push({
+            title: item.name,
+            icon: item.icon,
+            link: '/admin/' + item.path,
+          });
+        else {
+          menus_group[TYPE_GROUP.DEFAULT] = [];
+          menus_group[TYPE_GROUP.DEFAULT].push({
+            title: item.name,
+            icon: item.icon,
+            link: '/admin/' + item.path,
+          });
+        }
+      }
+      }
+    });
+
     let menus_test = [];
     let priorities = groupsName
       .sort((a, b) => a.priority - b.priority)
@@ -196,92 +280,121 @@ export class RestAdminConfigService {
   }
 
   generateRoutes() {
-    return this._restResources.reduce((cumul, rest) => {
-      if (rest.authRequired) {
+    var routes = [];
+    routes = [
+      ...routes,
+      ...this._restResources.reduce((cumul, rest) => {
+        if (rest.authRequired) {
+          return [
+            ...cumul,
+            {
+              path: rest.name.toLowerCase() + '-list',
+              component: RestResourceListComponent,
+              // data: {
+              //   ngxPermissions: {
+              //     only: rest.permissions,
+              //   },
+              // },
+              canActivate: [AuthGuard],
+            },
+            {
+              path: rest.name.toLowerCase() + '-add',
+              component: RestResourceAddComponent,
+              // data: {
+              //   ngxPermissions: {
+              //     only: rest.permissions,
+              //   },
+              // },
+              canActivate: [AuthGuard],
+            },
+            {
+              path: rest.name.toLowerCase() + '-edit/:id',
+              component: RestResourceAddComponent,
+              // data: {
+              //   ngxPermissions: {
+              //     only: rest.permissions,
+              //   },
+              // },
+              canActivate: [AuthGuard],
+            },
+            {
+              path: rest.name.toLowerCase() + '-detail/:id',
+              component: RestResourceDetailComponent,
+              // data: {
+              //   ngxPermissions: {
+              //     only: rest.permissions,
+              //   },
+              // },
+              canActivate: [AuthGuard],
+            },
+          ];
+        }
         return [
           ...cumul,
           {
             path: rest.name.toLowerCase() + '-list',
-            component: RestResourceListComponent,
             // data: {
             //   ngxPermissions: {
             //     only: rest.permissions,
             //   },
             // },
-            canActivate: [AuthGuard],
+            component: RestResourceListComponent,
           },
           {
             path: rest.name.toLowerCase() + '-add',
-            component: RestResourceAddComponent,
             // data: {
             //   ngxPermissions: {
             //     only: rest.permissions,
             //   },
             // },
-            canActivate: [AuthGuard],
+            component: RestResourceAddComponent,
           },
           {
             path: rest.name.toLowerCase() + '-edit/:id',
-            component: RestResourceAddComponent,
             // data: {
             //   ngxPermissions: {
             //     only: rest.permissions,
             //   },
             // },
-            canActivate: [AuthGuard],
+            component: RestResourceAddComponent,
           },
           {
             path: rest.name.toLowerCase() + '-detail/:id',
-            component: RestResourceDetailComponent,
             // data: {
             //   ngxPermissions: {
             //     only: rest.permissions,
             //   },
             // },
-            canActivate: [AuthGuard],
+            component: RestResourceDetailComponent,
           },
         ];
-      }
-      return [
-        ...cumul,
-        {
-          path: rest.name.toLowerCase() + '-list',
-          // data: {
-          //   ngxPermissions: {
-          //     only: rest.permissions,
-          //   },
-          // },
-          component: RestResourceListComponent,
-        },
-        {
-          path: rest.name.toLowerCase() + '-add',
-          // data: {
-          //   ngxPermissions: {
-          //     only: rest.permissions,
-          //   },
-          // },
-          component: RestResourceAddComponent,
-        },
-        {
-          path: rest.name.toLowerCase() + '-edit/:id',
-          // data: {
-          //   ngxPermissions: {
-          //     only: rest.permissions,
-          //   },
-          // },
-          component: RestResourceAddComponent,
-        },
-        {
-          path: rest.name.toLowerCase() + '-detail/:id',
-          // data: {
-          //   ngxPermissions: {
-          //     only: rest.permissions,
-          //   },
-          // },
-          component: RestResourceDetailComponent,
-        },
+      }, []),
+    ];
+    if (this._externPages?.length > 0) {
+      routes = [
+        ...routes,
+        ...this._externPages.reduce((cumul, rest) => {
+          if (rest?.authRequired) {
+            return [
+              ...cumul,
+              {
+                path: rest.path,
+                component: rest.renderComponent,
+                canActivate: [AuthGuard],
+              },
+            ];
+          }
+          return [
+            ...cumul,
+            {
+              path: rest.path,
+              component: rest.renderComponent,
+            },
+          ];
+        }, []),
       ];
-    }, []);
+    }
+    return routes;
   }
 
   public get restAuthParams(): REST_AUTH {
@@ -339,5 +452,8 @@ export class RestAdminConfigService {
 
   public get permission(): PermissionConfig[] {
     return this._permissions;
+  }
+  public get externPages(): EXTERN_PAGES[] {
+    return this._externPages;
   }
 }

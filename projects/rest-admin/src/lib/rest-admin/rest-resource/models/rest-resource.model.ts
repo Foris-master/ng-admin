@@ -1,3 +1,4 @@
+import { Component, Type } from '@angular/core';
 import { RestResource } from './rest-resource';
 export interface ResourceConfig {
   title?: string;
@@ -261,6 +262,7 @@ export interface REST_CONFIG {
   authConfig?: REST_AUTH;
   googleMapApiKey?: string; // Clef google map
   permissions?: PermissionConfig[];
+  externPages?: EXTERN_PAGES[];
 }
 
 interface StandartField extends Field {
@@ -296,3 +298,14 @@ export interface PermissionConfig {
   fieldKey: PreparedStatementQuery;
   name?: string;
 }
+export interface EXTERN_PAGES {
+  api?: any;
+  path: string;
+  icon?: string;
+  name: string;
+  showInMenu?: boolean;
+  renderComponent: Type<any>;
+  group?: GroupConfig;
+  authRequired?: boolean;
+}
+

@@ -8,6 +8,8 @@ import { ViewCell } from 'ng2-smart-table';
       <nb-checkbox
         [checked]="value?.selected"
         (click)="selectAllCheckboxClick($event)"
+        nbTooltip="{{ 'rest-detail.select' | translate }}"
+        nbTooltipPlacement="top"
       ></nb-checkbox>
     </div>
   `,
