@@ -1,6 +1,6 @@
 import { FILTER_OPERATORS } from './../service/rest-resource.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import {  Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ServerDataSource } from 'ng2-smart-table';
 import {
   RestField,
@@ -20,7 +20,7 @@ import { filter, map } from 'rxjs/operators';
 import { ALPHABET, RestExportService } from '../service/rest-export.service';
 import { RestShareService } from '../service/rest-share.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 import { SelectAllCheckboxRenderComponent } from '../components/fs-icon-ccomponent/select.component';
 import { NgxPermissionsService } from 'ngx-permissions';
 
@@ -30,6 +30,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
   styleUrls: ['./rest-resource-list.component.scss'],
 })
 export class RestResourceListComponent implements OnInit {
+  private subscription: Subscription;
   @Input() resource: RestResource;
   @ViewChild('search') search;
   @ViewChild('autoBelongToMany') inputBelongToMany;
@@ -132,6 +133,31 @@ export class RestResourceListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.nbMenuService
+    .onItemClick()
+    .pipe(
+      filter(({ tag }) => tag === 'export-context'),
+      map(({ item: { title } }) => title),
+    )
+    .subscribe((title) => {
+      console.log(title, 'title====================>');
+      switch (title) {
+        case 'EXCEL':
+          this.exportToExcel();
+          break;
+        case 'PDF':
+          this.exportToPdf();
+          break;
+        case 'CSV':
+          this.exportToCsv();
+          break;
+        default:
+          this.exportAll();
+          break;
+      }
+    });
+
+
     if (this.resource.listConfig.searchFilter) {
       this.searchItems.push({
         field: '',
@@ -170,28 +196,7 @@ export class RestResourceListComponent implements OnInit {
       editable: true,
     };
 
-    this.nbMenuService
-      .onItemClick()
-      .pipe(
-        filter(({ tag }) => tag === 'my-context'),
-        map(({ item: { title } }) => title)
-      )
-      .subscribe((title) => {
-        switch (title) {
-          case 'EXCEL':
-            this.exportToExcel();
-            break;
-          case 'PDF':
-            this.exportToPdf();
-            break;
-          case 'CSV':
-            this.exportToCsv();
-            break;
-          default:
-            this.exportAll();
-            break;
-        }
-      });
+  
 
     if (this.resource.permissions.length > 0) {
       const custom = [];
@@ -357,6 +362,7 @@ export class RestResourceListComponent implements OnInit {
       this.selectedRows.splice(this.selectedRows.indexOf(row), 1);
     }
   }
+
   selectAllRows() {
     this.source.getAll().then((rows) => {
       if (this.selectedRows?.length !== rows?.length) {
@@ -694,6 +700,7 @@ export class RestResourceListComponent implements OnInit {
         });
     }
   }
+
   selectOperator(value, index) {
     this.searchItems[index].operator = value;
   }

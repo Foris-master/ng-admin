@@ -30,11 +30,9 @@
 
         <button
           nbButton
-          [nbContextMenu]="items"
-          nbContextMenuTag="my-context"
           ghost
-          nbTooltip="{{ 'rest-list.exportData' | translate }}"
-          nbTooltipPlacement="top"
+          [nbContextMenu]="items"
+          nbContextMenuTag="export-context"
           status="control"
         >
           <nb-icon icon="download-outline"></nb-icon>

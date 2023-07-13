@@ -1,25 +1,25 @@
-import * as i2$1 from '@ngx-translate/core';
+import * as i1$3 from '@ngx-translate/core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import * as i1$3 from '@angular/forms';
+import * as i1$4 from '@angular/forms';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import * as i1$2 from '@angular/common/http';
-import { HttpHeaders, HttpResponse, HttpErrorResponse, HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpResponse, HttpErrorResponse, HTTP_INTERCEPTORS, HttpClientModule, HttpClientJsonpModule, HttpClient } from '@angular/common/http';
 import * as i0 from '@angular/core';
-import { Injectable, PLATFORM_ID, Inject, Component, Input, ViewChild, EventEmitter, Output, Directive, Pipe, NgModule, Optional, SkipSelf } from '@angular/core';
-import * as i13 from '@angular/common';
+import { Injectable, PLATFORM_ID, Inject, Component, Input, ViewChild, Directive, EventEmitter, Output, Pipe, NgModule, Optional, SkipSelf } from '@angular/core';
+import * as i10 from '@angular/common';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import * as i1$1 from '@nebular/theme';
 import { NbLayoutDirection, NB_DOCUMENT, NbGlobalPhysicalPosition, DEFAULT_THEME as DEFAULT_THEME$1, COSMIC_THEME as COSMIC_THEME$1, CORPORATE_THEME as CORPORATE_THEME$1, DARK_THEME as DARK_THEME$1, NbLayoutModule, NbMenuModule, NbUserModule, NbActionsModule, NbSearchModule, NbSidebarModule, NbContextMenuModule, NbButtonModule, NbSelectModule, NbIconModule, NbToggleModule, NbThemeModule, NbSidebarService, NbCardModule, NbCheckboxModule, NbInputModule, NbTagModule, NbRadioModule, NbTreeGridModule, NbAlertModule, NbAutocompleteModule, NbSpinnerModule, NbTabsetModule, NbPopoverModule, NbListModule, NbTooltipModule, NbDatepickerModule, NbDialogModule, NbWindowModule, NbToastrModule, NbTimepickerModule } from '@nebular/theme';
-import * as i12 from 'ng2-smart-table';
+import * as i11 from 'ng2-smart-table';
 import { DefaultEditor, LocalDataSource, ServerDataSource, Ng2SmartTableModule } from 'ng2-smart-table';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
-import * as i9$1 from '@nebular/security';
+import * as i9 from '@nebular/security';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { Subject, BehaviorSubject, of } from 'rxjs';
 import { shareReplay, delay, debounceTime, filter, takeWhile, takeUntil, map, catchError, tap } from 'rxjs/operators';
 import * as i1 from '@angular/router';
 import { NavigationEnd, RouterModule } from '@angular/router';
-import * as i5 from 'ngx-image-cropper';
+import * as i7 from 'ngx-image-cropper';
 import { base64ToFile, ImageCropperModule } from 'ngx-image-cropper';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
@@ -29,21 +29,21 @@ import * as JSZip from 'jszip';
 import * as i2 from '@iplab/ngx-file-upload';
 import { FileUploadControl, FileUploadValidators, FileUploadModule } from '@iplab/ngx-file-upload';
 import * as _ from 'lodash';
-import * as i3 from '@codehint-ng/html-compiler';
+import * as i4 from '@codehint-ng/html-compiler';
 import { CngHtmlCompilerModule } from '@codehint-ng/html-compiler';
 import { Validator } from 'ngx-input-validator';
 import * as moment from 'moment';
 import * as i8 from 'ngx-permissions';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import * as i9 from 'ngx-dropzone';
+import * as i13 from 'ngx-dropzone';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-import * as i3$1 from '@angular/google-maps';
+import * as i4$1 from '@angular/google-maps';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { __awaiter } from 'tslib';
 import * as i6 from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
-import * as i7 from '@angular/cdk/overlay';
-import * as i1$4 from '@nebular/auth';
+import * as i7$1 from '@angular/cdk/overlay';
+import * as i1$5 from '@nebular/auth';
 import { NbAuthModule, NbDummyAuthStrategy, NbLoginComponent, NbAuthComponent, NbPasswordAuthStrategy, NbAuthSimpleToken } from '@nebular/auth';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -71,11 +71,11 @@ class LayoutService {
         return this.layoutSizeChange$.pipe(debounceTime(350));
     }
 }
-LayoutService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: LayoutService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-LayoutService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: LayoutService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: LayoutService, decorators: [{
-            type: Injectable
-        }] });
+LayoutService.ɵfac = function LayoutService_Factory(t) { return new (t || LayoutService)(); };
+LayoutService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: LayoutService, factory: LayoutService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(LayoutService, [{
+        type: Injectable
+    }], null, null); })();
 
 class AnalyticsService {
     constructor(location, router) {
@@ -97,11 +97,11 @@ class AnalyticsService {
         }
     }
 }
-AnalyticsService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AnalyticsService, deps: [{ token: i13.Location }, { token: i1.Router }], target: i0.ɵɵFactoryTarget.Injectable });
-AnalyticsService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AnalyticsService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AnalyticsService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: i13.Location }, { type: i1.Router }]; } });
+AnalyticsService.ɵfac = function AnalyticsService_Factory(t) { return new (t || AnalyticsService)(i0.ɵɵinject(i10.Location), i0.ɵɵinject(i1.Router)); };
+AnalyticsService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: AnalyticsService, factory: AnalyticsService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AnalyticsService, [{
+        type: Injectable
+    }], function () { return [{ type: i10.Location }, { type: i1.Router }]; }, null); })();
 
 class Track {
 }
@@ -157,11 +157,11 @@ class PlayerService {
         return this.playlist[this.current];
     }
 }
-PlayerService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PlayerService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-PlayerService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PlayerService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PlayerService, decorators: [{
-            type: Injectable
-        }] });
+PlayerService.ɵfac = function PlayerService_Factory(t) { return new (t || PlayerService)(); };
+PlayerService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: PlayerService, factory: PlayerService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(PlayerService, [{
+        type: Injectable
+    }], null, null); })();
 
 class StateService {
     constructor(directionService) {
@@ -234,11 +234,11 @@ class StateService {
         return this.sidebarState$.asObservable();
     }
 }
-StateService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StateService, deps: [{ token: i1$1.NbLayoutDirectionService }], target: i0.ɵɵFactoryTarget.Injectable });
-StateService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StateService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: StateService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: i1$1.NbLayoutDirectionService }]; } });
+StateService.ɵfac = function StateService_Factory(t) { return new (t || StateService)(i0.ɵɵinject(i1$1.NbLayoutDirectionService)); };
+StateService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: StateService, factory: StateService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(StateService, [{
+        type: Injectable
+    }], function () { return [{ type: i1$1.NbLayoutDirectionService }]; }, null); })();
 
 class SeoService {
     constructor(router, document, platformId) {
@@ -273,17 +273,17 @@ class SeoService {
         return this.dom.location.origin + this.dom.location.pathname;
     }
 }
-SeoService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SeoService, deps: [{ token: i1.Router }, { token: NB_DOCUMENT }, { token: PLATFORM_ID }], target: i0.ɵɵFactoryTarget.Injectable });
-SeoService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SeoService });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SeoService, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: i1.Router }, { type: undefined, decorators: [{
-                    type: Inject,
-                    args: [NB_DOCUMENT]
-                }] }, { type: undefined, decorators: [{
-                    type: Inject,
-                    args: [PLATFORM_ID]
-                }] }]; } });
+SeoService.ɵfac = function SeoService_Factory(t) { return new (t || SeoService)(i0.ɵɵinject(i1.Router), i0.ɵɵinject(NB_DOCUMENT), i0.ɵɵinject(PLATFORM_ID)); };
+SeoService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: SeoService, factory: SeoService.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SeoService, [{
+        type: Injectable
+    }], function () { return [{ type: i1.Router }, { type: undefined, decorators: [{
+                type: Inject,
+                args: [NB_DOCUMENT]
+            }] }, { type: undefined, decorators: [{
+                type: Inject,
+                args: [PLATFORM_ID]
+            }] }]; }, null); })();
 
 // export interface QUERY_PARAMS {
 //   type:
@@ -365,11 +365,11 @@ class AuthGuard {
         }
     }
 }
-AuthGuard.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AuthGuard, deps: [{ token: i1.Router }], target: i0.ɵɵFactoryTarget.Injectable });
-AuthGuard.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AuthGuard });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AuthGuard, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: i1.Router }]; } });
+AuthGuard.ɵfac = function AuthGuard_Factory(t) { return new (t || AuthGuard)(i0.ɵɵinject(i1.Router)); };
+AuthGuard.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: AuthGuard, factory: AuthGuard.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AuthGuard, [{
+        type: Injectable
+    }], function () { return [{ type: i1.Router }]; }, null); })();
 
 const EXCEL_EXTENSION = ".xlsx";
 const CSV_EXTENSION = ".csv";
@@ -530,14 +530,14 @@ class RestExportService {
         return buf;
     }
 }
-RestExportService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestExportService, deps: [{ token: i1$2.HttpClient }], target: i0.ɵɵFactoryTarget.Injectable });
-RestExportService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestExportService, providedIn: "root" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestExportService, decorators: [{
-            type: Injectable,
-            args: [{
-                    providedIn: "root",
-                }]
-        }], ctorParameters: function () { return [{ type: i1$2.HttpClient }]; } });
+RestExportService.ɵfac = function RestExportService_Factory(t) { return new (t || RestExportService)(i0.ɵɵinject(i1$2.HttpClient)); };
+RestExportService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestExportService, factory: RestExportService.ɵfac, providedIn: "root" });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestExportService, [{
+        type: Injectable,
+        args: [{
+                providedIn: "root",
+            }]
+    }], function () { return [{ type: i1$2.HttpClient }]; }, null); })();
 
 class UploadFileComponent {
     constructor(ref, toastrService) {
@@ -595,20 +595,46 @@ class UploadFileComponent {
         });
     }
 }
-UploadFileComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UploadFileComponent, deps: [{ token: i1$1.NbDialogRef }, { token: i1$1.NbToastrService }], target: i0.ɵɵFactoryTarget.Component });
-UploadFileComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: UploadFileComponent, selector: "ngx-upload-file", inputs: { datas: "datas", title: "title" }, ngImport: i0, template: "<nb-card accent=\"danger\" style=\"width: 370px\">\n  <nb-card-header>{{ title }}</nb-card-header>\n\n  <nb-card-body>\n    <file-upload [control]=\"control\"></file-upload>\n  </nb-card-body>\n\n  <nb-card-footer style=\"display: flex; justify-content: end\">\n    <div class=\"buttons-row\">\n      <button\n        nbButton\n        (click)=\"close()\"\n        status=\"danger\"\n        style=\"margin-right: 10px\"\n      >\n        Annuler\n      </button>\n\n      <button nbButton (click)=\"addDatas()\" status=\"success\">\n        Charger le fichier\n      </button>\n    </div>\n  </nb-card-footer>\n</nb-card>\n", styles: [""], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i2.FileUploadComponent, selector: "file-upload:not([simple])", inputs: ["control", "animation", "multiple"] }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: UploadFileComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: "ngx-upload-file",
-                    templateUrl: "./upload-file.component.html",
-                    styleUrls: ["./upload-file.component.scss"],
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbDialogRef }, { type: i1$1.NbToastrService }]; }, propDecorators: { datas: [{
-                type: Input
-            }], title: [{
-                type: Input
-            }] } });
+UploadFileComponent.ɵfac = function UploadFileComponent_Factory(t) { return new (t || UploadFileComponent)(i0.ɵɵdirectiveInject(i1$1.NbDialogRef), i0.ɵɵdirectiveInject(i1$1.NbToastrService)); };
+UploadFileComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: UploadFileComponent, selectors: [["ngx-upload-file"]], inputs: { datas: "datas", title: "title" }, decls: 11, vars: 2, consts: [["accent", "danger", 2, "width", "370px"], [3, "control"], [2, "display", "flex", "justify-content", "end"], [1, "buttons-row"], ["nbButton", "", "status", "danger", 2, "margin-right", "10px", 3, "click"], ["nbButton", "", "status", "success", 3, "click"]], template: function UploadFileComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "nb-card", 0);
+        i0.ɵɵelementStart(1, "nb-card-header");
+        i0.ɵɵtext(2);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "nb-card-body");
+        i0.ɵɵelement(4, "file-upload", 1);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(5, "nb-card-footer", 2);
+        i0.ɵɵelementStart(6, "div", 3);
+        i0.ɵɵelementStart(7, "button", 4);
+        i0.ɵɵlistener("click", function UploadFileComponent_Template_button_click_7_listener() { return ctx.close(); });
+        i0.ɵɵtext(8, " Annuler ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(9, "button", 5);
+        i0.ɵɵlistener("click", function UploadFileComponent_Template_button_click_9_listener() { return ctx.addDatas(); });
+        i0.ɵɵtext(10, " Charger le fichier ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵtextInterpolate(ctx.title);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("control", ctx.control);
+    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardHeaderComponent, i1$1.NbCardBodyComponent, i2.FileUploadComponent, i1$1.NbCardFooterComponent, i1$1.NbButtonComponent], styles: [""] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(UploadFileComponent, [{
+        type: Component,
+        args: [{
+                selector: "ngx-upload-file",
+                templateUrl: "./upload-file.component.html",
+                styleUrls: ["./upload-file.component.scss"],
+            }]
+    }], function () { return [{ type: i1$1.NbDialogRef }, { type: i1$1.NbToastrService }]; }, { datas: [{
+            type: Input
+        }], title: [{
+            type: Input
+        }] }); })();
 
 class RestLangService {
     constructor(translate, restConfigService) {
@@ -638,34 +664,40 @@ class RestLangService {
         return this.restConfigService.restLanguage;
     }
 }
-RestLangService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestLangService, deps: [{ token: i2$1.TranslateService }, { token: RestAdminConfigService }], target: i0.ɵɵFactoryTarget.Injectable });
-RestLangService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestLangService, providedIn: "root" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestLangService, decorators: [{
-            type: Injectable,
-            args: [{
-                    providedIn: "root",
-                }]
-        }], ctorParameters: function () { return [{ type: i2$1.TranslateService }, { type: RestAdminConfigService }]; } });
+RestLangService.ɵfac = function RestLangService_Factory(t) { return new (t || RestLangService)(i0.ɵɵinject(i1$3.TranslateService), i0.ɵɵinject(RestAdminConfigService)); };
+RestLangService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestLangService, factory: RestLangService.ɵfac, providedIn: "root" });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestLangService, [{
+        type: Injectable,
+        args: [{
+                providedIn: "root",
+            }]
+    }], function () { return [{ type: i1$3.TranslateService }, { type: RestAdminConfigService }]; }, null); })();
 
+function FsIconCComponent_nb_tree_grid_row_toggle_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tree-grid-row-toggle", 2);
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵproperty("expanded", ctx_r0.expanded);
+} }
+function FsIconCComponent_ng_template_1_Template(rf, ctx) { }
 class FsIconCComponent {
     isDir() {
         return this.place == "header-place";
     }
 }
-FsIconCComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FsIconCComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-FsIconCComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: FsIconCComponent, selector: "ngx-fs-icon", inputs: { expanded: "expanded", place: "place" }, ngImport: i0, template: `
-    <nb-tree-grid-row-toggle
-      [expanded]="expanded"
-      *ngIf="isDir(); else fileIcon"
-    >
-    </nb-tree-grid-row-toggle>
-    <ng-template #fileIcon> </ng-template>
-  `, isInline: true, components: [{ type: i1$1.NbTreeGridRowToggleComponent, selector: "nb-tree-grid-row-toggle", inputs: ["expanded"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FsIconCComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: "ngx-fs-icon",
-                    template: `
+FsIconCComponent.ɵfac = function FsIconCComponent_Factory(t) { return new (t || FsIconCComponent)(); };
+FsIconCComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FsIconCComponent, selectors: [["ngx-fs-icon"]], inputs: { expanded: "expanded", place: "place" }, decls: 3, vars: 2, consts: [[3, "expanded", 4, "ngIf", "ngIfElse"], ["fileIcon", ""], [3, "expanded"]], template: function FsIconCComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, FsIconCComponent_nb_tree_grid_row_toggle_0_Template, 1, 1, "nb-tree-grid-row-toggle", 0);
+        i0.ɵɵtemplate(1, FsIconCComponent_ng_template_1_Template, 0, 0, "ng-template", null, 1, i0.ɵɵtemplateRefExtractor);
+    } if (rf & 2) {
+        const _r1 = i0.ɵɵreference(2);
+        i0.ɵɵproperty("ngIf", ctx.isDir())("ngIfElse", _r1);
+    } }, directives: [i10.NgIf, i1$1.NbTreeGridRowToggleComponent], encapsulation: 2 });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FsIconCComponent, [{
+        type: Component,
+        args: [{
+                selector: "ngx-fs-icon",
+                template: `
     <nb-tree-grid-row-toggle
       [expanded]="expanded"
       *ngIf="isDir(); else fileIcon"
@@ -673,13 +705,458 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
     </nb-tree-grid-row-toggle>
     <ng-template #fileIcon> </ng-template>
   `,
-                }]
-        }], propDecorators: { expanded: [{
-                type: Input
-            }], place: [{
-                type: Input
-            }] } });
+            }]
+    }], null, { expanded: [{
+            type: Input
+        }], place: [{
+            type: Input
+        }] }); })();
 
+function RestResourceListFieldComponent_div_0_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r12 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r12.val, "");
+} }
+function RestResourceListFieldComponent_div_0_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r13 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r13.restField.template)("componentClass", ctx_r13.val);
+} }
+function RestResourceListFieldComponent_div_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_0_ng_container_1_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_0_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r0.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.restField.template);
+} }
+function RestResourceListFieldComponent_div_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "nb-checkbox", 5);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r14 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("checked", ctx_r14.val)("disabled", true);
+} }
+function RestResourceListFieldComponent_div_1_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r15 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r15.restField.template)("componentClass", ctx_r15.val);
+} }
+function RestResourceListFieldComponent_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 4);
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_1_ng_container_1_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_1_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r1.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r1.restField.template);
+} }
+function RestResourceListFieldComponent_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 6);
+    i0.ɵɵelementContainerStart(1, 7);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelement(3, "input", 8);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(ctx_r2.val);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("placeholder", ctx_r2.val)("value", ctx_r2.val);
+} }
+function RestResourceListFieldComponent_div_3_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "img", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r16 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(ctx_r16.style);
+    i0.ɵɵproperty("src", ctx_r16.val, i0.ɵɵsanitizeUrl);
+} }
+function RestResourceListFieldComponent_div_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r17 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r17.restField.template)("componentClass", ctx_r17.val);
+} }
+function RestResourceListFieldComponent_div_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 4);
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_3_ng_container_1_Template, 2, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r3.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r3.restField.template);
+} }
+function RestResourceListFieldComponent_div_4_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r18 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r18.val, "");
+} }
+function RestResourceListFieldComponent_div_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r19 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r19.restField.template)("componentClass", ctx_r19.val);
+} }
+function RestResourceListFieldComponent_div_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_4_ng_container_1_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_4_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r4.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r4.restField.template);
+} }
+function RestResourceListFieldComponent_div_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r20 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r20.val, "");
+} }
+function RestResourceListFieldComponent_div_5_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r21 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r21.restField.template)("componentClass", ctx_r21.val);
+} }
+function RestResourceListFieldComponent_div_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_5_ng_container_1_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_5_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r5 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r5.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r5.restField.template);
+} }
+function RestResourceListFieldComponent_div_6_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r22 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r22.val, "");
+} }
+function RestResourceListFieldComponent_div_6_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r23 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r23.restField.template)("componentClass", ctx_r23.val);
+} }
+function RestResourceListFieldComponent_div_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_6_ng_container_1_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_6_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r6 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r6.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r6.restField.template);
+} }
+function RestResourceListFieldComponent_div_7_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r24 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r24.jsonValue, "");
+} }
+function RestResourceListFieldComponent_div_7_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r25 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r25.restField.template)("componentClass", ctx_r25.jsonValue);
+} }
+function RestResourceListFieldComponent_div_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_7_ng_container_1_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_7_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r7 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r7.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r7.restField.template);
+} }
+function RestResourceListFieldComponent_div_8_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r26 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r26.val, "");
+} }
+function RestResourceListFieldComponent_div_8_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r27 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r27.restField.template)("componentClass", ctx_r27.val);
+} }
+function RestResourceListFieldComponent_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_8_ng_container_1_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_8_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r8 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r8.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r8.restField.template);
+} }
+function RestResourceListFieldComponent_div_9_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 14);
+} }
+function RestResourceListFieldComponent_div_9_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r31 = i0.ɵɵnextContext().$implicit;
+    const ctx_r32 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", row_r31.data[ctx_r32.customColumn], " ");
+} }
+function RestResourceListFieldComponent_div_9_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r35 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(ctx_r35.restField.name);
+} }
+function RestResourceListFieldComponent_div_9_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r31 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r36 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r36.restField.metaData.listConfig.restManyResources.template)("componentClass", row_r31.data.item);
+} }
+function RestResourceListFieldComponent_div_9_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_9_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_9_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r31 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r31.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r31.data.place);
+} }
+function RestResourceListFieldComponent_div_9_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 15);
+    i0.ɵɵelement(1, "ngx-fs-icon", 16);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_9_td_4_ng_container_2_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceListFieldComponent_div_9_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r31 = ctx.$implicit;
+    const ctx_r29 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r31.expanded)("place", row_r31.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(ctx_r29.restField == null ? null : ctx_r29.restField.metaData == null ? null : ctx_r29.restField.metaData.listConfig == null ? null : ctx_r29.restField.metaData.listConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r29.restField == null ? null : ctx_r29.restField.metaData == null ? null : ctx_r29.restField.metaData.listConfig == null ? null : ctx_r29.restField.metaData.listConfig.restManyResources.template);
+} }
+function RestResourceListFieldComponent_div_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelementStart(1, "table", 10);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_9_tr_2_Template, 1, 0, "tr", 11);
+    i0.ɵɵelementContainerStart(3, 12);
+    i0.ɵɵtemplate(4, RestResourceListFieldComponent_div_9_td_4_Template, 4, 4, "td", 13);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r9 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r9.dataSource);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r9.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r9.customColumn);
+} }
+function RestResourceListFieldComponent_div_10_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 14);
+} }
+function RestResourceListFieldComponent_div_10_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r42 = i0.ɵɵnextContext().$implicit;
+    const ctx_r43 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", row_r42.data[ctx_r43.customColumn], " ");
+} }
+function RestResourceListFieldComponent_div_10_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r46 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(ctx_r46.restField.name);
+} }
+function RestResourceListFieldComponent_div_10_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r42 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r47 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r47.restField.metaData.listConfig.restBelongToManyResources.template)("componentClass", row_r42.data.item);
+} }
+function RestResourceListFieldComponent_div_10_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_10_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_10_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r42 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r42.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r42.data.place);
+} }
+function RestResourceListFieldComponent_div_10_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 15);
+    i0.ɵɵelement(1, "ngx-fs-icon", 16);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_10_td_4_ng_container_2_Template, 2, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceListFieldComponent_div_10_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r42 = ctx.$implicit;
+    const ctx_r40 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r42.expanded)("place", row_r42.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r40.restField.metaData.listConfig.restBelongToManyResources.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r40.restField.metaData.listConfig.restBelongToManyResources.template);
+} }
+function RestResourceListFieldComponent_div_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelementStart(1, "table", 10);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_10_tr_2_Template, 1, 0, "tr", 11);
+    i0.ɵɵelementContainerStart(3, 12);
+    i0.ɵɵtemplate(4, RestResourceListFieldComponent_div_10_td_4_Template, 4, 4, "td", 13);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r10 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r10.dataSource);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r10.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r10.customColumn);
+} }
+function RestResourceListFieldComponent_div_11_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "a", 17);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r50 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("href", ctx_r50.val, i0.ɵɵsanitizeUrl);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(ctx_r50.val);
+} }
+function RestResourceListFieldComponent_div_11_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 3);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r51 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", ctx_r51.restField.template)("componentClass", ctx_r51.val);
+} }
+function RestResourceListFieldComponent_div_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_11_ng_container_1_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_11_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r11 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r11.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r11.restField.template);
+} }
 class RestResourceListFieldComponent {
     constructor(dataSourceBuilder, langService) {
         this.dataSourceBuilder = dataSourceBuilder;
@@ -804,20 +1281,57 @@ class RestResourceListFieldComponent {
         return this._jsonValue;
     }
 }
-RestResourceListFieldComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListFieldComponent, deps: [{ token: i1$1.NbTreeGridDataSourceBuilder }, { token: RestLangService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceListFieldComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListFieldComponent, selector: "ngx-rest-resource-list-field", inputs: { value: "value", rowData: "rowData" }, ngImport: i0, template: "<div\n  *ngIf=\"\n    restField.type == REST_FIELD_TYPES.TEXT ||\n    restField.type == REST_FIELD_TYPES.STRING ||\n    restField.type == REST_FIELD_TYPES.NUMBER ||\n    restField.type == REST_FIELD_TYPES.ENUM\n  \"\n>\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BOOLEAN\" class=\"text-center\">\n  <ng-container *ngIf=\"!restField.template\">\n    <nb-checkbox [checked]=\"val\" [disabled]=\"true\"></nb-checkbox>\n  </ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div\n  *ngIf=\"restField.type == REST_FIELD_TYPES.COLOR\"\n  style=\"height: 50px; display: flex\"\n>\n  <ng-container style=\"align-self: center\">{{ val }}</ng-container>\n  <input\n    style=\"height: 45px; width: 80px; margin-left: 5px\"\n    disabled=\"true\"\n    [placeholder]=\"val\"\n    [value]=\"val\"\n    type=\"color\"\n  />\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.IMAGE\" class=\"text-center\">\n  <ng-container *ngIf=\"!restField.template\">\n    <img class=\"rest-img\" [src]=\"val\" alt=\"\" [style]=\"style\"\n  /></ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.HAS_ONE\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BELONG_TO\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.MORPH\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.JSON\">\n  <ng-container *ngIf=\"!restField.template\"> {{ jsonValue }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler\n      [template]=\"restField.template\"\n      [componentClass]=\"jsonValue\"\n    >\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.DATE\">\n  <ng-container *ngIf=\"!restField.template\"> {{ val }}</ng-container>\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.HAS_MANY\">\n  <table [nbTreeGrid]=\"dataSource\">\n    <tr nbTreeGridRow *nbTreeGridRowDef=\"let row; columns: allColumns\"></tr>\n\n    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n        <ngx-fs-icon\n          [expanded]=\"row.expanded\"\n          [place]=\"row.data.place\"\n        ></ngx-fs-icon>\n        <ng-container\n          *ngIf=\"!restField?.metaData?.listConfig?.restManyResources.template\"\n        >\n          {{ row.data[customColumn] }}\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"restField?.metaData?.listConfig?.restManyResources.template\"\n        >\n          <span *ngIf=\"row.data.place\">{{ restField.name }}</span>\n          <ng-container *ngIf=\"!row.data.place\">\n            <cng-html-compiler\n              [template]=\"\n                restField.metaData.listConfig.restManyResources.template\n              \"\n              [componentClass]=\"row.data.item\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n      </td>\n    </ng-container>\n  </table>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\">\n  <table [nbTreeGrid]=\"dataSource\">\n    <tr nbTreeGridRow *nbTreeGridRowDef=\"let row; columns: allColumns\"></tr>\n\n    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n        <ngx-fs-icon\n          [expanded]=\"row.expanded\"\n          [place]=\"row.data.place\"\n        ></ngx-fs-icon>\n        <ng-container\n          *ngIf=\"\n            !restField.metaData.listConfig.restBelongToManyResources.template\n          \"\n        >\n          {{ row.data[customColumn] }}\n        </ng-container>\n\n        <ng-container\n          *ngIf=\"\n            restField.metaData.listConfig.restBelongToManyResources.template\n          \"\n        >\n          <span *ngIf=\"row.data.place\">{{ restField.name }}</span>\n          <ng-container *ngIf=\"!row.data.place\">\n            <cng-html-compiler\n              [template]=\"\n                restField.metaData.listConfig.restBelongToManyResources.template\n              \"\n              [componentClass]=\"row.data.item\"\n            >\n            </cng-html-compiler>\n          </ng-container>\n        </ng-container>\n      </td>\n    </ng-container>\n  </table>\n</div>\n\n<div *ngIf=\"restField.type == REST_FIELD_TYPES.LINK\">\n  <ng-container *ngIf=\"!restField.template\">\n    <a [href]=\"val\" target=\"_blank\" rel=\"noopener noreferrer\">{{ val }}</a>\n  </ng-container>\n\n  <ng-container *ngIf=\"restField.template\">\n    <cng-html-compiler [template]=\"restField.template\" [componentClass]=\"val\">\n    </cng-html-compiler>\n  </ng-container>\n</div>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.rest-img{max-width:100px}.nb-theme-default :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-default :host .search-label{display:block}.nb-theme-default :host .search-input{margin-bottom:1rem}.nb-theme-default :host .nb-column-name{width:100%}.nb-theme-default :host ::ng-deep .row-toggle-button{color:#222b45}.nb-theme-default :host .nb-tree-grid-header-cell,.nb-theme-default :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-default :host .nb-column-name,.nb-theme-default :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-default :host .nb-column-name,.nb-theme-default :host .nb-column-size,.nb-theme-default :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-default :host .nb-column-name{width:31%}.nb-theme-default :host .nb-column-size,.nb-theme-default :host .nb-column-kind,.nb-theme-default :host .nb-column-items{width:23%}}.nb-theme-dark :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-dark :host .search-label{display:block}.nb-theme-dark :host .search-input{margin-bottom:1rem}.nb-theme-dark :host .nb-column-name{width:100%}.nb-theme-dark :host ::ng-deep .row-toggle-button{color:#fff}.nb-theme-dark :host .nb-tree-grid-header-cell,.nb-theme-dark :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-dark :host .nb-column-name,.nb-theme-dark :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-dark :host .nb-column-name,.nb-theme-dark :host .nb-column-size,.nb-theme-dark :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-dark :host .nb-column-name{width:31%}.nb-theme-dark :host .nb-column-size,.nb-theme-dark :host .nb-column-kind,.nb-theme-dark :host .nb-column-items{width:23%}}.nb-theme-cosmic :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-cosmic :host .search-label{display:block}.nb-theme-cosmic :host .search-input{margin-bottom:1rem}.nb-theme-cosmic :host .nb-column-name{width:100%}.nb-theme-cosmic :host ::ng-deep .row-toggle-button{color:#fff}.nb-theme-cosmic :host .nb-tree-grid-header-cell,.nb-theme-cosmic :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-cosmic :host .nb-column-name,.nb-theme-cosmic :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-cosmic :host .nb-column-name,.nb-theme-cosmic :host .nb-column-size,.nb-theme-cosmic :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-cosmic :host .nb-column-name{width:31%}.nb-theme-cosmic :host .nb-column-size,.nb-theme-cosmic :host .nb-column-kind,.nb-theme-cosmic :host .nb-column-items{width:23%}}.nb-theme-corporate :host button[nbTreeGridRowToggle]{background:transparent;border:none;padding:0}.nb-theme-corporate :host .search-label{display:block}.nb-theme-corporate :host .search-input{margin-bottom:1rem}.nb-theme-corporate :host .nb-column-name{width:100%}.nb-theme-corporate :host ::ng-deep .row-toggle-button{color:#222b45}.nb-theme-corporate :host .nb-tree-grid-header-cell,.nb-theme-corporate :host .nb-tree-grid-header-cell button{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-corporate :host .nb-column-name,.nb-theme-corporate :host .nb-column-size{width:50%}}@media screen and (min-width: 500px){.nb-theme-corporate :host .nb-column-name,.nb-theme-corporate :host .nb-column-size,.nb-theme-corporate :host .nb-column-kind{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-corporate :host .nb-column-name{width:31%}.nb-theme-corporate :host .nb-column-size,.nb-theme-corporate :host .nb-column-kind,.nb-theme-corporate :host .nb-column-items{width:23%}}*{cursor:pointer}\n"], components: [{ type: i3.CngHtmlCompilerComponent, selector: "cng-html-compiler", inputs: ["template", "componentClass", "imports"] }, { type: i1$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1$1.NbTreeGridComponent, selector: "table[nbTreeGrid]", inputs: ["levelPadding", "nbTreeGrid", "equalColumnsWidth"] }, { type: i1$1.NbTreeGridRowComponent, selector: "tr[nbTreeGridRow]", inputs: ["doubleClickDelay", "clickToToggle"] }, { type: FsIconCComponent, selector: "ngx-fs-icon", inputs: ["expanded", "place"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$1.NbTreeGridRowDefDirective, selector: "[nbTreeGridRowDef]", inputs: ["nbTreeGridRowDefColumns"] }, { type: i1$1.NbTreeGridColumnDefDirective, selector: "[nbTreeGridColumnDef]", inputs: ["nbTreeGridColumnDef", "hideOn", "showOn"] }, { type: i1$1.NbTreeGridCellDefDirective, selector: "[nbTreeGridCellDef]" }, { type: i1$1.NbTreeGridCellDirective, selector: "td[nbTreeGridCell]" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListFieldComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-rest-resource-list-field',
-                    templateUrl: './rest.resource-list-field.component.html',
-                    styleUrls: ['./rest.resource-list-field.component.scss'],
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, propDecorators: { value: [{
-                type: Input
-            }], rowData: [{
-                type: Input
-            }] } });
+RestResourceListFieldComponent.ɵfac = function RestResourceListFieldComponent_Factory(t) { return new (t || RestResourceListFieldComponent)(i0.ɵɵdirectiveInject(i1$1.NbTreeGridDataSourceBuilder), i0.ɵɵdirectiveInject(RestLangService)); };
+RestResourceListFieldComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceListFieldComponent, selectors: [["ngx-rest-resource-list-field"]], inputs: { value: "value", rowData: "rowData" }, decls: 12, vars: 12, consts: [[4, "ngIf"], ["class", "text-center", 4, "ngIf"], ["style", "height: 50px; display: flex", 4, "ngIf"], [3, "template", "componentClass"], [1, "text-center"], [3, "checked", "disabled"], [2, "height", "50px", "display", "flex"], [2, "align-self", "center"], ["disabled", "true", "type", "color", 2, "height", "45px", "width", "80px", "margin-left", "5px", 3, "placeholder", "value"], ["alt", "", 1, "rest-img", 3, "src"], [3, "nbTreeGrid"], ["nbTreeGridRow", "", 4, "nbTreeGridRowDef", "nbTreeGridRowDefColumns"], [3, "nbTreeGridColumnDef"], ["nbTreeGridCell", "", 4, "nbTreeGridCellDef"], ["nbTreeGridRow", ""], ["nbTreeGridCell", ""], [3, "expanded", "place"], ["target", "_blank", "rel", "noopener noreferrer", 3, "href"]], template: function RestResourceListFieldComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, RestResourceListFieldComponent_div_0_Template, 3, 2, "div", 0);
+        i0.ɵɵtemplate(1, RestResourceListFieldComponent_div_1_Template, 3, 2, "div", 1);
+        i0.ɵɵtemplate(2, RestResourceListFieldComponent_div_2_Template, 4, 3, "div", 2);
+        i0.ɵɵtemplate(3, RestResourceListFieldComponent_div_3_Template, 3, 2, "div", 1);
+        i0.ɵɵtemplate(4, RestResourceListFieldComponent_div_4_Template, 3, 2, "div", 0);
+        i0.ɵɵtemplate(5, RestResourceListFieldComponent_div_5_Template, 3, 2, "div", 0);
+        i0.ɵɵtemplate(6, RestResourceListFieldComponent_div_6_Template, 3, 2, "div", 0);
+        i0.ɵɵtemplate(7, RestResourceListFieldComponent_div_7_Template, 3, 2, "div", 0);
+        i0.ɵɵtemplate(8, RestResourceListFieldComponent_div_8_Template, 3, 2, "div", 0);
+        i0.ɵɵtemplate(9, RestResourceListFieldComponent_div_9_Template, 5, 3, "div", 0);
+        i0.ɵɵtemplate(10, RestResourceListFieldComponent_div_10_Template, 5, 3, "div", 0);
+        i0.ɵɵtemplate(11, RestResourceListFieldComponent_div_11_Template, 3, 2, "div", 0);
+    } if (rf & 2) {
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.TEXT || ctx.restField.type == ctx.REST_FIELD_TYPES.STRING || ctx.restField.type == ctx.REST_FIELD_TYPES.NUMBER || ctx.restField.type == ctx.REST_FIELD_TYPES.ENUM);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.BOOLEAN);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.COLOR);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.IMAGE);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.HAS_ONE);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.BELONG_TO);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.MORPH);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.JSON);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.DATE);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.HAS_MANY);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.BELONG_TO_MANY);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.restField.type == ctx.REST_FIELD_TYPES.LINK);
+    } }, directives: [i10.NgIf, i4.CngHtmlCompilerComponent, i1$1.NbCheckboxComponent, i1$1.NbTreeGridComponent, i1$1.NbTreeGridRowDefDirective, i1$1.NbTreeGridColumnDefDirective, i1$1.NbTreeGridCellDefDirective, i1$1.NbTreeGridRowComponent, i1$1.NbTreeGridCellDirective, FsIconCComponent], styles: ["@use \"@nebular/theme/styles/themes/default\";.rest-img[_ngcontent-%COMP%]{max-width:100px}.nb-theme-default   [_nghost-%COMP%]   button[nbTreeGridRowToggle][_ngcontent-%COMP%]{background:transparent;border:none;padding:0}.nb-theme-default   [_nghost-%COMP%]   .search-label[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   .search-input[_ngcontent-%COMP%]{margin-bottom:1rem}.nb-theme-default   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:100%}.nb-theme-default   [_nghost-%COMP%]     .row-toggle-button{color:#222b45}.nb-theme-default   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%], .nb-theme-default   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-default   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-default   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%]{width:50%}}@media screen and (min-width: 500px){.nb-theme-default   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-default   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-default   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%]{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-default   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:31%}.nb-theme-default   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-default   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%], .nb-theme-default   [_nghost-%COMP%]   .nb-column-items[_ngcontent-%COMP%]{width:23%}}.nb-theme-dark   [_nghost-%COMP%]   button[nbTreeGridRowToggle][_ngcontent-%COMP%]{background:transparent;border:none;padding:0}.nb-theme-dark   [_nghost-%COMP%]   .search-label[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   .search-input[_ngcontent-%COMP%]{margin-bottom:1rem}.nb-theme-dark   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:100%}.nb-theme-dark   [_nghost-%COMP%]     .row-toggle-button{color:#fff}.nb-theme-dark   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%], .nb-theme-dark   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-dark   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-dark   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%]{width:50%}}@media screen and (min-width: 500px){.nb-theme-dark   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-dark   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-dark   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%]{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-dark   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:31%}.nb-theme-dark   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-dark   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%], .nb-theme-dark   [_nghost-%COMP%]   .nb-column-items[_ngcontent-%COMP%]{width:23%}}.nb-theme-cosmic   [_nghost-%COMP%]   button[nbTreeGridRowToggle][_ngcontent-%COMP%]{background:transparent;border:none;padding:0}.nb-theme-cosmic   [_nghost-%COMP%]   .search-label[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   .search-input[_ngcontent-%COMP%]{margin-bottom:1rem}.nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:100%}.nb-theme-cosmic   [_nghost-%COMP%]     .row-toggle-button{color:#fff}.nb-theme-cosmic   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%], .nb-theme-cosmic   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%]{width:50%}}@media screen and (min-width: 500px){.nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%]{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:31%}.nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%], .nb-theme-cosmic   [_nghost-%COMP%]   .nb-column-items[_ngcontent-%COMP%]{width:23%}}.nb-theme-corporate   [_nghost-%COMP%]   button[nbTreeGridRowToggle][_ngcontent-%COMP%]{background:transparent;border:none;padding:0}.nb-theme-corporate   [_nghost-%COMP%]   .search-label[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   .search-input[_ngcontent-%COMP%]{margin-bottom:1rem}.nb-theme-corporate   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:100%}.nb-theme-corporate   [_nghost-%COMP%]     .row-toggle-button{color:#222b45}.nb-theme-corporate   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%], .nb-theme-corporate   [_nghost-%COMP%]   .nb-tree-grid-header-cell[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{text-transform:capitalize}@media screen and (min-width: 400px){.nb-theme-corporate   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-corporate   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%]{width:50%}}@media screen and (min-width: 500px){.nb-theme-corporate   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%], .nb-theme-corporate   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-corporate   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%]{width:33.333%}}@media screen and (min-width: 600px){.nb-theme-corporate   [_nghost-%COMP%]   .nb-column-name[_ngcontent-%COMP%]{width:31%}.nb-theme-corporate   [_nghost-%COMP%]   .nb-column-size[_ngcontent-%COMP%], .nb-theme-corporate   [_nghost-%COMP%]   .nb-column-kind[_ngcontent-%COMP%], .nb-theme-corporate   [_nghost-%COMP%]   .nb-column-items[_ngcontent-%COMP%]{width:23%}}*[_ngcontent-%COMP%]{cursor:pointer}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceListFieldComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-rest-resource-list-field',
+                templateUrl: './rest.resource-list-field.component.html',
+                styleUrls: ['./rest.resource-list-field.component.scss'],
+            }]
+    }], function () { return [{ type: i1$1.NbTreeGridDataSourceBuilder }, { type: RestLangService }]; }, { value: [{
+            type: Input
+        }], rowData: [{
+            type: Input
+        }] }); })();
 
 const FILTER_OPERATORS = [
     {
@@ -879,15 +1393,432 @@ class RestResourceService {
         return headers;
     }
 }
-RestResourceService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceService, deps: [{ token: i1$2.HttpClient }, { token: RestAdminConfigService }], target: i0.ɵɵFactoryTarget.Injectable });
-RestResourceService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceService, providedIn: "root" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceService, decorators: [{
-            type: Injectable,
-            args: [{
-                    providedIn: "root",
-                }]
-        }], ctorParameters: function () { return [{ type: i1$2.HttpClient }, { type: RestAdminConfigService }]; } });
+RestResourceService.ɵfac = function RestResourceService_Factory(t) { return new (t || RestResourceService)(i0.ɵɵinject(i1$2.HttpClient), i0.ɵɵinject(RestAdminConfigService)); };
+RestResourceService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestResourceService, factory: RestResourceService.ɵfac, providedIn: "root" });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceService, [{
+        type: Injectable,
+        args: [{
+                providedIn: "root",
+            }]
+    }], function () { return [{ type: i1$2.HttpClient }, { type: RestAdminConfigService }]; }, null); })();
 
+const _c0$8 = ["autoInput"];
+const _c1$5 = ["autoInputBelongToMany"];
+function RestResourceEditorFieldsComponent_ng_container_0_input_1_Template(rf, ctx) { if (rf & 1) {
+    const _r20 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 10);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_input_1_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r20); const ctx_r19 = i0.ɵɵnextContext(2); return ctx_r19.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_input_1_Template_input_click_0_listener($event) { i0.ɵɵrestoreView(_r20); const ctx_r21 = i0.ɵɵnextContext(2); return ctx_r21.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_input_1_Template_input_keydown_enter_0_listener($event) { i0.ɵɵrestoreView(_r20); const ctx_r22 = i0.ɵɵnextContext(2); return ctx_r22.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_input_1_Template_input_keydown_esc_0_listener() { i0.ɵɵrestoreView(_r20); const ctx_r23 = i0.ɵɵnextContext(2); return ctx_r23.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("ngModel", ctx_r1.cell.newValue)("name", ctx_r1.cell.getId())("placeholder", ctx_r1.cell.getTitle())("disabled", !ctx_r1.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_input_2_Template(rf, ctx) { if (rf & 1) {
+    const _r25 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 10);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_input_2_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r25); const ctx_r24 = i0.ɵɵnextContext(2); return ctx_r24.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_input_2_Template_input_click_0_listener($event) { i0.ɵɵrestoreView(_r25); const ctx_r26 = i0.ɵɵnextContext(2); return ctx_r26.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_input_2_Template_input_keydown_enter_0_listener($event) { i0.ɵɵrestoreView(_r25); const ctx_r27 = i0.ɵɵnextContext(2); return ctx_r27.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_input_2_Template_input_keydown_esc_0_listener() { i0.ɵɵrestoreView(_r25); const ctx_r28 = i0.ɵɵnextContext(2); return ctx_r28.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("ngModel", ctx_r2.cell.newValue)("name", ctx_r2.cell.getId())("placeholder", ctx_r2.cell.getTitle())("disabled", !ctx_r2.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_textarea_3_Template(rf, ctx) { if (rf & 1) {
+    const _r30 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "textarea", 11);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_textarea_3_Template_textarea_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r30); const ctx_r29 = i0.ɵɵnextContext(2); return ctx_r29.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_textarea_3_Template_textarea_click_0_listener($event) { i0.ɵɵrestoreView(_r30); const ctx_r31 = i0.ɵɵnextContext(2); return ctx_r31.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_textarea_3_Template_textarea_keydown_enter_0_listener($event) { i0.ɵɵrestoreView(_r30); const ctx_r32 = i0.ɵɵnextContext(2); return ctx_r32.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_textarea_3_Template_textarea_keydown_esc_0_listener() { i0.ɵɵrestoreView(_r30); const ctx_r33 = i0.ɵɵnextContext(2); return ctx_r33.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("ngModel", ctx_r3.cell.newValue)("name", ctx_r3.cell.getId())("placeholder", ctx_r3.cell.getTitle())("disabled", !ctx_r3.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_input_4_Template(rf, ctx) { if (rf & 1) {
+    const _r35 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 12);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_input_4_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r35); const ctx_r34 = i0.ɵɵnextContext(2); return ctx_r34.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_input_4_Template_input_click_0_listener($event) { i0.ɵɵrestoreView(_r35); const ctx_r36 = i0.ɵɵnextContext(2); return ctx_r36.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_input_4_Template_input_keydown_enter_0_listener($event) { i0.ɵɵrestoreView(_r35); const ctx_r37 = i0.ɵɵnextContext(2); return ctx_r37.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_input_4_Template_input_keydown_esc_0_listener() { i0.ɵɵrestoreView(_r35); const ctx_r38 = i0.ɵɵnextContext(2); return ctx_r38.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("ngModel", ctx_r4.cell.newValue)("name", ctx_r4.cell.getId())("placeholder", ctx_r4.cell.getTitle())("disabled", !ctx_r4.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_input_5_Template(rf, ctx) { if (rf & 1) {
+    const _r40 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 13);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_input_5_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r40); const ctx_r39 = i0.ɵɵnextContext(2); return ctx_r39.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_input_5_Template_input_click_0_listener($event) { i0.ɵɵrestoreView(_r40); const ctx_r41 = i0.ɵɵnextContext(2); return ctx_r41.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_input_5_Template_input_keydown_enter_0_listener($event) { i0.ɵɵrestoreView(_r40); const ctx_r42 = i0.ɵɵnextContext(2); return ctx_r42.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_input_5_Template_input_keydown_esc_0_listener() { i0.ɵɵrestoreView(_r40); const ctx_r43 = i0.ɵɵnextContext(2); return ctx_r43.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r5 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("ngModel", ctx_r5.cell.newValue)("name", ctx_r5.cell.getId())("placeholder", ctx_r5.cell.getTitle())("disabled", !ctx_r5.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_div_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "div", 14);
+} if (rf & 2) {
+    const ctx_r6 = i0.ɵɵnextContext(2);
+    i0.ɵɵstyleProp("background-color", ctx_r6.cell.newValue);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_input_7_Template(rf, ctx) { if (rf & 1) {
+    const _r45 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 15);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_input_7_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r45); const ctx_r44 = i0.ɵɵnextContext(2); return ctx_r44.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_input_7_Template_input_click_0_listener($event) { i0.ɵɵrestoreView(_r45); const ctx_r46 = i0.ɵɵnextContext(2); return ctx_r46.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_input_7_Template_input_keydown_enter_0_listener($event) { i0.ɵɵrestoreView(_r45); const ctx_r47 = i0.ɵɵnextContext(2); return ctx_r47.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_input_7_Template_input_keydown_esc_0_listener() { i0.ɵɵrestoreView(_r45); const ctx_r48 = i0.ɵɵnextContext(2); return ctx_r48.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵnextContext();
+    const _r8 = i0.ɵɵreference(9);
+    const ctx_r7 = i0.ɵɵnextContext();
+    i0.ɵɵproperty("nbDatepicker", _r8)("ngModel", ctx_r7.cell.newValue)("name", ctx_r7.cell.getId())("placeholder", ctx_r7.cell.getTitle())("disabled", !ctx_r7.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_10_Template(rf, ctx) { if (rf & 1) {
+    const _r51 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "input", 16);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_10_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r51); const ctx_r50 = i0.ɵɵnextContext(2); return ctx_r50.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_10_Template_input_click_1_listener($event) { i0.ɵɵrestoreView(_r51); const ctx_r52 = i0.ɵɵnextContext(2); return ctx_r52.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_10_Template_input_keydown_enter_1_listener($event) { i0.ɵɵrestoreView(_r51); const ctx_r53 = i0.ɵɵnextContext(2); return ctx_r53.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_10_Template_input_keydown_esc_1_listener() { i0.ɵɵrestoreView(_r51); const ctx_r54 = i0.ɵɵnextContext(2); return ctx_r54.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(2, "nb-date-timepicker", 17, 18);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r49 = i0.ɵɵreference(3);
+    const ctx_r9 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbDatepicker", _r49)("ngModel", ctx_r9.cell.newValue)("name", ctx_r9.cell.getId())("placeholder", ctx_r9.cell.getTitle())("disabled", !ctx_r9.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_11_Template(rf, ctx) { if (rf & 1) {
+    const _r57 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "input", 19);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_11_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r57); const ctx_r56 = i0.ɵɵnextContext(2); return ctx_r56.cell.newValue = $event; })("click", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_11_Template_input_click_1_listener($event) { i0.ɵɵrestoreView(_r57); const ctx_r58 = i0.ɵɵnextContext(2); return ctx_r58.onClick.emit($event); })("keydown.enter", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_11_Template_input_keydown_enter_1_listener($event) { i0.ɵɵrestoreView(_r57); const ctx_r59 = i0.ɵɵnextContext(2); return ctx_r59.onEdited.emit($event); })("keydown.esc", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_11_Template_input_keydown_esc_1_listener() { i0.ɵɵrestoreView(_r57); const ctx_r60 = i0.ɵɵnextContext(2); return ctx_r60.onStopEditing.emit(); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(2, "nb-timepicker", null, 20);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r55 = i0.ɵɵreference(3);
+    const ctx_r10 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTimepicker", _r55)("ngModel", ctx_r10.cell.newValue)("name", ctx_r10.cell.getId())("placeholder", ctx_r10.cell.getTitle())("disabled", !ctx_r10.cell.isEditable());
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_nb_select_12_nb_option_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 23);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r62 = ctx.$implicit;
+    i0.ɵɵproperty("value", option_r62.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(option_r62.label);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_nb_select_12_Template(rf, ctx) { if (rf & 1) {
+    const _r64 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "nb-select", 21);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_nb_select_12_Template_nb_select_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r64); const ctx_r63 = i0.ɵɵnextContext(2); return ctx_r63.cell.newValue = $event; })("change", function RestResourceEditorFieldsComponent_ng_container_0_nb_select_12_Template_nb_select_change_0_listener($event) { i0.ɵɵrestoreView(_r64); const ctx_r65 = i0.ɵɵnextContext(2); return ctx_r65.onClick.emit($event); });
+    i0.ɵɵtemplate(1, RestResourceEditorFieldsComponent_ng_container_0_nb_select_12_nb_option_1_Template, 2, 2, "nb-option", 22);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r11 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("ngModel", ctx_r11.cell.newValue)("name", ctx_r11.cell.getId());
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r11.field.metaData.addConfig.enumOptions);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_div_13_Template(rf, ctx) { if (rf & 1) {
+    const _r67 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 24);
+    i0.ɵɵelementStart(1, "nb-toggle", 25);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_div_13_Template_nb_toggle_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r67); const ctx_r66 = i0.ɵɵnextContext(2); return ctx_r66.cell.newValue = $event; });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r12 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("name", ctx_r12.cell.getId())("ngModel", ctx_r12.cell.newValue);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_14_Template(rf, ctx) { if (rf & 1) {
+    const _r69 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "file-upload", 26);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_14_Template_file_upload_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r69); const ctx_r68 = i0.ɵɵnextContext(2); return ctx_r68.cell.newValue = $event; });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r13 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngModel", ctx_r13.cell.newValue)("name", ctx_r13.field.label);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_15_Template(rf, ctx) { if (rf & 1) {
+    const _r71 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "file-upload", 26);
+    i0.ɵɵlistener("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_15_Template_file_upload_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r71); const ctx_r70 = i0.ɵɵnextContext(2); return ctx_r70.cell.newValue = $event; });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(2, "object", 27);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r14 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngModel", ctx_r14.cell.newValue)("name", ctx_r14.field.label);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("data", ctx_r14.cell.newValue[0], i0.ɵɵsanitizeResourceUrl);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_div_0_ng_container_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2, "Drag and drop");
+    i0.ɵɵelementEnd();
+    i0.ɵɵtext(3, " files");
+    i0.ɵɵelement(4, "br");
+    i0.ɵɵtext(5, " or click here ");
+    i0.ɵɵelementContainerEnd();
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_div_0_ng_template_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "b");
+    i0.ɵɵtext(1, "Click here");
+    i0.ɵɵelementEnd();
+    i0.ɵɵtext(2, " to");
+    i0.ɵɵelement(3, "br");
+    i0.ɵɵtext(4, " choose a files ");
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_div_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵnamespaceSVG();
+    i0.ɵɵelementStart(1, "svg", 32);
+    i0.ɵɵelement(2, "path", 33);
+    i0.ɵɵelementEnd();
+    i0.ɵɵnamespaceHTML();
+    i0.ɵɵelementStart(3, "div", 34);
+    i0.ɵɵtemplate(4, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_div_0_ng_container_4_Template, 6, 0, "ng-container", 35);
+    i0.ɵɵtemplate(5, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_div_0_ng_template_5_Template, 5, 0, "ng-template", null, 36, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r81 = i0.ɵɵreference(6);
+    const isFileDragDropAvailable_r78 = i0.ɵɵnextContext().isFileDragDropAvailable;
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngIf", isFileDragDropAvailable_r78)("ngIfElse", _r81);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵtemplate(0, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_div_0_Template, 7, 2, "div", 0);
+} if (rf & 2) {
+    const ctx_r73 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("ngIf", ctx_r73.control.size === 0);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_4_img_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵnamespaceSVG();
+    i0.ɵɵnamespaceHTML();
+    i0.ɵɵelement(0, "img", 41);
+    i0.ɵɵpipe(1, "async");
+} if (rf & 2) {
+    const ctx_r87 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("src", i0.ɵɵpipeBind1(1, 1, ctx_r87.uploadedFile), i0.ɵɵsanitizeUrl);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    const _r89 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 37);
+    i0.ɵɵnamespaceSVG();
+    i0.ɵɵelementStart(1, "svg", 38);
+    i0.ɵɵlistener("click", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_4_Template__svg_svg_click_1_listener() { const restoredCtx = i0.ɵɵrestoreView(_r89); const file_r85 = restoredCtx.file; const control_r86 = restoredCtx.control; return control_r86.removeFile(file_r85); });
+    i0.ɵɵelement(2, "path", 39);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(3, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_4_img_3_Template, 2, 3, "img", 40);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const control_r86 = ctx.control;
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", control_r86.valid);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_button_6_Template(rf, ctx) { if (rf & 1) {
+    const _r91 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 42);
+    i0.ɵɵlistener("click", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_button_6_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r91); const ctx_r90 = i0.ɵɵnextContext(3); return ctx_r90.activeCroper(); });
+    i0.ɵɵtext(1, " CROP ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_container_7_Template(rf, ctx) { if (rf & 1) {
+    const _r93 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "image-cropper", 43);
+    i0.ɵɵlistener("imageCropped", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_container_7_Template_image_cropper_imageCropped_1_listener($event) { i0.ɵɵrestoreView(_r93); const ctx_r92 = i0.ɵɵnextContext(3); return ctx_r92.imageCropped($event); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(2, "button", 42);
+    i0.ɵɵlistener("click", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_container_7_Template_button_click_2_listener() { i0.ɵɵrestoreView(_r93); const ctx_r94 = i0.ɵɵnextContext(3); return ctx_r94.saveCroper(); });
+    i0.ɵɵtext(3, " SAVE CHANGE ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r77 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("imageFile", ctx_r77.controlCroper)("maintainAspectRatio", true)("aspectRatio", 4 / 3);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "file-upload", 28);
+    i0.ɵɵtemplate(2, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_2_Template, 1, 1, "ng-template", null, 29, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵtemplate(4, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_template_4_Template, 4, 1, "ng-template", null, 30, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(6, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_button_6_Template, 2, 0, "button", 31);
+    i0.ɵɵtemplate(7, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_ng_container_7_Template, 4, 3, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r15 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("control", ctx_r15.control);
+    i0.ɵɵadvance(5);
+    i0.ɵɵproperty("ngIf", !ctx_r15.isCrop && ctx_r15.controlCroper != null);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r15.isCrop);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_17_nb_tag_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 47);
+} if (rf & 2) {
+    const tree_r96 = ctx.$implicit;
+    i0.ɵɵproperty("text", tree_r96);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_17_Template(rf, ctx) { if (rf & 1) {
+    const _r98 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "nb-tag-list", 44);
+    i0.ɵɵlistener("tagRemove", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_17_Template_nb_tag_list_tagRemove_1_listener($event) { i0.ɵɵrestoreView(_r98); const ctx_r97 = i0.ɵɵnextContext(2); return ctx_r97.onTagRemove($event); });
+    i0.ɵɵtemplate(2, RestResourceEditorFieldsComponent_ng_container_0_ng_container_17_nb_tag_2_Template, 1, 1, "nb-tag", 45);
+    i0.ɵɵelementStart(3, "input", 46);
+    i0.ɵɵlistener("tagAdd", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_17_Template_input_tagAdd_3_listener($event) { i0.ɵɵrestoreView(_r98); const ctx_r99 = i0.ɵɵnextContext(2); return ctx_r99.onTagAdd($event); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r16 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", ctx_r16.cell.newValue);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_nb_option_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 23);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r103 = ctx.$implicit;
+    const ctx_r102 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("value", option_r103[(ctx_r102.field == null ? null : ctx_r102.field.metaData == null ? null : ctx_r102.field.metaData.addConfig.belongToOptions == null ? null : ctx_r102.field.metaData.addConfig.belongToOptions.value) ? ctx_r102.field == null ? null : ctx_r102.field.metaData == null ? null : ctx_r102.field.metaData.addConfig == null ? null : ctx_r102.field.metaData.addConfig.belongToOptions == null ? null : ctx_r102.field.metaData.addConfig.belongToOptions.value : "id"]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r103[ctx_r102.field.metaData.addConfig.belongToOptions.template ? ctx_r102.field.metaData.addConfig.belongToOptions.template : ctx_r102.field.metaData.addConfig.belongToOptions.filterKeys[0]], " ");
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_Template(rf, ctx) { if (rf & 1) {
+    const _r105 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "input", 48, 49);
+    i0.ɵɵlistener("input", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_Template_input_input_1_listener() { i0.ɵɵrestoreView(_r105); const ctx_r104 = i0.ɵɵnextContext(2); return ctx_r104.onChange(); })("ngModelChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r105); const ctx_r106 = i0.ɵɵnextContext(2); return ctx_r106.cell.newValue = $event; });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(3, "nb-autocomplete", 50, 51);
+    i0.ɵɵlistener("selectedChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_Template_nb_autocomplete_selectedChange_3_listener($event) { i0.ɵɵrestoreView(_r105); const ctx_r107 = i0.ɵɵnextContext(2); return ctx_r107.onSelectionChange($event); });
+    i0.ɵɵtemplate(5, RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_nb_option_5_Template, 2, 2, "nb-option", 22);
+    i0.ɵɵpipe(6, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r101 = i0.ɵɵreference(4);
+    const ctx_r17 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbAutocomplete", _r101)("ngModel", ctx_r17.cell.newValue);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(6, 3, ctx_r17.filteredOptions$));
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_nb_tag_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 47);
+} if (rf & 2) {
+    const tree_r112 = ctx.$implicit;
+    const ctx_r108 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("text", tree_r112[ctx_r108.field.metaData.addConfig.belongToManyOptions.template ? ctx_r108.field.metaData.addConfig.belongToManyOptions.template : ctx_r108.field.metaData.addConfig.belongToManyOptions.filterKeys[0]]);
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_nb_option_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 23);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r113 = ctx.$implicit;
+    const ctx_r111 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("value", option_r113);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r113[ctx_r111.field.metaData.addConfig.belongToManyOptions.template ? ctx_r111.field.metaData.addConfig.belongToManyOptions.template : ctx_r111.field.metaData.addConfig.belongToManyOptions.filterKeys[0]], " ");
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_Template(rf, ctx) { if (rf & 1) {
+    const _r115 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div");
+    i0.ɵɵelementStart(2, "nb-tag-list", 44);
+    i0.ɵɵlistener("tagRemove", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_Template_nb_tag_list_tagRemove_2_listener($event) { i0.ɵɵrestoreView(_r115); const ctx_r114 = i0.ɵɵnextContext(2); return ctx_r114.onTagRemoveBelong($event); });
+    i0.ɵɵtemplate(3, RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_nb_tag_3_Template, 1, 1, "nb-tag", 45);
+    i0.ɵɵelementStart(4, "input", 52, 53);
+    i0.ɵɵlistener("tagAdd", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_Template_input_tagAdd_4_listener($event) { i0.ɵɵrestoreView(_r115); const ctx_r116 = i0.ɵɵnextContext(2); return ctx_r116.onTagAdd($event); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(6, "nb-autocomplete", 50, 54);
+    i0.ɵɵlistener("selectedChange", function RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_Template_nb_autocomplete_selectedChange_6_listener($event) { i0.ɵɵrestoreView(_r115); const ctx_r117 = i0.ɵɵnextContext(2); return ctx_r117.onChoose($event); });
+    i0.ɵɵtemplate(8, RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_nb_option_8_Template, 2, 2, "nb-option", 22);
+    i0.ɵɵpipe(9, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r110 = i0.ɵɵreference(7);
+    const ctx_r18 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", ctx_r18.cell.newValue);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbAutocomplete", _r110);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(9, 3, ctx_r18.filteredOptions$));
+} }
+function RestResourceEditorFieldsComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceEditorFieldsComponent_ng_container_0_input_1_Template, 1, 4, "input", 1);
+    i0.ɵɵtemplate(2, RestResourceEditorFieldsComponent_ng_container_0_input_2_Template, 1, 4, "input", 1);
+    i0.ɵɵtemplate(3, RestResourceEditorFieldsComponent_ng_container_0_textarea_3_Template, 1, 4, "textarea", 2);
+    i0.ɵɵtemplate(4, RestResourceEditorFieldsComponent_ng_container_0_input_4_Template, 1, 4, "input", 3);
+    i0.ɵɵtemplate(5, RestResourceEditorFieldsComponent_ng_container_0_input_5_Template, 1, 4, "input", 4);
+    i0.ɵɵtemplate(6, RestResourceEditorFieldsComponent_ng_container_0_div_6_Template, 1, 2, "div", 5);
+    i0.ɵɵtemplate(7, RestResourceEditorFieldsComponent_ng_container_0_input_7_Template, 1, 5, "input", 6);
+    i0.ɵɵelement(8, "nb-datepicker", null, 7);
+    i0.ɵɵtemplate(10, RestResourceEditorFieldsComponent_ng_container_0_ng_container_10_Template, 4, 5, "ng-container", 0);
+    i0.ɵɵtemplate(11, RestResourceEditorFieldsComponent_ng_container_0_ng_container_11_Template, 4, 5, "ng-container", 0);
+    i0.ɵɵtemplate(12, RestResourceEditorFieldsComponent_ng_container_0_nb_select_12_Template, 2, 3, "nb-select", 8);
+    i0.ɵɵtemplate(13, RestResourceEditorFieldsComponent_ng_container_0_div_13_Template, 2, 2, "div", 9);
+    i0.ɵɵtemplate(14, RestResourceEditorFieldsComponent_ng_container_0_ng_container_14_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵtemplate(15, RestResourceEditorFieldsComponent_ng_container_0_ng_container_15_Template, 3, 3, "ng-container", 0);
+    i0.ɵɵtemplate(16, RestResourceEditorFieldsComponent_ng_container_0_ng_container_16_Template, 8, 3, "ng-container", 0);
+    i0.ɵɵtemplate(17, RestResourceEditorFieldsComponent_ng_container_0_ng_container_17_Template, 4, 1, "ng-container", 0);
+    i0.ɵɵtemplate(18, RestResourceEditorFieldsComponent_ng_container_0_ng_container_18_Template, 7, 5, "ng-container", 0);
+    i0.ɵɵtemplate(19, RestResourceEditorFieldsComponent_ng_container_0_ng_container_19_Template, 10, 5, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.STRING);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.TEXT);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.NUMBER);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.DATETIME);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.TIME);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.FILE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.PDF);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.field.type == ctx_r0.REST_FIELD_TYPES.BELONG_TO_MANY);
+} }
 class RestResourceEditorFieldsComponent extends DefaultEditor {
     constructor(serviceRestAdminConfig, serviceResResource) {
         super();
@@ -1070,22 +2001,33 @@ class RestResourceEditorFieldsComponent extends DefaultEditor {
         return _.get(fields, value);
     }
 }
-RestResourceEditorFieldsComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceEditorFieldsComponent, deps: [{ token: RestAdminConfigService }, { token: RestResourceService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceEditorFieldsComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceEditorFieldsComponent, selector: "input-editor", viewQueries: [{ propertyName: "input", first: true, predicate: ["autoInput"], descendants: true }, { propertyName: "inputBelongTo", first: true, predicate: ["autoInputBelongToMany"], descendants: true }], usesInheritance: true, ngImport: i0, template: "<ng-container *ngIf=\"field.inForm == true\">\n  <!-- Input type string -->\n  <input\n    type=\"text\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.STRING\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n\n  <!-- Input type link -->\n  <input\n    type=\"text\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n\n  <!-- Input type text -->\n  <textarea\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n    fullWidth\n  ></textarea>\n\n  <!-- Input type number  -->\n  <input\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    type=\"number\"\n    fullWidth\n    *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n  />\n\n  <!-- Input type color  -->\n  <input\n    type=\"text\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n  />\n  <!-- fullWidth -->\n  <div\n    *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n    class=\"text-center\"\n    style=\"width: 80px; height: 30px\"\n    [style.background-color]=\"cell.newValue\"\n  ></div>\n\n  <!-- Input type date -->\n  <input\n    *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n    [nbDatepicker]=\"formpicker\"\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    [placeholder]=\"cell.getTitle()\"\n    [disabled]=\"!cell.isEditable()\"\n    (click)=\"onClick.emit($event)\"\n    (keydown.enter)=\"onEdited.emit($event)\"\n    (keydown.esc)=\"onStopEditing.emit()\"\n    class=\"form-control ng-valid ng-touched ng-dirty\"\n    fullWidth\n  />\n  <nb-datepicker #formpicker></nb-datepicker>\n\n  <!-- Input type dateTime -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\">\n    <input\n      nbInput\n      [nbDatepicker]=\"dateTimePicker\"\n      [(ngModel)]=\"cell.newValue\"\n      [name]=\"cell.getId()\"\n      [placeholder]=\"cell.getTitle()\"\n      [disabled]=\"!cell.isEditable()\"\n      (click)=\"onClick.emit($event)\"\n      (keydown.enter)=\"onEdited.emit($event)\"\n      (keydown.esc)=\"onStopEditing.emit()\"\n      class=\"form-control ng-valid ng-touched ng-dirty\"\n      fullWidth\n    />\n    <nb-date-timepicker withSeconds #dateTimePicker></nb-date-timepicker>\n  </ng-container>\n\n  <!-- Input type time -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.TIME\">\n    <input\n      [nbTimepicker]=\"timepicker\"\n      twelveHoursFormat]\n      nbInput\n      [(ngModel)]=\"cell.newValue\"\n      [name]=\"cell.getId()\"\n      [placeholder]=\"cell.getTitle()\"\n      [disabled]=\"!cell.isEditable()\"\n      (click)=\"onClick.emit($event)\"\n      (keydown.enter)=\"onEdited.emit($event)\"\n      (keydown.esc)=\"onStopEditing.emit()\"\n      class=\"form-control ng-valid ng-touched ng-dirty\"\n      fullWidth\n    />\n    <nb-timepicker #timepicker></nb-timepicker>\n  </ng-container>\n\n  <!-- Input type enum -->\n  <nb-select\n    [(ngModel)]=\"cell.newValue\"\n    [name]=\"cell.getId()\"\n    (change)=\"onClick.emit($event)\"\n    class=\"input-space\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n    nbInput\n  >\n    <nb-option\n      *ngFor=\"let option of field.metaData.addConfig.enumOptions\"\n      [value]=\"option.value\"\n      >{{ option.label }}</nb-option\n    >\n  </nb-select>\n\n  <!-- Input type Boolean -->\n  <div\n    style=\"text-align: center\"\n    *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n  >\n    <nb-toggle [name]=\"cell.getId()\" [(ngModel)]=\"cell.newValue\"></nb-toggle>\n  </div>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.FILE\">\n    <file-upload\n      [(ngModel)]=\"cell.newValue\"\n      class=\"input-space\"\n      [name]=\"field.label\"\n      style=\"min-width: 300px; max-width: 300px\"\n    ></file-upload>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.PDF\">\n    <file-upload\n      [(ngModel)]=\"cell.newValue\"\n      class=\"input-space\"\n      [name]=\"field.label\"\n      style=\"min-width: 300px; max-width: 300px\"\n    ></file-upload>\n    <object width=\"300px\" height=\"300px\" [data]=\"cell.newValue[0]\"></object>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\">\n    <!-- [(ngModel)]=\"cell.newValue\"\n    class=\"file-image\"\n    [name]=\"field.label\" -->\n    <file-upload [control]=\"control\">\n      <ng-template\n        let-isFileDragDropAvailable=\"isFileDragDropAvailable\"\n        #placeholder\n      >\n        <div *ngIf=\"control.size === 0\">\n          <svg viewBox=\"0 0 512 512\" class=\"icon\">\n            <path\n              d=\"M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z\"\n            ></path>\n          </svg>\n\n          <div class=\"upload-text\">\n            <ng-container\n              *ngIf=\"isFileDragDropAvailable; else isNotDragDropAvailable\"\n            >\n              <b>Drag and drop</b> files<br />\n              or click here\n            </ng-container>\n            <ng-template #isNotDragDropAvailable>\n              <b>Click here</b> to<br />\n              choose a files\n            </ng-template>\n          </div>\n        </div>\n      </ng-template>\n\n      <ng-template let-i=\"index\" let-file=\"file\" let-control=\"control\" #item>\n        <div class=\"overlay\">\n          <svg\n            viewBox=\"0 0 448 512\"\n            class=\"delete-button\"\n            (click)=\"control.removeFile(file)\"\n          >\n            <path\n              d=\"M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z\"\n            ></path>\n          </svg>\n          <img *ngIf=\"control.valid\" [src]=\"uploadedFile | async\" />\n        </div>\n      </ng-template>\n    </file-upload>\n\n    <button\n      nbButton\n      status=\"primary\"\n      *ngIf=\"!isCrop && controlCroper != null\"\n      (click)=\"activeCroper()\"\n    >\n      CROP\n    </button>\n\n    <ng-container *ngIf=\"isCrop\">\n      <image-cropper\n        [imageFile]=\"controlCroper\"\n        [maintainAspectRatio]=\"true\"\n        [aspectRatio]=\"4 / 3\"\n        format=\"png\"\n        (imageCropped)=\"imageCropped($event)\"\n      ></image-cropper>\n\n      <button nbButton status=\"primary\" (click)=\"saveCroper()\">\n        SAVE CHANGE\n      </button>\n    </ng-container>\n\n    <!-- <img [src]=\"croppedImage\" /> -->\n  </ng-container>\n\n  <!-- Input type  -->\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\">\n    <nb-tag-list (tagRemove)=\"onTagRemove($event)\" class=\"input-space\">\n      <nb-tag\n        *ngFor=\"let tree of cell.newValue\"\n        [text]=\"tree\"\n        removable\n      ></nb-tag>\n      <input type=\"text\" nbTagInput (tagAdd)=\"onTagAdd($event)\" fullWidth />\n    </nb-tag-list>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\">\n    <input\n      #autoInput\n      nbInput\n      type=\"text\"\n      (input)=\"onChange()\"\n      placeholder=\"Enter value\"\n      [nbAutocomplete]=\"auto\"\n      [(ngModel)]=\"cell.newValue\"\n    />\n\n    <nb-autocomplete #auto (selectedChange)=\"onSelectionChange($event)\">\n      <nb-option\n        *ngFor=\"let option of filteredOptions$ | async\"\n        [value]=\"\n          option[\n            field?.metaData?.addConfig.belongToOptions?.value\n              ? field?.metaData?.addConfig?.belongToOptions?.value\n              : 'id'\n          ]\n        \"\n      >\n        {{\n          option[\n            field.metaData.addConfig.belongToOptions.template\n              ? field.metaData.addConfig.belongToOptions.template\n              : field.metaData.addConfig.belongToOptions.filterKeys[0]\n          ]\n        }}\n      </nb-option>\n    </nb-autocomplete>\n  </ng-container>\n\n  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\">\n    <div>\n      <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event)\" class=\"input-space\">\n        <nb-tag\n          *ngFor=\"let tree of cell.newValue\"\n          [text]=\"\n            tree[\n              field.metaData.addConfig.belongToManyOptions.template\n                ? field.metaData.addConfig.belongToManyOptions.template\n                : field.metaData.addConfig.belongToManyOptions.filterKeys[0]\n            ]\n          \"\n          removable\n        ></nb-tag>\n        <input\n          type=\"text\"\n          nbTagInput\n          #autoInputBelongToMany\n          [nbAutocomplete]=\"autoBelonToMany\"\n          (tagAdd)=\"onTagAdd($event)\"\n          fullWidth\n        />\n\n        <nb-autocomplete #autoBelonToMany (selectedChange)=\"onChoose($event)\">\n          <nb-option\n            *ngFor=\"let option of filteredOptions$ | async\"\n            [value]=\"option\"\n          >\n            {{\n              option[\n                field.metaData.addConfig.belongToManyOptions.template\n                  ? field.metaData.addConfig.belongToManyOptions.template\n                  : field.metaData.addConfig.belongToManyOptions.filterKeys[0]\n              ]\n            }}\n          </nb-option>\n        </nb-autocomplete>\n      </nb-tag-list>\n    </div>\n  </ng-container>\n</ng-container>\n", styles: [".icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image{min-width:300px;max-width:300px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1$1.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1$1.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1$1.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i2.FileUploadComponent, selector: "file-upload:not([simple])", inputs: ["control", "animation", "multiple"] }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$3.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1$1.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$1.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }], pipes: { "async": i13.AsyncPipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceEditorFieldsComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: "input-editor",
-                    templateUrl: "./rest-resource-editor-fields.component.html",
-                    styleUrls: ["./rest-resource-editor-fields.component.scss"],
-                }]
-        }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: RestResourceService }]; }, propDecorators: { input: [{
-                type: ViewChild,
-                args: ["autoInput"]
-            }], inputBelongTo: [{
-                type: ViewChild,
-                args: ["autoInputBelongToMany"]
-            }] } });
+RestResourceEditorFieldsComponent.ɵfac = function RestResourceEditorFieldsComponent_Factory(t) { return new (t || RestResourceEditorFieldsComponent)(i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestResourceService)); };
+RestResourceEditorFieldsComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceEditorFieldsComponent, selectors: [["input-editor"]], viewQuery: function RestResourceEditorFieldsComponent_Query(rf, ctx) { if (rf & 1) {
+        i0.ɵɵviewQuery(_c0$8, 5);
+        i0.ɵɵviewQuery(_c1$5, 5);
+    } if (rf & 2) {
+        let _t;
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.input = _t.first);
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.inputBelongTo = _t.first);
+    } }, features: [i0.ɵɵInheritDefinitionFeature], decls: 1, vars: 1, consts: [[4, "ngIf"], ["type", "text", "class", "form-control ng-valid ng-touched ng-dirty", "fullWidth", "", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc", 4, "ngIf"], ["class", "form-control ng-valid ng-touched ng-dirty", "fullWidth", "", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc", 4, "ngIf"], ["class", "form-control ng-valid ng-touched ng-dirty", "type", "number", "fullWidth", "", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc", 4, "ngIf"], ["type", "text", "class", "form-control ng-valid ng-touched ng-dirty", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc", 4, "ngIf"], ["class", "text-center", "style", "width: 80px; height: 30px", 3, "background-color", 4, "ngIf"], ["class", "form-control ng-valid ng-touched ng-dirty", "fullWidth", "", 3, "nbDatepicker", "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc", 4, "ngIf"], ["formpicker", ""], ["class", "input-space", "nbInput", "", 3, "ngModel", "name", "ngModelChange", "change", 4, "ngIf"], ["style", "text-align: center", 4, "ngIf"], ["type", "text", "fullWidth", "", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], ["fullWidth", "", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], ["type", "number", "fullWidth", "", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], ["type", "text", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], [1, "text-center", 2, "width", "80px", "height", "30px"], ["fullWidth", "", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "nbDatepicker", "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], ["nbInput", "", "fullWidth", "", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "nbDatepicker", "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], ["withSeconds", ""], ["dateTimePicker", ""], ["twelveHoursFormat]", "", "nbInput", "", "fullWidth", "", 1, "form-control", "ng-valid", "ng-touched", "ng-dirty", 3, "nbTimepicker", "ngModel", "name", "placeholder", "disabled", "ngModelChange", "click", "keydown.enter", "keydown.esc"], ["timepicker", ""], ["nbInput", "", 1, "input-space", 3, "ngModel", "name", "ngModelChange", "change"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "text-align", "center"], [3, "name", "ngModel", "ngModelChange"], [1, "input-space", 2, "min-width", "300px", "max-width", "300px", 3, "ngModel", "name", "ngModelChange"], ["width", "300px", "height", "300px", 3, "data"], [3, "control"], ["placeholder", ""], ["item", ""], ["nbButton", "", "status", "primary", 3, "click", 4, "ngIf"], ["viewBox", "0 0 512 512", 1, "icon"], ["d", "M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"], [1, "upload-text"], [4, "ngIf", "ngIfElse"], ["isNotDragDropAvailable", ""], [1, "overlay"], ["viewBox", "0 0 448 512", 1, "delete-button", 3, "click"], ["d", "M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"], [3, "src", 4, "ngIf"], [3, "src"], ["nbButton", "", "status", "primary", 3, "click"], ["format", "png", 3, "imageFile", "maintainAspectRatio", "aspectRatio", "imageCropped"], [1, "input-space", 3, "tagRemove"], ["removable", "", 3, "text", 4, "ngFor", "ngForOf"], ["type", "text", "nbTagInput", "", "fullWidth", "", 3, "tagAdd"], ["removable", "", 3, "text"], ["nbInput", "", "type", "text", "placeholder", "Enter value", 3, "nbAutocomplete", "ngModel", "input", "ngModelChange"], ["autoInput", ""], [3, "selectedChange"], ["auto", ""], ["type", "text", "nbTagInput", "", "fullWidth", "", 3, "nbAutocomplete", "tagAdd"], ["autoInputBelongToMany", ""], ["autoBelonToMany", ""]], template: function RestResourceEditorFieldsComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, RestResourceEditorFieldsComponent_ng_container_0_Template, 20, 17, "ng-container", 0);
+    } if (rf & 2) {
+        i0.ɵɵproperty("ngIf", ctx.field.inForm == true);
+    } }, directives: [i10.NgIf, i1$1.NbDatepickerComponent, i1$4.DefaultValueAccessor, i1$4.NgControlStatus, i1$4.NgModel, i1$4.NumberValueAccessor, i1$1.NbDatepickerDirective, i1$1.NbInputDirective, i1$1.NbDateTimePickerComponent, i1$1.NbTimePickerDirective, i1$1.NbTimePickerComponent, i1$1.NbSelectComponent, i10.NgForOf, i1$1.NbOptionComponent, i1$1.NbToggleComponent, i2.FileUploadComponent, i1$1.NbButtonComponent, i7.ImageCropperComponent, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbTagComponent, i1$1.NbAutocompleteDirective, i1$1.NbAutocompleteComponent], pipes: [i10.AsyncPipe], styles: [".icon[_ngcontent-%COMP%]{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text[_ngcontent-%COMP%]{overflow:hidden;width:auto;font-size:14px}svg[_ngcontent-%COMP%]{fill:#909293;height:20px}.overlay[_ngcontent-%COMP%]{position:relative}.delete-button[_ngcontent-%COMP%]{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image[_ngcontent-%COMP%]{min-width:300px;max-width:300px}.file-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:100%}nb-toggle[_ngcontent-%COMP%]{text-align:center}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceEditorFieldsComponent, [{
+        type: Component,
+        args: [{
+                selector: "input-editor",
+                templateUrl: "./rest-resource-editor-fields.component.html",
+                styleUrls: ["./rest-resource-editor-fields.component.scss"],
+            }]
+    }], function () { return [{ type: RestAdminConfigService }, { type: RestResourceService }]; }, { input: [{
+            type: ViewChild,
+            args: ["autoInput"]
+        }], inputBelongTo: [{
+            type: ViewChild,
+            args: ["autoInputBelongToMany"]
+        }] }); })();
 
 class NotificationService {
     constructor(toastrService, translate) {
@@ -1161,15 +2103,139 @@ class NotificationService {
         this.showToast(this.positions.TOP_RIGHT, 'primary', msgInfo);
     }
 }
-NotificationService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: NotificationService, deps: [{ token: i1$1.NbToastrService }, { token: i2$1.TranslateService }], target: i0.ɵɵFactoryTarget.Injectable });
-NotificationService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: NotificationService, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: NotificationService, decorators: [{
-            type: Injectable,
-            args: [{
-                    providedIn: 'root',
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbToastrService }, { type: i2$1.TranslateService }]; } });
+NotificationService.ɵfac = function NotificationService_Factory(t) { return new (t || NotificationService)(i0.ɵɵinject(i1$1.NbToastrService), i0.ɵɵinject(i1$3.TranslateService)); };
+NotificationService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: NotificationService, factory: NotificationService.ɵfac, providedIn: 'root' });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NotificationService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root',
+            }]
+    }], function () { return [{ type: i1$1.NbToastrService }, { type: i1$3.TranslateService }]; }, null); })();
 
+class RestShareService {
+    constructor() {
+        this.listLoader = false;
+    }
+    setLoader(value) {
+        this.listLoader = value;
+    }
+}
+RestShareService.ɵfac = function RestShareService_Factory(t) { return new (t || RestShareService)(); };
+RestShareService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestShareService, factory: RestShareService.ɵfac, providedIn: 'root' });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestShareService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root',
+            }]
+    }], function () { return []; }, null); })();
+
+class RestErrorService {
+    constructor(translate, router, restShare) {
+        this.translate = translate;
+        this.router = router;
+        this.restShare = restShare;
+    }
+    handleError(error, innerHTML = true) {
+        let message = '';
+        let errors = {};
+        try {
+            errors = error.error.error.errors;
+        }
+        catch (error) {
+            console.log(error, 'error ======= > ');
+        }
+        switch (error.status) {
+            case 401:
+                localStorage.removeItem(GLOBALS.AUTH_APP_TOKEN);
+                setTimeout(() => {
+                    this.router.navigate(['/login']);
+                    this.restShare.setLoader(false);
+                }, 500);
+                break;
+            case 422:
+                for (const key in errors) {
+                    message += errors[key].join(' ');
+                    if (innerHTML) {
+                        message += '<br>';
+                    }
+                }
+                break;
+            case 403:
+                message = this.translate.instant(`msg-not-authorized`);
+                this.restShare.setLoader(false);
+                break;
+            case 404:
+                message = this.translate.instant(`msg-not-found`);
+                this.restShare.setLoader(false);
+                break;
+            case 500:
+                message = this.translate.instant(`msg-internal-error`);
+                this.restShare.setLoader(false);
+                break;
+            default:
+                message = this.translate.instant(`msg-internal-error`);
+                this.restShare.setLoader(false);
+                break;
+        }
+        return message;
+    }
+}
+RestErrorService.ɵfac = function RestErrorService_Factory(t) { return new (t || RestErrorService)(i0.ɵɵinject(i1$3.TranslateService), i0.ɵɵinject(i1.Router), i0.ɵɵinject(RestShareService)); };
+RestErrorService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestErrorService, factory: RestErrorService.ɵfac, providedIn: 'root' });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestErrorService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root',
+            }]
+    }], function () { return [{ type: i1$3.TranslateService }, { type: i1.Router }, { type: RestShareService }]; }, null); })();
+
+class AttributeDirective {
+    constructor(renderer, elementRef) {
+        this.renderer = renderer;
+        this.elementRef = elementRef;
+    }
+    ngOnChanges(changes) {
+        if (changes.attributes) {
+            for (let attributeName in this.attributes) {
+                const attributeValue = this.attributes[attributeName];
+                if (attributeValue) {
+                    this.renderer.setAttribute(this.elementRef.nativeElement, attributeName, attributeValue);
+                }
+                else {
+                    this.renderer.removeAttribute(this.elementRef.nativeElement, attributeName);
+                }
+            }
+        }
+    }
+}
+AttributeDirective.ɵfac = function AttributeDirective_Factory(t) { return new (t || AttributeDirective)(i0.ɵɵdirectiveInject(i0.Renderer2), i0.ɵɵdirectiveInject(i0.ElementRef)); };
+AttributeDirective.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: AttributeDirective, selectors: [["", "attributes", ""]], inputs: { attributes: "attributes" }, features: [i0.ɵɵNgOnChangesFeature] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AttributeDirective, [{
+        type: Directive,
+        args: [{
+                selector: '[attributes]'
+            }]
+    }], function () { return [{ type: i0.Renderer2 }, { type: i0.ElementRef }]; }, { attributes: [{
+            type: Input
+        }] }); })();
+
+const _c0$7 = function (a0, a1) { return { lat: a0, lng: a1 }; };
+function GmapsComponent_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    const _r2 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "google-map", 1);
+    i0.ɵɵelementStart(2, "map-marker", 2);
+    i0.ɵɵlistener("mapDragend", function GmapsComponent_ng_container_2_Template_map_marker_mapDragend_2_listener($event) { i0.ɵɵrestoreView(_r2); const ctx_r1 = i0.ɵɵnextContext(); return ctx_r1.onPositionChange($event); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("options", ctx_r0.mapOptions)("zoom", 8);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("position", i0.ɵɵpureFunction2(4, _c0$7, ctx_r0.lat, ctx_r0.lng))("options", ctx_r0.markerOptions);
+} }
 class GmapsComponent {
     constructor(httpClient) {
         this.httpClient = httpClient;
@@ -1199,59 +2265,1801 @@ class GmapsComponent {
         }
     }
 }
-GmapsComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: GmapsComponent, deps: [{ token: i1$2.HttpClient }], target: i0.ɵɵFactoryTarget.Component });
-GmapsComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: GmapsComponent, selector: "ngx-gmaps", inputs: { lat: "lat", lng: "lng", googleMapKey: "googleMapKey" }, outputs: { latChange: "latChange", lngChange: "lngChange" }, ngImport: i0, template: "<nb-card>\n  <nb-card-body>\n    <ng-container *ngIf=\"apiLoaded | async\">\n      <google-map\n        [options]=\"mapOptions\"\n        [zoom]=\"8\"\n        width=\"100%\"\n        height=\"36.5625rem\"\n      >\n        <map-marker\n          [position]=\"{ lat: lat, lng: lng }\"\n          [options]=\"markerOptions\"\n          (mapDragend)=\"onPositionChange($event)\"\n        ></map-marker>\n      </google-map>\n    </ng-container>\n  </nb-card-body>\n</nb-card>\n<!-- [nbSpinner]=\"apiLoaded | async\">  -->\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card-body{padding:0}.nb-theme-default :host ::ng-deep agm-map{width:100%;height:36.5625rem}.nb-theme-dark :host nb-card-body{padding:0}.nb-theme-dark :host ::ng-deep agm-map{width:100%;height:36.5625rem}.nb-theme-cosmic :host nb-card-body{padding:0}.nb-theme-cosmic :host ::ng-deep agm-map{width:100%;height:36.5625rem}.nb-theme-corporate :host nb-card-body{padding:0}.nb-theme-corporate :host ::ng-deep agm-map{width:100%;height:36.5625rem}agm-map{height:300px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i3$1.GoogleMap, selector: "google-map", inputs: ["height", "width", "center", "zoom", "options", "mapTypeId"], outputs: ["authFailure", "boundsChanged", "centerChanged", "mapClick", "mapDblclick", "mapDrag", "mapDragend", "mapDragstart", "headingChanged", "idle", "maptypeidChanged", "mapMousemove", "mapMouseout", "mapMouseover", "projectionChanged", "mapRightclick", "tilesloaded", "tiltChanged", "zoomChanged"], exportAs: ["googleMap"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i3$1.MapMarker, selector: "map-marker", inputs: ["title", "position", "label", "clickable", "options", "icon", "visible"], outputs: ["animationChanged", "mapClick", "clickableChanged", "cursorChanged", "mapDblclick", "mapDrag", "mapDragend", "draggableChanged", "mapDragstart", "flatChanged", "iconChanged", "mapMousedown", "mapMouseout", "mapMouseover", "mapMouseup", "positionChanged", "mapRightclick", "shapeChanged", "titleChanged", "visibleChanged", "zindexChanged"], exportAs: ["mapMarker"] }], pipes: { "async": i13.AsyncPipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: GmapsComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-gmaps',
-                    styleUrls: ['./gmaps.component.scss'],
-                    templateUrl: './gmaps.component.html',
-                }]
-        }], ctorParameters: function () { return [{ type: i1$2.HttpClient }]; }, propDecorators: { lat: [{
-                type: Input
-            }], lng: [{
-                type: Input
-            }], googleMapKey: [{
-                type: Input
-            }], latChange: [{
-                type: Output
-            }], lngChange: [{
-                type: Output
-            }] } });
+GmapsComponent.ɵfac = function GmapsComponent_Factory(t) { return new (t || GmapsComponent)(i0.ɵɵdirectiveInject(i1$2.HttpClient)); };
+GmapsComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: GmapsComponent, selectors: [["ngx-gmaps"]], inputs: { lat: "lat", lng: "lng", googleMapKey: "googleMapKey" }, outputs: { latChange: "latChange", lngChange: "lngChange" }, decls: 4, vars: 3, consts: [[4, "ngIf"], ["width", "100%", "height", "36.5625rem", 3, "options", "zoom"], [3, "position", "options", "mapDragend"]], template: function GmapsComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "nb-card");
+        i0.ɵɵelementStart(1, "nb-card-body");
+        i0.ɵɵtemplate(2, GmapsComponent_ng_container_2_Template, 3, 7, "ng-container", 0);
+        i0.ɵɵpipe(3, "async");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", i0.ɵɵpipeBind1(3, 1, ctx.apiLoaded));
+    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i10.NgIf, i4$1.GoogleMap, i4$1.MapMarker], pipes: [i10.AsyncPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-default   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-dark   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-cosmic   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{padding:0}.nb-theme-corporate   [_nghost-%COMP%]     agm-map{width:100%;height:36.5625rem}agm-map[_ngcontent-%COMP%]{height:300px}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(GmapsComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-gmaps',
+                styleUrls: ['./gmaps.component.scss'],
+                templateUrl: './gmaps.component.html',
+            }]
+    }], function () { return [{ type: i1$2.HttpClient }]; }, { lat: [{
+            type: Input
+        }], lng: [{
+            type: Input
+        }], googleMapKey: [{
+            type: Input
+        }], latChange: [{
+            type: Output
+        }], lngChange: [{
+            type: Output
+        }] }); })();
 
-class AttributeDirective {
-    constructor(renderer, elementRef) {
-        this.renderer = renderer;
-        this.elementRef = elementRef;
-    }
-    ngOnChanges(changes) {
-        if (changes.attributes) {
-            for (let attributeName in this.attributes) {
-                const attributeValue = this.attributes[attributeName];
-                if (attributeValue) {
-                    this.renderer.setAttribute(this.elementRef.nativeElement, attributeName, attributeValue);
-                }
-                else {
-                    this.renderer.removeAttribute(this.elementRef.nativeElement, attributeName);
-                }
-            }
-        }
-    }
-}
-AttributeDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AttributeDirective, deps: [{ token: i0.Renderer2 }, { token: i0.ElementRef }], target: i0.ɵɵFactoryTarget.Directive });
-AttributeDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "12.0.0", version: "12.1.5", type: AttributeDirective, selector: "[attributes]", inputs: { attributes: "attributes" }, usesOnChanges: true, ngImport: i0 });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: AttributeDirective, decorators: [{
-            type: Directive,
-            args: [{
-                    selector: '[attributes]'
-                }]
-        }], ctorParameters: function () { return [{ type: i0.Renderer2 }, { type: i0.ElementRef }]; }, propDecorators: { attributes: [{
-                type: Input
-            }] } });
-
+const _c0$6 = ["belongTo"];
+const _c1$4 = ["autoBelongToMany"];
+function RestResourceAddComponent_ng_container_0_nb_card_header_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-card-header");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", ctx_r2.resource.editConfig.title, " ");
+} }
+function RestResourceAddComponent_ng_container_0_nb_card_header_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-card-header");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", ctx_r3.resource.addConfig.title, " ");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 22);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r30 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r30.$implicit;
+    const i_r8 = ctx_r30.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "textarea", 23);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r31 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r31.$implicit;
+    const i_r8 = ctx_r31.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_3_ng_container_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 20);
+    i0.ɵɵelementStart(2, "label", 21);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "input", 24);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r33 = i0.ɵɵnextContext(3);
+    const field_r7 = ctx_r33.$implicit;
+    const i_r8 = ctx_r33.index;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate((field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig == null ? null : field_r7.metaData.addConfig.passwordOptions == null ? null : field_r7.metaData.addConfig.passwordOptions.confirmLabel) ? field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig == null ? null : field_r7.metaData.addConfig.passwordOptions == null ? null : field_r7.metaData.addConfig.passwordOptions.confirmLabel : i0.ɵɵpipeBind1(4, 5, field_r7.label + "_confirmation"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label + "_confirmation")("formControlName", (field_r7.metaData == null ? null : field_r7.metaData.addConfig == null ? null : field_r7.metaData.addConfig.passwordOptions == null ? null : field_r7.metaData.addConfig.passwordOptions.confirmField) ? field_r7.metaData.addConfig.passwordOptions.confirmField : field_r7.name + "_confirmation");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 20);
+    i0.ɵɵelementStart(2, "label", 21);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "input", 24);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_3_ng_container_6_Template, 6, 7, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r34 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r34.$implicit;
+    const i_r8 = ctx_r34.index;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 6, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("formControlName", field_r7.name);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig == null ? null : field_r7.metaData.addConfig.passwordOptions == null ? null : field_r7.metaData.addConfig.passwordOptions.isNeedConfirm);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 25);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r35 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r35.$implicit;
+    const i_r8 = ctx_r35.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 26);
+    i0.ɵɵelement(5, "nb-datepicker", null, 27);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r36 = i0.ɵɵreference(6);
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("placeholder", field_r7.label)("nbDatepicker", _r36)("attributes", field_r7.metaData.attributes)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 28);
+    i0.ɵɵelement(5, "nb-date-timepicker", 29, 30);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r38 = i0.ɵɵreference(6);
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("nbDatepicker", _r38)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 31);
+    i0.ɵɵelement(5, "nb-timepicker", null, 32);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r40 = i0.ɵɵreference(6);
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 4, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("nbTimepicker", _r40)("attributes", field_r7.metaData.attributes)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_8_nb_option_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 35);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r43 = ctx.$implicit;
+    i0.ɵɵproperty("value", option_r43.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(option_r43.label);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0, 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "nb-select", 33);
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_8_nb_option_5_Template, 2, 2, "nb-option", 34);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("formControlName", field_r7.name)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", field_r7.metaData.addConfig.enumOptions);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "div", 36);
+    i0.ɵɵelementStart(2, "label", 37);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "nb-toggle", 38);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 2, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_img_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "img", 42);
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r46 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("src", ctx_r46.urlsImage[field_r7.name], i0.ɵɵsanitizeUrl);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_ngx_dropzone_label_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "ngx-dropzone-label");
+    i0.ɵɵelement(1, "nb-icon", 43);
+    i0.ɵɵtext(2, " Drag and drop files here or click to upload ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_ngx_dropzone_preview_7_Template(rf, ctx) { if (rf & 1) {
+    const _r53 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ngx-dropzone-preview", 44);
+    i0.ɵɵlistener("removed", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_ngx_dropzone_preview_7_Template_ngx_dropzone_preview_removed_0_listener() { i0.ɵɵrestoreView(_r53); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r51 = i0.ɵɵnextContext(3); return ctx_r51.onRemove(field_r7); });
+    i0.ɵɵelementStart(1, "ngx-dropzone-label");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const f_r50 = ctx.$implicit;
+    i0.ɵɵproperty("file", f_r50)("removable", true);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate2("", f_r50.name, " (", f_r50.type, ")");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_Template(rf, ctx) { if (rf & 1) {
+    const _r56 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 39);
+    i0.ɵɵlistener("change", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_Template_div_change_4_listener($event) { i0.ɵɵrestoreView(_r56); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r54 = i0.ɵɵnextContext(3); return ctx_r54.onSelect($event, field_r7); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_img_5_Template, 1, 2, "img", 40);
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_ngx_dropzone_label_6_Template, 3, 0, "ngx-dropzone-label", 0);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_ngx_dropzone_preview_7_Template, 3, 4, "ngx-dropzone-preview", 41);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r20 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 4, field_r7.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r20.urlsImage[field_r7.name] != "" && ctx_r20.filesUpload[field_r7.name].length <= 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r20.filesUpload[field_r7.name].length <= 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r20.filesUpload[field_r7.name]);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_img_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "img", 42);
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r58 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("src", ctx_r58.urlsImage[field_r7.name], i0.ɵɵsanitizeUrl);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ngx_dropzone_label_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "ngx-dropzone-label");
+    i0.ɵɵelement(1, "nb-icon", 43);
+    i0.ɵɵtext(2, " Drag and drop files here or click to upload ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ngx_dropzone_image_preview_7_Template(rf, ctx) { if (rf & 1) {
+    const _r67 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ngx-dropzone-image-preview", 44);
+    i0.ɵɵlistener("removed", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ngx_dropzone_image_preview_7_Template_ngx_dropzone_image_preview_removed_0_listener() { i0.ɵɵrestoreView(_r67); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r65 = i0.ɵɵnextContext(3); return ctx_r65.onRemove(field_r7); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const f_r64 = ctx.$implicit;
+    i0.ɵɵproperty("file", f_r64)("removable", true);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_button_8_Template(rf, ctx) { if (rf & 1) {
+    const _r70 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 46);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_button_8_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r70); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r68 = i0.ɵɵnextContext(3); return ctx_r68.activeCroper(field_r7); });
+    i0.ɵɵtext(1, " CROP ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ng_container_9_Template(rf, ctx) { if (rf & 1) {
+    const _r73 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "image-cropper", 47);
+    i0.ɵɵlistener("imageCropped", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ng_container_9_Template_image_cropper_imageCropped_1_listener($event) { i0.ɵɵrestoreView(_r73); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r71 = i0.ɵɵnextContext(3); return ctx_r71.imageCropped($event, field_r7); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(2, "button", 46);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ng_container_9_Template_button_click_2_listener() { i0.ɵɵrestoreView(_r73); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r74 = i0.ɵɵnextContext(3); return ctx_r74.saveCroper(field_r7); });
+    i0.ɵɵtext(3, " SAVE CHANGE ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "button", 48);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ng_container_9_Template_button_click_4_listener() { i0.ɵɵrestoreView(_r73); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r76 = i0.ɵɵnextContext(3); return ctx_r76.desactiveCrop(field_r7); });
+    i0.ɵɵtext(5, " Cancel ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r62 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("imageFile", ctx_r62.controlCroper[field_r7.name])("maintainAspectRatio", true)("aspectRatio", 4 / 3);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_Template(rf, ctx) { if (rf & 1) {
+    const _r81 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 39);
+    i0.ɵɵlistener("change", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_Template_div_change_4_listener($event) { i0.ɵɵrestoreView(_r81); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r79 = i0.ɵɵnextContext(3); return ctx_r79.onSelect($event, field_r7); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_img_5_Template, 1, 2, "img", 40);
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ngx_dropzone_label_6_Template, 3, 0, "ngx-dropzone-label", 0);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ngx_dropzone_image_preview_7_Template, 1, 2, "ngx-dropzone-image-preview", 41);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_button_8_Template, 2, 0, "button", 45);
+    i0.ɵɵtemplate(9, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_ng_container_9_Template, 6, 3, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r21 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 6, field_r7.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r21.urlsImage[field_r7.name] != "" && ctx_r21.filesUpload[field_r7.name].length <= 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r21.filesUpload[field_r7.name].length <= 0 && ctx_r21.urlsImage[field_r7.name] == "");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r21.filesUpload[field_r7.name]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r21.isCrop[field_r7.name] && ctx_r21.controlCroper[field_r7.name] != null);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r21.isCrop[field_r7.name]);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_12_nb_tag_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 52);
+} if (rf & 2) {
+    const tree_r84 = ctx.$implicit;
+    i0.ɵɵproperty("text", tree_r84);
+} }
+const _c2$1 = function (a0) { return [a0]; };
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_12_Template(rf, ctx) { if (rf & 1) {
+    const _r87 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "nb-tag-list", 49);
+    i0.ɵɵlistener("tagRemove", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_12_Template_nb_tag_list_tagRemove_4_listener($event) { i0.ɵɵrestoreView(_r87); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r85 = i0.ɵɵnextContext(3); return ctx_r85.onTagRemove($event, field_r7.name); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_12_nb_tag_5_Template, 1, 1, "nb-tag", 50);
+    i0.ɵɵelementStart(6, "input", 51);
+    i0.ɵɵlistener("tagAdd", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_12_Template_input_tagAdd_6_listener($event) { i0.ɵɵrestoreView(_r87); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r88 = i0.ɵɵnextContext(3); return ctx_r88.onTagAdd($event, field_r7.name); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r22 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 4, field_r7.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", ctx_r22.form.get(i0.ɵɵpureFunction1(6, _c2$1, field_r7.name)).value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 10);
+    i0.ɵɵelement(1, "input", 59);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r95 = i0.ɵɵnextContext(3);
+    const field_r7 = ctx_r95.$implicit;
+    const i_r8 = ctx_r95.index;
+    const ctx_r92 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("value", ctx_r92.belongToValue[field_r7.name] ? ctx_r92.belongToValue[field_r7.name] : "")("id", i_r8 + 100);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_nb_option_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 60);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r96 = ctx.$implicit;
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("value", option_r96[(field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig.belongToOptions == null ? null : field_r7.metaData.addConfig.belongToOptions.value) ? field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig == null ? null : field_r7.metaData.addConfig.belongToOptions == null ? null : field_r7.metaData.addConfig.belongToOptions.value : "id"])("attributes", field_r7.metaData.attributes);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r96[field_r7.metaData.addConfig.belongToOptions.template ? field_r7.metaData.addConfig.belongToOptions.template : field_r7.metaData.addConfig.belongToOptions.filterKeys[0]], " ");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_Template(rf, ctx) { if (rf & 1) {
+    const _r100 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 8);
+    i0.ɵɵelementStart(5, "div", 9);
+    i0.ɵɵelementStart(6, "input", 53, 54);
+    i0.ɵɵlistener("keyup", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_Template_input_keyup_6_listener($event) { i0.ɵɵrestoreView(_r100); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r98 = i0.ɵɵnextContext(3); return ctx_r98.filterInput($event, field_r7); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_div_8_Template, 2, 3, "div", 55);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(9, "nb-autocomplete", 56, 57);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_Template_nb_autocomplete_selectedChange_9_listener($event) { i0.ɵɵrestoreView(_r100); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r101 = i0.ɵɵnextContext(3); return ctx_r101.onSelectionChange($event, field_r7); });
+    i0.ɵɵtemplate(11, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_nb_option_11_Template, 2, 3, "nb-option", 58);
+    i0.ɵɵpipe(12, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r93 = i0.ɵɵreference(10);
+    const ctx_r103 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r103.$implicit;
+    const i_r8 = ctx_r103.index;
+    const ctx_r23 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 7, field_r7.label));
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("formControlName", field_r7.name)("nbAutocomplete", _r93)("id", i_r8);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !(field_r7.metaData == null ? null : field_r7.metaData.addConfig == null ? null : field_r7.metaData.addConfig.belongToOptions == null ? null : field_r7.metaData.addConfig.belongToOptions.secondField));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(12, 9, ctx_r23.allFilterContains[field_r7.name]));
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_nb_tag_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 66);
+} if (rf & 2) {
+    const tree_r108 = ctx.$implicit;
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("text", tree_r108[field_r7.metaData.addConfig.belongToManyOptions.template ? field_r7.metaData.addConfig.belongToManyOptions.template : field_r7.metaData.addConfig.belongToManyOptions.filterKeys[0]])("attributes", field_r7.metaData.attributes);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_nb_option_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 60);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r110 = ctx.$implicit;
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("value", option_r110)("attributes", field_r7.metaData.attributes);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r110[field_r7.metaData.addConfig.belongToManyOptions.template ? field_r7.metaData.addConfig.belongToManyOptions.template : field_r7.metaData.addConfig.belongToManyOptions.filterKeys[0]], " ");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_Template(rf, ctx) { if (rf & 1) {
+    const _r114 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "nb-tag-list", 61);
+    i0.ɵɵlistener("tagRemove", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_Template_nb_tag_list_tagRemove_4_listener($event) { i0.ɵɵrestoreView(_r114); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r112 = i0.ɵɵnextContext(3); return ctx_r112.onTagRemoveBelong($event, field_r7); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_nb_tag_5_Template, 1, 2, "nb-tag", 62);
+    i0.ɵɵelementStart(6, "input", 63, 64);
+    i0.ɵɵlistener("keyup", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_Template_input_keyup_6_listener($event) { i0.ɵɵrestoreView(_r114); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r115 = i0.ɵɵnextContext(3); return ctx_r115.filterInput($event, field_r7); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(8, "nb-autocomplete", 56, 65);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_Template_nb_autocomplete_selectedChange_8_listener($event) { i0.ɵɵrestoreView(_r114); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r117 = i0.ɵɵnextContext(3); return ctx_r117.onChoose($event, field_r7); });
+    i0.ɵɵtemplate(10, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_nb_option_10_Template, 2, 3, "nb-option", 58);
+    i0.ɵɵpipe(11, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r106 = i0.ɵɵreference(9);
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r24 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 7, field_r7.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", ctx_r24.belongToMany[field_r7.name]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("nbAutocomplete", _r106)("placeholder", field_r7.label)("formControlName", field_r7.name);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(11, 9, ctx_r24.allFilterContains[field_r7.name]));
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_15_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 67);
+    i0.ɵɵelement(5, "input", 68);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r120 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r120.$implicit;
+    const i_r8 = ctx_r120.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_16_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 22);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r121 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r121.$implicit;
+    const i_r8 = ctx_r121.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r8)("attributes", field_r7.metaData.attributes)("placeholder", field_r7.label)("formControlName", field_r7.name);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_button_5_Template(rf, ctx) { if (rf & 1) {
+    const _r126 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 71);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_button_5_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r126); const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r124 = i0.ɵɵnextContext(3); return ctx_r124.addJSONField(field_r7); });
+    i0.ɵɵelement(1, "nb-icon", 72);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes);
+} }
+const _c3 = function () { return { standalone: true }; };
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_input_2_Template(rf, ctx) { if (rf & 1) {
+    const _r136 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 80);
+    i0.ɵɵlistener("ngModelChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_input_2_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r136); const item_r128 = i0.ɵɵnextContext().$implicit; return item_r128.label = $event; });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r128 = i0.ɵɵnextContext().$implicit;
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("ngModel", item_r128.label)("attributes", field_r7.metaData.attributes)("ngModelOptions", i0.ɵɵpureFunction0(3, _c3));
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_ng_template_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "input", 81);
+} if (rf & 2) {
+    const item_r128 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵproperty("value", item_r128.label);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_div_7_Template(rf, ctx) { if (rf & 1) {
+    const _r142 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 77);
+    i0.ɵɵelementStart(1, "button", 82);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_div_7_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r142); const index_r129 = i0.ɵɵnextContext().index; const field_r7 = i0.ɵɵnextContext(3).$implicit; const ctx_r140 = i0.ɵɵnextContext(3); return ctx_r140.removeJSONField(field_r7, index_r129); });
+    i0.ɵɵelement(2, "nb-icon", 83);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_Template(rf, ctx) { if (rf & 1) {
+    const _r145 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 73);
+    i0.ɵɵelementStart(1, "div", 74);
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_input_2_Template, 1, 4, "input", 75);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_ng_template_3_Template, 1, 1, "ng-template", null, 76, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 77);
+    i0.ɵɵelementStart(6, "input", 78);
+    i0.ɵɵlistener("ngModelChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_Template_input_ngModelChange_6_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r145); const item_r128 = restoredCtx.$implicit; return item_r128.value = $event; });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_div_7_Template, 3, 0, "div", 79);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r128 = ctx.$implicit;
+    const index_r129 = ctx.index;
+    const _r131 = i0.ɵɵreference(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("id", index_r129);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r128.add)("ngIfElse", _r131);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngModel", item_r128.value)("ngModelOptions", i0.ɵɵpureFunction0(6, _c3));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r128.add);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "div");
+    i0.ɵɵelementStart(2, "label", 21);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_button_5_Template, 2, 1, "button", 69);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_div_6_Template, 8, 7, "div", 70);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r27 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 3, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", field_r7.metaData.addConfig.jsonConfig.isOpen);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r27.jsonEditorOptions[field_r7.name]);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_nb_option_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 87);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r151 = ctx.$implicit;
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("value", option_r151.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(option_r151.label);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_nb_option_15_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 60);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r153 = ctx.$implicit;
+    const field_r7 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("value", option_r153[(field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig.morphConfig == null ? null : field_r7.metaData.addConfig.morphConfig.value) ? field_r7 == null ? null : field_r7.metaData == null ? null : field_r7.metaData.addConfig.morphConfig == null ? null : field_r7.metaData.addConfig.morphConfig.value : "id"])("attributes", field_r7.metaData.attributes);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r153[field_r7.metaData.addConfig.morphConfig.template ? field_r7.metaData.addConfig.morphConfig.template : field_r7.metaData.addConfig.morphConfig.filterKeys[0]], " ");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_Template(rf, ctx) { if (rf & 1) {
+    const _r157 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "div", 10);
+    i0.ɵɵelementStart(3, "label", 21);
+    i0.ɵɵtext(4, "Ressources");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "nb-select", 84);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_Template_nb_select_selectedChange_5_listener($event) { i0.ɵɵrestoreView(_r157); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r155 = i0.ɵɵnextContext(3); return ctx_r155.onMorphSelectField($event, field_r7.name); });
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_nb_option_6_Template, 2, 3, "nb-option", 85);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(7, "div", 9);
+    i0.ɵɵelementStart(8, "label", 21);
+    i0.ɵɵtext(9);
+    i0.ɵɵpipe(10, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(11, "input", 86, 54);
+    i0.ɵɵlistener("keyup", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_Template_input_keyup_11_listener($event) { i0.ɵɵrestoreView(_r157); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r158 = i0.ɵɵnextContext(3); return ctx_r158.filterInput($event, field_r7); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(13, "nb-autocomplete", 56, 57);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_Template_nb_autocomplete_selectedChange_13_listener($event) { i0.ɵɵrestoreView(_r157); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r160 = i0.ɵɵnextContext(3); return ctx_r160.onSelectionChange($event, field_r7); });
+    i0.ɵɵtemplate(15, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_nb_option_15_Template, 2, 3, "nb-option", 58);
+    i0.ɵɵpipe(16, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r149 = i0.ɵɵreference(14);
+    const ctx_r162 = i0.ɵɵnextContext(2);
+    const field_r7 = ctx_r162.$implicit;
+    const i_r8 = ctx_r162.index;
+    const ctx_r28 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(6);
+    i0.ɵɵproperty("ngForOf", field_r7.metaData.addConfig.morphConfig.related);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(10, 8, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("attributes", field_r7.metaData.attributes)("formControlName", field_r7.name)("nbAutocomplete", _r149)("id", i_r8)("disabled", !ctx_r28.allFilterContains[field_r7.name]);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(16, 10, ctx_r28.allFilterContains[field_r7.name]));
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_19_Template(rf, ctx) { if (rf & 1) {
+    const _r165 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "ngx-gmaps", 88);
+    i0.ɵɵlistener("latChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_19_Template_ngx_gmaps_latChange_4_listener($event) { i0.ɵɵrestoreView(_r165); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r163 = i0.ɵɵnextContext(3); return ctx_r163.onLatChange($event, field_r7.name); })("lngChange", function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_19_Template_ngx_gmaps_lngChange_4_listener($event) { i0.ɵɵrestoreView(_r165); const field_r7 = i0.ɵɵnextContext(2).$implicit; const ctx_r166 = i0.ɵɵnextContext(3); return ctx_r166.onLngChange($event, field_r7.name); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r29 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 2, field_r7.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("googleMapKey", ctx_r29.googleMapKeys);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_1_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_2_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_3_Template, 7, 8, "ng-container", 0);
+    i0.ɵɵtemplate(4, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_4_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_5_Template, 7, 7, "div", 19);
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_6_Template, 7, 7, "div", 19);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_7_Template, 7, 6, "div", 19);
+    i0.ɵɵtemplate(8, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_ng_container_8_Template, 6, 7, "ng-container", 19);
+    i0.ɵɵtemplate(9, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_9_Template, 6, 4, "div", 19);
+    i0.ɵɵtemplate(10, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_10_Template, 8, 6, "div", 19);
+    i0.ɵɵtemplate(11, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_11_Template, 10, 8, "div", 19);
+    i0.ɵɵtemplate(12, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_12_Template, 7, 8, "div", 19);
+    i0.ɵɵtemplate(13, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_13_Template, 13, 11, "div", 19);
+    i0.ɵɵtemplate(14, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_14_Template, 12, 11, "div", 19);
+    i0.ɵɵtemplate(15, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_15_Template, 6, 7, "div", 19);
+    i0.ɵɵtemplate(16, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_16_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(17, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_17_Template, 7, 5, "div", 19);
+    i0.ɵɵtemplate(18, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_18_Template, 17, 12, "div", 19);
+    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_div_19_Template, 5, 4, "div", 19);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext().$implicit;
+    const ctx_r9 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.STRING || field_r7.type == ctx_r9.REST_FIELD_TYPES.HAS_ONE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.TEXT);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.PASSWORD);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.NUMBER);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.DATETIME);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.TIME);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.FILE || field_r7.type == ctx_r9.REST_FIELD_TYPES.PDF);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.BELONG_TO_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.JSON);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.MORPH);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.type == ctx_r9.REST_FIELD_TYPES.MAP);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "span", 89);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r7 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(field_r7.note);
+} }
+function RestResourceAddComponent_ng_container_0_form_7_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 5);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_1_Template, 20, 19, "ng-container", 0);
+    i0.ɵɵelementStart(2, "div", 18);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_0_form_7_div_1_ng_container_3_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r7 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r7.inForm);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", field_r7.note != "");
+} }
+function RestResourceAddComponent_ng_container_0_form_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "form", 16);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_0_form_7_div_1_Template, 4, 2, "div", 17);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("formGroup", ctx_r4.form);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r4.resource.fields)("ngForTrackBy", ctx_r4.trackByFn);
+} }
+function RestResourceAddComponent_ng_container_0_span_24_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "span", 90);
+} }
+function RestResourceAddComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    const _r172 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "nb-card");
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_0_nb_card_header_2_Template, 2, 1, "nb-card-header", 0);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_0_nb_card_header_3_Template, 2, 1, "nb-card-header", 0);
+    i0.ɵɵelementStart(4, "nb-card-body");
+    i0.ɵɵelementStart(5, "nb-tabset", 1);
+    i0.ɵɵelementStart(6, "nb-tab", 2);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_0_form_7_Template, 2, 3, "form", 3);
+    i0.ɵɵelementStart(8, "div", 4);
+    i0.ɵɵelementStart(9, "div", 5);
+    i0.ɵɵelement(10, "div", 6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(11, "nb-tab", 7);
+    i0.ɵɵelementStart(12, "div", 8);
+    i0.ɵɵelement(13, "div", 9);
+    i0.ɵɵelementStart(14, "div", 10);
+    i0.ɵɵelementStart(15, "button", 11);
+    i0.ɵɵtext(16);
+    i0.ɵɵpipe(17, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(18, "div");
+    i0.ɵɵelement(19, "ng2-smart-table", 12);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(20, "nb-card-footer");
+    i0.ɵɵelementStart(21, "div", 13);
+    i0.ɵɵelementStart(22, "button", 14);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_0_Template_button_click_22_listener() { i0.ɵɵrestoreView(_r172); const ctx_r171 = i0.ɵɵnextContext(); return ctx_r171.onSumbit(); });
+    i0.ɵɵtext(23, " > ");
+    i0.ɵɵtemplate(24, RestResourceAddComponent_ng_container_0_span_24_Template, 1, 0, "span", 15);
+    i0.ɵɵtext(25);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", ctx_r0.formState.onReady && !ctx_r0.formState.isAdd);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r0.formState.onReady && ctx_r0.formState.isAdd);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngIf", ctx_r0.formState.onReady);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("innerHTML", ctx_r0.error, i0.ɵɵsanitizeHtml);
+    i0.ɵɵadvance(5);
+    i0.ɵɵproperty("nbContextMenu", ctx_r0.items);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(17, 11, "rest-add.import"), " ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("settings", ctx_r0.settings)("source", ctx_r0.source);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("disabled", ctx_r0.loading);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", ctx_r0.loading);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r0.formState.btnLabel, " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_nb_card_header_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-card-header");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r174 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", ctx_r174.resource.editConfig.title, " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_nb_card_header_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-card-header");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r175 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", ctx_r175.resource.addConfig.title, " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 22);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r203 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r203.$implicit;
+    const i_r181 = ctx_r203.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "textarea", 23);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r204 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r204.$implicit;
+    const i_r181 = ctx_r204.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_3_ng_container_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 20);
+    i0.ɵɵelementStart(2, "label", 21);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "input", 24);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r206 = i0.ɵɵnextContext(3);
+    const field_r180 = ctx_r206.$implicit;
+    const i_r181 = ctx_r206.index;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate((field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig == null ? null : field_r180.metaData.addConfig.passwordOptions == null ? null : field_r180.metaData.addConfig.passwordOptions.confirmLabel) ? field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig == null ? null : field_r180.metaData.addConfig.passwordOptions == null ? null : field_r180.metaData.addConfig.passwordOptions.confirmLabel : i0.ɵɵpipeBind1(4, 5, field_r180.label + "_confirmation"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label + "_confirmation")("formControlName", (field_r180.metaData == null ? null : field_r180.metaData.addConfig == null ? null : field_r180.metaData.addConfig.passwordOptions == null ? null : field_r180.metaData.addConfig.passwordOptions.confirmField) ? field_r180.metaData.addConfig.passwordOptions.confirmField : field_r180.name + "_confirmation");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 20);
+    i0.ɵɵelementStart(2, "label", 21);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "input", 24);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_3_ng_container_6_Template, 6, 7, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r207 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r207.$implicit;
+    const i_r181 = ctx_r207.index;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 6, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("formControlName", field_r180.name);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig == null ? null : field_r180.metaData.addConfig.passwordOptions == null ? null : field_r180.metaData.addConfig.passwordOptions.isNeedConfirm);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 25);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r208 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r208.$implicit;
+    const i_r181 = ctx_r208.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 26);
+    i0.ɵɵelement(5, "nb-datepicker", null, 27);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r209 = i0.ɵɵreference(6);
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("placeholder", field_r180.label)("nbDatepicker", _r209)("attributes", field_r180.metaData.attributes)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 28);
+    i0.ɵɵelement(5, "nb-date-timepicker", 29, 30);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r211 = i0.ɵɵreference(6);
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("nbDatepicker", _r211)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 31);
+    i0.ɵɵelement(5, "nb-timepicker", null, 32);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r213 = i0.ɵɵreference(6);
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 4, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("nbTimepicker", _r213)("attributes", field_r180.metaData.attributes)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_8_nb_option_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 35);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r216 = ctx.$implicit;
+    i0.ɵɵproperty("value", option_r216.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(option_r216.label);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0, 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "nb-select", 33);
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_8_nb_option_5_Template, 2, 2, "nb-option", 34);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("formControlName", field_r180.name)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", field_r180.metaData.addConfig.enumOptions);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "div", 36);
+    i0.ɵɵelementStart(2, "label", 37);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "nb-toggle", 38);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 2, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_img_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "img", 42);
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r219 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("src", ctx_r219.urlsImage[field_r180.name], i0.ɵɵsanitizeUrl);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_ngx_dropzone_label_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "ngx-dropzone-label");
+    i0.ɵɵelement(1, "nb-icon", 43);
+    i0.ɵɵtext(2, " Drag and drop files here or click to upload ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_ngx_dropzone_preview_7_Template(rf, ctx) { if (rf & 1) {
+    const _r226 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ngx-dropzone-preview", 44);
+    i0.ɵɵlistener("removed", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_ngx_dropzone_preview_7_Template_ngx_dropzone_preview_removed_0_listener() { i0.ɵɵrestoreView(_r226); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r224 = i0.ɵɵnextContext(4); return ctx_r224.onRemove(field_r180); });
+    i0.ɵɵelementStart(1, "ngx-dropzone-label");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const f_r223 = ctx.$implicit;
+    i0.ɵɵproperty("file", f_r223)("removable", true);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate2("", f_r223.name, " (", f_r223.type, ")");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_Template(rf, ctx) { if (rf & 1) {
+    const _r229 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 39);
+    i0.ɵɵlistener("change", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_Template_div_change_4_listener($event) { i0.ɵɵrestoreView(_r229); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r227 = i0.ɵɵnextContext(4); return ctx_r227.onSelect($event, field_r180); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_img_5_Template, 1, 2, "img", 40);
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_ngx_dropzone_label_6_Template, 3, 0, "ngx-dropzone-label", 0);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_ngx_dropzone_preview_7_Template, 3, 4, "ngx-dropzone-preview", 41);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r193 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 4, field_r180.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r193.urlsImage[field_r180.name] != "" && ctx_r193.filesUpload[field_r180.name].length <= 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r193.filesUpload[field_r180.name].length <= 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r193.filesUpload[field_r180.name]);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_img_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "img", 42);
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r231 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("src", ctx_r231.urlsImage[field_r180.name], i0.ɵɵsanitizeUrl);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ngx_dropzone_label_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "ngx-dropzone-label");
+    i0.ɵɵelement(1, "nb-icon", 43);
+    i0.ɵɵtext(2, " Drag and drop files here or click to upload ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ngx_dropzone_image_preview_7_Template(rf, ctx) { if (rf & 1) {
+    const _r240 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ngx-dropzone-image-preview", 44);
+    i0.ɵɵlistener("removed", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ngx_dropzone_image_preview_7_Template_ngx_dropzone_image_preview_removed_0_listener() { i0.ɵɵrestoreView(_r240); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r238 = i0.ɵɵnextContext(4); return ctx_r238.onRemove(field_r180); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const f_r237 = ctx.$implicit;
+    i0.ɵɵproperty("file", f_r237)("removable", true);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_button_8_Template(rf, ctx) { if (rf & 1) {
+    const _r243 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 46);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_button_8_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r243); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r241 = i0.ɵɵnextContext(4); return ctx_r241.activeCroper(field_r180); });
+    i0.ɵɵtext(1, " CROP ");
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ng_container_9_Template(rf, ctx) { if (rf & 1) {
+    const _r246 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "image-cropper", 47);
+    i0.ɵɵlistener("imageCropped", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ng_container_9_Template_image_cropper_imageCropped_1_listener($event) { i0.ɵɵrestoreView(_r246); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r244 = i0.ɵɵnextContext(4); return ctx_r244.imageCropped($event, field_r180); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(2, "button", 46);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ng_container_9_Template_button_click_2_listener() { i0.ɵɵrestoreView(_r246); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r247 = i0.ɵɵnextContext(4); return ctx_r247.saveCroper(field_r180); });
+    i0.ɵɵtext(3, " SAVE CHANGE ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "button", 48);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ng_container_9_Template_button_click_4_listener() { i0.ɵɵrestoreView(_r246); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r249 = i0.ɵɵnextContext(4); return ctx_r249.desactiveCrop(field_r180); });
+    i0.ɵɵtext(5, " Cancel ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r235 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("imageFile", ctx_r235.controlCroper[field_r180.name])("maintainAspectRatio", true)("aspectRatio", 4 / 3);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_Template(rf, ctx) { if (rf & 1) {
+    const _r254 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 39);
+    i0.ɵɵlistener("change", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_Template_div_change_4_listener($event) { i0.ɵɵrestoreView(_r254); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r252 = i0.ɵɵnextContext(4); return ctx_r252.onSelect($event, field_r180); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_img_5_Template, 1, 2, "img", 40);
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ngx_dropzone_label_6_Template, 3, 0, "ngx-dropzone-label", 0);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ngx_dropzone_image_preview_7_Template, 1, 2, "ngx-dropzone-image-preview", 41);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_button_8_Template, 2, 0, "button", 45);
+    i0.ɵɵtemplate(9, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_ng_container_9_Template, 6, 3, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r194 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 6, field_r180.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r194.urlsImage[field_r180.name] != "" && ctx_r194.filesUpload[field_r180.name].length <= 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r194.filesUpload[field_r180.name].length <= 0 && ctx_r194.urlsImage[field_r180.name] == "");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r194.filesUpload[field_r180.name]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r194.isCrop[field_r180.name] && ctx_r194.controlCroper[field_r180.name] != null);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r194.isCrop[field_r180.name]);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_12_nb_tag_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 52);
+} if (rf & 2) {
+    const tree_r257 = ctx.$implicit;
+    i0.ɵɵproperty("text", tree_r257);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_12_Template(rf, ctx) { if (rf & 1) {
+    const _r260 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "nb-tag-list", 49);
+    i0.ɵɵlistener("tagRemove", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_12_Template_nb_tag_list_tagRemove_4_listener($event) { i0.ɵɵrestoreView(_r260); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r258 = i0.ɵɵnextContext(4); return ctx_r258.onTagRemove($event, field_r180.name); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_12_nb_tag_5_Template, 1, 1, "nb-tag", 50);
+    i0.ɵɵelementStart(6, "input", 51);
+    i0.ɵɵlistener("tagAdd", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_12_Template_input_tagAdd_6_listener($event) { i0.ɵɵrestoreView(_r260); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r261 = i0.ɵɵnextContext(4); return ctx_r261.onTagAdd($event, field_r180.name); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r195 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 4, field_r180.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", ctx_r195.form.get(i0.ɵɵpureFunction1(6, _c2$1, field_r180.name)).value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 10);
+    i0.ɵɵelement(1, "input", 59);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r268 = i0.ɵɵnextContext(3);
+    const field_r180 = ctx_r268.$implicit;
+    const i_r181 = ctx_r268.index;
+    const ctx_r265 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("value", ctx_r265.belongToValue[field_r180.name] ? ctx_r265.belongToValue[field_r180.name] : "")("id", i_r181 + 100);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_nb_option_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 60);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r269 = ctx.$implicit;
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("value", option_r269[(field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig.belongToOptions == null ? null : field_r180.metaData.addConfig.belongToOptions.value) ? field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig == null ? null : field_r180.metaData.addConfig.belongToOptions == null ? null : field_r180.metaData.addConfig.belongToOptions.value : "id"])("attributes", field_r180.metaData.attributes);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r269[field_r180.metaData.addConfig.belongToOptions.template ? field_r180.metaData.addConfig.belongToOptions.template : field_r180.metaData.addConfig.belongToOptions.filterKeys[0]], " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_Template(rf, ctx) { if (rf & 1) {
+    const _r273 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 8);
+    i0.ɵɵelementStart(5, "div", 9);
+    i0.ɵɵelementStart(6, "input", 53, 54);
+    i0.ɵɵlistener("keyup", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_Template_input_keyup_6_listener($event) { i0.ɵɵrestoreView(_r273); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r271 = i0.ɵɵnextContext(4); return ctx_r271.filterInput($event, field_r180); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_div_8_Template, 2, 3, "div", 55);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(9, "nb-autocomplete", 56, 57);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_Template_nb_autocomplete_selectedChange_9_listener($event) { i0.ɵɵrestoreView(_r273); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r274 = i0.ɵɵnextContext(4); return ctx_r274.onSelectionChange($event, field_r180); });
+    i0.ɵɵtemplate(11, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_nb_option_11_Template, 2, 3, "nb-option", 58);
+    i0.ɵɵpipe(12, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r266 = i0.ɵɵreference(10);
+    const ctx_r276 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r276.$implicit;
+    const i_r181 = ctx_r276.index;
+    const ctx_r196 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 7, field_r180.label));
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("formControlName", field_r180.name)("nbAutocomplete", _r266)("id", i_r181);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !(field_r180.metaData == null ? null : field_r180.metaData.addConfig == null ? null : field_r180.metaData.addConfig.belongToOptions == null ? null : field_r180.metaData.addConfig.belongToOptions.secondField));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(12, 9, ctx_r196.allFilterContains[field_r180.name]));
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_nb_tag_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 66);
+} if (rf & 2) {
+    const tree_r281 = ctx.$implicit;
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("text", tree_r281[field_r180.metaData.addConfig.belongToManyOptions.template ? field_r180.metaData.addConfig.belongToManyOptions.template : field_r180.metaData.addConfig.belongToManyOptions.filterKeys[0]])("attributes", field_r180.metaData.attributes);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_nb_option_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 60);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r283 = ctx.$implicit;
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("value", option_r283)("attributes", field_r180.metaData.attributes);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r283[field_r180.metaData.addConfig.belongToManyOptions.template ? field_r180.metaData.addConfig.belongToManyOptions.template : field_r180.metaData.addConfig.belongToManyOptions.filterKeys[0]], " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_Template(rf, ctx) { if (rf & 1) {
+    const _r287 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "nb-tag-list", 61);
+    i0.ɵɵlistener("tagRemove", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_Template_nb_tag_list_tagRemove_4_listener($event) { i0.ɵɵrestoreView(_r287); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r285 = i0.ɵɵnextContext(4); return ctx_r285.onTagRemoveBelong($event, field_r180); });
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_nb_tag_5_Template, 1, 2, "nb-tag", 62);
+    i0.ɵɵelementStart(6, "input", 63, 64);
+    i0.ɵɵlistener("keyup", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_Template_input_keyup_6_listener($event) { i0.ɵɵrestoreView(_r287); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r288 = i0.ɵɵnextContext(4); return ctx_r288.filterInput($event, field_r180); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(8, "nb-autocomplete", 56, 65);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_Template_nb_autocomplete_selectedChange_8_listener($event) { i0.ɵɵrestoreView(_r287); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r290 = i0.ɵɵnextContext(4); return ctx_r290.onChoose($event, field_r180); });
+    i0.ɵɵtemplate(10, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_nb_option_10_Template, 2, 3, "nb-option", 58);
+    i0.ɵɵpipe(11, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r279 = i0.ɵɵreference(9);
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r197 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 7, field_r180.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", ctx_r197.belongToMany[field_r180.name]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("nbAutocomplete", _r279)("placeholder", field_r180.label)("formControlName", field_r180.name);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(11, 9, ctx_r197.allFilterContains[field_r180.name]));
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_15_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "div", 67);
+    i0.ɵɵelement(5, "input", 68);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r293 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r293.$implicit;
+    const i_r181 = ctx_r293.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_16_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(4, "input", 22);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r294 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r294.$implicit;
+    const i_r181 = ctx_r294.index;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 5, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("id", i_r181)("attributes", field_r180.metaData.attributes)("placeholder", field_r180.label)("formControlName", field_r180.name);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_button_5_Template(rf, ctx) { if (rf & 1) {
+    const _r299 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 71);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_button_5_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r299); const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r297 = i0.ɵɵnextContext(4); return ctx_r297.addJSONField(field_r180); });
+    i0.ɵɵelement(1, "nb-icon", 72);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_input_2_Template(rf, ctx) { if (rf & 1) {
+    const _r309 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "input", 80);
+    i0.ɵɵlistener("ngModelChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_input_2_Template_input_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r309); const item_r301 = i0.ɵɵnextContext().$implicit; return item_r301.label = $event; });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r301 = i0.ɵɵnextContext().$implicit;
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("ngModel", item_r301.label)("attributes", field_r180.metaData.attributes)("ngModelOptions", i0.ɵɵpureFunction0(3, _c3));
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_ng_template_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "input", 81);
+} if (rf & 2) {
+    const item_r301 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵproperty("value", item_r301.label);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_div_7_Template(rf, ctx) { if (rf & 1) {
+    const _r315 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 77);
+    i0.ɵɵelementStart(1, "button", 82);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_div_7_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r315); const index_r302 = i0.ɵɵnextContext().index; const field_r180 = i0.ɵɵnextContext(3).$implicit; const ctx_r313 = i0.ɵɵnextContext(4); return ctx_r313.removeJSONField(field_r180, index_r302); });
+    i0.ɵɵelement(2, "nb-icon", 83);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_Template(rf, ctx) { if (rf & 1) {
+    const _r318 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 73);
+    i0.ɵɵelementStart(1, "div", 74);
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_input_2_Template, 1, 4, "input", 75);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_ng_template_3_Template, 1, 1, "ng-template", null, 76, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 77);
+    i0.ɵɵelementStart(6, "input", 78);
+    i0.ɵɵlistener("ngModelChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_Template_input_ngModelChange_6_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r318); const item_r301 = restoredCtx.$implicit; return item_r301.value = $event; });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_div_7_Template, 3, 0, "div", 79);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r301 = ctx.$implicit;
+    const index_r302 = ctx.index;
+    const _r304 = i0.ɵɵreference(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("id", index_r302);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r301.add)("ngIfElse", _r304);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngModel", item_r301.value)("ngModelOptions", i0.ɵɵpureFunction0(6, _c3));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r301.add);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "div");
+    i0.ɵɵelementStart(2, "label", 21);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_button_5_Template, 2, 1, "button", 69);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_div_6_Template, 8, 7, "div", 70);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r200 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 3, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", field_r180.metaData.addConfig.jsonConfig.isOpen);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r200.jsonEditorOptions[field_r180.name]);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_nb_option_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 87);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r324 = ctx.$implicit;
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("value", option_r324.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(option_r324.label);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_nb_option_15_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 60);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r326 = ctx.$implicit;
+    const field_r180 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵproperty("value", option_r326[(field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig.morphConfig == null ? null : field_r180.metaData.addConfig.morphConfig.value) ? field_r180 == null ? null : field_r180.metaData == null ? null : field_r180.metaData.addConfig.morphConfig == null ? null : field_r180.metaData.addConfig.morphConfig.value : "id"])("attributes", field_r180.metaData.attributes);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r326[field_r180.metaData.addConfig.morphConfig.template ? field_r180.metaData.addConfig.morphConfig.template : field_r180.metaData.addConfig.morphConfig.filterKeys[0]], " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_Template(rf, ctx) { if (rf & 1) {
+    const _r330 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "div", 10);
+    i0.ɵɵelementStart(3, "label", 21);
+    i0.ɵɵtext(4, "Ressources");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "nb-select", 84);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_Template_nb_select_selectedChange_5_listener($event) { i0.ɵɵrestoreView(_r330); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r328 = i0.ɵɵnextContext(4); return ctx_r328.onMorphSelectField($event, field_r180.name); });
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_nb_option_6_Template, 2, 3, "nb-option", 85);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(7, "div", 9);
+    i0.ɵɵelementStart(8, "label", 21);
+    i0.ɵɵtext(9);
+    i0.ɵɵpipe(10, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(11, "input", 86, 54);
+    i0.ɵɵlistener("keyup", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_Template_input_keyup_11_listener($event) { i0.ɵɵrestoreView(_r330); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r331 = i0.ɵɵnextContext(4); return ctx_r331.filterInput($event, field_r180); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(13, "nb-autocomplete", 56, 57);
+    i0.ɵɵlistener("selectedChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_Template_nb_autocomplete_selectedChange_13_listener($event) { i0.ɵɵrestoreView(_r330); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r333 = i0.ɵɵnextContext(4); return ctx_r333.onSelectionChange($event, field_r180); });
+    i0.ɵɵtemplate(15, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_nb_option_15_Template, 2, 3, "nb-option", 58);
+    i0.ɵɵpipe(16, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r322 = i0.ɵɵreference(14);
+    const ctx_r335 = i0.ɵɵnextContext(2);
+    const field_r180 = ctx_r335.$implicit;
+    const i_r181 = ctx_r335.index;
+    const ctx_r201 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(6);
+    i0.ɵɵproperty("ngForOf", field_r180.metaData.addConfig.morphConfig.related);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(10, 8, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("attributes", field_r180.metaData.attributes)("formControlName", field_r180.name)("nbAutocomplete", _r322)("id", i_r181)("disabled", !ctx_r201.allFilterContains[field_r180.name]);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(16, 10, ctx_r201.allFilterContains[field_r180.name]));
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_19_Template(rf, ctx) { if (rf & 1) {
+    const _r338 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 20);
+    i0.ɵɵelementStart(1, "label", 21);
+    i0.ɵɵtext(2);
+    i0.ɵɵpipe(3, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "ngx-gmaps", 88);
+    i0.ɵɵlistener("latChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_19_Template_ngx_gmaps_latChange_4_listener($event) { i0.ɵɵrestoreView(_r338); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r336 = i0.ɵɵnextContext(4); return ctx_r336.onLatChange($event, field_r180.name); })("lngChange", function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_19_Template_ngx_gmaps_lngChange_4_listener($event) { i0.ɵɵrestoreView(_r338); const field_r180 = i0.ɵɵnextContext(2).$implicit; const ctx_r339 = i0.ɵɵnextContext(4); return ctx_r339.onLngChange($event, field_r180.name); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r202 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(3, 2, field_r180.label));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("googleMapKey", ctx_r202.googleMapKeys);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_1_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_2_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_3_Template, 7, 8, "ng-container", 0);
+    i0.ɵɵtemplate(4, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_4_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(5, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_5_Template, 7, 7, "div", 19);
+    i0.ɵɵtemplate(6, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_6_Template, 7, 7, "div", 19);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_7_Template, 7, 6, "div", 19);
+    i0.ɵɵtemplate(8, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_ng_container_8_Template, 6, 7, "ng-container", 19);
+    i0.ɵɵtemplate(9, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_9_Template, 6, 4, "div", 19);
+    i0.ɵɵtemplate(10, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_10_Template, 8, 6, "div", 19);
+    i0.ɵɵtemplate(11, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_11_Template, 10, 8, "div", 19);
+    i0.ɵɵtemplate(12, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_12_Template, 7, 8, "div", 19);
+    i0.ɵɵtemplate(13, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_13_Template, 13, 11, "div", 19);
+    i0.ɵɵtemplate(14, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_14_Template, 12, 11, "div", 19);
+    i0.ɵɵtemplate(15, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_15_Template, 6, 7, "div", 19);
+    i0.ɵɵtemplate(16, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_16_Template, 5, 7, "div", 19);
+    i0.ɵɵtemplate(17, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_17_Template, 7, 5, "div", 19);
+    i0.ɵɵtemplate(18, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_18_Template, 17, 12, "div", 19);
+    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_div_19_Template, 5, 4, "div", 19);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext().$implicit;
+    const ctx_r182 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.STRING || field_r180.type == ctx_r182.REST_FIELD_TYPES.HAS_ONE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.TEXT);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.PASSWORD);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.NUMBER);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.DATETIME);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.TIME);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.FILE || field_r180.type == ctx_r182.REST_FIELD_TYPES.PDF);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.BELONG_TO_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.JSON);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.MORPH);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.type == ctx_r182.REST_FIELD_TYPES.MAP);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "span", 89);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const field_r180 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(field_r180.note);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 5);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_1_Template, 20, 19, "ng-container", 0);
+    i0.ɵɵelementStart(2, "div", 18);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_ng_container_3_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const field_r180 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", field_r180.inForm);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", field_r180.note != "");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_form_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "form", 16);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_div_1_form_7_div_1_Template, 4, 2, "div", 17);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r176 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("formGroup", ctx_r176.form);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r176.resource.fields)("ngForTrackBy", ctx_r176.trackByFn);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_div_18_button_1_span_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "span", 90);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_div_18_button_1_Template(rf, ctx) { if (rf & 1) {
+    const _r347 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 14);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_div_18_button_1_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r347); const ctx_r346 = i0.ɵɵnextContext(4); return ctx_r346.onEdit(); });
+    i0.ɵɵtext(1, " > ");
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_1_div_1_div_18_button_1_span_2_Template, 1, 0, "span", 15);
+    i0.ɵɵtext(3);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r344 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("disabled", ctx_r344.loading);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", ctx_r344.loading);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r344.formState.btnLabel, " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_div_18_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 13);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_div_1_div_18_button_1_Template, 4, 3, "button", 93);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r177 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r177.PERMISSION.UPDATE);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_div_19_button_1_span_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "span", 90);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_div_19_button_1_Template(rf, ctx) { if (rf & 1) {
+    const _r351 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 14);
+    i0.ɵɵlistener("click", function RestResourceAddComponent_ng_container_1_div_1_div_19_button_1_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r351); const ctx_r350 = i0.ɵɵnextContext(4); return ctx_r350.onCreate(); });
+    i0.ɵɵtext(1, " > ");
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_1_div_1_div_19_button_1_span_2_Template, 1, 0, "span", 15);
+    i0.ɵɵtext(3);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r348 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("disabled", ctx_r348.loading);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", ctx_r348.loading);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r348.formState.btnLabel, " ");
+} }
+function RestResourceAddComponent_ng_container_1_div_1_div_19_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 13);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_div_1_div_19_button_1_Template, 4, 3, "button", 93);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r178 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r178.PERMISSION.CREATE);
+} }
+function RestResourceAddComponent_ng_container_1_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelementStart(1, "nb-card");
+    i0.ɵɵtemplate(2, RestResourceAddComponent_ng_container_1_div_1_nb_card_header_2_Template, 2, 1, "nb-card-header", 0);
+    i0.ɵɵtemplate(3, RestResourceAddComponent_ng_container_1_div_1_nb_card_header_3_Template, 2, 1, "nb-card-header", 0);
+    i0.ɵɵelementStart(4, "nb-card-body");
+    i0.ɵɵelementStart(5, "nb-tabset", 1);
+    i0.ɵɵelementStart(6, "nb-tab", 2);
+    i0.ɵɵtemplate(7, RestResourceAddComponent_ng_container_1_div_1_form_7_Template, 2, 3, "form", 3);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(8, "nb-tab", 7);
+    i0.ɵɵelementStart(9, "div", 8);
+    i0.ɵɵelement(10, "div", 9);
+    i0.ɵɵelementStart(11, "div", 10);
+    i0.ɵɵelementStart(12, "button", 11);
+    i0.ɵɵtext(13);
+    i0.ɵɵpipe(14, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(15, "div");
+    i0.ɵɵelement(16, "ng2-smart-table", 12);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(17, "nb-card-footer");
+    i0.ɵɵtemplate(18, RestResourceAddComponent_ng_container_1_div_1_div_18_Template, 2, 1, "div", 92);
+    i0.ɵɵtemplate(19, RestResourceAddComponent_ng_container_1_div_1_div_19_Template, 2, 1, "div", 92);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r173 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", ctx_r173.formState.onReady && !ctx_r173.formState.isAdd);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r173.formState.onReady && ctx_r173.formState.isAdd);
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngIf", ctx_r173.formState.onReady);
+    i0.ɵɵadvance(5);
+    i0.ɵɵproperty("nbContextMenu", ctx_r173.items);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(14, 9, "rest-add.import"), " ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("settings", ctx_r173.settings)("source", ctx_r173.source);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !ctx_r173.formState.isAdd);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r173.formState.isAdd);
+} }
+function RestResourceAddComponent_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_div_1_Template, 20, 11, "div", 91);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r1 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r1.permissions);
+} }
 class RestResourceAddComponent {
-    constructor(fb, serviceRest, serviceRestAdminConfig, activatedRoute, nbMenuService, exportService, dialogService, router, notificationService, cdref, permissionsService) {
+    constructor(fb, serviceRest, serviceRestAdminConfig, activatedRoute, nbMenuService, exportService, dialogService, router, notificationService, cdref, permissionsService, restErrorService) {
         this.fb = fb;
         this.serviceRest = serviceRest;
         this.serviceRestAdminConfig = serviceRestAdminConfig;
@@ -1263,6 +4071,8 @@ class RestResourceAddComponent {
         this.notificationService = notificationService;
         this.cdref = cdref;
         this.permissionsService = permissionsService;
+        this.restErrorService = restErrorService;
+        this.error = null;
         this.message = 'Ressource ajoutée avec succès';
         this.formState = {
             btnLabel: 'Modifier',
@@ -1445,7 +4255,7 @@ class RestResourceAddComponent {
                             if (datas[elt.name] !== null) {
                                 return Object.assign(Object.assign({}, cumul), { [elt.name]: [datas[elt.name], Validator.url] });
                             }
-                            return Object.assign(Object.assign({}, cumul), { [elt.name]: ["", Validator.url] });
+                            return Object.assign(Object.assign({}, cumul), { [elt.name]: ['', Validator.url] });
                         case REST_FIELD_TYPES.COLOR:
                             return Object.assign(Object.assign({}, cumul), { [elt.name]: datas[elt.name] });
                         case REST_FIELD_TYPES.JSON:
@@ -1761,6 +4571,7 @@ class RestResourceAddComponent {
     //End BelongToMany
     onCreate() {
         let datas;
+        this.error = '';
         const msg = {
             label: `msg-adding-success`,
             resourceName: this.ressourceName,
@@ -1917,12 +4728,8 @@ class RestResourceAddComponent {
                 this.reset();
             }
         }, (error) => {
-            const msgError = {
-                label: `msg-adding-error`,
-                resourceName: this.ressourceName,
-            };
+            this.error = this.restErrorService.handleError(error);
             this.loading = false;
-            this.notificationService.dangerToast(msgError);
         });
     }
     onEdit() {
@@ -2087,12 +4894,8 @@ class RestResourceAddComponent {
                 this.reset();
             }
         }, (error) => {
-            const msgError = {
-                label: `msg-updating-fail`,
-                resourceName: this.ressourceName,
-            };
+            this.error = this.restErrorService.handleError(error);
             this.loading = false;
-            this.notificationService.dangerToast(msgError);
         });
     }
     isFile(variable) {
@@ -2199,24 +5002,38 @@ class RestResourceAddComponent {
         });
     }
 }
-RestResourceAddComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceAddComponent, deps: [{ token: i1$3.FormBuilder }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i1.ActivatedRoute }, { token: i1$1.NbMenuService }, { token: RestExportService }, { token: i1$1.NbDialogService }, { token: i1.Router }, { token: NotificationService }, { token: i0.ChangeDetectorRef }, { token: i8.NgxPermissionsService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceAddComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceAddComponent, selector: "ngx-rest-resource-add", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "belongTo", first: true, predicate: ["belongTo"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0, template: "<ng-container *ngIf=\"resource.permissions.length <= 0\">\n  <nb-card>\n    <nb-card-header *ngIf=\"formState.onReady && !formState.isAdd\"\n      >{{ resource.editConfig.title }}\n    </nb-card-header>\n\n    <nb-card-header *ngIf=\"formState.onReady && formState.isAdd\"\n      >{{ resource.addConfig.title }}\n    </nb-card-header>\n\n    <nb-card-body>\n      <nb-tabset fullWidth>\n        <nb-tab tabTitle=\"Ajout simple\">\n          <form [formGroup]=\"form\" class=\"row\" *ngIf=\"formState.onReady\">\n            <div\n              *ngFor=\"\n                let field of resource.fields;\n                trackBy: trackByFn;\n                let i = index\n              \"\n              class=\"col-12\"\n            >\n              <ng-container *ngIf=\"field.inForm\">\n                <!-- Input type string  -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"\n                    field.type == REST_FIELD_TYPES.STRING ||\n                    field.type == REST_FIELD_TYPES.HAS_ONE\n                  \"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    nbInput\n                    fullWidth\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"text\"\n                  />\n                </div>\n\n                <!-- Input type text -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <textarea\n                    nbInput\n                    fullWidth\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                  ></textarea>\n                </div>\n\n                <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.PASSWORD\">\n                  <div class=\"input-space\">\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      nbInput\n                      fullWidth\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                      type=\"password\"\n                    />\n                  </div>\n                  <ng-container\n                    *ngIf=\"\n                      field?.metaData?.addConfig?.passwordOptions?.isNeedConfirm\n                    \"\n                  >\n                    <div class=\"input-space\">\n                      <label class=\"label\">{{\n                        field?.metaData?.addConfig?.passwordOptions\n                          ?.confirmLabel\n                          ? field?.metaData?.addConfig?.passwordOptions\n                              ?.confirmLabel\n                          : (field.label + \"_confirmation\" | titlecase)\n                      }}</label>\n                      <input\n                        nbInput\n                        fullWidth\n                        [id]=\"i\"\n                        [attributes]=\"field.metaData.attributes\"\n                        [placeholder]=\"field.label + '_confirmation'\"\n                        [formControlName]=\"\n                          field.metaData?.addConfig?.passwordOptions\n                            ?.confirmField\n                            ? field.metaData.addConfig.passwordOptions\n                                .confirmField\n                            : field.name + '_confirmation'\n                        \"\n                        type=\"password\"\n                      />\n                    </div>\n                  </ng-container>\n                </ng-container>\n\n                <!-- Input type number  -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    nbInput\n                    fullWidth\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"number\"\n                  />\n                </div>\n\n                <!-- Input type date -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    nbInput\n                    [placeholder]=\"field.label\"\n                    [nbDatepicker]=\"formpicker\"\n                    [attributes]=\"field.metaData.attributes\"\n                    fullWidth\n                    [formControlName]=\"field.name\"\n                  />\n                  <nb-datepicker #formpicker></nb-datepicker>\n                </div>\n\n                <!-- Input type dateTime -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    nbInput\n                    fullWidth\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [nbDatepicker]=\"dateTimePicker\"\n                    [formControlName]=\"field.name\"\n                  />\n                  <nb-date-timepicker\n                    withSeconds\n                    #dateTimePicker\n                  ></nb-date-timepicker>\n                </div>\n\n                <!-- Input type time -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.TIME\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    [nbTimepicker]=\"timepicker\"\n                    fullWidth\n                    [attributes]=\"field.metaData.attributes\"\n                    [formControlName]=\"field.name\"\n                    twelveHoursFormat\n                    nbInput\n                  />\n                  <nb-timepicker #timepicker></nb-timepicker>\n                </div>\n\n                <!-- Input type enum -->\n                <ng-container\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <nb-select\n                    fullWidth\n                    [formControlName]=\"field.name\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                  >\n                    <nb-option\n                      *ngFor=\"\n                        let option of field.metaData.addConfig.enumOptions\n                      \"\n                      [value]=\"option.value\"\n                      >{{ option.label }}</nb-option\n                    >\n                  </nb-select>\n                </ng-container>\n\n                <!-- Input type boolean -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n                >\n                  <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                  <div style=\"display: flex; align-items: center\">\n                    <label style=\"margin-right: 0.5em\">{{\n                      field.label | titlecase\n                    }}</label>\n                    <!-- [name]=\"field.name\" -->\n                    <nb-toggle [formControlName]=\"field.name\"></nb-toggle>\n                  </div>\n                </div>\n\n                <!-- Input type file -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"\n                    field.type == REST_FIELD_TYPES.FILE ||\n                    field.type == REST_FIELD_TYPES.PDF\n                  \"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <div\n                    style=\"border: dashed; display: flex\"\n                    class=\"custom-dropzone form-control-custom rounded m-2\"\n                    ngx-dropzone\n                    (change)=\"onSelect($event, field)\"\n                  >\n                    <img\n                      *ngIf=\"\n                        urlsImage[field.name] != '' &&\n                        filesUpload[field.name].length <= 0\n                      \"\n                      [attributes]=\"field.metaData.attributes\"\n                      [src]=\"urlsImage[field.name]\"\n                      class=\"custom-img-dropzone\"\n                    />\n\n                    <ngx-dropzone-label\n                      *ngIf=\"filesUpload[field.name].length <= 0\"\n                    >\n                      <nb-icon\n                        icon=\"cloud-upload-outline\"\n                        style=\"font-size: 2em; color: #ccc\"\n                      ></nb-icon>\n                      Drag and drop files here or click to upload\n                    </ngx-dropzone-label>\n\n                    <ngx-dropzone-preview\n                      ngProjectAs=\"ngx-dropzone-preview\"\n                      *ngFor=\"let f of filesUpload[field.name]\"\n                      [file]=\"f\"\n                      [removable]=\"true\"\n                      (removed)=\"onRemove(field)\"\n                    >\n                      <ngx-dropzone-label\n                        >{{ f.name }} ({{ f.type }})</ngx-dropzone-label\n                      >\n                    </ngx-dropzone-preview>\n                  </div>\n                </div>\n\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                  <div\n                    style=\"border: dashed; display: flex\"\n                    class=\"custom-dropzone form-control-custom rounded m-2\"\n                    ngx-dropzone\n                    (change)=\"onSelect($event, field)\"\n                  >\n                    <img\n                      *ngIf=\"\n                        urlsImage[field.name] != '' &&\n                        filesUpload[field.name].length <= 0\n                      \"\n                      [attributes]=\"field.metaData.attributes\"\n                      [src]=\"urlsImage[field.name]\"\n                      class=\"custom-img-dropzone\"\n                    />\n\n                    <ngx-dropzone-label\n                      *ngIf=\"\n                        filesUpload[field.name].length <= 0 &&\n                        urlsImage[field.name] == ''\n                      \"\n                    >\n                      <nb-icon\n                        icon=\"cloud-upload-outline\"\n                        style=\"font-size: 2em; color: #ccc\"\n                      ></nb-icon>\n                      Drag and drop files here or click to upload\n                    </ngx-dropzone-label>\n\n                    <!-- <ng-container\n                      *ngIf=\"filesUpload[field.name].length > 0\"\n                    > -->\n                    <ngx-dropzone-image-preview\n                      ngProjectAs=\"ngx-dropzone-preview\"\n                      *ngFor=\"let f of filesUpload[field.name]\"\n                      [file]=\"f\"\n                      [removable]=\"true\"\n                      (removed)=\"onRemove(field)\"\n                    >\n                    </ngx-dropzone-image-preview>\n                    <!-- </ng-container> -->\n                  </div>\n\n                  <button\n                    nbButton\n                    status=\"primary\"\n                    *ngIf=\"\n                      !isCrop[field.name] && controlCroper[field.name] != null\n                    \"\n                    (click)=\"activeCroper(field)\"\n                  >\n                    CROP\n                  </button>\n\n                  <ng-container *ngIf=\"isCrop[field.name]\">\n                    <image-cropper\n                      [imageFile]=\"controlCroper[field.name]\"\n                      [maintainAspectRatio]=\"true\"\n                      [aspectRatio]=\"4 / 3\"\n                      format=\"png\"\n                      (imageCropped)=\"imageCropped($event, field)\"\n                    ></image-cropper>\n\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      (click)=\"saveCroper(field)\"\n                    >\n                      SAVE CHANGE\n                    </button>\n                    <button\n                      nbButton\n                      status=\"danger\"\n                      (click)=\"desactiveCrop(field)\"\n                    >\n                      Cancel\n                    </button>\n                  </ng-container>\n\n                  <!-- <img [src]=\"croppedImage\" /> -->\n                </div>\n\n                <!-- Input type hasMany -->\n                <div\n                  *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\"\n                  class=\"input-space\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <nb-tag-list\n                    (tagRemove)=\"onTagRemove($event, field.name)\"\n                    fullWidth\n                  >\n                    <nb-tag\n                      *ngFor=\"let tree of form.get([field.name]).value\"\n                      [text]=\"tree\"\n                      removable\n                    ></nb-tag>\n                    <input\n                      type=\"text\"\n                      fullWidth\n                      nbTagInput\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      (tagAdd)=\"onTagAdd($event, field.name)\"\n                    />\n                  </nb-tag-list>\n                </div>\n\n                <!-- Input type belong_to -->\n                <div\n                  *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\"\n                  class=\"input-space\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                  <div class=\"row\">\n                    <div class=\"col-9\">\n                      <input\n                        #autoInput\n                        nbInput\n                        fullWidth\n                        type=\"text\"\n                        [attributes]=\"field.metaData.attributes\"\n                        [formControlName]=\"field.name\"\n                        placeholder=\"Enter value\"\n                        [nbAutocomplete]=\"autoComplete\"\n                        (keyup)=\"filterInput($event, field)\"\n                        [id]=\"i\"\n                      />\n                    </div>\n                    <div\n                      *ngIf=\"\n                        !field.metaData?.addConfig?.belongToOptions?.secondField\n                      \"\n                      class=\"col-3\"\n                    >\n                      <input\n                        nbInput\n                        fullWidth\n                        [attributes]=\"field.metaData.attributes\"\n                        disabled=\"true\"\n                        type=\"text\"\n                        placeholder=\"Value\"\n                        [value]=\"\n                          belongToValue[field.name]\n                            ? belongToValue[field.name]\n                            : ''\n                        \"\n                        [id]=\"i + 100\"\n                      />\n                    </div>\n                  </div>\n\n                  <nb-autocomplete\n                    #autoComplete\n                    (selectedChange)=\"onSelectionChange($event, field)\"\n                  >\n                    <nb-option\n                      *ngFor=\"\n                        let option of allFilterContains[field.name] | async\n                      \"\n                      [value]=\"\n                        option[\n                          field?.metaData?.addConfig.belongToOptions?.value\n                            ? field?.metaData?.addConfig?.belongToOptions?.value\n                            : 'id'\n                        ]\n                      \"\n                      [attributes]=\"field.metaData.attributes\"\n                    >\n                      {{\n                        option[\n                          field.metaData.addConfig.belongToOptions.template\n                            ? field.metaData.addConfig.belongToOptions.template\n                            : field.metaData.addConfig.belongToOptions\n                                .filterKeys[0]\n                        ]\n                      }}\n                    </nb-option>\n                  </nb-autocomplete>\n                </div>\n\n                <!-- Input type belong_to_many -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event, field)\">\n                    <nb-tag\n                      *ngFor=\"let tree of belongToMany[field.name]\"\n                      [text]=\"\n                        tree[\n                          field.metaData.addConfig.belongToManyOptions.template\n                            ? field.metaData.addConfig.belongToManyOptions\n                                .template\n                            : field.metaData.addConfig.belongToManyOptions\n                                .filterKeys[0]\n                        ]\n                      \"\n                      [attributes]=\"field.metaData.attributes\"\n                      removable\n                    ></nb-tag>\n                    <input\n                      type=\"text\"\n                      nbTagInput\n                      #autoBelongToMany\n                      [attributes]=\"field.metaData.attributes\"\n                      [nbAutocomplete]=\"belongToField\"\n                      (keyup)=\"filterInput($event, field)\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                      fullWidth\n                    />\n                  </nb-tag-list>\n\n                  <nb-autocomplete\n                    #belongToField\n                    (selectedChange)=\"onChoose($event, field)\"\n                  >\n                    <nb-option\n                      *ngFor=\"\n                        let option of allFilterContains[field.name] | async\n                      \"\n                      [value]=\"option\"\n                      [attributes]=\"field.metaData.attributes\"\n                    >\n                      {{\n                        option[\n                          field.metaData.addConfig.belongToManyOptions.template\n                            ? field.metaData.addConfig.belongToManyOptions\n                                .template\n                            : field.metaData.addConfig.belongToManyOptions\n                                .filterKeys[0]\n                        ]\n                      }}\n                    </nb-option>\n                  </nb-autocomplete>\n                </div>\n\n                <!-- Input type color  -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <div class=\"color-row\">\n                    <input\n                      nbInput\n                      fullWidth\n                      style=\"height: 45px\"\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                      type=\"color\"\n                    />\n                  </div>\n                </div>\n\n                <!-- Input type link -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <input\n                    nbInput\n                    fullWidth\n                    [id]=\"i\"\n                    [attributes]=\"field.metaData.attributes\"\n                    [placeholder]=\"field.label\"\n                    [formControlName]=\"field.name\"\n                    type=\"text\"\n                  />\n\n                  <!-- <div\n                  *ngIf=\"\n                    form.get([field.name]).hasError('invalidUrl') &&\n                    form.get([field.name]).touched\n                  \"\n                  class=\"text-error\"\n                >\n                  {{ \"rest-add.invalid-link\" | translate }}\n                </div> -->\n                </div>\n\n                <!-- Input type JSON -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.JSON\"\n                >\n                  <div>\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      shape=\"round\"\n                      size=\"small\"\n                      [attributes]=\"field.metaData.attributes\"\n                      outline\n                      ghost\n                      *ngIf=\"field.metaData.addConfig.jsonConfig.isOpen\"\n                      (click)=\"addJSONField(field)\"\n                    >\n                      <nb-icon icon=\"plus\" pack=\"fas\"></nb-icon>\n                    </button>\n                  </div>\n\n                  <div\n                    class=\"row mb-2\"\n                    *ngFor=\"\n                      let item of jsonEditorOptions[field.name];\n                      let index = index\n                    \"\n                  >\n                    <div class=\"col\" [id]=\"index\">\n                      <input\n                        fullWidth\n                        nbInput\n                        *ngIf=\"item.add; else elseBlock\"\n                        [(ngModel)]=\"item.label\"\n                        [attributes]=\"field.metaData.attributes\"\n                        [ngModelOptions]=\"{ standalone: true }\"\n                      />\n                      <ng-template #elseBlock>\n                        <input\n                          fullWidth\n                          nbInput\n                          disabled\n                          [value]=\"item.label\"\n                        />\n                      </ng-template>\n                    </div>\n                    <div class=\"col\">\n                      <input\n                        fullWidth\n                        nbInput\n                        [(ngModel)]=\"item.value\"\n                        [ngModelOptions]=\"{ standalone: true }\"\n                      />\n                    </div>\n                    <div class=\"col\" *ngIf=\"item.add\">\n                      <button\n                        nbButton\n                        status=\"primary\"\n                        shape=\"round\"\n                        size=\"small\"\n                        outline\n                        ghost\n                        (click)=\"removeJSONField(field, index)\"\n                      >\n                        <nb-icon icon=\"trash-alt\" pack=\"fas\"></nb-icon>\n                      </button>\n                    </div>\n                  </div>\n                </div>\n\n                <!-- Input type MORPH -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.MORPH\"\n                >\n                  <div class=\"row\">\n                    <div class=\"col-3\">\n                      <label class=\"label\">Ressources</label>\n                      <nb-select\n                        fullWidth\n                        (selectedChange)=\"\n                          onMorphSelectField($event, field.name)\n                        \"\n                      >\n                        <nb-option\n                          *ngFor=\"\n                            let option of field.metaData.addConfig.morphConfig\n                              .related\n                          \"\n                          [attributes]=\"field.metaData.attributes\"\n                          [value]=\"option.value\"\n                          >{{ option.label }}</nb-option\n                        >\n                      </nb-select>\n                    </div>\n\n                    <div class=\"col-9\">\n                      <label class=\"label\">{{ field.label | titlecase }}</label>\n                      <input\n                        #autoInput\n                        nbInput\n                        fullWidth\n                        type=\"text\"\n                        [attributes]=\"field.metaData.attributes\"\n                        [formControlName]=\"field.name\"\n                        placeholder=\"Enter value\"\n                        [nbAutocomplete]=\"autoComplete\"\n                        (keyup)=\"filterInput($event, field)\"\n                        [id]=\"i\"\n                        [disabled]=\"!allFilterContains[field.name]\"\n                      />\n                      <nb-autocomplete\n                        #autoComplete\n                        (selectedChange)=\"onSelectionChange($event, field)\"\n                      >\n                        <nb-option\n                          *ngFor=\"\n                            let option of allFilterContains[field.name] | async\n                          \"\n                          [value]=\"\n                            option[\n                              field?.metaData?.addConfig.morphConfig?.value\n                                ? field?.metaData?.addConfig.morphConfig?.value\n                                : 'id'\n                            ]\n                          \"\n                          [attributes]=\"field.metaData.attributes\"\n                        >\n                          {{\n                            option[\n                              field.metaData.addConfig.morphConfig.template\n                                ? field.metaData.addConfig.morphConfig.template\n                                : field.metaData.addConfig.morphConfig\n                                    .filterKeys[0]\n                            ]\n                          }}\n                        </nb-option>\n                      </nb-autocomplete>\n                    </div>\n                  </div>\n                </div>\n\n                <!-- Input type GOOGLEMAP -->\n                <div\n                  class=\"input-space\"\n                  *ngIf=\"field.type == REST_FIELD_TYPES.MAP\"\n                >\n                  <label class=\"label\">{{ field.label | titlecase }}</label>\n                  <ngx-gmaps\n                    (latChange)=\"onLatChange($event, field.name)\"\n                    (lngChange)=\"onLngChange($event, field.name)\"\n                    [googleMapKey]=\"googleMapKeys\"\n                  ></ngx-gmaps>\n                </div>\n              </ng-container>\n\n              <div class=\"\">\n                <ng-container *ngIf=\"field.note != ''\">\n                  <span class=\"text-muted ml-20 mt-3\">{{ field.note }}</span>\n                </ng-container>\n              </div>\n            </div>\n          </form>\n        </nb-tab>\n        <nb-tab tabTitle=\"Importation\">\n          <div class=\"row\">\n            <div class=\"col-9\"></div>\n            <div class=\"col-3\">\n              <button\n                nbButton\n                status=\"primary\"\n                [nbContextMenu]=\"items\"\n                nbContextMenuTag=\"my-context-add\"\n              >\n                {{ \"rest-add.import\" | translate }}\n              </button>\n            </div>\n          </div>\n\n          <div>\n            <ng2-smart-table [settings]=\"settings\" [source]=\"source\">\n            </ng2-smart-table>\n          </div>\n        </nb-tab>\n      </nb-tabset>\n    </nb-card-body>\n\n    <nb-card-footer>\n      <div class=\"buttons-row\">\n        <button\n          nbButton\n          (click)=\"onSumbit()\"\n          status=\"primary\"\n          [disabled]=\"loading\"\n        >\n          >\n          <!-- [disabled]=\"loading\" -->\n          <span\n            *ngIf=\"loading\"\n            class=\"spinner-border spinner-border-sm mr-2\"\n          ></span>\n          {{ formState.btnLabel }}\n        </button>\n      </div>\n    </nb-card-footer>\n  </nb-card>\n</ng-container>\n\n<ng-container *ngIf=\"resource.permissions.length > 0\">\n  <div *ngxPermissionsOnly=\"permissions\">\n    <nb-card>\n      <nb-card-header *ngIf=\"formState.onReady && !formState.isAdd\"\n        >{{ resource.editConfig.title }}\n      </nb-card-header>\n\n      <nb-card-header *ngIf=\"formState.onReady && formState.isAdd\"\n        >{{ resource.addConfig.title }}\n      </nb-card-header>\n\n      <nb-card-body>\n        <nb-tabset fullWidth>\n          <nb-tab tabTitle=\"Ajout simple\">\n            <form [formGroup]=\"form\" class=\"row\" *ngIf=\"formState.onReady\">\n              <div\n                *ngFor=\"\n                  let field of resource.fields;\n                  trackBy: trackByFn;\n                  let i = index\n                \"\n                class=\"col-12\"\n              >\n                <ng-container *ngIf=\"field.inForm\">\n                  <!-- Input type string  -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"\n                      field.type == REST_FIELD_TYPES.STRING ||\n                      field.type == REST_FIELD_TYPES.HAS_ONE\n                    \"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      nbInput\n                      fullWidth\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                      type=\"text\"\n                    />\n                  </div>\n\n                  <!-- Input type text -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.TEXT\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <textarea\n                      nbInput\n                      fullWidth\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                    ></textarea>\n                  </div>\n\n                  <ng-container *ngIf=\"field.type == REST_FIELD_TYPES.PASSWORD\">\n                    <div class=\"input-space\">\n                      <label class=\"label\">{{ field.label | titlecase }}</label>\n                      <input\n                        nbInput\n                        fullWidth\n                        [id]=\"i\"\n                        [attributes]=\"field.metaData.attributes\"\n                        [placeholder]=\"field.label\"\n                        [formControlName]=\"field.name\"\n                        type=\"password\"\n                      />\n                    </div>\n                    <ng-container\n                      *ngIf=\"\n                        field?.metaData?.addConfig?.passwordOptions\n                          ?.isNeedConfirm\n                      \"\n                    >\n                      <div class=\"input-space\">\n                        <label class=\"label\">{{\n                          field?.metaData?.addConfig?.passwordOptions\n                            ?.confirmLabel\n                            ? field?.metaData?.addConfig?.passwordOptions\n                                ?.confirmLabel\n                            : (field.label + \"_confirmation\" | titlecase)\n                        }}</label>\n                        <input\n                          nbInput\n                          fullWidth\n                          [id]=\"i\"\n                          [attributes]=\"field.metaData.attributes\"\n                          [placeholder]=\"field.label + '_confirmation'\"\n                          [formControlName]=\"\n                            field.metaData?.addConfig?.passwordOptions\n                              ?.confirmField\n                              ? field.metaData.addConfig.passwordOptions\n                                  .confirmField\n                              : field.name + '_confirmation'\n                          \"\n                          type=\"password\"\n                        />\n                      </div>\n                    </ng-container>\n                  </ng-container>\n\n                  <!-- Input type number  -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.NUMBER\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      nbInput\n                      fullWidth\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                      type=\"number\"\n                    />\n                  </div>\n\n                  <!-- Input type date -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.DATE\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      nbInput\n                      [placeholder]=\"field.label\"\n                      [nbDatepicker]=\"formpicker\"\n                      [attributes]=\"field.metaData.attributes\"\n                      fullWidth\n                      [formControlName]=\"field.name\"\n                    />\n                    <nb-datepicker #formpicker></nb-datepicker>\n                  </div>\n\n                  <!-- Input type dateTime -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.DATETIME\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      nbInput\n                      fullWidth\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [nbDatepicker]=\"dateTimePicker\"\n                      [formControlName]=\"field.name\"\n                    />\n                    <nb-date-timepicker\n                      withSeconds\n                      #dateTimePicker\n                    ></nb-date-timepicker>\n                  </div>\n\n                  <!-- Input type time -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.TIME\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      [nbTimepicker]=\"timepicker\"\n                      fullWidth\n                      [attributes]=\"field.metaData.attributes\"\n                      [formControlName]=\"field.name\"\n                      twelveHoursFormat\n                      nbInput\n                    />\n                    <nb-timepicker #timepicker></nb-timepicker>\n                  </div>\n\n                  <!-- Input type enum -->\n                  <ng-container\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.ENUM\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <nb-select\n                      fullWidth\n                      [formControlName]=\"field.name\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of field.metaData.addConfig.enumOptions\n                        \"\n                        [value]=\"option.value\"\n                        >{{ option.label }}</nb-option\n                      >\n                    </nb-select>\n                  </ng-container>\n\n                  <!-- Input type boolean -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.BOOLEAN\"\n                  >\n                    <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                    <div style=\"display: flex; align-items: center\">\n                      <label style=\"margin-right: 0.5em\">{{\n                        field.label | titlecase\n                      }}</label>\n                      <!-- [name]=\"field.name\" -->\n                      <nb-toggle [formControlName]=\"field.name\"></nb-toggle>\n                    </div>\n                  </div>\n\n                  <!-- Input type file -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"\n                      field.type == REST_FIELD_TYPES.FILE ||\n                      field.type == REST_FIELD_TYPES.PDF\n                    \"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <div\n                      style=\"border: dashed; display: flex\"\n                      class=\"custom-dropzone form-control-custom rounded m-2\"\n                      ngx-dropzone\n                      (change)=\"onSelect($event, field)\"\n                    >\n                      <img\n                        *ngIf=\"\n                          urlsImage[field.name] != '' &&\n                          filesUpload[field.name].length <= 0\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                        [src]=\"urlsImage[field.name]\"\n                        class=\"custom-img-dropzone\"\n                      />\n\n                      <ngx-dropzone-label\n                        *ngIf=\"filesUpload[field.name].length <= 0\"\n                      >\n                        <nb-icon\n                          icon=\"cloud-upload-outline\"\n                          style=\"font-size: 2em; color: #ccc\"\n                        ></nb-icon>\n                        Drag and drop files here or click to upload\n                      </ngx-dropzone-label>\n\n                      <ngx-dropzone-preview\n                        ngProjectAs=\"ngx-dropzone-preview\"\n                        *ngFor=\"let f of filesUpload[field.name]\"\n                        [file]=\"f\"\n                        [removable]=\"true\"\n                        (removed)=\"onRemove(field)\"\n                      >\n                        <ngx-dropzone-label\n                          >{{ f.name }} ({{ f.type }})</ngx-dropzone-label\n                        >\n                      </ngx-dropzone-preview>\n                    </div>\n                  </div>\n\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.IMAGE\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                    <div\n                      style=\"border: dashed; display: flex\"\n                      class=\"custom-dropzone form-control-custom rounded m-2\"\n                      ngx-dropzone\n                      (change)=\"onSelect($event, field)\"\n                    >\n                      <img\n                        *ngIf=\"\n                          urlsImage[field.name] != '' &&\n                          filesUpload[field.name].length <= 0\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                        [src]=\"urlsImage[field.name]\"\n                        class=\"custom-img-dropzone\"\n                      />\n\n                      <ngx-dropzone-label\n                        *ngIf=\"\n                          filesUpload[field.name].length <= 0 &&\n                          urlsImage[field.name] == ''\n                        \"\n                      >\n                        <nb-icon\n                          icon=\"cloud-upload-outline\"\n                          style=\"font-size: 2em; color: #ccc\"\n                        ></nb-icon>\n                        Drag and drop files here or click to upload\n                      </ngx-dropzone-label>\n\n                      <!-- <ng-container\n                        *ngIf=\"filesUpload[field.name].length > 0\"\n                      > -->\n                      <ngx-dropzone-image-preview\n                        ngProjectAs=\"ngx-dropzone-preview\"\n                        *ngFor=\"let f of filesUpload[field.name]\"\n                        [file]=\"f\"\n                        [removable]=\"true\"\n                        (removed)=\"onRemove(field)\"\n                      >\n                      </ngx-dropzone-image-preview>\n                      <!-- </ng-container> -->\n                    </div>\n\n                    <button\n                      nbButton\n                      status=\"primary\"\n                      *ngIf=\"\n                        !isCrop[field.name] && controlCroper[field.name] != null\n                      \"\n                      (click)=\"activeCroper(field)\"\n                    >\n                      CROP\n                    </button>\n\n                    <ng-container *ngIf=\"isCrop[field.name]\">\n                      <image-cropper\n                        [imageFile]=\"controlCroper[field.name]\"\n                        [maintainAspectRatio]=\"true\"\n                        [aspectRatio]=\"4 / 3\"\n                        format=\"png\"\n                        (imageCropped)=\"imageCropped($event, field)\"\n                      ></image-cropper>\n\n                      <button\n                        nbButton\n                        status=\"primary\"\n                        (click)=\"saveCroper(field)\"\n                      >\n                        SAVE CHANGE\n                      </button>\n                      <button\n                        nbButton\n                        status=\"danger\"\n                        (click)=\"desactiveCrop(field)\"\n                      >\n                        Cancel\n                      </button>\n                    </ng-container>\n\n                    <!-- <img [src]=\"croppedImage\" /> -->\n                  </div>\n\n                  <!-- Input type hasMany -->\n                  <div\n                    *ngIf=\"field.type == REST_FIELD_TYPES.HAS_MANY\"\n                    class=\"input-space\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <nb-tag-list\n                      (tagRemove)=\"onTagRemove($event, field.name)\"\n                      fullWidth\n                    >\n                      <nb-tag\n                        *ngFor=\"let tree of form.get([field.name]).value\"\n                        [text]=\"tree\"\n                        removable\n                      ></nb-tag>\n                      <input\n                        type=\"text\"\n                        fullWidth\n                        nbTagInput\n                        [attributes]=\"field.metaData.attributes\"\n                        [placeholder]=\"field.label\"\n                        (tagAdd)=\"onTagAdd($event, field.name)\"\n                      />\n                    </nb-tag-list>\n                  </div>\n\n                  <!-- Input type belong_to -->\n                  <div\n                    *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO\"\n                    class=\"input-space\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n\n                    <div class=\"row\">\n                      <div class=\"col-9\">\n                        <input\n                          #autoInput\n                          nbInput\n                          fullWidth\n                          type=\"text\"\n                          [attributes]=\"field.metaData.attributes\"\n                          [formControlName]=\"field.name\"\n                          placeholder=\"Enter value\"\n                          [nbAutocomplete]=\"autoComplete\"\n                          (keyup)=\"filterInput($event, field)\"\n                          [id]=\"i\"\n                        />\n                      </div>\n                      <div\n                        *ngIf=\"\n                          !field.metaData?.addConfig?.belongToOptions\n                            ?.secondField\n                        \"\n                        class=\"col-3\"\n                      >\n                        <input\n                          nbInput\n                          fullWidth\n                          [attributes]=\"field.metaData.attributes\"\n                          disabled=\"true\"\n                          type=\"text\"\n                          placeholder=\"Value\"\n                          [value]=\"\n                            belongToValue[field.name]\n                              ? belongToValue[field.name]\n                              : ''\n                          \"\n                          [id]=\"i + 100\"\n                        />\n                      </div>\n                    </div>\n\n                    <nb-autocomplete\n                      #autoComplete\n                      (selectedChange)=\"onSelectionChange($event, field)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of allFilterContains[field.name] | async\n                        \"\n                        [value]=\"\n                          option[\n                            field?.metaData?.addConfig.belongToOptions?.value\n                              ? field?.metaData?.addConfig?.belongToOptions\n                                  ?.value\n                              : 'id'\n                          ]\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                      >\n                        {{\n                          option[\n                            field.metaData.addConfig.belongToOptions.template\n                              ? field.metaData.addConfig.belongToOptions\n                                  .template\n                              : field.metaData.addConfig.belongToOptions\n                                  .filterKeys[0]\n                          ]\n                        }}\n                      </nb-option>\n                    </nb-autocomplete>\n                  </div>\n\n                  <!-- Input type belong_to_many -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.BELONG_TO_MANY\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event, field)\">\n                      <nb-tag\n                        *ngFor=\"let tree of belongToMany[field.name]\"\n                        [text]=\"\n                          tree[\n                            field.metaData.addConfig.belongToManyOptions\n                              .template\n                              ? field.metaData.addConfig.belongToManyOptions\n                                  .template\n                              : field.metaData.addConfig.belongToManyOptions\n                                  .filterKeys[0]\n                          ]\n                        \"\n                        [attributes]=\"field.metaData.attributes\"\n                        removable\n                      ></nb-tag>\n                      <input\n                        type=\"text\"\n                        nbTagInput\n                        #autoBelongToMany\n                        [attributes]=\"field.metaData.attributes\"\n                        [nbAutocomplete]=\"belongToField\"\n                        (keyup)=\"filterInput($event, field)\"\n                        [placeholder]=\"field.label\"\n                        [formControlName]=\"field.name\"\n                        fullWidth\n                      />\n                    </nb-tag-list>\n\n                    <nb-autocomplete\n                      #belongToField\n                      (selectedChange)=\"onChoose($event, field)\"\n                    >\n                      <nb-option\n                        *ngFor=\"\n                          let option of allFilterContains[field.name] | async\n                        \"\n                        [value]=\"option\"\n                        [attributes]=\"field.metaData.attributes\"\n                      >\n                        {{\n                          option[\n                            field.metaData.addConfig.belongToManyOptions\n                              .template\n                              ? field.metaData.addConfig.belongToManyOptions\n                                  .template\n                              : field.metaData.addConfig.belongToManyOptions\n                                  .filterKeys[0]\n                          ]\n                        }}\n                      </nb-option>\n                    </nb-autocomplete>\n                  </div>\n\n                  <!-- Input type color  -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.COLOR\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <div class=\"color-row\">\n                      <input\n                        nbInput\n                        fullWidth\n                        style=\"height: 45px\"\n                        [id]=\"i\"\n                        [attributes]=\"field.metaData.attributes\"\n                        [placeholder]=\"field.label\"\n                        [formControlName]=\"field.name\"\n                        type=\"color\"\n                      />\n                    </div>\n                  </div>\n\n                  <!-- Input type link -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.LINK\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <input\n                      nbInput\n                      fullWidth\n                      [id]=\"i\"\n                      [attributes]=\"field.metaData.attributes\"\n                      [placeholder]=\"field.label\"\n                      [formControlName]=\"field.name\"\n                      type=\"text\"\n                    />\n\n                    <!-- <div\n                    *ngIf=\"\n                      form.get([field.name]).hasError('invalidUrl') &&\n                      form.get([field.name]).touched\n                    \"\n                    class=\"text-error\"\n                  >\n                    {{ \"rest-add.invalid-link\" | translate }}\n                  </div> -->\n                  </div>\n\n                  <!-- Input type JSON -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.JSON\"\n                  >\n                    <div>\n                      <label class=\"label\">{{ field.label | titlecase }}</label>\n                      <button\n                        nbButton\n                        status=\"primary\"\n                        shape=\"round\"\n                        size=\"small\"\n                        [attributes]=\"field.metaData.attributes\"\n                        outline\n                        ghost\n                        *ngIf=\"field.metaData.addConfig.jsonConfig.isOpen\"\n                        (click)=\"addJSONField(field)\"\n                      >\n                        <nb-icon icon=\"plus\" pack=\"fas\"></nb-icon>\n                      </button>\n                    </div>\n\n                    <div\n                      class=\"row mb-2\"\n                      *ngFor=\"\n                        let item of jsonEditorOptions[field.name];\n                        let index = index\n                      \"\n                    >\n                      <div class=\"col\" [id]=\"index\">\n                        <input\n                          fullWidth\n                          nbInput\n                          *ngIf=\"item.add; else elseBlock\"\n                          [(ngModel)]=\"item.label\"\n                          [attributes]=\"field.metaData.attributes\"\n                          [ngModelOptions]=\"{ standalone: true }\"\n                        />\n                        <ng-template #elseBlock>\n                          <input\n                            fullWidth\n                            nbInput\n                            disabled\n                            [value]=\"item.label\"\n                          />\n                        </ng-template>\n                      </div>\n                      <div class=\"col\">\n                        <input\n                          fullWidth\n                          nbInput\n                          [(ngModel)]=\"item.value\"\n                          [ngModelOptions]=\"{ standalone: true }\"\n                        />\n                      </div>\n                      <div class=\"col\" *ngIf=\"item.add\">\n                        <button\n                          nbButton\n                          status=\"primary\"\n                          shape=\"round\"\n                          size=\"small\"\n                          outline\n                          ghost\n                          (click)=\"removeJSONField(field, index)\"\n                        >\n                          <nb-icon icon=\"trash-alt\" pack=\"fas\"></nb-icon>\n                        </button>\n                      </div>\n                    </div>\n                  </div>\n\n                  <!-- Input type MORPH -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.MORPH\"\n                  >\n                    <div class=\"row\">\n                      <div class=\"col-3\">\n                        <label class=\"label\">Ressources</label>\n                        <nb-select\n                          fullWidth\n                          (selectedChange)=\"\n                            onMorphSelectField($event, field.name)\n                          \"\n                        >\n                          <nb-option\n                            *ngFor=\"\n                              let option of field.metaData.addConfig.morphConfig\n                                .related\n                            \"\n                            [attributes]=\"field.metaData.attributes\"\n                            [value]=\"option.value\"\n                            >{{ option.label }}</nb-option\n                          >\n                        </nb-select>\n                      </div>\n\n                      <div class=\"col-9\">\n                        <label class=\"label\">{{\n                          field.label | titlecase\n                        }}</label>\n                        <input\n                          #autoInput\n                          nbInput\n                          fullWidth\n                          type=\"text\"\n                          [attributes]=\"field.metaData.attributes\"\n                          [formControlName]=\"field.name\"\n                          placeholder=\"Enter value\"\n                          [nbAutocomplete]=\"autoComplete\"\n                          (keyup)=\"filterInput($event, field)\"\n                          [id]=\"i\"\n                          [disabled]=\"!allFilterContains[field.name]\"\n                        />\n                        <nb-autocomplete\n                          #autoComplete\n                          (selectedChange)=\"onSelectionChange($event, field)\"\n                        >\n                          <nb-option\n                            *ngFor=\"\n                              let option of allFilterContains[field.name]\n                                | async\n                            \"\n                            [value]=\"\n                              option[\n                                field?.metaData?.addConfig.morphConfig?.value\n                                  ? field?.metaData?.addConfig.morphConfig\n                                      ?.value\n                                  : 'id'\n                              ]\n                            \"\n                            [attributes]=\"field.metaData.attributes\"\n                          >\n                            {{\n                              option[\n                                field.metaData.addConfig.morphConfig.template\n                                  ? field.metaData.addConfig.morphConfig\n                                      .template\n                                  : field.metaData.addConfig.morphConfig\n                                      .filterKeys[0]\n                              ]\n                            }}\n                          </nb-option>\n                        </nb-autocomplete>\n                      </div>\n                    </div>\n                  </div>\n\n                  <!-- Input type GOOGLEMAP -->\n                  <div\n                    class=\"input-space\"\n                    *ngIf=\"field.type == REST_FIELD_TYPES.MAP\"\n                  >\n                    <label class=\"label\">{{ field.label | titlecase }}</label>\n                    <ngx-gmaps\n                      (latChange)=\"onLatChange($event, field.name)\"\n                      (lngChange)=\"onLngChange($event, field.name)\"\n                      [googleMapKey]=\"googleMapKeys\"\n                    ></ngx-gmaps>\n                  </div>\n                </ng-container>\n\n                <div class=\"\">\n                  <ng-container *ngIf=\"field.note != ''\">\n                    <span class=\"text-muted ml-20 mt-3\">{{ field.note }}</span>\n                  </ng-container>\n                </div>\n              </div>\n            </form>\n          </nb-tab>\n          <nb-tab tabTitle=\"Importation\">\n            <div class=\"row\">\n              <div class=\"col-9\"></div>\n              <div class=\"col-3\">\n                <button\n                  nbButton\n                  status=\"primary\"\n                  [nbContextMenu]=\"items\"\n                  nbContextMenuTag=\"my-context-add\"\n                >\n                  {{ \"rest-add.import\" | translate }}\n                </button>\n              </div>\n            </div>\n\n            <div>\n              <ng2-smart-table [settings]=\"settings\" [source]=\"source\">\n              </ng2-smart-table>\n            </div>\n          </nb-tab>\n        </nb-tabset>\n      </nb-card-body>\n\n      <nb-card-footer>\n        <div class=\"buttons-row\" *ngIf=\"!formState.isAdd\">\n          <button\n            nbButton\n            (click)=\"onEdit()\"\n            status=\"primary\"\n            [disabled]=\"loading\"\n            *ngxPermissionsOnly=\"PERMISSION.UPDATE\"\n          >\n            >\n            <span\n              *ngIf=\"loading\"\n              class=\"spinner-border spinner-border-sm mr-2\"\n            ></span>\n            {{ formState.btnLabel }}\n          </button>\n        </div>\n        <div class=\"buttons-row\" *ngIf=\"formState.isAdd\">\n          <button\n            nbButton\n            (click)=\"onCreate()\"\n            status=\"primary\"\n            [disabled]=\"loading\"\n            *ngxPermissionsOnly=\"PERMISSION.CREATE\"\n          >\n            >\n            <span\n              *ngIf=\"loading\"\n              class=\"spinner-border spinner-border-sm mr-2\"\n            ></span>\n            {{ formState.btnLabel }}\n          </button>\n        </div>\n      </nb-card-footer>\n    </nb-card>\n  </div>\n</ng-container>\n", styles: ["nb-card-body{overflow:visible;padding-top:0}.input-space{margin-top:1rem}.color-row{justify-content:space-between;height:45px}.color-card{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .buttons-row{margin:-.5rem}.nb-theme-default :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-default :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-default :host .action-icon{margin-left:.5rem}.nb-theme-default :host .actions-card{height:8rem}.nb-theme-dark :host .buttons-row{margin:-.5rem}.nb-theme-dark :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-dark :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-dark :host .action-icon{margin-left:.5rem}.nb-theme-dark :host .actions-card{height:8rem}.nb-theme-cosmic :host .buttons-row{margin:-.5rem}.nb-theme-cosmic :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-cosmic :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-cosmic :host .action-icon{margin-left:.5rem}.nb-theme-cosmic :host .actions-card{height:8rem}.nb-theme-corporate :host .buttons-row{margin:-.5rem}.nb-theme-corporate :host button[nbButton]{margin:.5rem}[dir=ltr] .nb-theme-corporate :host .action-icon{margin-right:.5rem}[dir=rtl] .nb-theme-corporate :host .action-icon{margin-left:.5rem}.nb-theme-corporate :host .actions-card{height:8rem}.icon{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text{overflow:hidden;width:auto;font-size:14px}svg{fill:#909293;height:20px}.overlay{position:relative}.delete-button{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image img{width:100%}nb-toggle{text-align:center}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1$1.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1$1.NbDatepickerComponent, selector: "nb-datepicker", inputs: ["date"], outputs: ["dateChange"] }, { type: i1$1.NbDateTimePickerComponent, selector: "nb-date-timepicker", inputs: ["twelveHoursFormat", "withSeconds", "singleColumn", "step", "title", "applyButtonText", "currentTimeButtonText"] }, { type: i1$1.NbTimePickerComponent, selector: "nb-timepicker", inputs: ["showFooter", "timeFormat", "twelveHoursFormat", "withSeconds", "singleColumn", "step", "date", "hoursText", "minutesText", "secondsText", "ampmText", "applyButtonText", "currentTimeButtonText"], outputs: ["onSelectTime"], exportAs: ["nbTimepicker"] }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbToggleComponent, selector: "nb-toggle", inputs: ["status", "labelPosition", "checked", "disabled"], outputs: ["checkedChange"] }, { type: i9.NgxDropzoneComponent, selector: "ngx-dropzone, [ngx-dropzone]", inputs: ["accept", "disabled", "multiple", "maxFileSize", "expandable", "disableClick", "processDirectoryDrop", "id", "aria-label", "aria-labelledby", "aria-describedby"], outputs: ["change"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i9.NgxDropzonePreviewComponent, selector: "ngx-dropzone-preview", inputs: ["file", "removable"], outputs: ["removed"] }, { type: i9.NgxDropzoneImagePreviewComponent, selector: "ngx-dropzone-image-preview", inputs: ["file"] }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i5.ImageCropperComponent, selector: "image-cropper", inputs: ["imageChangedEvent", "imageURL", "imageBase64", "imageFile", "format", "transform", "maintainAspectRatio", "aspectRatio", "resetCropOnAspectRatioChange", "resizeToWidth", "resizeToHeight", "cropperMinWidth", "cropperMinHeight", "cropperMaxHeight", "cropperMaxWidth", "cropperStaticWidth", "cropperStaticHeight", "canvasRotation", "initialStepSize", "roundCropper", "onlyScaleDown", "imageQuality", "autoCrop", "backgroundColor", "containWithinAspectRatio", "hideResizeSquares", "allowMoveImage", "cropper", "alignImage", "disabled", "hidden"], outputs: ["imageCropped", "startCropImage", "imageLoaded", "cropperReady", "loadImageFailed", "transformChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: GmapsComponent, selector: "ngx-gmaps", inputs: ["lat", "lng", "googleMapKey"], outputs: ["latChange", "lngChange"] }, { type: i12.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$3.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1$3.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$3.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: AttributeDirective, selector: "[attributes]", inputs: ["attributes"] }, { type: i1$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$3.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }, { type: i1$3.NumberValueAccessor, selector: "input[type=number][formControlName],input[type=number][formControl],input[type=number][ngModel]" }, { type: i1$1.NbDatepickerDirective, selector: "input[nbDatepicker]", inputs: ["nbDatepicker"] }, { type: i1$1.NbTimePickerDirective, selector: "input[nbTimepicker]", inputs: ["overlayOffset", "nbTimepicker"] }, { type: i9.NgxDropzoneLabelDirective, selector: "ngx-dropzone-label" }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }, { type: i8.NgxPermissionsDirective, selector: "[ngxPermissionsOnly],[ngxPermissionsExcept]", inputs: ["ngxPermissionsOnly", "ngxPermissionsOnlyThen", "ngxPermissionsOnlyElse", "ngxPermissionsExcept", "ngxPermissionsExceptElse", "ngxPermissionsExceptThen", "ngxPermissionsThen", "ngxPermissionsElse", "ngxPermissionsOnlyAuthorisedStrategy", "ngxPermissionsOnlyUnauthorisedStrategy", "ngxPermissionsExceptUnauthorisedStrategy", "ngxPermissionsExceptAuthorisedStrategy", "ngxPermissionsUnauthorisedStrategy", "ngxPermissionsAuthorisedStrategy"], outputs: ["permissionsAuthorized", "permissionsUnauthorized"] }], pipes: { "titlecase": i13.TitleCasePipe, "async": i13.AsyncPipe, "translate": i2$1.TranslatePipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceAddComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-rest-resource-add',
-                    templateUrl: './rest-resource-add.component.html',
-                    styleUrls: ['./rest-resource-add.component.scss'],
-                }]
-        }], ctorParameters: function () { return [{ type: i1$3.FormBuilder }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.ActivatedRoute }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: i1$1.NbDialogService }, { type: i1.Router }, { type: NotificationService }, { type: i0.ChangeDetectorRef }, { type: i8.NgxPermissionsService }]; }, propDecorators: { resource: [{
-                type: Input
-            }], belongTo: [{
-                type: ViewChild,
-                args: ['belongTo']
-            }], inputBelongToMany: [{
-                type: ViewChild,
-                args: ['autoBelongToMany']
-            }] } });
+RestResourceAddComponent.ɵfac = function RestResourceAddComponent_Factory(t) { return new (t || RestResourceAddComponent)(i0.ɵɵdirectiveInject(i1$4.FormBuilder), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(RestExportService), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(NotificationService), i0.ɵɵdirectiveInject(i0.ChangeDetectorRef), i0.ɵɵdirectiveInject(i8.NgxPermissionsService), i0.ɵɵdirectiveInject(RestErrorService)); };
+RestResourceAddComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceAddComponent, selectors: [["ngx-rest-resource-add"]], viewQuery: function RestResourceAddComponent_Query(rf, ctx) { if (rf & 1) {
+        i0.ɵɵviewQuery(_c0$6, 5);
+        i0.ɵɵviewQuery(_c1$4, 5);
+    } if (rf & 2) {
+        let _t;
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.belongTo = _t.first);
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.inputBelongToMany = _t.first);
+    } }, inputs: { resource: "resource" }, decls: 2, vars: 2, consts: [[4, "ngIf"], ["fullWidth", ""], ["tabTitle", "Ajout simple"], ["class", "row", 3, "formGroup", 4, "ngIf"], [1, "row", "text-center", "my-2"], [1, "col-12"], [1, "text-danger", 3, "innerHTML"], ["tabTitle", "Importation"], [1, "row"], [1, "col-9"], [1, "col-3"], ["nbButton", "", "status", "primary", "nbContextMenuTag", "my-context-add", 3, "nbContextMenu"], [3, "settings", "source"], [1, "buttons-row"], ["nbButton", "", "status", "primary", 3, "disabled", "click"], ["class", "spinner-border spinner-border-sm mr-2", 4, "ngIf"], [1, "row", 3, "formGroup"], ["class", "col-12", 4, "ngFor", "ngForOf", "ngForTrackBy"], [1, ""], ["class", "input-space", 4, "ngIf"], [1, "input-space"], [1, "label"], ["nbInput", "", "fullWidth", "", "type", "text", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", "type", "password", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", "type", "number", 3, "id", "attributes", "placeholder", "formControlName"], ["nbInput", "", "fullWidth", "", 3, "placeholder", "nbDatepicker", "attributes", "formControlName"], ["formpicker", ""], ["nbInput", "", "fullWidth", "", 3, "attributes", "placeholder", "nbDatepicker", "formControlName"], ["withSeconds", ""], ["dateTimePicker", ""], ["fullWidth", "", "twelveHoursFormat", "", "nbInput", "", 3, "nbTimepicker", "attributes", "formControlName"], ["timepicker", ""], ["fullWidth", "", 3, "formControlName", "attributes", "placeholder"], [3, "value", 4, "ngFor", "ngForOf"], [3, "value"], [2, "display", "flex", "align-items", "center"], [2, "margin-right", "0.5em"], [3, "formControlName"], ["ngx-dropzone", "", 1, "custom-dropzone", "form-control-custom", "rounded", "m-2", 2, "border", "dashed", "display", "flex", 3, "change"], ["class", "custom-img-dropzone", 3, "attributes", "src", 4, "ngIf"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed", 4, "ngFor", "ngForOf"], [1, "custom-img-dropzone", 3, "attributes", "src"], ["icon", "cloud-upload-outline", 2, "font-size", "2em", "color", "#ccc"], ["ngProjectAs", "ngx-dropzone-preview", 5, ["ngx-dropzone-preview"], 3, "file", "removable", "removed"], ["nbButton", "", "status", "primary", 3, "click", 4, "ngIf"], ["nbButton", "", "status", "primary", 3, "click"], ["format", "png", 3, "imageFile", "maintainAspectRatio", "aspectRatio", "imageCropped"], ["nbButton", "", "status", "danger", 3, "click"], ["fullWidth", "", 3, "tagRemove"], ["removable", "", 3, "text", 4, "ngFor", "ngForOf"], ["type", "text", "fullWidth", "", "nbTagInput", "", 3, "attributes", "placeholder", "tagAdd"], ["removable", "", 3, "text"], ["nbInput", "", "fullWidth", "", "type", "text", "placeholder", "Enter value", 3, "attributes", "formControlName", "nbAutocomplete", "id", "keyup"], ["autoInput", ""], ["class", "col-3", 4, "ngIf"], [3, "selectedChange"], ["autoComplete", ""], [3, "value", "attributes", 4, "ngFor", "ngForOf"], ["nbInput", "", "fullWidth", "", "disabled", "true", "type", "text", "placeholder", "Value", 3, "attributes", "value", "id"], [3, "value", "attributes"], [3, "tagRemove"], ["removable", "", 3, "text", "attributes", 4, "ngFor", "ngForOf"], ["type", "text", "nbTagInput", "", "fullWidth", "", 3, "attributes", "nbAutocomplete", "placeholder", "formControlName", "keyup"], ["autoBelongToMany", ""], ["belongToField", ""], ["removable", "", 3, "text", "attributes"], [1, "color-row"], ["nbInput", "", "fullWidth", "", "type", "color", 2, "height", "45px", 3, "id", "attributes", "placeholder", "formControlName"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "attributes", "click", 4, "ngIf"], ["class", "row mb-2", 4, "ngFor", "ngForOf"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "attributes", "click"], ["icon", "plus", "pack", "fas"], [1, "row", "mb-2"], [1, "col", 3, "id"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "attributes", "ngModelOptions", "ngModelChange", 4, "ngIf", "ngIfElse"], ["elseBlock", ""], [1, "col"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "ngModelOptions", "ngModelChange"], ["class", "col", 4, "ngIf"], ["fullWidth", "", "nbInput", "", 3, "ngModel", "attributes", "ngModelOptions", "ngModelChange"], ["fullWidth", "", "nbInput", "", "disabled", "", 3, "value"], ["nbButton", "", "status", "primary", "shape", "round", "size", "small", "outline", "", "ghost", "", 3, "click"], ["icon", "trash-alt", "pack", "fas"], ["fullWidth", "", 3, "selectedChange"], [3, "attributes", "value", 4, "ngFor", "ngForOf"], ["nbInput", "", "fullWidth", "", "type", "text", "placeholder", "Enter value", 3, "attributes", "formControlName", "nbAutocomplete", "id", "disabled", "keyup"], [3, "attributes", "value"], [3, "googleMapKey", "latChange", "lngChange"], [1, "text-muted", "ml-20", "mt-3"], [1, "spinner-border", "spinner-border-sm", "mr-2"], [4, "ngxPermissionsOnly"], ["class", "buttons-row", 4, "ngIf"], ["nbButton", "", "status", "primary", 3, "disabled", "click", 4, "ngxPermissionsOnly"]], template: function RestResourceAddComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, RestResourceAddComponent_ng_container_0_Template, 26, 13, "ng-container", 0);
+        i0.ɵɵtemplate(1, RestResourceAddComponent_ng_container_1_Template, 2, 1, "ng-container", 0);
+    } if (rf & 2) {
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length <= 0);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length > 0);
+    } }, directives: [i10.NgIf, i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i1$1.NbTabsetComponent, i1$1.NbTabComponent, i1$1.NbButtonComponent, i1$1.NbContextMenuDirective, i11.Ng2SmartTableComponent, i1$1.NbCardFooterComponent, i1$1.NbCardHeaderComponent, i1$4.ɵNgNoValidate, i1$4.NgControlStatusGroup, i1$4.FormGroupDirective, i10.NgForOf, i1$1.NbInputDirective, i1$4.DefaultValueAccessor, AttributeDirective, i1$4.NgControlStatus, i1$4.FormControlName, i1$4.NumberValueAccessor, i1$1.NbDatepickerDirective, i1$1.NbDatepickerComponent, i1$1.NbDateTimePickerComponent, i1$1.NbTimePickerDirective, i1$1.NbTimePickerComponent, i1$1.NbSelectComponent, i1$1.NbOptionComponent, i1$1.NbToggleComponent, i13.NgxDropzoneComponent, i13.NgxDropzoneLabelDirective, i1$1.NbIconComponent, i13.NgxDropzonePreviewComponent, i13.NgxDropzoneImagePreviewComponent, i7.ImageCropperComponent, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbTagComponent, i1$1.NbAutocompleteDirective, i1$1.NbAutocompleteComponent, i1$4.NgModel, GmapsComponent, i8.NgxPermissionsDirective], pipes: [i1$3.TranslatePipe, i10.TitleCasePipe, i10.AsyncPipe], styles: ["nb-card-body[_ngcontent-%COMP%]{overflow:visible;padding-top:0}.input-space[_ngcontent-%COMP%]{margin-top:1rem}.color-row[_ngcontent-%COMP%]{justify-content:space-between;height:45px}.color-card[_ngcontent-%COMP%]{width:80px;height:30px;border-radius:2px;border-width:2px;border-color:#909293;margin-left:5px;justify-content:center;align-items:center}@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-default   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-default   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-dark   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-dark   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-dark   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-cosmic   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-cosmic   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-cosmic   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.nb-theme-corporate   [_nghost-%COMP%]   .buttons-row[_ngcontent-%COMP%]{margin:-.5rem}.nb-theme-corporate   [_nghost-%COMP%]   button[nbButton][_ngcontent-%COMP%]{margin:.5rem}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-right:.5rem}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .action-icon[_ngcontent-%COMP%]{margin-left:.5rem}.nb-theme-corporate   [_nghost-%COMP%]   .actions-card[_ngcontent-%COMP%]{height:8rem}.icon[_ngcontent-%COMP%]{height:35px;width:35px;line-height:30px;text-align:center;border:1px solid #eaeaea;border-radius:4px;float:left;margin-right:20px}.upload-text[_ngcontent-%COMP%]{overflow:hidden;width:auto;font-size:14px}svg[_ngcontent-%COMP%]{fill:#909293;height:20px}.overlay[_ngcontent-%COMP%]{position:relative}.delete-button[_ngcontent-%COMP%]{background-color:#fafafa;position:absolute;top:-6px;right:-6px;cursor:pointer;z-index:10;width:40px;height:40px;text-align:center;font-size:20px;line-height:40px}.file-image[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:100%}nb-toggle[_ngcontent-%COMP%]{text-align:center}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceAddComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-rest-resource-add',
+                templateUrl: './rest-resource-add.component.html',
+                styleUrls: ['./rest-resource-add.component.scss'],
+            }]
+    }], function () { return [{ type: i1$4.FormBuilder }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.ActivatedRoute }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: i1$1.NbDialogService }, { type: i1.Router }, { type: NotificationService }, { type: i0.ChangeDetectorRef }, { type: i8.NgxPermissionsService }, { type: RestErrorService }]; }, { resource: [{
+            type: Input
+        }], belongTo: [{
+            type: ViewChild,
+            args: ['belongTo']
+        }], inputBelongToMany: [{
+            type: ViewChild,
+            args: ['autoBelongToMany']
+        }] }); })();
 
 const urlToFile = (url, filename, mimeType) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -2287,26 +5104,50 @@ class RestResourceDeleteComponent {
         });
     }
 }
-RestResourceDeleteComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceDeleteComponent, deps: [{ token: i1$1.NbDialogRef }, { token: RestResourceService }, { token: NotificationService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceDeleteComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDeleteComponent, selector: "ngx-rest-resource-delete", inputs: { datas: "datas", title: "title", listConfig: "listConfig", multiSuppress: "multiSuppress", resourceName: "resourceName" }, ngImport: i0, template: "<nb-card class=\"text-center\">\n  <nb-card-header>{{ title }}</nb-card-header>\n  <nb-card-body> Voulez vous vraiment le supprimer? </nb-card-body>\n  <nb-card-footer>\n    <button\n      style=\"margin-right: 10px\"\n      nbButton\n      hero\n      status=\"primary\"\n      (click)=\"dismiss()\"\n    >\n      Non\n    </button>\n\n    <button\n      nbButton\n      status=\"danger\"\n      size=\"medium\"\n      (click)=\"multiSuppress ? deleteAll() : delete()\"\n      [nbSpinner]=\"isSubmit\"\n      nbSpinnerStatus=\"danger\"\n      nbSpinnerMessage=\"\"\n    >\n      Oui\n    </button>\n  </nb-card-footer>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card{max-width:600px;max-height:500px}.nb-theme-dark :host nb-card{max-width:600px;max-height:500px}.nb-theme-cosmic :host nb-card{max-width:600px;max-height:500px}.nb-theme-corporate :host nb-card{max-width:600px;max-height:500px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceDeleteComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-rest-resource-delete',
-                    templateUrl: './rest-resource-delete.component.html',
-                    styleUrls: ['./rest-resource-delete.component.scss'],
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbDialogRef }, { type: RestResourceService }, { type: NotificationService }]; }, propDecorators: { datas: [{
-                type: Input
-            }], title: [{
-                type: Input
-            }], listConfig: [{
-                type: Input
-            }], multiSuppress: [{
-                type: Input
-            }], resourceName: [{
-                type: Input
-            }] } });
+RestResourceDeleteComponent.ɵfac = function RestResourceDeleteComponent_Factory(t) { return new (t || RestResourceDeleteComponent)(i0.ɵɵdirectiveInject(i1$1.NbDialogRef), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(NotificationService)); };
+RestResourceDeleteComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceDeleteComponent, selectors: [["ngx-rest-resource-delete"]], inputs: { datas: "datas", title: "title", listConfig: "listConfig", multiSuppress: "multiSuppress", resourceName: "resourceName" }, decls: 10, vars: 2, consts: [[1, "text-center"], ["nbButton", "", "hero", "", "status", "primary", 2, "margin-right", "10px", 3, "click"], ["nbButton", "", "status", "danger", "size", "medium", "nbSpinnerStatus", "danger", "nbSpinnerMessage", "", 3, "nbSpinner", "click"]], template: function RestResourceDeleteComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "nb-card", 0);
+        i0.ɵɵelementStart(1, "nb-card-header");
+        i0.ɵɵtext(2);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "nb-card-body");
+        i0.ɵɵtext(4, " Voulez vous vraiment le supprimer? ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(5, "nb-card-footer");
+        i0.ɵɵelementStart(6, "button", 1);
+        i0.ɵɵlistener("click", function RestResourceDeleteComponent_Template_button_click_6_listener() { return ctx.dismiss(); });
+        i0.ɵɵtext(7, " Non ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(8, "button", 2);
+        i0.ɵɵlistener("click", function RestResourceDeleteComponent_Template_button_click_8_listener() { return ctx.multiSuppress ? ctx.deleteAll() : ctx.delete(); });
+        i0.ɵɵtext(9, " Oui ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵtextInterpolate(ctx.title);
+        i0.ɵɵadvance(6);
+        i0.ɵɵproperty("nbSpinner", ctx.isSubmit);
+    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardHeaderComponent, i1$1.NbCardBodyComponent, i1$1.NbCardFooterComponent, i1$1.NbButtonComponent, i1$1.NbSpinnerDirective], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card[_ngcontent-%COMP%]{max-width:600px;max-height:500px}.nb-theme-dark   [_nghost-%COMP%]   nb-card[_ngcontent-%COMP%]{max-width:600px;max-height:500px}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card[_ngcontent-%COMP%]{max-width:600px;max-height:500px}.nb-theme-corporate   [_nghost-%COMP%]   nb-card[_ngcontent-%COMP%]{max-width:600px;max-height:500px}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceDeleteComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-rest-resource-delete',
+                templateUrl: './rest-resource-delete.component.html',
+                styleUrls: ['./rest-resource-delete.component.scss'],
+            }]
+    }], function () { return [{ type: i1$1.NbDialogRef }, { type: RestResourceService }, { type: NotificationService }]; }, { datas: [{
+            type: Input
+        }], title: [{
+            type: Input
+        }], listConfig: [{
+            type: Input
+        }], multiSuppress: [{
+            type: Input
+        }], resourceName: [{
+            type: Input
+        }] }); })();
 
 class ImageZoomComponent {
     constructor(dialogService) {
@@ -2325,25 +5166,22 @@ class ImageZoomComponent {
         });
     }
 }
-ImageZoomComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ImageZoomComponent, deps: [{ token: i1$1.NbDialogService }], target: i0.ɵɵFactoryTarget.Component });
-ImageZoomComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: ImageZoomComponent, selector: "ngx-image-zoom", inputs: { imageUrl: "imageUrl" }, ngImport: i0, template: `
-    <div
-      class="image-zoom-container"
-      (click)="openZoomDialog()"
-    >
-      <img
-        [src]="imageUrl"
-        alt=""
-        [style.transform]="transformStyle"
-        style="max-width: 300px; max-height: 200px;cursor: zoom-in;"
-      />
-    </div>
-  `, isInline: true });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ImageZoomComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-image-zoom',
-                    template: `
+ImageZoomComponent.ɵfac = function ImageZoomComponent_Factory(t) { return new (t || ImageZoomComponent)(i0.ɵɵdirectiveInject(i1$1.NbDialogService)); };
+ImageZoomComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ImageZoomComponent, selectors: [["ngx-image-zoom"]], inputs: { imageUrl: "imageUrl" }, decls: 2, vars: 3, consts: [[1, "image-zoom-container", 3, "click"], ["alt", "", 2, "max-width", "300px", "max-height", "200px", "cursor", "zoom-in", 3, "src"]], template: function ImageZoomComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "div", 0);
+        i0.ɵɵlistener("click", function ImageZoomComponent_Template_div_click_0_listener() { return ctx.openZoomDialog(); });
+        i0.ɵɵelement(1, "img", 1);
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(1);
+        i0.ɵɵstyleProp("transform", ctx.transformStyle);
+        i0.ɵɵproperty("src", ctx.imageUrl, i0.ɵɵsanitizeUrl);
+    } }, encapsulation: 2 });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ImageZoomComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-image-zoom',
+                template: `
     <div
       class="image-zoom-container"
       (click)="openZoomDialog()"
@@ -2356,10 +5194,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       />
     </div>
   `,
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbDialogService }]; }, propDecorators: { imageUrl: [{
-                type: Input
-            }] } });
+            }]
+    }], function () { return [{ type: i1$1.NbDialogService }]; }, { imageUrl: [{
+            type: Input
+        }] }); })();
 class ImageZoomDialogComponent {
     constructor(dialogRef) {
         this.dialogRef = dialogRef;
@@ -2403,29 +5241,30 @@ class ImageZoomDialogComponent {
         this.startScale = this.currentScale;
     }
 }
-ImageZoomDialogComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ImageZoomDialogComponent, deps: [{ token: i1$1.NbDialogRef }], target: i0.ɵɵFactoryTarget.Component });
-ImageZoomDialogComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: ImageZoomDialogComponent, selector: "ngx-image-zoom-dialog", ngImport: i0, template: `
-    <div class="nb-card">
-      <div
-        class="nb-card-body"
-        (mousedown)="startZoom($event)"
-        (mousemove)="zoomImage($event)"
-        (mouseup)="endZoom()"
-      >
-        <img [src]="imageUrl" alt="" [style.transform]="transformStyle" />
-      </div>
-      <div class="nb-card-footer">
-        <button nbButton status="primary" size="small" (click)="closeDialog()">
-          Close
-        </button>
-      </div>
-    </div>
-  `, isInline: true });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ImageZoomDialogComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-image-zoom-dialog',
-                    template: `
+ImageZoomDialogComponent.ɵfac = function ImageZoomDialogComponent_Factory(t) { return new (t || ImageZoomDialogComponent)(i0.ɵɵdirectiveInject(i1$1.NbDialogRef)); };
+ImageZoomDialogComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ImageZoomDialogComponent, selectors: [["ngx-image-zoom-dialog"]], decls: 6, vars: 3, consts: [[1, "nb-card"], [1, "nb-card-body", 3, "mousedown", "mousemove", "mouseup"], ["alt", "", 3, "src"], [1, "nb-card-footer"], ["nbButton", "", "status", "primary", "size", "small", 3, "click"]], template: function ImageZoomDialogComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "div", 0);
+        i0.ɵɵelementStart(1, "div", 1);
+        i0.ɵɵlistener("mousedown", function ImageZoomDialogComponent_Template_div_mousedown_1_listener($event) { return ctx.startZoom($event); })("mousemove", function ImageZoomDialogComponent_Template_div_mousemove_1_listener($event) { return ctx.zoomImage($event); })("mouseup", function ImageZoomDialogComponent_Template_div_mouseup_1_listener() { return ctx.endZoom(); });
+        i0.ɵɵelement(2, "img", 2);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "div", 3);
+        i0.ɵɵelementStart(4, "button", 4);
+        i0.ɵɵlistener("click", function ImageZoomDialogComponent_Template_button_click_4_listener() { return ctx.closeDialog(); });
+        i0.ɵɵtext(5, " Close ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵstyleProp("transform", ctx.transformStyle);
+        i0.ɵɵproperty("src", ctx.imageUrl, i0.ɵɵsanitizeUrl);
+    } }, encapsulation: 2 });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ImageZoomDialogComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-image-zoom-dialog',
+                template: `
     <div class="nb-card">
       <div
         class="nb-card-body"
@@ -2442,9 +5281,3178 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       </div>
     </div>
   `,
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbDialogRef }]; } });
+            }]
+    }], function () { return [{ type: i1$1.NbDialogRef }]; }, null); })();
 
+function RestResourceDetailComponent_ng_container_0_nb_card_header_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-card-header");
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "titlecase");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(2, 1, ctx_r2.resource.detailConfig == null ? null : ctx_r2.resource.detailConfig.title), " ");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_3_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r8.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_3_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_3_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_3_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    const _r30 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 7);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(7, "div", 7);
+    i0.ɵɵelementStart(8, "ngx-dropzone", 10);
+    i0.ɵɵlistener("change", function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template_ngx_dropzone_change_8_listener($event) { i0.ɵɵrestoreView(_r30); const ctx_r29 = i0.ɵɵnextContext(6); return ctx_r29.onSelect($event); });
+    i0.ɵɵelementStart(9, "ngx-dropzone-preview", 11);
+    i0.ɵɵlistener("removed", function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template_ngx_dropzone_preview_removed_9_listener() { i0.ɵɵrestoreView(_r30); const item_r8 = i0.ɵɵnextContext(3).$implicit; const ctx_r31 = i0.ɵɵnextContext(3); return ctx_r31.onRemove(ctx_r31.filesUpload[item_r8.key]); });
+    i0.ɵɵelementStart(10, "ngx-dropzone-label");
+    i0.ɵɵtext(11);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 5, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r8.value.data, " ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("removable", true);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate2("", item_r8 == null ? null : item_r8.value == null ? null : item_r8.value.data, " (", "pdf", ")");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template, 12, 7, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r8.key), ": ");
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r27 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", ctx_r27.jsonValue(item_r8.value));
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_Template, 6, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(7, "div", 12);
+    i0.ɵɵelementContainerStart(8);
+    i0.ɵɵtext(9);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 5, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r8.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleProp("background-color", item_r8.value.data);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_5_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_5_ng_container_1_Template, 10, 7, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_5_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_6_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r42 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", ctx_r42.jsonValue(item_r8.value), " ");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_6_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r43 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", ctx_r43.jsonValue(item_r8.value));
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_6_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_6_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_7_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "nb-checkbox", 13);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("checked", item_r8.value.data)("disabled", true);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_7_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_7_ng_container_1_Template, 7, 5, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_7_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_8_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "ngx-image-zoom", 14);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("imageUrl", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_8_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_8_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_8_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_9_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵpipe(7, "date");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(7, 4, item_r8.value.data), " ");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_9_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_9_ng_container_1_Template, 8, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_9_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    const _r66 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 15);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_ng_container_1_Template_a_click_6_listener() { i0.ɵɵrestoreView(_r66); const item_r8 = i0.ɵɵnextContext(2).$implicit; const ctx_r64 = i0.ɵɵnextContext(3); return ctx_r64.loadBelongToDetail(item_r8.value); });
+    i0.ɵɵpipe(7, "translate");
+    i0.ɵɵtext(8);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r8.value.restField.label), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(7, 5, "rest-detail.belongToRef"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", item_r8.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_ng_container_1_Template, 9, 7, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r75 = i0.ɵɵnextContext().$implicit;
+    const ctx_r76 = i0.ɵɵnextContext(6);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r75.data[ctx_r76.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(5).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r8.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r75 = i0.ɵɵnextContext(2).$implicit;
+    const item_r8 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.metaData.listConfig.restManyResources.template)("componentClass", row_r75.data.item);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r75 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r75.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r75.data.place);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r75 = ctx.$implicit;
+    const item_r8 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r75.expanded)("place", row_r75.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.listConfig == null ? null : item_r8.value.restField.metaData.listConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.listConfig == null ? null : item_r8.value.restField.metaData.listConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r70 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r70.listDataSource[item_r8.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r70.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r70.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r93 = i0.ɵɵnextContext().$implicit;
+    const ctx_r94 = i0.ɵɵnextContext(7);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r93.data[ctx_r94.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(6).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r8.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r93 = i0.ɵɵnextContext(2).$implicit;
+    const item_r8 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.metaData.detailConfig.restManyResources.template)("componentClass", row_r93.data.item);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r93 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r93.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r93.data.place);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r93 = ctx.$implicit;
+    const item_r8 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r93.expanded)("place", row_r93.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r8.value.restField.metaData.detailConfig.restManyResources == null ? null : item_r8.value.restField.metaData.detailConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.metaData.detailConfig.restManyResources == null ? null : item_r8.value.restField.metaData.detailConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r87 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r87.listDataSource[item_r8.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r87.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r87.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_div_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 6);
+    i0.ɵɵelement(1, "ngx-rest-resource-detail", 26);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const res_r106 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(res_r106.style);
+    i0.ɵɵproperty("resource", res_r106.resource)("ID", res_r106.id)("ressourceName", res_r106.resourceName)("container", true);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵtemplate(0, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_div_0_Template, 2, 6, "div", 25);
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r89 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("ngForOf", ctx_r89.listDataSource[item_r8.value.restField.name]);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_Template, 5, 3, "div", 23);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_Template, 1, 1, "ng-template", null, 24, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r88 = i0.ɵɵreference(3);
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r71 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r71.isObject(item_r8.value.restField.metaData.detailConfig.restManyResources))("ngIfElse", _r88);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_Template, 4, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.listConfig == null ? null : item_r8.value.restField.metaData.listConfig.restManyResources) && !(item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.detailConfig == null ? null : item_r8.value.restField.metaData.detailConfig.restManyResources));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.detailConfig == null ? null : item_r8.value.restField.metaData.detailConfig.restManyResources);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r113 = i0.ɵɵnextContext().$implicit;
+    const ctx_r114 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r113.data[ctx_r114.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(item_r8.value.restField.name);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r113 = i0.ɵɵnextContext(2).$implicit;
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.metaData.listConfig.restBelongToManyResources.template)("componentClass", row_r113.data.item);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r113 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r113.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r113.data.place);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r113 = ctx.$implicit;
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r113.expanded)("place", row_r113.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.metaData.listConfig.restBelongToManyResources.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.metaData.listConfig.restBelongToManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    const ctx_r18 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r18.listDataSource[item_r8.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r18.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r18.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_iframe_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "iframe", 31);
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(4).$implicit;
+    const ctx_r128 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("src", ctx_r128.sanitizerUrl(item_r8.value.data), i0.ɵɵsanitizeResourceUrl);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 29);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_iframe_1_Template, 1, 1, "iframe", 30);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.detailConfig == null ? null : item_r8.value.restField.metaData.detailConfig.linkConfig) ? !(item_r8.value.restField == null ? null : item_r8.value.restField.metaData == null ? null : item_r8.value.restField.metaData.detailConfig == null ? null : item_r8.value.restField.metaData.detailConfig.linkConfig.disabledIframePreview) : true);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 27);
+    i0.ɵɵtext(7);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_Template, 2, 1, "div", 28);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 4, item_r8.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("href", item_r8.value.data, i0.ɵɵsanitizeUrl);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", item_r8.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r8.value.restField.template)("componentClass", item_r8.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_Template, 9, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r8.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_15_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "span", 32);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r8 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(item_r8.value.restField.note);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-list-item");
+    i0.ɵɵelementStart(1, "div", 5);
+    i0.ɵɵelementStart(2, "div", 6);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_4_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_5_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(6, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_6_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(7, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_7_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_8_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(9, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_9_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(10, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_10_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(11, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_11_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(12, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_12_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(13, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_13_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(14, "div", 7);
+    i0.ɵɵtemplate(15, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_ng_container_15_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r8 = ctx.$implicit;
+    const ctx_r7 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.TEXT || item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.STRING || item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.NUMBER || item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.PDF);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.JSON);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.BELONG_TO_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.type == ctx_r7.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", item_r8.value.restField.note != "");
+} }
+function RestResourceDetailComponent_ng_container_0_nb_list_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-list", 3);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_nb_list_4_nb_list_item_1_Template, 16, 12, "nb-list-item", 4);
+    i0.ɵɵpipe(2, "keyvalue");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(2, 1, ctx_r3.datas));
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r138.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(7, "input", 36);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 4, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r138.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("placeholder", item_r138.value.data)("value", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_ng_container_1_Template, 8, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "nb-checkbox", 13);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("checked", item_r138.value.data)("disabled", true);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_1_Template, 7, 5, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "ngx-image-zoom", 14);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("imageUrl", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵtext(2, "http://localhost:4200/admin/agency-list ");
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_2_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r170 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", ctx_r170.jsonValue(item_r138.value), " ");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r171 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", ctx_r171.jsonValue(item_r138.value));
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵpipe(7, "date");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(7, 4, item_r138.value.data), " ");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_1_Template, 8, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    const _r184 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 15);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_1_Template_a_click_6_listener() { i0.ɵɵrestoreView(_r184); const item_r138 = i0.ɵɵnextContext(2).$implicit; const ctx_r182 = i0.ɵɵnextContext(4); return ctx_r182.loadBelongToDetail(item_r138.value); });
+    i0.ɵɵpipe(7, "translate");
+    i0.ɵɵtext(8);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r138.value.restField.label), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(7, 5, "rest-detail.belongToRef"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", item_r138.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_1_Template, 9, 7, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r193 = i0.ɵɵnextContext().$implicit;
+    const ctx_r194 = i0.ɵɵnextContext(7);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r193.data[ctx_r194.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(5).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r138.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r193 = i0.ɵɵnextContext(2).$implicit;
+    const item_r138 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.metaData.listConfig.restManyResources.template)("componentClass", row_r193.data.item);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r193 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r193.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r193.data.place);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r193 = ctx.$implicit;
+    const item_r138 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r193.expanded)("place", row_r193.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.listConfig == null ? null : item_r138.value.restField.metaData.listConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.listConfig == null ? null : item_r138.value.restField.metaData.listConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r188 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r188.listDataSource[item_r138.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r188.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r188.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r211 = i0.ɵɵnextContext().$implicit;
+    const ctx_r212 = i0.ɵɵnextContext(8);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r211.data[ctx_r212.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(6).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r138.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r211 = i0.ɵɵnextContext(2).$implicit;
+    const item_r138 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.metaData.detailConfig.restManyResources.template)("componentClass", row_r211.data.item);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r211 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r211.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r211.data.place);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r211 = ctx.$implicit;
+    const item_r138 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r211.expanded)("place", row_r211.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r205 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r205.listDataSource[item_r138.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r205.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r205.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_div_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 6);
+    i0.ɵɵelement(1, "ngx-rest-resource-detail", 26);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const res_r224 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(res_r224.style);
+    i0.ɵɵproperty("resource", res_r224.resource)("ID", res_r224.id)("ressourceName", res_r224.resourceName)("container", true);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵtemplate(0, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_div_0_Template, 2, 6, "div", 25);
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r207 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("ngForOf", ctx_r207.listDataSource[item_r138.value.restField.name]);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_Template, 5, 3, "ng-container", 23);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_Template, 1, 1, "ng-template", null, 37, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r206 = i0.ɵɵreference(3);
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r189 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r189.isObject(item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.restManyResources))("ngIfElse", _r206);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_Template, 4, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.listConfig == null ? null : item_r138.value.restField.metaData.listConfig.restManyResources) && !(item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.restManyResources));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.restManyResources);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r231 = i0.ɵɵnextContext().$implicit;
+    const ctx_r232 = i0.ɵɵnextContext(6);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r231.data[ctx_r232.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(item_r138.value.restField.name);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r231 = i0.ɵɵnextContext(2).$implicit;
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.metaData.listConfig.restBelongToManyResources.template)("componentClass", row_r231.data.item);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r231 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r231.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r231.data.place);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r231 = ctx.$implicit;
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r231.expanded)("place", row_r231.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.metaData.listConfig.restBelongToManyResources.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.metaData.listConfig.restBelongToManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    const ctx_r147 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r147.listDataSource[item_r138.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r147.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r147.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_iframe_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "iframe", 31);
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(4).$implicit;
+    const ctx_r246 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("src", ctx_r246.sanitizerUrl(item_r138.value.data), i0.ɵɵsanitizeResourceUrl);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 29);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_iframe_1_Template, 1, 1, "iframe", 30);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.linkConfig) ? !(item_r138.value.restField == null ? null : item_r138.value.restField.metaData == null ? null : item_r138.value.restField.metaData.detailConfig == null ? null : item_r138.value.restField.metaData.detailConfig.linkConfig.disabledIframePreview) : true);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 27);
+    i0.ɵɵtext(7);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_Template, 2, 1, "div", 28);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 4, item_r138.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("href", item_r138.value.data, i0.ɵɵsanitizeUrl);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", item_r138.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r138.value.restField.template)("componentClass", item_r138.value.data);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_Template, 9, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r138.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_14_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "span", 32);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r138 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(item_r138.value.restField.note);
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-list-item");
+    i0.ɵɵelementStart(1, "div", 5);
+    i0.ɵɵelementStart(2, "div", 6);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(6, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(7, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(9, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(10, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(11, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(12, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(13, "div", 7);
+    i0.ɵɵtemplate(14, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_14_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r138 = ctx.$implicit;
+    const ctx_r137 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.TEXT || item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.STRING || item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.NUMBER || item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.JSON);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.BELONG_TO_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.type == ctx_r137.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", item_r138.value.restField.note != "");
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-tab", 35);
+    i0.ɵɵelementStart(1, "nb-list", 3);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_nb_list_item_2_Template, 15, 11, "nb-list-item", 4);
+    i0.ɵɵpipe(3, "keyvalue");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const tabs_r136 = ctx.$implicit;
+    const ctx_r135 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("tabTitle", tabs_r136);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(3, 2, ctx_r135.datas1[tabs_r136]));
+} }
+function RestResourceDetailComponent_ng_container_0_ng_template_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-tabset", 33);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_0_ng_template_5_nb_tab_1_Template, 4, 4, "nb-tab", 34);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r5 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r5.tabsName);
+} }
+function RestResourceDetailComponent_ng_container_0_nb_card_footer_7_Template(rf, ctx) { if (rf & 1) {
+    const _r254 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "nb-card-footer");
+    i0.ɵɵelementStart(1, "div", 38);
+    i0.ɵɵelementStart(2, "button", 39);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_0_nb_card_footer_7_Template_button_click_2_listener() { i0.ɵɵrestoreView(_r254); const ctx_r253 = i0.ɵɵnextContext(2); return ctx_r253.listEntity(); });
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "button", 40);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_0_nb_card_footer_7_Template_button_click_5_listener() { i0.ɵɵrestoreView(_r254); const ctx_r255 = i0.ɵɵnextContext(2); return ctx_r255.editEntity(); });
+    i0.ɵɵtext(6);
+    i0.ɵɵpipe(7, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(8, "button", 41);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_0_nb_card_footer_7_Template_button_click_8_listener() { i0.ɵɵrestoreView(_r254); const ctx_r256 = i0.ɵɵnextContext(2); return ctx_r256.deleteEntity(); });
+    i0.ɵɵtext(9);
+    i0.ɵɵpipe(10, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(4, 3, "rest-detail.btnCancel"), " ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(7, 5, "rest-detail.btnEdit"), " ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(10, 7, "rest-detail.btnDelete"), " ");
+} }
+function RestResourceDetailComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "nb-card");
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_0_nb_card_header_2_Template, 3, 3, "nb-card-header", 0);
+    i0.ɵɵelementStart(3, "nb-card-body");
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_0_nb_list_4_Template, 3, 3, "nb-list", 1);
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_0_ng_template_5_Template, 2, 1, "ng-template", null, 2, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(7, RestResourceDetailComponent_ng_container_0_nb_card_footer_7_Template, 11, 9, "nb-card-footer", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r4 = i0.ɵɵreference(6);
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(ctx_r0.style ? ctx_r0.style : "");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r0.container);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !ctx_r0.isTabsMenu)("ngIfElse", _r4);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r0.datas && !ctx_r0.container);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_card_header_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-card-header");
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "titlecase");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r258 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(2, 1, ctx_r258.resource.detailConfig == null ? null : ctx_r258.resource.detailConfig.title), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_3_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r264.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_3_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_3_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_3_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    const _r286 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 7);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(7, "div", 7);
+    i0.ɵɵelementStart(8, "ngx-dropzone", 10);
+    i0.ɵɵlistener("change", function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template_ngx_dropzone_change_8_listener($event) { i0.ɵɵrestoreView(_r286); const ctx_r285 = i0.ɵɵnextContext(7); return ctx_r285.onSelect($event); });
+    i0.ɵɵelementStart(9, "ngx-dropzone-preview", 11);
+    i0.ɵɵlistener("removed", function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template_ngx_dropzone_preview_removed_9_listener() { i0.ɵɵrestoreView(_r286); const item_r264 = i0.ɵɵnextContext(3).$implicit; const ctx_r287 = i0.ɵɵnextContext(4); return ctx_r287.onRemove(ctx_r287.filesUpload[item_r264.key]); });
+    i0.ɵɵelementStart(10, "ngx-dropzone-label");
+    i0.ɵɵtext(11);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 5, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r264.value.data, " ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("removable", true);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate2("", item_r264 == null ? null : item_r264.value == null ? null : item_r264.value.data, " (", "pdf", ")");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_ng_container_5_Template, 12, 7, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r264.key), ": ");
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r283 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", ctx_r283.jsonValue(item_r264.value));
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_1_Template, 6, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(7, "div", 12);
+    i0.ɵɵelementContainerStart(8);
+    i0.ɵɵtext(9);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 5, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r264.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleProp("background-color", item_r264.value.data);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_5_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_5_ng_container_1_Template, 10, 7, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_5_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_6_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r298 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", ctx_r298.jsonValue(item_r264.value), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_6_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r299 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", ctx_r299.jsonValue(item_r264.value));
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_6_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_6_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_7_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "nb-checkbox", 13);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("checked", item_r264.value.data)("disabled", true);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_7_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_7_ng_container_1_Template, 7, 5, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_7_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_8_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "ngx-image-zoom", 14);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("imageUrl", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_8_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_8_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_8_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_9_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵpipe(7, "date");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(7, 4, item_r264.value.data), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_9_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_9_ng_container_1_Template, 8, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_9_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    const _r322 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 15);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_ng_container_1_Template_a_click_6_listener() { i0.ɵɵrestoreView(_r322); const item_r264 = i0.ɵɵnextContext(2).$implicit; const ctx_r320 = i0.ɵɵnextContext(4); return ctx_r320.loadBelongToDetail(item_r264.value); });
+    i0.ɵɵpipe(7, "translate");
+    i0.ɵɵtext(8);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r264.value.restField.label), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(7, 5, "rest-detail.belongToRef"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", item_r264.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_ng_container_1_Template, 9, 7, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r331 = i0.ɵɵnextContext().$implicit;
+    const ctx_r332 = i0.ɵɵnextContext(7);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r331.data[ctx_r332.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(5).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r264.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r331 = i0.ɵɵnextContext(2).$implicit;
+    const item_r264 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.metaData.listConfig.restManyResources.template)("componentClass", row_r331.data.item);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r331 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r331.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r331.data.place);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r331 = ctx.$implicit;
+    const item_r264 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r331.expanded)("place", row_r331.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.listConfig == null ? null : item_r264.value.restField.metaData.listConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.listConfig == null ? null : item_r264.value.restField.metaData.listConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r326 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r326.listDataSource[item_r264.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r326.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r326.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r349 = i0.ɵɵnextContext().$implicit;
+    const ctx_r350 = i0.ɵɵnextContext(8);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r349.data[ctx_r350.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(6).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r264.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r349 = i0.ɵɵnextContext(2).$implicit;
+    const item_r264 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.metaData.detailConfig.restManyResources.template)("componentClass", row_r349.data.item);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r349 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r349.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r349.data.place);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r349 = ctx.$implicit;
+    const item_r264 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r349.expanded)("place", row_r349.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r264.value.restField.metaData.detailConfig.restManyResources == null ? null : item_r264.value.restField.metaData.detailConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.metaData.detailConfig.restManyResources == null ? null : item_r264.value.restField.metaData.detailConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r343 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r343.listDataSource[item_r264.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r343.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r343.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_div_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 6);
+    i0.ɵɵelement(1, "ngx-rest-resource-detail", 26);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const res_r362 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(res_r362.style);
+    i0.ɵɵproperty("resource", res_r362.resource)("ID", res_r362.id)("ressourceName", res_r362.resourceName)("container", true);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵtemplate(0, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_div_0_Template, 2, 6, "div", 25);
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r345 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("ngForOf", ctx_r345.listDataSource[item_r264.value.restField.name]);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_div_1_Template, 5, 3, "div", 23);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_ng_template_2_Template, 1, 1, "ng-template", null, 24, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r344 = i0.ɵɵreference(3);
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r327 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r327.isObject(item_r264.value.restField.metaData.detailConfig.restManyResources))("ngIfElse", _r344);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_1_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_ng_container_2_Template, 4, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.listConfig == null ? null : item_r264.value.restField.metaData.listConfig.restManyResources) && !(item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.detailConfig == null ? null : item_r264.value.restField.metaData.detailConfig.restManyResources));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.detailConfig == null ? null : item_r264.value.restField.metaData.detailConfig.restManyResources);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r369 = i0.ɵɵnextContext().$implicit;
+    const ctx_r370 = i0.ɵɵnextContext(6);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r369.data[ctx_r370.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(item_r264.value.restField.name);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r369 = i0.ɵɵnextContext(2).$implicit;
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.metaData.listConfig.restBelongToManyResources.template)("componentClass", row_r369.data.item);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r369 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r369.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r369.data.place);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r369 = ctx.$implicit;
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r369.expanded)("place", row_r369.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.metaData.listConfig.restBelongToManyResources.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.metaData.listConfig.restBelongToManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    const ctx_r274 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r274.listDataSource[item_r264.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r274.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r274.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_iframe_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "iframe", 31);
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(4).$implicit;
+    const ctx_r384 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("src", ctx_r384.sanitizerUrl(item_r264.value.data), i0.ɵɵsanitizeResourceUrl);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 29);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_iframe_1_Template, 1, 1, "iframe", 30);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.detailConfig == null ? null : item_r264.value.restField.metaData.detailConfig.linkConfig) ? !(item_r264.value.restField == null ? null : item_r264.value.restField.metaData == null ? null : item_r264.value.restField.metaData.detailConfig == null ? null : item_r264.value.restField.metaData.detailConfig.linkConfig.disabledIframePreview) : true);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 27);
+    i0.ɵɵtext(7);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_div_8_Template, 2, 1, "div", 28);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 4, item_r264.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("href", item_r264.value.data, i0.ɵɵsanitizeUrl);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", item_r264.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r264.value.restField.template)("componentClass", item_r264.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_ng_container_1_Template, 9, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r264.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_15_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "span", 32);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r264 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(item_r264.value.restField.note);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-list-item");
+    i0.ɵɵelementStart(1, "div", 5);
+    i0.ɵɵelementStart(2, "div", 6);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_4_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_5_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(6, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_6_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(7, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_7_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_8_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(9, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_9_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(10, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_10_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(11, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_11_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(12, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_12_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(13, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_13_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(14, "div", 7);
+    i0.ɵɵtemplate(15, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_ng_container_15_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r264 = ctx.$implicit;
+    const ctx_r263 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.TEXT || item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.STRING || item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.NUMBER || item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.PDF);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.JSON);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.BELONG_TO_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.type == ctx_r263.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", item_r264.value.restField.note != "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-list", 3);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_nb_list_item_1_Template, 16, 12, "nb-list-item", 4);
+    i0.ɵɵpipe(2, "keyvalue");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r259 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(2, 1, ctx_r259.datas));
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r394.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(7, "input", 36);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 4, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", item_r394.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("placeholder", item_r394.value.data)("value", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_ng_container_1_Template, 8, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "nb-checkbox", 13);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("checked", item_r394.value.data)("disabled", true);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_1_Template, 7, 5, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelement(6, "ngx-image-zoom", 14);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("imageUrl", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r426 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", ctx_r426.jsonValue(item_r394.value), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r427 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", ctx_r427.jsonValue(item_r394.value));
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_1_Template, 7, 4, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵtext(6);
+    i0.ɵɵpipe(7, "date");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(7, 4, item_r394.value.data), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_1_Template, 8, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    const _r440 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 15);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_1_Template_a_click_6_listener() { i0.ɵɵrestoreView(_r440); const item_r394 = i0.ɵɵnextContext(2).$implicit; const ctx_r438 = i0.ɵɵnextContext(5); return ctx_r438.loadBelongToDetail(item_r394.value); });
+    i0.ɵɵpipe(7, "translate");
+    i0.ɵɵtext(8);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 3, item_r394.value.restField.label), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(7, 5, "rest-detail.belongToRef"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", item_r394.value.data, " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_1_Template, 9, 7, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r449 = i0.ɵɵnextContext().$implicit;
+    const ctx_r450 = i0.ɵɵnextContext(8);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r449.data[ctx_r450.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(5).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r394.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r449 = i0.ɵɵnextContext(2).$implicit;
+    const item_r394 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.metaData.listConfig.restManyResources.template)("componentClass", row_r449.data.item);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r449 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r449.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r449.data.place);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r449 = ctx.$implicit;
+    const item_r394 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r449.expanded)("place", row_r449.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.listConfig == null ? null : item_r394.value.restField.metaData.listConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.listConfig == null ? null : item_r394.value.restField.metaData.listConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r444 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r444.listDataSource[item_r394.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r444.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r444.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r467 = i0.ɵɵnextContext().$implicit;
+    const ctx_r468 = i0.ɵɵnextContext(9);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r467.data[ctx_r468.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(6).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", item_r394.value.restField.name, "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r467 = i0.ɵɵnextContext(2).$implicit;
+    const item_r394 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.metaData.detailConfig.restManyResources.template)("componentClass", row_r467.data.item);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r467 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r467.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r467.data.place);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r467 = ctx.$implicit;
+    const item_r394 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r467.expanded)("place", row_r467.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !(item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.restManyResources.template));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.restManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r461 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r461.listDataSource[item_r394.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r461.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r461.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_div_0_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 6);
+    i0.ɵɵelement(1, "ngx-rest-resource-detail", 26);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const res_r480 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(res_r480.style);
+    i0.ɵɵproperty("resource", res_r480.resource)("ID", res_r480.id)("ressourceName", res_r480.resourceName)("container", true);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵtemplate(0, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_div_0_Template, 2, 6, "div", 25);
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(3).$implicit;
+    const ctx_r463 = i0.ɵɵnextContext(5);
+    i0.ɵɵproperty("ngForOf", ctx_r463.listDataSource[item_r394.value.restField.name]);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_container_1_Template, 5, 3, "ng-container", 23);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_ng_template_2_Template, 1, 1, "ng-template", null, 37, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r462 = i0.ɵɵreference(3);
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r445 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r445.isObject(item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.restManyResources))("ngIfElse", _r462);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_1_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_ng_container_2_Template, 4, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.listConfig == null ? null : item_r394.value.restField.metaData.listConfig.restManyResources) && !(item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.restManyResources));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.restManyResources);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_tr_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "tr", 20);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "b");
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r487 = i0.ɵɵnextContext().$implicit;
+    const ctx_r488 = i0.ɵɵnextContext(7);
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate1(" ", row_r487.data[ctx_r488.customColumn], "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_span_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "span");
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(4).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(item_r394.value.restField.name);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r487 = i0.ɵɵnextContext(2).$implicit;
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.metaData.listConfig.restBelongToManyResources.template)("componentClass", row_r487.data.item);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_span_1_Template, 2, 1, "span", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_ng_container_2_Template, 2, 2, "ng-container", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const row_r487 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", row_r487.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !row_r487.data.place);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "td", 21);
+    i0.ɵɵelement(1, "ngx-fs-icon", 22);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_2_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const row_r487 = ctx.$implicit;
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("expanded", row_r487.expanded)("place", row_r487.data.place);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.metaData.listConfig.restBelongToManyResources.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.metaData.listConfig.restBelongToManyResources.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "table", 16);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_tr_2_Template, 1, 0, "tr", 17);
+    i0.ɵɵelementContainerStart(3, 18);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_td_4_Template, 4, 4, "td", 19);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    const ctx_r403 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGrid", ctx_r403.listDataSource[item_r394.key]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridRowDefColumns", ctx_r403.allColumns);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbTreeGridColumnDef", ctx_r403.customColumn);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_iframe_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "iframe", 31);
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(4).$implicit;
+    const ctx_r502 = i0.ɵɵnextContext(5);
+    i0.ɵɵproperty("src", ctx_r502.sanitizerUrl(item_r394.value.data), i0.ɵɵsanitizeResourceUrl);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 29);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_iframe_1_Template, 1, 1, "iframe", 30);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(3).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.linkConfig) ? !(item_r394.value.restField == null ? null : item_r394.value.restField.metaData == null ? null : item_r394.value.restField.metaData.detailConfig == null ? null : item_r394.value.restField.metaData.detailConfig.linkConfig.disabledIframePreview) : true);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 8);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "titlecase");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(5, "div", 7);
+    i0.ɵɵelementStart(6, "a", 27);
+    i0.ɵɵtext(7);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_div_8_Template, 2, 1, "div", 28);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 4, item_r394.key), ": ");
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("href", item_r394.value.data, i0.ɵɵsanitizeUrl);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", item_r394.value.data, " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_div_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelement(1, "cng-html-compiler", 9);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext(2).$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("template", item_r394.value.restField.template)("componentClass", item_r394.value.data);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_ng_container_1_Template, 9, 6, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_div_2_Template, 2, 2, "div", 0);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r394.value.restField.template);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.template);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_14_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "span", 32);
+    i0.ɵɵtext(2);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r394 = i0.ɵɵnextContext().$implicit;
+    i0.ɵɵadvance(2);
+    i0.ɵɵtextInterpolate(item_r394.value.restField.note);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-list-item");
+    i0.ɵɵelementStart(1, "div", 5);
+    i0.ɵɵelementStart(2, "div", 6);
+    i0.ɵɵtemplate(3, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_3_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_4_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_5_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(6, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_6_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(7, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_7_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(8, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_8_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(9, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_9_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(10, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_10_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵtemplate(11, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_11_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(12, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_12_Template, 3, 2, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(13, "div", 7);
+    i0.ɵɵtemplate(14, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_ng_container_14_Template, 3, 1, "ng-container", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r394 = ctx.$implicit;
+    const ctx_r393 = i0.ɵɵnextContext(5);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.TEXT || item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.STRING || item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.NUMBER || item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.ENUM);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.COLOR);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.BOOLEAN);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.IMAGE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.JSON);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.DATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.BELONG_TO);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.HAS_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.BELONG_TO_MANY);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.type == ctx_r393.REST_FIELD_TYPES.LINK);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", item_r394.value.restField.note != "");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-tab", 35);
+    i0.ɵɵelementStart(1, "nb-list", 3);
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_nb_list_item_2_Template, 15, 11, "nb-list-item", 4);
+    i0.ɵɵpipe(3, "keyvalue");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const tabs_r392 = ctx.$implicit;
+    const ctx_r391 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("tabTitle", tabs_r392);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(3, 2, ctx_r391.datas1[tabs_r392]));
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-tabset", 33);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_nb_tab_1_Template, 4, 4, "nb-tab", 34);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r261 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r261.tabsName);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_button_5_Template(rf, ctx) { if (rf & 1) {
+    const _r512 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 40);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_button_5_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r512); const ctx_r511 = i0.ɵɵnextContext(4); return ctx_r511.editEntity(); });
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(2, 1, "rest-detail.btnEdit"), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_button_6_Template(rf, ctx) { if (rf & 1) {
+    const _r514 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 41);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_button_6_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r514); const ctx_r513 = i0.ɵɵnextContext(4); return ctx_r513.deleteEntity(); });
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(2, 1, "rest-detail.btnDelete"), " ");
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_Template(rf, ctx) { if (rf & 1) {
+    const _r516 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "nb-card-footer");
+    i0.ɵɵelementStart(1, "div", 38);
+    i0.ɵɵelementStart(2, "button", 39);
+    i0.ɵɵlistener("click", function RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_Template_button_click_2_listener() { i0.ɵɵrestoreView(_r516); const ctx_r515 = i0.ɵɵnextContext(3); return ctx_r515.listEntity(); });
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_button_5_Template, 3, 3, "button", 43);
+    i0.ɵɵtemplate(6, RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_button_6_Template, 3, 3, "button", 44);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r262 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(4, 3, "rest-detail.btnCancel"), " ");
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r262.PERMISSION.UPDATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r262.PERMISSION.DELETE);
+} }
+function RestResourceDetailComponent_ng_container_1_div_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div");
+    i0.ɵɵelementStart(1, "nb-card");
+    i0.ɵɵtemplate(2, RestResourceDetailComponent_ng_container_1_div_1_nb_card_header_2_Template, 3, 3, "nb-card-header", 0);
+    i0.ɵɵelementStart(3, "nb-card-body");
+    i0.ɵɵtemplate(4, RestResourceDetailComponent_ng_container_1_div_1_nb_list_4_Template, 3, 3, "nb-list", 1);
+    i0.ɵɵtemplate(5, RestResourceDetailComponent_ng_container_1_div_1_ng_template_5_Template, 2, 1, "ng-template", null, 2, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(7, RestResourceDetailComponent_ng_container_1_div_1_nb_card_footer_7_Template, 7, 5, "nb-card-footer", 0);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r260 = i0.ɵɵreference(6);
+    const ctx_r257 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵstyleMap(ctx_r257.style ? ctx_r257.style : "");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !ctx_r257.container);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngIf", !ctx_r257.isTabsMenu)("ngIfElse", _r260);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", ctx_r257.datas && !ctx_r257.container);
+} }
+function RestResourceDetailComponent_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_div_1_Template, 8, 6, "div", 42);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r1 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r1.PERMISSION.READ);
+} }
 class RestResourceDetailComponent {
     constructor(activatedRoute, serviceRest, serviceRestAdminConfig, router, dataSourceBuilder, dialogService, langService, sanitizer, overlay, componentFactoryResolver, permissionsService) {
         this.activatedRoute = activatedRoute;
@@ -3182,26 +9190,33 @@ class RestResourceDetailComponent {
         this.router.navigate([`/admin/${resourceName}-detail`, data.navigationId]);
     }
 }
-RestResourceDetailComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceDetailComponent, deps: [{ token: i1.ActivatedRoute }, { token: RestResourceService }, { token: RestAdminConfigService }, { token: i1.Router }, { token: i1$1.NbTreeGridDataSourceBuilder }, { token: i1$1.NbDialogService }, { token: RestLangService }, { token: i6.DomSanitizer }, { token: i7.Overlay }, { token: i0.ComponentFactoryResolver }, { token: i8.NgxPermissionsService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceDetailComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceDetailComponent, selector: "ngx-rest-resource-detail", inputs: { resource: "resource", ID: "ID", ressourceName: "ressourceName", container: "container", style: "style" }, ngImport: i0, template: "<ng-container *ngIf=\"resource.permissions.length <= 0\">\n  <nb-card [style]=\"style ? style : ''\">\n    <nb-card-header *ngIf=\"!container\">\n      {{ resource.detailConfig?.title | titlecase }}\n    </nb-card-header>\n    <nb-card-body>\n      <nb-list *ngIf=\"!isTabsMenu; else tabsContent\" class=\"list-group\">\n        <nb-list-item *ngFor=\"let item of datas | keyvalue\">\n          <!-- class=\"rest-item-align list-group-item\" -->\n          <div class=\"d-block\" style=\"margin-left: 15px\">\n            <div class=\"row\">\n              <ng-container\n                *ngIf=\"\n                  item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n                  item.value.restField.type == REST_FIELD_TYPES.STRING ||\n                  item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n                  item.value.restField.type == REST_FIELD_TYPES.ENUM\n                \"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data }}\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.PDF\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      {{ item.value.data }}\n                    </div>\n                    <div class=\"\">\n                      <ngx-dropzone (change)=\"onSelect($event)\">\n                        <ngx-dropzone-preview\n                          [removable]=\"true\"\n                          (removed)=\"onRemove(filesUpload[item.key])\"\n                        >\n                          <ngx-dropzone-label\n                            >{{ item?.value?.data }} ({{\n                              \"pdf\"\n                            }})</ngx-dropzone-label\n                          >\n                        </ngx-dropzone-preview>\n                      </ngx-dropzone>\n                    </div>\n                  </ng-container>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"jsonValue(item.value)\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.COLOR\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data }}\n                  </div>\n                  <div\n                    class=\"text-center color-card\"\n                    [style.background-color]=\"item.value.data\"\n                  >\n                    <ng-container>{{ item.value.data }}</ng-container>\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.JSON\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ jsonValue(item.value) }}\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"jsonValue(item.value)\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n\n                  <div class=\"\">\n                    <nb-checkbox\n                      [checked]=\"item.value.data\"\n                      [disabled]=\"true\"\n                    ></nb-checkbox>\n                  </div>\n                </ng-container>\n\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.IMAGE\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <ngx-image-zoom\n                      [imageUrl]=\"item.value.data\"\n                      ></ngx-image-zoom>\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    {{ item.value.data | date }}\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.value.restField.label | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <a\n                      (click)=\"loadBelongToDetail(item.value)\"\n                      nbTooltip=\"{{ 'rest-detail.belongToRef' | translate }}\"\n                      nbTooltipPlacement=\"top\"\n                      class=\"belongTo-link text-primary\"\n                    >\n                      {{ item.value.data }}\n                    </a>\n                  </div>\n                </ng-container>\n                <ng-container *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\"\n              >\n                <!-- CAS 1 -->\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField?.metaData?.listConfig\n                      ?.restManyResources &&\n                    !item.value.restField?.metaData?.detailConfig\n                      ?.restManyResources\n                  \"\n                >\n                  <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                    <tr\n                      nbTreeGridRow\n                      *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                    ></tr>\n\n                    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                        <ngx-fs-icon\n                          [expanded]=\"row.expanded\"\n                          [place]=\"row.data.place\"\n                        ></ngx-fs-icon>\n                        <ng-container\n                          *ngIf=\"\n                            !item.value.restField?.metaData?.listConfig\n                              ?.restManyResources.template\n                          \"\n                        >\n                          <b> {{ row.data[customColumn] }}</b>\n                        </ng-container>\n\n                        <ng-container\n                          *ngIf=\"\n                            item.value.restField?.metaData?.listConfig\n                              ?.restManyResources.template\n                          \"\n                        >\n                          <span *ngIf=\"row.data.place\">\n                            {{ item.value.restField.name }}</span\n                          >\n                          <ng-container *ngIf=\"!row.data.place\">\n                            <cng-html-compiler\n                              [template]=\"\n                                item.value.restField.metaData.listConfig\n                                  .restManyResources.template\n                              \"\n                              [componentClass]=\"row.data.item\"\n                            >\n                            </cng-html-compiler>\n                          </ng-container>\n                        </ng-container>\n                      </td>\n                    </ng-container>\n                  </table>\n                </ng-container>\n\n                <!-- CAS 2 -->\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField?.metaData?.detailConfig\n                      ?.restManyResources\n                  \"\n                >\n                  <div\n                    *ngIf=\"\n                      isObject(\n                        item.value.restField.metaData.detailConfig\n                          .restManyResources\n                      );\n                      else cas21\n                    \"\n                  >\n                    <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                      <tr\n                        nbTreeGridRow\n                        *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                      ></tr>\n\n                      <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                        <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                          <ngx-fs-icon\n                            [expanded]=\"row.expanded\"\n                            [place]=\"row.data.place\"\n                          ></ngx-fs-icon>\n                          <ng-container\n                            *ngIf=\"\n                              !item.value.restField.metaData.detailConfig\n                                .restManyResources?.template\n                            \"\n                          >\n                            <b> {{ row.data[customColumn] }}</b>\n                          </ng-container>\n\n                          <ng-container\n                            *ngIf=\"\n                              item.value.restField.metaData.detailConfig\n                                .restManyResources?.template\n                            \"\n                          >\n                            <span *ngIf=\"row.data.place\">\n                              {{ item.value.restField.name }}</span\n                            >\n                            <ng-container *ngIf=\"!row.data.place\">\n                              <cng-html-compiler\n                                [template]=\"\n                                  item.value.restField.metaData.detailConfig\n                                    .restManyResources.template\n                                \"\n                                [componentClass]=\"row.data.item\"\n                              >\n                              </cng-html-compiler>\n                            </ng-container>\n                          </ng-container>\n                        </td>\n                      </ng-container>\n                    </table>\n                  </div>\n                  <ng-template #cas21>\n                    <div\n                      class=\"row\"\n                      *ngFor=\"\n                        let res of listDataSource[item.value.restField.name]\n                      \"\n                    >\n                      <ngx-rest-resource-detail\n                        [resource]=\"res.resource\"\n                        [ID]=\"res.id\"\n                        [ressourceName]=\"res.resourceName\"\n                        [container]=\"true\"\n                        [style]=\"res.style\"\n                      ></ngx-rest-resource-detail>\n                    </div>\n                  </ng-template>\n                </ng-container>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"\n                  item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\n                \"\n              >\n                <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                  <tr\n                    nbTreeGridRow\n                    *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                  ></tr>\n\n                  <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                    <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                      <ngx-fs-icon\n                        [expanded]=\"row.expanded\"\n                        [place]=\"row.data.place\"\n                      ></ngx-fs-icon>\n                      <ng-container\n                        *ngIf=\"\n                          !item.value.restField.metaData.listConfig\n                            .restBelongToManyResources.template\n                        \"\n                      >\n                        <b> {{ row.data[customColumn] }}</b>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.metaData.listConfig\n                            .restBelongToManyResources.template\n                        \"\n                      >\n                        <span *ngIf=\"row.data.place\">{{\n                          item.value.restField.name\n                        }}</span>\n                        <ng-container *ngIf=\"!row.data.place\">\n                          <cng-html-compiler\n                            [template]=\"\n                              item.value.restField.metaData.listConfig\n                                .restBelongToManyResources.template\n                            \"\n                            [componentClass]=\"row.data.item\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n                    </td>\n                  </ng-container>\n                </table>\n              </ng-container>\n\n              <ng-container\n                *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.LINK\"\n              >\n                <ng-container *ngIf=\"!item.value.restField.template\">\n                  <div class=\"marg\">\n                    <b>{{ item.key | titlecase }}: </b>\n                  </div>\n                  <div class=\"\">\n                    <a [href]=\"item.value.data\" target=\"_blank\"\n                      >{{ item.value.data }}\n                    </a>\n\n                    <div *ngIf=\"item.value.data\" style=\"height: 400px; width: 100%;\">\n                      <iframe\n                        [src]=\"sanitizerUrl(item.value.data)\"\n                        *ngIf=\"item.value.restField?.metaData?.detailConfig\n                            ?.linkConfig\n                            ? !item.value.restField?.metaData\n                                ?.detailConfig?.linkConfig\n                                .disabledIframePreview\n                            : true\n                        \"\n                        height=\"400px\"\n                        width=\"100%\"\n                        class=\"mt-2\"\n                      ></iframe>\n                    </div>\n                  </div>\n                </ng-container>\n\n                <div *ngIf=\"item.value.restField.template\">\n                  <cng-html-compiler\n                    [template]=\"item.value.restField.template\"\n                    [componentClass]=\"item.value.data\"\n                  >\n                  </cng-html-compiler>\n                </div>\n              </ng-container>\n            </div>\n            <div class=\"\">\n              <ng-container *ngIf=\"item.value.restField.note != ''\">\n                <span class=\"text-muted ml-20 mt-3\">{{\n                  item.value.restField.note\n                }}</span>\n              </ng-container>\n            </div>\n          </div>\n        </nb-list-item>\n      </nb-list>\n      <ng-template #tabsContent>\n        <nb-tabset fullWidth>\n          <nb-tab [tabTitle]=\"tabs\" *ngFor=\"let tabs of tabsName\">\n            <nb-list class=\"list-group\">\n              <nb-list-item *ngFor=\"let item of datas1[tabs] | keyvalue\">\n                <!-- class=\"rest-item-align list-group-item\" -->\n                <div class=\"d-block\" style=\"margin-left: 15px\">\n                  <div class=\"row\">\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n                        item.value.restField.type == REST_FIELD_TYPES.STRING ||\n                        item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n                        item.value.restField.type == REST_FIELD_TYPES.ENUM\n                      \"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          {{ item.value.data }}\n                        </div>\n                      </ng-container>\n\n                      <div *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler>\n                      </div>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type == REST_FIELD_TYPES.COLOR\n                      \"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          {{ item.value.data }}\n                        </div>\n                        <input\n                          style=\"height: 45px; width: 80px; margin-left: 5px\"\n                          disabled=\"true\"\n                          [placeholder]=\"item.value.data\"\n                          [value]=\"item.value.data\"\n                          type=\"color\"\n                        />\n                      </ng-container>\n\n                      <div *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler>\n                      </div>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\n                      \"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n\n                        <div class=\"\">\n                          <nb-checkbox\n                            [checked]=\"item.value.data\"\n                            [disabled]=\"true\"\n                          ></nb-checkbox>\n                        </div>\n                      </ng-container>\n\n                      <ng-container *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler>\n                      </ng-container>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type == REST_FIELD_TYPES.IMAGE\n                      \"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          <ngx-image-zoom\n                            [imageUrl]=\"item.value.data\"\n                            ></ngx-image-zoom>\n                        </div>\n                      </ng-container>\n                      <ng-container *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler\n                        >http://localhost:4200/admin/agency-list\n                      </ng-container>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.JSON\"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          {{ jsonValue(item.value) }}\n                        </div>\n                      </ng-container>\n                      <ng-container *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"jsonValue(item.value)\"\n                        >\n                        </cng-html-compiler>\n                      </ng-container>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          {{ item.value.data | date }}\n                        </div>\n                      </ng-container>\n                      <ng-container *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler>\n                      </ng-container>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\n                      \"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.value.restField.label | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          <a\n                            (click)=\"loadBelongToDetail(item.value)\"\n                            nbTooltip=\"{{\n                              'rest-detail.belongToRef' | translate\n                            }}\"\n                            nbTooltipPlacement=\"top\"\n                            class=\"belongTo-link text-primary\"\n                          >\n                            {{ item.value.data }}\n                          </a>\n                        </div>\n                      </ng-container>\n                      <ng-container *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler>\n                      </ng-container>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\n                      \"\n                    >\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField?.metaData?.listConfig\n                            ?.restManyResources &&\n                          !item.value.restField?.metaData?.detailConfig\n                            ?.restManyResources\n                        \"\n                      >\n                        <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                          <tr\n                            nbTreeGridRow\n                            *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                          ></tr>\n\n                          <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                            <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                              <ngx-fs-icon\n                                [expanded]=\"row.expanded\"\n                                [place]=\"row.data.place\"\n                              ></ngx-fs-icon>\n                              <ng-container\n                                *ngIf=\"\n                                  !item.value.restField?.metaData?.listConfig\n                                    ?.restManyResources.template\n                                \"\n                              >\n                                <b> {{ row.data[customColumn] }}</b>\n                              </ng-container>\n\n                              <ng-container\n                                *ngIf=\"\n                                  item.value.restField?.metaData?.listConfig\n                                    ?.restManyResources.template\n                                \"\n                              >\n                                <span *ngIf=\"row.data.place\">\n                                  {{ item.value.restField.name }}</span\n                                >\n                                <ng-container *ngIf=\"!row.data.place\">\n                                  <cng-html-compiler\n                                    [template]=\"\n                                      item.value.restField.metaData.listConfig\n                                        .restManyResources.template\n                                    \"\n                                    [componentClass]=\"row.data.item\"\n                                  >\n                                  </cng-html-compiler>\n                                </ng-container>\n                              </ng-container>\n                            </td>\n                          </ng-container>\n                        </table>\n                      </ng-container>\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField?.metaData?.detailConfig\n                            ?.restManyResources\n                        \"\n                      >\n                        <ng-container\n                          *ngIf=\"\n                            isObject(\n                              item.value.restField?.metaData?.detailConfig\n                                ?.restManyResources\n                            );\n                            else displayRes\n                          \"\n                        >\n                          <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                            <tr\n                              nbTreeGridRow\n                              *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                            ></tr>\n\n                            <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                              <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                                <ngx-fs-icon\n                                  [expanded]=\"row.expanded\"\n                                  [place]=\"row.data.place\"\n                                ></ngx-fs-icon>\n                                <ng-container\n                                  *ngIf=\"\n                                    !item.value.restField?.metaData\n                                      ?.detailConfig?.restManyResources.template\n                                  \"\n                                >\n                                  <b> {{ row.data[customColumn] }}</b>\n                                </ng-container>\n\n                                <ng-container\n                                  *ngIf=\"\n                                    item.value.restField?.metaData?.detailConfig\n                                      ?.restManyResources.template\n                                  \"\n                                >\n                                  <span *ngIf=\"row.data.place\">\n                                    {{ item.value.restField.name }}</span\n                                  >\n                                  <ng-container *ngIf=\"!row.data.place\">\n                                    <cng-html-compiler\n                                      [template]=\"\n                                        item.value.restField.metaData\n                                          .detailConfig.restManyResources\n                                          .template\n                                      \"\n                                      [componentClass]=\"row.data.item\"\n                                    >\n                                    </cng-html-compiler>\n                                  </ng-container>\n                                </ng-container>\n                              </td>\n                            </ng-container>\n                          </table>\n                        </ng-container>\n                        <ng-template #displayRes>\n                          <div\n                            class=\"row\"\n                            *ngFor=\"\n                              let res of listDataSource[\n                                item.value.restField.name\n                              ]\n                            \"\n                          >\n                            <ngx-rest-resource-detail\n                              [resource]=\"res.resource\"\n                              [ID]=\"res.id\"\n                              [ressourceName]=\"res.resourceName\"\n                              [container]=\"true\"\n                              [style]=\"res.style\"\n                            ></ngx-rest-resource-detail>\n                          </div>\n                        </ng-template>\n                      </ng-container>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"\n                        item.value.restField.type ==\n                        REST_FIELD_TYPES.BELONG_TO_MANY\n                      \"\n                    >\n                      <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                        <tr\n                          nbTreeGridRow\n                          *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                        ></tr>\n\n                        <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                          <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                            <ngx-fs-icon\n                              [expanded]=\"row.expanded\"\n                              [place]=\"row.data.place\"\n                            ></ngx-fs-icon>\n                            <ng-container\n                              *ngIf=\"\n                                !item.value.restField.metaData.listConfig\n                                  .restBelongToManyResources.template\n                              \"\n                            >\n                              <b> {{ row.data[customColumn] }}</b>\n                            </ng-container>\n\n                            <ng-container\n                              *ngIf=\"\n                                item.value.restField.metaData.listConfig\n                                  .restBelongToManyResources.template\n                              \"\n                            >\n                              <span *ngIf=\"row.data.place\">{{\n                                item.value.restField.name\n                              }}</span>\n                              <ng-container *ngIf=\"!row.data.place\">\n                                <cng-html-compiler\n                                  [template]=\"\n                                    item.value.restField.metaData.listConfig\n                                      .restBelongToManyResources.template\n                                  \"\n                                  [componentClass]=\"row.data.item\"\n                                >\n                                </cng-html-compiler>\n                              </ng-container>\n                            </ng-container>\n                          </td>\n                        </ng-container>\n                      </table>\n                    </ng-container>\n\n                    <ng-container\n                      *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.LINK\"\n                    >\n                      <ng-container *ngIf=\"!item.value.restField.template\">\n                        <div class=\"marg\">\n                          <b>{{ item.key | titlecase }}: </b>\n                        </div>\n                        <div class=\"\">\n                          <a [href]=\"item.value.data\" target=\"_blank\"\n                            >{{ item.value.data }}\n                          </a>\n\n                          \n                          <div *ngIf=\"item.value.data\" style=\"height: 400px; width: 100%;\">\n                            <iframe\n                              [src]=\"sanitizerUrl(item.value.data)\"\n                              *ngIf=\"item.value.restField?.metaData?.detailConfig\n                                  ?.linkConfig\n                                  ? !item.value.restField?.metaData\n                                      ?.detailConfig?.linkConfig\n                                      .disabledIframePreview\n                                  : true\n                              \"\n                              height=\"400px\"\n                              width=\"100%\"\n                              class=\"mt-2\"\n                            ></iframe>\n                          </div>\n                        </div>\n                      </ng-container>\n\n                      <div *ngIf=\"item.value.restField.template\">\n                        <cng-html-compiler\n                          [template]=\"item.value.restField.template\"\n                          [componentClass]=\"item.value.data\"\n                        >\n                        </cng-html-compiler>\n                      </div>\n                    </ng-container>\n                  </div>\n                  <div class=\"\">\n                    <ng-container *ngIf=\"item.value.restField.note != ''\">\n                      <span class=\"text-muted ml-20 mt-3\">{{\n                        item.value.restField.note\n                      }}</span>\n                    </ng-container>\n                  </div>\n                </div>\n              </nb-list-item>\n            </nb-list>\n          </nb-tab>\n        </nb-tabset>\n      </ng-template>\n    </nb-card-body>\n\n    <nb-card-footer *ngIf=\"datas && !container\">\n      <div class=\"buttons-row text-center\" fullWidth>\n        <button\n          nbButton\n          status=\"secondary\"\n          style=\"margin-right: 10px\"\n          (click)=\"listEntity()\"\n        >\n          {{ \"rest-detail.btnCancel\" | translate }}\n        </button>\n\n        <button nbButton status=\"primary\" (click)=\"editEntity()\">\n          {{ \"rest-detail.btnEdit\" | translate }}\n        </button>\n\n        <button\n          nbButton\n          status=\"danger\"\n          style=\"margin-left: 10px\"\n          (click)=\"deleteEntity()\"\n        >\n          {{ \"rest-detail.btnDelete\" | translate }}\n        </button>\n      </div>\n    </nb-card-footer>\n  </nb-card>\n</ng-container>\n\n<ng-container *ngIf=\"resource.permissions.length > 0\">\n  <div *ngxPermissionsOnly=\"PERMISSION.READ\">\n    <nb-card [style]=\"style ? style : ''\">\n      <nb-card-header *ngIf=\"!container\">\n        {{ resource.detailConfig?.title | titlecase }}\n      </nb-card-header>\n      <nb-card-body>\n        <nb-list *ngIf=\"!isTabsMenu; else tabsContent\" class=\"list-group\">\n          <nb-list-item *ngFor=\"let item of datas | keyvalue\">\n            <!-- class=\"rest-item-align list-group-item\" -->\n            <div class=\"d-block\" style=\"margin-left: 15px\">\n              <div class=\"row\">\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n                    item.value.restField.type == REST_FIELD_TYPES.STRING ||\n                    item.value.restField.type == REST_FIELD_TYPES.NUMBER ||\n                    item.value.restField.type == REST_FIELD_TYPES.ENUM\n                  \"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      {{ item.value.data }}\n                    </div>\n                  </ng-container>\n\n                  <div *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </div>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.PDF\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n\n                    <ng-container *ngIf=\"!item.value.restField.template\">\n                      <div class=\"\">\n                        <b>{{ item.key | titlecase }}: </b>\n                      </div>\n                      <div class=\"\">\n                        {{ item.value.data }}\n                      </div>\n                      <div class=\"\">\n                        <ngx-dropzone (change)=\"onSelect($event)\">\n                          <ngx-dropzone-preview\n                            [removable]=\"true\"\n                            (removed)=\"onRemove(filesUpload[item.key])\"\n                          >\n                            <ngx-dropzone-label\n                              >{{ item?.value?.data }} ({{\n                                \"pdf\"\n                              }})</ngx-dropzone-label\n                            >\n                          </ngx-dropzone-preview>\n                        </ngx-dropzone>\n                      </div>\n                    </ng-container>\n                  </ng-container>\n                  <ng-container *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"jsonValue(item.value)\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.COLOR\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      {{ item.value.data }}\n                    </div>\n                    <div\n                      class=\"text-center color-card\"\n                      [style.background-color]=\"item.value.data\"\n                    >\n                      <ng-container>{{ item.value.data }}</ng-container>\n                    </div>\n                  </ng-container>\n\n                  <div *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </div>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.JSON\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      {{ jsonValue(item.value) }}\n                    </div>\n                  </ng-container>\n                  <ng-container *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"jsonValue(item.value)\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n\n                    <div class=\"\">\n                      <nb-checkbox\n                        [checked]=\"item.value.data\"\n                        [disabled]=\"true\"\n                      ></nb-checkbox>\n                    </div>\n                  </ng-container>\n\n                  <ng-container *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.IMAGE\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      <ngx-image-zoom\n                        [imageUrl]=\"item.value.data\"\n                        ></ngx-image-zoom>\n                    </div>\n                  </ng-container>\n                  <ng-container *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.DATE\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      {{ item.value.data | date }}\n                    </div>\n                  </ng-container>\n                  <ng-container *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField.type == REST_FIELD_TYPES.BELONG_TO\n                  \"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.value.restField.label | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      <a\n                        (click)=\"loadBelongToDetail(item.value)\"\n                        nbTooltip=\"{{ 'rest-detail.belongToRef' | translate }}\"\n                        nbTooltipPlacement=\"top\"\n                        class=\"belongTo-link text-primary\"\n                      >\n                        {{ item.value.data }}\n                      </a>\n                    </div>\n                  </ng-container>\n                  <ng-container *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\"\n                >\n                  <!-- CAS 1 -->\n                  <ng-container\n                    *ngIf=\"\n                      item.value.restField?.metaData?.listConfig\n                        ?.restManyResources &&\n                      !item.value.restField?.metaData?.detailConfig\n                        ?.restManyResources\n                    \"\n                  >\n                    <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                      <tr\n                        nbTreeGridRow\n                        *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                      ></tr>\n\n                      <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                        <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                          <ngx-fs-icon\n                            [expanded]=\"row.expanded\"\n                            [place]=\"row.data.place\"\n                          ></ngx-fs-icon>\n                          <ng-container\n                            *ngIf=\"\n                              !item.value.restField?.metaData?.listConfig\n                                ?.restManyResources.template\n                            \"\n                          >\n                            <b> {{ row.data[customColumn] }}</b>\n                          </ng-container>\n\n                          <ng-container\n                            *ngIf=\"\n                              item.value.restField?.metaData?.listConfig\n                                ?.restManyResources.template\n                            \"\n                          >\n                            <span *ngIf=\"row.data.place\">\n                              {{ item.value.restField.name }}</span\n                            >\n                            <ng-container *ngIf=\"!row.data.place\">\n                              <cng-html-compiler\n                                [template]=\"\n                                  item.value.restField.metaData.listConfig\n                                    .restManyResources.template\n                                \"\n                                [componentClass]=\"row.data.item\"\n                              >\n                              </cng-html-compiler>\n                            </ng-container>\n                          </ng-container>\n                        </td>\n                      </ng-container>\n                    </table>\n                  </ng-container>\n\n                  <!-- CAS 2 -->\n                  <ng-container\n                    *ngIf=\"\n                      item.value.restField?.metaData?.detailConfig\n                        ?.restManyResources\n                    \"\n                  >\n                    <div\n                      *ngIf=\"\n                        isObject(\n                          item.value.restField.metaData.detailConfig\n                            .restManyResources\n                        );\n                        else cas21\n                      \"\n                    >\n                      <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                        <tr\n                          nbTreeGridRow\n                          *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                        ></tr>\n\n                        <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                          <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                            <ngx-fs-icon\n                              [expanded]=\"row.expanded\"\n                              [place]=\"row.data.place\"\n                            ></ngx-fs-icon>\n                            <ng-container\n                              *ngIf=\"\n                                !item.value.restField.metaData.detailConfig\n                                  .restManyResources?.template\n                              \"\n                            >\n                              <b> {{ row.data[customColumn] }}</b>\n                            </ng-container>\n\n                            <ng-container\n                              *ngIf=\"\n                                item.value.restField.metaData.detailConfig\n                                  .restManyResources?.template\n                              \"\n                            >\n                              <span *ngIf=\"row.data.place\">\n                                {{ item.value.restField.name }}</span\n                              >\n                              <ng-container *ngIf=\"!row.data.place\">\n                                <cng-html-compiler\n                                  [template]=\"\n                                    item.value.restField.metaData.detailConfig\n                                      .restManyResources.template\n                                  \"\n                                  [componentClass]=\"row.data.item\"\n                                >\n                                </cng-html-compiler>\n                              </ng-container>\n                            </ng-container>\n                          </td>\n                        </ng-container>\n                      </table>\n                    </div>\n                    <ng-template #cas21>\n                      <div\n                        class=\"row\"\n                        *ngFor=\"\n                          let res of listDataSource[item.value.restField.name]\n                        \"\n                      >\n                        <ngx-rest-resource-detail\n                          [resource]=\"res.resource\"\n                          [ID]=\"res.id\"\n                          [ressourceName]=\"res.resourceName\"\n                          [container]=\"true\"\n                          [style]=\"res.style\"\n                        ></ngx-rest-resource-detail>\n                      </div>\n                    </ng-template>\n                  </ng-container>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"\n                    item.value.restField.type == REST_FIELD_TYPES.BELONG_TO_MANY\n                  \"\n                >\n                  <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                    <tr\n                      nbTreeGridRow\n                      *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                    ></tr>\n\n                    <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                      <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                        <ngx-fs-icon\n                          [expanded]=\"row.expanded\"\n                          [place]=\"row.data.place\"\n                        ></ngx-fs-icon>\n                        <ng-container\n                          *ngIf=\"\n                            !item.value.restField.metaData.listConfig\n                              .restBelongToManyResources.template\n                          \"\n                        >\n                          <b> {{ row.data[customColumn] }}</b>\n                        </ng-container>\n\n                        <ng-container\n                          *ngIf=\"\n                            item.value.restField.metaData.listConfig\n                              .restBelongToManyResources.template\n                          \"\n                        >\n                          <span *ngIf=\"row.data.place\">{{\n                            item.value.restField.name\n                          }}</span>\n                          <ng-container *ngIf=\"!row.data.place\">\n                            <cng-html-compiler\n                              [template]=\"\n                                item.value.restField.metaData.listConfig\n                                  .restBelongToManyResources.template\n                              \"\n                              [componentClass]=\"row.data.item\"\n                            >\n                            </cng-html-compiler>\n                          </ng-container>\n                        </ng-container>\n                      </td>\n                    </ng-container>\n                  </table>\n                </ng-container>\n\n                <ng-container\n                  *ngIf=\"item.value.restField.type == REST_FIELD_TYPES.LINK\"\n                >\n                  <ng-container *ngIf=\"!item.value.restField.template\">\n                    <div class=\"marg\">\n                      <b>{{ item.key | titlecase }}: </b>\n                    </div>\n                    <div class=\"\">\n                      <a [href]=\"item.value.data\" target=\"_blank\"\n                        >{{ item.value.data }}\n                      </a>\n\n                      <div *ngIf=\"item.value.data\" style=\"height: 400px; width: 100%;\">\n                        <iframe\n                          [src]=\"sanitizerUrl(item.value.data)\"\n                          *ngIf=\"item.value.restField?.metaData?.detailConfig\n                              ?.linkConfig\n                              ? !item.value.restField?.metaData\n                                  ?.detailConfig?.linkConfig\n                                  .disabledIframePreview\n                              : true\n                          \"\n                          height=\"400px\"\n                          width=\"100%\"\n                          class=\"mt-2\"\n                        ></iframe>\n                      </div>\n                    </div>\n                  </ng-container>\n\n                  <div *ngIf=\"item.value.restField.template\">\n                    <cng-html-compiler\n                      [template]=\"item.value.restField.template\"\n                      [componentClass]=\"item.value.data\"\n                    >\n                    </cng-html-compiler>\n                  </div>\n                </ng-container>\n              </div>\n              <div class=\"\">\n                <ng-container *ngIf=\"item.value.restField.note != ''\">\n                  <span class=\"text-muted ml-20 mt-3\">{{\n                    item.value.restField.note\n                  }}</span>\n                </ng-container>\n              </div>\n            </div>\n          </nb-list-item>\n        </nb-list>\n        <ng-template #tabsContent>\n          <nb-tabset fullWidth>\n            <nb-tab [tabTitle]=\"tabs\" *ngFor=\"let tabs of tabsName\">\n              <nb-list class=\"list-group\">\n                <nb-list-item *ngFor=\"let item of datas1[tabs] | keyvalue\">\n                  <!-- class=\"rest-item-align list-group-item\" -->\n                  <div class=\"d-block\" style=\"margin-left: 15px\">\n                    <div class=\"row\">\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.TEXT ||\n                          item.value.restField.type ==\n                            REST_FIELD_TYPES.STRING ||\n                          item.value.restField.type ==\n                            REST_FIELD_TYPES.NUMBER ||\n                          item.value.restField.type == REST_FIELD_TYPES.ENUM\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n                          <div class=\"\">\n                            {{ item.value.data }}\n                          </div>\n                        </ng-container>\n\n                        <div *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </div>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.COLOR\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n                          <div class=\"\">\n                            {{ item.value.data }}\n                          </div>\n                          <input\n                            style=\"height: 45px; width: 80px; margin-left: 5px\"\n                            disabled=\"true\"\n                            [placeholder]=\"item.value.data\"\n                            [value]=\"item.value.data\"\n                            type=\"color\"\n                          />\n                        </ng-container>\n\n                        <div *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </div>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.BOOLEAN\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n\n                          <div class=\"\">\n                            <nb-checkbox\n                              [checked]=\"item.value.data\"\n                              [disabled]=\"true\"\n                            ></nb-checkbox>\n                          </div>\n                        </ng-container>\n\n                        <ng-container *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.IMAGE\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n                          <div class=\"\">\n                            <ngx-image-zoom\n                              [imageUrl]=\"item.value.data\"\n                              ></ngx-image-zoom>\n                          </div>\n                        </ng-container>\n                        <ng-container *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.JSON\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n                          <div class=\"\">\n                            {{ jsonValue(item.value) }}\n                          </div>\n                        </ng-container>\n                        <ng-container *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"jsonValue(item.value)\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.DATE\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n                          <div class=\"\">\n                            {{ item.value.data | date }}\n                          </div>\n                        </ng-container>\n                        <ng-container *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type ==\n                          REST_FIELD_TYPES.BELONG_TO\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b\n                              >{{ item.value.restField.label | titlecase }}:\n                            </b>\n                          </div>\n                          <div class=\"\">\n                            <a\n                              (click)=\"loadBelongToDetail(item.value)\"\n                              nbTooltip=\"{{\n                                'rest-detail.belongToRef' | translate\n                              }}\"\n                              nbTooltipPlacement=\"top\"\n                              class=\"belongTo-link text-primary\"\n                            >\n                              {{ item.value.data }}\n                            </a>\n                          </div>\n                        </ng-container>\n                        <ng-container *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </ng-container>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.HAS_MANY\n                        \"\n                      >\n                        <ng-container\n                          *ngIf=\"\n                            item.value.restField?.metaData?.listConfig\n                              ?.restManyResources &&\n                            !item.value.restField?.metaData?.detailConfig\n                              ?.restManyResources\n                          \"\n                        >\n                          <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                            <tr\n                              nbTreeGridRow\n                              *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                            ></tr>\n\n                            <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                              <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                                <ngx-fs-icon\n                                  [expanded]=\"row.expanded\"\n                                  [place]=\"row.data.place\"\n                                ></ngx-fs-icon>\n                                <ng-container\n                                  *ngIf=\"\n                                    !item.value.restField?.metaData?.listConfig\n                                      ?.restManyResources.template\n                                  \"\n                                >\n                                  <b> {{ row.data[customColumn] }}</b>\n                                </ng-container>\n\n                                <ng-container\n                                  *ngIf=\"\n                                    item.value.restField?.metaData?.listConfig\n                                      ?.restManyResources.template\n                                  \"\n                                >\n                                  <span *ngIf=\"row.data.place\">\n                                    {{ item.value.restField.name }}</span\n                                  >\n                                  <ng-container *ngIf=\"!row.data.place\">\n                                    <cng-html-compiler\n                                      [template]=\"\n                                        item.value.restField.metaData.listConfig\n                                          .restManyResources.template\n                                      \"\n                                      [componentClass]=\"row.data.item\"\n                                    >\n                                    </cng-html-compiler>\n                                  </ng-container>\n                                </ng-container>\n                              </td>\n                            </ng-container>\n                          </table>\n                        </ng-container>\n                        <ng-container\n                          *ngIf=\"\n                            item.value.restField?.metaData?.detailConfig\n                              ?.restManyResources\n                          \"\n                        >\n                          <ng-container\n                            *ngIf=\"\n                              isObject(\n                                item.value.restField?.metaData?.detailConfig\n                                  ?.restManyResources\n                              );\n                              else displayRes\n                            \"\n                          >\n                            <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                              <tr\n                                nbTreeGridRow\n                                *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                              ></tr>\n\n                              <ng-container\n                                [nbTreeGridColumnDef]=\"customColumn\"\n                              >\n                                <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                                  <ngx-fs-icon\n                                    [expanded]=\"row.expanded\"\n                                    [place]=\"row.data.place\"\n                                  ></ngx-fs-icon>\n                                  <ng-container\n                                    *ngIf=\"\n                                      !item.value.restField?.metaData\n                                        ?.detailConfig?.restManyResources\n                                        .template\n                                    \"\n                                  >\n                                    <b> {{ row.data[customColumn] }}</b>\n                                  </ng-container>\n\n                                  <ng-container\n                                    *ngIf=\"\n                                      item.value.restField?.metaData\n                                        ?.detailConfig?.restManyResources\n                                        .template\n                                    \"\n                                  >\n                                    <span *ngIf=\"row.data.place\">\n                                      {{ item.value.restField.name }}</span\n                                    >\n                                    <ng-container *ngIf=\"!row.data.place\">\n                                      <cng-html-compiler\n                                        [template]=\"\n                                          item.value.restField.metaData\n                                            .detailConfig.restManyResources\n                                            .template\n                                        \"\n                                        [componentClass]=\"row.data.item\"\n                                      >\n                                      </cng-html-compiler>\n                                    </ng-container>\n                                  </ng-container>\n                                </td>\n                              </ng-container>\n                            </table>\n                          </ng-container>\n                          <ng-template #displayRes>\n                            <div\n                              class=\"row\"\n                              *ngFor=\"\n                                let res of listDataSource[\n                                  item.value.restField.name\n                                ]\n                              \"\n                            >\n                              <ngx-rest-resource-detail\n                                [resource]=\"res.resource\"\n                                [ID]=\"res.id\"\n                                [ressourceName]=\"res.resourceName\"\n                                [container]=\"true\"\n                                [style]=\"res.style\"\n                              ></ngx-rest-resource-detail>\n                            </div>\n                          </ng-template>\n                        </ng-container>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type ==\n                          REST_FIELD_TYPES.BELONG_TO_MANY\n                        \"\n                      >\n                        <table [nbTreeGrid]=\"listDataSource[item.key]\">\n                          <tr\n                            nbTreeGridRow\n                            *nbTreeGridRowDef=\"let row; columns: allColumns\"\n                          ></tr>\n\n                          <ng-container [nbTreeGridColumnDef]=\"customColumn\">\n                            <td nbTreeGridCell *nbTreeGridCellDef=\"let row\">\n                              <ngx-fs-icon\n                                [expanded]=\"row.expanded\"\n                                [place]=\"row.data.place\"\n                              ></ngx-fs-icon>\n                              <ng-container\n                                *ngIf=\"\n                                  !item.value.restField.metaData.listConfig\n                                    .restBelongToManyResources.template\n                                \"\n                              >\n                                <b> {{ row.data[customColumn] }}</b>\n                              </ng-container>\n\n                              <ng-container\n                                *ngIf=\"\n                                  item.value.restField.metaData.listConfig\n                                    .restBelongToManyResources.template\n                                \"\n                              >\n                                <span *ngIf=\"row.data.place\">{{\n                                  item.value.restField.name\n                                }}</span>\n                                <ng-container *ngIf=\"!row.data.place\">\n                                  <cng-html-compiler\n                                    [template]=\"\n                                      item.value.restField.metaData.listConfig\n                                        .restBelongToManyResources.template\n                                    \"\n                                    [componentClass]=\"row.data.item\"\n                                  >\n                                  </cng-html-compiler>\n                                </ng-container>\n                              </ng-container>\n                            </td>\n                          </ng-container>\n                        </table>\n                      </ng-container>\n\n                      <ng-container\n                        *ngIf=\"\n                          item.value.restField.type == REST_FIELD_TYPES.LINK\n                        \"\n                      >\n                        <ng-container *ngIf=\"!item.value.restField.template\">\n                          <div class=\"marg\">\n                            <b>{{ item.key | titlecase }}: </b>\n                          </div>\n                          <div class=\"\">\n                            <a [href]=\"item.value.data\" target=\"_blank\"\n                              >{{ item.value.data }}\n                            </a>\n\n                            <div *ngIf=\"item.value.data\" style=\"height: 400px; width: 100%;\">\n                              <iframe\n                                [src]=\"sanitizerUrl(item.value.data)\"\n                                *ngIf=\"item.value.restField?.metaData?.detailConfig\n                                    ?.linkConfig\n                                    ? !item.value.restField?.metaData\n                                        ?.detailConfig?.linkConfig\n                                        .disabledIframePreview\n                                    : true\n                                \"\n                                height=\"400px\"\n                                width=\"100%\"\n                                class=\"mt-2\"\n                              ></iframe>\n                            </div>\n                          </div>\n                        </ng-container>\n\n                        <div *ngIf=\"item.value.restField.template\">\n                          <cng-html-compiler\n                            [template]=\"item.value.restField.template\"\n                            [componentClass]=\"item.value.data\"\n                          >\n                          </cng-html-compiler>\n                        </div>\n                      </ng-container>\n                    </div>\n                    <div class=\"\">\n                      <ng-container *ngIf=\"item.value.restField.note != ''\">\n                        <span class=\"text-muted ml-20 mt-3\">{{\n                          item.value.restField.note\n                        }}</span>\n                      </ng-container>\n                    </div>\n                  </div>\n                </nb-list-item>\n              </nb-list>\n            </nb-tab>\n          </nb-tabset>\n        </ng-template>\n      </nb-card-body>\n\n      <nb-card-footer *ngIf=\"datas && !container\">\n        <div class=\"buttons-row text-center\" fullWidth>\n          <button\n            nbButton\n            status=\"secondary\"\n            style=\"margin-right: 10px\"\n            (click)=\"listEntity()\"\n          >\n            {{ \"rest-detail.btnCancel\" | translate }}\n          </button>\n\n          <button\n            nbButton\n            status=\"primary\"\n            (click)=\"editEntity()\"\n            *ngxPermissionsOnly=\"PERMISSION.UPDATE\"\n          >\n            {{ \"rest-detail.btnEdit\" | translate }}\n          </button>\n\n          <button\n            nbButton\n            status=\"danger\"\n            style=\"margin-left: 10px\"\n            (click)=\"deleteEntity()\"\n            *ngxPermissionsOnly=\"PERMISSION.DELETE\"\n          >\n            {{ \"rest-detail.btnDelete\" | translate }}\n          </button>\n        </div>\n      </nb-card-footer>\n    </nb-card>\n  </div>\n</ng-container>\n", styles: [".belongTo-link:hover{text-decoration:underline!important;cursor:pointer}img{max-width:300px;max-height:200px}.color-card{width:80px;height:30px;border-radius:2px;border-width:2px;margin-left:5px;justify-content:center;align-items:center}:host nb-tab{padding:1.25rem}.rest-item-align{padding-block:3}.marg{margin-right:25px}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbListComponent, selector: "nb-list", inputs: ["role"] }, { type: i1$1.NbListItemComponent, selector: "nb-list-item", inputs: ["role"] }, { type: i3.CngHtmlCompilerComponent, selector: "cng-html-compiler", inputs: ["template", "componentClass", "imports"] }, { type: i9.NgxDropzoneComponent, selector: "ngx-dropzone, [ngx-dropzone]", inputs: ["accept", "disabled", "multiple", "maxFileSize", "expandable", "disableClick", "processDirectoryDrop", "id", "aria-label", "aria-labelledby", "aria-describedby"], outputs: ["change"] }, { type: i9.NgxDropzonePreviewComponent, selector: "ngx-dropzone-preview", inputs: ["file", "removable"], outputs: ["removed"] }, { type: i1$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: ImageZoomComponent, selector: "ngx-image-zoom", inputs: ["imageUrl"] }, { type: i1$1.NbTreeGridComponent, selector: "table[nbTreeGrid]", inputs: ["levelPadding", "nbTreeGrid", "equalColumnsWidth"] }, { type: i1$1.NbTreeGridRowComponent, selector: "tr[nbTreeGridRow]", inputs: ["doubleClickDelay", "clickToToggle"] }, { type: FsIconCComponent, selector: "ngx-fs-icon", inputs: ["expanded", "place"] }, { type: RestResourceDetailComponent, selector: "ngx-rest-resource-detail", inputs: ["resource", "ID", "ressourceName", "container", "style"] }, { type: i1$1.NbTabsetComponent, selector: "nb-tabset", inputs: ["fullWidth", "routeParam"], outputs: ["changeTab"] }, { type: i1$1.NbTabComponent, selector: "nb-tab", inputs: ["badgeStatus", "badgeDot", "disabled", "responsive", "active", "lazyLoad", "tabTitle", "tabId", "tabIcon", "route", "badgeText", "badgePosition"] }, { type: i1$1.NbCardFooterComponent, selector: "nb-card-footer" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9.NgxDropzoneLabelDirective, selector: "ngx-dropzone-label" }, { type: i1$1.NbTooltipDirective, selector: "[nbTooltip]", inputs: ["nbTooltipPlacement", "nbTooltipTrigger", "nbTooltipOffset", "nbTooltipAdjustment", "nbTooltipClass", "nbTooltipIcon", "nbTooltipStatus", "nbTooltip"], outputs: ["nbTooltipShowStateChange"], exportAs: ["nbTooltip"] }, { type: i1$1.NbTreeGridRowDefDirective, selector: "[nbTreeGridRowDef]", inputs: ["nbTreeGridRowDefColumns"] }, { type: i1$1.NbTreeGridColumnDefDirective, selector: "[nbTreeGridColumnDef]", inputs: ["nbTreeGridColumnDef", "hideOn", "showOn"] }, { type: i1$1.NbTreeGridCellDefDirective, selector: "[nbTreeGridCellDef]" }, { type: i1$1.NbTreeGridCellDirective, selector: "td[nbTreeGridCell]" }, { type: i8.NgxPermissionsDirective, selector: "[ngxPermissionsOnly],[ngxPermissionsExcept]", inputs: ["ngxPermissionsOnly", "ngxPermissionsOnlyThen", "ngxPermissionsOnlyElse", "ngxPermissionsExcept", "ngxPermissionsExceptElse", "ngxPermissionsExceptThen", "ngxPermissionsThen", "ngxPermissionsElse", "ngxPermissionsOnlyAuthorisedStrategy", "ngxPermissionsOnlyUnauthorisedStrategy", "ngxPermissionsExceptUnauthorisedStrategy", "ngxPermissionsExceptAuthorisedStrategy", "ngxPermissionsUnauthorisedStrategy", "ngxPermissionsAuthorisedStrategy"], outputs: ["permissionsAuthorized", "permissionsUnauthorized"] }], pipes: { "titlecase": i13.TitleCasePipe, "keyvalue": i13.KeyValuePipe, "date": i13.DatePipe, "translate": i2$1.TranslatePipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceDetailComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-rest-resource-detail',
-                    templateUrl: './rest-resource-detail.component.html',
-                    styleUrls: ['./rest-resource-detail.component.scss'],
-                }]
-        }], ctorParameters: function () { return [{ type: i1.ActivatedRoute }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.Router }, { type: i1$1.NbTreeGridDataSourceBuilder }, { type: i1$1.NbDialogService }, { type: RestLangService }, { type: i6.DomSanitizer }, { type: i7.Overlay }, { type: i0.ComponentFactoryResolver }, { type: i8.NgxPermissionsService }]; }, propDecorators: { resource: [{
-                type: Input
-            }], ID: [{
-                type: Input
-            }], ressourceName: [{
-                type: Input
-            }], container: [{
-                type: Input
-            }], style: [{
-                type: Input
-            }] } });
+RestResourceDetailComponent.ɵfac = function RestResourceDetailComponent_Factory(t) { return new (t || RestResourceDetailComponent)(i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i1$1.NbTreeGridDataSourceBuilder), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i6.DomSanitizer), i0.ɵɵdirectiveInject(i7$1.Overlay), i0.ɵɵdirectiveInject(i0.ComponentFactoryResolver), i0.ɵɵdirectiveInject(i8.NgxPermissionsService)); };
+RestResourceDetailComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceDetailComponent, selectors: [["ngx-rest-resource-detail"]], inputs: { resource: "resource", ID: "ID", ressourceName: "ressourceName", container: "container", style: "style" }, decls: 2, vars: 2, consts: [[4, "ngIf"], ["class", "list-group", 4, "ngIf", "ngIfElse"], ["tabsContent", ""], [1, "list-group"], [4, "ngFor", "ngForOf"], [1, "d-block", 2, "margin-left", "15px"], [1, "row"], [1, ""], [1, "marg"], [3, "template", "componentClass"], [3, "change"], [3, "removable", "removed"], [1, "text-center", "color-card"], [3, "checked", "disabled"], [3, "imageUrl"], ["nbTooltipPlacement", "top", 1, "belongTo-link", "text-primary", 3, "nbTooltip", "click"], [3, "nbTreeGrid"], ["nbTreeGridRow", "", 4, "nbTreeGridRowDef", "nbTreeGridRowDefColumns"], [3, "nbTreeGridColumnDef"], ["nbTreeGridCell", "", 4, "nbTreeGridCellDef"], ["nbTreeGridRow", ""], ["nbTreeGridCell", ""], [3, "expanded", "place"], [4, "ngIf", "ngIfElse"], ["cas21", ""], ["class", "row", 4, "ngFor", "ngForOf"], [3, "resource", "ID", "ressourceName", "container"], ["target", "_blank", 3, "href"], ["style", "height: 400px; width: 100%;", 4, "ngIf"], [2, "height", "400px", "width", "100%"], ["height", "400px", "width", "100%", "class", "mt-2", 3, "src", 4, "ngIf"], ["height", "400px", "width", "100%", 1, "mt-2", 3, "src"], [1, "text-muted", "ml-20", "mt-3"], ["fullWidth", ""], [3, "tabTitle", 4, "ngFor", "ngForOf"], [3, "tabTitle"], ["disabled", "true", "type", "color", 2, "height", "45px", "width", "80px", "margin-left", "5px", 3, "placeholder", "value"], ["displayRes", ""], ["fullWidth", "", 1, "buttons-row", "text-center"], ["nbButton", "", "status", "secondary", 2, "margin-right", "10px", 3, "click"], ["nbButton", "", "status", "primary", 3, "click"], ["nbButton", "", "status", "danger", 2, "margin-left", "10px", 3, "click"], [4, "ngxPermissionsOnly"], ["nbButton", "", "status", "primary", 3, "click", 4, "ngxPermissionsOnly"], ["nbButton", "", "status", "danger", "style", "margin-left: 10px", 3, "click", 4, "ngxPermissionsOnly"]], template: function RestResourceDetailComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, RestResourceDetailComponent_ng_container_0_Template, 8, 6, "ng-container", 0);
+        i0.ɵɵtemplate(1, RestResourceDetailComponent_ng_container_1_Template, 2, 1, "ng-container", 0);
+    } if (rf & 2) {
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length <= 0);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length > 0);
+    } }, directives: [i10.NgIf, i1$1.NbCardComponent, i1$1.NbCardBodyComponent, i1$1.NbCardHeaderComponent, i1$1.NbListComponent, i10.NgForOf, i1$1.NbListItemComponent, i4.CngHtmlCompilerComponent, i13.NgxDropzoneComponent, i13.NgxDropzonePreviewComponent, i13.NgxDropzoneLabelDirective, i1$1.NbCheckboxComponent, ImageZoomComponent, i1$1.NbTooltipDirective, i1$1.NbTreeGridComponent, i1$1.NbTreeGridRowDefDirective, i1$1.NbTreeGridColumnDefDirective, i1$1.NbTreeGridCellDefDirective, i1$1.NbTreeGridRowComponent, i1$1.NbTreeGridCellDirective, FsIconCComponent, RestResourceDetailComponent, i1$1.NbTabsetComponent, i1$1.NbTabComponent, i1$1.NbCardFooterComponent, i1$1.NbButtonComponent, i8.NgxPermissionsDirective], pipes: [i10.TitleCasePipe, i10.KeyValuePipe, i10.DatePipe, i1$3.TranslatePipe], styles: [".belongTo-link[_ngcontent-%COMP%]:hover{text-decoration:underline!important;cursor:pointer}img[_ngcontent-%COMP%]{max-width:300px;max-height:200px}.color-card[_ngcontent-%COMP%]{width:80px;height:30px;border-radius:2px;border-width:2px;margin-left:5px;justify-content:center;align-items:center}[_nghost-%COMP%]   nb-tab[_ngcontent-%COMP%]{padding:1.25rem}.rest-item-align[_ngcontent-%COMP%]{padding-block:3}.marg[_ngcontent-%COMP%]{margin-right:25px}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceDetailComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-rest-resource-detail',
+                templateUrl: './rest-resource-detail.component.html',
+                styleUrls: ['./rest-resource-detail.component.scss'],
+            }]
+    }], function () { return [{ type: i1.ActivatedRoute }, { type: RestResourceService }, { type: RestAdminConfigService }, { type: i1.Router }, { type: i1$1.NbTreeGridDataSourceBuilder }, { type: i1$1.NbDialogService }, { type: RestLangService }, { type: i6.DomSanitizer }, { type: i7$1.Overlay }, { type: i0.ComponentFactoryResolver }, { type: i8.NgxPermissionsService }]; }, { resource: [{
+            type: Input
+        }], ID: [{
+            type: Input
+        }], ressourceName: [{
+            type: Input
+        }], container: [{
+            type: Input
+        }], style: [{
+            type: Input
+        }] }); })();
 
 class SelectAllCheckboxRenderComponent {
     constructor(cdr) {
@@ -3215,22 +9230,24 @@ class SelectAllCheckboxRenderComponent {
         this.cdr.detectChanges();
     }
 }
-SelectAllCheckboxRenderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SelectAllCheckboxRenderComponent, deps: [{ token: i0.ChangeDetectorRef }], target: i0.ɵɵFactoryTarget.Component });
-SelectAllCheckboxRenderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: SelectAllCheckboxRenderComponent, selector: "app-select-all-checkbox-render", inputs: { value: "value", rowData: "rowData" }, ngImport: i0, template: `
-    <div class="select-all-checkbox">
-      <nb-checkbox
-        [checked]="value?.selected"
-        (click)="selectAllCheckboxClick($event)"
-        nbTooltip="{{ 'rest-detail.select' | translate }}"
-        nbTooltipPlacement="top"
-      ></nb-checkbox>
-    </div>
-  `, isInline: true, components: [{ type: i1$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }], directives: [{ type: i1$1.NbTooltipDirective, selector: "[nbTooltip]", inputs: ["nbTooltipPlacement", "nbTooltipTrigger", "nbTooltipOffset", "nbTooltipAdjustment", "nbTooltipClass", "nbTooltipIcon", "nbTooltipStatus", "nbTooltip"], outputs: ["nbTooltipShowStateChange"], exportAs: ["nbTooltip"] }], pipes: { "translate": i2$1.TranslatePipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SelectAllCheckboxRenderComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'app-select-all-checkbox-render',
-                    template: `
+SelectAllCheckboxRenderComponent.ɵfac = function SelectAllCheckboxRenderComponent_Factory(t) { return new (t || SelectAllCheckboxRenderComponent)(i0.ɵɵdirectiveInject(i0.ChangeDetectorRef)); };
+SelectAllCheckboxRenderComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: SelectAllCheckboxRenderComponent, selectors: [["app-select-all-checkbox-render"]], inputs: { value: "value", rowData: "rowData" }, decls: 3, vars: 4, consts: [[1, "select-all-checkbox"], ["nbTooltipPlacement", "top", 3, "checked", "nbTooltip", "click"]], template: function SelectAllCheckboxRenderComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "div", 0);
+        i0.ɵɵelementStart(1, "nb-checkbox", 1);
+        i0.ɵɵlistener("click", function SelectAllCheckboxRenderComponent_Template_nb_checkbox_click_1_listener($event) { return ctx.selectAllCheckboxClick($event); });
+        i0.ɵɵpipe(2, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(1);
+        i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(2, 2, "rest-detail.select"));
+        i0.ɵɵproperty("checked", ctx.value == null ? null : ctx.value.selected);
+    } }, directives: [i1$1.NbCheckboxComponent, i1$1.NbTooltipDirective], pipes: [i1$3.TranslatePipe], encapsulation: 2 });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SelectAllCheckboxRenderComponent, [{
+        type: Component,
+        args: [{
+                selector: 'app-select-all-checkbox-render',
+                template: `
     <div class="select-all-checkbox">
       <nb-checkbox
         [checked]="value?.selected"
@@ -3240,30 +9257,358 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       ></nb-checkbox>
     </div>
   `,
-                }]
-        }], ctorParameters: function () { return [{ type: i0.ChangeDetectorRef }]; }, propDecorators: { value: [{
-                type: Input
-            }], rowData: [{
-                type: Input
-            }] } });
+            }]
+    }], function () { return [{ type: i0.ChangeDetectorRef }]; }, { value: [{
+            type: Input
+        }], rowData: [{
+            type: Input
+        }] }); })();
 
-class RestShareService {
-    constructor() {
-        this.listLoader = false;
-    }
-    setLoader(value) {
-        this.listLoader = value;
-    }
-}
-RestShareService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestShareService, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-RestShareService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestShareService, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestShareService, decorators: [{
-            type: Injectable,
-            args: [{
-                    providedIn: 'root',
-                }]
-        }], ctorParameters: function () { return []; } });
-
+const _c0$5 = ["search"];
+const _c1$3 = ["autoBelongToMany"];
+function RestResourceListComponent_div_6_Template(rf, ctx) { if (rf & 1) {
+    const _r8 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 17);
+    i0.ɵɵelementStart(1, "button", 18);
+    i0.ɵɵlistener("click", function RestResourceListComponent_div_6_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r8); const ctx_r7 = i0.ɵɵnextContext(); return ctx_r7.selectAllRows(); });
+    i0.ɵɵelement(2, "input", 19);
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("checked", (ctx_r0.selectedRows == null ? null : ctx_r0.selectedRows.length) == ctx_r0.source.count());
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(4, 2, "rest-detail.select"), " ");
+} }
+function RestResourceListComponent_ng_container_13_button_7_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 23);
+    i0.ɵɵlistener("click", function RestResourceListComponent_ng_container_13_button_7_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r11); const ctx_r10 = i0.ɵɵnextContext(2); return ctx_r10.onDeleteAllConfirm(); });
+    i0.ɵɵpipe(1, "translate");
+    i0.ɵɵelement(2, "nb-icon", 24);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(1, 1, "rest-list.deleteAllSelect"));
+} }
+function RestResourceListComponent_ng_container_13_Template(rf, ctx) { if (rf & 1) {
+    const _r13 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "button", 20);
+    i0.ɵɵlistener("click", function RestResourceListComponent_ng_container_13_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r13); const ctx_r12 = i0.ɵɵnextContext(); return ctx_r12.addNewEntity(); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementStart(3, "span");
+    i0.ɵɵtext(4);
+    i0.ɵɵpipe(5, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(6, "nb-icon", 21);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(7, RestResourceListComponent_ng_container_13_button_7_Template, 3, 3, "button", 22);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r1 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(2, 3, "rest-list.add"));
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(5, 5, "add"));
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", (ctx_r1.selectedRows == null ? null : ctx_r1.selectedRows.length) > 0);
+} }
+function RestResourceListComponent_ng_container_14_ng_container_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    const _r18 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "button", 18);
+    i0.ɵɵlistener("click", function RestResourceListComponent_ng_container_14_ng_container_1_ng_container_1_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r18); const ctx_r17 = i0.ɵɵnextContext(3); return ctx_r17.addNewEntity(); });
+    i0.ɵɵelementStart(2, "span");
+    i0.ɵɵtext(3);
+    i0.ɵɵpipe(4, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(5, "nb-icon", 21);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(3);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(4, 1, "add"));
+} }
+function RestResourceListComponent_ng_container_14_ng_container_1_ng_container_2_button_1_Template(rf, ctx) { if (rf & 1) {
+    const _r21 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "button", 18);
+    i0.ɵɵlistener("click", function RestResourceListComponent_ng_container_14_ng_container_1_ng_container_2_button_1_Template_button_click_0_listener() { i0.ɵɵrestoreView(_r21); const ctx_r20 = i0.ɵɵnextContext(4); return ctx_r20.onDeleteAllConfirm(); });
+    i0.ɵɵelement(1, "nb-icon", 24);
+    i0.ɵɵelementEnd();
+} }
+function RestResourceListComponent_ng_container_14_ng_container_1_ng_container_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListComponent_ng_container_14_ng_container_1_ng_container_2_button_1_Template, 2, 0, "button", 26);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r16 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (ctx_r16.selectedRows == null ? null : ctx_r16.selectedRows.length) > 0);
+} }
+function RestResourceListComponent_ng_container_14_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListComponent_ng_container_14_ng_container_1_ng_container_1_Template, 6, 3, "ng-container", 25);
+    i0.ɵɵtemplate(2, RestResourceListComponent_ng_container_14_ng_container_1_ng_container_2_Template, 2, 1, "ng-container", 25);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r14 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r14.PERMISSION.CREATE);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r14.PERMISSION.DELETE);
+} }
+function RestResourceListComponent_ng_container_14_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListComponent_ng_container_14_ng_container_1_Template, 3, 2, "ng-container", 25);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngxPermissionsOnly", ctx_r2.permissions);
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_nb_option_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 37);
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "titlecase");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const filter_r34 = ctx.$implicit;
+    i0.ɵɵproperty("value", filter_r34);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(2, 2, filter_r34["name"]));
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_5_nb_option_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 37);
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const operator_r36 = ctx.$implicit;
+    i0.ɵɵproperty("value", operator_r36.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(2, 2, operator_r36.name), " ");
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    const _r39 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 29);
+    i0.ɵɵelementStart(2, "nb-select", 30);
+    i0.ɵɵlistener("selectedChange", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_5_Template_nb_select_selectedChange_2_listener($event) { i0.ɵɵrestoreView(_r39); const index_r25 = i0.ɵɵnextContext().index; const ctx_r37 = i0.ɵɵnextContext(3); return ctx_r37.selectOperator($event, index_r25); });
+    i0.ɵɵpipe(3, "translate");
+    i0.ɵɵtemplate(4, RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_5_nb_option_4_Template, 3, 4, "nb-option", 31);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r27 = i0.ɵɵnextContext(4);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("placeholder", i0.ɵɵpipeBind1(3, 2, "rest-list.operator"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", ctx_r27.filterOperator);
+} }
+const _c2 = function (a0) { return { "col-12": a0 }; };
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_6_Template(rf, ctx) { if (rf & 1) {
+    const _r42 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 38);
+    i0.ɵɵelementStart(1, "input", 39);
+    i0.ɵɵlistener("input", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_6_Template_input_input_1_listener($event) { i0.ɵɵrestoreView(_r42); const index_r25 = i0.ɵɵnextContext().index; const ctx_r40 = i0.ɵɵnextContext(3); return ctx_r40.onFilter($event.target, index_r25); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r28 = i0.ɵɵnextContext(4);
+    i0.ɵɵproperty("ngClass", i0.ɵɵpureFunction1(4, _c2, ctx_r28.resource.listConfig.searchFilter == null));
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("placeholder", i0.ɵɵpipeBind1(2, 2, "rest-list.searchPlaceholder"));
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_nb_tag_3_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelement(0, "nb-tag", 47);
+} if (rf & 2) {
+    const tree_r47 = ctx.$implicit;
+    i0.ɵɵproperty("text", tree_r47["name"]);
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_nb_option_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 37);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r48 = ctx.$implicit;
+    const index_r25 = i0.ɵɵnextContext(2).index;
+    const ctx_r46 = i0.ɵɵnextContext(3);
+    i0.ɵɵproperty("value", option_r48);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", option_r48[ctx_r46.searchItems[index_r25].fieldName ? ctx_r46.searchItems[index_r25].fieldName : "id"], " ");
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_Template(rf, ctx) { if (rf & 1) {
+    const _r51 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 40);
+    i0.ɵɵelementStart(2, "nb-tag-list", 41);
+    i0.ɵɵlistener("tagRemove", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_Template_nb_tag_list_tagRemove_2_listener($event) { i0.ɵɵrestoreView(_r51); const ctx_r50 = i0.ɵɵnextContext(4); return ctx_r50.onTagRemoveBelong($event); });
+    i0.ɵɵtemplate(3, RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_nb_tag_3_Template, 1, 1, "nb-tag", 42);
+    i0.ɵɵelementStart(4, "input", 43, 44);
+    i0.ɵɵlistener("keyup", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_Template_input_keyup_4_listener($event) { i0.ɵɵrestoreView(_r51); const index_r25 = i0.ɵɵnextContext().index; const ctx_r52 = i0.ɵɵnextContext(3); return ctx_r52.filterInput($event, index_r25); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(6, "nb-autocomplete", 45, 46);
+    i0.ɵɵlistener("selectedChange", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_Template_nb_autocomplete_selectedChange_6_listener($event) { i0.ɵɵrestoreView(_r51); const index_r25 = i0.ɵɵnextContext().index; const ctx_r54 = i0.ɵɵnextContext(3); return ctx_r54.onChoose($event, index_r25); });
+    i0.ɵɵtemplate(8, RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_nb_option_8_Template, 2, 2, "nb-option", 31);
+    i0.ɵɵpipe(9, "async");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const _r45 = i0.ɵɵreference(7);
+    const index_r25 = i0.ɵɵnextContext().index;
+    const ctx_r29 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngForOf", ctx_r29.belongToMany["id"]);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbAutocomplete", _r45)("placeholder", ctx_r29.searchItems[index_r25].fieldName ? ctx_r29.searchItems[index_r25].fieldName : "id")("formControlName", "id");
+    i0.ɵɵadvance(4);
+    i0.ɵɵproperty("ngForOf", i0.ɵɵpipeBind1(9, 5, ctx_r29.allFilterContains["id"]));
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_9_Template(rf, ctx) { if (rf & 1) {
+    const _r58 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 48);
+    i0.ɵɵelementStart(1, "button", 49);
+    i0.ɵɵlistener("click", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_9_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r58); const ctx_r57 = i0.ɵɵnextContext(4); return ctx_r57.startSearch(); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelement(3, "nb-icon", 50);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(1);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(2, 1, "rest-list.search"));
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_10_Template(rf, ctx) { if (rf & 1) {
+    const _r60 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 51);
+    i0.ɵɵelementStart(1, "button", 49);
+    i0.ɵɵlistener("click", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_10_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r60); const ctx_r59 = i0.ɵɵnextContext(4); return ctx_r59.addFieldSearch(); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelement(3, "nb-icon", 52);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(1);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(2, 1, "rest-list.addSearch"));
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_template_11_Template(rf, ctx) { if (rf & 1) {
+    const _r63 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 53);
+    i0.ɵɵelementStart(1, "button", 54);
+    i0.ɵɵlistener("click", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_template_11_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r63); const index_r25 = i0.ɵɵnextContext().index; const ctx_r61 = i0.ɵɵnextContext(3); return ctx_r61.removeFieldSearch(index_r25); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelement(3, "nb-icon", 55);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    i0.ɵɵadvance(1);
+    i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(2, 1, "rest-list.removeSearch"));
+} }
+function RestResourceListComponent_div_16_ng_container_1_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    const _r65 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "div", 29);
+    i0.ɵɵelementStart(2, "nb-select", 30);
+    i0.ɵɵlistener("selectedChange", function RestResourceListComponent_div_16_ng_container_1_ng_container_1_Template_nb_select_selectedChange_2_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r65); const index_r25 = restoredCtx.index; const ctx_r64 = i0.ɵɵnextContext(3); return ctx_r64.selectFilterBy($event, index_r25); });
+    i0.ɵɵpipe(3, "translate");
+    i0.ɵɵtemplate(4, RestResourceListComponent_div_16_ng_container_1_ng_container_1_nb_option_4_Template, 3, 4, "nb-option", 31);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(5, RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_5_Template, 5, 4, "ng-container", 10);
+    i0.ɵɵtemplate(6, RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_6_Template, 3, 6, "div", 32);
+    i0.ɵɵelementStart(7, "div", 33);
+    i0.ɵɵtemplate(8, RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_container_8_Template, 10, 7, "ng-container", 10);
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(9, RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_9_Template, 4, 3, "div", 34);
+    i0.ɵɵtemplate(10, RestResourceListComponent_div_16_ng_container_1_ng_container_1_div_10_Template, 4, 3, "div", 35);
+    i0.ɵɵtemplate(11, RestResourceListComponent_div_16_ng_container_1_ng_container_1_ng_template_11_Template, 4, 3, "ng-template", null, 36, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const index_r25 = ctx.index;
+    const _r32 = i0.ɵɵreference(12);
+    const ctx_r23 = i0.ɵɵnextContext(3);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("placeholder", i0.ɵɵpipeBind1(3, 9, "rest-list.filterPlaceholder"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", ctx_r23.resource.listConfig.searchFilter.filterBy);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r23.searchItems[index_r25].field !== "id");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r23.searchItems[index_r25].field !== "id");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("formGroup", ctx_r23.form);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r23.searchItems[index_r25].field === "id");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", index_r25 == 0);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", index_r25 == 0)("ngIfElse", _r32);
+} }
+function RestResourceListComponent_div_16_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListComponent_div_16_ng_container_1_ng_container_1_Template, 13, 11, "ng-container", 28);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r22 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", ctx_r22.searchItems);
+} }
+function RestResourceListComponent_div_16_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 27);
+    i0.ɵɵtemplate(1, RestResourceListComponent_div_16_ng_container_1_Template, 2, 1, "ng-container", 10);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r3.resource.listConfig.searchFilter.filterBy.length > 0);
+} }
+function RestResourceListComponent_ng_container_17_ng2_smart_table_1_Template(rf, ctx) { if (rf & 1) {
+    const _r68 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ng2-smart-table", 57);
+    i0.ɵɵlistener("deleteConfirm", function RestResourceListComponent_ng_container_17_ng2_smart_table_1_Template_ng2_smart_table_deleteConfirm_0_listener($event) { i0.ɵɵrestoreView(_r68); const ctx_r67 = i0.ɵɵnextContext(2); return ctx_r67.onDeleteConfirm($event); })("createConfirm", function RestResourceListComponent_ng_container_17_ng2_smart_table_1_Template_ng2_smart_table_createConfirm_0_listener($event) { i0.ɵɵrestoreView(_r68); const ctx_r69 = i0.ɵɵnextContext(2); return ctx_r69.onCreateConfirm($event); })("custom", function RestResourceListComponent_ng_container_17_ng2_smart_table_1_Template_ng2_smart_table_custom_0_listener($event) { i0.ɵɵrestoreView(_r68); const ctx_r70 = i0.ɵɵnextContext(2); return ctx_r70.onCustom($event); })("userRowSelect", function RestResourceListComponent_ng_container_17_ng2_smart_table_1_Template_ng2_smart_table_userRowSelect_0_listener($event) { i0.ɵɵrestoreView(_r68); const ctx_r71 = i0.ɵɵnextContext(2); return ctx_r71.detailEntity($event); });
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r66 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("settings", ctx_r66.settings)("source", ctx_r66.source);
+} }
+function RestResourceListComponent_ng_container_17_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestResourceListComponent_ng_container_17_ng2_smart_table_1_Template, 1, 2, "ng2-smart-table", 56);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r4 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r4.custom);
+} }
+function RestResourceListComponent_ng_container_18_Template(rf, ctx) { if (rf & 1) {
+    const _r73 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "ng2-smart-table", 57);
+    i0.ɵɵlistener("deleteConfirm", function RestResourceListComponent_ng_container_18_Template_ng2_smart_table_deleteConfirm_1_listener($event) { i0.ɵɵrestoreView(_r73); const ctx_r72 = i0.ɵɵnextContext(); return ctx_r72.onDeleteConfirm($event); })("createConfirm", function RestResourceListComponent_ng_container_18_Template_ng2_smart_table_createConfirm_1_listener($event) { i0.ɵɵrestoreView(_r73); const ctx_r74 = i0.ɵɵnextContext(); return ctx_r74.onCreateConfirm($event); })("custom", function RestResourceListComponent_ng_container_18_Template_ng2_smart_table_custom_1_listener($event) { i0.ɵɵrestoreView(_r73); const ctx_r75 = i0.ɵɵnextContext(); return ctx_r75.onCustom($event); })("userRowSelect", function RestResourceListComponent_ng_container_18_Template_ng2_smart_table_userRowSelect_1_listener($event) { i0.ɵɵrestoreView(_r73); const ctx_r76 = i0.ɵɵnextContext(); return ctx_r76.detailEntity($event); });
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const ctx_r5 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("settings", ctx_r5.settings)("source", ctx_r5.source);
+} }
+function RestResourceListComponent_nb_option_24_Template(rf, ctx) { if (rf & 1) {
+    const _r79 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "nb-option", 58);
+    i0.ɵɵlistener("click", function RestResourceListComponent_nb_option_24_Template_nb_option_click_0_listener() { const restoredCtx = i0.ɵɵrestoreView(_r79); const perPage_r77 = restoredCtx.$implicit; const ctx_r78 = i0.ɵɵnextContext(); return ctx_r78.setPager(perPage_r77.value); });
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const perPage_r77 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(perPage_r77.title);
+} }
 class RestResourceListComponent {
     constructor(fb, serviceRestConfig, serviceRestResources, http, dialogService, activatedRoute, router, nbMenuService, exportService, restShare, permissionsService, serviceRest) {
         var _a, _b, _c, _d, _e;
@@ -3335,6 +9680,26 @@ class RestResourceListComponent {
         return PERMISSION;
     }
     ngOnInit() {
+        this.nbMenuService
+            .onItemClick()
+            .pipe(filter(({ tag }) => tag === 'export-context'), map(({ item: { title } }) => title))
+            .subscribe((title) => {
+            console.log(title, 'title====================>');
+            switch (title) {
+                case 'EXCEL':
+                    this.exportToExcel();
+                    break;
+                case 'PDF':
+                    this.exportToPdf();
+                    break;
+                case 'CSV':
+                    this.exportToCsv();
+                    break;
+                default:
+                    this.exportAll();
+                    break;
+            }
+        });
         if (this.resource.listConfig.searchFilter) {
             this.searchItems.push({
                 field: '',
@@ -3366,25 +9731,6 @@ class RestResourceListComponent {
             renderComponent: SelectAllCheckboxRenderComponent,
             editable: true,
         };
-        this.nbMenuService
-            .onItemClick()
-            .pipe(filter(({ tag }) => tag === 'my-context'), map(({ item: { title } }) => title))
-            .subscribe((title) => {
-            switch (title) {
-                case 'EXCEL':
-                    this.exportToExcel();
-                    break;
-                case 'PDF':
-                    this.exportToPdf();
-                    break;
-                case 'CSV':
-                    this.exportToCsv();
-                    break;
-                default:
-                    this.exportAll();
-                    break;
-            }
-        });
         if (this.resource.permissions.length > 0) {
             const custom = [];
             this.resource.permissions.forEach((permission) => {
@@ -3939,24 +10285,102 @@ class RestResourceListComponent {
         });
     }
 }
-RestResourceListComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListComponent, deps: [{ token: i1$3.FormBuilder }, { token: RestAdminConfigService }, { token: RestResourceService }, { token: i1$2.HttpClient }, { token: i1$1.NbDialogService }, { token: i1.ActivatedRoute }, { token: i1.Router }, { token: i1$1.NbMenuService }, { token: RestExportService }, { token: RestShareService }, { token: i8.NgxPermissionsService }, { token: RestResourceService }], target: i0.ɵɵFactoryTarget.Component });
-RestResourceListComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestResourceListComponent, selector: "ngx-rest-resource-list", inputs: { resource: "resource" }, viewQueries: [{ propertyName: "search", first: true, predicate: ["search"], descendants: true }, { propertyName: "inputBelongToMany", first: true, predicate: ["autoBelongToMany"], descendants: true }], ngImport: i0, template: "<nb-card status=\"primary\">\n  <nb-card-header>\n    <div class=\"row d-flex justify-content-between\">\n      <div class=\"d-flex align-items-center\">\n        <h6 class=\"text-white\">\n          {{ this.resource.listConfig.title }}\n        </h6>\n      </div>\n\n      <div class=\"\" *ngIf=\"showCheckbox\">\n        <button nbButton ghost status=\"control\" (click)=\"selectAllRows()\">\n          <input\n            class=\"mr-2\"\n            type=\"checkbox\"\n            [checked]=\"this.selectedRows?.length == this.source.count()\"\n          />{{ 'rest-detail.select' | translate }}\n        </button>\n      </div>\n\n      <div class=\"\" style=\"height: 40px\">\n        <button\n          nbButton\n          ghost\n          nbTooltip=\"{{ 'rest-detail.select' | translate }}\"\n          nbTooltipPlacement=\"top\"\n          (click)=\"toggleShowCheckbox()\"\n        >\n          <input type=\"checkbox\" [(ngModel)]=\"showCheckbox\" />\n        </button>\n\n        <button\n          nbButton\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n          ghost\n          nbTooltip=\"{{ 'rest-list.exportData' | translate }}\"\n          nbTooltipPlacement=\"top\"\n          status=\"control\"\n        >\n          <nb-icon icon=\"download-outline\"></nb-icon>\n        </button>\n\n        <ng-container *ngIf=\"resource.permissions.length === 0\">\n          <button\n            nbButton\n            ghost\n            status=\"control\"\n            nbTooltip=\"{{ 'rest-list.add' | translate }}\"\n            nbTooltipPlacement=\"top\"\n            (click)=\"addNewEntity()\"\n          >\n            <span>{{ \"add\" | translate }}</span>\n            <nb-icon icon=\"plus-circle\"></nb-icon>\n          </button>\n\n          <button\n            nbButton\n            *ngIf=\"this.selectedRows?.length > 0\"\n            ghost\n            nbTooltip=\"{{ 'rest-list.deleteAllSelect' | translate }}\"\n            nbTooltipPlacement=\"top\"\n            status=\"control\"\n            (click)=\"onDeleteAllConfirm()\"\n          >\n            <nb-icon\n              icon=\"trash\"\n              color=\"danger\"\n              style=\"color: rgb(238, 130, 157)\"\n            ></nb-icon>\n          </button>\n        </ng-container>\n\n        <ng-container *ngIf=\"resource.permissions.length > 0\">\n          <ng-container *ngxPermissionsOnly=\"permissions\">\n            <ng-container *ngxPermissionsOnly=\"PERMISSION.CREATE\">\n              <button nbButton ghost status=\"control\" (click)=\"addNewEntity()\">\n                <span>{{ \"add\" | translate }}</span>\n                <nb-icon icon=\"plus-circle\"></nb-icon>\n              </button>\n            </ng-container>\n\n            <ng-container *ngxPermissionsOnly=\"PERMISSION.DELETE\">\n              <button\n                nbButton\n                *ngIf=\"this.selectedRows?.length > 0\"\n                ghost\n                status=\"control\"\n                (click)=\"onDeleteAllConfirm()\"\n              >\n                <nb-icon\n                  icon=\"trash\"\n                  color=\"danger\"\n                  style=\"color: rgb(238, 130, 157)\"\n                ></nb-icon>\n              </button>\n            </ng-container>\n          </ng-container>\n        </ng-container>\n\n        <!-- <button\n          nbButton\n          status=\"primary\"\n          [nbContextMenu]=\"items\"\n          nbContextMenuTag=\"my-context\"\n        >\n          {{ \"rest-list.export\" | translate }}\n        </button> -->\n      </div>\n    </div>\n  </nb-card-header>\n\n  <nb-card-body\n    [nbSpinner]=\"this.restShare.listLoader\"\n    nbSpinnerSize=\"large\"\n    nbSpinnerStatus=\"primary\"\n  >\n    <!-- Rest-search implement -->\n    <div class=\"row mb-5\" *ngIf=\"this.resource.listConfig.searchFilter\">\n      <ng-container\n        *ngIf=\"this.resource.listConfig.searchFilter.filterBy.length > 0\"\n      >\n        <ng-container *ngFor=\"let search of searchItems; let index = index\">\n          <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n            <!-- Select with filter by -->\n            <nb-select\n              [placeholder]=\"'rest-list.filterPlaceholder' | translate\"\n              fullWidth\n              (selectedChange)=\"selectFilterBy($event, index)\"\n            >\n              <nb-option\n                *ngFor=\"\n                  let filter of this.resource.listConfig.searchFilter.filterBy\n                \"\n                [value]=\"filter\"\n                >{{ filter[\"name\"] | titlecase }}</nb-option\n              >\n            </nb-select>\n          </div>\n          <ng-container *ngIf=\"this.searchItems[index].field !== 'id'\">\n            <div class=\"col-lg-3 col-md-6 col-xs-12 input-space\">\n              <nb-select\n                [placeholder]=\"'rest-list.operator' | translate\"\n                fullWidth\n                (selectedChange)=\"selectOperator($event, index)\"\n              >\n                <nb-option\n                  *ngFor=\"let operator of filterOperator\"\n                  [value]=\"operator.value\"\n                >\n                  {{ operator.name | translate }}\n                </nb-option>\n              </nb-select>\n            </div>\n          </ng-container>\n\n          <div\n            *ngIf=\"this.searchItems[index].field !== 'id'\"\n            class=\"col-lg-4 col-md-12 col-xs-12 input-space\"\n            [ngClass]=\"{\n              'col-12': this.resource.listConfig.searchFilter == null\n            }\"\n          >\n            <input\n              nbInput\n              (input)=\"onFilter($event.target, index)\"\n              fullWidth\n              [placeholder]=\"'rest-list.searchPlaceholder' | translate\"\n              type=\"text\"\n            />\n          </div>\n          <div [formGroup]=\"form\">\n            <ng-container *ngIf=\"this.searchItems[index].field === 'id'\">\n              <div class=\"input-space\">\n                <!-- <label class=\"label\">{{ field.label | titlecase }}</label> -->\n                <nb-tag-list (tagRemove)=\"onTagRemoveBelong($event)\">\n                  <nb-tag\n                    *ngFor=\"let tree of belongToMany['id']\"\n                    [text]=\"tree['name']\"\n                    removable\n                  ></nb-tag>\n                  <input\n                    type=\"text\"\n                    nbTagInput\n                    #autoBelongToMany\n                    [nbAutocomplete]=\"belongToField\"\n                    (keyup)=\"filterInput($event, index)\"\n                    [placeholder]=\"\n                      this.searchItems[index].fieldName\n                        ? this.searchItems[index].fieldName\n                        : 'id'\n                    \"\n                    [formControlName]=\"'id'\"\n                    fullWidth\n                  />\n                </nb-tag-list>\n\n                <nb-autocomplete\n                  #belongToField\n                  (selectedChange)=\"onChoose($event, index)\"\n                >\n                  <nb-option\n                    *ngFor=\"let option of allFilterContains['id'] | async\"\n                    [value]=\"option\"\n                  >\n                    {{\n                      option[\n                        this.searchItems[index].fieldName\n                          ? this.searchItems[index].fieldName\n                          : \"id\"\n                      ]\n                    }}\n                  </nb-option>\n                </nb-autocomplete>\n              </div>\n            </ng-container>\n          </div>\n\n          <div\n            class=\"col-lg-1 col-md-2 col-xs-4 input-space row\"\n            *ngIf=\"index == 0\"\n          >\n            <button\n              nbButton\n              fullWidth\n              nbTooltip=\"{{ 'rest-list.search' | translate }}\"\n              nbTooltipPlacement=\"top\"\n              status=\"primary\"\n              (click)=\"startSearch()\"\n            >\n              <nb-icon icon=\"search-outline\"></nb-icon>\n            </button>\n          </div>\n          <div\n            class=\"col-lg-1 col-md-2 col-xs-4 input-space\"\n            *ngIf=\"index == 0; else elseBlock\"\n          >\n            <button\n              nbButton\n              fullWidth\n              nbTooltip=\"{{ 'rest-list.addSearch' | translate }}\"\n              nbTooltipPlacement=\"top\"\n              status=\"primary\"\n              (click)=\"addFieldSearch()\"\n            >\n              <nb-icon icon=\"plus-outline\"></nb-icon>\n            </button>\n          </div>\n          <ng-template #elseBlock>\n            <div class=\"col-lg-1 input-space\">\n              <button\n                nbButton\n                fullWidth\n                nbTooltip=\"{{ 'rest-list.removeSearch' | translate }}\"\n                nbTooltipPlacement=\"top\"\n                status=\"danger\"\n                (click)=\"removeFieldSearch(index)\"\n              >\n                <nb-icon icon=\"minus-outline\"></nb-icon>\n              </button>\n            </div>\n          </ng-template>\n        </ng-container>\n      </ng-container>\n    </div>\n\n    <!-- <ng2-smart-table\n    *ngIf=\"showCheckbox\"\n      [settings]=\"{...settings, columns: { ...settings.columns, isChecked } }\"\n      [source]=\"source\"\n      (deleteConfirm)=\"onDeleteConfirm($event)\"\n      (createConfirm)=\"onCreateConfirm($event)\"\n      (custom)=\"onCustom($event)\"\n      (userRowSelect)=\"detailEntity($event)\"\n    >\n    </ng2-smart-table> -->\n\n    <!-- *ngIf=\"!showCheckbox\" -->\n\n    <ng-container *ngIf=\"resource.permissions.length > 0\">\n      <ng2-smart-table\n        [settings]=\"settings\"\n        [source]=\"source\"\n        (deleteConfirm)=\"onDeleteConfirm($event)\"\n        (createConfirm)=\"onCreateConfirm($event)\"\n        (custom)=\"onCustom($event)\"\n        (userRowSelect)=\"detailEntity($event)\"\n        *ngIf=\"custom\"\n      >\n      </ng2-smart-table>\n    </ng-container>\n\n    <ng-container *ngIf=\"resource.permissions.length === 0\">\n      <ng2-smart-table\n        [settings]=\"settings\"\n        [source]=\"source\"\n        (deleteConfirm)=\"onDeleteConfirm($event)\"\n        (createConfirm)=\"onCreateConfirm($event)\"\n        (custom)=\"onCustom($event)\"\n        (userRowSelect)=\"detailEntity($event)\"\n      >\n      </ng2-smart-table>\n    </ng-container>\n    <div\n      class=\"row align-items-center justify-content-end\"\n      style=\"margin-top: 1rem\"\n    >\n      <label class=\"label mx-2\">{{ \"options.per_page\" | translate }}</label>\n      <nb-select\n        [placeholder]=\"resource.listConfig.perPage.toString()\"\n        [(selected)]=\"currentPerPage\"\n      >\n        <nb-option\n          *ngFor=\"let perPage of perPagesOptions\"\n          (click)=\"setPager(perPage.value)\"\n          value=\"perPage.value\"\n          >{{ perPage.title }}</nb-option\n        >\n      </nb-select>\n    </div>\n  </nb-card-body>\n</nb-card>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host nb-card-body{display:block}.nb-theme-default :host nb-card-body button{display:block}.nb-theme-default :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-default :host .result-from-dialog{flex-direction:column}.nb-theme-default :host .form-input-card nb-card-body{display:block}.nb-theme-dark :host nb-card-body{display:block}.nb-theme-dark :host nb-card-body button{display:block}.nb-theme-dark :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-dark :host .result-from-dialog{flex-direction:column}.nb-theme-dark :host .form-input-card nb-card-body{display:block}.nb-theme-cosmic :host nb-card-body{display:block}.nb-theme-cosmic :host nb-card-body button{display:block}.nb-theme-cosmic :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-cosmic :host .result-from-dialog{flex-direction:column}.nb-theme-cosmic :host .form-input-card nb-card-body{display:block}.nb-theme-corporate :host nb-card-body{display:block}.nb-theme-corporate :host nb-card-body button{display:block}.nb-theme-corporate :host nb-card-body button:last-child{margin-bottom:0}.nb-theme-corporate :host .result-from-dialog{flex-direction:column}.nb-theme-corporate :host .form-input-card nb-card-body{display:block}::ng-deep ng2-st-tbody-edit-delete{display:none;height:0!important}::ng-deep ng2-st-tbody-custom{display:flex;text-align:center}.input-space{margin-top:1rem}.nb-theme-default ng2-smart-table th.ng2-smart-actions-title-add a{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}\n"], components: [{ type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbTagListComponent, selector: "nb-tag-list", inputs: ["size", "tabIndex", "role", "multiple"], outputs: ["tagRemove"], exportAs: ["nbTagList"] }, { type: i1$1.NbTagComponent, selector: "nb-tag", inputs: ["appearance", "status", "size", "role", "selected", "removable", "text"], outputs: ["remove", "selectedChange"], exportAs: ["nbTag"] }, { type: i1$1.NbAutocompleteComponent, selector: "nb-autocomplete", inputs: ["size", "activeFirst", "handleDisplayFn", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i12.Ng2SmartTableComponent, selector: "ng2-smart-table", inputs: ["settings", "source"], outputs: ["rowSelect", "rowDeselect", "userRowSelect", "delete", "edit", "create", "custom", "deleteConfirm", "editConfirm", "createConfirm", "rowHover"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$1.NbTooltipDirective, selector: "[nbTooltip]", inputs: ["nbTooltipPlacement", "nbTooltipTrigger", "nbTooltipOffset", "nbTooltipAdjustment", "nbTooltipClass", "nbTooltipIcon", "nbTooltipStatus", "nbTooltip"], outputs: ["nbTooltipShowStateChange"], exportAs: ["nbTooltip"] }, { type: i1$3.CheckboxControlValueAccessor, selector: "input[type=checkbox][formControlName],input[type=checkbox][formControl],input[type=checkbox][ngModel]" }, { type: i1$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }, { type: i8.NgxPermissionsDirective, selector: "[ngxPermissionsOnly],[ngxPermissionsExcept]", inputs: ["ngxPermissionsOnly", "ngxPermissionsOnlyThen", "ngxPermissionsOnlyElse", "ngxPermissionsExcept", "ngxPermissionsExceptElse", "ngxPermissionsExceptThen", "ngxPermissionsThen", "ngxPermissionsElse", "ngxPermissionsOnlyAuthorisedStrategy", "ngxPermissionsOnlyUnauthorisedStrategy", "ngxPermissionsExceptUnauthorisedStrategy", "ngxPermissionsExceptAuthorisedStrategy", "ngxPermissionsUnauthorisedStrategy", "ngxPermissionsAuthorisedStrategy"], outputs: ["permissionsAuthorized", "permissionsUnauthorized"] }, { type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }, { type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i13.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$3.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$3.FormGroupDirective, selector: "[formGroup]", inputs: ["formGroup"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i1$1.NbTagInputDirective, selector: "input[nbTagInput]", inputs: ["separatorKeys"], outputs: ["tagAdd"], exportAs: ["nbTagInput"] }, { type: i1$1.NbAutocompleteDirective, selector: "input[nbAutocomplete]", inputs: ["overlayOffset", "scrollStrategy", "nbAutocomplete", "focusInputOnValueChange", "customOverlayHost"] }, { type: i1$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$3.FormControlName, selector: "[formControlName]", inputs: ["disabled", "formControlName", "ngModel"], outputs: ["ngModelChange"] }], pipes: { "translate": i2$1.TranslatePipe, "titlecase": i13.TitleCasePipe, "async": i13.AsyncPipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestResourceListComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-rest-resource-list',
-                    templateUrl: './rest-resource-list.component.html',
-                    styleUrls: ['./rest-resource-list.component.scss'],
-                }]
-        }], ctorParameters: function () { return [{ type: i1$3.FormBuilder }, { type: RestAdminConfigService }, { type: RestResourceService }, { type: i1$2.HttpClient }, { type: i1$1.NbDialogService }, { type: i1.ActivatedRoute }, { type: i1.Router }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: RestShareService }, { type: i8.NgxPermissionsService }, { type: RestResourceService }]; }, propDecorators: { resource: [{
-                type: Input
-            }], search: [{
-                type: ViewChild,
-                args: ['search']
-            }], inputBelongToMany: [{
-                type: ViewChild,
-                args: ['autoBelongToMany']
-            }] } });
+RestResourceListComponent.ɵfac = function RestResourceListComponent_Factory(t) { return new (t || RestResourceListComponent)(i0.ɵɵdirectiveInject(i1$4.FormBuilder), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestResourceService), i0.ɵɵdirectiveInject(i1$2.HttpClient), i0.ɵɵdirectiveInject(i1$1.NbDialogService), i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(RestExportService), i0.ɵɵdirectiveInject(RestShareService), i0.ɵɵdirectiveInject(i8.NgxPermissionsService), i0.ɵɵdirectiveInject(RestResourceService)); };
+RestResourceListComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestResourceListComponent, selectors: [["ngx-rest-resource-list"]], viewQuery: function RestResourceListComponent_Query(rf, ctx) { if (rf & 1) {
+        i0.ɵɵviewQuery(_c0$5, 5);
+        i0.ɵɵviewQuery(_c1$3, 5);
+    } if (rf & 2) {
+        let _t;
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.search = _t.first);
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.inputBelongToMany = _t.first);
+    } }, inputs: { resource: "resource" }, decls: 25, vars: 19, consts: [["status", "primary"], [1, "row", "d-flex", "justify-content-between"], [1, "d-flex", "align-items-center"], [1, "text-white"], ["class", "", 4, "ngIf"], [1, "", 2, "height", "40px"], ["nbButton", "", "ghost", "", "nbTooltipPlacement", "top", 3, "nbTooltip", "click"], ["type", "checkbox", 3, "ngModel", "ngModelChange"], ["nbButton", "", "ghost", "", "nbContextMenuTag", "export-context", "status", "control", 3, "nbContextMenu"], ["icon", "download-outline"], [4, "ngIf"], ["nbSpinnerSize", "large", "nbSpinnerStatus", "primary", 3, "nbSpinner"], ["class", "row mb-5", 4, "ngIf"], [1, "row", "align-items-center", "justify-content-end", 2, "margin-top", "1rem"], [1, "label", "mx-2"], [3, "placeholder", "selected", "selectedChange"], ["value", "perPage.value", 3, "click", 4, "ngFor", "ngForOf"], [1, ""], ["nbButton", "", "ghost", "", "status", "control", 3, "click"], ["type", "checkbox", 1, "mr-2", 3, "checked"], ["nbButton", "", "ghost", "", "status", "control", "nbTooltipPlacement", "top", 3, "nbTooltip", "click"], ["icon", "plus-circle"], ["nbButton", "", "ghost", "", "nbTooltipPlacement", "top", "status", "control", 3, "nbTooltip", "click", 4, "ngIf"], ["nbButton", "", "ghost", "", "nbTooltipPlacement", "top", "status", "control", 3, "nbTooltip", "click"], ["icon", "trash", "color", "danger", 2, "color", "rgb(238, 130, 157)"], [4, "ngxPermissionsOnly"], ["nbButton", "", "ghost", "", "status", "control", 3, "click", 4, "ngIf"], [1, "row", "mb-5"], [4, "ngFor", "ngForOf"], [1, "col-lg-3", "col-md-6", "col-xs-12", "input-space"], ["fullWidth", "", 3, "placeholder", "selectedChange"], [3, "value", 4, "ngFor", "ngForOf"], ["class", "col-lg-4 col-md-12 col-xs-12 input-space", 3, "ngClass", 4, "ngIf"], [3, "formGroup"], ["class", "col-lg-1 col-md-2 col-xs-4 input-space row", 4, "ngIf"], ["class", "col-lg-1 col-md-2 col-xs-4 input-space", 4, "ngIf", "ngIfElse"], ["elseBlock", ""], [3, "value"], [1, "col-lg-4", "col-md-12", "col-xs-12", "input-space", 3, "ngClass"], ["nbInput", "", "fullWidth", "", "type", "text", 3, "placeholder", "input"], [1, "input-space"], [3, "tagRemove"], ["removable", "", 3, "text", 4, "ngFor", "ngForOf"], ["type", "text", "nbTagInput", "", "fullWidth", "", 3, "nbAutocomplete", "placeholder", "formControlName", "keyup"], ["autoBelongToMany", ""], [3, "selectedChange"], ["belongToField", ""], ["removable", "", 3, "text"], [1, "col-lg-1", "col-md-2", "col-xs-4", "input-space", "row"], ["nbButton", "", "fullWidth", "", "nbTooltipPlacement", "top", "status", "primary", 3, "nbTooltip", "click"], ["icon", "search-outline"], [1, "col-lg-1", "col-md-2", "col-xs-4", "input-space"], ["icon", "plus-outline"], [1, "col-lg-1", "input-space"], ["nbButton", "", "fullWidth", "", "nbTooltipPlacement", "top", "status", "danger", 3, "nbTooltip", "click"], ["icon", "minus-outline"], [3, "settings", "source", "deleteConfirm", "createConfirm", "custom", "userRowSelect", 4, "ngIf"], [3, "settings", "source", "deleteConfirm", "createConfirm", "custom", "userRowSelect"], ["value", "perPage.value", 3, "click"]], template: function RestResourceListComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "nb-card", 0);
+        i0.ɵɵelementStart(1, "nb-card-header");
+        i0.ɵɵelementStart(2, "div", 1);
+        i0.ɵɵelementStart(3, "div", 2);
+        i0.ɵɵelementStart(4, "h6", 3);
+        i0.ɵɵtext(5);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵtemplate(6, RestResourceListComponent_div_6_Template, 5, 4, "div", 4);
+        i0.ɵɵelementStart(7, "div", 5);
+        i0.ɵɵelementStart(8, "button", 6);
+        i0.ɵɵlistener("click", function RestResourceListComponent_Template_button_click_8_listener() { return ctx.toggleShowCheckbox(); });
+        i0.ɵɵpipe(9, "translate");
+        i0.ɵɵelementStart(10, "input", 7);
+        i0.ɵɵlistener("ngModelChange", function RestResourceListComponent_Template_input_ngModelChange_10_listener($event) { return ctx.showCheckbox = $event; });
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(11, "button", 8);
+        i0.ɵɵelement(12, "nb-icon", 9);
+        i0.ɵɵelementEnd();
+        i0.ɵɵtemplate(13, RestResourceListComponent_ng_container_13_Template, 8, 7, "ng-container", 10);
+        i0.ɵɵtemplate(14, RestResourceListComponent_ng_container_14_Template, 2, 1, "ng-container", 10);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(15, "nb-card-body", 11);
+        i0.ɵɵtemplate(16, RestResourceListComponent_div_16_Template, 2, 1, "div", 12);
+        i0.ɵɵtemplate(17, RestResourceListComponent_ng_container_17_Template, 2, 1, "ng-container", 10);
+        i0.ɵɵtemplate(18, RestResourceListComponent_ng_container_18_Template, 2, 2, "ng-container", 10);
+        i0.ɵɵelementStart(19, "div", 13);
+        i0.ɵɵelementStart(20, "label", 14);
+        i0.ɵɵtext(21);
+        i0.ɵɵpipe(22, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(23, "nb-select", 15);
+        i0.ɵɵlistener("selectedChange", function RestResourceListComponent_Template_nb_select_selectedChange_23_listener($event) { return ctx.currentPerPage = $event; });
+        i0.ɵɵtemplate(24, RestResourceListComponent_nb_option_24_Template, 2, 1, "nb-option", 16);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(5);
+        i0.ɵɵtextInterpolate1(" ", ctx.resource.listConfig.title, " ");
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.showCheckbox);
+        i0.ɵɵadvance(2);
+        i0.ɵɵpropertyInterpolate("nbTooltip", i0.ɵɵpipeBind1(9, 15, "rest-detail.select"));
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngModel", ctx.showCheckbox);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("nbContextMenu", ctx.items);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length === 0);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length > 0);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("nbSpinner", ctx.restShare.listLoader);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.resource.listConfig.searchFilter);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length > 0);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.resource.permissions.length === 0);
+        i0.ɵɵadvance(3);
+        i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(22, 17, "options.per_page"));
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("placeholder", ctx.resource.listConfig.perPage.toString())("selected", ctx.currentPerPage);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngForOf", ctx.perPagesOptions);
+    } }, directives: [i1$1.NbCardComponent, i1$1.NbCardHeaderComponent, i10.NgIf, i1$1.NbButtonComponent, i1$1.NbTooltipDirective, i1$4.CheckboxControlValueAccessor, i1$4.NgControlStatus, i1$4.NgModel, i1$1.NbContextMenuDirective, i1$1.NbIconComponent, i1$1.NbCardBodyComponent, i1$1.NbSpinnerDirective, i1$1.NbSelectComponent, i10.NgForOf, i8.NgxPermissionsDirective, i1$4.NgControlStatusGroup, i1$4.FormGroupDirective, i1$1.NbOptionComponent, i10.NgClass, i1$1.NbInputDirective, i1$1.NbTagListComponent, i1$1.NbTagInputDirective, i1$1.NbAutocompleteDirective, i1$4.DefaultValueAccessor, i1$4.FormControlName, i1$1.NbAutocompleteComponent, i1$1.NbTagComponent, i11.Ng2SmartTableComponent], pipes: [i1$3.TranslatePipe, i10.TitleCasePipe, i10.AsyncPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-default   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-default   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-default   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-dark   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-dark   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-dark   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-cosmic   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-cosmic   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-cosmic   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]{display:block}.nb-theme-corporate   [_nghost-%COMP%]   nb-card-body[_ngcontent-%COMP%]   button[_ngcontent-%COMP%]:last-child{margin-bottom:0}.nb-theme-corporate   [_nghost-%COMP%]   .result-from-dialog[_ngcontent-%COMP%]{flex-direction:column}.nb-theme-corporate   [_nghost-%COMP%]   .form-input-card[_ngcontent-%COMP%]   nb-card-body[_ngcontent-%COMP%]{display:block}  ng2-st-tbody-edit-delete{display:none;height:0!important}  ng2-st-tbody-custom{display:flex;text-align:center}.input-space[_ngcontent-%COMP%]{margin-top:1rem}.nb-theme-default[_ngcontent-%COMP%]   ng2-smart-table[_ngcontent-%COMP%]   th.ng2-smart-actions-title-add[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{background-color:#00d68f!important;border-bottom-width:0;border-bottom-color:#00d68f!important;color:#fff}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestResourceListComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-rest-resource-list',
+                templateUrl: './rest-resource-list.component.html',
+                styleUrls: ['./rest-resource-list.component.scss'],
+            }]
+    }], function () { return [{ type: i1$4.FormBuilder }, { type: RestAdminConfigService }, { type: RestResourceService }, { type: i1$2.HttpClient }, { type: i1$1.NbDialogService }, { type: i1.ActivatedRoute }, { type: i1.Router }, { type: i1$1.NbMenuService }, { type: RestExportService }, { type: RestShareService }, { type: i8.NgxPermissionsService }, { type: RestResourceService }]; }, { resource: [{
+            type: Input
+        }], search: [{
+            type: ViewChild,
+            args: ['search']
+        }], inputBelongToMany: [{
+            type: ViewChild,
+            args: ['autoBelongToMany']
+        }] }); })();
 
 class RestAdminConfigService {
     constructor(restConfig) {
@@ -4375,18 +10799,49 @@ class RestAdminConfigService {
         return this._externPages;
     }
 }
-RestAdminConfigService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminConfigService, deps: [{ token: 'restConfig' }], target: i0.ɵɵFactoryTarget.Injectable });
-RestAdminConfigService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminConfigService, providedIn: 'root' });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminConfigService, decorators: [{
-            type: Injectable,
-            args: [{
-                    providedIn: 'root',
-                }]
-        }], ctorParameters: function () { return [{ type: undefined, decorators: [{
-                    type: Inject,
-                    args: ['restConfig']
-                }] }]; } });
+RestAdminConfigService.ɵfac = function RestAdminConfigService_Factory(t) { return new (t || RestAdminConfigService)(i0.ɵɵinject('restConfig')); };
+RestAdminConfigService.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: RestAdminConfigService, factory: RestAdminConfigService.ɵfac, providedIn: 'root' });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestAdminConfigService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root',
+            }]
+    }], function () { return [{ type: undefined, decorators: [{
+                type: Inject,
+                args: ['restConfig']
+            }] }]; }, null); })();
 
+function HeaderComponent_nb_option_8_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 9);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const theme_r3 = ctx.$implicit;
+    i0.ɵɵproperty("value", theme_r3.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", theme_r3.name, "");
+} }
+function HeaderComponent_nb_option_11_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-option", 9);
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "uppercase");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const lang_r4 = ctx.$implicit;
+    i0.ɵɵproperty("value", lang_r4.value);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(2, 2, lang_r4.value), "");
+} }
+function HeaderComponent_nb_action_13_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-action", 10);
+    i0.ɵɵelement(1, "nb-user", 11);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("nbContextMenu", ctx_r2.userMenu)("name", ctx_r2.user == null ? null : ctx_r2.user.name)("picture", (ctx_r2.user == null ? null : ctx_r2.user.picture) ? ctx_r2.user == null ? null : ctx_r2.user.picture : ctx_r2.user == null ? null : ctx_r2.user.defaultPicture);
+} }
+const _c0$4 = function () { return ["view", "user"]; };
 class HeaderComponent {
     constructor(sidebarService, menuService, themeService, layoutService, breakpointService, serviceRestAdmin, authService, router, langService, httpClient) {
         this.sidebarService = sidebarService;
@@ -4516,39 +10971,84 @@ class HeaderComponent {
         this.langService.setLanguage(event);
     }
 }
-HeaderComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HeaderComponent, deps: [{ token: i1$1.NbSidebarService }, { token: i1$1.NbMenuService }, { token: i1$1.NbThemeService }, { token: LayoutService }, { token: i1$1.NbMediaBreakpointsService }, { token: RestAdminConfigService }, { token: i1$4.NbAuthService }, { token: i1.Router }, { token: RestLangService }, { token: i1$2.HttpClient }], target: i0.ɵɵFactoryTarget.Component });
-HeaderComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: HeaderComponent, selector: "ngx-header", ngImport: i0, template: "<div class=\"header-container\">\n  <div class=\"logo-container\">\n    <a (click)=\"toggleSidebar()\" href=\"#\" class=\"sidebar-toggle\">\n      <nb-icon icon=\"menu-2-outline\"></nb-icon>\n    </a>\n    <a class=\"logo\" href=\"#\" (click)=\"navigateHome()\"\n      ><span>{{ serviceRestAdmin.siteName }}</span></a\n    >\n  </div>\n  <nb-select\n    [selected]=\"currentTheme\"\n    (selectedChange)=\"changeTheme($event)\"\n    status=\"primary\"\n  >\n    <nb-option *ngFor=\"let theme of themes\" [value]=\"theme.value\">\n      {{ theme.name }}</nb-option\n    >\n  </nb-select>\n</div>\n\n<div class=\"header-container\">\n  <nb-select\n    [selected]=\"currentLang\"\n    (selectedChange)=\"changeLang($event)\"\n    status=\"primary\"\n  >\n    <nb-option *ngFor=\"let lang of appLanguage\" [value]=\"lang.value\">\n      {{ lang.value | uppercase }}</nb-option\n    >\n  </nb-select>\n\n  <nb-actions size=\"small\">\n    <!-- <nb-action class=\"control-item\">\n      <nb-search type=\"rotate-layout\"></nb-search>\n    </nb-action> -->\n\n    <nb-action class=\"user-action\" *nbIsGranted=\"['view', 'user']\">\n      <nb-user\n        [nbContextMenu]=\"userMenu\"\n        nbContextMenuTag=\"my-context-menu\"\n        [name]=\"user?.name\"\n        [picture]=\"user?.picture ? user?.picture : user?.defaultPicture\"\n      >\n      </nb-user>\n    </nb-action>\n\n    <!-- <nb-action *ngIf=\"!isAuth\"\n      ><button nbButton (click)=\"signin()\" status=\"primary\">\n        Connexion\n      </button></nb-action\n    > -->\n  </nb-actions>\n</div>\n", styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host{display:flex;justify-content:space-between;width:100%}.nb-theme-default :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-default :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-default :host nb-user{cursor:pointer}.nb-theme-default :host ::ng-deep nb-search button{padding:0!important}.nb-theme-default :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-default :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-default :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-default :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-default :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-default :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-default :host .header-container .logo{border-left:1px solid #edf1f7}[dir=rtl] .nb-theme-default :host .header-container .logo{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-default :host .control-item{display:none}.nb-theme-default :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-default :host nb-select{display:none}}.nb-theme-dark :host{display:flex;justify-content:space-between;width:100%}.nb-theme-dark :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-dark :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-dark :host nb-user{cursor:pointer}.nb-theme-dark :host ::ng-deep nb-search button{padding:0!important}.nb-theme-dark :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-dark :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-dark :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-dark :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-dark :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-dark :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-dark :host .header-container .logo{border-left:1px solid #151a30}[dir=rtl] .nb-theme-dark :host .header-container .logo{border-right:1px solid #151a30}@media (max-width: 767.98px){.nb-theme-dark :host .control-item{display:none}.nb-theme-dark :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-dark :host nb-select{display:none}}.nb-theme-cosmic :host{display:flex;justify-content:space-between;width:100%}.nb-theme-cosmic :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-cosmic :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-cosmic :host nb-user{cursor:pointer}.nb-theme-cosmic :host ::ng-deep nb-search button{padding:0!important}.nb-theme-cosmic :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-cosmic :host .header-container .sidebar-toggle{text-decoration:none;color:#b4b4db}[dir=ltr] .nb-theme-cosmic :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-cosmic :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-cosmic :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-cosmic :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-cosmic :host .header-container .logo{border-left:1px solid #1b1b38}[dir=rtl] .nb-theme-cosmic :host .header-container .logo{border-right:1px solid #1b1b38}@media (max-width: 767.98px){.nb-theme-cosmic :host .control-item{display:none}.nb-theme-cosmic :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-cosmic :host nb-select{display:none}}.nb-theme-corporate :host{display:flex;justify-content:space-between;width:100%}.nb-theme-corporate :host .logo-container{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-corporate :host nb-action{height:auto;display:flex;align-content:center}.nb-theme-corporate :host nb-user{cursor:pointer}.nb-theme-corporate :host ::ng-deep nb-search button{padding:0!important}.nb-theme-corporate :host .header-container{display:flex;align-items:center;width:auto}.nb-theme-corporate :host .header-container .sidebar-toggle{text-decoration:none;color:#8f9bb3}[dir=ltr] .nb-theme-corporate :host .header-container .sidebar-toggle{padding-right:1.25rem}[dir=rtl] .nb-theme-corporate :host .header-container .sidebar-toggle{padding-left:1.25rem}.nb-theme-corporate :host .header-container .sidebar-toggle nb-icon{font-size:1.75rem}.nb-theme-corporate :host .header-container .logo{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr] .nb-theme-corporate :host .header-container .logo{border-left:1px solid #edf1f7}[dir=rtl] .nb-theme-corporate :host .header-container .logo{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-corporate :host .control-item{display:none}.nb-theme-corporate :host .user-action{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-corporate :host nb-select{display:none}}\n"], components: [{ type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1$1.NbSelectComponent, selector: "nb-select", inputs: ["size", "status", "shape", "appearance", "placeholder", "optionsOverlayOffset", "scrollStrategy", "outline", "filled", "hero", "disabled", "fullWidth", "compareWith", "selected", "multiple", "optionsListClass", "optionsPanelClass"], outputs: ["selectedChange"] }, { type: i1$1.NbOptionComponent, selector: "nb-option", inputs: ["disabled", "value"], outputs: ["selectionChange"] }, { type: i1$1.NbActionsComponent, selector: "nb-actions", inputs: ["size", "fullWidth"] }, { type: i1$1.NbActionComponent, selector: "nb-action", inputs: ["title", "badgeStatus", "disabled", "badgeDot", "link", "href", "icon", "badgeText", "badgePosition"] }, { type: i1$1.NbUserComponent, selector: "nb-user", inputs: ["name", "size", "shape", "badgeStatus", "picture", "showName", "showTitle", "showInitials", "onlyPicture", "title", "color", "badgeText", "badgePosition"] }], directives: [{ type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i9$1.NbIsGrantedDirective, selector: "[nbIsGranted]", inputs: ["nbIsGranted"] }, { type: i1$1.NbContextMenuDirective, selector: "[nbContextMenu]", inputs: ["nbContextMenuAdjustment", "nbContextMenuTrigger", "nbContextMenuPlacement", "nbContextMenuTag", "nbContextMenu", "nbContextMenuClass"] }], pipes: { "uppercase": i13.UpperCasePipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HeaderComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-header',
-                    styleUrls: ['./header.component.scss'],
-                    templateUrl: './header.component.html',
-                }]
-        }], ctorParameters: function () { return [{ type: i1$1.NbSidebarService }, { type: i1$1.NbMenuService }, { type: i1$1.NbThemeService }, { type: LayoutService }, { type: i1$1.NbMediaBreakpointsService }, { type: RestAdminConfigService }, { type: i1$4.NbAuthService }, { type: i1.Router }, { type: RestLangService }, { type: i1$2.HttpClient }]; } });
+HeaderComponent.ɵfac = function HeaderComponent_Factory(t) { return new (t || HeaderComponent)(i0.ɵɵdirectiveInject(i1$1.NbSidebarService), i0.ɵɵdirectiveInject(i1$1.NbMenuService), i0.ɵɵdirectiveInject(i1$1.NbThemeService), i0.ɵɵdirectiveInject(LayoutService), i0.ɵɵdirectiveInject(i1$1.NbMediaBreakpointsService), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(i1$5.NbAuthService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i1$2.HttpClient)); };
+HeaderComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: HeaderComponent, selectors: [["ngx-header"]], decls: 14, vars: 7, consts: [[1, "header-container"], [1, "logo-container"], ["href", "#", 1, "sidebar-toggle", 3, "click"], ["icon", "menu-2-outline"], ["href", "#", 1, "logo", 3, "click"], ["status", "primary", 3, "selected", "selectedChange"], [3, "value", 4, "ngFor", "ngForOf"], ["size", "small"], ["class", "user-action", 4, "nbIsGranted"], [3, "value"], [1, "user-action"], ["nbContextMenuTag", "my-context-menu", 3, "nbContextMenu", "name", "picture"]], template: function HeaderComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "div", 0);
+        i0.ɵɵelementStart(1, "div", 1);
+        i0.ɵɵelementStart(2, "a", 2);
+        i0.ɵɵlistener("click", function HeaderComponent_Template_a_click_2_listener() { return ctx.toggleSidebar(); });
+        i0.ɵɵelement(3, "nb-icon", 3);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(4, "a", 4);
+        i0.ɵɵlistener("click", function HeaderComponent_Template_a_click_4_listener() { return ctx.navigateHome(); });
+        i0.ɵɵelementStart(5, "span");
+        i0.ɵɵtext(6);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(7, "nb-select", 5);
+        i0.ɵɵlistener("selectedChange", function HeaderComponent_Template_nb_select_selectedChange_7_listener($event) { return ctx.changeTheme($event); });
+        i0.ɵɵtemplate(8, HeaderComponent_nb_option_8_Template, 2, 2, "nb-option", 6);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(9, "div", 0);
+        i0.ɵɵelementStart(10, "nb-select", 5);
+        i0.ɵɵlistener("selectedChange", function HeaderComponent_Template_nb_select_selectedChange_10_listener($event) { return ctx.changeLang($event); });
+        i0.ɵɵtemplate(11, HeaderComponent_nb_option_11_Template, 3, 4, "nb-option", 6);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(12, "nb-actions", 7);
+        i0.ɵɵtemplate(13, HeaderComponent_nb_action_13_Template, 2, 3, "nb-action", 8);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(6);
+        i0.ɵɵtextInterpolate(ctx.serviceRestAdmin.siteName);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("selected", ctx.currentTheme);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngForOf", ctx.themes);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("selected", ctx.currentLang);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngForOf", ctx.appLanguage);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("nbIsGranted", i0.ɵɵpureFunction0(6, _c0$4));
+    } }, directives: [i1$1.NbIconComponent, i1$1.NbSelectComponent, i10.NgForOf, i1$1.NbActionsComponent, i9.NbIsGrantedDirective, i1$1.NbOptionComponent, i1$1.NbActionComponent, i1$1.NbUserComponent, i1$1.NbContextMenuDirective], pipes: [i10.UpperCasePipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-default   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-default   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-default   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-default   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#8f9bb3}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #edf1f7}[dir=rtl]   .nb-theme-default   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-default   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-default   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-default   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}.nb-theme-dark   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-dark   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-dark   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-dark   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-dark   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#8f9bb3}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #151a30}[dir=rtl]   .nb-theme-dark   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #151a30}@media (max-width: 767.98px){.nb-theme-dark   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-dark   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-dark   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}.nb-theme-cosmic   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-cosmic   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-cosmic   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-cosmic   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-cosmic   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#b4b4db}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #1b1b38}[dir=rtl]   .nb-theme-cosmic   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #1b1b38}@media (max-width: 767.98px){.nb-theme-cosmic   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-cosmic   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-cosmic   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}.nb-theme-corporate   [_nghost-%COMP%]{display:flex;justify-content:space-between;width:100%}.nb-theme-corporate   [_nghost-%COMP%]   .logo-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:calc(16rem - 1.25rem)}.nb-theme-corporate   [_nghost-%COMP%]   nb-action[_ngcontent-%COMP%]{height:auto;display:flex;align-content:center}.nb-theme-corporate   [_nghost-%COMP%]   nb-user[_ngcontent-%COMP%]{cursor:pointer}.nb-theme-corporate   [_nghost-%COMP%]     nb-search button{padding:0!important}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]{display:flex;align-items:center;width:auto}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{text-decoration:none;color:#8f9bb3}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-right:1.25rem}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]{padding-left:1.25rem}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .sidebar-toggle[_ngcontent-%COMP%]   nb-icon[_ngcontent-%COMP%]{font-size:1.75rem}.nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{padding:0 1.25rem;font-size:1.75rem;white-space:nowrap;text-decoration:none}[dir=ltr]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-left:1px solid #edf1f7}[dir=rtl]   .nb-theme-corporate   [_nghost-%COMP%]   .header-container[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%]{border-right:1px solid #edf1f7}@media (max-width: 767.98px){.nb-theme-corporate   [_nghost-%COMP%]   .control-item[_ngcontent-%COMP%]{display:none}.nb-theme-corporate   [_nghost-%COMP%]   .user-action[_ngcontent-%COMP%]{border:none;padding:0}}@media (max-width: 575.98px){.nb-theme-corporate   [_nghost-%COMP%]   nb-select[_ngcontent-%COMP%]{display:none}}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HeaderComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-header',
+                styleUrls: ['./header.component.scss'],
+                templateUrl: './header.component.html',
+            }]
+    }], function () { return [{ type: i1$1.NbSidebarService }, { type: i1$1.NbMenuService }, { type: i1$1.NbThemeService }, { type: LayoutService }, { type: i1$1.NbMediaBreakpointsService }, { type: RestAdminConfigService }, { type: i1$5.NbAuthService }, { type: i1.Router }, { type: RestLangService }, { type: i1$2.HttpClient }]; }, null); })();
 
 class FooterComponent {
     constructor(serviceRestAdmin) {
         this.serviceRestAdmin = serviceRestAdmin;
     }
 }
-FooterComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FooterComponent, deps: [{ token: RestAdminConfigService }], target: i0.ɵɵFactoryTarget.Component });
-FooterComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: FooterComponent, selector: "ngx-footer", ngImport: i0, template: `
-    <span class="created-by"> <b>{{ serviceRestAdmin.siteName }}</b> copyright </span>
-    <div class="socials">
-      <a
-        href="https://github.com/Foris-master/ngx-admin"
-        target="_blank"
-        class="ion ion-social-github"
-      ></a>
-    </div>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-default :host .socials{font-size:2rem}.nb-theme-default :host .socials a{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-default :host .socials a:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-default :host .socials{font-size:1.5rem}}.nb-theme-dark :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-dark :host .socials{font-size:2rem}.nb-theme-dark :host .socials a{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-dark :host .socials a:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-dark :host .socials{font-size:1.5rem}}.nb-theme-cosmic :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-cosmic :host .socials{font-size:2rem}.nb-theme-cosmic :host .socials a{padding:.4rem;color:#b4b4db;transition:color ease-out .1s}.nb-theme-cosmic :host .socials a:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-cosmic :host .socials{font-size:1.5rem}}.nb-theme-corporate :host{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-corporate :host .socials{font-size:2rem}.nb-theme-corporate :host .socials a{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-corporate :host .socials a:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-corporate :host .socials{font-size:1.5rem}}\n"] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: FooterComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: "ngx-footer",
-                    styleUrls: ["./footer.component.scss"],
-                    template: `
+FooterComponent.ɵfac = function FooterComponent_Factory(t) { return new (t || FooterComponent)(i0.ɵɵdirectiveInject(RestAdminConfigService)); };
+FooterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FooterComponent, selectors: [["ngx-footer"]], decls: 6, vars: 1, consts: [[1, "created-by"], [1, "socials"], ["href", "https://github.com/Foris-master/ngx-admin", "target", "_blank", 1, "ion", "ion-social-github"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "span", 0);
+        i0.ɵɵelementStart(1, "b");
+        i0.ɵɵtext(2);
+        i0.ɵɵelementEnd();
+        i0.ɵɵtext(3, " copyright ");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(4, "div", 1);
+        i0.ɵɵelement(5, "a", 2);
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(2);
+        i0.ɵɵtextInterpolate(ctx.serviceRestAdmin.siteName);
+    } }, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-default   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}.nb-theme-dark   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-dark   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}.nb-theme-cosmic   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#b4b4db;transition:color ease-out .1s}.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#fff}@media (max-width: 575.98px){.nb-theme-cosmic   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}.nb-theme-corporate   [_nghost-%COMP%]{width:100%;display:flex;justify-content:space-between;align-items:center}.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:2rem}.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{padding:.4rem;color:#8f9bb3;transition:color ease-out .1s}.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover{color:#222b45}@media (max-width: 575.98px){.nb-theme-corporate   [_nghost-%COMP%]   .socials[_ngcontent-%COMP%]{font-size:1.5rem}}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FooterComponent, [{
+        type: Component,
+        args: [{
+                selector: "ngx-footer",
+                styleUrls: ["./footer.component.scss"],
+                template: `
     <span class="created-by"> <b>{{ serviceRestAdmin.siteName }}</b> copyright </span>
     <div class="socials">
       <a
@@ -4558,9 +11058,10 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       ></a>
     </div>
   `,
-                }]
-        }], ctorParameters: function () { return [{ type: RestAdminConfigService }]; } });
+            }]
+    }], function () { return [{ type: RestAdminConfigService }]; }, null); })();
 
+const _c0$3 = ["input"];
 class SearchInputComponent {
     constructor() {
         this.search = new EventEmitter();
@@ -4577,22 +11078,29 @@ class SearchInputComponent {
         this.search.emit(val);
     }
 }
-SearchInputComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SearchInputComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-SearchInputComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: SearchInputComponent, selector: "ngx-search-input", outputs: { search: "search" }, viewQueries: [{ propertyName: "input", first: true, predicate: ["input"], descendants: true, static: true }], ngImport: i0, template: `
-    <i class="control-icon ion ion-ios-search"
-       (click)="showInput()"></i>
-    <input placeholder="Type your search request here..."
-           #input
-           [class.hidden]="!isInputShown"
-           (blur)="hideInput()"
-           (input)="onInput($event)">
-  `, isInline: true, styles: [":host{display:flex;align-items:center}:host i.control-icon:before{font-size:2.3rem}:host i.control-icon:hover{cursor:pointer}:host input{border:none;outline:none;margin-left:1rem;width:15rem;transition:width .2s ease}:host input.hidden{width:0;margin:0}:host ::ng-deep search-input input{background:transparent}\n"] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: SearchInputComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-search-input',
-                    styleUrls: ['./search-input.component.scss'],
-                    template: `
+SearchInputComponent.ɵfac = function SearchInputComponent_Factory(t) { return new (t || SearchInputComponent)(); };
+SearchInputComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: SearchInputComponent, selectors: [["ngx-search-input"]], viewQuery: function SearchInputComponent_Query(rf, ctx) { if (rf & 1) {
+        i0.ɵɵviewQuery(_c0$3, 7);
+    } if (rf & 2) {
+        let _t;
+        i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.input = _t.first);
+    } }, outputs: { search: "search" }, decls: 3, vars: 2, consts: [[1, "control-icon", "ion", "ion-ios-search", 3, "click"], ["placeholder", "Type your search request here...", 3, "blur", "input"], ["input", ""]], template: function SearchInputComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "i", 0);
+        i0.ɵɵlistener("click", function SearchInputComponent_Template_i_click_0_listener() { return ctx.showInput(); });
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(1, "input", 1, 2);
+        i0.ɵɵlistener("blur", function SearchInputComponent_Template_input_blur_1_listener() { return ctx.hideInput(); })("input", function SearchInputComponent_Template_input_input_1_listener($event) { return ctx.onInput($event); });
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        i0.ɵɵadvance(1);
+        i0.ɵɵclassProp("hidden", !ctx.isInputShown);
+    } }, styles: ["[_nghost-%COMP%]{display:flex;align-items:center}[_nghost-%COMP%]   i.control-icon[_ngcontent-%COMP%]:before{font-size:2.3rem}[_nghost-%COMP%]   i.control-icon[_ngcontent-%COMP%]:hover{cursor:pointer}[_nghost-%COMP%]   input[_ngcontent-%COMP%]{border:none;outline:none;margin-left:1rem;width:15rem;transition:width .2s ease}[_nghost-%COMP%]   input.hidden[_ngcontent-%COMP%]{width:0;margin:0}[_nghost-%COMP%]     search-input input{background:transparent}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(SearchInputComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-search-input',
+                styleUrls: ['./search-input.component.scss'],
+                template: `
     <i class="control-icon ion ion-ios-search"
        (click)="showInput()"></i>
     <input placeholder="Type your search request here..."
@@ -4601,13 +11109,13 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
            (blur)="hideInput()"
            (input)="onInput($event)">
   `,
-                }]
-        }], propDecorators: { input: [{
-                type: ViewChild,
-                args: ['input', { static: true }]
-            }], search: [{
-                type: Output
-            }] } });
+            }]
+    }], null, { input: [{
+            type: ViewChild,
+            args: ['input', { static: true }]
+        }], search: [{
+            type: Output
+        }] }); })();
 
 class TinyMCEComponent {
     constructor(host, locationStrategy) {
@@ -4633,17 +11141,17 @@ class TinyMCEComponent {
         // tinymce.remove(this.editor);
     }
 }
-TinyMCEComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TinyMCEComponent, deps: [{ token: i0.ElementRef }, { token: i13.LocationStrategy }], target: i0.ɵɵFactoryTarget.Component });
-TinyMCEComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: TinyMCEComponent, selector: "ngx-tiny-mce", outputs: { editorKeyup: "editorKeyup" }, ngImport: i0, template: '', isInline: true });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TinyMCEComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-tiny-mce',
-                    template: '',
-                }]
-        }], ctorParameters: function () { return [{ type: i0.ElementRef }, { type: i13.LocationStrategy }]; }, propDecorators: { editorKeyup: [{
-                type: Output
-            }] } });
+TinyMCEComponent.ɵfac = function TinyMCEComponent_Factory(t) { return new (t || TinyMCEComponent)(i0.ɵɵdirectiveInject(i0.ElementRef), i0.ɵɵdirectiveInject(i10.LocationStrategy)); };
+TinyMCEComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: TinyMCEComponent, selectors: [["ngx-tiny-mce"]], outputs: { editorKeyup: "editorKeyup" }, decls: 0, vars: 0, template: function TinyMCEComponent_Template(rf, ctx) { }, encapsulation: 2 });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(TinyMCEComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-tiny-mce',
+                template: '',
+            }]
+    }], function () { return [{ type: i0.ElementRef }, { type: i10.LocationStrategy }]; }, { editorKeyup: [{
+            type: Output
+        }] }); })();
 
 class CapitalizePipe {
     transform(input) {
@@ -4652,12 +11160,12 @@ class CapitalizePipe {
             : input;
     }
 }
-CapitalizePipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CapitalizePipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-CapitalizePipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CapitalizePipe, name: "ngxCapitalize" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CapitalizePipe, decorators: [{
-            type: Pipe,
-            args: [{ name: 'ngxCapitalize' }]
-        }] });
+CapitalizePipe.ɵfac = function CapitalizePipe_Factory(t) { return new (t || CapitalizePipe)(); };
+CapitalizePipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "ngxCapitalize", type: CapitalizePipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CapitalizePipe, [{
+        type: Pipe,
+        args: [{ name: 'ngxCapitalize' }]
+    }], null, null); })();
 
 class PluralPipe {
     transform(input, label, pluralLabel = '') {
@@ -4669,24 +11177,24 @@ class PluralPipe {
                 : `${input} ${label}s`;
     }
 }
-PluralPipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PluralPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-PluralPipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PluralPipe, name: "ngxPlural" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PluralPipe, decorators: [{
-            type: Pipe,
-            args: [{ name: 'ngxPlural' }]
-        }] });
+PluralPipe.ɵfac = function PluralPipe_Factory(t) { return new (t || PluralPipe)(); };
+PluralPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "ngxPlural", type: PluralPipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(PluralPipe, [{
+        type: Pipe,
+        args: [{ name: 'ngxPlural' }]
+    }], null, null); })();
 
 class RoundPipe {
     transform(input) {
         return Math.round(input);
     }
 }
-RoundPipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RoundPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-RoundPipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RoundPipe, name: "ngxRound" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RoundPipe, decorators: [{
-            type: Pipe,
-            args: [{ name: 'ngxRound' }]
-        }] });
+RoundPipe.ɵfac = function RoundPipe_Factory(t) { return new (t || RoundPipe)(); };
+RoundPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "ngxRound", type: RoundPipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RoundPipe, [{
+        type: Pipe,
+        args: [{ name: 'ngxRound' }]
+    }], null, null); })();
 
 class TimingPipe {
     transform(time) {
@@ -4701,54 +11209,54 @@ class TimingPipe {
         return time < 10 ? '0' : '';
     }
 }
-TimingPipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TimingPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-TimingPipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TimingPipe, name: "timing" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TimingPipe, decorators: [{
-            type: Pipe,
-            args: [{ name: 'timing' }]
-        }] });
+TimingPipe.ɵfac = function TimingPipe_Factory(t) { return new (t || TimingPipe)(); };
+TimingPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "timing", type: TimingPipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(TimingPipe, [{
+        type: Pipe,
+        args: [{ name: 'timing' }]
+    }], null, null); })();
 
 class NumberWithCommasPipe {
     transform(input) {
         return new Intl.NumberFormat().format(input);
     }
 }
-NumberWithCommasPipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: NumberWithCommasPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-NumberWithCommasPipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: NumberWithCommasPipe, name: "ngxNumberWithCommas" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: NumberWithCommasPipe, decorators: [{
-            type: Pipe,
-            args: [{ name: 'ngxNumberWithCommas' }]
-        }] });
+NumberWithCommasPipe.ɵfac = function NumberWithCommasPipe_Factory(t) { return new (t || NumberWithCommasPipe)(); };
+NumberWithCommasPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "ngxNumberWithCommas", type: NumberWithCommasPipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NumberWithCommasPipe, [{
+        type: Pipe,
+        args: [{ name: 'ngxNumberWithCommas' }]
+    }], null, null); })();
 
+const _c0$2 = [[["input"]], [["nb-menu"]], [["router-outlet"]]];
+const _c1$2 = ["input", "nb-menu", "router-outlet"];
 class OneColumnLayoutComponent {
 }
-OneColumnLayoutComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OneColumnLayoutComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-OneColumnLayoutComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: OneColumnLayoutComponent, selector: "ngx-one-column-layout", ngImport: i0, template: `
-    <nb-layout windowMode>
-      <nb-layout-header >
-        <ngx-header></ngx-header>
-      </nb-layout-header>
-
-      <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-        <ng-content select="input"></ng-content>
-        <ng-content select="nb-menu"></ng-content>
-      </nb-sidebar>
-
-      <nb-layout-column>
-        <ng-content select="router-outlet"></ng-content>
-      </nb-layout-column>
-
-      <nb-layout-footer fixed>
-        <ngx-footer></ngx-footer>
-      </nb-layout-footer>
-    </nb-layout>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1$1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1$1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1$1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: OneColumnLayoutComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-one-column-layout',
-                    styleUrls: ['./one-column.layout.scss'],
-                    template: `
+OneColumnLayoutComponent.ɵfac = function OneColumnLayoutComponent_Factory(t) { return new (t || OneColumnLayoutComponent)(); };
+OneColumnLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: OneColumnLayoutComponent, selectors: [["ngx-one-column-layout"]], ngContentSelectors: _c1$2, decls: 10, vars: 0, consts: [["windowMode", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], ["fixed", ""]], template: function OneColumnLayoutComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵprojectionDef(_c0$2);
+        i0.ɵɵelementStart(0, "nb-layout", 0);
+        i0.ɵɵelementStart(1, "nb-layout-header");
+        i0.ɵɵelement(2, "ngx-header");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "nb-sidebar", 1);
+        i0.ɵɵprojection(4);
+        i0.ɵɵprojection(5, 1);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(6, "nb-layout-column");
+        i0.ɵɵprojection(7, 2);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(8, "nb-layout-footer", 2);
+        i0.ɵɵelement(9, "ngx-footer");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } }, directives: [i1$1.NbLayoutComponent, i1$1.NbLayoutHeaderComponent, HeaderComponent, i1$1.NbSidebarComponent, i1$1.NbLayoutColumnComponent, i1$1.NbLayoutFooterComponent, FooterComponent], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-dark   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-cosmic   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-corporate   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(OneColumnLayoutComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-one-column-layout',
+                styleUrls: ['./one-column.layout.scss'],
+                template: `
     <nb-layout windowMode>
       <nb-layout-header >
         <ngx-header></ngx-header>
@@ -4768,41 +11276,38 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       </nb-layout-footer>
     </nb-layout>
   `,
-                }]
-        }] });
+            }]
+    }], null, null); })();
 
+const _c0$1 = [[["nb-menu"]], [["router-outlet"]]];
+const _c1$1 = ["nb-menu", "router-outlet"];
 class TwoColumnsLayoutComponent {
 }
-TwoColumnsLayoutComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TwoColumnsLayoutComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-TwoColumnsLayoutComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: TwoColumnsLayoutComponent, selector: "ngx-two-columns-layout", ngImport: i0, template: `
-    <nb-layout windowMode>
-      <nb-layout-header fixed>
-        <ngx-header></ngx-header>
-      </nb-layout-header>
-
-      <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-        <ng-content select="nb-menu"></ng-content>
-      </nb-sidebar>
-
-      <nb-layout-column class="small">
-      </nb-layout-column>
-
-      <nb-layout-column>
-        <ng-content select="router-outlet"></ng-content>
-      </nb-layout-column>
-
-      <nb-layout-footer fixed>
-        <ngx-footer></ngx-footer>
-      </nb-layout-footer>
-
-    </nb-layout>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1$1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1$1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1$1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: TwoColumnsLayoutComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-two-columns-layout',
-                    styleUrls: ['./two-columns.layout.scss'],
-                    template: `
+TwoColumnsLayoutComponent.ɵfac = function TwoColumnsLayoutComponent_Factory(t) { return new (t || TwoColumnsLayoutComponent)(); };
+TwoColumnsLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: TwoColumnsLayoutComponent, selectors: [["ngx-two-columns-layout"]], ngContentSelectors: _c1$1, decls: 10, vars: 0, consts: [["windowMode", ""], ["fixed", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], [1, "small"]], template: function TwoColumnsLayoutComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵprojectionDef(_c0$1);
+        i0.ɵɵelementStart(0, "nb-layout", 0);
+        i0.ɵɵelementStart(1, "nb-layout-header", 1);
+        i0.ɵɵelement(2, "ngx-header");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "nb-sidebar", 2);
+        i0.ɵɵprojection(4);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelement(5, "nb-layout-column", 3);
+        i0.ɵɵelementStart(6, "nb-layout-column");
+        i0.ɵɵprojection(7, 1);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(8, "nb-layout-footer", 1);
+        i0.ɵɵelement(9, "ngx-footer");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } }, directives: [i1$1.NbLayoutComponent, i1$1.NbLayoutHeaderComponent, HeaderComponent, i1$1.NbSidebarComponent, i1$1.NbLayoutColumnComponent, i1$1.NbLayoutFooterComponent, FooterComponent], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-dark   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-cosmic   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-corporate   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(TwoColumnsLayoutComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-two-columns-layout',
+                styleUrls: ['./two-columns.layout.scss'],
+                template: `
     <nb-layout windowMode>
       <nb-layout-header fixed>
         <ngx-header></ngx-header>
@@ -4825,43 +11330,39 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
 
     </nb-layout>
   `,
-                }]
-        }] });
+            }]
+    }], null, null); })();
 
+const _c0 = [[["nb-menu"]], [["router-outlet"]]];
+const _c1 = ["nb-menu", "router-outlet"];
 class ThreeColumnsLayoutComponent {
 }
-ThreeColumnsLayoutComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThreeColumnsLayoutComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
-ThreeColumnsLayoutComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: ThreeColumnsLayoutComponent, selector: "ngx-three-columns-layout", ngImport: i0, template: `
-    <nb-layout windowMode>
-      <nb-layout-header fixed>
-        <ngx-header></ngx-header>
-      </nb-layout-header>
-
-      <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-        <ng-content select="nb-menu"></ng-content>
-      </nb-sidebar>
-
-      <nb-layout-column class="small">
-      </nb-layout-column>
-
-      <nb-layout-column>
-        <ng-content select="router-outlet"></ng-content>
-      </nb-layout-column>
-
-      <nb-layout-column class="small">
-      </nb-layout-column>
-
-      <nb-layout-footer fixed>
-        <ngx-footer></ngx-footer>
-      </nb-layout-footer>
-    </nb-layout>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-dark :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-cosmic :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}.nb-theme-corporate :host .menu-sidebar ::ng-deep .scrollable{padding-top:2.25rem}\n"], components: [{ type: i1$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1$1.NbLayoutHeaderComponent, selector: "nb-layout-header", inputs: ["fixed", "subheader"] }, { type: HeaderComponent, selector: "ngx-header" }, { type: i1$1.NbSidebarComponent, selector: "nb-sidebar", inputs: ["compactedBreakpoints", "collapsedBreakpoints", "right", "left", "start", "end", "fixed", "containerFixed", "state", "responsive", "tag"], outputs: ["stateChange", "responsiveStateChange"] }, { type: i1$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1$1.NbLayoutFooterComponent, selector: "nb-layout-footer", inputs: ["fixed"] }, { type: FooterComponent, selector: "ngx-footer" }] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThreeColumnsLayoutComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-three-columns-layout',
-                    styleUrls: ['./three-columns.layout.scss'],
-                    template: `
+ThreeColumnsLayoutComponent.ɵfac = function ThreeColumnsLayoutComponent_Factory(t) { return new (t || ThreeColumnsLayoutComponent)(); };
+ThreeColumnsLayoutComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ThreeColumnsLayoutComponent, selectors: [["ngx-three-columns-layout"]], ngContentSelectors: _c1, decls: 11, vars: 0, consts: [["windowMode", ""], ["fixed", ""], ["tag", "menu-sidebar", "responsive", "", 1, "menu-sidebar"], [1, "small"]], template: function ThreeColumnsLayoutComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵprojectionDef(_c0);
+        i0.ɵɵelementStart(0, "nb-layout", 0);
+        i0.ɵɵelementStart(1, "nb-layout-header", 1);
+        i0.ɵɵelement(2, "ngx-header");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "nb-sidebar", 2);
+        i0.ɵɵprojection(4);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelement(5, "nb-layout-column", 3);
+        i0.ɵɵelementStart(6, "nb-layout-column");
+        i0.ɵɵprojection(7, 1);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelement(8, "nb-layout-column", 3);
+        i0.ɵɵelementStart(9, "nb-layout-footer", 1);
+        i0.ɵɵelement(10, "ngx-footer");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } }, directives: [i1$1.NbLayoutComponent, i1$1.NbLayoutHeaderComponent, HeaderComponent, i1$1.NbSidebarComponent, i1$1.NbLayoutColumnComponent, i1$1.NbLayoutFooterComponent, FooterComponent], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-dark   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-cosmic   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}.nb-theme-corporate   [_nghost-%COMP%]   .menu-sidebar[_ngcontent-%COMP%]     .scrollable{padding-top:2.25rem}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ThreeColumnsLayoutComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-three-columns-layout',
+                styleUrls: ['./three-columns.layout.scss'],
+                template: `
     <nb-layout windowMode>
       <nb-layout-header fixed>
         <ngx-header></ngx-header>
@@ -4886,8 +11387,8 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       </nb-layout-footer>
     </nb-layout>
   `,
-                }]
-        }] });
+            }]
+    }], null, null); })();
 
 const baseThemeVariables$3 = DEFAULT_THEME$1.variables;
 const DEFAULT_THEME = {
@@ -5957,8 +12458,18 @@ class ThemeModule {
         };
     }
 }
-ThemeModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThemeModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-ThemeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThemeModule, declarations: [HeaderComponent,
+ThemeModule.ɵfac = function ThemeModule_Factory(t) { return new (t || ThemeModule)(); };
+ThemeModule.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: ThemeModule });
+ThemeModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [[CommonModule, ...NB_MODULES], CommonModule] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ThemeModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, ...NB_MODULES],
+                exports: [CommonModule, ...PIPES, ...COMPONENTS],
+                declarations: [...COMPONENTS, ...PIPES],
+            }]
+    }], null, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(ThemeModule, { declarations: [HeaderComponent,
         FooterComponent,
         SearchInputComponent,
         TinyMCEComponent,
@@ -5990,16 +12501,7 @@ ThemeModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "1
         TinyMCEComponent,
         OneColumnLayoutComponent,
         ThreeColumnsLayoutComponent,
-        TwoColumnsLayoutComponent] });
-ThemeModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThemeModule, imports: [[CommonModule, ...NB_MODULES], CommonModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: ThemeModule, decorators: [{
-            type: NgModule,
-            args: [{
-                    imports: [CommonModule, ...NB_MODULES],
-                    exports: [CommonModule, ...PIPES, ...COMPONENTS],
-                    declarations: [...COMPONENTS, ...PIPES],
-                }]
-        }] });
+        TwoColumnsLayoutComponent] }); })();
 
 // import { MenuItem } from './menu-item';
 class MenuFilterPipe {
@@ -6018,15 +12520,143 @@ class MenuFilterPipe {
         });
     }
 }
-MenuFilterPipe.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MenuFilterPipe, deps: [], target: i0.ɵɵFactoryTarget.Pipe });
-MenuFilterPipe.ɵpipe = i0.ɵɵngDeclarePipe({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MenuFilterPipe, name: "menuFilter" });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: MenuFilterPipe, decorators: [{
-            type: Pipe,
-            args: [{
-                    name: 'menuFilter'
-                }]
-        }] });
+MenuFilterPipe.ɵfac = function MenuFilterPipe_Factory(t) { return new (t || MenuFilterPipe)(); };
+MenuFilterPipe.ɵpipe = /*@__PURE__*/ i0.ɵɵdefinePipe({ name: "menuFilter", type: MenuFilterPipe, pure: true });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(MenuFilterPipe, [{
+        type: Pipe,
+        args: [{
+                name: 'menuFilter'
+            }]
+    }], null, null); })();
 
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_container_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵelementStart(1, "nb-menu-item", 6);
+    i0.ɵɵelementContainerStart(2);
+    i0.ɵɵelement(3, "nb-icon", 7);
+    i0.ɵɵtext(4);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r4 = i0.ɵɵnextContext().$implicit;
+    const ctx_r5 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("routerLink", item_r4.link);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("icon", item_r4.icon);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r5.transformTitle(item_r4.title), " ");
+} }
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-menu-item", 6);
+    i0.ɵɵelementContainerStart(1);
+    i0.ɵɵelement(2, "nb-icon", 7);
+    i0.ɵɵtext(3);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const childItem_r10 = ctx.$implicit;
+    const item_r4 = i0.ɵɵnextContext(2).$implicit;
+    const ctx_r9 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("routerLink", childItem_r10.link);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("icon", item_r4.icon);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r9.transformTitle(childItem_r10.title), " ");
+} }
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-menu-item", 6);
+    i0.ɵɵelementContainerStart(1);
+    i0.ɵɵelement(2, "nb-icon", 7);
+    i0.ɵɵtext(3);
+    i0.ɵɵelementContainerEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵtemplate(4, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_ng_template_4_Template, 4, 3, "ng-template", 8);
+} if (rf & 2) {
+    const item_r4 = i0.ɵɵnextContext().$implicit;
+    const ctx_r7 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("routerLink", item_r4.link);
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("icon", item_r4.icon);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", ctx_r7.transformTitle(item_r4.title), " ");
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngForOf", item_r4.children);
+} }
+function RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_container_1_Template, 5, 3, "ng-container", 0);
+    i0.ɵɵtemplate(2, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_ng_template_2_Template, 5, 4, "ng-template", null, 5, i0.ɵɵtemplateRefExtractor);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    const item_r4 = ctx.$implicit;
+    const _r6 = i0.ɵɵreference(3);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", !item_r4.children)("ngIfElse", _r6);
+} }
+function RestMainComponentComponent_ngx_one_column_layout_0_Template(rf, ctx) { if (rf & 1) {
+    const _r14 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "ngx-one-column-layout");
+    i0.ɵɵelementStart(1, "input", 2);
+    i0.ɵɵlistener("ngModelChange", function RestMainComponentComponent_ngx_one_column_layout_0_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r14); const ctx_r13 = i0.ɵɵnextContext(); return ctx_r13.searchText = $event; })("ngModelChange", function RestMainComponentComponent_ngx_one_column_layout_0_Template_input_ngModelChange_1_listener($event) { i0.ɵɵrestoreView(_r14); const ctx_r15 = i0.ɵɵnextContext(); return ctx_r15.onChange($event); });
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(3, "nb-menu", 3);
+    i0.ɵɵpipe(4, "menuFilter");
+    i0.ɵɵtemplate(5, RestMainComponentComponent_ngx_one_column_layout_0_ng_container_5_Template, 4, 2, "ng-container", 4);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelement(6, "router-outlet");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngModel", ctx_r0.searchText)("placeholder", i0.ɵɵpipeBind1(2, 4, "rest-list.searchPlaceholder"));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("items", i0.ɵɵpipeBind2(4, 6, ctx_r0.menuItems, ctx_r0.searchText));
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("ngForOf", ctx_r0.menuItems);
+} }
+function RestMainComponentComponent_ng_template_1_div_5_Template(rf, ctx) { if (rf & 1) {
+    const _r19 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "div", 11);
+    i0.ɵɵelementStart(1, "h3", 12);
+    i0.ɵɵtext(2, " Vous n'etes pas autoris\u00E9 \u00E0 vous connecter ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(3, "button", 13);
+    i0.ɵɵlistener("click", function RestMainComponentComponent_ng_template_1_div_5_Template_button_click_3_listener() { i0.ɵɵrestoreView(_r19); const ctx_r18 = i0.ɵɵnextContext(2); return ctx_r18.login(); });
+    i0.ɵɵtext(4, " Retour ");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} }
+function RestMainComponentComponent_ng_template_1_div_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "div", 11);
+    i0.ɵɵelementStart(1, "h5", 12);
+    i0.ɵɵtext(2, "Veuillez patienter");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} }
+function RestMainComponentComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-layout");
+    i0.ɵɵelementStart(1, "nb-layout-column");
+    i0.ɵɵelementStart(2, "nb-card", 9);
+    i0.ɵɵelement(3, "nb-card-header");
+    i0.ɵɵelementStart(4, "nb-card-body");
+    i0.ɵɵtemplate(5, RestMainComponentComponent_ng_template_1_div_5_Template, 5, 0, "div", 10);
+    i0.ɵɵtemplate(6, RestMainComponentComponent_ng_template_1_div_6_Template, 3, 0, "div", 10);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(2);
+    i0.ɵɵproperty("nbSpinner", ctx_r2.isPending);
+    i0.ɵɵadvance(3);
+    i0.ɵɵproperty("ngIf", !ctx_r2.isPending);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", ctx_r2.isPending);
+} }
 class RestMainComponentComponent {
     constructor(activatedRoute, serviceConfig, restLangService, router, serviceRest) {
         this.activatedRoute = activatedRoute;
@@ -6095,102 +12725,27 @@ class RestMainComponentComponent {
                 }
             });
         }
+        else {
+            this.pageLoad = true;
+            this.isPending = false;
+        }
     }
 }
-RestMainComponentComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestMainComponentComponent, deps: [{ token: i1.ActivatedRoute }, { token: RestAdminConfigService }, { token: RestLangService }, { token: i1.Router }, { token: RestResourceService }], target: i0.ɵɵFactoryTarget.Component });
-RestMainComponentComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: RestMainComponentComponent, selector: "ngx-rest-main-component", providers: [MenuFilterPipe], ngImport: i0, template: `
-    <ngx-one-column-layout *ngIf="!isPending && pageLoad; else errorTryAgain">
-      <input
-        type="text"
-        [(ngModel)]="searchText"
-        (ngModelChange)="onChange($event)"
-        [placeholder]="'rest-list.searchPlaceholder' | translate"
-        nbInput
-        fullWidth
-        nbPrefixIcon="search-outline"
-      />
-
-      <nb-menu tag="menu" [items]="menuItems | menuFilter : searchText">
-        <ng-container *ngFor="let item of menuItems">
-          <ng-container *ngIf="!item.children; else subMenu">
-            <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
-              <ng-container>
-                <nb-icon [icon]="item.icon"></nb-icon>
-                {{ transformTitle(item.title) }}
-              </ng-container>
-            </nb-menu-item>
-          </ng-container>
-          <ng-template #subMenu>
-            <nb-menu-item [routerLink]="item.link" routerLinkActive="active">
-              <ng-container>
-                <nb-icon [icon]="item.icon"></nb-icon>
-                {{ transformTitle(item.title) }}
-              </ng-container>
-            </nb-menu-item>
-            <ng-template let-childItem ngFor [ngForOf]="item.children">
-              <nb-menu-item
-                [routerLink]="childItem.link"
-                routerLinkActive="active"
-              >
-                <ng-container>
-                  <nb-icon [icon]="item.icon"></nb-icon>
-                  {{ transformTitle(childItem.title) }}
-                </ng-container>
-              </nb-menu-item>
-            </ng-template>
-          </ng-template>
-        </ng-container>
-      </nb-menu>
-
-      <router-outlet></router-outlet>
-    </ngx-one-column-layout>
-
-    <ng-template #errorTryAgain>
-      <nb-layout>
-        <nb-layout-column>
-          <nb-card
-            class="card-no-authorize"
-            [nbSpinner]="isPending"
-            nbSpinnerStatus="primary"
-            nbSpinnerSize="large"
-          >
-            <nb-card-header></nb-card-header>
-            <nb-card-body>
-              <div class="p-2" *ngIf="!isPending">
-                <h3 class="text-center">
-                  Vous n'etes pas autorisé à vous connecter
-                </h3>
-
-                <!-- <nb-alert outline="info" role="alert">
-                  <p class="alert-title">
-                    <b>Vous serez redirigé vers la page de con</b>
-                  </p>
-                </nb-alert> -->
-                <button
-                  nbButton
-                  type="primary"
-                  (click)="login()"
-                  style="display: flex; margin:0 auto"
-                >
-                  Retour
-                </button>
-              </div>
-              <div *ngIf="isPending" class="p-2">
-                <h5 class="text-center">Veuillez patienter</h5>
-              </div>
-            </nb-card-body>
-          </nb-card>
-        </nb-layout-column>
-      </nb-layout>
-    </ng-template>
-  `, isInline: true, styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate :host ::ng-deep router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}.card-no-authorize{display:block;width:100%;max-width:35rem;min-height:15rem;margin:0 auto}\n"], components: [{ type: OneColumnLayoutComponent, selector: "ngx-one-column-layout" }, { type: i1$1.NbMenuComponent, selector: "nb-menu", inputs: ["autoCollapse", "tag", "items"] }, { type: i1$1.NbIconComponent, selector: "nb-icon", inputs: ["config", "icon", "pack", "status", "options"] }, { type: i1$1.NbLayoutComponent, selector: "nb-layout", inputs: ["center", "windowMode", "withScroll", "restoreScrollTop"] }, { type: i1$1.NbLayoutColumnComponent, selector: "nb-layout-column", inputs: ["left", "start"] }, { type: i1$1.NbCardComponent, selector: "nb-card", inputs: ["status", "accent", "size"] }, { type: i1$1.NbCardHeaderComponent, selector: "nb-card-header" }, { type: i1$1.NbCardBodyComponent, selector: "nb-card-body" }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1.RouterLinkActive, selector: "[routerLinkActive]", inputs: ["routerLinkActiveOptions", "routerLinkActive"], exportAs: ["routerLinkActive"] }, { type: i1.RouterLink, selector: ":not(a):not(area)[routerLink]", inputs: ["routerLink", "queryParams", "fragment", "queryParamsHandling", "preserveFragment", "skipLocationChange", "replaceUrl", "state", "relativeTo"] }, { type: i1.RouterOutlet, selector: "router-outlet", outputs: ["activate", "deactivate"], exportAs: ["outlet"] }, { type: i1$1.NbSpinnerDirective, selector: "[nbSpinner]", inputs: ["nbSpinnerStatus", "nbSpinnerSize", "nbSpinner", "nbSpinnerMessage"] }], pipes: { "translate": i2$1.TranslatePipe, "menuFilter": MenuFilterPipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestMainComponentComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-rest-main-component',
-                    styleUrls: ['./rest-main-component.component.scss'],
-                    providers: [MenuFilterPipe],
-                    template: `
+RestMainComponentComponent.ɵfac = function RestMainComponentComponent_Factory(t) { return new (t || RestMainComponentComponent)(i0.ɵɵdirectiveInject(i1.ActivatedRoute), i0.ɵɵdirectiveInject(RestAdminConfigService), i0.ɵɵdirectiveInject(RestLangService), i0.ɵɵdirectiveInject(i1.Router), i0.ɵɵdirectiveInject(RestResourceService)); };
+RestMainComponentComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: RestMainComponentComponent, selectors: [["ngx-rest-main-component"]], features: [i0.ɵɵProvidersFeature([MenuFilterPipe])], decls: 3, vars: 2, consts: [[4, "ngIf", "ngIfElse"], ["errorTryAgain", ""], ["type", "text", "nbInput", "", "fullWidth", "", "nbPrefixIcon", "search-outline", 3, "ngModel", "placeholder", "ngModelChange"], ["tag", "menu", 3, "items"], [4, "ngFor", "ngForOf"], ["subMenu", ""], ["routerLinkActive", "active", 3, "routerLink"], [3, "icon"], ["ngFor", "", 3, "ngForOf"], ["nbSpinnerStatus", "primary", "nbSpinnerSize", "large", 1, "card-no-authorize", 3, "nbSpinner"], ["class", "p-2", 4, "ngIf"], [1, "p-2"], [1, "text-center"], ["nbButton", "", "type", "primary", 2, "display", "flex", "margin", "0 auto", 3, "click"]], template: function RestMainComponentComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵtemplate(0, RestMainComponentComponent_ngx_one_column_layout_0_Template, 7, 9, "ngx-one-column-layout", 0);
+        i0.ɵɵtemplate(1, RestMainComponentComponent_ng_template_1_Template, 7, 3, "ng-template", null, 1, i0.ɵɵtemplateRefExtractor);
+    } if (rf & 2) {
+        const _r1 = i0.ɵɵreference(2);
+        i0.ɵɵproperty("ngIf", !ctx.isPending && ctx.pageLoad)("ngIfElse", _r1);
+    } }, directives: [i10.NgIf, OneColumnLayoutComponent, i1$1.NbInputDirective, i1$4.DefaultValueAccessor, i1$4.NgControlStatus, i1$4.NgModel, i1$1.NbMenuComponent, i10.NgForOf, i1.RouterOutlet, i1.RouterLinkActive, i1.RouterLink, i1$1.NbIconComponent, i1$1.NbLayoutComponent, i1$1.NbLayoutColumnComponent, i1$1.NbCardComponent, i1$1.NbSpinnerDirective, i1$1.NbCardHeaderComponent, i1$1.NbCardBodyComponent, i1$1.NbButtonComponent], pipes: [i1$3.TranslatePipe, MenuFilterPipe], styles: ["@use \"@nebular/theme/styles/themes/default\";.nb-theme-default   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-dark   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-cosmic   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}.nb-theme-corporate   [_nghost-%COMP%]     router-outlet+*{display:block;animation:fade 1s}@keyframes fade{0%{opacity:0}to{opacity:1}}.card-no-authorize[_ngcontent-%COMP%]{display:block;width:100%;max-width:35rem;min-height:15rem;margin:0 auto}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestMainComponentComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-rest-main-component',
+                styleUrls: ['./rest-main-component.component.scss'],
+                providers: [MenuFilterPipe],
+                template: `
     <ngx-one-column-layout *ngIf="!isPending && pageLoad; else errorTryAgain">
       <input
         type="text"
@@ -6276,8 +12831,8 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImpor
       </nb-layout>
     </ng-template>
   `,
-                }]
-        }], ctorParameters: function () { return [{ type: i1.ActivatedRoute }, { type: RestAdminConfigService }, { type: RestLangService }, { type: i1.Router }, { type: RestResourceService }]; } });
+            }]
+    }], function () { return [{ type: i1.ActivatedRoute }, { type: RestAdminConfigService }, { type: RestLangService }, { type: i1.Router }, { type: RestResourceService }]; }, null); })();
 
 // import { LocalStorageService } from '../local-storage/local-storage.service';
 // import { AUTH_TOKEN } from '../auth/auth.models';
@@ -6296,11 +12851,11 @@ class HttpAuthInterceptor {
         return next.handle(request);
     }
 }
-HttpAuthInterceptor.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HttpAuthInterceptor, deps: [{ token: i1$4.NbAuthService }, { token: i1$4.NbTokenStorage }], target: i0.ɵɵFactoryTarget.Injectable });
-HttpAuthInterceptor.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HttpAuthInterceptor });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HttpAuthInterceptor, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: i1$4.NbAuthService }, { type: i1$4.NbTokenStorage }]; } });
+HttpAuthInterceptor.ɵfac = function HttpAuthInterceptor_Factory(t) { return new (t || HttpAuthInterceptor)(i0.ɵɵinject(i1$5.NbAuthService), i0.ɵɵinject(i1$5.NbTokenStorage)); };
+HttpAuthInterceptor.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: HttpAuthInterceptor, factory: HttpAuthInterceptor.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HttpAuthInterceptor, [{
+        type: Injectable
+    }], function () { return [{ type: i1$5.NbAuthService }, { type: i1$5.NbTokenStorage }]; }, null); })();
 
 class PaginationInterceptor {
     constructor() { }
@@ -6324,11 +12879,11 @@ class PaginationInterceptor {
         }));
     }
 }
-PaginationInterceptor.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PaginationInterceptor, deps: [], target: i0.ɵɵFactoryTarget.Injectable });
-PaginationInterceptor.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PaginationInterceptor });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: PaginationInterceptor, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return []; } });
+PaginationInterceptor.ɵfac = function PaginationInterceptor_Factory(t) { return new (t || PaginationInterceptor)(); };
+PaginationInterceptor.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: PaginationInterceptor, factory: PaginationInterceptor.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(PaginationInterceptor, [{
+        type: Injectable
+    }], function () { return []; }, null); })();
 
 /** Passes HttpErrorResponse to application-wide error handler */
 class HttpErrorInterceptor {
@@ -6371,11 +12926,11 @@ class HttpErrorInterceptor {
         }));
     }
 }
-HttpErrorInterceptor.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HttpErrorInterceptor, deps: [{ token: NotificationService }, { token: i1.Router }, { token: RestShareService }], target: i0.ɵɵFactoryTarget.Injectable });
-HttpErrorInterceptor.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HttpErrorInterceptor });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: HttpErrorInterceptor, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: NotificationService }, { type: i1.Router }, { type: RestShareService }]; } });
+HttpErrorInterceptor.ɵfac = function HttpErrorInterceptor_Factory(t) { return new (t || HttpErrorInterceptor)(i0.ɵɵinject(NotificationService), i0.ɵɵinject(i1.Router), i0.ɵɵinject(RestShareService)); };
+HttpErrorInterceptor.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: HttpErrorInterceptor, factory: HttpErrorInterceptor.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(HttpErrorInterceptor, [{
+        type: Injectable
+    }], function () { return [{ type: NotificationService }, { type: i1.Router }, { type: RestShareService }]; }, null); })();
 
 function throwIfAlreadyLoaded(parentModule, moduleName) {
     if (parentModule) {
@@ -6457,34 +13012,230 @@ class CoreModule {
         };
     }
 }
-CoreModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CoreModule, deps: [{ token: CoreModule, optional: true, skipSelf: true }], target: i0.ɵɵFactoryTarget.NgModule });
-CoreModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CoreModule, imports: [CommonModule], exports: [NbAuthModule] });
-CoreModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CoreModule, imports: [[CommonModule], NbAuthModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: CoreModule, decorators: [{
-            type: NgModule,
-            args: [{
-                    imports: [CommonModule],
-                    exports: [NbAuthModule],
-                    declarations: [],
-                }]
-        }], ctorParameters: function () { return [{ type: CoreModule, decorators: [{
-                    type: Optional
-                }, {
-                    type: SkipSelf
-                }] }]; } });
+CoreModule.ɵfac = function CoreModule_Factory(t) { return new (t || CoreModule)(i0.ɵɵinject(CoreModule, 12)); };
+CoreModule.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: CoreModule });
+CoreModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [[CommonModule], NbAuthModule] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CoreModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule],
+                exports: [NbAuthModule],
+                declarations: [],
+            }]
+    }], function () { return [{ type: CoreModule, decorators: [{
+                type: Optional
+            }, {
+                type: SkipSelf
+            }] }]; }, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(CoreModule, { imports: [CommonModule], exports: [NbAuthModule] }); })();
 
+function LoginComponent_nb_alert_6_li_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "li", 23);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const error_r9 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(error_r9);
+} }
+function LoginComponent_nb_alert_6_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-alert", 19);
+    i0.ɵɵelementStart(1, "p", 20);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3, "Oh snap!");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "ul", 21);
+    i0.ɵɵtemplate(5, LoginComponent_nb_alert_6_li_5_Template, 2, 1, "li", 22);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(5);
+    i0.ɵɵproperty("ngForOf", ctx_r0.errors);
+} }
+function LoginComponent_nb_alert_7_li_5_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "li", 23);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const message_r11 = ctx.$implicit;
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate1(" ", message_r11, " ");
+} }
+function LoginComponent_nb_alert_7_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "nb-alert", 24);
+    i0.ɵɵelementStart(1, "p", 20);
+    i0.ɵɵelementStart(2, "b");
+    i0.ɵɵtext(3, "Hooray!");
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementStart(4, "ul", 21);
+    i0.ɵɵtemplate(5, LoginComponent_nb_alert_7_li_5_Template, 2, 1, "li", 22);
+    i0.ɵɵelementEnd();
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = i0.ɵɵnextContext();
+    i0.ɵɵadvance(5);
+    i0.ɵɵproperty("ngForOf", ctx_r1.messages);
+} }
+function LoginComponent_ng_container_16_p_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "p", 26);
+    i0.ɵɵtext(1, " Email is required! ");
+    i0.ɵɵelementEnd();
+} }
+function LoginComponent_ng_container_16_p_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "p", 26);
+    i0.ɵɵtext(1, " Email should be the real one! ");
+    i0.ɵɵelementEnd();
+} }
+function LoginComponent_ng_container_16_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, LoginComponent_ng_container_16_p_1_Template, 2, 0, "p", 25);
+    i0.ɵɵtemplate(2, LoginComponent_ng_container_16_p_2_Template, 2, 0, "p", 25);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    i0.ɵɵnextContext();
+    const _r3 = i0.ɵɵreference(15);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", _r3.errors == null ? null : _r3.errors.required);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", _r3.errors == null ? null : _r3.errors.pattern);
+} }
+function LoginComponent_ng_container_27_p_1_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "p", 26);
+    i0.ɵɵtext(1, " Password is required! ");
+    i0.ɵɵelementEnd();
+} }
+function LoginComponent_ng_container_27_p_2_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementStart(0, "p", 26);
+    i0.ɵɵtext(1);
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r15 = i0.ɵɵnextContext(2);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate2(" Password should contain from ", ctx_r15.getConfigValue("forms.validation.password.minLength"), " to ", ctx_r15.getConfigValue("forms.validation.password.maxLength"), " characters ");
+} }
+function LoginComponent_ng_container_27_Template(rf, ctx) { if (rf & 1) {
+    i0.ɵɵelementContainerStart(0);
+    i0.ɵɵtemplate(1, LoginComponent_ng_container_27_p_1_Template, 2, 0, "p", 25);
+    i0.ɵɵtemplate(2, LoginComponent_ng_container_27_p_2_Template, 2, 2, "p", 25);
+    i0.ɵɵelementContainerEnd();
+} if (rf & 2) {
+    i0.ɵɵnextContext();
+    const _r5 = i0.ɵɵreference(26);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", _r5.errors == null ? null : _r5.errors.required);
+    i0.ɵɵadvance(1);
+    i0.ɵɵproperty("ngIf", (_r5.errors == null ? null : _r5.errors.minlength) || (_r5.errors == null ? null : _r5.errors.maxlength));
+} }
+function LoginComponent_nb_checkbox_29_Template(rf, ctx) { if (rf & 1) {
+    const _r17 = i0.ɵɵgetCurrentView();
+    i0.ɵɵelementStart(0, "nb-checkbox", 27);
+    i0.ɵɵlistener("ngModelChange", function LoginComponent_nb_checkbox_29_Template_nb_checkbox_ngModelChange_0_listener($event) { i0.ɵɵrestoreView(_r17); const ctx_r16 = i0.ɵɵnextContext(); return ctx_r16.user.rememberMe = $event; });
+    i0.ɵɵtext(1);
+    i0.ɵɵpipe(2, "translate");
+    i0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r7 = i0.ɵɵnextContext();
+    i0.ɵɵproperty("ngModel", ctx_r7.user.rememberMe);
+    i0.ɵɵadvance(1);
+    i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(2, 2, "login.rememberMe"));
+} }
 class LoginComponent extends NbLoginComponent {
 }
-LoginComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: LoginComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
-LoginComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "12.1.5", type: LoginComponent, selector: "ngx-login", usesInheritance: true, ngImport: i0, template: "<h1 id=\"title\" class=\"title\">{{ \"login.main\" | translate }}</h1>\n<p class=\"sub-title\">{{ \"login.labelMessage\" | translate }}.</p>\n\n<nb-alert\n  *ngIf=\"showMessages.error && errors?.length && !submitted\"\n  outline=\"danger\"\n  role=\"alert\"\n>\n  <p class=\"alert-title\"><b>Oh snap!</b></p>\n  <ul class=\"alert-message-list\">\n    <li *ngFor=\"let error of errors\" class=\"alert-message\">{{ error }}</li>\n  </ul>\n</nb-alert>\n\n<nb-alert\n  *ngIf=\"showMessages.success && messages?.length && !submitted\"\n  outline=\"success\"\n  role=\"alert\"\n>\n  <p class=\"alert-title\"><b>Hooray!</b></p>\n  <ul class=\"alert-message-list\">\n    <li *ngFor=\"let message of messages\" class=\"alert-message\">\n      {{ message }}\n    </li>\n  </ul>\n</nb-alert>\n\n<form (ngSubmit)=\"login()\" #form=\"ngForm\" aria-labelledby=\"title\">\n  <div class=\"form-control-group\">\n    <label class=\"label\" for=\"input-email\"\n      >{{ \"login.email\" | translate }}:</label\n    >\n    <input\n      nbInput\n      fullWidth\n      [(ngModel)]=\"user.login\"\n      #email=\"ngModel\"\n      name=\"login\"\n      id=\"input-email\"\n      pattern=\".+@.+\\..+\"\n      placeholder=\"Email address\"\n      fieldSize=\"large\"\n      autofocus\n      [status]=\"email.dirty ? (email.invalid ? 'danger' : 'success') : 'basic'\"\n      [required]=\"getConfigValue('forms.validation.email.required')\"\n      [attr.aria-invalid]=\"email.invalid && email.touched ? true : null\"\n    />\n    <ng-container *ngIf=\"email.invalid && email.touched\">\n      <p class=\"caption status-danger\" *ngIf=\"email.errors?.required\">\n        Email is required!\n      </p>\n      <p class=\"caption status-danger\" *ngIf=\"email.errors?.pattern\">\n        Email should be the real one!\n      </p>\n    </ng-container>\n  </div>\n\n  <div class=\"form-control-group\">\n    <span class=\"label-with-link\">\n      <label class=\"label\" for=\"input-password\"\n        >{{ \"login.password\" | translate }}:</label\n      >\n      <a class=\"forgot-password caption-2\" routerLink=\"../request-password\"\n        >{{ \"login.forgetPassword\" | translate }}?</a\n      >\n    </span>\n    <input\n      nbInput\n      fullWidth\n      [(ngModel)]=\"user.password\"\n      #password=\"ngModel\"\n      name=\"password\"\n      type=\"password\"\n      id=\"input-password\"\n      placeholder=\"Password\"\n      fieldSize=\"large\"\n      [status]=\"\n        password.dirty ? (password.invalid ? 'danger' : 'success') : 'basic'\n      \"\n      [required]=\"getConfigValue('forms.validation.password.required')\"\n      [minlength]=\"getConfigValue('forms.validation.password.minLength')\"\n      [maxlength]=\"getConfigValue('forms.validation.password.maxLength')\"\n      [attr.aria-invalid]=\"password.invalid && password.touched ? true : null\"\n    />\n    <ng-container *ngIf=\"password.invalid && password.touched\">\n      <p class=\"caption status-danger\" *ngIf=\"password.errors?.required\">\n        Password is required!\n      </p>\n      <p\n        class=\"caption status-danger\"\n        *ngIf=\"password.errors?.minlength || password.errors?.maxlength\"\n      >\n        Password should contain from\n        {{ getConfigValue(\"forms.validation.password.minLength\") }} to\n        {{ getConfigValue(\"forms.validation.password.maxLength\") }}\n        characters\n      </p>\n    </ng-container>\n  </div>\n\n  <div class=\"form-control-group accept-group\">\n    <nb-checkbox\n      name=\"rememberMe\"\n      [(ngModel)]=\"user.rememberMe\"\n      *ngIf=\"rememberMe\"\n      >{{ \"login.rememberMe\" | translate }}</nb-checkbox\n    >\n  </div>\n\n  <button\n    nbButton\n    fullWidth\n    status=\"primary\"\n    size=\"large\"\n    [disabled]=\"submitted || !form.valid\"\n    [class.btn-pulse]=\"submitted\"\n  >\n    {{ \"login.logIn\" | translate }}\n  </button>\n</form>\n", styles: ["::ng-deep .navigation .link nb-icon{display:none!important}\n"], components: [{ type: i1$1.NbAlertComponent, selector: "nb-alert", inputs: ["size", "status", "accent", "outline", "closable"], outputs: ["close"] }, { type: i1$1.NbCheckboxComponent, selector: "nb-checkbox", inputs: ["status", "checked", "disabled", "indeterminate"], outputs: ["checkedChange"] }, { type: i1$1.NbButtonComponent, selector: "button[nbButton],a[nbButton],input[type=\"button\"][nbButton],input[type=\"submit\"][nbButton]", inputs: ["hero"] }], directives: [{ type: i13.NgIf, selector: "[ngIf]", inputs: ["ngIf", "ngIfThen", "ngIfElse"] }, { type: i13.NgForOf, selector: "[ngFor][ngForOf]", inputs: ["ngForOf", "ngForTrackBy", "ngForTemplate"] }, { type: i1$3.ɵNgNoValidate, selector: "form:not([ngNoForm]):not([ngNativeValidate])" }, { type: i1$3.NgControlStatusGroup, selector: "[formGroupName],[formArrayName],[ngModelGroup],[formGroup],form:not([ngNoForm]),[ngForm]" }, { type: i1$3.NgForm, selector: "form:not([ngNoForm]):not([formGroup]),ng-form,[ngForm]", inputs: ["ngFormOptions"], outputs: ["ngSubmit"], exportAs: ["ngForm"] }, { type: i1$1.NbInputDirective, selector: "input[nbInput],textarea[nbInput]", inputs: ["fieldSize", "status", "shape", "fullWidth"] }, { type: i1$3.DefaultValueAccessor, selector: "input:not([type=checkbox])[formControlName],textarea[formControlName],input:not([type=checkbox])[formControl],textarea[formControl],input:not([type=checkbox])[ngModel],textarea[ngModel],[ngDefaultControl]" }, { type: i1$3.PatternValidator, selector: "[pattern][formControlName],[pattern][formControl],[pattern][ngModel]", inputs: ["pattern"] }, { type: i1$3.NgControlStatus, selector: "[formControlName],[ngModel],[formControl]" }, { type: i1$3.NgModel, selector: "[ngModel]:not([formControlName]):not([formControl])", inputs: ["name", "disabled", "ngModel", "ngModelOptions"], outputs: ["ngModelChange"], exportAs: ["ngModel"] }, { type: i1$3.RequiredValidator, selector: ":not([type=checkbox])[required][formControlName],:not([type=checkbox])[required][formControl],:not([type=checkbox])[required][ngModel]", inputs: ["required"] }, { type: i1.RouterLinkWithHref, selector: "a[routerLink],area[routerLink]", inputs: ["routerLink", "target", "queryParams", "fragment", "queryParamsHandling", "preserveFragment", "skipLocationChange", "replaceUrl", "state", "relativeTo"] }, { type: i1$3.MinLengthValidator, selector: "[minlength][formControlName],[minlength][formControl],[minlength][ngModel]", inputs: ["minlength"] }, { type: i1$3.MaxLengthValidator, selector: "[maxlength][formControlName],[maxlength][formControl],[maxlength][ngModel]", inputs: ["maxlength"] }], pipes: { "translate": i2$1.TranslatePipe } });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: LoginComponent, decorators: [{
-            type: Component,
-            args: [{
-                    selector: 'ngx-login',
-                    templateUrl: './login.component.html',
-                    styleUrls: ['./login.component.scss'],
-                }]
-        }] });
+LoginComponent.ɵfac = /*@__PURE__*/ function () { let ɵLoginComponent_BaseFactory; return function LoginComponent_Factory(t) { return (ɵLoginComponent_BaseFactory || (ɵLoginComponent_BaseFactory = i0.ɵɵgetInheritedFactory(LoginComponent)))(t || LoginComponent); }; }();
+LoginComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: LoginComponent, selectors: [["ngx-login"]], features: [i0.ɵɵInheritDefinitionFeature], decls: 33, vars: 36, consts: [["id", "title", 1, "title"], [1, "sub-title"], ["outline", "danger", "role", "alert", 4, "ngIf"], ["outline", "success", "role", "alert", 4, "ngIf"], ["aria-labelledby", "title", 3, "ngSubmit"], ["form", "ngForm"], [1, "form-control-group"], ["for", "input-email", 1, "label"], ["nbInput", "", "fullWidth", "", "name", "login", "id", "input-email", "pattern", ".+@.+\\..+", "placeholder", "Email address", "fieldSize", "large", "autofocus", "", 3, "ngModel", "status", "required", "ngModelChange"], ["email", "ngModel"], [4, "ngIf"], [1, "label-with-link"], ["for", "input-password", 1, "label"], ["routerLink", "../request-password", 1, "forgot-password", "caption-2"], ["nbInput", "", "fullWidth", "", "name", "password", "type", "password", "id", "input-password", "placeholder", "Password", "fieldSize", "large", 3, "ngModel", "status", "required", "minlength", "maxlength", "ngModelChange"], ["password", "ngModel"], [1, "form-control-group", "accept-group"], ["name", "rememberMe", 3, "ngModel", "ngModelChange", 4, "ngIf"], ["nbButton", "", "fullWidth", "", "status", "primary", "size", "large", 3, "disabled"], ["outline", "danger", "role", "alert"], [1, "alert-title"], [1, "alert-message-list"], ["class", "alert-message", 4, "ngFor", "ngForOf"], [1, "alert-message"], ["outline", "success", "role", "alert"], ["class", "caption status-danger", 4, "ngIf"], [1, "caption", "status-danger"], ["name", "rememberMe", 3, "ngModel", "ngModelChange"]], template: function LoginComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "h1", 0);
+        i0.ɵɵtext(1);
+        i0.ɵɵpipe(2, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(3, "p", 1);
+        i0.ɵɵtext(4);
+        i0.ɵɵpipe(5, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵtemplate(6, LoginComponent_nb_alert_6_Template, 6, 1, "nb-alert", 2);
+        i0.ɵɵtemplate(7, LoginComponent_nb_alert_7_Template, 6, 1, "nb-alert", 3);
+        i0.ɵɵelementStart(8, "form", 4, 5);
+        i0.ɵɵlistener("ngSubmit", function LoginComponent_Template_form_ngSubmit_8_listener() { return ctx.login(); });
+        i0.ɵɵelementStart(10, "div", 6);
+        i0.ɵɵelementStart(11, "label", 7);
+        i0.ɵɵtext(12);
+        i0.ɵɵpipe(13, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(14, "input", 8, 9);
+        i0.ɵɵlistener("ngModelChange", function LoginComponent_Template_input_ngModelChange_14_listener($event) { return ctx.user.login = $event; });
+        i0.ɵɵelementEnd();
+        i0.ɵɵtemplate(16, LoginComponent_ng_container_16_Template, 3, 2, "ng-container", 10);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(17, "div", 6);
+        i0.ɵɵelementStart(18, "span", 11);
+        i0.ɵɵelementStart(19, "label", 12);
+        i0.ɵɵtext(20);
+        i0.ɵɵpipe(21, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(22, "a", 13);
+        i0.ɵɵtext(23);
+        i0.ɵɵpipe(24, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(25, "input", 14, 15);
+        i0.ɵɵlistener("ngModelChange", function LoginComponent_Template_input_ngModelChange_25_listener($event) { return ctx.user.password = $event; });
+        i0.ɵɵelementEnd();
+        i0.ɵɵtemplate(27, LoginComponent_ng_container_27_Template, 3, 2, "ng-container", 10);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(28, "div", 16);
+        i0.ɵɵtemplate(29, LoginComponent_nb_checkbox_29_Template, 3, 4, "nb-checkbox", 17);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(30, "button", 18);
+        i0.ɵɵtext(31);
+        i0.ɵɵpipe(32, "translate");
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementEnd();
+    } if (rf & 2) {
+        const _r2 = i0.ɵɵreference(9);
+        const _r3 = i0.ɵɵreference(15);
+        const _r5 = i0.ɵɵreference(26);
+        i0.ɵɵadvance(1);
+        i0.ɵɵtextInterpolate(i0.ɵɵpipeBind1(2, 24, "login.main"));
+        i0.ɵɵadvance(3);
+        i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(5, 26, "login.labelMessage"), ".");
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", ctx.showMessages.error && (ctx.errors == null ? null : ctx.errors.length) && !ctx.submitted);
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("ngIf", ctx.showMessages.success && (ctx.messages == null ? null : ctx.messages.length) && !ctx.submitted);
+        i0.ɵɵadvance(5);
+        i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(13, 28, "login.email"), ":");
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngModel", ctx.user.login)("status", _r3.dirty ? _r3.invalid ? "danger" : "success" : "basic")("required", ctx.getConfigValue("forms.validation.email.required"));
+        i0.ɵɵattribute("aria-invalid", _r3.invalid && _r3.touched ? true : null);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", _r3.invalid && _r3.touched);
+        i0.ɵɵadvance(4);
+        i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(21, 30, "login.password"), ":");
+        i0.ɵɵadvance(3);
+        i0.ɵɵtextInterpolate1("", i0.ɵɵpipeBind1(24, 32, "login.forgetPassword"), "?");
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngModel", ctx.user.password)("status", _r5.dirty ? _r5.invalid ? "danger" : "success" : "basic")("required", ctx.getConfigValue("forms.validation.password.required"))("minlength", ctx.getConfigValue("forms.validation.password.minLength"))("maxlength", ctx.getConfigValue("forms.validation.password.maxLength"));
+        i0.ɵɵattribute("aria-invalid", _r5.invalid && _r5.touched ? true : null);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", _r5.invalid && _r5.touched);
+        i0.ɵɵadvance(2);
+        i0.ɵɵproperty("ngIf", ctx.rememberMe);
+        i0.ɵɵadvance(1);
+        i0.ɵɵclassProp("btn-pulse", ctx.submitted);
+        i0.ɵɵproperty("disabled", ctx.submitted || !_r2.valid);
+        i0.ɵɵadvance(1);
+        i0.ɵɵtextInterpolate1(" ", i0.ɵɵpipeBind1(32, 34, "login.logIn"), " ");
+    } }, directives: [i10.NgIf, i1$4.ɵNgNoValidate, i1$4.NgControlStatusGroup, i1$4.NgForm, i1$1.NbInputDirective, i1$4.DefaultValueAccessor, i1$4.PatternValidator, i1$4.NgControlStatus, i1$4.NgModel, i1$4.RequiredValidator, i1.RouterLinkWithHref, i1$4.MinLengthValidator, i1$4.MaxLengthValidator, i1$1.NbButtonComponent, i1$1.NbAlertComponent, i10.NgForOf, i1$1.NbCheckboxComponent], pipes: [i1$3.TranslatePipe], styles: [".navigation .link nb-icon{display:none!important}"] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(LoginComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ngx-login',
+                templateUrl: './login.component.html',
+                styleUrls: ['./login.component.scss'],
+            }]
+    }], null, null); })();
 
 class isAuthGuard {
     constructor(restAdminConfig, router) {
@@ -6501,11 +13252,11 @@ class isAuthGuard {
         }
     }
 }
-isAuthGuard.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: isAuthGuard, deps: [{ token: RestAdminConfigService }, { token: i1.Router }], target: i0.ɵɵFactoryTarget.Injectable });
-isAuthGuard.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: isAuthGuard });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: isAuthGuard, decorators: [{
-            type: Injectable
-        }], ctorParameters: function () { return [{ type: RestAdminConfigService }, { type: i1.Router }]; } });
+isAuthGuard.ɵfac = function isAuthGuard_Factory(t) { return new (t || isAuthGuard)(i0.ɵɵinject(RestAdminConfigService), i0.ɵɵinject(i1.Router)); };
+isAuthGuard.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: isAuthGuard, factory: isAuthGuard.ɵfac });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(isAuthGuard, [{
+        type: Injectable
+    }], function () { return [{ type: RestAdminConfigService }, { type: i1.Router }]; }, null); })();
 
 // serviceRestConfig.restPathFileTranslate
 function createTranslateHttpLoader(http) {
@@ -6618,66 +13369,9 @@ class RestAdminModule {
         };
     }
 }
-RestAdminModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminModule, deps: [{ token: i1.Router }, { token: i0.Compiler }, { token: RestAdminConfigService }, { token: i1$1.NbIconLibraries }, { token: RestLangService }], target: i0.ɵɵFactoryTarget.NgModule });
-RestAdminModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminModule, declarations: [RestResourceListComponent,
-        RestResourceAddComponent,
-        RestResourceDeleteComponent,
-        RestMainComponentComponent,
-        RestResourceEditorFieldsComponent,
-        RestResourceListFieldComponent,
-        RestResourceDetailComponent,
-        UploadFileComponent,
-        SelectAllCheckboxRenderComponent,
-        FsIconCComponent,
-        LoginComponent,
-        AttributeDirective,
-        MenuFilterPipe,
-        GmapsComponent,
-        ImageZoomComponent], imports: [CommonModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        RouterModule,
-        ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule,
-        HttpClientJsonpModule,
-        NbActionsModule,
-        NbButtonModule,
-        NbCardModule,
-        NbCheckboxModule,
-        NbInputModule,
-        NbTagModule,
-        NbRadioModule,
-        NbUserModule,
-        NbTreeGridModule,
-        NbAlertModule,
-        NbAutocompleteModule,
-        Ng2SmartTableModule,
-        FileUploadModule,
-        CngHtmlCompilerModule,
-        NbSpinnerModule,
-        NbTabsetModule,
-        NbPopoverModule,
-        ImageCropperModule,
-        NbToggleModule,
-        NbListModule,
-        NbTooltipModule,
-        NbContextMenuModule,
-        TranslateModule,
-        NgxDropzoneModule, i8.NgxPermissionsModule, NbLayoutModule,
-        NbSelectModule,
-        NbSidebarModule, i1$1.NbMenuModule, i1$1.NbDatepickerModule, i1$1.NbDialogModule, i1$1.NbWindowModule, i1$1.NbToastrModule, i1$1.NbTimepickerModule, CoreModule, ThemeModule, NbIconModule,
-        GoogleMapsModule, i2$1.TranslateModule], exports: [RestResourceListComponent,
-        RestResourceAddComponent,
-        RestResourceDeleteComponent,
-        RestMainComponentComponent,
-        RestResourceEditorFieldsComponent,
-        RestResourceListFieldComponent,
-        RestResourceDetailComponent,
-        UploadFileComponent,
-        LoginComponent,
-        GmapsComponent] });
-RestAdminModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminModule, providers: [
+RestAdminModule.ɵfac = function RestAdminModule_Factory(t) { return new (t || RestAdminModule)(i0.ɵɵinject(i1.Router), i0.ɵɵinject(i0.Compiler), i0.ɵɵinject(RestAdminConfigService), i0.ɵɵinject(i1$1.NbIconLibraries), i0.ɵɵinject(RestLangService)); };
+RestAdminModule.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: RestAdminModule });
+RestAdminModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [
         { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
         {
@@ -6748,127 +13442,185 @@ RestAdminModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version
                 },
             }),
         ]] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "12.1.5", ngImport: i0, type: RestAdminModule, decorators: [{
-            type: NgModule,
-            args: [{
-                    declarations: [
-                        RestResourceListComponent,
-                        RestResourceAddComponent,
-                        RestResourceDeleteComponent,
-                        RestMainComponentComponent,
-                        RestResourceEditorFieldsComponent,
-                        RestResourceListFieldComponent,
-                        RestResourceDetailComponent,
-                        UploadFileComponent,
-                        SelectAllCheckboxRenderComponent,
-                        FsIconCComponent,
-                        LoginComponent,
-                        AttributeDirective,
-                        MenuFilterPipe,
-                        GmapsComponent,
-                        ImageZoomComponent,
-                    ],
-                    exports: [
-                        RestResourceListComponent,
-                        RestResourceAddComponent,
-                        RestResourceDeleteComponent,
-                        RestMainComponentComponent,
-                        RestResourceEditorFieldsComponent,
-                        RestResourceListFieldComponent,
-                        RestResourceDetailComponent,
-                        UploadFileComponent,
-                        LoginComponent,
-                        GmapsComponent,
-                    ],
-                    entryComponents: [
-                        RestResourceListComponent,
-                        RestResourceListFieldComponent,
-                        RestResourceAddComponent,
-                        FsIconCComponent,
-                        SelectAllCheckboxRenderComponent,
-                        RestResourceDeleteComponent,
-                        RestMainComponentComponent,
-                        RestResourceEditorFieldsComponent,
-                        RestResourceDetailComponent,
-                        UploadFileComponent,
-                        LoginComponent,
-                        GmapsComponent,
-                        ImageZoomComponent,
-                    ],
-                    imports: [
-                        CommonModule,
-                        BrowserModule,
-                        BrowserAnimationsModule,
-                        RouterModule,
-                        ReactiveFormsModule,
-                        FormsModule,
-                        HttpClientModule,
-                        HttpClientJsonpModule,
-                        NbActionsModule,
-                        NbButtonModule,
-                        NbCardModule,
-                        NbCheckboxModule,
-                        NbInputModule,
-                        NbTagModule,
-                        NbRadioModule,
-                        NbUserModule,
-                        NbTreeGridModule,
-                        NbAlertModule,
-                        NbAutocompleteModule,
-                        Ng2SmartTableModule,
-                        FileUploadModule,
-                        CngHtmlCompilerModule,
-                        NbSpinnerModule,
-                        NbTabsetModule,
-                        NbPopoverModule,
-                        ImageCropperModule,
-                        NbToggleModule,
-                        NbListModule,
-                        NbTooltipModule,
-                        NbContextMenuModule,
-                        TranslateModule,
-                        NgxDropzoneModule,
-                        NgxPermissionsModule.forRoot(),
-                        NbLayoutModule,
-                        NbSelectModule,
-                        NbSidebarModule,
-                        NbMenuModule.forRoot(),
-                        NbDatepickerModule.forRoot(),
-                        NbDialogModule.forRoot(),
-                        NbWindowModule.forRoot(),
-                        NbToastrModule.forRoot(),
-                        NbTimepickerModule.forRoot(),
-                        CoreModule.forRoot(),
-                        ThemeModule.forRoot(),
-                        NbIconModule,
-                        GoogleMapsModule,
-                        TranslateModule.forRoot({
-                            loader: {
-                                provide: TranslateLoader,
-                                useFactory: createTranslateHttpLoader,
-                                deps: [HttpClient],
-                            },
-                        }),
-                    ],
-                    providers: [
-                        { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
-                        { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
-                        {
-                            provide: HTTP_INTERCEPTORS,
-                            useClass: PaginationInterceptor,
-                            multi: true,
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(RestAdminModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [
+                    RestResourceListComponent,
+                    RestResourceAddComponent,
+                    RestResourceDeleteComponent,
+                    RestMainComponentComponent,
+                    RestResourceEditorFieldsComponent,
+                    RestResourceListFieldComponent,
+                    RestResourceDetailComponent,
+                    UploadFileComponent,
+                    SelectAllCheckboxRenderComponent,
+                    FsIconCComponent,
+                    LoginComponent,
+                    AttributeDirective,
+                    MenuFilterPipe,
+                    GmapsComponent,
+                    ImageZoomComponent,
+                ],
+                exports: [
+                    RestResourceListComponent,
+                    RestResourceAddComponent,
+                    RestResourceDeleteComponent,
+                    RestMainComponentComponent,
+                    RestResourceEditorFieldsComponent,
+                    RestResourceListFieldComponent,
+                    RestResourceDetailComponent,
+                    UploadFileComponent,
+                    LoginComponent,
+                    GmapsComponent,
+                ],
+                entryComponents: [
+                    RestResourceListComponent,
+                    RestResourceListFieldComponent,
+                    RestResourceAddComponent,
+                    FsIconCComponent,
+                    SelectAllCheckboxRenderComponent,
+                    RestResourceDeleteComponent,
+                    RestMainComponentComponent,
+                    RestResourceEditorFieldsComponent,
+                    RestResourceDetailComponent,
+                    UploadFileComponent,
+                    LoginComponent,
+                    GmapsComponent,
+                    ImageZoomComponent,
+                ],
+                imports: [
+                    CommonModule,
+                    BrowserModule,
+                    BrowserAnimationsModule,
+                    RouterModule,
+                    ReactiveFormsModule,
+                    FormsModule,
+                    HttpClientModule,
+                    HttpClientJsonpModule,
+                    NbActionsModule,
+                    NbButtonModule,
+                    NbCardModule,
+                    NbCheckboxModule,
+                    NbInputModule,
+                    NbTagModule,
+                    NbRadioModule,
+                    NbUserModule,
+                    NbTreeGridModule,
+                    NbAlertModule,
+                    NbAutocompleteModule,
+                    Ng2SmartTableModule,
+                    FileUploadModule,
+                    CngHtmlCompilerModule,
+                    NbSpinnerModule,
+                    NbTabsetModule,
+                    NbPopoverModule,
+                    ImageCropperModule,
+                    NbToggleModule,
+                    NbListModule,
+                    NbTooltipModule,
+                    NbContextMenuModule,
+                    TranslateModule,
+                    NgxDropzoneModule,
+                    NgxPermissionsModule.forRoot(),
+                    NbLayoutModule,
+                    NbSelectModule,
+                    NbSidebarModule,
+                    NbMenuModule.forRoot(),
+                    NbDatepickerModule.forRoot(),
+                    NbDialogModule.forRoot(),
+                    NbWindowModule.forRoot(),
+                    NbToastrModule.forRoot(),
+                    NbTimepickerModule.forRoot(),
+                    CoreModule.forRoot(),
+                    ThemeModule.forRoot(),
+                    NbIconModule,
+                    GoogleMapsModule,
+                    TranslateModule.forRoot({
+                        loader: {
+                            provide: TranslateLoader,
+                            useFactory: createTranslateHttpLoader,
+                            deps: [HttpClient],
                         },
-                        AuthGuard,
-                        isAuthGuard,
-                        RestResourceService,
-                        RestAdminConfigService,
-                        RestExportService,
-                        RestLangService,
-                        NotificationService,
-                        RestShareService,
-                    ],
-                }]
-        }], ctorParameters: function () { return [{ type: i1.Router }, { type: i0.Compiler }, { type: RestAdminConfigService }, { type: i1$1.NbIconLibraries }, { type: RestLangService }]; } });
+                    }),
+                ],
+                providers: [
+                    { provide: HTTP_INTERCEPTORS, useClass: HttpAuthInterceptor, multi: true },
+                    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+                    {
+                        provide: HTTP_INTERCEPTORS,
+                        useClass: PaginationInterceptor,
+                        multi: true,
+                    },
+                    AuthGuard,
+                    isAuthGuard,
+                    RestResourceService,
+                    RestAdminConfigService,
+                    RestExportService,
+                    RestLangService,
+                    NotificationService,
+                    RestShareService,
+                ],
+            }]
+    }], function () { return [{ type: i1.Router }, { type: i0.Compiler }, { type: RestAdminConfigService }, { type: i1$1.NbIconLibraries }, { type: RestLangService }]; }, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(RestAdminModule, { declarations: [RestResourceListComponent,
+        RestResourceAddComponent,
+        RestResourceDeleteComponent,
+        RestMainComponentComponent,
+        RestResourceEditorFieldsComponent,
+        RestResourceListFieldComponent,
+        RestResourceDetailComponent,
+        UploadFileComponent,
+        SelectAllCheckboxRenderComponent,
+        FsIconCComponent,
+        LoginComponent,
+        AttributeDirective,
+        MenuFilterPipe,
+        GmapsComponent,
+        ImageZoomComponent], imports: [CommonModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        HttpClientJsonpModule,
+        NbActionsModule,
+        NbButtonModule,
+        NbCardModule,
+        NbCheckboxModule,
+        NbInputModule,
+        NbTagModule,
+        NbRadioModule,
+        NbUserModule,
+        NbTreeGridModule,
+        NbAlertModule,
+        NbAutocompleteModule,
+        Ng2SmartTableModule,
+        FileUploadModule,
+        CngHtmlCompilerModule,
+        NbSpinnerModule,
+        NbTabsetModule,
+        NbPopoverModule,
+        ImageCropperModule,
+        NbToggleModule,
+        NbListModule,
+        NbTooltipModule,
+        NbContextMenuModule,
+        TranslateModule,
+        NgxDropzoneModule, i8.NgxPermissionsModule, NbLayoutModule,
+        NbSelectModule,
+        NbSidebarModule, i1$1.NbMenuModule, i1$1.NbDatepickerModule, i1$1.NbDialogModule, i1$1.NbWindowModule, i1$1.NbToastrModule, i1$1.NbTimepickerModule, CoreModule, ThemeModule, NbIconModule,
+        GoogleMapsModule, i1$3.TranslateModule], exports: [RestResourceListComponent,
+        RestResourceAddComponent,
+        RestResourceDeleteComponent,
+        RestMainComponentComponent,
+        RestResourceEditorFieldsComponent,
+        RestResourceListFieldComponent,
+        RestResourceDetailComponent,
+        UploadFileComponent,
+        LoginComponent,
+        GmapsComponent] }); })();
 
 class RestResource {
     constructor(mainConfig, fields, listConfig, addConfig, editConfig, detailConfig) {

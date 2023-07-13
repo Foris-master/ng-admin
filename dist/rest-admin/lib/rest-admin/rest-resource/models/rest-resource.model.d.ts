@@ -271,3 +271,4 @@ export interface EXTERN_PAGES {
     group?: GroupConfig;
     authRequired?: boolean;
 }
+//# sourceMappingURL=rest-resource.model.d.ts.map

@@ -11,3 +11,4 @@ export declare class AttributeDirective implements OnChanges {
     static ɵfac: i0.ɵɵFactoryDeclaration<AttributeDirective, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<AttributeDirective, "[attributes]", never, { "attributes": "attributes"; }, {}, never>;
 }
+//# sourceMappingURL=attribute.directive.d.ts.map

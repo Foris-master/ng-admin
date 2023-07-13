@@ -25,3 +25,4 @@ export declare class RestMainComponentComponent implements OnInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestMainComponentComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestMainComponentComponent, "ngx-rest-main-component", never, {}, {}, never, never>;
 }
+//# sourceMappingURL=rest-main-component.component.d.ts.map

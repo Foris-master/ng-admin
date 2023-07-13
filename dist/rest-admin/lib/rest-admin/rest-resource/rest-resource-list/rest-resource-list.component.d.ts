@@ -26,6 +26,7 @@ export declare class RestResourceListComponent implements OnInit {
     restShare: RestShareService;
     private permissionsService;
     private serviceRest;
+    private subscription;
     resource: RestResource;
     search: any;
     inputBelongToMany: any;
@@ -100,3 +101,4 @@ export declare class RestResourceListComponent implements OnInit {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestResourceListComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<RestResourceListComponent, "ngx-rest-resource-list", never, { "resource": "resource"; }, {}, never, never>;
 }
+//# sourceMappingURL=rest-resource-list.component.d.ts.map

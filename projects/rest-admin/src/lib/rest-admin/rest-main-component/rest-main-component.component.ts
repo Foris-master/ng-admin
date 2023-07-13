@@ -181,6 +181,11 @@ export class RestMainComponentComponent implements OnInit {
             break;
         }
       });
+    }else{
+      this.pageLoad = true;
+      this.isPending = false;
+
+      
     }
   }
 }

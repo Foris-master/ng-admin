@@ -32,3 +32,4 @@ export declare class RestAdminConfigService {
     static ɵfac: i0.ɵɵFactoryDeclaration<RestAdminConfigService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RestAdminConfigService>;
 }
+//# sourceMappingURL=rest-admin-config.service.d.ts.map

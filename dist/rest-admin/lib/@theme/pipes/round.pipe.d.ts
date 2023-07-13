@@ -5,3 +5,4 @@ export declare class RoundPipe implements PipeTransform {
     static ɵfac: i0.ɵɵFactoryDeclaration<RoundPipe, never>;
     static ɵpipe: i0.ɵɵPipeDeclaration<RoundPipe, "ngxRound">;
 }
+//# sourceMappingURL=round.pipe.d.ts.map

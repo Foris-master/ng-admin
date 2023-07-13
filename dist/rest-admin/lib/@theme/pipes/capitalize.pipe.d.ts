@@ -5,3 +5,4 @@ export declare class CapitalizePipe implements PipeTransform {
     static ɵfac: i0.ɵɵFactoryDeclaration<CapitalizePipe, never>;
     static ɵpipe: i0.ɵɵPipeDeclaration<CapitalizePipe, "ngxCapitalize">;
 }
+//# sourceMappingURL=capitalize.pipe.d.ts.map
