@@ -13,6 +13,15 @@ export interface Field {
     template?: string;
     note?: string;
 }
+export interface ErrorConfig {
+    status: number;
+    message?: string;
+    messageKey?: string;
+}
+export interface ExportConfigItem {
+    key: string;
+    label: string;
+}
 export declare enum QUERY_PARAMS_TYPE {
 }
 export interface RestField extends Field {
@@ -54,6 +63,12 @@ export declare enum TYPE_METHOD_REQUEST {
     DELETE = "DELETE",
     PATCH = "PATCH"
 }
+export declare enum EXPORT_FORMAT {
+    CSV = "CSV",
+    EXCEL = "EXCEL",
+    PDF = "PDF",
+    ALL_ZIP = "ALL Format"
+}
 export interface ListConfig extends ResourceConfig {
     columns?: string[];
     perPage?: number;
@@ -69,6 +84,11 @@ export interface ListConfig extends ResourceConfig {
     };
     hideAddSubHeader?: boolean;
     group?: GroupConfig;
+    exportResource?: boolean;
+    exportConfig?: {
+        formats?: EXPORT_FORMAT[];
+        columnFile?: ExportConfigItem[];
+    };
 }
 export interface filterSearchConfig {
     name: string;

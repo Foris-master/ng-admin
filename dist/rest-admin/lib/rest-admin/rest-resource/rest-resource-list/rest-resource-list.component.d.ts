@@ -58,9 +58,7 @@ export declare class RestResourceListComponent implements OnInit {
     controls: any;
     isChecked: any;
     selectedRows: any[];
-    items: {
-        title: string;
-    }[];
+    items: any[];
     perPagesOptions: {
         title: string;
         value: number;
@@ -69,6 +67,7 @@ export declare class RestResourceListComponent implements OnInit {
     get PERMISSION(): typeof PERMISSION;
     custom: boolean;
     constructor(fb: FormBuilder, serviceRestConfig: RestAdminConfigService, serviceRestResources: RestResourceService, http: HttpClient, dialogService: NbDialogService, activatedRoute: ActivatedRoute, router: Router, nbMenuService: NbMenuService, exportService: RestExportService, restShare: RestShareService, permissionsService: NgxPermissionsService, serviceRest: RestResourceService);
+    initExportItems(): void;
     ngOnInit(): void;
     toggleShowCheckbox(): void;
     onDeleteConfirm(event: any): void;
@@ -81,6 +80,7 @@ export declare class RestResourceListComponent implements OnInit {
     getList(page?: any, perPage?: any): void;
     onCreateConfirm(event: any): void;
     onCustom(event: any): void;
+    remplacerKey(tableau: any, correspondances: any): any;
     getFullData(): Observable<Object>;
     exportToExcel(): void;
     exportToPdf(): void;

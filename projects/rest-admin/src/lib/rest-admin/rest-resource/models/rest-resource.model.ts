@@ -6,6 +6,7 @@ export interface ResourceConfig {
   orderDirection?: DIRECTION;
   queryParams?: any;
   preparedStatementQuery?: PreparedStatementQuery;
+
 }
 export interface Field {
   label?: string;
@@ -14,10 +15,17 @@ export interface Field {
   note?: string;
 }
 
-// export interface QUERY_PARAMS {
-//   type:
-//   params:
-// }
+export interface ErrorConfig {
+  status: number;
+  message?: string;
+  messageKey?: string;
+}
+
+export interface ExportConfigItem{
+  key: string;
+  label: string;
+}
+
 
 export enum QUERY_PARAMS_TYPE {}
 
@@ -65,6 +73,13 @@ export enum TYPE_METHOD_REQUEST {
   PATCH = 'PATCH',
 }
 
+export enum EXPORT_FORMAT {
+  CSV = 'CSV',
+  EXCEL = 'EXCEL',
+  PDF = 'PDF',
+  ALL_ZIP = 'ALL Format',
+}
+
 export interface ListConfig extends ResourceConfig {
   columns?: string[];
   perPage?: number;
@@ -80,6 +95,12 @@ export interface ListConfig extends ResourceConfig {
   };
   hideAddSubHeader?: boolean;
   group?: GroupConfig;
+  exportResource?: boolean;
+  exportConfig?: {
+    formats?: EXPORT_FORMAT[];
+    columnFile?: ExportConfigItem[];
+  };
+
 }
 
 export interface filterSearchConfig {

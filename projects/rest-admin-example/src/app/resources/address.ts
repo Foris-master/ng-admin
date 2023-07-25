@@ -1,4 +1,4 @@
-import { RestResource, REST_FIELD_TYPES, TYPE_GROUP } from 'rest-admin';
+import { RestResource, REST_FIELD_TYPES, TYPE_GROUP, EXPORT_FORMAT } from 'rest-admin';
 
 export const address = new RestResource(
   {
@@ -127,6 +127,31 @@ export const address = new RestResource(
         { name: 'zip_code', value: 'zip_code' },
       ],
     },
+    exportConfig:{
+      formats: [EXPORT_FORMAT.CSV, EXPORT_FORMAT.EXCEL, EXPORT_FORMAT.PDF, EXPORT_FORMAT.ALL_ZIP],
+      columnFile:[
+        {
+          key:'id',
+          label:'#'
+        },
+        {
+          key:'name',
+          label:'Adresse'
+        },
+        {
+          key:'zip_code',
+          label:'Code postal'
+        },
+        {
+          key:"town.name",
+          label:"Ville"
+        },
+        {
+          key:"user.full_name",
+          label:"Utilisateur"
+        }
+      ]
+    }
   },
   {},
   {},

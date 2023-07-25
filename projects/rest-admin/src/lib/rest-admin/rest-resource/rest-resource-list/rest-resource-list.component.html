@@ -13,7 +13,7 @@
             class="mr-2"
             type="checkbox"
             [checked]="this.selectedRows?.length == this.source.count()"
-          />{{ 'rest-detail.select' | translate }}
+          />{{ "rest-detail.select" | translate }}
         </button>
       </div>
 
@@ -28,15 +28,17 @@
           <input type="checkbox" [(ngModel)]="showCheckbox" />
         </button>
 
-        <button
-          nbButton
-          ghost
-          [nbContextMenu]="items"
-          nbContextMenuTag="export-context"
-          status="control"
-        >
-          <nb-icon icon="download-outline"></nb-icon>
-        </button>
+        <ng-container *ngIf="resource.listConfig.exportResource === true">
+          <button
+            nbButton
+            ghost
+            [nbContextMenu]="items"
+            nbContextMenuTag="export-context"
+            status="control"
+          >
+            <nb-icon icon="download-outline"></nb-icon>
+          </button>
+        </ng-container>
 
         <ng-container *ngIf="resource.permissions.length === 0">
           <button
