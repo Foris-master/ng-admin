@@ -21,7 +21,7 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
       type: PERMISSION.CANLOGIN,
       fieldKey: {
         api: '/users/me',
-        fieldForNextQuery: ['original.is_co'],
+        fieldForNextQuery: ['data.is_consolidator'],
       },
     },
   ],

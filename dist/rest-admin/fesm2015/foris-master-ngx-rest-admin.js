@@ -1821,6 +1821,7 @@ class RestResourceAddComponent {
                         case REST_FIELD_TYPES.IMAGE:
                             if (formData[key] !== null)
                                 datas.append(key, formData[key]);
+                            // datas.append(formData[key], { uri: formData[key]?.uri, type: 'image/jpeg', name: formData[key] });
                             break;
                         case REST_FIELD_TYPES.PDF:
                             if (formData[key] !== null)
@@ -6288,9 +6289,11 @@ class HttpAuthInterceptor {
     }
     intercept(request, next) {
         const token = this.serviceToken.get();
+        let lng = JSON.parse(localStorage.getItem(GLOBALS.LNG_KEY));
         request = request.clone({
             setHeaders: {
                 Authorization: `Bearer ${token}`,
+                "User-Locale": lng,
             },
         });
         return next.handle(request);

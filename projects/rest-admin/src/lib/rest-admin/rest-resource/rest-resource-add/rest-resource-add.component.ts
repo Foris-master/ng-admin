@@ -844,6 +844,7 @@ export class RestResourceAddComponent implements OnInit {
               break;
             case REST_FIELD_TYPES.IMAGE:
               if (formData[key] !== null) datas.append(key, formData[key]);
+              // datas.append(formData[key], { uri: formData[key]?.uri, type: 'image/jpeg', name: formData[key] });
               break;
             case REST_FIELD_TYPES.PDF:
               if (formData[key] !== null) datas.append(key, formData[key]);

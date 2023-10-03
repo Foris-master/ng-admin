@@ -12,6 +12,7 @@ import { consolidator } from './consolidator';
 import { agency } from './agency';
 import { enterprise } from './enterprise';
 import { searchItem } from './searchItem';
+// import { product } from './product';
 
 export const resources = [
   address,
@@ -29,6 +30,7 @@ export const resources = [
   consolidator,
   agency,
   searchItem,
+  // product,
   // partType,
 ].sort((a, b) => a.name.localeCompare(b.name));
 
