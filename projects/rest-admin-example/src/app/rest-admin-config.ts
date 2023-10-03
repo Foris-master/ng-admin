@@ -4,7 +4,7 @@ import { AdditionalComponent } from './additionalcomponent/additional.component'
 
 export const RESOURCES_CONFIG: REST_CONFIG = {
   name: 'My admin',
-  baseUrl: 'https://api.example.com/api',
+  baseUrl: 'https://api.marylis.com/api',
   resources: resources,
   authConfig: {
     strategy: STRATEGY_AUTH.EMAIL,
@@ -16,15 +16,15 @@ export const RESOURCES_CONFIG: REST_CONFIG = {
     redirectRouteAfterLogin: '/address', //just put the resource name
   },
   googleMapApiKey: 'googleMaspKeyss',
-  permissions: [
-    {
-      type: PERMISSION.CANLOGIN,
-      fieldKey: {
-        api: '/users/me',
-        fieldForNextQuery: ['data.is_consolidator'],
-      },
-    },
-  ],
+  // permissions: [
+  //   {
+  //     type: PERMISSION.CANLOGIN,
+  //     fieldKey: {
+  //       api: '/users/me',
+  //       fieldForNextQuery: ['original.is_co'],
+  //     },
+  //   },
+  // ],
   externPages: [{
     api: 'test',
     path: 'tests',

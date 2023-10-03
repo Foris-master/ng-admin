@@ -36,6 +36,7 @@ import * as moment from 'moment';
 import { NotificationService } from '../service/notification.service';
 import * as _ from 'lodash';
 import { NgxPermissionsService } from 'ngx-permissions';
+import { RestErrorService } from '../service/rest-error.service';
 
 @Component({
   selector: 'ngx-rest-resource-add',
@@ -43,6 +44,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
   styleUrls: ['./rest-resource-add.component.scss'],
 })
 export class RestResourceAddComponent implements OnInit {
+  error = null;
   @Input() resource: RestResource;
   ressourceName: string;
   message = 'Ressource ajoutée avec succès';
@@ -122,7 +124,8 @@ export class RestResourceAddComponent implements OnInit {
     private router: Router,
     private notificationService: NotificationService,
     private cdref: ChangeDetectorRef,
-    private permissionsService: NgxPermissionsService
+    private permissionsService: NgxPermissionsService,
+    private restErrorService: RestErrorService
   ) {
     this.googleMapApiKey = serviceRestAdminConfig.googleMapApiKey;
     activatedRoute.params.subscribe((params) => {
@@ -323,7 +326,7 @@ export class RestResourceAddComponent implements OnInit {
               }
               return {
                 ...cumul,
-                [elt.name]: ["", Validator.url],
+                [elt.name]: ['', Validator.url],
               };
             case REST_FIELD_TYPES.COLOR:
               return {
@@ -774,6 +777,7 @@ export class RestResourceAddComponent implements OnInit {
 
   onCreate() {
     let datas;
+    this.error = '';
     const msg = {
       label: `msg-adding-success`,
       resourceName: this.ressourceName,
@@ -964,12 +968,8 @@ export class RestResourceAddComponent implements OnInit {
         }
       },
       (error) => {
-        const msgError = {
-          label: `msg-adding-error`,
-          resourceName: this.ressourceName,
-        };
+        this.error = this.restErrorService.handleError(error);
         this.loading = false;
-        this.notificationService.dangerToast(msgError);
       }
     );
   }
@@ -998,7 +998,7 @@ export class RestResourceAddComponent implements OnInit {
                   key,
                   `${moment(formData[key]).format('YYYY-MM-DD')}`
                 );
-              } 
+              }
               break;
             case REST_FIELD_TYPES.JSON:
               let jsonFields = {};
@@ -1169,12 +1169,8 @@ export class RestResourceAddComponent implements OnInit {
           }
         },
         (error) => {
-          const msgError = {
-            label: `msg-updating-fail`,
-            resourceName: this.ressourceName,
-          };
+          this.error = this.restErrorService.handleError(error);
           this.loading = false;
-          this.notificationService.dangerToast(msgError);
         }
       );
   }
@@ -1285,6 +1281,7 @@ export class RestResourceAddComponent implements OnInit {
       [name]: value,
     });
   }
+
   onLngChange(value, fieldName) {
     const fieldLat = this.resource.fields.find((elt) => elt.name == fieldName);
     const name = fieldLat.metaData.addConfig.mapConfig.longitudeKeyField;

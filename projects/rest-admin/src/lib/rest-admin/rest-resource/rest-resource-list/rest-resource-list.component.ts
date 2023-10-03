@@ -20,7 +20,7 @@ import { filter, map } from 'rxjs/operators';
 import { ALPHABET, RestExportService } from '../service/rest-export.service';
 import { RestShareService } from '../service/rest-share.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Observable, Subscription, of } from 'rxjs';
 import { SelectAllCheckboxRenderComponent } from '../components/fs-icon-ccomponent/select.component';
 import { NgxPermissionsService } from 'ngx-permissions';
 
@@ -30,6 +30,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
   styleUrls: ['./rest-resource-list.component.scss'],
 })
 export class RestResourceListComponent implements OnInit {
+  private subscription: Subscription;
   @Input() resource: RestResource;
   @ViewChild('search') search;
   @ViewChild('autoBelongToMany') inputBelongToMany;
@@ -62,12 +63,7 @@ export class RestResourceListComponent implements OnInit {
 
   selectedRows: any[] = [];
 
-  items = [
-    { title: 'All formats' },
-    { title: 'CSV' },
-    { title: 'EXCEL' },
-    { title: 'PDF' },
-  ];
+  items = []
   perPagesOptions = [
     { title: '5', value: 5 },
     { title: '10', value: 10 },
@@ -131,7 +127,40 @@ export class RestResourceListComponent implements OnInit {
     this.belongToMany['id'] = new Set();
   }
 
+  initExportItems() {
+    if(this.resource.listConfig.exportResource){
+      this.items = this.resource.listConfig.exportConfig.formats.map((item) => ({
+        title: item,
+      }));
+    }
+   
+  }
+
   ngOnInit(): void {
+    this.initExportItems()
+    this.nbMenuService
+      .onItemClick()
+      .pipe(
+        filter(({ tag }) => tag === 'export-context'),
+        map(({ item: { title } }) => title)
+      )
+      .subscribe((title) => {
+        switch (title) {
+          case 'EXCEL':
+            this.exportToExcel();
+            break;
+          case 'PDF':
+            this.exportToPdf();
+            break;
+          case 'CSV':
+            this.exportToCsv();
+            break;
+          default:
+            this.exportAll();
+            break;
+        }
+      });
+
     if (this.resource.listConfig.searchFilter) {
       this.searchItems.push({
         field: '',
@@ -169,29 +198,6 @@ export class RestResourceListComponent implements OnInit {
       renderComponent: SelectAllCheckboxRenderComponent,
       editable: true,
     };
-
-    this.nbMenuService
-      .onItemClick()
-      .pipe(
-        filter(({ tag }) => tag === 'my-context'),
-        map(({ item: { title } }) => title)
-      )
-      .subscribe((title) => {
-        switch (title) {
-          case 'EXCEL':
-            this.exportToExcel();
-            break;
-          case 'PDF':
-            this.exportToPdf();
-            break;
-          case 'CSV':
-            this.exportToCsv();
-            break;
-          default:
-            this.exportAll();
-            break;
-        }
-      });
 
     if (this.resource.permissions.length > 0) {
       const custom = [];
@@ -357,6 +363,7 @@ export class RestResourceListComponent implements OnInit {
       this.selectedRows.splice(this.selectedRows.indexOf(row), 1);
     }
   }
+
   selectAllRows() {
     this.source.getAll().then((rows) => {
       if (this.selectedRows?.length !== rows?.length) {
@@ -499,11 +506,28 @@ export class RestResourceListComponent implements OnInit {
     }
   }
 
+
+
+   remplacerKey(tableau, correspondances) {
+    tableau.forEach(objet => {
+      correspondances.forEach(({ key, label }) => {
+        const valeur = _.get(objet, key);
+        if (valeur !== undefined) {
+          _.set(objet, label, valeur);
+          _.unset(objet, key);
+        }
+      });
+    });
+    return tableau;
+  }
+
   getFullData() {
     return this.serviceRestResources.getResources({
       api: this.resource.listConfig.api,
+
       queryParams: {
         should_paginate: false,
+        ...this.resource.listConfig.queryParams
       },
     });
   }
@@ -512,10 +536,9 @@ export class RestResourceListComponent implements OnInit {
     const colunms: any = {};
     const sheetHeader = {};
 
-    this.resource.fields
-      .filter((item) => this.resource.listConfig.columns.includes(item.name))
+    this.resource.listConfig.exportConfig.columnFile
       .forEach((elt) => {
-        colunms[elt.name] = {
+        colunms[elt.label] = {
           title: elt.label,
         };
       });
@@ -535,7 +558,10 @@ export class RestResourceListComponent implements OnInit {
     };
     let elt = {};
 
-    this.getFullData().subscribe((response: any) => {
+    this.getFullData().subscribe((resp: any) => {
+
+      const response = this.remplacerKey(resp, this.resource.listConfig.exportConfig.columnFile);
+
       response.forEach((element, indice) => {
         elt = {};
         Object.entries(colunms).forEach(([key, value], index) => {
@@ -552,16 +578,15 @@ export class RestResourceListComponent implements OnInit {
   exportToPdf(): void {
     const colunms = {};
     const customData = [];
-    const header = [];
     let elt = [];
 
-    this.resource.fields
-      .filter((item) => this.resource.listConfig.columns.includes(item.name))
-      .forEach((elt) => {
-        header.push(elt.label);
-      });
+   
+    const header = this.resource.listConfig.exportConfig.columnFile.map((item) => item.label);
 
-    this.getFullData().subscribe((response: any) => {
+    this.getFullData().subscribe((resp: any) => {
+
+      const response = this.remplacerKey(resp, this.resource.listConfig.exportConfig.columnFile);
+
       response.forEach((element) => {
         elt = [];
         header.forEach((row) => {
@@ -582,16 +607,14 @@ export class RestResourceListComponent implements OnInit {
   exportToCsv(): void {
     const colunms = {};
     const customData = [];
-    const header = [];
     let elt = {};
 
-    this.resource.fields
-      .filter((item) => this.resource.listConfig.columns.includes(item.name))
-      .forEach((elt) => {
-        header.push(elt.label);
-      });
-
-    this.getFullData().subscribe((response: any) => {
+   const header = this.resource.listConfig.exportConfig.columnFile.map((item) => item.label);
+   
+    this.getFullData().subscribe((resp: any) => {
+     
+      const response = this.remplacerKey(resp, this.resource.listConfig.exportConfig.columnFile);
+ 
       response.forEach((element) => {
         elt = {};
         header.forEach((row) => {
@@ -605,7 +628,6 @@ export class RestResourceListComponent implements OnInit {
 
   exportAll(): void {
     const colunms = {};
-    const pdfAndCsvHeader = [];
     const sheetHeader = {};
     const csvData = [];
     const pdfData = [];
@@ -613,14 +635,14 @@ export class RestResourceListComponent implements OnInit {
     let eltCSV = {};
     let eltEXCEL = {};
 
-    this.resource.fields
-      .filter((item) => this.resource.listConfig.columns.includes(item.name))
-      .forEach((elt) => {
-        pdfAndCsvHeader.push(elt.label);
-        colunms[elt.name] = {
-          title: elt.label,
-        };
-      });
+
+   this.resource.listConfig.exportConfig.columnFile.forEach((elt) => {
+    colunms[elt.label] = {
+      title: elt.label,
+    };
+  });
+   const pdfAndCsvHeader = this.resource.listConfig.exportConfig.columnFile.map((item) => item.label);
+
 
     Object.entries(colunms).forEach(([key, value], index) => {
       sheetHeader[this.alphabelt[index]] = key;
@@ -634,7 +656,8 @@ export class RestResourceListComponent implements OnInit {
     const keys = Object.keys(sheetHeader);
     const edata: Array<any> = [];
 
-    this.getFullData().subscribe((response: any) => {
+    this.getFullData().subscribe((resp: any) => {
+      const response = this.remplacerKey(resp, this.resource.listConfig.exportConfig.columnFile);
       response.forEach((element) => {
         //CSV
         eltCSV = {};
@@ -694,6 +717,7 @@ export class RestResourceListComponent implements OnInit {
         });
     }
   }
+
   selectOperator(value, index) {
     this.searchItems[index].operator = value;
   }

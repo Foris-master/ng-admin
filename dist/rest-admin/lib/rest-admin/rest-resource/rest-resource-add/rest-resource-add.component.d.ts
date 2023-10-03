@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RestExportService } from '../service/rest-export.service';
 import { NotificationService } from '../service/notification.service';
 import { NgxPermissionsService } from 'ngx-permissions';
+import { RestErrorService } from '../service/rest-error.service';
 import * as i0 from "@angular/core";
 export declare class RestResourceAddComponent implements OnInit {
     private fb;
@@ -25,6 +26,8 @@ export declare class RestResourceAddComponent implements OnInit {
     private notificationService;
     private cdref;
     private permissionsService;
+    private restErrorService;
+    error: any;
     resource: RestResource;
     ressourceName: string;
     message: string;
@@ -61,7 +64,7 @@ export declare class RestResourceAddComponent implements OnInit {
     permissions: PERMISSION[];
     googleMapApiKey: string;
     googleMapKeys: any;
-    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService, cdref: ChangeDetectorRef, permissionsService: NgxPermissionsService);
+    constructor(fb: FormBuilder, serviceRest: RestResourceService, serviceRestAdminConfig: RestAdminConfigService, activatedRoute: ActivatedRoute, nbMenuService: NbMenuService, exportService: RestExportService, dialogService: NbDialogService, router: Router, notificationService: NotificationService, cdref: ChangeDetectorRef, permissionsService: NgxPermissionsService, restErrorService: RestErrorService);
     ngOnInit(): void;
     initForm(datas: any): void;
     trackByFn(index: any): any;

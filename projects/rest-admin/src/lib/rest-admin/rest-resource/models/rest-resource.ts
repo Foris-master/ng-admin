@@ -11,6 +11,7 @@ import {
   TYPE_GROUP,
   TYPE_METHOD_REQUEST,
   PermissionConfig,
+  EXPORT_FORMAT,
 } from './rest-resource.model';
 
 export class RestResource {
@@ -180,6 +181,19 @@ export class RestResource {
     rest.searchFilter = this._listConfig.searchFilter
       ? this._listConfig.searchFilter
       : { filterBy: [] };
+
+    rest.exportResource = this._listConfig.exportResource === null || this._listConfig.exportResource === undefined  ?  true: this._listConfig.exportResource ;
+    if(rest.exportResource){
+      if(!rest.exportConfig){
+        rest.exportConfig = {};
+      }
+      rest.exportConfig.formats = this._listConfig.exportConfig?.formats ? this._listConfig.exportConfig.formats : [EXPORT_FORMAT.CSV,EXPORT_FORMAT.EXCEL, EXPORT_FORMAT.PDF, EXPORT_FORMAT.ALL_ZIP];
+      rest.exportConfig.columnFile = this._listConfig.exportConfig?.columnFile ? this._listConfig.exportConfig.columnFile : this._listConfig.columns.map((field) => ({
+        key: field,
+        label: field,
+      }));
+
+    }
     if (rest.group) {
       rest.group = this._listConfig.group;
       rest.group.priority = rest.group.priority ? rest.group.priority : 0;
