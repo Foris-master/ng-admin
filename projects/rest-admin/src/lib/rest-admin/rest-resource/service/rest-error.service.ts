@@ -18,7 +18,15 @@ export class RestErrorService {
     let message = '';
     let errors = {};
     try {
-      errors = error.error.error.errors;
+      if (error?.error?.error?.errors) {
+        errors = error?.error?.error?.errors;
+      } else if (error?.error?.errors) {
+        errors = error?.error?.errors;
+      } else if (error?.errors) {
+        errors = error?.errors;
+      } else {
+        errors = error;
+      }
     } catch (error) {
       console.log(error, 'error ======= > ');
     }

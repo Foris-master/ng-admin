@@ -1539,14 +1539,14 @@
           </button>
         </div>
         <div class="buttons-row" *ngIf="formState.isAdd">
+          <!-- [disabled]="loading" -->
           <button
             nbButton
             (click)="onCreate()"
             status="primary"
-            [disabled]="loading"
             *ngxPermissionsOnly="PERMISSION.CREATE"
           >
-            >
+            
             <span
               *ngIf="loading"
               class="spinner-border spinner-border-sm mr-2"
